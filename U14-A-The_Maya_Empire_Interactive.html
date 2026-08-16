@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Maya Empire — Grade 9 English Unit 14</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --font-size-base:17px;
+  --bg:#F5F0E8;
+  --card:#FFFFFF;
+  --primary:#2E6B4F;
+  --primary-light:#7FBFA0;
+  --accent:#C8941E;
+  --accent-dark:#9A6F0E;
+  --accent2:#B8472A;
+  --text:#1E1A14;
+  --text-light:#4A4238;
+  --muted:#7A7265;
+  --border:#D8CDB8;
+  --highlight:#FFF8E1;
+  --highlight-border:#C8941E;
+  --success:#2D7D46;
+  --error:#B8472A;
+  --shadow:0 2px 12px rgba(46,107,79,0.10);
+  --radius:14px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{
+  font-family:'Inter','Noto Sans SC',sans-serif;
+  font-size:var(--font-size-base);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.75;
+  min-height:100vh;
+}
+
+/* ─── HEADER ─── */
+.site-header{
+  background:linear-gradient(135deg,#1A3C2C 0%,#2E6B4F 40%,#4A8C6A 70%,#7FBFA0 100%);
+  padding:34px 20px 28px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.site-header::before{
+  content:'';position:absolute;top:-50%;left:-20%;width:140%;height:200%;
+  background:radial-gradient(ellipse at 30% 60%,rgba(200,148,30,0.12) 0%,transparent 60%);
+  pointer-events:none;
+}
+.site-header::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,#C8941E,#E6B84D,#C8941E);
+}
+.site-header h1{
+  font-family:'Lora',serif;font-size:2.2rem;color:#F0EAD6;
+  font-weight:700;letter-spacing:0.5px;position:relative;
+}
+.site-header .subtitle{
+  color:#C8941E;font-size:1rem;margin-top:6px;font-style:italic;position:relative;
+}
+.site-header .meta{
+  color:rgba(240,234,214,0.7);font-size:0.85rem;margin-top:8px;position:relative;
+}
+.site-header .meta span{margin:0 8px}
+
+/* ─── TOOLBAR ─── */
+.toolbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(245,240,232,0.93);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  padding:10px 20px;
+  display:flex;justify-content:center;gap:12px;align-items:center;
+  flex-wrap:wrap;
+}
+.toolbar button{
+  border:none;border-radius:8px;padding:7px 18px;
+  font-size:0.9rem;font-weight:600;cursor:pointer;
+  transition:all 0.2s;
+}
+.btn-font{background:var(--primary);color:#FFF}
+.btn-font:hover{background:#1A3C2C;transform:scale(1.05)}
+.btn-download{background:var(--accent);color:#FFF}
+.btn-download:hover{background:var(--accent-dark);transform:scale(1.05)}
+
+/* ─── NAV JUMP LINKS ─── */
+.nav-jump{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:18px 22px;
+  margin-bottom:24px;box-shadow:var(--shadow);
+}
+.nav-jump h2{
+  font-family:'Lora',serif;color:var(--primary);
+  font-size:1.2rem;margin-bottom:12px;
+}
+.nav-jump-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:8px;
+}
+.nav-jump-grid a{
+  display:flex;align-items:center;gap:8px;
+  padding:9px 14px;border-radius:8px;
+  background:linear-gradient(135deg,#F0EAD6,#E8DFC8);
+  color:var(--text);text-decoration:none;
+  font-size:0.88rem;font-weight:500;
+  border-left:3px solid var(--accent);
+  transition:all 0.25s;
+}
+.nav-jump-grid a:hover{
+  background:linear-gradient(135deg,#C8941E22,#C8941E15);
+  border-left-color:var(--primary);
+  transform:translateX(4px);
+  color:var(--primary);
+}
+.nav-jump-grid a .nav-icon{font-size:1rem;flex-shrink:0}
+
+/* ─── SCROLL TO TOP ─── */
+#scrollTopBtn{
+  position:fixed;bottom:90px;right:24px;z-index:9998;
+  width:48px;height:48px;border-radius:50%;
+  background:var(--primary);color:#FFF;
+  border:2px solid var(--primary-light);
+  font-size:1.3rem;cursor:pointer;
+  box-shadow:0 4px 16px rgba(46,107,79,0.35);
+  opacity:0;pointer-events:none;
+  transition:all 0.35s cubic-bezier(.4,0,.2,1);
+  display:flex;align-items:center;justify-content:center;
+}
+#scrollTopBtn.show{opacity:1;pointer-events:auto}
+#scrollTopBtn:hover{
+  background:var(--accent);border-color:var(--accent-dark);
+  transform:translateY(-3px);
+  box-shadow:0 6px 20px rgba(200,148,30,0.4);
+}
+
+/* ─── MAIN CONTAINER ─── */
+.container{max-width:880px;margin:0 auto;padding:24px 16px 60px}
+
+/* ─── SECTION CARD ─── */
+.section-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px 26px;
+  margin-bottom:24px;box-shadow:var(--shadow);
+  transition:box-shadow 0.3s;
+}
+.section-card:hover{box-shadow:0 4px 20px rgba(46,107,79,0.16)}
+.section-card h2{
+  font-family:'Lora',serif;color:var(--primary);
+  font-size:1.45rem;margin-bottom:16px;padding-bottom:10px;
+  border-bottom:2px solid var(--primary-light);
+  display:flex;align-items:center;gap:10px;
+}
+.section-card h2 .section-icon{font-size:1.2rem}
+.section-card h3{
+  font-family:'Lora',serif;color:var(--accent-dark);
+  font-size:1.15rem;margin:18px 0 10px;
+}
+.section-card h4{
+  font-family:'Lora',serif;color:var(--primary);
+  font-size:1.02rem;margin:14px 0 8px;
+}
+
+/* ─── READING PARAGRAPHS ─── */
+.reading-para{
+  margin:16px 0;padding:16px 20px;
+  background:#FDFBF5;border-radius:10px;
+  border-left:4px solid var(--accent);
+  line-height:1.9;
+}
+.reading-para .para-label{
+  display:inline-block;background:var(--primary);
+  color:#FFF;font-size:0.75rem;font-weight:700;
+  padding:2px 10px;border-radius:4px;margin-bottom:8px;
+  letter-spacing:0.5px;
+}
+
+/* ─── HIGHLIGHTED WORD ─── */
+.hw{
+  background:var(--highlight);color:var(--accent-dark);
+  padding:1px 6px;border-radius:4px;cursor:pointer;
+  border-bottom:2px dashed var(--highlight-border);
+  font-weight:600;transition:all 0.2s;
+}
+.hw:hover{background:#FFE69C;transform:scale(1.04)}
+
+/* ─── MEANING POPUP ─── */
+#meaningPopup{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);
+  z-index:9999;background:#1A3C2C;color:#F0EAD6;
+  border-radius:16px;padding:18px 24px;
+  box-shadow:0 8px 32px rgba(26,60,44,0.50);
+  min-width:300px;max-width:90vw;
+  opacity:0;pointer-events:none;transition:all 0.35s cubic-bezier(.4,0,.2,1);
+  border:2px solid rgba(200,148,30,0.3);
+}
+#meaningPopup.show{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+#meaningPopup .popup-word{
+  font-family:'Lora',serif;font-size:1.25rem;font-weight:700;
+  color:#E6B84D;margin-bottom:8px;display:flex;align-items:center;gap:8px;
+}
+#meaningPopup .popup-word::before{content:'📖';font-size:1.1rem}
+#meaningPopup .popup-meaning{font-size:0.92rem;line-height:1.6}
+#meaningPopup .popup-meaning span{display:block;margin:3px 0}
+#meaningPopup .popup-en{color:#7FBFA0;font-weight:500}
+#meaningPopup .popup-ne{color:#F0EAD6;font-weight:400}
+#meaningPopup .popup-close{
+  position:absolute;top:8px;right:12px;
+  background:none;border:none;color:#7FBFA0;
+  font-size:1.3rem;cursor:pointer;line-height:1;
+}
+#meaningPopup .popup-close:hover{color:#E6B84D}
+
+/* ─── VOCABULARY TABLE ─── */
+.vocab-table{
+  width:100%;border-collapse:separate;border-spacing:0;
+  border-radius:10px;overflow:hidden;
+  font-size:0.91rem;margin:12px 0;
+}
+.vocab-table thead{background:var(--primary);color:#FFF}
+.vocab-table thead th{padding:10px 12px;text-align:left;font-weight:600;font-size:0.88rem}
+.vocab-table tbody tr{transition:background 0.2s}
+.vocab-table tbody tr:nth-child(even){background:#F5F0E8}
+.vocab-table tbody tr:hover{background:#E8DFC8}
+.vocab-table td{padding:8px 12px;border-bottom:1px solid var(--border)}
+.vocab-table td:first-child{font-weight:600;color:var(--accent-dark)}
+
+/* ─── EXERCISE SECTION ─── */
+.exercise-item{
+  border:1px solid var(--border);border-radius:10px;
+  margin:10px 0;overflow:hidden;
+  transition:border-color 0.3s;
+}
+.exercise-item:hover{border-color:var(--primary-light)}
+.exercise-question{
+  padding:14px 18px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;
+  font-weight:500;background:#FDFBF5;
+  transition:background 0.2s;user-select:none;
+  gap:10px;
+}
+.exercise-question:hover{background:#F5F0E8}
+.exercise-question .arrow{
+  font-size:1.1rem;transition:transform 0.3s;color:var(--accent);
+  flex-shrink:0;
+}
+.exercise-item.open .exercise-question .arrow{transform:rotate(90deg)}
+.exercise-answer{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.4s ease,padding 0.3s;
+}
+.exercise-item.open .exercise-answer{
+  max-height:800px;padding:14px 18px;
+}
+.exercise-answer-inner{
+  background:linear-gradient(135deg,#E8DFC8,#F0EAD6);
+  border-radius:8px;padding:14px 16px;
+  color:var(--text);font-size:0.95rem;
+  border-left:4px solid var(--accent);
+}
+
+/* ─── MATCHING EXERCISE ─── */
+.match-table{
+  width:100%;border-collapse:collapse;
+  font-size:0.92rem;margin:10px 0;
+}
+.match-table td{
+  padding:8px 12px;border:1px solid var(--border);
+  vertical-align:top;
+}
+.match-table td:first-child{font-weight:600;color:var(--accent-dark);width:22%}
+.match-table td:nth-child(2){color:var(--muted);text-align:center;width:8%}
+.match-table td:nth-child(3){}
+
+/* ─── CROSSWORD ─── */
+.crossword-grid{
+  display:grid;grid-template-columns:auto 1fr;
+  gap:6px 12px;margin:10px 0;font-size:0.92rem;
+}
+.crossword-num{
+  font-weight:700;color:var(--primary);
+  display:flex;align-items:center;gap:6px;
+}
+.crossword-num .num-badge{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border-radius:50%;
+  background:var(--accent);color:#FFF;font-size:0.8rem;
+  font-weight:700;flex-shrink:0;
+}
+.crossword-answer{
+  display:flex;align-items:center;
+  padding:6px 10px;background:#FDFBF5;
+  border-radius:6px;border:1px solid var(--border);
+}
+
+/* ─── MCQ OPTIONS ─── */
+.mcq-item{
+  border:1px solid var(--border);border-radius:10px;
+  margin:10px 0;overflow:hidden;
+}
+.mcq-question{
+  padding:14px 18px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;
+  font-weight:500;background:#FDFBF5;
+  transition:background 0.2s;user-select:none;gap:10px;
+}
+.mcq-question:hover{background:#F5F0E8}
+.mcq-question .arrow{
+  font-size:1.1rem;transition:transform 0.3s;color:var(--accent);flex-shrink:0;
+}
+.mcq-item.open .mcq-question .arrow{transform:rotate(90deg)}
+.mcq-answer{
+  max-height:0;overflow:hidden;transition:max-height 0.4s ease;
+}
+.mcq-item.open .mcq-answer{max-height:400px;padding:14px 18px}
+.mcq-answer-inner{
+  background:linear-gradient(135deg,#E8DFC8,#F0EAD6);
+  border-radius:8px;padding:14px 16px;
+  font-size:0.95rem;border-left:4px solid var(--success);
+}
+.mcq-answer-inner .correct-opt{color:var(--success);font-weight:700}
+
+/* ─── PARA MATCH ─── */
+.para-match-table{
+  width:100%;border-collapse:collapse;
+  font-size:0.92rem;margin:10px 0;
+}
+.para-match-table td{
+  padding:8px 12px;border:1px solid var(--border);vertical-align:top;
+}
+.para-match-table td:first-child{font-weight:700;color:var(--primary);width:15%}
+.para-match-table td:nth-child(2){color:var(--muted);text-align:center;width:8%}
+.para-match-table td:nth-child(3){}
+
+/* ─── TF / FILL ─── */
+.tf-item,.fill-item{
+  border:1px solid var(--border);border-radius:10px;
+  margin:8px 0;overflow:hidden;
+}
+.tf-question,.fill-question{
+  padding:12px 16px;cursor:pointer;
+  background:#FDFBF5;font-weight:500;
+  display:flex;justify-content:space-between;align-items:center;
+  transition:background 0.2s;gap:10px;
+}
+.tf-question:hover,.fill-question:hover{background:#F5F0E8}
+.tf-answer,.fill-answer{
+  max-height:0;overflow:hidden;transition:max-height 0.4s ease;
+}
+.tf-item.open .tf-answer,.fill-item.open .fill-answer{
+  max-height:300px;padding:12px 16px;
+}
+.tf-answer-inner,.fill-answer-inner{
+  background:linear-gradient(135deg,#E8DFC8,#F0EAD6);
+  border-radius:8px;padding:12px 14px;
+  font-size:0.93rem;border-left:4px solid var(--accent);
+}
+
+/* ─── FOOTER ─── */
+.site-footer{
+  background:linear-gradient(135deg,#1A3C2C,#2E6B4F);
+  color:rgba(240,234,214,0.6);text-align:center;
+  padding:18px 20px;font-size:0.78rem;
+  margin-top:20px;
+}
+.site-footer a{color:#7FBFA0;text-decoration:none}
+.site-footer a:hover{text-decoration:underline}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:640px){
+  .site-header h1{font-size:1.5rem}
+  .container{padding:16px 10px 40px}
+  .section-card{padding:18px 14px}
+  .reading-para{padding:12px 14px}
+  #meaningPopup{min-width:260px;padding:14px 18px}
+  .vocab-table{font-size:0.82rem}
+  .vocab-table td,.vocab-table th{padding:6px 8px}
+  .toolbar{gap:6px;padding:8px 10px}
+  .toolbar button{padding:6px 12px;font-size:0.82rem}
+  .nav-jump-grid{grid-template-columns:1fr}
+  #scrollTopBtn{width:42px;height:42px;right:16px;bottom:80px;font-size:1.1rem}
+  .crossword-grid{font-size:0.85rem}
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.section-card{animation:fadeInUp 0.5s ease both}
+.section-card:nth-child(2){animation-delay:0.04s}
+.section-card:nth-child(3){animation-delay:0.08s}
+.section-card:nth-child(4){animation-delay:0.12s}
+.section-card:nth-child(5){animation-delay:0.16s}
+.section-card:nth-child(6){animation-delay:0.20s}
+.section-card:nth-child(7){animation-delay:0.24s}
+.section-card:nth-child(8){animation-delay:0.28s}
+.section-card:nth-child(9){animation-delay:0.32s}
+.section-card:nth-child(10){animation-delay:0.36s}
+</style>
+</head>
+<body>
+
+<!-- ═══════ HEADER ═══════ -->
+<header class="site-header" id="top">
+  <h1>The Maya Empire</h1>
+  <div class="subtitle">Unit 14 — People and Places</div>
+  <div class="meta">
+    <span>Grade 9</span>•<span>English</span>•<span>Unit 14</span>•<span>Reading (Prose)</span>
+  </div>
+</header>
+
+<!-- ═══════ TOOLBAR ═══════ -->
+<div class="toolbar">
+  <button class="btn-font" onclick="changeFontSize(-1)">A−</button>
+  <button class="btn-font" onclick="changeFontSize(1)">A+</button>
+  <button class="btn-download" onclick="downloadHTML()">⬇ Download HTML</button>
+</div>
+
+<!-- ═══════ SCROLL TO TOP ═══════ -->
+<button id="scrollTopBtn" onclick="scrollToTop()" title="Go to top">⬆</button>
+
+<!-- ═══════ MAIN ═══════ -->
+<div class="container">
+
+<!-- ──── NAV JUMP LINKS ──── -->
+<div class="nav-jump">
+  <h2>📑 Quick Navigation — Jump to Section</h2>
+  <div class="nav-jump-grid">
+    <a href="#reading"><span class="nav-icon">📖</span> The Reading Text</a>
+    <a href="#vocab"><span class="nav-icon">📗</span> Word Meanings</a>
+    <a href="#exercise-a"><span class="nav-icon">✅</span> Exercise A — Matching</a>
+    <a href="#exercise-b"><span class="nav-icon">✅</span> Exercise B — Crossword</a>
+    <a href="#exercise-c"><span class="nav-icon">✅</span> Exercise C — MCQs</a>
+    <a href="#exercise-d"><span class="nav-icon">✅</span> Exercise D — Para Match</a>
+    <a href="#short-questions"><span class="nav-icon">➕</span> Short Questions</a>
+    <a href="#true-false"><span class="nav-icon">➕</span> True / False</a>
+    <a href="#fill-blanks"><span class="nav-icon">➕</span> Fill in the Blanks</a>
+  </div>
+</div>
+
+<!-- ──── READING TEXT ──── -->
+<div class="section-card" id="reading">
+  <h2><span class="section-icon">📖</span> The Maya Empire — Reading Text</h2>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph I</div>
+    The Maya Empire, centered in the tropical lowlands of what is now Guatemala, reached the peak of its power and influence around the sixth century AD. The Maya <span class="hw" onclick="showMeaning('excelled','were very good at something','उत्कृष्ट भए')">excelled</span> at agriculture, pottery, <span class="hw" onclick="showMeaning('hieroglyph','a picture or symbol used as writing','चित्रलिपि')">hieroglyph</span> writing, calendar-making and mathematics, and left behind an astonishing amount of impressive <span class="hw" onclick="showMeaning('architecture','the art/science of designing buildings','वास्तुकला')">architecture</span> and symbolic artwork. Most of the great stone cities of the Maya, however, were <span class="hw" onclick="showMeaning('abandoned','left empty; deserted','त्याग गरिएको')">abandoned</span> by 900 AD.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph II</div>
+    The Maya civilisation was one of the most <span class="hw" onclick="showMeaning('dominant','most powerful or important','प्रभावशाली')">dominant</span> <span class="hw" onclick="showMeaning('indigenous','belonging originally to a place','स्थानीय')">indigenous</span> societies of Mesoamerica, present Mexico and Central America. Unlike other <span class="hw" onclick="showMeaning('scattered','spread widely over an area','छरिएका')">scattered</span> indigenous populations of Mesoamerica, the Maya were centered in one geographical block covering all of the Yucatan Peninsula and modern-day Guatemala; Belize and parts of the Mexican states of Tabasco and Chiapas; and the western part of Honduras and El Salvador. This <span class="hw" onclick="showMeaning('concentration','a large gathering in one place','केन्द्रीकरण')">concentration</span> showed that the Maya remained relatively secure from <span class="hw" onclick="showMeaning('invasion','entering a place by force','आक्रमण')">invasion</span> by other Mesoamerican peoples.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph III</div>
+    The Maya lived in three separate sub-areas with distinct environmental and cultural differences: the northern Maya lowlands on the Yucatan Peninsula; the southern lowlands in the Petén district of northern Guatemala and <span class="hw" onclick="showMeaning('adjacent','next to; bordering','नजिकको')">adjacent</span> portions of Mexico, Belize and western Honduras; and the southern Maya highlands, in the mountainous region of southern Guatemala. Most famously, the Maya of the southern lowland region reached their peak during the Classic Period of Maya civilisation (250 AD to 900), and built the great stone cities and <span class="hw" onclick="showMeaning('monuments','large structures built for memory','स्मारकहरू')">monuments</span> that have <span class="hw" onclick="showMeaning('fascinated','attracted great interest and wonder','मोहित')">fascinated</span> explorers and <span class="hw" onclick="showMeaning('scholars','people who study a subject deeply','विद्वानहरू')">scholars</span> of the region.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph IV</div>
+    The earliest Maya settlements date to around 1800 BC. The earliest Maya were <span class="hw" onclick="showMeaning('agricultural','related to farming','कृषि सम्बन्धी')">agricultural</span>, growing crops such as corn, beans, squash and <span class="hw" onclick="showMeaning('cassava','a starchy plant used as food','कसावा')">cassava</span>. About 300 B.C. Maya farmers began to expand their presence both in the highland and lowland regions. The Middle Pre-classic Period also saw the rise of the first major Mesoamerican civilisation, the Olmecs. Like other Mesoamerican peoples, the Maya <span class="hw" onclick="showMeaning('derived','obtained from a source','प्राप्त गरे')">derived</span> a number of religious and cultural <span class="hw" onclick="showMeaning('traits','characteristics or features','लक्षणहरू')">traits</span>, as well as their number system and their famous calendar from the Olmec. In addition to agriculture, the Pre-classic Maya also displayed more advanced cultural traits like pyramid-building, city construction and the <span class="hw" onclick="showMeaning('inscribing','writing/carving on hard surface','कुँदाइ')">inscribing</span> of stone monuments.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph V</div>
+    The Classic Period, which began around 250 AD, was the golden age of the Maya Empire. Classic Maya civilisation grew to some 40 cities. Each city held a population of between 5,000 and 50,000 people. At its peak, the Maya population may have reached 2,000,000. <span class="hw" onclick="showMeaning('excavations','digging to find ancient things','उत्खनन')">Excavations</span> of Maya sites have <span class="hw" onclick="showMeaning('unearthed','discovered by digging','उत्खनन गरी निकालिएका')">unearthed</span> <span class="hw" onclick="showMeaning('plazas','open public spaces/squares','चोकहरू')">plazas</span>, palaces, temples and pyramids, as well as courts for playing the ball games that were <span class="hw" onclick="showMeaning('ritually','in the manner of a ceremony','अनुष्ठान रूपमा')">ritually</span> and politically significant to Maya culture. Maya cities were surrounded and supported by a large population of farmers.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph VI</div>
+    The Maya were deeply religious, and <span class="hw" onclick="showMeaning('worshipped','showed great devotion to','पूजा गर्थे')">worshipped</span> various gods related to nature, including the gods of the Sun, the Moon, rain and corn. At the top of Maya society were the kings, who claimed to be related to gods and followed a <span class="hw" onclick="showMeaning('hereditary','passed from parent to child','वंशानुगत')">hereditary</span> <span class="hw" onclick="showMeaning('succession','following in order of power/rule','उत्तराधिकार')">succession</span>. They were thought to serve as <span class="hw" onclick="showMeaning('mediators','those who connect two sides','मध्यस्थकर्ता')">mediators</span> between the gods and people on earth, and performed the <span class="hw" onclick="showMeaning('elaborate','detailed and carefully worked out','विस्तृत')">elaborate</span> religious ceremonies and <span class="hw" onclick="showMeaning('rituals','set religious or traditional practices','अनुष्ठानहरू')">rituals</span> so important to the Maya culture. The Classic Maya built many of their temples and palaces in a stepped pyramid shape, decorating them with elaborate <span class="hw" onclick="showMeaning('reliefs','raised carvings on a flat surface','उभरिएका चित्रहरू')">reliefs</span> and <span class="hw" onclick="showMeaning('inscriptions','words carved into stone or metal','कुँदाइएका लेखोटहरू')">inscriptions</span>. These structures have earned the Maya their <span class="hw" onclick="showMeaning('reputation','the way others judge a person/group','प्रतिष्ठा')">reputation</span> as the great artists of Mesoamerica. Guided by their religious ritual, the Maya also made significant advances in mathematics and <span class="hw" onclick="showMeaning('astronomy','study of stars, planets, and space','खगोल विज्ञान')">astronomy</span>, including the use of the zero and the development of a complex calendar system based on 365 days. Though early researchers <span class="hw" onclick="showMeaning('concluded','reached a final decision','निष्कर्ष निकाले')">concluded</span> that the Maya were a peaceful society of priests and <span class="hw" onclick="showMeaning('scribes','people who copy texts by hand','लिपिकार')">scribes</span>, later evidence — including a thorough examination of the artwork and inscriptions on their temple walls — showed the less peaceful side of Maya culture, including the war between rival Mayan city-states and the importance of torture and human sacrifice to their religious ritual.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph VII</div>
+    From the late eighth through the end of the ninth century, something unknown happened to shake the Maya civilisation to its foundations. One by one, the classic cities in the southern lowlands were abandoned, and by 900 AD, Maya civilisation in that region had <span class="hw" onclick="showMeaning('collapsed','fell apart or broke down suddenly','ढल्यो')">collapsed</span>. The reason for this <span class="hw" onclick="showMeaning('mysterious','strange and unexplained','रहस्यमय')">mysterious</span> decline is unknown, though scholars have developed several competing <span class="hw" onclick="showMeaning('theories','explanations based on reasoning','सिद्धान्तहरू')">theories</span>. Some believe that by the ninth century the Maya had <span class="hw" onclick="showMeaning('exhausted','used up completely','समाप्त गरे')">exhausted</span> the environment around them to the point that it could no longer sustain a very large population.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph VIII</div>
+    Other Maya scholars argue that constant <span class="hw" onclick="showMeaning('warfare','fighting between groups or armies','युद्ध / लडाइँ')">warfare</span> among competing city-states led the complicated military, family and trade <span class="hw" onclick="showMeaning('alliances','agreements for mutual benefit','गठबन्धनहरू')">alliances</span> between them to break down, along with the traditional system of <span class="hw" onclick="showMeaning('dynastic','relating to a ruling family line','राजवंशीय')">dynastic</span> power. As the <span class="hw" onclick="showMeaning('stature','importance and respect in society','प्रतिष्ठा/मर्यादा')">stature</span> of the holy lords diminished, their complex traditions of rituals and ceremonies <span class="hw" onclick="showMeaning('dissolved','came to an end gradually','बिलाए')">dissolved</span> into chaos. Finally, some <span class="hw" onclick="showMeaning('catastrophic','causing great damage or disaster','विनाशकारी')">catastrophic</span> environmental changes — like an extremely long, intense period of <span class="hw" onclick="showMeaning('drought','long period without rainfall','खडेरी')">drought</span> — may have wiped out the Classic Maya Civilization. Drought would have hit cities like Tikal, where rainwater was necessary for drinking as well as for crop <span class="hw" onclick="showMeaning('irrigation','watering crops by artificial means','सिँचाइ')">irrigation</span>. All three of these factors may have played a part in the <span class="hw" onclick="showMeaning('downfall','loss of power, position or ruin','पतन')">downfall</span> of the Maya in the southern lowlands.
+  </div>
+</div>
+
+<!-- ──── VOCABULARY ──── -->
+<div class="section-card" id="vocab">
+  <h2><span class="section-icon">📗</span> Word Meanings</h2>
+  <table class="vocab-table">
+    <thead>
+      <tr><th>Word / Phrase</th><th>English Meaning</th><th>Nepali Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>excelled</td><td>were very good at something</td><td>उत्कृष्ट भए</td></tr>
+      <tr><td>hieroglyph</td><td>a picture or symbol used as writing</td><td>चित्रलिपि</td></tr>
+      <tr><td>architecture</td><td>the art/science of designing buildings</td><td>वास्तुकला</td></tr>
+      <tr><td>abandoned</td><td>left empty; deserted</td><td>त्याग गरिएको</td></tr>
+      <tr><td>dominant</td><td>most powerful or important</td><td>प्रभावशाली</td></tr>
+      <tr><td>indigenous</td><td>belonging originally to a place</td><td>स्थानीय</td></tr>
+      <tr><td>scattered</td><td>spread widely over an area</td><td>छरिएका</td></tr>
+      <tr><td>concentration</td><td>a large gathering in one place</td><td>केन्द्रीकरण</td></tr>
+      <tr><td>invasion</td><td>entering a place by force</td><td>आक्रमण</td></tr>
+      <tr><td>adjacent</td><td>next to; bordering</td><td>नजिकको</td></tr>
+      <tr><td>monuments</td><td>large structures built for memory</td><td>स्मारकहरू</td></tr>
+      <tr><td>fascinated</td><td>attracted great interest and wonder</td><td>मोहित</td></tr>
+      <tr><td>scholars</td><td>people who study a subject deeply</td><td>विद्वानहरू</td></tr>
+      <tr><td>agricultural</td><td>related to farming</td><td>कृषि सम्बन्धी</td></tr>
+      <tr><td>derived</td><td>obtained from a source</td><td>प्राप्त गरे</td></tr>
+      <tr><td>traits</td><td>characteristics or features</td><td>लक्षणहरू</td></tr>
+      <tr><td>inscribing</td><td>writing/carving on hard surface</td><td>कुँदाइ</td></tr>
+      <tr><td>excavations</td><td>digging to find ancient things</td><td>उत्खनन</td></tr>
+      <tr><td>unearthed</td><td>discovered by digging</td><td>उत्खनन गरी निकालिएका</td></tr>
+      <tr><td>plazas</td><td>open public spaces/squares</td><td>चोकहरू</td></tr>
+      <tr><td>ritually</td><td>in the manner of a ceremony</td><td>अनुष्ठान रूपमा</td></tr>
+      <tr><td>hereditary</td><td>passed from parent to child</td><td>वंशानुगत</td></tr>
+      <tr><td>succession</td><td>following in order of power/rule</td><td>उत्तराधिकार</td></tr>
+      <tr><td>mediators</td><td>those who connect two sides</td><td>मध्यस्थकर्ता</td></tr>
+      <tr><td>elaborate</td><td>detailed and carefully worked out</td><td>विस्तृत</td></tr>
+      <tr><td>rituals</td><td>set religious or traditional practices</td><td>अनुष्ठानहरू</td></tr>
+      <tr><td>reliefs</td><td>raised carvings on a flat surface</td><td>उभरिएका चित्रहरू</td></tr>
+      <tr><td>inscriptions</td><td>words carved into stone or metal</td><td>कुँदाइएका लेखोटहरू</td></tr>
+      <tr><td>reputation</td><td>the way others judge a person/group</td><td>प्रतिष्ठा</td></tr>
+      <tr><td>astronomy</td><td>study of stars, planets, and space</td><td>खगोल विज्ञान</td></tr>
+      <tr><td>scribes</td><td>people who copy texts by hand</td><td>लिपिकार</td></tr>
+      <tr><td>concluded</td><td>reached a final decision</td><td>निष्कर्ष निकाले</td></tr>
+      <tr><td>collapsed</td><td>fell apart or broke down suddenly</td><td>ढल्यो</td></tr>
+      <tr><td>mysterious</td><td>strange and unexplained</td><td>रहस्यमय</td></tr>
+      <tr><td>theories</td><td>explanations based on reasoning</td><td>सिद्धान्तहरू</td></tr>
+      <tr><td>exhausted</td><td>used up completely</td><td>समाप्त गरे</td></tr>
+      <tr><td>warfare</td><td>fighting between groups or armies</td><td>युद्ध / लडाइँ</td></tr>
+      <tr><td>alliances</td><td>agreements for mutual benefit</td><td>गठबन्धनहरू</td></tr>
+      <tr><td>dynastic</td><td>relating to a ruling family line</td><td>राजवंशीय</td></tr>
+      <tr><td>stature</td><td>importance and respect in society</td><td>प्रतिष्ठा/मर्यादा</td></tr>
+      <tr><td>dissolved</td><td>came to an end gradually</td><td>बिलाए</td></tr>
+      <tr><td>catastrophic</td><td>causing great damage or disaster</td><td>विनाशकारी</td></tr>
+      <tr><td>drought</td><td>long period without rainfall</td><td>खडेरी</td></tr>
+      <tr><td>irrigation</td><td>watering crops by artificial means</td><td>सिँचाइ</td></tr>
+      <tr><td>downfall</td><td>loss of power, position or ruin</td><td>पतन</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ──── EXERCISE A ──── -->
+<div class="section-card" id="exercise-a">
+  <h2><span class="section-icon">✅</span> Exercise A — Match the Words with Meanings</h2>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>a. drought &nbsp; b. excel &nbsp; c. hieroglyph &nbsp; d. dominant &nbsp; e. concentration &nbsp; f. invasion &nbsp; g. excavation</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        <table class="match-table">
+          <tr><td>a. drought</td><td>→</td><td>v. a long period of time when there is little or no rain</td></tr>
+          <tr><td>b. excel</td><td>→</td><td>iii. to be very good at doing something</td></tr>
+          <tr><td>c. hieroglyph</td><td>→</td><td>ii. a picture representing a word, syllable or sound</td></tr>
+          <tr><td>d. dominant</td><td>→</td><td>vii. more important, powerful or easy to notice than other things</td></tr>
+          <tr><td>e. concentration</td><td>→</td><td>vi. a lot of something in one place</td></tr>
+          <tr><td>f. invasion</td><td>→</td><td>i. an instance of a large number of people or things arriving somewhere</td></tr>
+          <tr><td>g. excavation</td><td>→</td><td>iv. digging ground to look for old buildings or objects</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── EXERCISE B ──── -->
+<div class="section-card" id="exercise-b">
+  <h2><span class="section-icon">✅</span> Exercise B — Crossword Puzzle</h2>
+
+  <h3>Across</h3>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>2. People who follow each other in time or order</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        <strong>Successors</strong> — people who follow each other in time or order
+      </div>
+    </div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>4. A loss of power, prosperity or status</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        <strong>Downfall</strong> — a loss of power, prosperity or status
+      </div>
+    </div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>5. Complete with regard to every detail</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        <strong>Thorough</strong> — complete with regard to every detail
+      </div>
+    </div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>6. A union or association formed for mutual benefit</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        <strong>Alliance</strong> — a union or association formed for mutual benefit
+      </div>
+    </div>
+  </div>
+
+  <h3>Down</h3>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>1. Complete disorder and confusion</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        <strong>Chaos</strong> — complete disorder and confusion
+      </div>
+    </div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>3. Very complicated and detailed</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        <strong>Elaborate</strong> — very complicated and detailed
+      </div>
+    </div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>7. To use all of something so that there is none left</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        <strong>Exhausted</strong> — to use all of something so that there is none left
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── EXERCISE C ──── -->
+<div class="section-card" id="exercise-c">
+  <h2><span class="section-icon">✅</span> Exercise C — Choose the Correct Answer</h2>
+
+  <div class="mcq-item" onclick="toggleMCQ(this)">
+    <div class="mcq-question">
+      <span>a. When did the Maya Civilisation reach its height?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="mcq-answer">
+      <div class="mcq-answer-inner">
+        <span class="correct-opt">✅ i. sixth century AD</span><br>
+        <span style="color:var(--muted)">ii. ninth century AD &nbsp;|&nbsp; iii. 250 AD</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mcq-item" onclick="toggleMCQ(this)">
+    <div class="mcq-question">
+      <span>b. Why were the Mayas unlikely to be invaded by the Mesoamericans?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="mcq-answer">
+      <div class="mcq-answer-inner">
+        <span style="color:var(--muted)">i. They were very powerful.</span><br>
+        <span class="correct-opt">✅ ii. They were concentrated in a particular area.</span><br>
+        <span style="color:var(--muted)">iii. They had strong armies.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mcq-item" onclick="toggleMCQ(this)">
+    <div class="mcq-question">
+      <span>c. What has fascinated researchers about the Mayas from the southern lowlands?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="mcq-answer">
+      <div class="mcq-answer-inner">
+        <span class="correct-opt">✅ i. the stone cities</span><br>
+        <span style="color:var(--muted)">ii. the pottery &nbsp;|&nbsp; iii. the calendar</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mcq-item" onclick="toggleMCQ(this)">
+    <div class="mcq-question">
+      <span>d. Which period of the Maya Civilisation is considered the golden age?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="mcq-answer">
+      <div class="mcq-answer-inner">
+        <span style="color:var(--muted)">i. The Pre-classic Period</span><br>
+        <span class="correct-opt">✅ ii. The Classic Period</span><br>
+        <span style="color:var(--muted)">iii. The Post-classic Period</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mcq-item" onclick="toggleMCQ(this)">
+    <div class="mcq-question">
+      <span>e. Whom did the Mayas consider their god?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="mcq-answer">
+      <div class="mcq-answer-inner">
+        <span class="correct-opt">✅ i. nature</span> <span style="font-size:0.85rem;color:var(--muted)">(they worshipped gods of the Sun, Moon, rain and corn)</span><br>
+        <span style="color:var(--muted)">ii. the king &nbsp;|&nbsp; iii. the sun only</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mcq-item" onclick="toggleMCQ(this)">
+    <div class="mcq-question">
+      <span>f. According to scholars, which of the following is NOT the cause of Maya downfall?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="mcq-answer">
+      <div class="mcq-answer-inner">
+        <span style="color:var(--muted)">i. environmental exhaustion &nbsp;|&nbsp; ii. warfare among city-states</span><br>
+        <span class="correct-opt">✅ iii. foreign invasion</span> <span style="font-size:0.85rem;color:var(--muted)">(this is NOT a cause)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── EXERCISE D ──── -->
+<div class="section-card" id="exercise-d">
+  <h2><span class="section-icon">✅</span> Exercise D — Match Paragraphs with Information</h2>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>a. Para I &nbsp; b. Para II &nbsp; c. Para III &nbsp; d. Para IV &nbsp; e. Para V &nbsp; f. Para VI &nbsp; g. Para VII &nbsp; h. Para VIII</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        <table class="para-match-table">
+          <tr><td>a. I</td><td>→</td><td>iii. achievement by the Maya civilisation in different sectors</td></tr>
+          <tr><td>b. II</td><td>→</td><td>iv. places where the Mayas lived (geographical concentration)</td></tr>
+          <tr><td>c. III</td><td>→</td><td>v. categories of the places where the Mayans lived</td></tr>
+          <tr><td>d. IV</td><td>→</td><td>i. occupation of the earliest Maya society</td></tr>
+          <tr><td>e. V</td><td>→</td><td>ii. number of people in the Maya civilisation</td></tr>
+          <tr><td>f. VI</td><td>→</td><td>vi. spirituality of the Mayan people</td></tr>
+          <tr><td>g. VII</td><td>→</td><td>viii. time when the downfall of the Maya Civilisation started</td></tr>
+          <tr><td>h. VIII</td><td>→</td><td>vii. fights with the neighbouring states as the possible cause of downfall</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── SHORT QUESTIONS ──── -->
+<div class="section-card" id="short-questions">
+  <h2><span class="section-icon">➕</span> Short Questions</h2>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>1. Where was the Maya Empire centered and when did it reach its peak?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The Maya Empire was centered in the tropical lowlands of Guatemala and reached its peak around the sixth century AD.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>2. Why were the Mayas safe from invasion by other Mesoamerican peoples?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The Mayas were concentrated in one geographical block, which made them relatively secure from invasion.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>3. What were some major achievements of the Classic Period Maya?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        During the Classic Period, the Mayas built 40 cities, developed mathematics, used zero, built pyramid temples, and created a 365-day calendar.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>4. Who were the kings in Maya society and what role did they play?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The kings were at the top of Maya society. They claimed to be related to gods and acted as mediators between the gods and the people.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>5. What are the three main theories given by scholars for the collapse of the Maya civilisation?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The three theories are: (i) environmental exhaustion, (ii) constant warfare and breakdown of alliances, and (iii) catastrophic drought.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── TRUE / FALSE ──── -->
+<div class="section-card" id="true-false">
+  <h2><span class="section-icon">➕</span> True / False</h2>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>1. The Maya Empire was centered in the tropical lowlands of Mexico.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--error)">False</strong> — The Maya Empire was centered in the tropical lowlands of <strong>Guatemala</strong>, not Mexico.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>2. The Classic Period of Maya civilisation lasted from 250 AD to 900 AD.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--success)">True</strong> — The Classic Period began around 250 AD and ended around 900 AD.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>3. The Mayas had no knowledge of astronomy or mathematics.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--error)">False</strong> — The Maya made great advances in both astronomy and mathematics, including the use of zero and a 365-day calendar.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>4. Early researchers believed the Maya were a peaceful society.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--success)">True</strong> — Early researchers concluded the Maya were a peaceful society of priests and scribes.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>5. Drought is considered one of the possible causes of Maya downfall.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--success)">True</strong> — Catastrophic drought is one of the three main theories for the Maya collapse.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── FILL IN THE BLANKS ──── -->
+<div class="section-card" id="fill-blanks">
+  <h2><span class="section-icon">➕</span> Fill in the Blanks</h2>
+  <p style="font-size:0.9rem;color:var(--muted);margin:6px 0 12px;">Words: drought / excavation / dominant / alliances / hieroglyph</p>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>1. The Maya used _____________ writing, which used pictures to represent words.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        The Maya used <strong>hieroglyph</strong> writing, which used pictures to represent words.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>2. The Maya were the most _____________ civilisation in Mesoamerica.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        The Maya were the most <strong>dominant</strong> civilisation in Mesoamerica.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>3. Scholars believe that a long _____________ may have destroyed the Classic Maya cities.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        Scholars believe that a long <strong>drought</strong> may have destroyed the Classic Maya cities.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>4. The _____________ of Maya sites revealed palaces, plazas, and pyramids.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        The <strong>excavation</strong> of Maya sites revealed palaces, plazas, and pyramids.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>5. Trade and military _____________ among city-states helped them survive for centuries.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        Trade and military <strong>alliances</strong> among city-states helped them survive for centuries.
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- ═══════ MEANING POPUP ═══════ -->
+<div id="meaningPopup">
+  <button class="popup-close" onclick="closePopup()">&times;</button>
+  <div class="popup-word" id="popupWord"></div>
+  <div class="popup-meaning">
+    <span class="popup-en" id="popupEnglish"></span>
+    <span class="popup-ne" id="popupNepali"></span>
+  </div>
+</div>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="site-footer">
+  N.REGMI &nbsp;|&nbsp; <a href="mailto:nregmi511@gmail.com">nregmi511@gmail.com</a>
+  &nbsp;|&nbsp; Grade 9 English — Unit 14 — The Maya Empire
+</footer>
+
+<!-- ═══════ JAVASCRIPT ═══════ -->
+<script>
+// ─── Font Size Control ───
+const MIN_F=13,MAX_F=26;
+let fontSize=17;
+function changeFontSize(d){
+  fontSize=Math.max(MIN_F,Math.min(MAX_F,fontSize+d));
+  document.documentElement.style.setProperty('--font-size-base',fontSize+'px');
+}
+
+// ─── Meaning Popup ───
+function showMeaning(word,en,ne){
+  document.getElementById('popupWord').textContent=word;
+  document.getElementById('popupEnglish').textContent='EN: '+en;
+  document.getElementById('popupNepali').textContent='NE: '+ne;
+  document.getElementById('meaningPopup').classList.add('show');
+}
+function closePopup(){
+  document.getElementById('meaningPopup').classList.remove('show');
+}
+document.addEventListener('click',function(e){
+  const popup=document.getElementById('meaningPopup');
+  if(!e.target.closest('.hw')&&!e.target.closest('#meaningPopup')){
+    popup.classList.remove('show');
+  }
+});
+
+// ─── Exercise Toggle ───
+function toggleExercise(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.exercise-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── MCQ Toggle ───
+function toggleMCQ(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.mcq-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── True/False Toggle ───
+function toggleTF(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.tf-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── Fill-in-Blank Toggle ───
+function toggleFill(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.fill-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── Scroll to Top Button ───
+const scrollBtn=document.getElementById('scrollTopBtn');
+window.addEventListener('scroll',function(){
+  if(window.scrollY>400){
+    scrollBtn.classList.add('show');
+  }else{
+    scrollBtn.classList.remove('show');
+  }
+});
+function scrollToTop(){
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ─── Download HTML ───
+function downloadHTML(){
+  const html=document.documentElement.outerHTML;
+  const blob=new Blob([html],{type:'text/html;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='The_Maya_Empire_Interactive.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wimbledon – Grade 9 English Unit 16</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── same design system as sample ── */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #1E7B4A;
+      --primary-light: #34A853;
+      --primary-dark: #145A32;
+      --accent: #D4A017;
+      --accent-light: #F1C40F;
+      --correct: #10B981;
+      --incorrect: #EF4444;
+      --bg: #F4F9F4;
+      --card-bg: #FFFFFF;
+      --text-dark: #1E293B;
+      --text-body: #2D3A3A;
+      --text-muted: #5A6B6B;
+      --border: #D0E0D0;
+      --highlight-bg: #FEF9E0;
+      --highlight-border: #D4A017;
+      --nepali-accent: #7C3AED;
+      --font-size-base: 17px;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(30,123,74,0.08);
+      --shadow-lg: 0 12px 40px rgba(30,123,74,0.14);
+    }
+
+    body {
+      font-family: 'Poppins', 'Noto Sans SC', sans-serif;
+      background: var(--bg);
+      color: var(--text-body);
+      font-size: var(--font-size-base);
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* ── TOOLBAR ── */
+    .toolbar {
+      position: fixed;
+      top: 0; left: 0; width: 100%; z-index: 1000;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 24px;
+      box-shadow: 0 4px 20px rgba(30,123,74,0.3);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .toolbar-left { display: flex; align-items: center; gap: 16px; }
+    .toolbar-title { font-size: 15px; font-weight: 600; letter-spacing: 0.3px; }
+    .toolbar-title span { opacity: 0.7; font-weight: 400; }
+    .toolbar-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+    .font-btn {
+      width: 38px; height: 38px; border-radius: 10px;
+      border: 2px solid rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.1);
+      color: white;
+      font-size: 18px; font-weight: 700;
+      cursor: pointer; transition: 0.2s;
+      font-family: 'Poppins', sans-serif;
+    }
+    .font-btn:hover { background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.5); transform: scale(1.08); }
+    .font-size-display { font-size: 13px; font-weight: 600; min-width: 38px; text-align: center; background: rgba(255,255,255,0.15); padding: 6px 10px; border-radius: 8px; }
+    .download-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 18px; border-radius: 10px; border: none;
+      background: rgba(255,255,255,0.2); color: white;
+      font-size: 13px; font-weight: 600; cursor: pointer; transition: 0.2s;
+      font-family: 'Poppins', sans-serif;
+    }
+    .download-btn:hover { background: rgba(255,255,255,0.35); transform: translateY(-1px); }
+
+    /* ── MAIN ── */
+    .main-content { max-width: 860px; margin: 0 auto; padding: 80px 24px 60px; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #0F4C2A, #1E7B4A, #2E8B57);
+      border-radius: 20px; padding: 48px 40px; color: white; margin-bottom: 36px;
+      position: relative; overflow: hidden; box-shadow: 0 12px 40px rgba(30,123,74,0.25);
+    }
+    .hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: rgba(255,255,255,0.06); border-radius: 50%; }
+    .hero::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 150px; height: 150px; background: rgba(255,255,255,0.04); border-radius: 50%; }
+    .hero-grade { display: inline-block; padding: 5px 16px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 30px; font-size: 12px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 16px; }
+    .hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; position: relative; z-index: 1; }
+    .hero-sub { font-size: 15px; opacity: 0.85; font-weight: 400; position: relative; z-index: 1; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 20px; position: relative; z-index: 1; }
+    .hero-meta-item { display: flex; align-items: center; gap: 6px; font-size: 13px; opacity: 0.85; background: rgba(255,255,255,0.1); padding: 5px 14px; border-radius: 20px; }
+
+    /* ── NAV PILLS ── */
+    .nav-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .nav-pill {
+      padding: 8px 18px; border-radius: 30px; background: white; border: 1px solid var(--border);
+      font-size: 13px; font-weight: 600; color: var(--text-muted); cursor: pointer; transition: 0.2s;
+      font-family: 'Poppins', sans-serif; text-decoration: none;
+    }
+    .nav-pill:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+    /* ── SECTION CARDS ── */
+    .section-card {
+      background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border);
+      padding: 36px 32px; margin-bottom: 28px; box-shadow: var(--shadow);
+      transition: box-shadow 0.3s;
+    }
+    .section-card:hover { box-shadow: var(--shadow-lg); }
+
+    .section-heading {
+      font-size: 24px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-heading .icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;
+    }
+    .icon-reading { background: #D4EDDA; color: #1E7B4A; }
+    .icon-words { background: #FEF9E0; color: #D4A017; }
+    .icon-exercise { background: #D1FAE5; color: #059669; }
+    .icon-fill { background: #EDE9FE; color: #7C3AED; }
+    .icon-tf { background: #FCE7F3; color: #DB2777; }
+    .icon-short { background: #FFEDD5; color: #EA580C; }
+    .icon-extra { background: #F0F9FF; color: #0284C7; }
+
+    .section-subtitle { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; font-weight: 400; }
+
+    /* ── READING PASSAGE ── */
+    .passage { font-size: inherit; line-height: 2; color: var(--text-body); }
+    .passage p { margin-bottom: 18px; text-align: justify; }
+    .passage p:last-child { margin-bottom: 0; }
+
+    .hw {
+      background: var(--highlight-bg); border-bottom: 2px solid var(--highlight-border);
+      padding: 1px 6px; border-radius: 4px; cursor: pointer; font-weight: 600;
+      color: #7A5D00; transition: all 0.2s; display: inline;
+    }
+    .hw:hover { background: #FDE68A; transform: scale(1.02); }
+    .hw::after { content: '📖'; font-size: 11px; position: relative; top: -4px; margin-left: 2px; }
+
+    /* ── POPUP ── */
+    .meaning-popup {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(120%);
+      width: 94%; max-width: 520px; background: white; border-radius: 18px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.05);
+      z-index: 2000; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s;
+      opacity: 0; overflow: hidden;
+    }
+    .meaning-popup.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+    .popup-header { background: linear-gradient(135deg, #D4A017, #B8860B); color: white; padding: 14px 22px; display: flex; align-items: center; justify-content: space-between; }
+    .popup-word { font-size: 20px; font-weight: 700; }
+    .popup-close { width: 30px; height: 30px; border-radius: 50%; border: none; background: rgba(255,255,255,0.25); color: white; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s; font-family: 'Poppins', sans-serif; }
+    .popup-close:hover { background: rgba(255,255,255,0.4); }
+    .popup-body { padding: 18px 22px; display: flex; flex-direction: column; gap: 12px; }
+    .popup-meaning-row { display: flex; align-items: flex-start; gap: 12px; }
+    .popup-label { flex-shrink: 0; padding: 4px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; }
+    .popup-label.en { background: #DBEAFE; color: #1D4ED8; }
+    .popup-label.ne { background: #EDE9FE; color: #6D28D9; }
+    .popup-meaning-text { font-size: 16px; line-height: 1.5; padding-top: 2px; }
+    .popup-nepali { font-size: 17px; color: var(--nepali-accent); font-weight: 500; }
+
+    /* ── WORD TABLE ── */
+    .word-table-wrapper { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); }
+    .word-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .word-table thead { background: linear-gradient(135deg, #FEF9E0, #FDE68A); }
+    .word-table th { padding: 14px 18px; text-align: left; font-weight: 700; color: #7A5D00; font-size: 13px; text-transform: uppercase; letter-spacing: 0.8px; border-bottom: 2px solid #D4A017; }
+    .word-table td { padding: 12px 18px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .word-table tr:last-child td { border-bottom: none; }
+    .word-table tr:hover td { background: #FFFBEB; }
+    .word-table .word-cell { font-weight: 700; color: var(--primary-dark); cursor: pointer; }
+    .word-table .word-cell:hover { text-decoration: underline; }
+    .word-table .nepali-cell { color: var(--nepali-accent); font-weight: 500; }
+
+    /* ── EXERCISE ITEMS ── */
+    .exercise-item {
+      background: #F8FAFC; border: 1px solid var(--border); border-radius: 12px;
+      margin-bottom: 14px; overflow: hidden; transition: all 0.2s;
+    }
+    .exercise-item:hover { border-color: #A0C0A0; }
+
+    .exercise-question {
+      padding: 16px 20px; cursor: pointer; display: flex; align-items: flex-start; gap: 14px;
+      transition: background 0.2s; user-select: none;
+    }
+    .exercise-question:hover { background: #F1F5F9; }
+
+    .exercise-q-number {
+      flex-shrink: 0; width: 30px; height: 30px; border-radius: 8px;
+      background: var(--primary); color: white; display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; margin-top: 1px;
+    }
+    .exercise-q-text { flex: 1; font-weight: 500; color: var(--text-dark); line-height: 1.6; }
+    .exercise-toggle {
+      flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+      background: #E2E8F0; display: flex; align-items: center; justify-content: center;
+      font-size: 16px; color: var(--text-muted); transition: all 0.3s; margin-top: 1px;
+    }
+    .exercise-item.open .exercise-toggle { background: var(--correct); color: white; transform: rotate(180deg); }
+
+    .exercise-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .exercise-item.open .exercise-answer { max-height: 500px; }
+
+    .exercise-answer-inner {
+      padding: 0 20px 18px; margin-left: 44px;
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    .answer-badge {
+      flex-shrink: 0; padding: 4px 12px; border-radius: 6px;
+      font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px;
+    }
+    .badge-answer { background: #D1FAE5; color: #065F46; }
+    .badge-true { background: #D1FAE5; color: #065F46; }
+    .badge-false { background: #FEE2E2; color: #991B1B; }
+    .answer-text { font-size: 15px; color: var(--text-body); line-height: 1.7; }
+
+    .box-words {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;
+      padding: 16px; background: #F0F9FF; border-radius: 12px; border: 1px dashed #93C5FD;
+    }
+    .box-word { padding: 6px 16px; background: white; border: 1px solid #93C5FD; border-radius: 8px; font-weight: 600; color: var(--primary); font-size: 14px; }
+
+    .blank-slot {
+      display: inline-block; min-width: 100px; border-bottom: 2px dashed var(--primary);
+      padding: 2px 4px; font-weight: 700; color: var(--primary); background: #EFF6FF; border-radius: 4px 4px 0 0;
+    }
+
+    .click-hint {
+      display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px;
+      background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 10px;
+      font-size: 13px; color: var(--primary); font-weight: 500; margin-bottom: 20px;
+    }
+
+    .extra-section { border-left: 4px solid var(--primary); }
+
+    /* ── SCROLL TO TOP ── */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 9999;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: 2px solid rgba(255,255,255,0.3);
+      font-size: 26px;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(30,123,74,0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+    }
+    #scrollTopBtn.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #scrollTopBtn:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 8px 30px rgba(30,123,74,0.55);
+      background: linear-gradient(135deg, var(--accent), #B8860B);
+    }
+    #scrollTopBtn:active {
+      transform: scale(0.92);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .main-content { padding: 72px 14px 40px; }
+      .section-card { padding: 24px 18px; }
+      .hero { padding: 32px 22px; }
+      .hero h1 { font-size: 24px; }
+      .toolbar { padding: 8px 14px; }
+      .toolbar-title { font-size: 12px; }
+      .meaning-popup { width: 96%; bottom: 12px; }
+      #scrollTopBtn { width: 48px; height: 48px; font-size: 22px; bottom: 20px; right: 20px; }
+    }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body>
+
+<!-- ===== TOOLBAR ===== -->
+<div class="toolbar">
+  <div class="toolbar-left">
+    <div class="toolbar-title">Grade 9 · English <span>| Unit 16: Games &amp; Sports</span></div>
+  </div>
+  <div class="toolbar-right">
+    <button class="font-btn" onclick="changeFontSize(-1)" title="Decrease font size">A−</button>
+    <div class="font-size-display" id="fontDisplay">17px</div>
+    <button class="font-btn" onclick="changeFontSize(1)" title="Increase font size">A+</button>
+    <button class="download-btn" onclick="downloadHTML()" title="Download this page">⬇ Save</button>
+  </div>
+</div>
+
+<!-- ===== SCROLL TO TOP BUTTON ===== -->
+<button id="scrollTopBtn" onclick="scrollToTop()" title="Go to top">⬆</button>
+
+<!-- ===== MEANING POPUP ===== -->
+<div class="meaning-popup" id="meaningPopup">
+  <div class="popup-header">
+    <span class="popup-word" id="popupWord">Word</span>
+    <button class="popup-close" onclick="closePopup()">✕</button>
+  </div>
+  <div class="popup-body">
+    <div class="popup-meaning-row">
+      <span class="popup-label en">English</span>
+      <span class="popup-meaning-text" id="popupEnglish">—</span>
+    </div>
+    <div class="popup-meaning-row">
+      <span class="popup-label ne">नेपाली</span>
+      <span class="popup-meaning-text popup-nepali" id="popupNepali">—</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN ===== -->
+<div class="main-content">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-grade">Grade 9 · Unit 16 · Games and Sports</div>
+    <h1>Wimbledon</h1>
+    <div class="hero-sub">Pages 198–200 · Non-fiction / Informational Text</div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">📖 Reading Passage</div>
+      <div class="hero-meta-item">📝 20+ Vocabulary Words</div>
+      <div class="hero-meta-item">✅ Interactive Exercises</div>
+    </div>
+  </div>
+
+  <!-- NAV PILLS -->
+  <div class="nav-pills">
+    <a class="nav-pill" href="#reading">📖 Reading</a>
+    <a class="nav-pill" href="#wordlist">📝 Word List</a>
+    <a class="nav-pill" href="#exerciseA">✍ Exercise A</a>
+    <a class="nav-pill" href="#exerciseB">✓ Exercise B</a>
+    <a class="nav-pill" href="#exerciseC">✎ Exercise C</a>
+    <a class="nav-pill" href="#extraSA">💡 Extra SA</a>
+    <a class="nav-pill" href="#extraTF">🔍 Extra T/F</a>
+    <a class="nav-pill" href="#extraFill">🧩 Extra Fill</a>
+  </div>
+
+  <!-- ===== READING ===== -->
+  <div class="section-card" id="reading">
+    <div class="section-heading">
+      <div class="icon icon-reading">📖</div>
+      Wimbledon — The World's Oldest Tennis Tournament
+    </div>
+    <div class="section-subtitle">Click any highlighted word to see its meaning</div>
+    <div class="click-hint">💡 Tap <span class="hw" style="cursor:default;">highlighted words</span> for meanings — popup stays until you close it.</div>
+
+    <div class="passage">
+      <p><strong>Wimbledon</strong> is the world's oldest tennis <span class="hw" onclick="showMeaning('tournament','a competition in which many players compete','टूर्नामेन्ट / प्रतियोगिता')">tournament</span> and is also thought to be the most <span class="hw" onclick="showMeaning('prestigious','respected and admired as very important','प्रतिष्ठित')">prestigious</span>. It has been held at the All England Club in Wimbledon, London since 1877. It is one of the four <span class="hw" onclick="showMeaning('Grand Slam','the four most important tennis tournaments','ग्र्यान्ड स्ल्याम')">Grand Slam</span> tennis tournaments, the others being the Australian Open, the French Open and the US Open. Wimbledon is the only major still played on traditional grass, the game's original surface, which gave the game its original name of 'lawn tennis'.</p>
+
+      <p><strong>Events:</strong> Wimbledon consists of five main events and five junior events. There are also five <span class="hw" onclick="showMeaning('invitation','a request to attend','निमन्त्रणा')">invitation</span> events in which some former <span class="hw" onclick="showMeaning('professionals','people who do something as a paid job','पेशेवर')">professionals</span> are invited back to <span class="hw" onclick="showMeaning('compete','to try to win','प्रतिस्पर्धा गर्नु')">compete</span>. The five main events are gentlemen's singles, ladies' singles, gentlemen's doubles, ladies' doubles and mixed doubles. The five junior events are similar with boys' singles, girls' singles, boys' doubles, girls' doubles and disabled doubles. The five <span class="hw" onclick="showMeaning('invitational','by special invitation','आमन्त्रणात्मक')">invitational</span> events are the gentlemen's doubles, senior gentlemen's doubles, senior ladies' doubles, gentlemen's wheelchair doubles and ladies' wheelchair doubles.</p>
+
+      <p><strong>Tickets:</strong> The majority of Centre Court tickets are made available through a public <span class="hw" onclick="showMeaning('ballot','a system of selection by random draw','मतपत्र / लटरी प्रणाली')">ballot</span> in which <span class="hw" onclick="showMeaning('applicants','people who apply','आवेदकहरू')">applicants</span> are chosen at random by a computer. Fans without tickets can <span class="hw" onclick="showMeaning('queue','to wait in a line','लाइनमा बस्नु')">queue</span> up overnight to get seats on match day. There are a certain number of seats <span class="hw" onclick="showMeaning('allocated','assigned for a purpose','विनियोजित')">allocated</span> for the queuing system.</p>
+
+      <p><strong>Schedule:</strong> Currently, Wimbledon begins in June and ends in July. But in 2017, the <span class="hw" onclick="showMeaning('championships','competitions to find the best player or team','च्याम्पियनशिप')">championships</span> began and ended in July to extend the gap between the tournament and the French Open. The five main events <span class="hw" onclick="showMeaning('span','extend across','फैलिएको')">span</span> both weeks, but the junior and invitational events are mainly held during the second week. Traditionally, there is no play on the 'Middle Sunday', however, rain has sometimes forced play on this day.</p>
+
+      <p><strong>The Courts:</strong> In 2009, Wimbledon's Centre Court was fitted with a <span class="hw" onclick="showMeaning('retractable','capable of being pulled back or folded','पछाडि तान्न मिल्ने')">retractable</span> roof helping to <span class="hw" onclick="showMeaning('substantially','considerably; to a great degree','उल्लेखनीय रूपमा')">substantially</span> reduce the loss of playing time caused by bad weather. The <span class="hw" onclick="showMeaning('principal','main or most important','प्रमुख')">principal</span> court, Centre Court, was opened in 1922. The main show courts, Centre Court and No. 1 Court, are normally used for only two weeks a year during the championships, but play can extend into a third week in <span class="hw" onclick="showMeaning('exceptional','unusually good or unusual','असाधारण')">exceptional</span> circumstances. The remaining 17 courts are regularly used for other events <span class="hw" onclick="showMeaning('hosted','organized and provided for','आयोजना गर्नु')">hosted</span> by the club.</p>
+
+      <p><strong>Trophies and Prize Money:</strong> The gentlemen's Singles Champion receives a silver <span class="hw" onclick="showMeaning('gilt','a thin layer of gold','सुनको पातलो तहले लेपिएको')">gilt</span> cup. The trophy has been awarded since 1887 and bears the <span class="hw" onclick="showMeaning('inscription','words cut in stone or metal','शिलालेख')">inscription</span>: <em>'All England Lawn Tennis Club Single Handed Championship of the World.'</em> The Women's Singles Champion receives a <span class="hw" onclick="showMeaning('sterling','of excellent quality; British currency','उत्कृष्ट / शुद्ध')">sterling</span> silver <span class="hw" onclick="showMeaning('salver','a large metal plate used for serving','थाल')">salver</span> which is <span class="hw" onclick="showMeaning('decorated','made more attractive','सजाइएको')">decorated</span> with figures from <span class="hw" onclick="showMeaning('mythology','traditional stories about gods or heroes','पौराणिक कथा')">mythology</span>. In 2019, the prize money for the winners of the singles finals was £2.35 million.</p>
+
+      <p><strong>A Few Famous Champions:</strong> Martina Navratilova won a record nine Wimbledon Singles titles. To date, Roger Federer has won Wimbledon eight times. Novak Djokovic was the winner of the Gentlemen's Singles in 2019. He <span class="hw" onclick="showMeaning('defeated','beat in a competition','पराजित गर्नु')">defeated</span> Roger Federer in the 'most demanding' match ever in the final. He was able to <span class="hw" onclick="showMeaning('defend','protect or keep something','रक्षा गर्नु')">defend</span> his trophy as a <span class="hw" onclick="showMeaning('defending champion','the champion who holds the title','वर्तमान च्याम्पियन')">defending champion</span>. It was his sixteenth Grand Slam Men's Singles title and his fifth Wimbledon title. In the Ladies' Singles event, Simona Halep won the first Wimbledon title with <span class="hw" onclick="showMeaning('stunning','extremely impressive','अत्यन्त प्रभावशाली')">stunning</span> performance against Serena Williams in 2019. It was her second Grand Slam Women's Singles title.</p>
+    </div>
+  </div>
+
+  <!-- ===== WORD LIST ===== -->
+  <div class="section-card" id="wordlist">
+    <div class="section-heading">
+      <div class="icon icon-words">📝</div>
+      Word Meaning List
+    </div>
+    <div class="section-subtitle">Click any word to see its meaning in the popup</div>
+
+    <div class="word-table-wrapper">
+      <table class="word-table">
+        <thead><tr><th>#</th><th>Word</th><th>English Meaning</th><th>नेपाली अर्थ</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="word-cell" onclick="showMeaning('prestigious','respected and admired as very important','प्रतिष्ठित')">prestigious</td><td>respected and admired as very important</td><td class="nepali-cell">प्रतिष्ठित</td></tr>
+          <tr><td>2</td><td class="word-cell" onclick="showMeaning('tournament','a competition involving many players','प्रतियोगिता')">tournament</td><td>a competition involving many players</td><td class="nepali-cell">प्रतियोगिता</td></tr>
+          <tr><td>3</td><td class="word-cell" onclick="showMeaning('Grand Slam','four most important tennis tournaments','ग्र्यान्ड स्ल्याम')">Grand Slam</td><td>four most important tennis tournaments</td><td class="nepali-cell">ग्र्यान्ड स्ल्याम</td></tr>
+          <tr><td>4</td><td class="word-cell" onclick="showMeaning('ballot','selection by random draw','लटरी / मतपत्र')">ballot</td><td>selection by random draw</td><td class="nepali-cell">लटरी / मतपत्र</td></tr>
+          <tr><td>5</td><td class="word-cell" onclick="showMeaning('applicants','people who apply for something','आवेदकहरू')">applicants</td><td>people who apply for something</td><td class="nepali-cell">आवेदकहरू</td></tr>
+          <tr><td>6</td><td class="word-cell" onclick="showMeaning('queue','a line of people waiting','लाइन')">queue</td><td>a line of people waiting</td><td class="nepali-cell">लाइन</td></tr>
+          <tr><td>7</td><td class="word-cell" onclick="showMeaning('allocated','officially given for a purpose','विनियोजित')">allocated</td><td>officially given for a purpose</td><td class="nepali-cell">विनियोजित</td></tr>
+          <tr><td>8</td><td class="word-cell" onclick="showMeaning('span','to extend across a period','फैलिनु')">span</td><td>to extend across a period</td><td class="nepali-cell">फैलिनु</td></tr>
+          <tr><td>9</td><td class="word-cell" onclick="showMeaning('retractable','able to be pulled back','पछाडि तान्न मिल्ने')">retractable</td><td>able to be pulled back</td><td class="nepali-cell">पछाडि तान्न मिल्ने</td></tr>
+          <tr><td>10</td><td class="word-cell" onclick="showMeaning('substantially','considerably; by a large amount','उल्लेखनीय रूपमा')">substantially</td><td>considerably; by a large amount</td><td class="nepali-cell">उल्लेखनीय रूपमा</td></tr>
+          <tr><td>11</td><td class="word-cell" onclick="showMeaning('principal','main; most important','प्रमुख')">principal</td><td>main; most important</td><td class="nepali-cell">प्रमुख</td></tr>
+          <tr><td>12</td><td class="word-cell" onclick="showMeaning('exceptional','unusual or outstanding','असाधारण')">exceptional</td><td>unusual or outstanding</td><td class="nepali-cell">असाधारण</td></tr>
+          <tr><td>13</td><td class="word-cell" onclick="showMeaning('gilt','thin layer of gold','सुनको तह')">gilt</td><td>thin layer of gold</td><td class="nepali-cell">सुनको तह</td></tr>
+          <tr><td>14</td><td class="word-cell" onclick="showMeaning('inscription','words engraved or written','शिलालेख')">inscription</td><td>words engraved or written</td><td class="nepali-cell">शिलालेख</td></tr>
+          <tr><td>15</td><td class="word-cell" onclick="showMeaning('salver','a large metal serving plate','थाल')">salver</td><td>a large metal serving plate</td><td class="nepali-cell">थाल</td></tr>
+          <tr><td>16</td><td class="word-cell" onclick="showMeaning('mythology','traditional stories about gods','पौराणिक कथा')">mythology</td><td>traditional stories about gods</td><td class="nepali-cell">पौराणिक कथा</td></tr>
+          <tr><td>17</td><td class="word-cell" onclick="showMeaning('stunning','extremely impressive','अत्यन्त सुन्दर/प्रभावशाली')">stunning</td><td>extremely impressive</td><td class="nepali-cell">अत्यन्त सुन्दर/प्रभावशाली</td></tr>
+          <tr><td>18</td><td class="word-cell" onclick="showMeaning('defeated','beaten in a competition','पराजित')">defeated</td><td>beaten in a competition</td><td class="nepali-cell">पराजित</td></tr>
+          <tr><td>19</td><td class="word-cell" onclick="showMeaning('invitational','by special invitation only','आमन्त्रणात्मक')">invitational</td><td>by special invitation only</td><td class="nepali-cell">आमन्त्रणात्मक</td></tr>
+          <tr><td>20</td><td class="word-cell" onclick="showMeaning('defending champion','the current title holder','वर्तमान शीर्षकधारी')">defending champion</td><td>the current title holder</td><td class="nepali-cell">वर्तमान शीर्षकधारी</td></tr>
+          <tr><td>21</td><td class="word-cell" onclick="showMeaning('compete','to try to win','प्रतिस्पर्धा गर्नु')">compete</td><td>to try to win</td><td class="nepali-cell">प्रतिस्पर्धा गर्नु</td></tr>
+          <tr><td>22</td><td class="word-cell" onclick="showMeaning('hosted','organized and provided for','आयोजना गर्नु')">hosted</td><td>organized and provided for</td><td class="nepali-cell">आयोजना गर्नु</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE A: MATCH ===== -->
+  <div class="section-card" id="exerciseA">
+    <div class="section-heading">
+      <div class="icon icon-exercise">✍</div>
+      Exercise A — Match Words with Meanings
+    </div>
+    <div class="section-subtitle">Click each row to reveal the matching meaning</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">prestigious</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Match</span>
+          <span class="answer-text"><strong>vi.</strong> respected and admired as very important</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">substantially</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Match</span>
+          <span class="answer-text"><strong>iv.</strong> considerably</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">gilt</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Match</span>
+          <span class="answer-text"><strong>i.</strong> a thin layer of gold</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">inscription</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Match</span>
+          <span class="answer-text"><strong>vii.</strong> words written in front of a book or cut in stone or metal</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">salver</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Match</span>
+          <span class="answer-text"><strong>ii.</strong> a large plate, usually made of metal</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">f</div>
+        <div class="exercise-q-text">mythology</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Match</span>
+          <span class="answer-text"><strong>v.</strong> study of myths</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">g</div>
+        <div class="exercise-q-text">stunning</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Match</span>
+          <span class="answer-text"><strong>iii.</strong> extremely attractive or impressive</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE B: TRUE/FALSE ===== -->
+  <div class="section-card" id="exerciseB">
+    <div class="section-heading">
+      <div class="icon icon-tf">✓</div>
+      Exercise B — True or False
+    </div>
+    <div class="section-subtitle">Click each statement to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">The original name of tennis is 'lawn tennis'.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">Wimbledon is the only major still played on grass, which gave the game its original name of 'lawn tennis'.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">Ladies' wheelchair doubles comes under junior events.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">Ladies' wheelchair doubles is an invitational event, not a junior event.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">Most of the tickets are distributed through online booking.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">Most Centre Court tickets are made available through a public ballot where applicants are chosen at random by computer.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">The Wimbledon Championship is usually played in June and July.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">Currently, Wimbledon begins in June and ends in July.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">The players can practise matches in the main show courts at any time.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">Centre Court and No. 1 Court are normally used only during the championships, not for practice at any time.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">f</div>
+        <div class="exercise-q-text">The prize money for the singles winners was £2.35 million.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">In 2019, the prize money for singles finals winners was £2.35 million.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE C: SHORT ANSWERS ===== -->
+  <div class="section-card" id="exerciseC">
+    <div class="section-heading">
+      <div class="icon icon-short">✎</div>
+      Exercise C — Answer the Following Questions
+    </div>
+    <div class="section-subtitle">Click each question to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">How is Wimbledon different from other Grand Slam tournaments?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Wimbledon is the only Grand Slam tournament still played on traditional grass surface. It is also the oldest and is considered the most prestigious of all tennis tournaments.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">State the four Grand Slam tennis tournaments.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">1. Wimbledon &nbsp; 2. Australian Open &nbsp; 3. French Open &nbsp; 4. US Open</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">What are the five main events of Wimbledon?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">1. Gentlemen's Singles &nbsp; 2. Ladies' Singles &nbsp; 3. Gentlemen's Doubles &nbsp; 4. Ladies' Doubles &nbsp; 5. Mixed Doubles</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">What can tennis fans do if they don't win a ticket in the public ballot?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Fans without tickets can queue up overnight to get seats on match day, as a certain number of seats are allocated for the queuing system.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">Why was Wimbledon Centre Court fitted with a retractable roof?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">It was fitted with a retractable roof in 2009 to substantially reduce the loss of playing time caused by bad weather.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">f</div>
+        <div class="exercise-q-text">What is inscribed on the Gentlemen's Singles trophy?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><em>'All England Lawn Tennis Club Single Handed Championship of the World.'</em></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">g</div>
+        <div class="exercise-q-text">Who won the Gentlemen's Singles and Ladies' Singles in 2019?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Novak Djokovic won the Gentlemen's Singles and Simona Halep won the Ladies' Singles in 2019.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXTRA: SHORT QUESTIONS ===== -->
+  <div class="section-card extra-section" id="extraSA">
+    <div class="section-heading">
+      <div class="icon icon-extra">💡</div>
+      Additional Short Questions
+    </div>
+    <div class="section-subtitle">Click each question to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">When and where did Wimbledon begin?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Wimbledon began in 1877 and is held at the All England Club in Wimbledon, London.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">How are Centre Court tickets made available to the public?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Most tickets are made available through a public ballot where applicants are selected at random by a computer.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">What is special about the Women's Singles trophy at Wimbledon?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">The Women's Singles Champion receives a sterling silver salver decorated with figures from mythology.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">How many times has Roger Federer won Wimbledon?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Roger Federer has won Wimbledon eight times.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">Why was the 2017 championship schedule different from usual?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">In 2017, the schedule was shifted entirely to July to extend the gap between Wimbledon and the French Open.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXTRA: TRUE/FALSE ===== -->
+  <div class="section-card extra-section" id="extraTF">
+    <div class="section-heading">
+      <div class="icon icon-extra">🔍</div>
+      Additional True / False
+    </div>
+    <div class="section-subtitle">Click each statement to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">Wimbledon has been held since 1877.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">Wimbledon has been held at the All England Club since 1877.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">Wimbledon is played on a clay surface.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">Wimbledon is played on traditional grass, not clay.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">The Centre Court was fitted with a retractable roof in 2009.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">In 2009, Wimbledon's Centre Court was fitted with a retractable roof.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">Martina Navratilova won Wimbledon five times.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">Martina Navratilova won a record nine Wimbledon Singles titles.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">Junior events are mainly held during the first week.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">Junior and invitational events are mainly held during the second week.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXTRA: FILL IN THE BLANKS ===== -->
+  <div class="section-card extra-section" id="extraFill">
+    <div class="section-heading">
+      <div class="icon icon-extra">🧩</div>
+      Contextual Fill-in-the-Blanks
+    </div>
+    <div class="section-subtitle">Click each question to reveal the answer</div>
+
+    <div class="box-words">
+      <span class="box-word">prestigious</span>
+      <span class="box-word">ballot</span>
+      <span class="box-word">retractable</span>
+      <span class="box-word">inscription</span>
+      <span class="box-word">stunning</span>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">The roof of the stadium is __________, so it can be closed during rain.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>retractable</strong> — The roof of the stadium is <strong>retractable</strong>, so it can be closed during rain.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">Wimbledon is considered the most __________ tennis tournament in the world.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>prestigious</strong> — Wimbledon is considered the most <strong>prestigious</strong> tennis tournament in the world.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">The trophy has an __________ that says 'Championship of the World.'</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>inscription</strong> — The trophy has an <strong>inscription</strong> that says 'Championship of the World.'</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">Tickets were distributed through a public __________ system.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>ballot</strong> — Tickets were distributed through a public <strong>ballot</strong> system.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">Simona Halep gave a __________ performance to win the Ladies' Singles.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>stunning</strong> — Simona Halep gave a <strong>stunning</strong> performance to win the Ladies' Singles.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main-content -->
+
+<script>
+  // ── Font Size ──
+  let fontSize = 17;
+  const MIN_F = 12, MAX_F = 28;
+  function changeFontSize(delta) {
+    fontSize = Math.max(MIN_F, Math.min(MAX_F, fontSize + delta));
+    document.documentElement.style.setProperty('--font-size-base', fontSize + 'px');
+    document.getElementById('fontDisplay').textContent = fontSize + 'px';
+    const d = document.getElementById('fontDisplay');
+    d.style.transform = 'scale(1.2)';
+    setTimeout(() => d.style.transform = 'scale(1)', 200);
+  }
+
+  // ── Meaning Popup ──
+  function showMeaning(word, english, nepali) {
+    const popup = document.getElementById('meaningPopup');
+    document.getElementById('popupWord').textContent = word;
+    document.getElementById('popupEnglish').textContent = english;
+    document.getElementById('popupNepali').textContent = nepali;
+    popup.classList.add('show');
+  }
+  function closePopup() {
+    document.getElementById('meaningPopup').classList.remove('show');
+  }
+  // Click outside popup closes it
+  document.addEventListener('click', function(e) {
+    const popup = document.getElementById('meaningPopup');
+    if (!e.target.closest('.hw') && !e.target.closest('.word-cell') && !e.target.closest('#meaningPopup')) {
+      popup.classList.remove('show');
+    }
+  });
+
+  // ── Exercise Toggle ──
+  function toggleExercise(item) {
+    const parent = item.closest('.section-card');
+    const all = parent.querySelectorAll('.exercise-item');
+    const isOpen = item.classList.contains('open');
+    all.forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ── Scroll to Top ──
+  const scrollBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 400) {
+      scrollBtn.classList.add('show');
+    } else {
+      scrollBtn.classList.remove('show');
+    }
+  });
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── Download ──
+  function downloadHTML() {
+    const html = document.documentElement.outerHTML;
+    const blob = new Blob(['<!DOCTYPE html>\n' + html], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'Wimbledon_Interactive.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+</script>
+
+</body>
+</html>

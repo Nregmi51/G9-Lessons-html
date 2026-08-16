@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Noisy Party — Grade 9 English Unit 17</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --font-size-base:17px;
+  --bg:#F7F0E5;
+  --card:#FFFCF6;
+  --primary:#7A1E36;
+  --primary-dark:#4F1023;
+  --primary-light:#B86A7E;
+  --accent:#D4A22A;
+  --accent-dark:#A67A1C;
+  --accent2:#2C7E7E;
+  --text:#2A1418;
+  --text-light:#5C2F38;
+  --muted:#7B5A60;
+  --border:#E5D5C0;
+  --highlight:#FFE8C7;
+  --highlight-border:#D4A22A;
+  --success:#2D7D5A;
+  --error:#B8324F;
+  --neutral:#6E7378;
+  --shadow:0 2px 12px rgba(122,30,54,0.10);
+  --radius:14px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{
+  font-family:'Crimson Pro','Noto Sans SC',serif;
+  font-size:var(--font-size-base);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.8;
+  min-height:100vh;
+}
+
+/* ─── HEADER ─── */
+.site-header{
+  background:linear-gradient(135deg,#2B0810 0%,#7A1E36 35%,#A24461 70%,#D9A2B3 100%);
+  padding:40px 20px 34px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.site-header::before{
+  content:'';position:absolute;top:-50%;left:-20%;width:140%;height:200%;
+  background:radial-gradient(ellipse at 30% 60%,rgba(212,162,42,0.18) 0%,transparent 60%);
+  pointer-events:none;
+}
+.site-header::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,#D4A22A,#7A1E36,#D4A22A);
+}
+.site-header h1{
+  font-family:'DM Serif Display',serif;font-size:2.8rem;color:#FBF1E0;
+  font-weight:400;letter-spacing:0.4px;position:relative;
+  text-shadow:0 2px 8px rgba(43,8,16,0.5);
+}
+.site-header .subtitle{
+  color:#E8C264;font-size:1.1rem;margin-top:8px;font-style:italic;
+  font-family:'DM Serif Display',serif;position:relative;letter-spacing:0.3px;
+}
+.site-header .meta{
+  color:rgba(251,241,224,0.78);font-size:0.85rem;margin-top:10px;position:relative;
+  font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:0.6px;
+}
+.site-header .meta span{margin:0 8px}
+
+/* ─── TOOLBAR ─── */
+.toolbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(247,240,229,0.93);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  padding:10px 20px;
+  display:flex;justify-content:center;gap:12px;align-items:center;
+  flex-wrap:wrap;
+}
+.toolbar button{
+  border:none;border-radius:8px;padding:7px 18px;
+  font-size:0.9rem;font-weight:600;cursor:pointer;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  transition:all 0.2s;
+}
+.btn-font{background:var(--primary);color:#FFF}
+.btn-font:hover{background:var(--primary-dark);transform:scale(1.05)}
+.btn-download{background:var(--accent);color:#FFF}
+.btn-download:hover{background:var(--accent-dark);transform:scale(1.05)}
+
+/* ─── NAV JUMP LINKS ─── */
+.nav-jump{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:18px 22px;
+  margin-bottom:24px;box-shadow:var(--shadow);
+}
+.nav-jump h2{
+  font-family:'DM Serif Display',serif;color:var(--primary);
+  font-size:1.5rem;margin-bottom:12px;font-weight:400;
+}
+.nav-jump-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+  gap:8px;
+}
+.nav-jump-grid a{
+  display:flex;align-items:center;gap:8px;
+  padding:9px 14px;border-radius:8px;
+  background:linear-gradient(135deg,#F0E0CE,#E5D0B5);
+  color:var(--text);text-decoration:none;
+  font-size:0.88rem;font-weight:500;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  border-left:3px solid var(--accent);
+  transition:all 0.25s;
+}
+.nav-jump-grid a:hover{
+  background:linear-gradient(135deg,#7A1E3622,#7A1E3615);
+  border-left-color:var(--primary);
+  transform:translateX(4px);
+  color:var(--primary);
+}
+.nav-jump-grid a .nav-icon{font-size:1rem;flex-shrink:0}
+
+/* ─── SCROLL TO TOP ─── */
+#scrollTopBtn{
+  position:fixed;bottom:90px;right:24px;z-index:9998;
+  width:48px;height:48px;border-radius:50%;
+  background:var(--primary);color:#FFF;
+  border:2px solid var(--primary-light);
+  font-size:1.3rem;cursor:pointer;
+  box-shadow:0 4px 16px rgba(122,30,54,0.35);
+  opacity:0;pointer-events:none;
+  transition:all 0.35s cubic-bezier(.4,0,.2,1);
+  display:flex;align-items:center;justify-content:center;
+}
+#scrollTopBtn.show{opacity:1;pointer-events:auto}
+#scrollTopBtn:hover{
+  background:var(--accent);border-color:var(--accent-dark);
+  transform:translateY(-3px);
+  box-shadow:0 6px 20px rgba(212,162,42,0.4);
+}
+
+/* ─── MAIN CONTAINER ─── */
+.container{max-width:900px;margin:0 auto;padding:24px 16px 60px}
+
+/* ─── SECTION CARD ─── */
+.section-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px 26px;
+  margin-bottom:24px;box-shadow:var(--shadow);
+  transition:box-shadow 0.3s;
+}
+.section-card:hover{box-shadow:0 4px 20px rgba(122,30,54,0.16)}
+.section-card h2{
+  font-family:'DM Serif Display',serif;color:var(--primary);
+  font-size:1.7rem;margin-bottom:16px;padding-bottom:10px;
+  border-bottom:2px solid var(--primary-light);
+  display:flex;align-items:center;gap:10px;font-weight:400;
+}
+.section-card h2 .section-icon{font-size:1.2rem}
+.section-card h3{
+  font-family:'DM Serif Display',serif;color:var(--accent-dark);
+  font-size:1.25rem;margin:20px 0 10px;font-weight:400;
+}
+.section-card .intro-note{
+  font-size:0.9rem;color:var(--muted);margin:6px 0 14px;
+  font-family:'Plus Jakarta Sans',sans-serif;
+}
+
+/* ─── DIALOGUE BLOCK ─── */
+.dialogue-block{
+  background:linear-gradient(135deg,#FBF5E6,#FFFCF6);
+  border-left:5px solid var(--accent);
+  border-radius:12px;padding:22px 26px;
+  margin:16px 0;font-family:'Crimson Pro',serif;
+  position:relative;
+  box-shadow:0 2px 8px rgba(122,30,54,0.06);
+}
+.stage-dir{
+  font-style:italic;color:var(--muted);
+  text-align:center;margin:14px 0;
+  font-size:0.95rem;
+  padding:6px 12px;background:rgba(212,162,42,0.10);
+  border-radius:6px;
+}
+.d-line{
+  display:flex;gap:12px;margin-bottom:10px;flex-wrap:wrap;
+  padding:6px 10px;border-radius:6px;
+  transition:background 0.2s;
+}
+.d-line:hover{background:rgba(122,30,54,0.04)}
+.d-speaker{
+  font-weight:700;color:var(--primary);
+  min-width:90px;font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:0.95rem;padding-top:2px;
+  letter-spacing:0.3px;
+}
+.d-text{flex:1;color:var(--text);font-size:1.05rem;line-height:1.85}
+
+/* ─── HIGHLIGHTED WORD ─── */
+.hw{
+  background:var(--highlight);color:var(--primary-dark);
+  padding:1px 6px;border-radius:4px;cursor:pointer;
+  border-bottom:2px dashed var(--highlight-border);
+  font-weight:600;transition:all 0.2s;
+  font-family:'Crimson Pro',serif;
+}
+.hw:hover{background:#F5D88C;transform:scale(1.04)}
+
+/* ─── MEANING POPUP ─── */
+#meaningPopup{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);
+  z-index:9999;background:#2B0810;color:#FBF1E0;
+  border-radius:16px;padding:18px 24px;
+  box-shadow:0 8px 32px rgba(43,8,16,0.50);
+  min-width:300px;max-width:90vw;
+  opacity:0;pointer-events:none;transition:all 0.35s cubic-bezier(.4,0,.2,1);
+  border:2px solid rgba(212,162,42,0.4);
+}
+#meaningPopup.show{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+#meaningPopup .popup-word{
+  font-family:'DM Serif Display',serif;font-size:1.4rem;font-weight:400;
+  color:#E8C264;margin-bottom:8px;display:flex;align-items:center;gap:8px;
+}
+#meaningPopup .popup-word::before{content:'📖';font-size:1.1rem}
+#meaningPopup .popup-meaning{font-size:0.92rem;line-height:1.6;font-family:'Crimson Pro',serif}
+#meaningPopup .popup-meaning span{display:block;margin:3px 0}
+#meaningPopup .popup-en{color:#D9A2B3;font-weight:500}
+#meaningPopup .popup-ne{color:#FBF1E0;font-weight:400}
+#meaningPopup .popup-close{
+  position:absolute;top:8px;right:12px;
+  background:none;border:none;color:#D9A2B3;
+  font-size:1.3rem;cursor:pointer;line-height:1;
+}
+#meaningPopup .popup-close:hover{color:#E8C264}
+
+/* ─── VOCABULARY TABLE ─── */
+.vocab-table{
+  width:100%;border-collapse:separate;border-spacing:0;
+  border-radius:10px;overflow:hidden;
+  font-size:0.92rem;margin:12px 0;
+  font-family:'Crimson Pro',serif;
+}
+.vocab-table thead{background:var(--primary);color:#FFF}
+.vocab-table thead th{
+  padding:10px 12px;text-align:left;font-weight:600;font-size:0.88rem;
+  font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:0.4px;
+}
+.vocab-table tbody tr{transition:background 0.2s}
+.vocab-table tbody tr:nth-child(even){background:#F0E0CE}
+.vocab-table tbody tr:hover{background:#E5D0B5}
+.vocab-table td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+.vocab-table td:first-child{font-weight:600;color:var(--accent-dark);width:8%;text-align:center}
+.vocab-table td:nth-child(2){font-weight:600;color:var(--primary)}
+.vocab-table td:last-child{color:var(--success);font-style:italic}
+
+/* ─── MATCHING TABLE ─── */
+.match-table{
+  width:100%;border-collapse:separate;border-spacing:0;
+  border-radius:10px;overflow:hidden;
+  font-size:0.95rem;margin:12px 0;
+  font-family:'Crimson Pro',serif;
+}
+.match-table thead{background:var(--primary);color:#FFF}
+.match-table thead th{
+  padding:10px 14px;text-align:left;font-weight:600;
+  font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:0.4px;
+}
+.match-table tbody tr:nth-child(even){background:#F0E0CE}
+.match-table tbody tr:hover{background:#E5D0B5}
+.match-table td{padding:8px 14px;border-bottom:1px solid var(--border);vertical-align:top}
+.match-table td:first-child{font-weight:700;color:var(--accent-dark);width:8%}
+.match-table td:nth-child(2){font-weight:600;color:var(--primary);width:20%}
+.match-table td:nth-child(3){text-align:center;color:var(--muted);width:8%}
+.match-table td:last-child{font-style:italic;color:var(--text-light)}
+
+/* ─── MCQ ─── */
+.mcq-item{
+  border:1px solid var(--border);border-radius:10px;
+  margin:10px 0;overflow:hidden;
+  transition:border-color 0.3s;
+}
+.mcq-item:hover{border-color:var(--primary-light)}
+.mcq-question{
+  padding:12px 16px;cursor:pointer;
+  background:#FBF5E6;font-weight:600;color:var(--primary);
+  display:flex;justify-content:space-between;align-items:center;
+  transition:background 0.2s;gap:10px;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:0.95rem;
+}
+.mcq-question:hover{background:#F0E0CE}
+.mcq-question .arrow{
+  font-size:1.1rem;transition:transform 0.3s;color:var(--accent);
+  flex-shrink:0;
+}
+.mcq-item.open .mcq-question .arrow{transform:rotate(90deg)}
+.mcq-answer{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.4s ease,padding 0.3s;
+}
+.mcq-item.open .mcq-answer{
+  max-height:600px;padding:14px 16px;
+}
+.mcq-answer-inner{
+  background:linear-gradient(135deg,#F0E0CE,#FBF5E6);
+  border-radius:8px;padding:12px 16px;
+  font-family:'Crimson Pro',serif;
+}
+.mcq-opts{list-style:none;padding:0;margin:0}
+.mcq-opts li{
+  padding:6px 10px;margin:4px 0;border-radius:6px;
+  font-size:0.95rem;
+}
+.mcq-opts li.correct{
+  background:rgba(45,125,90,0.15);
+  color:var(--success);font-weight:600;
+  border-left:3px solid var(--success);
+}
+.mcq-opts li.correct::before{content:'✓ ';font-weight:700}
+.mcq-opts li:not(.correct){
+  color:var(--text-light);
+  border-left:3px solid transparent;
+}
+
+/* ─── TF / NG ─── */
+.tfn-item{
+  border:1px solid var(--border);border-radius:10px;
+  margin:8px 0;overflow:hidden;
+}
+.tfn-question{
+  padding:12px 16px;cursor:pointer;
+  background:#FBF5E6;font-weight:500;
+  display:flex;justify-content:space-between;align-items:center;
+  transition:background 0.2s;gap:10px;
+  font-family:'Crimson Pro',serif;
+}
+.tfn-question:hover{background:#F0E0CE}
+.tfn-answer{
+  max-height:0;overflow:hidden;transition:max-height 0.4s ease;
+}
+.tfn-item.open .tfn-answer{
+  max-height:400px;padding:12px 16px;
+}
+.tfn-answer-inner{
+  background:linear-gradient(135deg,#F0E0CE,#FBF5E6);
+  border-radius:8px;padding:12px 14px;
+  font-size:0.93rem;border-left:4px solid var(--accent);
+  font-family:'Crimson Pro',serif;line-height:1.7;
+}
+.tfn-answer-inner .verdict{
+  display:inline-block;padding:2px 10px;border-radius:4px;
+  color:#FFF;font-weight:700;font-size:0.82rem;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  letter-spacing:0.5px;margin-right:8px;
+}
+.tfn-answer-inner .verdict.true{background:var(--success)}
+.tfn-answer-inner .verdict.false{background:var(--error)}
+.tfn-answer-inner .verdict.ng{background:var(--neutral)}
+
+/* ─── EXERCISE ITEM (Short Q&A) ─── */
+.exercise-item{
+  border:1px solid var(--border);border-radius:10px;
+  margin:10px 0;overflow:hidden;
+  transition:border-color 0.3s;
+}
+.exercise-item:hover{border-color:var(--primary-light)}
+.exercise-question{
+  padding:14px 18px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;
+  font-weight:500;background:#FBF5E6;
+  transition:background 0.2s;user-select:none;
+  gap:10px;font-family:'Crimson Pro',serif;
+}
+.exercise-question:hover{background:#F0E0CE}
+.exercise-question .arrow{
+  font-size:1.1rem;transition:transform 0.3s;color:var(--accent);
+  flex-shrink:0;
+}
+.exercise-item.open .exercise-question .arrow{transform:rotate(90deg)}
+.exercise-answer{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.4s ease,padding 0.3s;
+}
+.exercise-item.open .exercise-answer{
+  max-height:900px;padding:14px 18px;
+}
+.exercise-answer-inner{
+  background:linear-gradient(135deg,#F0E0CE,#FBF5E6);
+  border-radius:8px;padding:14px 16px;
+  color:var(--text);font-size:0.97rem;
+  border-left:4px solid var(--accent);
+  font-family:'Crimson Pro',serif;line-height:1.75;
+}
+
+/* ─── FILL-IN-BLANK ─── */
+.fill-item{
+  border:1px solid var(--border);border-radius:10px;
+  margin:8px 0;overflow:hidden;
+}
+.fill-question{
+  padding:12px 16px;cursor:pointer;
+  background:#FBF5E6;font-weight:500;
+  display:flex;justify-content:space-between;align-items:center;
+  transition:background 0.2s;gap:10px;
+  font-family:'Crimson Pro',serif;
+}
+.fill-question:hover{background:#F0E0CE}
+.fill-answer{
+  max-height:0;overflow:hidden;transition:max-height 0.4s ease;
+}
+.fill-item.open .fill-answer{
+  max-height:400px;padding:12px 16px;
+}
+.fill-answer-inner{
+  background:linear-gradient(135deg,#F0E0CE,#FBF5E6);
+  border-radius:8px;padding:12px 14px;
+  font-size:0.95rem;border-left:4px solid var(--accent);
+  font-family:'Crimson Pro',serif;line-height:1.7;
+}
+.fill-answer-inner strong{color:var(--primary);font-weight:700}
+
+/* ─── WORD BOX ─── */
+.word-box{
+  background:linear-gradient(135deg,#FFE8C7,#FFF3D6);
+  border:1px dashed var(--highlight-border);
+  border-radius:10px;padding:10px 14px;margin:10px 0 14px;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:0.88rem;
+  color:var(--text-light);
+}
+.word-box strong{color:var(--primary);font-weight:700}
+.word-box .wb-word{
+  display:inline-block;background:var(--card);color:var(--accent-dark);
+  padding:2px 8px;margin:3px;border-radius:4px;font-weight:600;
+  border:1px solid var(--highlight-border);
+}
+
+/* ─── FOOTER ─── */
+.site-footer{
+  background:linear-gradient(135deg,#2B0810,#7A1E36);
+  color:rgba(251,241,224,0.7);text-align:center;
+  padding:18px 20px;font-size:0.78rem;
+  margin-top:20px;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:0.3px;
+}
+.site-footer a{color:#E8C264;text-decoration:none;font-weight:500}
+.site-footer a:hover{text-decoration:underline}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:640px){
+  .site-header h1{font-size:1.9rem}
+  .container{padding:16px 10px 40px}
+  .section-card{padding:18px 14px}
+  .section-card h2{font-size:1.35rem}
+  .dialogue-block{padding:16px 18px}
+  .d-speaker{min-width:70px;font-size:0.85rem}
+  .d-text{font-size:0.98rem}
+  #meaningPopup{min-width:260px;padding:14px 18px}
+  .vocab-table,.match-table{font-size:0.82rem}
+  .vocab-table td,.vocab-table th,.match-table td,.match-table th{padding:6px 8px}
+  .toolbar{gap:6px;padding:8px 10px}
+  .toolbar button{padding:6px 12px;font-size:0.82rem}
+  .nav-jump-grid{grid-template-columns:1fr}
+  #scrollTopBtn{width:42px;height:42px;right:16px;bottom:80px;font-size:1.1rem}
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.section-card{animation:fadeInUp 0.5s ease both}
+.section-card:nth-child(2){animation-delay:0.04s}
+.section-card:nth-child(3){animation-delay:0.08s}
+.section-card:nth-child(4){animation-delay:0.12s}
+.section-card:nth-child(5){animation-delay:0.16s}
+.section-card:nth-child(6){animation-delay:0.20s}
+.section-card:nth-child(7){animation-delay:0.24s}
+.section-card:nth-child(8){animation-delay:0.28s}
+.section-card:nth-child(9){animation-delay:0.32s}
+.section-card:nth-child(10){animation-delay:0.36s}
+</style>
+</head>
+<body>
+
+<!-- ═══════ HEADER ═══════ -->
+<header class="site-header" id="top">
+  <h1>A Noisy Party</h1>
+  <div class="subtitle">Unit 17 — A Late-Night Comedy of Suspicion</div>
+  <div class="meta">
+    <span>Grade 9</span>•<span>English</span>•<span>Unit 17</span>•<span>Dialogue (pp. 217–219)</span>
+  </div>
+</header>
+
+<!-- ═══════ TOOLBAR ═══════ -->
+<div class="toolbar">
+  <button class="btn-font" onclick="changeFontSize(-1)">A−</button>
+  <button class="btn-font" onclick="changeFontSize(1)">A+</button>
+  <button class="btn-download" onclick="downloadHTML()">⬇ Download HTML</button>
+</div>
+
+<!-- ═══════ SCROLL TO TOP ═══════ -->
+<button id="scrollTopBtn" onclick="scrollToTop()" title="Go to top">⬆</button>
+
+<!-- ═══════ MAIN ═══════ -->
+<div class="container">
+
+<!-- ──── NAV JUMP LINKS ──── -->
+<div class="nav-jump">
+  <h2>📑 Quick Navigation — Jump to Section</h2>
+  <div class="nav-jump-grid">
+    <a href="#reading"><span class="nav-icon">📖</span> The Dialogue</a>
+    <a href="#vocab"><span class="nav-icon">📘</span> Difficult Words</a>
+    <a href="#exercise-a"><span class="nav-icon">✅</span> Exercise A — Matching</a>
+    <a href="#exercise-b"><span class="nav-icon">🔘</span> Exercise B — MCQs</a>
+    <a href="#exercise-c"><span class="nav-icon">✅</span> Exercise C — T / F / NG</a>
+    <a href="#short-questions"><span class="nav-icon">➕</span> Short Questions</a>
+    <a href="#true-false"><span class="nav-icon">➕</span> Extra True / False</a>
+    <a href="#fill-blanks"><span class="nav-icon">➕</span> Fill in the Blanks</a>
+  </div>
+</div>
+
+<!-- ──── READING TEXT ──── -->
+<div class="section-card" id="reading">
+  <h2><span class="section-icon">📖</span> Full Reading Text</h2>
+  <p class="intro-note">Click any highlighted word to see its English and Nepali meaning in the popup.</p>
+
+  <div class="dialogue-block">
+
+    <div class="stage-dir">( It is 1:30 at night. Ramila wakes up due to loud noise from the neighbours' house. )</div>
+
+    <div class="d-line">
+      <span class="d-speaker">Ramila :</span>
+      <span class="d-text">Hey, Silu's Papa! Wake up!</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Ramesh :</span>
+      <span class="d-text">Eh! What? What's the <span class="hw" onclick="showMeaning('matter','a situation that you must deal with','विषय / समस्या / मामला')">matter</span>? It can't be eight o'clock already.</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Ramila :</span>
+      <span class="d-text">No, it's half past one. It's those people <span class="hw" onclick="showMeaning('next door','in the house or room next to yours','छिमेकी / बगलको घरका')">next door</span> again. Listen.</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Ramesh :</span>
+      <span class="d-text">Oh, yes. I think they are having another party.</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Ramila :</span>
+      <span class="d-text">Listen to that. I'm sure they are waking up the whole street. Nobody can sleep through that noise. It's <span class="hw" onclick="showMeaning('disgusting','extremely unpleasant or horrible','अत्यन्त घिनलाग्दो / झिइँकदो')">disgusting</span>! Somebody should call the police! Hey, wake up!</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Ramesh :</span>
+      <span class="d-text">Eh! I wasn't asleep dear. I'm pretty sure that they are laughing. They must be having a good time! They never <span class="hw" onclick="showMeaning('invite','to ask someone to come to an event or gathering','निम्त्याउनु / आमन्त्रण गर्नु')">invite</span> us, do they?</span>
+    </div>
+
+    <div class="stage-dir">( After some time )</div>
+
+    <div class="d-line">
+      <span class="d-speaker">Ramila :</span>
+      <span class="d-text">Silu's Papa!</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Ramesh :</span>
+      <span class="d-text">Yes, dear. What is it now?</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Ramila :</span>
+      <span class="d-text">Listen! They are leaving.</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Ramesh :</span>
+      <span class="d-text">Thank goodness for that! Maybe we will get some sleep.</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Ramila :</span>
+      <span class="d-text">I hope so. It's nearly three o'clock. Goodnight dear.</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Ramesh :</span>
+      <span class="d-text">Oh, hell! What's that? They are having a <span class="hw" onclick="showMeaning('row','a noisy quarrel or loud argument','झगडा / कलह / तर्क')">row</span> now.</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Ramila :</span>
+      <span class="d-text">I'm not <span class="hw" onclick="showMeaning('surprised','feeling of unexpectedness; astonished','अचम्मित / छक्क परेको')">surprised</span>. They always have rows after parties.</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Ramesh :</span>
+      <span class="d-text">I'm <span class="hw" onclick="showMeaning('certain','completely sure about something','पक्का / निश्चित')">certain</span> that they are throwing pots and pans again.</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Ramila :</span>
+      <span class="d-text">No, I'm sure that was a plate dear, maybe the TV. They'll be sorry in the morning.</span>
+    </div>
+
+    <div class="stage-dir">( After some time )</div>
+
+    <div class="d-line">
+      <span class="d-speaker">Ramila :</span>
+      <span class="d-text">Silu's Papa! Listen. There's someone in the garden next door.</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Ramesh :</span>
+      <span class="d-text">Eh! It must be the <span class="hw" onclick="showMeaning('milkman','a person who delivers milk to houses','दूध बेच्ने / दूधवाला')">milkman</span>.</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Ramila :</span>
+      <span class="d-text">No. I am <span class="hw" onclick="showMeaning('certain','completely sure about something','पक्का / निश्चित')">certain</span> it's not him. It's too early. Who could it be? You'd better have a look.</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Ramesh :</span>
+      <span class="d-text"><span class="hw" onclick="showMeaning('Gosh','an exclamation showing surprise or shock','अरे बाबा! / अचम्म! / ओहो!')">Gosh</span>! It's Mr Dahal and there is no doubt that he's carrying a <span class="hw" onclick="showMeaning('spade','a tool with a long handle and a flat blade used for digging','फावडा / खुर्पा')">spade</span>.</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Ramila :</span>
+      <span class="d-text">Oh, no! You don't think he has killed her, do you?</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Ramesh :</span>
+      <span class="d-text">If he's killed her, he might be <span class="hw" onclick="showMeaning('burying','putting something under the ground','गाड्दै / दफन गर्दै')">burying</span> the body.</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Ramila :</span>
+      <span class="d-text">What? You don't think so, do you?</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Ramesh :</span>
+      <span class="d-text">He can't be planting potatoes, can he? Shall I call the police?</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Ramila :</span>
+      <span class="d-text">No, ask him what he's doing first!</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Ramesh :</span>
+      <span class="d-text">Hello, there, Mr Dahal. You are up early this morning.</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Dahal :</span>
+      <span class="d-text">I haven't been to bed yet. We had a party last night. I hope we didn't keep you <span class="hw" onclick="showMeaning('awake','not sleeping; alert and conscious','ब्यूँझिएको / निद्रा नलागेको')">awake</span>.</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Ramesh :</span>
+      <span class="d-text">Oh, no. We didn't hear anything, nothing at all.</span>
+    </div>
+    <div class="d-line">
+      <span class="d-speaker">Dahal :</span>
+      <span class="d-text">Well, it was a pretty noisy party. My wife <span class="hw" onclick="showMeaning('knocked over','hit something accidentally causing it to fall','ठक्कर दिएर ढाल्नु / उल्टाउनु')">knocked over</span> the <span class="hw" onclick="showMeaning('goldfish','a small orange or red fish kept as a pet','सुनमाछा (पालिने माछा)')">goldfish</span> tank while we were <span class="hw" onclick="showMeaning('clearing up','tidying or cleaning a place after an event','सफा गर्नु / मिलाउनु')">clearing up</span>. The poor fish died. I'm just burying them before the children wake up.</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ──── VOCABULARY ──── -->
+<div class="section-card" id="vocab">
+  <h2><span class="section-icon">📘</span> Difficult Words — English &amp; Nepali Meanings</h2>
+  <table class="vocab-table">
+    <thead>
+      <tr><th>No.</th><th>Word / Phrase</th><th>English Meaning</th><th>नेपाली अर्थ</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>matter</td><td>a situation that must be dealt with; a problem</td><td>विषय / समस्या / मामला</td></tr>
+      <tr><td>2</td><td>next door</td><td>in the adjacent house or room</td><td>छिमेकी / बगलको घरका</td></tr>
+      <tr><td>3</td><td>disgusting</td><td>extremely unpleasant or horrible</td><td>घिनलाग्दो / अत्यन्त खराब</td></tr>
+      <tr><td>4</td><td>invite</td><td>to ask someone to attend or come somewhere</td><td>निम्त्याउनु / आमन्त्रण गर्नु</td></tr>
+      <tr><td>5</td><td>row</td><td>a noisy argument or quarrel</td><td>झगडा / कलह / तर्क</td></tr>
+      <tr><td>6</td><td>surprised</td><td>feeling of unexpectedness; astonished</td><td>अचम्मित / छक्क परेको</td></tr>
+      <tr><td>7</td><td>certain</td><td>completely sure about something</td><td>पक्का / निश्चित</td></tr>
+      <tr><td>8</td><td>milkman</td><td>a person who delivers milk to houses</td><td>दूधवाला / दूध बेच्ने मान्छे</td></tr>
+      <tr><td>9</td><td>Gosh</td><td>an exclamation of surprise or shock</td><td>ओहो! / अरे! / अचम्म!</td></tr>
+      <tr><td>10</td><td>spade</td><td>a tool with a long handle and flat blade, used for digging</td><td>फावडा / खुर्पा</td></tr>
+      <tr><td>11</td><td>burying</td><td>putting a dead body or object under the ground</td><td>गाड्नु / दफन गर्नु</td></tr>
+      <tr><td>12</td><td>goldfish</td><td>a small orange or red fish kept as a pet</td><td>सुनमाछा (पालिने माछा)</td></tr>
+      <tr><td>13</td><td>knocked over</td><td>accidentally hit something so that it falls</td><td>ठक्कर दिएर ढाल्नु / उल्टाउनु</td></tr>
+      <tr><td>14</td><td>clearing up</td><td>tidying or cleaning a place after an event</td><td>सफा गर्नु / मिलाउनु</td></tr>
+      <tr><td>15</td><td>awake</td><td>not sleeping; alert and conscious</td><td>ब्यूँझिएको / निद्रा नलागेको</td></tr>
+      <tr><td>16</td><td>suspect</td><td>to think something is likely or true without proof</td><td>शंका गर्नु / अनुमान लगाउनु</td></tr>
+      <tr><td>17</td><td>disturb</td><td>to interrupt or trouble someone</td><td>बाधा दिनु / असुविधा दिनु</td></tr>
+      <tr><td>18</td><td>pretty (adv.)</td><td>quite; fairly (informal)</td><td>एकदमै / निकै (अनौपचारिक)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ──── EXERCISE A — MATCHING ──── -->
+<div class="section-card" id="exercise-a">
+  <h2><span class="section-icon">✅</span> Exercise A — Match the Words with Their Meanings</h2>
+  <table class="match-table">
+    <thead>
+      <tr><th>No.</th><th>Word</th><th></th><th>Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>a.</td><td>matter</td><td>→</td><td>a situation that you must deal with</td></tr>
+      <tr><td>b.</td><td>disgusting</td><td>→</td><td>unpleasant, horrible</td></tr>
+      <tr><td>c.</td><td>row</td><td>→</td><td>noisy quarrel</td></tr>
+      <tr><td>d.</td><td>gosh</td><td>→</td><td>expression of surprise</td></tr>
+      <tr><td>e.</td><td>goldfish</td><td>→</td><td>a small orange or red fish</td></tr>
+      <tr><td>f.</td><td>bury</td><td>→</td><td>to put something under the ground</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ──── EXERCISE B — MCQs ──── -->
+<div class="section-card" id="exercise-b">
+  <h2><span class="section-icon">🔘</span> Exercise B — Choose the Correct Answer (Click to reveal)</h2>
+
+  <div class="mcq-item" onclick="toggleMCQ(this)">
+    <div class="mcq-question">
+      <span>a. What is the relationship between Ramila and Ramesh?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="mcq-answer">
+      <div class="mcq-answer-inner">
+        <ul class="mcq-opts">
+          <li>i. friends</li>
+          <li>ii. brother and sister</li>
+          <li class="correct">iii. husband and wife</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="mcq-item" onclick="toggleMCQ(this)">
+    <div class="mcq-question">
+      <span>b. Who is woken up by the noise?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="mcq-answer">
+      <div class="mcq-answer-inner">
+        <ul class="mcq-opts">
+          <li>i. Silu</li>
+          <li>ii. Silu's father</li>
+          <li class="correct">iii. Silu's mother</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="mcq-item" onclick="toggleMCQ(this)">
+    <div class="mcq-question">
+      <span>c. Why is Ramila certain that it's not the milkman in their neighbour's garden?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="mcq-answer">
+      <div class="mcq-answer-inner">
+        <ul class="mcq-opts">
+          <li>i. because their neighbours never get milk delivered to their house</li>
+          <li class="correct">ii. because it's too early for a milkman to deliver milk</li>
+          <li>iii. because the man is carrying a spade</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="mcq-item" onclick="toggleMCQ(this)">
+    <div class="mcq-question">
+      <span>d. What do Ramesh and Ramila suspect about Mr Dahal?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="mcq-answer">
+      <div class="mcq-answer-inner">
+        <ul class="mcq-opts">
+          <li>i. They think he has killed the fish.</li>
+          <li>ii. They think he has broken plates and glasses.</li>
+          <li class="correct">iii. They think he has killed Mrs Dahal.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="mcq-item" onclick="toggleMCQ(this)">
+    <div class="mcq-question">
+      <span>e. What was Mr Dahal actually doing in the garden?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="mcq-answer">
+      <div class="mcq-answer-inner">
+        <ul class="mcq-opts">
+          <li class="correct">i. He was burying the dead fish.</li>
+          <li>ii. He was burying the dead body.</li>
+          <li>iii. He was planting potatoes.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="mcq-item" onclick="toggleMCQ(this)">
+    <div class="mcq-question">
+      <span>f. What was the party like last night?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="mcq-answer">
+      <div class="mcq-answer-inner">
+        <ul class="mcq-opts">
+          <li>i. It was quiet.</li>
+          <li class="correct">ii. It was noisy.</li>
+          <li>iii. It was violent.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="mcq-item" onclick="toggleMCQ(this)">
+    <div class="mcq-question">
+      <span>g. Who had broken the goldfish tank?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="mcq-answer">
+      <div class="mcq-answer-inner">
+        <ul class="mcq-opts">
+          <li>i. Mr Dahal</li>
+          <li class="correct">ii. Mrs Dahal</li>
+          <li>iii. the guest</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── EXERCISE C — T/F/NG ──── -->
+<div class="section-card" id="exercise-c">
+  <h2><span class="section-icon">✅</span> Exercise C — True / False / Not Given (Click to reveal)</h2>
+
+  <div class="tfn-item" onclick="toggleTFN(this)">
+    <div class="tfn-question">
+      <span>a. Silu is the daughter of Ramesh and Ramila.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tfn-answer">
+      <div class="tfn-answer-inner">
+        <span class="verdict true">TRUE</span> Ramila calls Ramesh "Silu's Papa", so Silu is their child.
+      </div>
+    </div>
+  </div>
+
+  <div class="tfn-item" onclick="toggleTFN(this)">
+    <div class="tfn-question">
+      <span>b. Ramesh and Ramila are disturbed by the first noise at midnight.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tfn-answer">
+      <div class="tfn-answer-inner">
+        <span class="verdict false">FALSE</span> It was half past one (1:30 AM), not midnight.
+      </div>
+    </div>
+  </div>
+
+  <div class="tfn-item" onclick="toggleTFN(this)">
+    <div class="tfn-question">
+      <span>c. The Dahals have a good relationship with their neighbours.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tfn-answer">
+      <div class="tfn-answer-inner">
+        <span class="verdict ng">NOT GIVEN</span> The text does not mention how good their relationship is.
+      </div>
+    </div>
+  </div>
+
+  <div class="tfn-item" onclick="toggleTFN(this)">
+    <div class="tfn-question">
+      <span>d. The Dahals always quarrel after parties.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tfn-answer">
+      <div class="tfn-answer-inner">
+        <span class="verdict true">TRUE</span> Ramila says "They always have rows after parties."
+      </div>
+    </div>
+  </div>
+
+  <div class="tfn-item" onclick="toggleTFN(this)">
+    <div class="tfn-question">
+      <span>e. Ramesh and Ramila called the police to arrest Mr Dahal.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tfn-answer">
+      <div class="tfn-answer-inner">
+        <span class="verdict false">FALSE</span> Ramila stopped Ramesh from calling the police and said to ask him first.
+      </div>
+    </div>
+  </div>
+
+  <div class="tfn-item" onclick="toggleTFN(this)">
+    <div class="tfn-question">
+      <span>f. Mr Dahal wants his children to know about the death of the fish.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tfn-answer">
+      <div class="tfn-answer-inner">
+        <span class="verdict false">FALSE</span> He was burying the fish <em>before</em> the children woke up, so they would not know.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── SHORT QUESTIONS ──── -->
+<div class="section-card" id="short-questions">
+  <h2><span class="section-icon">❓</span> Short Answer Questions</h2>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>1. Why did Ramila and Ramesh wake up in the middle of the night?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        Ramila and Ramesh woke up because of the <strong>loud noise</strong> coming from their neighbours' (the Dahals') party. The noise was so disturbing that nobody could sleep through it.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>2. What did Ramesh and Ramila suspect when they saw Mr Dahal carrying a spade?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        They suspected that Mr Dahal had <strong>killed his wife (Mrs Dahal)</strong> and was trying to bury her body in the garden at night.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>3. What was the actual reason Mr Dahal was in his garden at night?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        Mr Dahal was <strong>burying his dead goldfish</strong>. His wife had accidentally knocked over the goldfish tank while clearing up after the party, and the fish had died.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>4. Why did Ramesh lie to Mr Dahal about hearing the party noise?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        Ramesh said "We didn't hear anything, nothing at all" to be <strong>polite and avoid embarrassing Mr Dahal</strong>, even though they had actually been disturbed the whole night.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>5. What does this dialogue teach us about suspicion and misunderstanding between neighbours?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The dialogue teaches us that we should <strong>not jump to conclusions</strong>. Ramesh and Ramila wrongly suspected something terrible. A simple, innocent act (burying dead fish) was misunderstood as a crime. We should clarify before suspecting.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── EXTRA TRUE / FALSE ──── -->
+<div class="section-card" id="true-false">
+  <h2><span class="section-icon">➕</span> Extra True / False</h2>
+
+  <div class="tfn-item" onclick="toggleTFN(this)">
+    <div class="tfn-question">
+      <span>1. Mr Dahal had invited Ramesh and Ramila to the party.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tfn-answer">
+      <div class="tfn-answer-inner">
+        <span class="verdict false">FALSE</span> Ramesh even says "They never invite us, do they?"
+      </div>
+    </div>
+  </div>
+
+  <div class="tfn-item" onclick="toggleTFN(this)">
+    <div class="tfn-question">
+      <span>2. According to Ramila, the noise was disturbing the entire street.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tfn-answer">
+      <div class="tfn-answer-inner">
+        <span class="verdict true">TRUE</span> She says "I'm sure they are waking up the whole street."
+      </div>
+    </div>
+  </div>
+
+  <div class="tfn-item" onclick="toggleTFN(this)">
+    <div class="tfn-question">
+      <span>3. Ramesh was fully awake when Ramila first called him.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tfn-answer">
+      <div class="tfn-answer-inner">
+        <span class="verdict false">FALSE</span> He was asleep. Ramila had to wake him up.
+      </div>
+    </div>
+  </div>
+
+  <div class="tfn-item" onclick="toggleTFN(this)">
+    <div class="tfn-question">
+      <span>4. Mrs Dahal knocked over the goldfish tank while clearing up after the party.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tfn-answer">
+      <div class="tfn-answer-inner">
+        <span class="verdict true">TRUE</span> Mr Dahal clearly explains this at the end of the dialogue.
+      </div>
+    </div>
+  </div>
+
+  <div class="tfn-item" onclick="toggleTFN(this)">
+    <div class="tfn-question">
+      <span>5. Mr Dahal was aware that his party had disturbed the neighbours.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tfn-answer">
+      <div class="tfn-answer-inner">
+        <span class="verdict true">TRUE</span> He says "I hope we didn't keep you awake" and admits it was a pretty noisy party.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── FILL IN THE BLANKS ──── -->
+<div class="section-card" id="fill-blanks">
+  <h2><span class="section-icon">📝</span> Vocabulary Fill in the Blanks</h2>
+  <div class="word-box">
+    <strong>Word Box:</strong>
+    <span class="wb-word">disgusting</span>
+    <span class="wb-word">row</span>
+    <span class="wb-word">gosh</span>
+    <span class="wb-word">spade</span>
+    <span class="wb-word">burying</span>
+    <span class="wb-word">goldfish</span>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>1. The party was so loud that Ramila thought it was ____.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        The party was so loud that Ramila thought it was <strong>disgusting</strong>.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>2. After the party, the neighbours had a ____ and started throwing things.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        After the party, the neighbours had a <strong>row</strong> and started throwing things.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>3. Ramesh exclaimed "____!" when he saw Mr Dahal carrying a spade.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        Ramesh exclaimed "<strong>Gosh</strong>!" when he saw Mr Dahal carrying a spade.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>4. Mr Dahal was carrying a ____ in the garden late at night.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        Mr Dahal was carrying a <strong>spade</strong> in the garden late at night.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>5. He was ____ the dead fish in his garden.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        He was <strong>burying</strong> the dead fish in his garden.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>6. The ____ tank was knocked over during the party.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        The <strong>goldfish</strong> tank was knocked over during the party.
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- ═══════ MEANING POPUP ═══════ -->
+<div id="meaningPopup">
+  <button class="popup-close" onclick="closePopup()">&times;</button>
+  <div class="popup-word" id="popupWord"></div>
+  <div class="popup-meaning">
+    <span class="popup-en" id="popupEnglish"></span>
+    <span class="popup-ne" id="popupNepali"></span>
+  </div>
+</div>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="site-footer">
+  N.REGMI &nbsp;|&nbsp; <a href="mailto:nregmi511@gmail.com">nregmi511@gmail.com</a>
+  &nbsp;|&nbsp; Grade 9 English — Unit 17 — A Noisy Party (Dialogue)
+</footer>
+
+<!-- ═══════ JAVASCRIPT ═══════ -->
+<script>
+// ─── Font Size Control ───
+const MIN_F=13,MAX_F=26;
+let fontSize=17;
+function changeFontSize(d){
+  fontSize=Math.max(MIN_F,Math.min(MAX_F,fontSize+d));
+  document.documentElement.style.setProperty('--font-size-base',fontSize+'px');
+}
+
+// ─── Meaning Popup ───
+function showMeaning(word,en,ne){
+  document.getElementById('popupWord').textContent=word;
+  document.getElementById('popupEnglish').textContent='EN: '+en;
+  document.getElementById('popupNepali').textContent='NE: '+ne;
+  document.getElementById('meaningPopup').classList.add('show');
+}
+function closePopup(){
+  document.getElementById('meaningPopup').classList.remove('show');
+}
+document.addEventListener('click',function(e){
+  const popup=document.getElementById('meaningPopup');
+  if(!e.target.closest('.hw')&&!e.target.closest('#meaningPopup')){
+    popup.classList.remove('show');
+  }
+});
+
+// ─── MCQ Toggle ───
+function toggleMCQ(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.mcq-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── T/F/NG Toggle ───
+function toggleTFN(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.tfn-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── Exercise Toggle ───
+function toggleExercise(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.exercise-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── Fill-in-Blank Toggle ───
+function toggleFill(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.fill-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── Scroll to Top Button ───
+const scrollBtn=document.getElementById('scrollTopBtn');
+window.addEventListener('scroll',function(){
+  if(window.scrollY>400){
+    scrollBtn.classList.add('show');
+  }else{
+    scrollBtn.classList.remove('show');
+  }
+});
+function scrollToTop(){
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ─── Download HTML ───
+function downloadHTML(){
+  const html=document.documentElement.outerHTML;
+  const blob=new Blob([html],{type:'text/html;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='A_Noisy_Party_Interactive.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

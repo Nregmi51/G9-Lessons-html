@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sports – Grade 9 English Unit 16</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── design system ── */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #C0392B;
+      --primary-light: #E74C3C;
+      --primary-dark: #922B21;
+      --accent: #F39C12;
+      --accent-light: #F1C40F;
+      --correct: #2ECC71;
+      --incorrect: #E74C3C;
+      --bg: #FDF2F2;
+      --card-bg: #FFFFFF;
+      --text-dark: #1C1C1C;
+      --text-body: #2C3E50;
+      --text-muted: #5D6D7E;
+      --border: #F0D0D0;
+      --highlight-bg: #FEF9E7;
+      --highlight-border: #F39C12;
+      --nepali-accent: #8E44AD;
+      --font-size-base: 17px;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(192,57,43,0.08);
+      --shadow-lg: 0 12px 40px rgba(192,57,43,0.14);
+    }
+
+    body {
+      font-family: 'Poppins', 'Noto Sans SC', sans-serif;
+      background: var(--bg);
+      color: var(--text-body);
+      font-size: var(--font-size-base);
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* ── TOOLBAR ── */
+    .toolbar {
+      position: fixed;
+      top: 0; left: 0; width: 100%; z-index: 1000;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 24px;
+      box-shadow: 0 4px 20px rgba(192,57,43,0.3);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .toolbar-left { display: flex; align-items: center; gap: 16px; }
+    .toolbar-title { font-size: 15px; font-weight: 600; letter-spacing: 0.3px; }
+    .toolbar-title span { opacity: 0.7; font-weight: 400; }
+    .toolbar-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+    .font-btn {
+      width: 38px; height: 38px; border-radius: 10px;
+      border: 2px solid rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.1);
+      color: white;
+      font-size: 18px; font-weight: 700;
+      cursor: pointer; transition: 0.2s;
+      font-family: 'Poppins', sans-serif;
+    }
+    .font-btn:hover { background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.5); transform: scale(1.08); }
+    .font-size-display { font-size: 13px; font-weight: 600; min-width: 38px; text-align: center; background: rgba(255,255,255,0.15); padding: 6px 10px; border-radius: 8px; }
+    .download-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 18px; border-radius: 10px; border: none;
+      background: rgba(255,255,255,0.2); color: white;
+      font-size: 13px; font-weight: 600; cursor: pointer; transition: 0.2s;
+      font-family: 'Poppins', sans-serif;
+    }
+    .download-btn:hover { background: rgba(255,255,255,0.35); transform: translateY(-1px); }
+
+    /* ── SCROLL TO TOP ── */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 9999;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: 2px solid rgba(255,255,255,0.3);
+      font-size: 26px;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(192,57,43,0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+    }
+    #scrollTopBtn.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #scrollTopBtn:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 8px 30px rgba(192,57,43,0.55);
+      background: linear-gradient(135deg, var(--accent), #D4AC0D);
+    }
+    #scrollTopBtn:active { transform: scale(0.92); }
+
+    /* ── MAIN ── */
+    .main-content { max-width: 860px; margin: 0 auto; padding: 80px 24px 60px; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #7B241C, #C0392B, #E74C3C);
+      border-radius: 20px; padding: 48px 40px; color: white; margin-bottom: 36px;
+      position: relative; overflow: hidden; box-shadow: 0 12px 40px rgba(192,57,43,0.25);
+    }
+    .hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: rgba(255,255,255,0.06); border-radius: 50%; }
+    .hero::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 150px; height: 150px; background: rgba(255,255,255,0.04); border-radius: 50%; }
+    .hero-grade { display: inline-block; padding: 5px 16px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 30px; font-size: 12px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 16px; }
+    .hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; position: relative; z-index: 1; }
+    .hero-sub { font-size: 15px; opacity: 0.85; font-weight: 400; position: relative; z-index: 1; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 20px; position: relative; z-index: 1; }
+    .hero-meta-item { display: flex; align-items: center; gap: 6px; font-size: 13px; opacity: 0.85; background: rgba(255,255,255,0.1); padding: 5px 14px; border-radius: 20px; }
+
+    /* ── NAV PILLS ── */
+    .nav-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .nav-pill {
+      padding: 8px 18px; border-radius: 30px; background: white; border: 1px solid var(--border);
+      font-size: 13px; font-weight: 600; color: var(--text-muted); cursor: pointer; transition: 0.2s;
+      font-family: 'Poppins', sans-serif; text-decoration: none;
+    }
+    .nav-pill:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+    /* ── SECTION CARDS ── */
+    .section-card {
+      background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border);
+      padding: 36px 32px; margin-bottom: 28px; box-shadow: var(--shadow);
+      transition: box-shadow 0.3s;
+    }
+    .section-card:hover { box-shadow: var(--shadow-lg); }
+
+    .section-heading {
+      font-size: 24px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-heading .icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;
+    }
+    .icon-reading { background: #FADBD8; color: #C0392B; }
+    .icon-words { background: #FEF9E7; color: #F39C12; }
+    .icon-exercise { background: #D5F5E3; color: #27AE60; }
+    .icon-fill { background: #EBDEF0; color: #8E44AD; }
+    .icon-tf { background: #FDEBD0; color: #E67E22; }
+    .icon-short { background: #D6EAF8; color: #2980B9; }
+    .icon-extra { background: #F5EEF8; color: #8E44AD; }
+
+    .section-subtitle { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; font-weight: 400; }
+
+    /* ── READING PASSAGE ── */
+    .passage { font-size: inherit; line-height: 2; color: var(--text-body); }
+    .passage p { margin-bottom: 18px; text-align: justify; }
+    .passage p:last-child { margin-bottom: 0; }
+
+    .hw {
+      background: var(--highlight-bg); border-bottom: 2px solid var(--highlight-border);
+      padding: 1px 6px; border-radius: 4px; cursor: pointer; font-weight: 600;
+      color: #7A5D00; transition: all 0.2s; display: inline;
+    }
+    .hw:hover { background: #FDE68A; transform: scale(1.02); }
+    .hw::after { content: '📖'; font-size: 11px; position: relative; top: -4px; margin-left: 2px; }
+
+    /* ── POPUP ── */
+    .meaning-popup {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(120%);
+      width: 94%; max-width: 520px; background: white; border-radius: 18px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.05);
+      z-index: 2000; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s;
+      opacity: 0; overflow: hidden;
+    }
+    .meaning-popup.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+    .popup-header { background: linear-gradient(135deg, #F39C12, #D4AC0D); color: white; padding: 14px 22px; display: flex; align-items: center; justify-content: space-between; }
+    .popup-word { font-size: 20px; font-weight: 700; }
+    .popup-close { width: 30px; height: 30px; border-radius: 50%; border: none; background: rgba(255,255,255,0.25); color: white; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s; font-family: 'Poppins', sans-serif; }
+    .popup-close:hover { background: rgba(255,255,255,0.4); }
+    .popup-body { padding: 18px 22px; display: flex; flex-direction: column; gap: 12px; }
+    .popup-meaning-row { display: flex; align-items: flex-start; gap: 12px; }
+    .popup-label { flex-shrink: 0; padding: 4px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; }
+    .popup-label.en { background: #DBEAFE; color: #1D4ED8; }
+    .popup-label.ne { background: #EDE9FE; color: #6D28D9; }
+    .popup-meaning-text { font-size: 16px; line-height: 1.5; padding-top: 2px; }
+    .popup-nepali { font-size: 17px; color: var(--nepali-accent); font-weight: 500; }
+
+    /* ── WORD TABLE ── */
+    .word-table-wrapper { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); }
+    .word-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .word-table thead { background: linear-gradient(135deg, #FEF9E7, #FDEBD0); }
+    .word-table th { padding: 14px 18px; text-align: left; font-weight: 700; color: #7A5D00; font-size: 13px; text-transform: uppercase; letter-spacing: 0.8px; border-bottom: 2px solid #F39C12; }
+    .word-table td { padding: 12px 18px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .word-table tr:last-child td { border-bottom: none; }
+    .word-table tr:hover td { background: #FEF9E7; }
+    .word-table .word-cell { font-weight: 700; color: var(--primary-dark); cursor: pointer; }
+    .word-table .word-cell:hover { text-decoration: underline; }
+    .word-table .nepali-cell { color: var(--nepali-accent); font-weight: 500; }
+
+    /* ── EXERCISE ITEMS ── */
+    .exercise-item {
+      background: #FDF2F2; border: 1px solid var(--border); border-radius: 12px;
+      margin-bottom: 14px; overflow: hidden; transition: all 0.2s;
+    }
+    .exercise-item:hover { border-color: #E6B0AA; }
+
+    .exercise-question {
+      padding: 16px 20px; cursor: pointer; display: flex; align-items: flex-start; gap: 14px;
+      transition: background 0.2s; user-select: none;
+    }
+    .exercise-question:hover { background: #FDEDEC; }
+
+    .exercise-q-number {
+      flex-shrink: 0; width: 30px; height: 30px; border-radius: 8px;
+      background: var(--primary); color: white; display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; margin-top: 1px;
+    }
+    .exercise-q-text { flex: 1; font-weight: 500; color: var(--text-dark); line-height: 1.6; }
+    .exercise-toggle {
+      flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+      background: #E6B0AA; display: flex; align-items: center; justify-content: center;
+      font-size: 16px; color: var(--text-muted); transition: all 0.3s; margin-top: 1px;
+    }
+    .exercise-item.open .exercise-toggle { background: var(--correct); color: white; transform: rotate(180deg); }
+
+    .exercise-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .exercise-item.open .exercise-answer { max-height: 500px; }
+
+    .exercise-answer-inner {
+      padding: 0 20px 18px; margin-left: 44px;
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    .answer-badge {
+      flex-shrink: 0; padding: 4px 12px; border-radius: 6px;
+      font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px;
+    }
+    .badge-answer { background: #D5F5E3; color: #1E8449; }
+    .badge-true { background: #D5F5E3; color: #1E8449; }
+    .badge-false { background: #FADBD8; color: #922B21; }
+    .answer-text { font-size: 15px; color: var(--text-body); line-height: 1.7; }
+
+    .box-words {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;
+      padding: 16px; background: #FDEDEC; border-radius: 12px; border: 1px dashed #E6B0AA;
+    }
+    .box-word { padding: 6px 16px; background: white; border: 1px solid #E6B0AA; border-radius: 8px; font-weight: 600; color: var(--primary); font-size: 14px; }
+
+    .blank-slot {
+      display: inline-block; min-width: 100px; border-bottom: 2px dashed var(--primary);
+      padding: 2px 4px; font-weight: 700; color: var(--primary); background: #FDEDEC; border-radius: 4px 4px 0 0;
+    }
+
+    .click-hint {
+      display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px;
+      background: #FDEDEC; border: 1px solid #E6B0AA; border-radius: 10px;
+      font-size: 13px; color: var(--primary); font-weight: 500; margin-bottom: 20px;
+    }
+
+    .extra-section { border-left: 4px solid var(--primary); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .main-content { padding: 72px 14px 40px; }
+      .section-card { padding: 24px 18px; }
+      .hero { padding: 32px 22px; }
+      .hero h1 { font-size: 24px; }
+      .toolbar { padding: 8px 14px; }
+      .toolbar-title { font-size: 12px; }
+      .meaning-popup { width: 96%; bottom: 12px; }
+      #scrollTopBtn { width: 48px; height: 48px; font-size: 22px; bottom: 20px; right: 20px; }
+    }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body>
+
+<!-- ===== TOOLBAR ===== -->
+<div class="toolbar">
+  <div class="toolbar-left">
+    <div class="toolbar-title">Grade 9 · English <span>| Unit 16: Sports</span></div>
+  </div>
+  <div class="toolbar-right">
+    <button class="font-btn" onclick="changeFontSize(-1)" title="Decrease font size">A−</button>
+    <div class="font-size-display" id="fontDisplay">17px</div>
+    <button class="font-btn" onclick="changeFontSize(1)" title="Increase font size">A+</button>
+    <button class="download-btn" onclick="downloadHTML()" title="Download this page">⬇ Save</button>
+  </div>
+</div>
+
+<!-- ===== SCROLL TO TOP ===== -->
+<button id="scrollTopBtn" onclick="scrollToTop()" title="Go to top">⬆</button>
+
+<!-- ===== MEANING POPUP ===== -->
+<div class="meaning-popup" id="meaningPopup">
+  <div class="popup-header">
+    <span class="popup-word" id="popupWord">Word</span>
+    <button class="popup-close" onclick="closePopup()">✕</button>
+  </div>
+  <div class="popup-body">
+    <div class="popup-meaning-row">
+      <span class="popup-label en">English</span>
+      <span class="popup-meaning-text" id="popupEnglish">—</span>
+    </div>
+    <div class="popup-meaning-row">
+      <span class="popup-label ne">नेपाली</span>
+      <span class="popup-meaning-text popup-nepali" id="popupNepali">—</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN ===== -->
+<div class="main-content">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-grade">Grade 9 · Unit 16 · Games and Sports</div>
+    <h1>Sports</h1>
+    <div class="hero-sub">Pages 205–207 · Non-fiction / Informational Text</div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">📖 Reading Passage</div>
+      <div class="hero-meta-item">📝 20+ Vocabulary Words</div>
+      <div class="hero-meta-item">✅ Interactive Exercises</div>
+    </div>
+  </div>
+
+  <!-- NAV PILLS -->
+  <div class="nav-pills">
+    <a class="nav-pill" href="#reading">📖 Reading</a>
+    <a class="nav-pill" href="#wordlist">📝 Word List</a>
+    <a class="nav-pill" href="#exerciseA">✍ Exercise A</a>
+    <a class="nav-pill" href="#exerciseB">✓ Exercise B</a>
+    <a class="nav-pill" href="#exerciseC">✎ Exercise C</a>
+    <a class="nav-pill" href="#extraSA">💡 Extra SA</a>
+    <a class="nav-pill" href="#extraTF">🔍 Extra T/F</a>
+    <a class="nav-pill" href="#extraFill">🧩 Extra Fill</a>
+  </div>
+
+  <!-- ===== READING ===== -->
+  <div class="section-card" id="reading">
+    <div class="section-heading">
+      <div class="icon icon-reading">📖</div>
+      Sports — A Universal Activity
+    </div>
+    <div class="section-subtitle">Click any highlighted word to see its meaning</div>
+    <div class="click-hint">💡 Tap <span class="hw" style="cursor:default;">highlighted words</span> for meanings — popup stays until you close it.</div>
+
+    <div class="passage">
+      <p>There are many different kinds of sports that are <span class="hw" onclick="showMeaning('undertaken','carried out, performed','गरिएको')">undertaken</span> by a wide variety of different people. Some people do sport for their <span class="hw" onclick="showMeaning('career','a job or profession that someone does for a long time','पेशा')">career</span> and other people purely do sport for enjoyment and <span class="hw" onclick="showMeaning('recreation','activity done for fun and relaxation','मनोरञ्जन')">recreation</span>. Some sports, like cricket, require the use of a lot of <span class="hw" onclick="showMeaning('equipment','tools or items needed for a sport','सामग्री')">equipment</span>, while others need very little in order to successfully play a game in that sport. Some people use public playing fields to play sport for free, while other sports such as squash, tennis, badminton and table tennis are usually paid for on an hourly basis in the comfort of a local <span class="hw" onclick="showMeaning('leisure','free time','फुर्सद')">leisure</span> centre.</p>
+
+      <p>Most sports are played with a round object often known as a ball. Some sports use more than one ball and snooker is one of the <span class="hw" onclick="showMeaning('unique','being the only one of its kind','अनौठो')">unique</span> sports that make use of a number of balls while being played. The game itself is often controlled by an <span class="hw" onclick="showMeaning('impartial','treating everyone fairly and equally','निष्पक्ष')">impartial</span> individual known as an <span class="hw" onclick="showMeaning('umpire','a referee who controls a cricket game','अम्पायर')">umpire</span> in cricket and a <span class="hw" onclick="showMeaning('referee','a person who controls a football/rugby game','रेफरी')">referee</span> in sports like football and rugby. Most sports have a <span class="hw" onclick="showMeaning('duration','the length of time something lasts','अवधि')">duration</span> of not more than a few hours, however some athletic <span class="hw" onclick="showMeaning('tournaments','a series of games or competitions','प्रतियोगिता')">tournaments</span> can last for up to a week and a game of cricket can be five days in duration before a winner is announced.</p>
+
+      <p>Some people prefer to watch sports. This can either be done by going to a <span class="hw" onclick="showMeaning('stadium','a large sports ground with seats for spectators','रंगशाला')">stadium</span>, a local leisure centre, park or on television. It is often cheaper to watch sports from the comfort of a person's home than to visit the stadium or a special event. Some sports, such as football and cricket, are really popular in the United Kingdom but not in the USA. In the USA people often play basketball and baseball. However, most countries put aside time to compete in world sporting events such as the football world cup or the <span class="hw" onclick="showMeaning('Olympics','international multi-sport event held every four years','ओलम्पिक')">Olympics</span>, which occur every four years.</p>
+
+      <p>Nowadays, people who have any kind of <span class="hw" onclick="showMeaning('disability','a physical or mental condition that limits a person\'s ability','अपाङ्गता')">disability</span> also <span class="hw" onclick="showMeaning('participate','take part','भाग लिन्छन्')">participate</span> in sports and most sport equipment is <span class="hw" onclick="showMeaning('adapted','changed to suit a new purpose or person','अनुकूलित')">adapted</span> to suit the needs of the <span class="hw" onclick="showMeaning('disabled','people who have a disability','अपाङ्ग')">disabled</span> person. This means sport is something that can be enjoyed no matter the physical <span class="hw" onclick="showMeaning('nature','character or type','प्रकृति')">nature</span> of the person. The <span class="hw" onclick="showMeaning('Para-olympics','Olympic-style games for disabled athletes','पारा-ओलम्पिक')">Para-olympics</span> takes place a week after the main event and it is equally popular. <span class="hw" onclick="showMeaning('Participation','the act of taking part','सहभागिता')">Participation</span> in sporting activity is encouraged by doctors and schools. It is for this reason and the <span class="hw" onclick="showMeaning('competitive','involving competition','प्रतिस्पर्धात्मक')">competitive</span> nature of individuals that sport remains a very popular activity worldwide.</p>
+    </div>
+  </div>
+
+  <!-- ===== WORD LIST ===== -->
+  <div class="section-card" id="wordlist">
+    <div class="section-heading">
+      <div class="icon icon-words">📝</div>
+      Word Meaning List
+    </div>
+    <div class="section-subtitle">Click any word to see its meaning in the popup</div>
+
+    <div class="word-table-wrapper">
+      <table class="word-table">
+        <thead><tr><th>#</th><th>Word</th><th>English Meaning</th><th>नेपाली अर्थ</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="word-cell" onclick="showMeaning('undertaken','carried out, performed','गरिएको')">undertaken</td><td>carried out, performed</td><td class="nepali-cell">गरिएको</td></tr>
+          <tr><td>2</td><td class="word-cell" onclick="showMeaning('career','a profession done for a long time','पेशा')">career</td><td>a profession done for a long time</td><td class="nepali-cell">पेशा</td></tr>
+          <tr><td>3</td><td class="word-cell" onclick="showMeaning('recreation','fun activity done in free time','मनोरञ्जन')">recreation</td><td>fun activity done in free time</td><td class="nepali-cell">मनोरञ्जन</td></tr>
+          <tr><td>4</td><td class="word-cell" onclick="showMeaning('equipment','tools or items needed for a task','सामग्री')">equipment</td><td>tools or items needed for a task</td><td class="nepali-cell">सामग्री</td></tr>
+          <tr><td>5</td><td class="word-cell" onclick="showMeaning('leisure','free time away from work','फुर्सद')">leisure</td><td>free time away from work</td><td class="nepali-cell">फुर्सद</td></tr>
+          <tr><td>6</td><td class="word-cell" onclick="showMeaning('unique','being the only one of its kind','अनौठो')">unique</td><td>being the only one of its kind</td><td class="nepali-cell">अनौठो</td></tr>
+          <tr><td>7</td><td class="word-cell" onclick="showMeaning('impartial','fair and not favouring either side','निष्पक्ष')">impartial</td><td>fair and not favouring either side</td><td class="nepali-cell">निष्पक्ष</td></tr>
+          <tr><td>8</td><td class="word-cell" onclick="showMeaning('umpire','cricket referee','अम्पायर')">umpire</td><td>cricket referee</td><td class="nepali-cell">अम्पायर</td></tr>
+          <tr><td>9</td><td class="word-cell" onclick="showMeaning('referee','football/rugby game controller','रेफरी')">referee</td><td>football/rugby game controller</td><td class="nepali-cell">रेफरी</td></tr>
+          <tr><td>10</td><td class="word-cell" onclick="showMeaning('duration','length of time','अवधि')">duration</td><td>length of time</td><td class="nepali-cell">अवधि</td></tr>
+          <tr><td>11</td><td class="word-cell" onclick="showMeaning('tournaments','a series of competitions','प्रतियोगिता')">tournaments</td><td>a series of competitions</td><td class="nepali-cell">प्रतियोगिता</td></tr>
+          <tr><td>12</td><td class="word-cell" onclick="showMeaning('stadium','large ground for sports with seats','रंगशाला')">stadium</td><td>large ground for sports with seats</td><td class="nepali-cell">रंगशाला</td></tr>
+          <tr><td>13</td><td class="word-cell" onclick="showMeaning('Olympics','international sports event every 4 years','ओलम्पिक')">Olympics</td><td>international sports event every 4 years</td><td class="nepali-cell">ओलम्पिक</td></tr>
+          <tr><td>14</td><td class="word-cell" onclick="showMeaning('disability','condition limiting physical/mental ability','अपाङ्गता')">disability</td><td>condition limiting physical/mental ability</td><td class="nepali-cell">अपाङ्गता</td></tr>
+          <tr><td>15</td><td class="word-cell" onclick="showMeaning('participate','to take part in something','भाग लिनु')">participate</td><td>to take part in something</td><td class="nepali-cell">भाग लिनु</td></tr>
+          <tr><td>16</td><td class="word-cell" onclick="showMeaning('adapted','changed to suit new needs','अनुकूलित')">adapted</td><td>changed to suit new needs</td><td class="nepali-cell">अनुकूलित</td></tr>
+          <tr><td>17</td><td class="word-cell" onclick="showMeaning('disabled','people with physical/mental limitations','अपाङ्ग')">disabled</td><td>people with physical/mental limitations</td><td class="nepali-cell">अपाङ्ग</td></tr>
+          <tr><td>18</td><td class="word-cell" onclick="showMeaning('Para-olympics','Olympic games for disabled athletes','पारा-ओलम्पिक')">Para-olympics</td><td>Olympic games for disabled athletes</td><td class="nepali-cell">पारा-ओलम्पिक</td></tr>
+          <tr><td>19</td><td class="word-cell" onclick="showMeaning('Participation','act of taking part','सहभागिता')">Participation</td><td>act of taking part</td><td class="nepali-cell">सहभागिता</td></tr>
+          <tr><td>20</td><td class="word-cell" onclick="showMeaning('competitive','involving or showing competition','प्रतिस्पर्धात्मक')">competitive</td><td>involving or showing competition</td><td class="nepali-cell">प्रतिस्पर्धात्मक</td></tr>
+          <tr><td>21</td><td class="word-cell" onclick="showMeaning('nature','character or type','प्रकृति')">nature</td><td>character or type</td><td class="nepali-cell">प्रकृति</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE A: FILL IN THE BLANKS ===== -->
+  <div class="section-card" id="exerciseA">
+    <div class="section-heading">
+      <div class="icon icon-fill">✍</div>
+      Exercise A — Fill in the Blanks
+    </div>
+    <div class="section-subtitle">Click each question to reveal the correct answer</div>
+
+    <div class="box-words">
+      <span class="box-word">impartial</span>
+      <span class="box-word">career</span>
+      <span class="box-word">adapted</span>
+      <span class="box-word">recreation</span>
+      <span class="box-word">unique</span>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">As a monitor, I must remain __________. I should not support one person more than another.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>impartial</strong> — As a monitor, I must remain <strong>impartial</strong>.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">My plan is to pursue a __________ in medicine.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>career</strong> — My plan is to pursue a <strong>career</strong> in medicine.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">The school __________ the classroom doorway to allow wheelchair users' easy access.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>adapted</strong> — The school <strong>adapted</strong> the classroom doorway.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">We need a sports club in our school for __________.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>recreation</strong> — We need a sports club in our school for <strong>recreation</strong>.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">He is very different from all of us. He is the most __________ person I've ever seen.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>unique</strong> — He is the most <strong>unique</strong> person I've ever seen.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE B: MULTIPLE CHOICE ===== -->
+  <div class="section-card" id="exerciseB">
+    <div class="section-heading">
+      <div class="icon icon-exercise">✓</div>
+      Exercise B — Choose the Correct Answer
+    </div>
+    <div class="section-subtitle">Click each question to reveal the correct answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">Which sport requires the use of a lot of equipment?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>iii. cricket</strong> — Cricket requires a lot of equipment.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">What sport is popular in the United Kingdom?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>ii. cricket</strong> — Cricket is very popular in the UK.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">What sport can last longer than a day in duration?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>iv. cricket</strong> — Cricket can last five days.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">Which of the following information is stated in the first paragraph?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>iii. objectives of doing sports</strong> — The first paragraph discusses why people do sports.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">Which paragraph states the benefits of sports?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>iv. fourth</strong> — The fourth paragraph talks about the benefits of sports and encourages participation.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE C: SHORT ANSWERS ===== -->
+  <div class="section-card" id="exerciseC">
+    <div class="section-heading">
+      <div class="icon icon-short">✎</div>
+      Exercise C — Answer the Following Questions
+    </div>
+    <div class="section-subtitle">Click each question to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">Why do people do sports?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">People do sports for various reasons — some do it for their career or profession, while others do it purely for enjoyment and recreation.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">What is common about most sports?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Most sports are played with a round object commonly known as a ball.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">What is the main quality of an umpire or a referee in sports?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">An umpire or referee must be impartial, meaning they treat all players fairly and equally without favouring either side.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">Is watching sports at home beneficial? How?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Yes, it is beneficial because it is cheaper than visiting a stadium or special event. People can enjoy sports from the comfort of their own home.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">Why is sports equipment adapted for people with disabilities?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Sports equipment is adapted so that people with disabilities can also participate in sports. This ensures that sports can be enjoyed by everyone regardless of their physical condition.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">f</div>
+        <div class="exercise-q-text">Why do doctors encourage people to do sports?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Doctors encourage people to participate in sporting activities because sports promote physical health and fitness, and they help people stay active and healthy.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXTRA: SHORT QUESTIONS ===== -->
+  <div class="section-card extra-section" id="extraSA">
+    <div class="section-heading">
+      <div class="icon icon-extra">💡</div>
+      Additional Short Questions
+    </div>
+    <div class="section-subtitle">Click each question to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">What is the difference between an umpire and a referee?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">An umpire controls cricket games, while a referee controls football and rugby games.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">Name any two sports that are popular in the USA.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Basketball and baseball are popular sports in the USA.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">What are the Para-olympics?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">The Para-olympics are Olympic-style games for disabled athletes. They take place a week after the main Olympics.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">How often are the Olympics held?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">The Olympics are held every four years.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">Why is snooker considered a unique sport?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Snooker is considered unique because it uses a number of balls while being played, unlike most sports that use only one ball.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXTRA: TRUE/FALSE ===== -->
+  <div class="section-card extra-section" id="extraTF">
+    <div class="section-heading">
+      <div class="icon icon-extra">🔍</div>
+      Additional True / False
+    </div>
+    <div class="section-subtitle">Click each statement to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">Sports can only be enjoyed by physically fit people.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">Sports can be enjoyed by everyone, including people with disabilities, as equipment can be adapted.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">Cricket can last up to five days before a winner is announced.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">A game of cricket can be five days in duration before a winner is announced.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">Watching sports at a stadium is usually cheaper than watching at home.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">It is often cheaper to watch sports from the comfort of home than to visit a stadium.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">The Para-olympics is held two weeks after the main Olympics.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">The Para-olympics takes place a week after the main event, not two weeks.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">Both doctors and schools encourage participation in sports.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">Participation in sports is encouraged by doctors and schools.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXTRA: FILL IN THE BLANKS ===== -->
+  <div class="section-card extra-section" id="extraFill">
+    <div class="section-heading">
+      <div class="icon icon-extra">🧩</div>
+      Contextual Fill-in-the-Blanks
+    </div>
+    <div class="section-subtitle">Click each question to reveal the correct answer</div>
+
+    <div class="box-words">
+      <span class="box-word">impartial</span>
+      <span class="box-word">recreation</span>
+      <span class="box-word">adapted</span>
+      <span class="box-word">duration</span>
+      <span class="box-word">disability</span>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">The __________ of the football match was ninety minutes.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>duration</strong> — The <strong>duration</strong> of the football match was ninety minutes.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">Sita has a __________ that limits her ability to walk.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>disability</strong> — Sita has a <strong>disability</strong> that limits her ability to walk.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">The school __________ its library to welcome students with special needs.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>adapted</strong> — The school <strong>adapted</strong> its library to welcome students with special needs.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">Playing chess is a good form of __________ during the holidays.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>recreation</strong> — Playing chess is a good form of <strong>recreation</strong> during the holidays.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">A judge must always be __________ while making a decision.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>impartial</strong> — A judge must always be <strong>impartial</strong> while making a decision.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main-content -->
+
+<script>
+  // ── Font Size ──
+  let fontSize = 17;
+  const MIN_F = 12, MAX_F = 28;
+  function changeFontSize(delta) {
+    fontSize = Math.max(MIN_F, Math.min(MAX_F, fontSize + delta));
+    document.documentElement.style.setProperty('--font-size-base', fontSize + 'px');
+    document.getElementById('fontDisplay').textContent = fontSize + 'px';
+    const d = document.getElementById('fontDisplay');
+    d.style.transform = 'scale(1.2)';
+    setTimeout(() => d.style.transform = 'scale(1)', 200);
+  }
+
+  // ── Meaning Popup ──
+  function showMeaning(word, english, nepali) {
+    const popup = document.getElementById('meaningPopup');
+    document.getElementById('popupWord').textContent = word;
+    document.getElementById('popupEnglish').textContent = english;
+    document.getElementById('popupNepali').textContent = nepali;
+    popup.classList.add('show');
+  }
+  function closePopup() {
+    document.getElementById('meaningPopup').classList.remove('show');
+  }
+  document.addEventListener('click', function(e) {
+    const popup = document.getElementById('meaningPopup');
+    if (!e.target.closest('.hw') && !e.target.closest('.word-cell') && !e.target.closest('#meaningPopup')) {
+      popup.classList.remove('show');
+    }
+  });
+
+  // ── Exercise Toggle ──
+  function toggleExercise(item) {
+    const parent = item.closest('.section-card');
+    const all = parent.querySelectorAll('.exercise-item');
+    const isOpen = item.classList.contains('open');
+    all.forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ── Scroll to Top ──
+  const scrollBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 400) {
+      scrollBtn.classList.add('show');
+    } else {
+      scrollBtn.classList.remove('show');
+    }
+  });
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── Download ──
+  function downloadHTML() {
+    const html = document.documentElement.outerHTML;
+    const blob = new Blob(['<!DOCTYPE html>\n' + html], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'Sports_Interactive.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+</script>
+
+</body>
+</html>

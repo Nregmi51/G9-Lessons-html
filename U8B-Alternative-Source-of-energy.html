@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 9 English – The Alternative Energy Sources</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@400;700&display=swap');
+
+  :root {
+    --bg: #f0f7ff;
+    --card: #ffffff;
+    --primary: #1a73e8;
+    --primary-dark: #1558b0;
+    --accent: #00b894;
+    --accent2: #fdcb6e;
+    --accent3: #e17055;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #dde4f0;
+    --highlight-bg: #fff3cd;
+    --highlight-border: #f0a500;
+    --popup-bg: #1e293b;
+    --popup-text: #f8fafc;
+    --font-size: 16px;
+    --radius: 12px;
+    --shadow: 0 4px 20px rgba(26,115,232,0.10);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: var(--font-size);
+    line-height: 1.8;
+    padding-bottom: 60px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 60%, #00b894 100%);
+    color: #fff;
+    padding: 28px 20px 22px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 16px rgba(26,115,232,0.25);
+  }
+  .header h1 {
+    font-size: 1.35em;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+    font-family: 'Merriweather', serif;
+  }
+  .header .meta {
+    font-size: 0.82em;
+    opacity: 0.88;
+    margin-top: 5px;
+  }
+
+  /* ── FONT SIZE TOGGLE ── */
+  .font-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .font-controls span { font-size: 0.8em; opacity: 0.9; }
+  .font-btn {
+    background: rgba(255,255,255,0.22);
+    color: #fff;
+    border: 1.5px solid rgba(255,255,255,0.45);
+    border-radius: 8px;
+    padding: 4px 14px;
+    font-size: 1.1em;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: 'Nunito', sans-serif;
+  }
+  .font-btn:hover { background: rgba(255,255,255,0.38); }
+
+  /* ── MAIN ── */
+  .container { max-width: 860px; margin: 0 auto; padding: 18px 14px; }
+
+  /* ── SECTION CARDS ── */
+  .section-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 22px;
+    overflow: hidden;
+    border: 1.5px solid var(--border);
+  }
+  .section-title {
+    padding: 14px 18px;
+    font-weight: 800;
+    font-size: 1.05em;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    letter-spacing: 0.2px;
+  }
+  .section-title .icon { font-size: 1.3em; }
+  .section-body { padding: 16px 18px 18px; }
+
+  /* Colors per section */
+  .s-info   .section-title { background: linear-gradient(90deg,#e3f0ff,#f0f7ff); color: #1a73e8; border-bottom: 2px solid #b3d4fb; }
+  .s-content .section-title { background: linear-gradient(90deg,#e6f9f2,#f0fff8); color: #00897b; border-bottom: 2px solid #a5d6cc; }
+  .s-words  .section-title { background: linear-gradient(90deg,#fff8e1,#fffde7); color: #e6a100; border-bottom: 2px solid #ffe082; }
+  .s-ex     .section-title { background: linear-gradient(90deg,#fce4ec,#fff0f3); color: #c62828; border-bottom: 2px solid #f48fb1; }
+  .s-extra  .section-title { background: linear-gradient(90deg,#ede7f6,#f5f0ff); color: #6a1b9a; border-bottom: 2px solid #ce93d8; }
+
+  /* ── INFO TABLE ── */
+  .info-table { width: 100%; border-collapse: collapse; }
+  .info-table td { padding: 7px 10px; border-bottom: 1px solid var(--border); font-size: 0.95em; }
+  .info-table td:first-child { font-weight: 700; color: var(--primary); width: 36%; }
+  .info-table tr:last-child td { border-bottom: none; }
+
+  /* ── CONTENT TEXT ── */
+  .content-text { line-height: 1.9; }
+  .content-text p { margin-bottom: 12px; }
+  .idea-heading {
+    background: linear-gradient(90deg, #1a73e8, #00b894);
+    color: #fff;
+    display: inline-block;
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-weight: 800;
+    font-size: 0.92em;
+    margin: 10px 0 8px;
+    letter-spacing: 0.3px;
+  }
+  .status-box {
+    background: #f0fff8;
+    border-left: 4px solid #00b894;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 8px 0 14px;
+    font-size: 0.95em;
+  }
+  .status-box strong { color: #00897b; }
+
+  /* ── HIGHLIGHTED WORDS ── */
+  .hw {
+    background: var(--highlight-bg);
+    border-bottom: 2px solid var(--highlight-border);
+    font-weight: 800;
+    color: #7b4700;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 0 2px;
+    position: relative;
+    transition: background 0.15s;
+  }
+  .hw:hover { background: #ffe082; }
+
+  /* ── POPUP ── */
+  .popup {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    background: var(--popup-bg);
+    color: var(--popup-text);
+    padding: 13px 18px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    font-size: 0.92em;
+    max-width: 280px;
+    pointer-events: none;
+    line-height: 1.6;
+  }
+  .popup .pop-word { font-weight: 800; font-size: 1.05em; color: #fdcb6e; margin-bottom: 5px; }
+  .popup .pop-np { color: #a8e6cf; font-weight: 700; }
+  .popup .pop-en { color: #dfe6e9; }
+  .popup .pop-label { font-size: 0.78em; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+
+  /* ── WORD LIST TABLE ── */
+  .word-table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+  .word-table th {
+    background: linear-gradient(90deg,#fff8e1,#fffde7);
+    color: #7b4700;
+    padding: 9px 10px;
+    text-align: left;
+    font-weight: 800;
+    border-bottom: 2px solid #ffe082;
+  }
+  .word-table td { padding: 8px 10px; border-bottom: 1px solid #fef9e7; vertical-align: top; }
+  .word-table tr:hover td { background: #fffde7; }
+  .word-table td:first-child { font-weight: 800; color: #7b4700; }
+  .word-table td:nth-child(2) { color: #00897b; font-weight: 700; }
+
+  /* ── EXERCISE SECTIONS ── */
+  .ex-sub {
+    font-weight: 800;
+    font-size: 1em;
+    color: #c62828;
+    margin: 18px 0 10px;
+    padding-left: 10px;
+    border-left: 4px solid #e17055;
+  }
+
+  /* Match table */
+  .match-table { width: 100%; border-collapse: collapse; font-size: 0.92em; }
+  .match-table th { background: #fce4ec; color: #c62828; padding: 8px 10px; text-align: left; font-weight: 800; }
+  .match-table td { padding: 8px 10px; border-bottom: 1px solid #fce4ec; vertical-align: top; }
+  .match-table td:first-child { font-weight: 700; width: 42%; }
+  .match-answer { color: #1a73e8; font-weight: 700; }
+
+  /* Antonym table */
+  .ant-table { width: 100%; border-collapse: collapse; font-size: 0.92em; }
+  .ant-table th { background: #fce4ec; color: #c62828; padding: 8px 10px; text-align: left; font-weight: 800; }
+  .ant-table td { padding: 8px 10px; border-bottom: 1px solid #fce4ec; }
+  .ant-table td:first-child { font-weight: 700; width: 40%; }
+  .ant-answer { color: #00897b; font-weight: 700; }
+
+  /* Q&A */
+  .qa-item { margin-bottom: 14px; }
+  .qa-q { font-weight: 700; color: #1e293b; margin-bottom: 4px; }
+  .qa-a {
+    background: #e8f5e9;
+    border-left: 4px solid #43a047;
+    padding: 8px 14px;
+    border-radius: 0 8px 8px 0;
+    color: #1b5e20;
+    font-size: 0.95em;
+  }
+
+  /* ── TOGGLE Q&A (True/False, Short Q, Fill) ── */
+  .tq-item { margin-bottom: 10px; }
+  .tq-btn {
+    width: 100%;
+    text-align: left;
+    background: #f8f9fa;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-size: inherit;
+    font-weight: 600;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .tq-btn:hover { background: #e8f4fd; border-color: #90caf9; }
+  .tq-btn .arrow { margin-left: auto; transition: transform 0.25s; font-size: 0.9em; color: var(--muted); }
+  .tq-btn.open { background: #e3f2fd; border-color: #1a73e8; color: #1a73e8; }
+  .tq-btn.open .arrow { transform: rotate(90deg); color: #1a73e8; }
+  .tq-ans {
+    display: none;
+    background: #e8f5e9;
+    border: 1.5px solid #a5d6a7;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    padding: 10px 16px;
+    color: #1b5e20;
+    font-size: 0.95em;
+    font-weight: 700;
+  }
+  .tq-ans.show { display: block; }
+
+  /* tf badges */
+  .badge-true { background: #43a047; color: #fff; padding: 2px 12px; border-radius: 20px; font-size: 0.85em; font-weight: 800; }
+  .badge-false { background: #e53935; color: #fff; padding: 2px 12px; border-radius: 20px; font-size: 0.85em; font-weight: 800; }
+
+  /* ── PREVIEW / COPY BUTTONS ── */
+  .action-bar {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 10px 0 18px;
+    flex-wrap: wrap;
+  }
+  .action-btn {
+    background: linear-gradient(135deg,#1a73e8,#0d47a1);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 22px;
+    font-size: 0.92em;
+    font-weight: 800;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 3px 10px rgba(26,115,232,0.25);
+    transition: opacity 0.2s, transform 0.1s;
+  }
+  .action-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+  .action-btn.green { background: linear-gradient(135deg,#00b894,#00897b); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: linear-gradient(135deg,#1a73e8,#0d47a1);
+    color: #fff;
+    text-align: center;
+    padding: 18px 14px;
+    margin-top: 24px;
+    font-size: 0.92em;
+  }
+  footer .name { font-weight: 900; font-size: 1.1em; letter-spacing: 0.3px; }
+  footer .phone { margin-top: 4px; opacity: 0.88; }
+
+  /* ── COPY MODAL ── */
+  #copy-modal {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 10000;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 10px;
+    overflow-y: auto;
+  }
+  #copy-modal.open { display: flex; }
+  .modal-box {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.28);
+  }
+  .modal-box h3 { font-size: 1em; font-weight: 800; color: #1a73e8; margin-bottom: 12px; }
+  #code-area {
+    width: 100%;
+    height: 340px;
+    font-family: monospace;
+    font-size: 0.78em;
+    border: 1.5px solid #dde4f0;
+    border-radius: 8px;
+    padding: 10px;
+    resize: vertical;
+    background: #f8f9fa;
+    color: #1e293b;
+  }
+  .modal-close {
+    position: absolute;
+    top: 14px; right: 16px;
+    background: #e53935;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 12px;
+    cursor: pointer;
+    font-weight: 800;
+    font-family: 'Nunito', sans-serif;
+  }
+  .copy-done { color: #00897b; font-weight: 700; font-size: 0.88em; margin-top: 8px; display: none; }
+
+  @media (max-width: 480px) {
+    .header h1 { font-size: 1.1em; }
+    .word-table, .match-table, .ant-table { font-size: 0.82em; }
+    .section-body { padding: 12px 12px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+  <div class="pop-word" id="pop-word"></div>
+  <div class="pop-label">Nepali Meaning</div>
+  <div class="pop-np" id="pop-np"></div>
+  <div class="pop-label">English Meaning</div>
+  <div class="pop-en" id="pop-en"></div>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+  <h1>⚡ The Alternative Energy Sources</h1>
+  <div class="meta">Grade 9 &nbsp;|&nbsp; English &nbsp;|&nbsp; Unit 8: Science &amp; Technology &nbsp;|&nbsp; Page 99–102</div>
+  <div class="font-controls">
+    <span>Font Size:</span>
+    <button class="font-btn" onclick="changeFont(-1)">A−</button>
+    <button class="font-btn" onclick="changeFont(0)">A</button>
+    <button class="font-btn" onclick="changeFont(1)">A+</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ACTION BAR -->
+  <div class="action-bar">
+    <button class="action-btn" onclick="openCopyModal()">📋 Copy HTML Code</button>
+    <button class="action-btn green" onclick="window.print()">🖨️ Print / Save PDF</button>
+  </div>
+
+  <!-- INFO -->
+  <div class="section-card s-info">
+    <div class="section-title"><span class="icon">📌</span> Note Details</div>
+    <div class="section-body">
+      <table class="info-table">
+        <tr><td>Grade</td><td>9</td></tr>
+        <tr><td>Subject</td><td>English</td></tr>
+        <tr><td>Unit</td><td>8 – Science and Technology</td></tr>
+        <tr><td>Topic</td><td>The Alternative Energy Sources</td></tr>
+        <tr><td>Page No.</td><td>99 – 102</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="section-card s-content">
+    <div class="section-title"><span class="icon">📖</span> Reading Text with Difficult Words</div>
+    <div class="section-body">
+      <p style="font-size:0.82em;color:#00897b;background:#e6f9f2;padding:8px 12px;border-radius:8px;margin-bottom:14px;">
+        💡 <strong>Tap / click any highlighted word</strong> to see its meaning in Nepali and English.
+      </p>
+      <div class="content-text">
+
+        <p>It will come as a surprise to no one that liquid <span class="hw" data-word="fossil" data-np="जीवाश्म" data-en="Remains of ancient organisms preserved in rock">fossil</span> <span class="hw" data-word="fuel" data-np="इन्धन" data-en="Material burned to produce energy">fuel</span> is a <span class="hw" data-word="finite" data-np="सीमित" data-en="Having a limit; not infinite">finite</span> resource. Sooner or later, all the Earth's oil <span class="hw" data-word="deposits" data-np="भण्डार" data-en="Natural accumulation of a mineral or resource in the ground">deposits</span> will dry up, and we'll be completely <span class="hw" data-word="dependent" data-np="निर्भर" data-en="Relying on something or someone else">dependent</span> upon <span class="hw" data-word="alternative" data-np="वैकल्पिक" data-en="Available as another option or choice">alternative</span> sources of energy. While many have <span class="hw" data-word="embraced" data-np="अँगाल्नु / स्वीकारेको" data-en="Accepted willingly and enthusiastically">embraced</span> traditional solar power, wind power, and hydropower, others are looking ahead to even cleaner and more <span class="hw" data-word="efficient" data-np="कुशल / दक्ष" data-en="Working well without wasting time or energy">efficient</span> alternatives. Here are the ones that hold a great deal of <span class="hw" data-word="potential" data-np="सम्भावना" data-en="The possibility of development or success in the future">potential</span>.</p>
+
+        <div class="idea-heading">💡 Idea I – Space-Based Solar Power</div>
+        <p>55–60% of all incoming solar energy does not make it through the Earth's <span class="hw" data-word="atmosphere" data-np="वायुमण्डल" data-en="The layer of gases surrounding the Earth">atmosphere</span>. In a space-based solar power system, <span class="hw" data-word="fleets" data-np="बेडाहरू" data-en="A group of satellites or vehicles moving together">fleets</span> of <span class="hw" data-word="satellites" data-np="उपग्रहरू" data-en="Objects placed in orbit around the Earth to collect or transmit signals">satellites</span> with large <span class="hw" data-word="reflectors" data-np="परावर्तकहरू" data-en="Surfaces that reflect light or radiation in a given direction">reflectors</span> or <span class="hw" data-word="inflatable" data-np="हावाले फुलाउन सकिने" data-en="Capable of being filled with air or gas">inflatable</span> mirrors could be spread out in space, directing solar <span class="hw" data-word="radiation" data-np="विकिरण" data-en="Energy emitted in the form of waves or particles">radiation</span> onto solar panels. The panels could <span class="hw" data-word="convert" data-np="रूपान्तरण गर्नु" data-en="Change from one form or use to another">convert</span> that solar power into <span class="hw" data-word="microwaves" data-np="माइक्रोवेभ" data-en="A type of electromagnetic wave used to transmit energy">microwaves</span> that continuously <span class="hw" data-word="beam" data-np="किरण पठाउनु" data-en="Send a signal or ray in a particular direction">beam</span> down to power-receiving stations on Earth, ensuring no energy is lost.</p>
+
+        <div class="status-box"><strong>📊 Status:</strong> In March 2015, the Japan <span class="hw" data-word="Aerospace" data-np="एयरोस्पेस" data-en="Relating to aviation and space technology">Aerospace</span> Exploration Agency (JAXA) revealed they had successfully converted 1.8 <span class="hw" data-word="kilowatts" data-np="किलोवाट" data-en="A unit of electrical power equal to 1000 watts">kilowatts</span> of electricity into microwaves, after which they <span class="hw" data-word="wirelessly" data-np="तारविहीन रूपमा" data-en="Without the use of wires or cables">wirelessly</span> beamed them a distance of 50 metres, providing the idea's <span class="hw" data-word="viability" data-np="व्यवहार्यता" data-en="The ability to work successfully in practice">viability</span>.</div>
+
+        <div class="idea-heading">💡 Idea II – Human Body Energy</div>
+        <p>Many experts believe the simplest way of generating <span class="hw" data-word="renewable" data-np="नवीकरणीय" data-en="Able to be naturally replaced; not running out">renewable</span> energy is through our own bodies. Devices now use much less power than before. <span class="hw" data-word="Harvesting" data-np="संग्रह गर्नु" data-en="Collecting or gathering energy from a source">Harvesting</span> just a <span class="hw" data-word="microwatt" data-np="माइक्रोवाट" data-en="One millionth of a watt, a very small unit of power">microwatt</span> of electricity would be enough to power many small electronic devices. To <span class="hw" data-word="harness" data-np="उपयोग गर्नु / नियन्त्रण गर्नु" data-en="Control and use the force or strength of something">harness</span> the energy we generate through our own movement, we would simply need to wear a system that collects and converts it.</p>
+
+        <div class="status-box"><strong>📊 Status:</strong> UK researchers have developed a knee <span class="hw" data-word="brace" data-np="घुँडाको सहारा" data-en="A device worn to support or protect a joint">brace</span> that collects <span class="hw" data-word="electrons" data-np="इलेक्ट्रन" data-en="Negatively charged subatomic particles that carry electricity">electrons</span> while you walk. As the wearer's knee bends, four metal <span class="hw" data-word="vanes" data-np="पालहरू / पंखाहरू" data-en="Flat blades that are moved by wind or water to generate energy">vanes</span> in the device <span class="hw" data-word="vibrate" data-np="कम्पन गर्नु" data-en="Move back and forth rapidly">vibrate</span> like a guitar string and produce electricity.</div>
+
+        <div class="idea-heading">💡 Idea III – Wave Energy</div>
+        <p>Wave energy is technically a form of stored wind energy, since waves are produced from winds which blow over the sea. It could be captured on the surface, below the surface, near-shore, <span class="hw" data-word="offshore" data-np="समुद्रतटबाट टाढा" data-en="At some distance from the shore, in the sea">offshore</span>, or far offshore. Wave energy is measured in kilowatts (KW) per metre of <span class="hw" data-word="coastline" data-np="समुद्री किनारा" data-en="The outline of a coast; the line where land meets the sea">coastline</span>; the US coastline has a wave energy potential of about 252 billion kWh per year.</p>
+
+        <div class="status-box"><strong>📊 Status:</strong> Five countries are already operating <span class="hw" data-word="viable" data-np="व्यवहार्य" data-en="Capable of working successfully and effectively">viable</span> wave power farms, with Portugal establishing the world's first <span class="hw" data-word="commercial-scale" data-np="व्यावसायिक स्तर" data-en="Large enough to be sold and run as a business">commercial-scale</span> wave farm in 2008. It has a total 2.25 MW installed <span class="hw" data-word="capacity" data-np="क्षमता" data-en="The maximum amount something can produce or contain">capacity</span>.</div>
+
+        <div class="idea-heading">💡 Idea IV – Hydrogen Energy</div>
+        <p>A <span class="hw" data-word="colourless" data-np="रंगहीन" data-en="Having no colour; transparent">colourless</span> and <span class="hw" data-word="odourless" data-np="गन्धहीन" data-en="Having no smell">odourless</span> gas, hydrogen, accounts for 76% of the <span class="hw" data-word="mass" data-np="द्रव्यमान" data-en="The quantity of matter that a body contains">mass</span> of the <span class="hw" data-word="universe" data-np="ब्रह्माण्ड" data-en="All existing matter, energy, and space as a whole">universe</span>. On earth, it is found only in <span class="hw" data-word="combination" data-np="संयोजन" data-en="The joining or mixing of two or more things">combination</span> with oxygen, carbon and nitrogen. To use hydrogen, it must be <span class="hw" data-word="separated" data-np="अलग गरिएको" data-en="Divided or moved apart from other things">separated</span> from the other <span class="hw" data-word="elements" data-np="तत्त्वहरू" data-en="Basic chemical substances that cannot be broken down further">elements</span>. Once it has, the gas <span class="hw" data-word="yields" data-np="उत्पादन गर्छ" data-en="Produces or provides a result, profit, or crop">yields</span> high energy while producing almost no <span class="hw" data-word="pollution" data-np="प्रदूषण" data-en="Contamination of the natural environment with harmful substances">pollution</span>.</p>
+
+        <div class="status-box"><strong>📊 Status:</strong> <span class="hw" data-word="Fuel cell" data-np="इन्धन सेल" data-en="A device that converts hydrogen into electricity through a chemical reaction">Fuel cell</span> devices that convert hydrogen to electricity are already being used to provide power for <span class="hw" data-word="vehicles" data-np="सवारी साधन" data-en="Machines used for transporting people or goods">vehicles</span>, aircraft, homes and buildings. Large <span class="hw" data-word="automakers" data-np="कार निर्माता कम्पनीहरू" data-en="Companies that manufacture automobiles">automakers</span> like Toyota, Honda and Hyundai have <span class="hw" data-word="invested" data-np="लगानी गरेका छन्" data-en="Put money or resources into something for future benefit">invested</span> heavily in the technology.</div>
+
+        <div class="idea-heading">💡 Idea V – Flying Wind Farm</div>
+        <p>On a flying wind farm, wind <span class="hw" data-word="turbines" data-np="टर्बाइनहरू" data-en="Machines with rotating blades that generate electricity using wind or water">turbines</span> float as high as <span class="hw" data-word="skyscrapers" data-np="गगनचुम्बी भवनहरू" data-en="Very tall buildings in a city">skyscrapers</span> (1,000 to 2,000 feet above ground) to capture <span class="hw" data-word="steadier" data-np="अझ स्थिर" data-en="More constant and regular; not varying much">steadier</span> winds that blow five to eight times stronger than winds at tower level. These turbines produce double the energy of similar sized tower-mounted turbines.</p>
+
+        <div class="status-box"><strong>📊 Status:</strong> Altaeros Energies has developed the first commercial <span class="hw" data-word="airborne" data-np="हवाई / हावामा तैरने" data-en="Operating in or transported by the air">airborne</span> wind turbine called <span class="hw" data-word="Buoyant" data-np="तैरने" data-en="Able to float in water or air">Buoyant</span> Air Turbine, a circular, 35-foot-long <span class="hw" data-word="inflatable" data-np="हावाले फुलाउन सकिने" data-en="Capable of being filled with air or gas">inflatable</span> shell, made of <span class="hw" data-word="heavy-duty" data-np="भारी काम गर्न सक्ने" data-en="Designed to withstand demanding conditions and heavy use">heavy-duty</span> fabric. It has a capacity of 30 kilowatts. It is completely <span class="hw" data-word="autonomous" data-np="स्वायत्त / स्वचालित" data-en="Able to operate independently without human control">autonomous</span>; it self-adjusts to <span class="hw" data-word="optimal" data-np="अनुकूलतम / सर्वोत्तम" data-en="Best or most favourable; most likely to lead to success">optimal</span> wind speeds and self-docks in <span class="hw" data-word="emergency" data-np="आपातकाल" data-en="A serious, unexpected, and dangerous situation requiring immediate action">emergency</span> cases.</div>
+
+        <div class="idea-heading">💡 Idea VI – Fusion Energy</div>
+        <p><span class="hw" data-word="Fusion" data-np="संलयन" data-en="The process of joining two atomic nuclei to release a large amount of energy">Fusion</span> is the same process that powers the Sun, and has potential to provide a nearly <span class="hw" data-word="inexhaustible" data-np="असीमित / कहिल्यै नसकिने" data-en="Impossible to use up completely; available in very large amounts">inexhaustible</span> supply of energy. It <span class="hw" data-word="emits" data-np="उत्सर्जन गर्छ" data-en="Sends out or releases light, heat, or gas">emits</span> no <span class="hw" data-word="pollutants" data-np="प्रदूषकहरू" data-en="Substances that cause pollution in the environment">pollutants</span> or <span class="hw" data-word="greenhouse gases" data-np="हरितगृह ग्यासहरू" data-en="Gases that trap heat in the atmosphere and cause global warming">greenhouse gases</span> and has no threat of nuclear <span class="hw" data-word="meltdown" data-np="परमाणु दुर्घटना" data-en="A severe accident in a nuclear reactor where fuel melts">meltdown</span> unlike current nuclear <span class="hw" data-word="fission" data-np="विखण्डन" data-en="The splitting of an atomic nucleus to release energy">fission</span> <span class="hw" data-word="reactors" data-np="रिएक्टरहरू" data-en="Devices in which nuclear reactions are initiated and controlled">reactors</span>. Fusion works by <span class="hw" data-word="fusing" data-np="जोड्ने / मिलाउने" data-en="Combining or joining two things together">fusing</span> two hydrogen <span class="hw" data-word="isotopes" data-np="आइसोटोपहरू" data-en="Forms of the same element with different numbers of neutrons">isotopes</span>, <span class="hw" data-word="deuterium" data-np="ड्यूटेरियम" data-en="A stable isotope of hydrogen with one neutron">deuterium</span> and <span class="hw" data-word="tritium" data-np="ट्रिटियम" data-en="A radioactive isotope of hydrogen with two neutrons">tritium</span>, which are <span class="hw" data-word="bountiful" data-np="प्रचुर / प्रशस्त" data-en="Present in large quantities; abundant">bountiful</span>.</p>
+
+        <div class="status-box"><strong>📊 Status:</strong> The <span class="hw" data-word="ITER" data-np="अन्तर्राष्ट्रिय थर्मोन्यूक्लियर प्रयोगात्मक रिएक्टर" data-en="International Thermonuclear Experimental Reactor">ITER</span> (International <span class="hw" data-word="Thermonuclear" data-np="थर्मोन्यूक्लियर" data-en="Relating to nuclear fusion reactions at very high temperatures">Thermonuclear</span> Experimental Reactor), being built in France and funded by seven countries, is set for <span class="hw" data-word="completion" data-np="समापन / पूरा हुने" data-en="The process of finishing or concluding something">completion</span> by 2027. It hopes to be the first commercially <span class="hw" data-word="demonstrated" data-np="प्रदर्शन गरिएको" data-en="Shown clearly by giving evidence or examples">demonstrated</span> fusion power station.</div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- WORD LIST -->
+  <div class="section-card s-words">
+    <div class="section-title"><span class="icon">📚</span> Vocabulary List with Meanings</div>
+    <div class="section-body">
+      <div style="overflow-x:auto;">
+      <table class="word-table">
+        <tr><th>Word</th><th>Nepali</th><th>English Meaning</th></tr>
+        <tr><td>fossil</td><td>जीवाश्म</td><td>Remains of ancient organisms preserved in rock</td></tr>
+        <tr><td>fuel</td><td>इन्धन</td><td>Material burned to produce energy</td></tr>
+        <tr><td>finite</td><td>सीमित</td><td>Having a limit; not infinite</td></tr>
+        <tr><td>deposits</td><td>भण्डार</td><td>Natural accumulation of a resource underground</td></tr>
+        <tr><td>dependent</td><td>निर्भर</td><td>Relying on something or someone</td></tr>
+        <tr><td>alternative</td><td>वैकल्पिक</td><td>Available as another option</td></tr>
+        <tr><td>embraced</td><td>अँगाल्नु</td><td>Accepted willingly and enthusiastically</td></tr>
+        <tr><td>efficient</td><td>कुशल / दक्ष</td><td>Working without waste of time or energy</td></tr>
+        <tr><td>potential</td><td>सम्भावना</td><td>Possibility of development or success</td></tr>
+        <tr><td>atmosphere</td><td>वायुमण्डल</td><td>The layer of gases surrounding the Earth</td></tr>
+        <tr><td>fleet</td><td>बेडा</td><td>A group of vehicles or satellites</td></tr>
+        <tr><td>inflatable</td><td>हावाले फुलाउन सकिने</td><td>Capable of being filled with air</td></tr>
+        <tr><td>radiation</td><td>विकिरण</td><td>Energy emitted in waves or particles</td></tr>
+        <tr><td>convert</td><td>रूपान्तरण गर्नु</td><td>Change from one form to another</td></tr>
+        <tr><td>microwaves</td><td>माइक्रोवेभ</td><td>Electromagnetic waves used to transmit energy</td></tr>
+        <tr><td>beam</td><td>किरण पठाउनु</td><td>Send a signal or ray in a direction</td></tr>
+        <tr><td>aerospace</td><td>एयरोस्पेस</td><td>Relating to aviation and space technology</td></tr>
+        <tr><td>viability</td><td>व्यवहार्यता</td><td>The ability to work successfully in practice</td></tr>
+        <tr><td>renewable</td><td>नवीकरणीय</td><td>Able to be naturally replaced; not running out</td></tr>
+        <tr><td>harvesting</td><td>संग्रह गर्नु</td><td>Collecting or gathering energy from a source</td></tr>
+        <tr><td>microwatt</td><td>माइक्रोवाट</td><td>One millionth of a watt</td></tr>
+        <tr><td>harness</td><td>उपयोग गर्नु</td><td>Control and use the force or strength of something</td></tr>
+        <tr><td>vane</td><td>पाल / पंखा</td><td>Flat blade moved by wind or water</td></tr>
+        <tr><td>vibrate</td><td>कम्पन गर्नु</td><td>Move back and forth rapidly</td></tr>
+        <tr><td>coastline</td><td>समुद्री किनारा</td><td>The outline of a coast</td></tr>
+        <tr><td>viable</td><td>व्यवहार्य</td><td>Capable of working successfully</td></tr>
+        <tr><td>colourless</td><td>रंगहीन</td><td>Having no colour</td></tr>
+        <tr><td>odourless</td><td>गन्धहीन</td><td>Having no smell</td></tr>
+        <tr><td>mass</td><td>द्रव्यमान</td><td>The quantity of matter in an object</td></tr>
+        <tr><td>universe</td><td>ब्रह्माण्ड</td><td>All existing matter, energy, and space</td></tr>
+        <tr><td>yields</td><td>उत्पादन गर्छ</td><td>Produces or provides a result or output</td></tr>
+        <tr><td>pollution</td><td>प्रदूषण</td><td>Contamination of the natural environment</td></tr>
+        <tr><td>fuel cell</td><td>इन्धन सेल</td><td>Device converting hydrogen into electricity</td></tr>
+        <tr><td>turbines</td><td>टर्बाइनहरू</td><td>Machines generating electricity via rotating blades</td></tr>
+        <tr><td>skyscrapers</td><td>গগनचुम्बी भवन</td><td>Very tall buildings</td></tr>
+        <tr><td>airborne</td><td>हवाई</td><td>Operating in or transported by the air</td></tr>
+        <tr><td>buoyant</td><td>तैरने</td><td>Able to float in water or air</td></tr>
+        <tr><td>autonomous</td><td>स्वायत्त / स्वचालित</td><td>Able to operate independently</td></tr>
+        <tr><td>optimal</td><td>अनुकूलतम</td><td>Best or most favourable</td></tr>
+        <tr><td>fusion</td><td>संलयन</td><td>Joining of atomic nuclei to release energy</td></tr>
+        <tr><td>inexhaustible</td><td>असीमित</td><td>Impossible to use up completely</td></tr>
+        <tr><td>emits</td><td>उत्सर्जन गर्छ</td><td>Sends out or releases energy or gas</td></tr>
+        <tr><td>pollutants</td><td>प्रदूषकहरू</td><td>Substances that cause pollution</td></tr>
+        <tr><td>greenhouse gases</td><td>हरितगृह ग्यासहरू</td><td>Gases that trap heat in the atmosphere</td></tr>
+        <tr><td>fission</td><td>विखण्डन</td><td>Splitting of an atomic nucleus to release energy</td></tr>
+        <tr><td>bountiful</td><td>प्रचुर / प्रशस्त</td><td>Present in large quantities; abundant</td></tr>
+        <tr><td>isotopes</td><td>आइसोटोपहरू</td><td>Forms of an element with different neutron numbers</td></tr>
+        <tr><td>thermonuclear</td><td>थर्मोन्यूक्लियर</td><td>Relating to nuclear fusion at high temperature</td></tr>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISES -->
+  <div class="section-card s-ex">
+    <div class="section-title"><span class="icon">✏️</span> Exercises (Solved)</div>
+    <div class="section-body">
+
+      <div class="ex-sub">A. Match the Words (Column A → Column B)</div>
+      <div style="overflow-x:auto;">
+      <table class="match-table">
+        <tr><th>Column A</th><th>Answer</th><th>Column B</th></tr>
+        <tr><td>a. fleet</td><td class="match-answer">→ iii</td><td>a group of something</td></tr>
+        <tr><td>b. inflatable</td><td class="match-answer">→ iv</td><td>capable of being filled with air</td></tr>
+        <tr><td>c. harness</td><td class="match-answer">→ vii</td><td>to control and use the force or strength of something</td></tr>
+        <tr><td>d. vane</td><td class="match-answer">→ i</td><td>a flat plane that is moved by wind</td></tr>
+        <tr><td>e. skyscraper</td><td class="match-answer">→ ii</td><td>a very tall building</td></tr>
+        <tr><td>f. fission</td><td class="match-answer">→ v</td><td>the act or process of splitting the nucleus of an atom</td></tr>
+        <tr><td>g. bountiful</td><td class="match-answer">→ vi</td><td>in large quantities</td></tr>
+      </table>
+      </div>
+
+      <div class="ex-sub">B. Antonyms from the Text</div>
+      <div style="overflow-x:auto;">
+      <table class="ant-table">
+        <tr><th>Word</th><th>Antonym from Text</th></tr>
+        <tr><td>endless</td><td class="ant-answer">finite</td></tr>
+        <tr><td>modern</td><td class="ant-answer">traditional</td></tr>
+        <tr><td>covered</td><td class="ant-answer">spread out</td></tr>
+        <tr><td>fragrant</td><td class="ant-answer">odourless</td></tr>
+        <tr><td>bound</td><td class="ant-answer">wirelessly</td></tr>
+        <tr><td>inadequate</td><td class="ant-answer">viable / sufficient</td></tr>
+      </table>
+      </div>
+
+      <div class="ex-sub">C. Match the Idea Numbers</div>
+      <div style="overflow-x:auto;">
+      <table class="match-table">
+        <tr><th>Column A</th><th>Answer</th><th>Column B</th></tr>
+        <tr><td>a. Idea I</td><td class="match-answer">→ iv</td><td>solar energy</td></tr>
+        <tr><td>b. Idea II</td><td class="match-answer">→ v</td><td>energy through body movement</td></tr>
+        <tr><td>c. Idea III</td><td class="match-answer">→ i</td><td>wave energy</td></tr>
+        <tr><td>d. Idea IV</td><td class="match-answer">→ ii</td><td>hydrogen energy</td></tr>
+        <tr><td>e. Idea V</td><td class="match-answer">→ vi</td><td>altaeros energy</td></tr>
+        <tr><td>f. Idea VI</td><td class="match-answer">→ iii</td><td>energy through the fusion process</td></tr>
+      </table>
+      </div>
+
+      <div class="ex-sub">D. Answer the Following Questions</div>
+
+      <div class="qa-item">
+        <div class="qa-q">a. How did JAXA prove the viability for the idea of space-based solar energy?</div>
+        <div class="qa-a">In March 2015, JAXA successfully converted 1.8 kilowatts of electricity into microwaves and wirelessly beamed them a distance of 50 metres, proving the idea's viability.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">b. What do we need to generate energy through our body movement?</div>
+        <div class="qa-a">We would need to wear a system that collects and converts the energy generated through our own body movement into electricity.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">c. In what way are Idea III and V similar?</div>
+        <div class="qa-a">Both Idea III (wave energy) and Idea V (flying wind farm) use natural forces — water waves and wind respectively — to generate electricity. Both are renewable energy forms derived indirectly from wind.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">d. How can hydrogen be used as the source of energy?</div>
+        <div class="qa-a">Hydrogen must first be separated from other elements like oxygen, carbon, and nitrogen. Once separated, it yields high energy and can be used in fuel cell devices to produce electricity for vehicles, aircraft, homes, and buildings.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">e. Why do floating turbines seem more effective than tower-mounted turbines?</div>
+        <div class="qa-a">Floating turbines operate at heights of 1,000 to 2,000 feet where winds are five to eight times stronger and steadier than at tower level, allowing them to produce double the energy of similar sized tower-mounted turbines.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">f. Why is the fusion process environmentally friendly?</div>
+        <div class="qa-a">Fusion emits no pollutants or greenhouse gases and has no threat of nuclear meltdown, making it a clean and safe source of energy.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">g. What does ITER stand for?</div>
+        <div class="qa-a">ITER stands for <strong>International Thermonuclear Experimental Reactor</strong>.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- EXTRA EXERCISES -->
+  <div class="section-card s-extra">
+    <div class="section-title"><span class="icon">🎯</span> Additional Exercises (Click to Reveal Answers)</div>
+    <div class="section-body">
+
+      <div class="ex-sub" style="color:#6a1b9a; border-color:#9c27b0;">I. Short Answer Questions</div>
+
+      <div class="tq-item">
+        <button class="tq-btn" onclick="toggleAns(this)">
+          <span>Q1. What will happen when all the Earth's oil deposits dry up?</span>
+          <span class="arrow">▶</span>
+        </button>
+        <div class="tq-ans">✅ We will be completely dependent upon alternative sources of energy.</div>
+      </div>
+
+      <div class="tq-item">
+        <button class="tq-btn" onclick="toggleAns(this)">
+          <span>Q2. What is wave energy, technically?</span>
+          <span class="arrow">▶</span>
+        </button>
+        <div class="tq-ans">✅ Wave energy is technically a form of stored wind energy, since waves are produced from winds which blow over the sea.</div>
+      </div>
+
+      <div class="tq-item">
+        <button class="tq-btn" onclick="toggleAns(this)">
+          <span>Q3. Which country established the world's first commercial-scale wave farm, and when?</span>
+          <span class="arrow">▶</span>
+        </button>
+        <div class="tq-ans">✅ Portugal established the world's first commercial-scale wave farm in 2008.</div>
+      </div>
+
+      <div class="tq-item">
+        <button class="tq-btn" onclick="toggleAns(this)">
+          <span>Q4. What percentage of the universe's mass does hydrogen account for?</span>
+          <span class="arrow">▶</span>
+        </button>
+        <div class="tq-ans">✅ Hydrogen accounts for 76% of the mass of the universe.</div>
+      </div>
+
+      <div class="tq-item">
+        <button class="tq-btn" onclick="toggleAns(this)">
+          <span>Q5. When is the ITER expected to be completed?</span>
+          <span class="arrow">▶</span>
+        </button>
+        <div class="tq-ans">✅ The ITER is set for completion by 2027.</div>
+      </div>
+
+      <div class="ex-sub" style="color:#6a1b9a; border-color:#9c27b0;">II. True / False</div>
+
+      <div class="tq-item">
+        <button class="tq-btn" onclick="toggleAns(this)">
+          <span>1. Fossil fuel is an infinite resource.</span>
+          <span class="arrow">▶</span>
+        </button>
+        <div class="tq-ans"><span class="badge-false">FALSE</span> — Fossil fuel is a <em>finite</em> resource.</div>
+      </div>
+
+      <div class="tq-item">
+        <button class="tq-btn" onclick="toggleAns(this)">
+          <span>2. JAXA converted 1.8 kilowatts of electricity into microwaves in 2015.</span>
+          <span class="arrow">▶</span>
+        </button>
+        <div class="tq-ans"><span class="badge-true">TRUE</span> — In March 2015, JAXA successfully demonstrated this.</div>
+      </div>
+
+      <div class="tq-item">
+        <button class="tq-btn" onclick="toggleAns(this)">
+          <span>3. Hydrogen is a coloured and strongly smelling gas.</span>
+          <span class="arrow">▶</span>
+        </button>
+        <div class="tq-ans"><span class="badge-false">FALSE</span> — Hydrogen is a <em>colourless and odourless</em> gas.</div>
+      </div>
+
+      <div class="tq-item">
+        <button class="tq-btn" onclick="toggleAns(this)">
+          <span>4. Flying wind turbines produce double the energy of tower-mounted turbines.</span>
+          <span class="arrow">▶</span>
+        </button>
+        <div class="tq-ans"><span class="badge-true">TRUE</span> — They operate where winds are much stronger.</div>
+      </div>
+
+      <div class="tq-item">
+        <button class="tq-btn" onclick="toggleAns(this)">
+          <span>5. The fusion process produces large amounts of greenhouse gases.</span>
+          <span class="arrow">▶</span>
+        </button>
+        <div class="tq-ans"><span class="badge-false">FALSE</span> — Fusion emits <em>no</em> pollutants or greenhouse gases.</div>
+      </div>
+
+      <div class="ex-sub" style="color:#6a1b9a; border-color:#9c27b0;">III. Fill in the Blanks (Vocabulary)</div>
+
+      <div class="tq-item">
+        <button class="tq-btn" onclick="toggleAns(this)">
+          <span>1. Liquid fossil fuel is a __________ resource that will run out one day.</span>
+          <span class="arrow">▶</span>
+        </button>
+        <div class="tq-ans">✅ <strong>finite</strong></div>
+      </div>
+
+      <div class="tq-item">
+        <button class="tq-btn" onclick="toggleAns(this)">
+          <span>2. The JAXA wirelessly __________ microwaves a distance of 50 metres.</span>
+          <span class="arrow">▶</span>
+        </button>
+        <div class="tq-ans">✅ <strong>beamed</strong></div>
+      </div>
+
+      <div class="tq-item">
+        <button class="tq-btn" onclick="toggleAns(this)">
+          <span>3. Hydrogen __________ high energy while producing almost no pollution.</span>
+          <span class="arrow">▶</span>
+        </button>
+        <div class="tq-ans">✅ <strong>yields</strong></div>
+      </div>
+
+      <div class="tq-item">
+        <button class="tq-btn" onclick="toggleAns(this)">
+          <span>4. The Buoyant Air Turbine is completely __________ and self-adjusts to optimal wind speeds.</span>
+          <span class="arrow">▶</span>
+        </button>
+        <div class="tq-ans">✅ <strong>autonomous</strong></div>
+      </div>
+
+      <div class="tq-item">
+        <button class="tq-btn" onclick="toggleAns(this)">
+          <span>5. Fusion works by fusing two hydrogen __________, deuterium and tritium.</span>
+          <span class="arrow">▶</span>
+        </button>
+        <div class="tq-ans">✅ <strong>isotopes</strong></div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="name">📝 Narayan Prasad Regmi</div>
+  <div class="phone">📞 9848144604</div>
+</footer>
+
+<!-- COPY MODAL -->
+<div id="copy-modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeCopyModal()">✕ Close</button>
+    <h3>📋 Copy Full HTML Code</h3>
+    <textarea id="code-area" readonly></textarea>
+    <br>
+    <button class="action-btn" onclick="copyCode()" style="margin-top:10px;">📋 Copy to Clipboard</button>
+    <div class="copy-done" id="copy-done">✅ Copied successfully!</div>
+  </div>
+</div>
+
+<script>
+// ── FONT SIZE ──
+let fontSize = 16;
+function changeFont(dir) {
+  if (dir === 0) fontSize = 16;
+  else fontSize = Math.max(12, Math.min(24, fontSize + dir * 2));
+  document.body.style.fontSize = fontSize + 'px';
+}
+
+// ── POPUP ──
+const popup = document.getElementById('popup');
+let popupOpen = false;
+
+document.querySelectorAll('.hw').forEach(el => {
+  el.addEventListener('click', function(e) {
+    e.stopPropagation();
+    document.getElementById('pop-word').textContent = this.dataset.word;
+    document.getElementById('pop-np').textContent = this.dataset.np;
+    document.getElementById('pop-en').textContent = this.dataset.en;
+
+    let x = e.clientX + 12;
+    let y = e.clientY + 12;
+    if (x + 290 > window.innerWidth) x = window.innerWidth - 295;
+    if (y + 120 > window.innerHeight) y = e.clientY - 130;
+
+    popup.style.left = x + 'px';
+    popup.style.top = y + 'px';
+    popup.style.display = 'block';
+    popupOpen = true;
+  });
+});
+
+document.addEventListener('click', function() {
+  if (popupOpen) {
+    popup.style.display = 'none';
+    popupOpen = false;
+  }
+});
+
+document.addEventListener('scroll', function() {
+  popup.style.display = 'none';
+  popupOpen = false;
+});
+
+// ── TOGGLE ANSWERS ──
+function toggleAns(btn) {
+  const ans = btn.nextElementSibling;
+  const isOpen = ans.classList.contains('show');
+  ans.classList.toggle('show', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+}
+
+// ── COPY MODAL ──
+function openCopyModal() {
+  document.getElementById('code-area').value = document.documentElement.outerHTML;
+  document.getElementById('copy-modal').classList.add('open');
+}
+function closeCopyModal() {
+  document.getElementById('copy-modal').classList.remove('open');
+  document.getElementById('copy-done').style.display = 'none';
+}
+function copyCode() {
+  const area = document.getElementById('code-area');
+  area.select();
+  document.execCommand('copy');
+  const done = document.getElementById('copy-done');
+  done.style.display = 'block';
+  setTimeout(() => done.style.display = 'none', 2500);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>A Message from Another Planet – Grade 9 English Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Cambay:wght@400;500;600;700&family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ===== CSS VARIABLES ===== */
+:root {
+  --primary: #1B1B5E;
+  --primary-dark: #0E0E3A;
+  --primary-light: #2E2E8B;
+  --accent: #00C9DB;
+  --accent-light: #33E0F0;
+  --highlight: #E85D26;
+  --highlight-light: #FF7A42;
+  --bg-main: #E8EDF5;
+  --bg-card: #FFFFFF;
+  --bg-alt: #D5DBE8;
+  --bg-dark: #1B1B5E;
+  --text-main: #1A1A2E;
+  --text-light: #5A5A7A;
+  --text-on-dark: #E8EDF5;
+  --border: #B0BAD0;
+  --border-light: #C8D0E5;
+  --shadow: rgba(27,27,94,0.10);
+  --shadow-strong: rgba(27,27,94,0.20);
+  --font-heading: 'Archivo Black', sans-serif;
+  --font-body: 'Cambay', sans-serif;
+  --font-ui: 'Rubik', sans-serif;
+  --font-size-base: 18px;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-lg: 18px;
+  --match-selected: #1B1B5E;
+  --match-correct: #1B7A3D;
+  --match-wrong: #C0392B;
+  --match-hover: #D5DBE8;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: 1.82;
+  color: var(--text-main);
+  background: var(--bg-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-alt); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 5px; }
+
+/* ===== HEADER ===== */
+.site-header {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 40%, var(--primary-light) 100%);
+  color: var(--text-on-dark);
+  padding: 38px 24px 34px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 260px; height: 260px;
+  background: radial-gradient(circle, rgba(0,201,219,0.25) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.site-header::after {
+  content: '';
+  position: absolute;
+  bottom: -50px; left: -50px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(232,93,38,0.20) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.header-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 24px;
+  padding: 5px 20px;
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.site-header h1 {
+  font-family: var(--font-heading);
+  font-size: 2.6rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.18);
+}
+.site-header .subtitle {
+  font-family: var(--font-ui);
+  font-size: 1.1rem;
+  font-weight: 500;
+  opacity: 0.90;
+  margin-bottom: 4px;
+}
+.site-header .meta-line {
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  opacity: 0.70;
+  margin-top: 10px;
+}
+
+/* ===== CONTROLS BAR ===== */
+.controls-bar {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-light);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px var(--shadow);
+}
+.font-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.font-controls span {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-light);
+}
+.font-btn {
+  background: var(--bg-alt);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  width: 42px; height: 42px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  cursor: pointer;
+  color: var(--primary);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-ui);
+  line-height: 1;
+}
+.font-btn:hover { background: var(--primary); color: #fff; }
+.dl-btn {
+  background: var(--accent);
+  color: var(--primary-dark);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 9px 22px;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.dl-btn:hover { background: var(--accent-light); }
+
+/* ===== NAV JUMP ===== */
+.nav-jump {
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border-light);
+  padding: 10px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+.nav-jump a {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--primary);
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: 22px;
+  padding: 6px 14px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-jump a:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* ===== MAIN WRAPPER ===== */
+.main-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 28px 16px 60px;
+}
+
+/* ===== SECTION CARD ===== */
+.section-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px 22px;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 18px var(--shadow);
+}
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--primary-dark);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title .icon { font-size: 1.4rem; }
+
+/* ===== META INFO CARD ===== */
+.meta-info-card {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-bottom: 28px;
+  color: var(--text-on-dark);
+  box-shadow: 0 6px 22px var(--shadow-strong);
+}
+.meta-info-card h2 {
+  font-family: var(--font-heading);
+  font-size: 1.7rem;
+  font-weight: 900;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+}
+.mi-item {
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+}
+.mi-item .mi-label {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.7;
+  display: block;
+  margin-bottom: 2px;
+}
+.mi-item .mi-value {
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* ===== READING BLOCK ===== */
+.reading-block {
+  margin-bottom: 24px;
+  position: relative;
+}
+.reading-label {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--primary);
+  background: var(--bg-alt);
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.reading-block p {
+  font-size: var(--font-size-base);
+  line-height: 1.92;
+  text-align: justify;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.story-container {
+  background: rgba(0,201,219,0.04);
+  border: 1px solid var(--border-light);
+  border-left: 5px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 24px 22px;
+  margin-bottom: 24px;
+}
+
+/* ===== VOCAB HIGHLIGHT ===== */
+.vocab-word {
+  color: var(--accent);
+  font-weight: 800;
+  cursor: pointer;
+  border-bottom: 2px dotted var(--accent);
+  transition: all 0.2s;
+  position: relative;
+}
+.vocab-word:hover {
+  color: var(--highlight-light);
+  border-bottom-color: var(--highlight-light);
+}
+
+/* ===== MEANING POPUP ===== */
+.meaning-popup {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  background: var(--primary-dark);
+  color: var(--text-on-dark);
+  border-radius: var(--radius);
+  padding: 18px 24px;
+  min-width: 300px;
+  max-width: 92vw;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.30);
+  z-index: 9999;
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s;
+  opacity: 0;
+  font-family: var(--font-ui);
+}
+.meaning-popup.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+.popup-word {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: var(--accent-light);
+}
+.popup-en {
+  font-size: 0.92rem;
+  margin-bottom: 4px;
+  line-height: 1.45;
+}
+.popup-en::before { content: 'EN: '; font-weight: 700; opacity: 0.7; }
+.popup-ne {
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: rgba(255,255,255,0.85);
+}
+.popup-ne::before { content: 'NE: '; font-weight: 700; opacity: 0.7; }
+.popup-close {
+  position: absolute;
+  top: 8px; right: 14px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  font-size: 1.3rem;
+  cursor: pointer;
+  line-height: 1;
+}
+.popup-close:hover { color: #fff; }
+
+/* ===== GLOSSARY TABLE ===== */
+.glossary-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin-top: 6px;
+}
+.glossary-table thead th {
+  background: var(--primary);
+  color: var(--text-on-dark);
+  font-family: var(--font-ui);
+  font-weight: 700;
+  padding: 12px 12px;
+  text-align: left;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.glossary-table thead th:first-child { border-radius: var(--radius-sm) 0 0 0; }
+.glossary-table thead th:last-child { border-radius: 0 var(--radius-sm) 0 0; }
+.glossary-table tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
+}
+.glossary-table tbody tr:nth-child(even) { background: var(--bg-alt); }
+.glossary-table tbody tr:hover { background: #C0C8DC; }
+.glossary-table .sn { font-weight: 800; color: var(--primary); width: 36px; text-align: center; }
+.glossary-table .word-col { font-weight: 800; color: var(--accent); white-space: nowrap; }
+.glossary-table .ne-col { color: var(--highlight); font-weight: 600; }
+
+/* ===== INTERACTIVE MATCHING ===== */
+.match-container { margin-top: 12px; }
+.match-instructions {
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  color: var(--text-light);
+  margin-bottom: 14px;
+  padding: 12px 16px;
+  background: var(--bg-alt);
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--accent);
+  line-height: 1.6;
+}
+.match-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.match-col h4 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 900;
+  color: var(--primary);
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent);
+  text-align: center;
+}
+.match-option {
+  padding: 12px 14px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  user-select: none;
+  background: var(--bg-card);
+  font-weight: 700;
+}
+.match-option:hover {
+  border-color: var(--primary);
+  background: var(--match-hover);
+}
+.match-option.selected {
+  border-color: var(--match-selected);
+  background: rgba(27,27,94,0.08);
+  box-shadow: 0 0 0 2px rgba(27,27,94,0.15);
+}
+.match-option.matched {
+  border-color: var(--match-correct);
+  background: rgba(27,122,61,0.08);
+  cursor: default;
+  opacity: 0.85;
+}
+.match-option.matched .match-check { display: inline; }
+.match-option.wrong-flash {
+  animation: wrongShake 0.5s ease;
+  border-color: var(--match-wrong);
+  background: rgba(192,57,43,0.08);
+}
+.match-check {
+  display: none;
+  color: var(--match-correct);
+  font-weight: 800;
+  margin-left: 6px;
+}
+@keyframes wrongShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+.match-status {
+  text-align: center;
+  margin-top: 14px;
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  font-weight: 700;
+  min-height: 28px;
+}
+.match-status.correct { color: var(--match-correct); }
+.match-status.wrong { color: var(--match-wrong); }
+.match-reset-btn {
+  display: block;
+  margin: 12px auto 0;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 10px 26px;
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.match-reset-btn:hover { background: var(--primary-light); }
+
+/* ===== EXERCISE ACCORDION ===== */
+.exercise-item, .tf-item, .fill-item {
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.exercise-item:hover, .tf-item:hover, .fill-item:hover { border-color: var(--primary); }
+.exercise-toggle, .tf-toggle, .fill-toggle {
+  width: 100%;
+  background: var(--bg-alt);
+  border: none;
+  padding: 14px 18px;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+}
+.exercise-toggle:hover, .tf-toggle:hover, .fill-toggle:hover { background: #C0C8DC; }
+.exercise-toggle .arrow, .tf-toggle .arrow, .fill-toggle .arrow {
+  transition: transform 0.3s;
+  font-size: 0.88rem;
+  color: var(--primary);
+  font-weight: 800;
+}
+.exercise-toggle.active .arrow, .tf-toggle.active .arrow, .fill-toggle.active .arrow {
+  transform: rotate(180deg);
+}
+.exercise-content, .tf-content, .fill-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s;
+  padding: 0 18px;
+  background: var(--bg-card);
+}
+.exercise-content.open, .tf-content.open, .fill-content.open {
+  max-height: 2000px;
+  padding: 18px;
+}
+.answer-text {
+  font-size: 0.95rem;
+  line-height: 1.78;
+  color: var(--text-main);
+  font-weight: 700;
+}
+.answer-text strong { color: var(--primary); }
+
+/* ===== INTERACTIVE T/F ===== */
+.tf-interactive-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  margin-bottom: 10px;
+  background: var(--bg-card);
+  transition: border-color 0.2s;
+}
+.tf-interactive-item:hover { border-color: var(--primary); }
+.tf-num {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  color: var(--accent);
+  font-size: 1.1rem;
+  min-width: 28px;
+  padding-top: 2px;
+}
+.tf-statement {
+  flex: 1;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  font-weight: 700;
+}
+.tf-buttons {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.tf-btn {
+  padding: 8px 18px;
+  border: 2px solid var(--border);
+  border-radius: 24px;
+  background: var(--bg-card);
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-height: 40px;
+  min-width: 56px;
+}
+.tf-btn:hover { border-color: var(--primary); }
+.tf-btn.selected-true { border-color: var(--match-correct); background: rgba(27,122,61,0.12); color: var(--match-correct); }
+.tf-btn.selected-false { border-color: var(--match-wrong); background: rgba(192,57,43,0.12); color: var(--match-wrong); }
+.tf-result-icon {
+  font-size: 1.1rem;
+  font-weight: 800;
+  min-width: 26px;
+  padding-top: 2px;
+  text-align: center;
+}
+.tf-result-icon.correct { color: var(--match-correct); }
+.tf-result-icon.wrong { color: var(--match-wrong); }
+.tf-reason {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-style: italic;
+  display: none;
+  font-weight: 600;
+}
+.tf-reason.show { display: block; }
+.tf-score {
+  text-align: center;
+  margin-top: 14px;
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* ===== INTERACTIVE FILL-IN-BLANKS ===== */
+.fill-interactive-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding: 12px 16px;
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  transition: border-color 0.2s;
+}
+.fill-interactive-item:hover { border-color: var(--primary); }
+.fill-num {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  color: var(--accent);
+  font-size: 1.1rem;
+  min-width: 28px;
+}
+.fill-text {
+  flex: 1;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  font-weight: 700;
+}
+.fill-input {
+  width: 150px;
+  padding: 8px 12px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  font-weight: 700;
+  outline: none;
+  transition: border-color 0.2s;
+  min-height: 40px;
+}
+.fill-input:focus { border-color: var(--accent); }
+.fill-input.correct { border-color: var(--match-correct); background: rgba(27,122,61,0.08); color: var(--match-correct); }
+.fill-input.wrong { border-color: var(--match-wrong); background: rgba(192,57,43,0.08); color: var(--match-wrong); animation: wrongShake 0.5s ease; }
+.fill-result {
+  font-size: 1.1rem;
+  font-weight: 800;
+  min-width: 22px;
+  text-align: center;
+}
+.fill-result.correct-icon { color: var(--match-correct); }
+.fill-result.wrong-icon { color: var(--match-wrong); }
+
+/* ===== WORD BANK ===== */
+.word-bank {
+  background: var(--bg-alt);
+  border: 2px dashed var(--accent);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+.word-bank-label {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+.word-bank-words {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.wb-word {
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: 24px;
+  padding: 6px 18px;
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* ===== INTERACTIVE ORDER EXERCISE ===== */
+.order-container { margin-top: 12px; }
+.order-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  background: var(--bg-card);
+  transition: border-color 0.2s, background 0.2s;
+  cursor: default;
+  font-weight: 700;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+.order-item:hover { border-color: var(--accent); }
+.order-num-btns {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.order-num-btn {
+  width: 32px; height: 32px;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  background: var(--bg-card);
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.order-num-btn:hover { border-color: var(--primary); color: var(--primary); }
+.order-num-btn.selected {
+  background: var(--accent);
+  color: var(--primary-dark);
+  border-color: var(--accent);
+  font-weight: 900;
+}
+.order-num-btn.correct-num {
+  background: rgba(27,122,61,0.15);
+  border-color: var(--match-correct);
+  color: var(--match-correct);
+}
+.order-num-btn.wrong-num {
+  background: rgba(192,57,43,0.15);
+  border-color: var(--match-wrong);
+  color: var(--match-wrong);
+}
+.order-text { flex: 1; }
+.order-result {
+  font-size: 1rem;
+  font-weight: 800;
+  min-width: 22px;
+  text-align: center;
+}
+.order-result.correct-icon { color: var(--match-correct); }
+.order-result.wrong-icon { color: var(--match-wrong); }
+
+/* ===== BUTTONS ROW ===== */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+.cw-check-btn, .cw-show-btn, .cw-reset-btn, .tf-interactive-check, .fill-check-btn, .order-check-btn, .order-show-btn {
+  display: inline-block;
+  margin: 0;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 10px 24px;
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  min-height: 44px;
+}
+.cw-check-btn:hover, .tf-interactive-check:hover, .fill-check-btn:hover, .order-check-btn:hover { background: var(--primary-light); }
+.cw-show-btn, .order-show-btn { background: var(--accent); color: var(--primary-dark); }
+.cw-show-btn:hover, .order-show-btn:hover { background: var(--accent-light); }
+.cw-reset-btn, .order-reset-btn { background: var(--highlight); }
+.cw-reset-btn:hover, .order-reset-btn:hover { background: var(--highlight-light); }
+
+/* ===== OPEN-ENDED ===== */
+.open-ended-box {
+  background: var(--bg-alt);
+  border-left: 4px solid var(--highlight);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 20px 22px;
+  margin-top: 8px;
+}
+.open-ended-box p {
+  font-size: 0.95rem;
+  line-height: 1.78;
+  font-weight: 700;
+}
+.open-ended-box .sample-label {
+  font-family: var(--font-ui);
+  font-size: 0.80rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--highlight);
+  margin-top: 14px;
+  margin-bottom: 6px;
+}
+.open-ended-box .sample-answer {
+  font-style: italic;
+  color: var(--text-light);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+/* ===== OPPOSITE/SIMILAR EXERCISE ===== */
+.opp-sim-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 12px 16px;
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  transition: border-color 0.2s;
+  font-weight: 700;
+}
+.opp-sim-item:hover { border-color: var(--accent); }
+.opp-sim-given {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  color: var(--primary);
+  font-size: 1rem;
+  min-width: 80px;
+}
+.opp-sim-type {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  min-width: 70px;
+  text-align: center;
+}
+.type-opposite { background: rgba(232,93,38,0.12); color: var(--highlight); }
+.type-similar { background: rgba(0,201,219,0.12); color: var(--accent); }
+.opp-sim-input {
+  width: 150px;
+  padding: 8px 12px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  font-weight: 700;
+  outline: none;
+  min-height: 40px;
+}
+.opp-sim-input:focus { border-color: var(--accent); }
+.opp-sim-input.correct { border-color: var(--match-correct); background: rgba(27,122,61,0.08); color: var(--match-correct); }
+.opp-sim-input.wrong { border-color: var(--match-wrong); background: rgba(192,57,43,0.08); color: var(--match-wrong); animation: wrongShake 0.5s ease; }
+.opp-sim-result {
+  font-size: 1.1rem;
+  font-weight: 800;
+  min-width: 22px;
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background: var(--primary-dark);
+  color: var(--text-on-dark);
+  text-align: center;
+  padding: 22px;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.site-footer a { color: var(--accent-light); text-decoration: none; }
+
+/* ===== SCROLL TOP ===== */
+.scroll-top {
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  width: 50px; height: 50px;
+  background: var(--primary);
+  color: var(--accent);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 4px 16px var(--shadow-strong);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.scroll-top.visible { opacity: 1; transform: translateY(0); }
+.scroll-top:hover { background: var(--accent); color: var(--primary-dark); }
+
+/* ===== RESPONSIVE — MOBILE FIRST ===== */
+@media (max-width: 640px) {
+  .site-header h1 { font-size: 1.5rem; }
+  .site-header { padding: 24px 14px 20px; }
+  .section-card { padding: 18px 12px 14px; margin-bottom: 18px; }
+  .meta-grid { grid-template-columns: 1fr 1fr; }
+  .match-columns { grid-template-columns: 1fr; }
+  .controls-bar { padding: 8px 12px; }
+  .nav-jump { padding: 8px 10px; gap: 4px; }
+  .nav-jump a { font-size: 0.72rem; padding: 4px 8px; }
+  .story-container { padding: 16px 12px; }
+  .main-wrap { padding: 16px 8px 40px; }
+  .tf-interactive-item { flex-wrap: wrap; }
+  .tf-buttons { margin-top: 4px; }
+  .fill-interactive-item { flex-wrap: wrap; }
+  .fill-input { width: 130px; }
+  .opp-sim-item { flex-wrap: wrap; }
+  .opp-sim-input { width: 130px; }
+  .order-item { flex-wrap: wrap; }
+  .order-num-btns { margin-top: 4px; }
+  .font-btn { width: 38px; height: 38px; font-size: 1.3rem; }
+  .section-title { font-size: 1.2rem; }
+  .match-option { font-size: 0.85rem; padding: 10px 12px; }
+  .tf-btn { min-width: 50px; padding: 6px 14px; }
+  .meaning-popup { min-width: 260px; padding: 14px 18px; }
+  .popup-word { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-badge">Unit 10 · The Earth &amp; Space</div>
+  <h1>A Message from Another Planet</h1>
+  <div class="subtitle">Story — Grade 9 English Notes</div>
+  <div class="meta-line">English 9 · pp. 120–122</div>
+</header>
+
+<!-- CONTROLS BAR -->
+<div class="controls-bar">
+  <div class="font-controls">
+    <span>Aa</span>
+    <button class="font-btn" onclick="changeFontSize(-1)">−</button>
+    <button class="font-btn" onclick="changeFontSize(1)">+</button>
+  </div>
+  <button class="dl-btn" onclick="downloadHTML()">⬇ Download</button>
+</div>
+
+<!-- NAV JUMP -->
+<nav class="nav-jump">
+  <a href="#meta-info">📋 Info</a>
+  <a href="#reading-text">📖 Story</a>
+  <a href="#glossary">📚 Words</a>
+  <a href="#exercise-a">Ex A – Opp/Sim</a>
+  <a href="#exercise-b">Ex B – Match</a>
+  <a href="#exercise-c">Ex C – Order</a>
+  <a href="#exercise-d">Ex D – Q&A</a>
+  <a href="#extra-tf">Extra – T/F</a>
+  <a href="#extra-fill">Extra – Fill</a>
+</nav>
+
+<!-- MAIN WRAPPER -->
+<div class="main-wrap">
+
+  <!-- META INFO -->
+  <div class="meta-info-card" id="meta-info">
+    <h2>🪐 Unit Overview</h2>
+    <div class="meta-grid">
+      <div class="mi-item"><span class="mi-label">Grade</span><span class="mi-value">9</span></div>
+      <div class="mi-item"><span class="mi-label">Subject</span><span class="mi-value">English</span></div>
+      <div class="mi-item"><span class="mi-label">Unit</span><span class="mi-value">10 – The Earth &amp; Space</span></div>
+      <div class="mi-item"><span class="mi-label">Topic</span><span class="mi-value">A Message from Another Planet</span></div>
+      <div class="mi-item"><span class="mi-label">Genre</span><span class="mi-value">Story (Science Fiction)</span></div>
+      <div class="mi-item"><span class="mi-label">Pages</span><span class="mi-value">120–122</span></div>
+      <div class="mi-item"><span class="mi-label">Main Character</span><span class="mi-value">Suren Majhi</span></div>
+      <div class="mi-item"><span class="mi-label">Theme</span><span class="mi-value">Recycling &amp; Environment</span></div>
+    </div>
+  </div>
+
+  <!-- READING TEXT -->
+  <div class="section-card" id="reading-text">
+    <div class="section-title"><span class="icon">📖</span> Story — "A Message from Another Planet"</div>
+
+    <div class="match-instructions">
+      Tap any <strong style="color:var(--accent)">highlighted word</strong> to see its English and Nepali meaning in a popup! Font size can be adjusted with the +/− buttons above.
+    </div>
+
+    <div class="story-container">
+      <p>Suren Majhi sat on the sandy bank of the Sun Koshi River. He had been fishing all day but had caught nothing. He was tired and the <span class="vocab-word" onclick="showMeaning('twilight','the period of dim light after sunset','साँझको झुटपुटे उज्यालो')">twilight</span> was changing into darkness. Suddenly, in the distance over the river, Suren saw a bright object. It might be a helicopter, he thought, probably going to Diktel, but there was no noise. It came closer, and took on the shape of a <span class="vocab-word" onclick="showMeaning('saucer','a shallow dish on which a cup is placed','तश्तरी')">saucer</span>. It landed on the bank about 50 meters away. Suren got up and walked to the object. Once he had seen a film about a spaceship, probably this was one. It might have come from another planet. As he went closer, a door opened, and Suren was <span class="vocab-word" onclick="showMeaning('drawn','pulled or attracted','तानिनु')">drawn</span> into the <span class="vocab-word" onclick="showMeaning('vessel','a ship or large vehicle for travel','यान, जहाज')">vessel</span>. He found himself in a room with what appeared to be a large number of <span class="vocab-word" onclick="showMeaning('control panels','boards with switches and instruments','नियन्त्रण पाटीहरू')">control panels</span> with <span class="vocab-word" onclick="showMeaning('flashing','shining briefly and repeatedly','चम्किरहेको')">flashing</span> lights. He was <span class="vocab-word" onclick="showMeaning('frightened','feeling fear','डराएको')">frightened</span> and almost jumped when he heard a voice saying, "Welcome to our spaceship, Suren. Don't be afraid. Sit down on the <span class="vocab-word" onclick="showMeaning('couch','a long comfortable seat','सोफा, लामो कुर्सी')">couch</span> behind you." "How do you know my name?" Suren asked.</p>
+
+      <p>"We are from another planet and we have been <span class="vocab-word" onclick="showMeaning('observing','watching carefully','अवलोकन गर्दै')">observing</span> Earth for several months. Our <span class="vocab-word" onclick="showMeaning('devices','machines or tools made for a particular purpose','यन्त्रहरू')">devices</span> have recorded radio and television <span class="vocab-word" onclick="showMeaning('broadcasts','programmes sent out by radio or television','प्रसारण')">broadcasts</span>, and we have learned to speak English, since it is the most widely-used language. By using a long-distance <span class="vocab-word" onclick="showMeaning('listening device','a machine used to hear sounds from far away','सुन्ने यन्त्र')">listening device</span>, we learnt your name and that you are the best student in your school. We have chosen you to pass on an important message to the leaders of your nation and of the world."</p>
+
+      <p>"Do you think that leaders will listen to a poor kid like me? Please open the door. I want to leave." Suren said.</p>
+
+      <p>"You can't leave now, look at the screen. The ship is several thousand kilometers from Earth, although only a few minutes have passed. On our planet, all the <span class="vocab-word" onclick="showMeaning('resources','things that can be used for a purpose','स्रोत साधनहरू')">resources</span> are <span class="vocab-word" onclick="showMeaning('recycled','processed so it can be used again','पुनः प्रयोग गरिएको')">recycled</span> whereas, on earth, you are <span class="vocab-word" onclick="showMeaning('wasting','using carelessly or in excess','खेर फाल्नु')">wasting</span> your resources. Soon there will be nothing left. Give your people the message that the <span class="vocab-word" onclick="showMeaning('recycle collection centers','places where used materials are collected','पुनः प्रयोग संकलन केन्द्र')">recycle collection centers</span> should be set up in every town and city on Earth. Cans, bottles, old household <span class="vocab-word" onclick="showMeaning('appliances','machines used at home','घरायसी उपकरणहरू')">appliances</span>, in fact, everything which is no longer in use, should be taken there and be recycled."</p>
+
+      <p>Suren said, "If I tell people that I've been in a spaceship, they will probably think I'm joking or, perhaps, out of my mind."</p>
+
+      <p>"Don't worry!" the voice said, "We'll give you an object that will <span class="vocab-word" onclick="showMeaning('prove','show to be true','प्रमाणित गर्नु')">prove</span> that what you say is true. Pick it up. It's a <span class="vocab-word" onclick="showMeaning('tiny','very small','सानो')">tiny</span> computer, far more <span class="vocab-word" onclick="showMeaning('advanced','ahead in development','उन्नत')">advanced</span> than any found on Earth. When it's <span class="vocab-word" onclick="showMeaning('examined','looked at carefully','जाँच गरिएको')">examined</span> by a computer engineer, we're sure your story will be believed."</p>
+
+      <p>The screen lit up, and Suren saw the world growing larger and larger. He saw the Himalayas and the River Sunkoshi. The screen grew dark, the door opened, and Suren stepped out onto the sand. As soon as he was out of the spaceship, it <span class="vocab-word" onclick="showMeaning('ascended','went upward','माथि उठ्यो')">ascended</span> at an <span class="vocab-word" onclick="showMeaning('enormous','very large in size','विशाल')">enormous</span> speed and disappeared.</p>
+
+      <p>At home, before going to bed, Suren <span class="vocab-word" onclick="showMeaning('wondered','felt surprised or curious','अचम्म मान्यो')">wondered</span> whether he had been dreaming, but when he put his hand in his pocket, he could feel the tiny computer.</p>
+    </div>
+  </div>
+
+  <!-- GLOSSARY -->
+  <div class="section-card" id="glossary">
+    <div class="section-title"><span class="icon">📚</span> Difficult Words — Glossary (24 Words)</div>
+    <table class="glossary-table">
+      <thead><tr><th>S.N.</th><th>Word</th><th>Nepali Meaning</th><th>English Meaning</th></tr></thead>
+      <tbody>
+        <tr><td class="sn">1</td><td class="word-col">twilight</td><td class="ne-col">साँझको झुटपुटे उज्यालो</td><td>the period of dim light after sunset</td></tr>
+        <tr><td class="sn">2</td><td class="word-col">saucer</td><td class="ne-col">तश्तरी</td><td>a shallow dish on which a cup is placed</td></tr>
+        <tr><td class="sn">3</td><td class="word-col">drawn</td><td class="ne-col">तानिनु</td><td>pulled or attracted</td></tr>
+        <tr><td class="sn">4</td><td class="word-col">vessel</td><td class="ne-col">यान, जहाज</td><td>a ship or large vehicle for travel</td></tr>
+        <tr><td class="sn">5</td><td class="word-col">control panels</td><td class="ne-col">नियन्त्रण पाटीहरू</td><td>boards with switches and instruments</td></tr>
+        <tr><td class="sn">6</td><td class="word-col">flashing</td><td class="ne-col">चम्किरहेको</td><td>shining briefly and repeatedly</td></tr>
+        <tr><td class="sn">7</td><td class="word-col">frightened</td><td class="ne-col">डराएको</td><td>feeling fear</td></tr>
+        <tr><td class="sn">8</td><td class="word-col">couch</td><td class="ne-col">सोफा, लामो कुर्सी</td><td>a long comfortable seat</td></tr>
+        <tr><td class="sn">9</td><td class="word-col">observing</td><td class="ne-col">अवलोकन गर्दै</td><td>watching carefully</td></tr>
+        <tr><td class="sn">10</td><td class="word-col">devices</td><td class="ne-col">यन्त्रहरू</td><td>machines or tools for a particular purpose</td></tr>
+        <tr><td class="sn">11</td><td class="word-col">broadcasts</td><td class="ne-col">प्रसारण</td><td>programmes sent out by radio or TV</td></tr>
+        <tr><td class="sn">12</td><td class="word-col">listening device</td><td class="ne-col">सुन्ने यन्त्र</td><td>a machine to hear sounds from far away</td></tr>
+        <tr><td class="sn">13</td><td class="word-col">resources</td><td class="ne-col">स्रोत साधनहरू</td><td>things that can be used for a purpose</td></tr>
+        <tr><td class="sn">14</td><td class="word-col">recycled</td><td class="ne-col">पुनः प्रयोग गरिएको</td><td>processed so it can be used again</td></tr>
+        <tr><td class="sn">15</td><td class="word-col">wasting</td><td class="ne-col">खेर फाल्नु</td><td>using carelessly or in excess</td></tr>
+        <tr><td class="sn">16</td><td class="word-col">appliances</td><td class="ne-col">घरायसी उपकरणहरू</td><td>machines used at home</td></tr>
+        <tr><td class="sn">17</td><td class="word-col">recycle collection centers</td><td class="ne-col">पुनः प्रयोग संकलन केन्द्र</td><td>places where used materials are collected</td></tr>
+        <tr><td class="sn">18</td><td class="word-col">prove</td><td class="ne-col">प्रमाणित गर्नु</td><td>show to be true</td></tr>
+        <tr><td class="sn">19</td><td class="word-col">tiny</td><td class="ne-col">सानो</td><td>very small</td></tr>
+        <tr><td class="sn">20</td><td class="word-col">advanced</td><td class="ne-col">उन्नत</td><td>ahead in development or progress</td></tr>
+        <tr><td class="sn">21</td><td class="word-col">examined</td><td class="ne-col">जाँच गरिएको</td><td>looked at carefully and in detail</td></tr>
+        <tr><td class="sn">22</td><td class="word-col">ascended</td><td class="ne-col">माथि उठ्यो</td><td>moved upward</td></tr>
+        <tr><td class="sn">23</td><td class="word-col">enormous</td><td class="ne-col">विशाल</td><td>very large in size or amount</td></tr>
+        <tr><td class="sn">24</td><td class="word-col">wondered</td><td class="ne-col">अचम्म मान्यो</td><td>felt surprised or curious about something</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- EXERCISE A — OPPOSITE / SIMILAR (Interactive) -->
+  <div class="section-card" id="exercise-a">
+    <div class="section-title"><span class="icon">🔄</span> Exercise A — Find Opposite or Similar Words (Interactive)</div>
+    <div class="match-instructions">
+      Type the <strong>opposite</strong> or <strong>similar</strong> word from the story for each given word. Then click <strong>"Check All"</strong> to see your results!
+    </div>
+
+    <div class="opp-sim-item">
+      <span class="opp-sim-given">dawn</span>
+      <span class="opp-sim-type type-opposite">OPPOSITE</span>
+      <span class="fill-text">The opposite of "dawn" in the story</span>
+      <input class="opp-sim-input" id="opp-1" type="text" placeholder="Type word..." data-answer="twilight">
+      <span class="opp-sim-result" id="opp-r-1"></span>
+    </div>
+    <div class="opp-sim-item">
+      <span class="opp-sim-given">shining</span>
+      <span class="opp-sim-type type-similar">SIMILAR</span>
+      <span class="fill-text">A similar word for "shining"</span>
+      <input class="opp-sim-input" id="opp-2" type="text" placeholder="Type word..." data-answer="flashing">
+      <span class="opp-sim-result" id="opp-r-2"></span>
+    </div>
+    <div class="opp-sim-item">
+      <span class="opp-sim-given">took off</span>
+      <span class="opp-sim-type type-opposite">OPPOSITE</span>
+      <span class="fill-text">The opposite of "took off"</span>
+      <input class="opp-sim-input" id="opp-3" type="text" placeholder="Type word..." data-answer="landed">
+      <span class="opp-sim-result" id="opp-r-3"></span>
+    </div>
+    <div class="opp-sim-item">
+      <span class="opp-sim-given">modern</span>
+      <span class="opp-sim-type type-similar">SIMILAR</span>
+      <span class="fill-text">A similar word for "modern"</span>
+      <input class="opp-sim-input" id="opp-4" type="text" placeholder="Type word..." data-answer="advanced">
+      <span class="opp-sim-result" id="opp-r-4"></span>
+    </div>
+    <div class="opp-sim-item">
+      <span class="opp-sim-given">descended</span>
+      <span class="opp-sim-type type-opposite">OPPOSITE</span>
+      <span class="fill-text">The opposite of "descended"</span>
+      <input class="opp-sim-input" id="opp-5" type="text" placeholder="Type word..." data-answer="ascended">
+      <span class="opp-sim-result" id="opp-r-5"></span>
+    </div>
+    <div class="opp-sim-item">
+      <span class="opp-sim-given">great</span>
+      <span class="opp-sim-type type-similar">SIMILAR</span>
+      <span class="fill-text">A similar word for "great"</span>
+      <input class="opp-sim-input" id="opp-6" type="text" placeholder="Type word..." data-answer="enormous">
+      <span class="opp-sim-result" id="opp-r-6"></span>
+    </div>
+
+    <div class="btn-row">
+      <button class="cw-check-btn" onclick="checkOppSim()">✅ Check All</button>
+      <button class="cw-show-btn" onclick="showOppSimAnswers()">💡 Show Answers</button>
+      <button class="cw-reset-btn" onclick="resetOppSim()">🔄 Reset</button>
+    </div>
+    <div id="oppScore" class="match-status"></div>
+  </div>
+
+  <!-- EXERCISE B — INTERACTIVE MATCHING -->
+  <div class="section-card" id="exercise-b">
+    <div class="section-title"><span class="icon">🔗</span> Exercise B — Match Words to Meanings (Interactive)</div>
+    <div class="match-instructions">
+      Click a word on the <strong>left</strong>, then click its matching meaning on the <strong>right</strong>. Correct pairs lock green with ✓. Wrong pairs shake red and reset!
+    </div>
+    <div class="match-columns">
+      <div class="match-col">
+        <h4>Words</h4>
+        <div class="match-option" data-side="left" data-match-id="a" onclick="selectMatchB(this)">a. saucer</div>
+        <div class="match-option" data-side="left" data-match-id="b" onclick="selectMatchB(this)">b. spaceship</div>
+        <div class="match-option" data-side="left" data-match-id="c" onclick="selectMatchB(this)">c. vessel</div>
+        <div class="match-option" data-side="left" data-match-id="d" onclick="selectMatchB(this)">d. flashing</div>
+        <div class="match-option" data-side="left" data-match-id="e" onclick="selectMatchB(this)">e. couch</div>
+        <div class="match-option" data-side="left" data-match-id="f" onclick="selectMatchB(this)">f. broadcast</div>
+        <div class="match-option" data-side="left" data-match-id="g" onclick="selectMatchB(this)">g. appliance</div>
+      </div>
+      <div class="match-col">
+        <h4>Meanings</h4>
+        <div class="match-option" data-side="right" data-match-id="1" onclick="selectMatchB(this)">(i) a ship or large boat</div>
+        <div class="match-option" data-side="right" data-match-id="2" onclick="selectMatchB(this)">(ii) a long comfortable seat</div>
+        <div class="match-option" data-side="right" data-match-id="3" onclick="selectMatchB(this)">(iii) short bursts of bright light</div>
+        <div class="match-option" data-side="right" data-match-id="4" onclick="selectMatchB(this)">(iv) a vehicle that travels in space, carrying people</div>
+        <div class="match-option" data-side="right" data-match-id="5" onclick="selectMatchB(this)">(v) a machine designed for a particular thing in the home</div>
+        <div class="match-option" data-side="right" data-match-id="6" onclick="selectMatchB(this)">(vi) a small shallow round dish that a cup stands on</div>
+        <div class="match-option" data-side="right" data-match-id="7" onclick="selectMatchB(this)">(vii) to send out a programme on TV or radio</div>
+      </div>
+    </div>
+    <div id="matchStatusB" class="match-status"></div>
+    <button class="match-reset-btn" onclick="resetMatchB()">🔄 Reset Matching</button>
+  </div>
+
+  <!-- EXERCISE C — ORDER EVENTS (Interactive) -->
+  <div class="section-card" id="exercise-c">
+    <div class="section-title"><span class="icon">🔢</span> Exercise C — Put Events in Correct Order (Interactive)</div>
+    <div class="match-instructions">
+      Click the <strong>number button</strong> (1–7) next to each event to assign its correct position in the story. Then click <strong>"Check Order"</strong>!
+    </div>
+    <div class="order-container">
+      <div class="order-item" id="ord-1">
+        <span class="order-text">Suren had been fishing when he saw a bright object over the Sunkoshi River.</span>
+        <div class="order-num-btns">
+          <button class="order-num-btn" onclick="selectOrder('ord-1',1,this)">1</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-1',2,this)">2</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-1',3,this)">3</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-1',4,this)">4</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-1',5,this)">5</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-1',6,this)">6</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-1',7,this)">7</button>
+        </div>
+        <span class="order-result" id="ord-1-result"></span>
+      </div>
+      <div class="order-item" id="ord-2">
+        <span class="order-text">When Suren went closer to the vessel, he was pulled into it.</span>
+        <div class="order-num-btns">
+          <button class="order-num-btn" onclick="selectOrder('ord-2',1,this)">1</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-2',2,this)">2</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-2',3,this)">3</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-2',4,this)">4</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-2',5,this)">5</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-2',6,this)">6</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-2',7,this)">7</button>
+        </div>
+        <span class="order-result" id="ord-2-result"></span>
+      </div>
+      <div class="order-item" id="ord-3">
+        <span class="order-text">A voice welcomed him, and asked him to sit on the couch.</span>
+        <div class="order-num-btns">
+          <button class="order-num-btn" onclick="selectOrder('ord-3',1,this)">1</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-3',2,this)">2</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-3',3,this)">3</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-3',4,this)">4</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-3',5,this)">5</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-3',6,this)">6</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-3',7,this)">7</button>
+        </div>
+        <span class="order-result" id="ord-3-result"></span>
+      </div>
+      <div class="order-item" id="ord-4">
+        <span class="order-text">They wanted to send a message to the leaders of Nepal and the world.</span>
+        <div class="order-num-btns">
+          <button class="order-num-btn" onclick="selectOrder('ord-4',1,this)">1</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-4',2,this)">2</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-4',3,this)">3</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-4',4,this)">4</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-4',5,this)">5</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-4',6,this)">6</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-4',7,this)">7</button>
+        </div>
+        <span class="order-result" id="ord-4-result"></span>
+      </div>
+      <div class="order-item" id="ord-5">
+        <span class="order-text">They gave Suren a tiny computer.</span>
+        <div class="order-num-btns">
+          <button class="order-num-btn" onclick="selectOrder('ord-5',1,this)">1</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-5',2,this)">2</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-5',3,this)">3</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-5',4,this)">4</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-5',5,this)">5</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-5',6,this)">6</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-5',7,this)">7</button>
+        </div>
+        <span class="order-result" id="ord-5-result"></span>
+      </div>
+      <div class="order-item" id="ord-6">
+        <span class="order-text">The spaceship landed back on the bank of the Sunkoshi River.</span>
+        <div class="order-num-btns">
+          <button class="order-num-btn" onclick="selectOrder('ord-6',1,this)">1</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-6',2,this)">2</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-6',3,this)">3</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-6',4,this)">4</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-6',5,this)">5</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-6',6,this)">6</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-6',7,this)">7</button>
+        </div>
+        <span class="order-result" id="ord-6-result"></span>
+      </div>
+      <div class="order-item" id="ord-7">
+        <span class="order-text">Suren wondered whether he had been dreaming.</span>
+        <div class="order-num-btns">
+          <button class="order-num-btn" onclick="selectOrder('ord-7',1,this)">1</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-7',2,this)">2</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-7',3,this)">3</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-7',4,this)">4</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-7',5,this)">5</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-7',6,this)">6</button>
+          <button class="order-num-btn" onclick="selectOrder('ord-7',7,this)">7</button>
+        </div>
+        <span class="order-result" id="ord-7-result"></span>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="order-check-btn" onclick="checkOrder()">✅ Check Order</button>
+      <button class="order-show-btn" onclick="showOrderAnswers()">💡 Show Answers</button>
+      <button class="cw-reset-btn" onclick="resetOrder()">🔄 Reset</button>
+    </div>
+    <div id="orderScore" class="match-status"></div>
+  </div>
+
+  <!-- EXERCISE D — ANSWER THE QUESTIONS -->
+  <div class="section-card" id="exercise-d">
+    <div class="section-title"><span class="icon">✏️</span> Exercise D — Answer the Following Questions (Solved)</div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">a. What did Suren think about the bright object at first? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> At first, Suren thought the bright object might be a helicopter, probably going to Diktel. This was his immediate assumption because the object was bright and moving in the sky, similar to what a helicopter would look like. However, he noticed that there was no noise, which was unusual for a helicopter, and as it came closer and took the shape of a saucer, he realized it was something far more extraordinary — possibly a spaceship from another planet.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">b. Where had Suren seen a spaceship before? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Suren had once seen a spaceship in a film. This previous exposure to the concept of spaceships through cinema helped him recognize the possibility that the bright, saucer-shaped object landing near him might be a spaceship, even though he had never encountered one in real life before. His cinematic experience gave him a reference point that made the extraordinary situation slightly less confusing.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">c. How did Suren feel when he was drawn inside the vessel? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Suren felt frightened when he was drawn inside the vessel. The sudden, involuntary pull into the unfamiliar spacecraft — surrounded by control panels with flashing lights and no visible crew — was terrifying for him. He was a simple village boy who had been quietly fishing, and suddenly finding himself inside an alien spaceship was an overwhelming and scary experience that almost made him jump when the voice first spoke to him.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">d. How had they known about Suren? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> The aliens had been observing Earth for several months using their advanced devices. They had recorded radio and television broadcasts to learn English, the most widely-used language on Earth. Furthermore, by using a long-distance listening device, they had specifically learned Suren's name and that he was the best student in his school. This combination of advanced technology and careful observation allowed them to identify and choose Suren as the person to carry their important environmental message to the world's leaders.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">e. How do they manage resources on their planet? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> On their planet, all resources are recycled, so nothing is wasted. This contrasts sharply with Earth, where the aliens observed that humans are wasting their resources carelessly. Their recycling system is so comprehensive that every material is processed and reused, ensuring sustainability and preventing the resource depletion that Earth is currently facing. This message about recycling is the central environmental lesson the aliens wanted to share with humanity through Suren.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">f. Why did Suren express his inability to deliver a message at first? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Suren thought that leaders would not listen to a poor kid like him. He felt that his status as a simple village student made him an unlikely messenger for something as extraordinary as contact with aliens. He also feared that people would think he was joking or perhaps out of his mind if he told them about being aboard a spaceship. This realistic concern about credibility and social standing shows Suren's self-awareness and humility, even when entrusted with an important mission.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">g. What message did they want to pass on? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> They wanted to pass on the message that recycle collection centers should be set up in every town and city on Earth. Cans, bottles, old household appliances, and in fact everything which is no longer in use, should be taken to these centers and recycled rather than thrown away. The aliens had observed from their distant planet that Earth's resources are being wasted carelessly, and if this continues, soon there will be nothing left. Their message is a clear call for environmental responsibility and sustainable resource management through recycling.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">h. Why did they give Suren a tiny computer? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> They gave Suren a tiny computer that was far more advanced than any found on Earth, so that when it was examined by a computer engineer, it would prove that Suren's story about meeting aliens was true. The aliens anticipated that people might not believe Suren's extraordinary claim, so they provided this physical evidence — a piece of technology so sophisticated that no human civilization could have produced it — as undeniable proof that the encounter really happened.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">i. Do you think people will believe Suren's story? Give your reasons. <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> It is difficult to say for certain. People might not believe Suren's story at first because encountering aliens and being aboard a spaceship is something very unusual and seemingly unbelievable — most people would assume he was joking or delusional. However, the tiny, highly advanced computer given by the aliens could serve as powerful physical proof. When examined by computer engineers who would recognize technology far beyond current human capabilities, it could convince experts and eventually the general public that Suren's experience was genuine. The combination of extraordinary claims with extraordinary evidence might ultimately sway public opinion.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXTRA — INTERACTIVE T/F -->
+  <div class="section-card" id="extra-tf">
+    <div class="section-title"><span class="icon">🎯</span> Extra Practice — True or False (Interactive)</div>
+    <div class="match-instructions">
+      Click <strong>True</strong> or <strong>False</strong> for each statement, then click <strong>"Check Answers"</strong> to see results with explanations.
+    </div>
+
+    <div class="tf-interactive-item" id="tfe-1">
+      <span class="tf-num">1.</span>
+      <span class="tf-statement">Suren had been fishing successfully all day.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfe-1','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfe-1','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfe-1-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfe-1-reason">This is False. The story clearly states that Suren had been fishing all day but had caught nothing — he was tired and unsuccessful.</div>
+
+    <div class="tf-interactive-item" id="tfe-2">
+      <span class="tf-num">2.</span>
+      <span class="tf-statement">The bright object made a loud noise when it appeared.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfe-2','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfe-2','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfe-2-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfe-2-reason">This is False. The story specifically mentions "there was no noise" when the bright object appeared over the river, which is why Suren initially thought it might be a helicopter going to Diktel.</div>
+
+    <div class="tf-interactive-item" id="tfe-3">
+      <span class="tf-num">3.</span>
+      <span class="tf-statement">The aliens had learned English by recording radio and TV broadcasts.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfe-3','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfe-3','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfe-3-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfe-3-reason">This is True. The aliens stated that their devices had recorded radio and television broadcasts, and they learned to speak English since it is the most widely-used language on Earth.</div>
+
+    <div class="tf-interactive-item" id="tfe-4">
+      <span class="tf-num">4.</span>
+      <span class="tf-statement">On the aliens' planet, resources are wasted just like on Earth.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfe-4','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfe-4','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfe-4-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfe-4-reason">This is False. On the aliens' planet, all resources are fully recycled and nothing is wasted, which is the opposite of Earth's careless resource consumption.</div>
+
+    <div class="tf-interactive-item" id="tfe-5">
+      <span class="tf-num">5.</span>
+      <span class="tf-statement">The aliens gave Suren a tiny advanced computer as proof of his visit.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfe-5','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfe-5','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfe-5-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfe-5-reason">This is True. The aliens gave Suren a tiny computer far more advanced than any on Earth, so that when examined by a computer engineer it would prove his story was true.</div>
+
+    <div class="btn-row">
+      <button class="tf-interactive-check" onclick="checkTFExtra()">✅ Check Answers</button>
+      <button class="cw-reset-btn" onclick="resetTFExtra()">🔄 Reset</button>
+    </div>
+    <div id="tfeScore" class="tf-score"></div>
+  </div>
+
+  <!-- EXTRA — INTERACTIVE FILL IN THE BLANKS -->
+  <div class="section-card" id="extra-fill">
+    <div class="section-title"><span class="icon">🎯</span> Extra Practice — Vocabulary Fill in the Blanks (Interactive)</div>
+
+    <div class="word-bank">
+      <div class="word-bank-label">Word Bank</div>
+      <div class="word-bank-words">
+        <span class="wb-word">ascended</span>
+        <span class="wb-word">twilight</span>
+        <span class="wb-word">vessel</span>
+        <span class="wb-word">appliances</span>
+        <span class="wb-word">recycled</span>
+      </div>
+    </div>
+
+    <div class="fill-interactive-item">
+      <span class="fill-num">1.</span>
+      <span class="fill-text">The evening sky was beautiful during ________ when the sun had just set.</span>
+      <input class="fill-input" id="fill-1" type="text" placeholder="Type word..." data-answer="twilight">
+      <span class="fill-result" id="fill-r-1"></span>
+    </div>
+    <div class="fill-interactive-item">
+      <span class="fill-num">2.</span>
+      <span class="fill-text">The spaceship ________ into the sky at an enormous speed.</span>
+      <input class="fill-input" id="fill-2" type="text" placeholder="Type word..." data-answer="ascended">
+      <span class="fill-result" id="fill-r-2"></span>
+    </div>
+    <div class="fill-interactive-item">
+      <span class="fill-num">3.</span>
+      <span class="fill-text">Old household ________ like fridges and washing machines should be properly disposed of.</span>
+      <input class="fill-input" id="fill-3" type="text" placeholder="Type word..." data-answer="appliances">
+      <span class="fill-result" id="fill-r-3"></span>
+    </div>
+    <div class="fill-interactive-item">
+      <span class="fill-num">4.</span>
+      <span class="fill-text">Suren was drawn into the ________ through an open door.</span>
+      <input class="fill-input" id="fill-4" type="text" placeholder="Type word..." data-answer="vessel">
+      <span class="fill-result" id="fill-r-4"></span>
+    </div>
+    <div class="fill-interactive-item">
+      <span class="fill-num">5.</span>
+      <span class="fill-text">On the alien planet, all resources are ________ and nothing is wasted.</span>
+      <input class="fill-input" id="fill-5" type="text" placeholder="Type word..." data-answer="recycled">
+      <span class="fill-result" id="fill-r-5"></span>
+    </div>
+
+    <div class="btn-row">
+      <button class="fill-check-btn" onclick="checkFills()">✅ Check All</button>
+      <button class="cw-show-btn" onclick="showFillAnswers()">💡 Show Answers</button>
+      <button class="cw-reset-btn" onclick="resetFills()">🔄 Reset</button>
+    </div>
+    <div id="fillScore" class="match-status"></div>
+  </div>
+
+</div><!-- /main-wrap -->
+
+<!-- MEANING POPUP -->
+<div class="meaning-popup" id="meaningPopup">
+  <button class="popup-close" onclick="closePopup()">&times;</button>
+  <div class="popup-word" id="popupWord"></div>
+  <div class="popup-en" id="popupEn"></div>
+  <div class="popup-ne" id="popupNe"></div>
+</div>
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top" id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  Prepared by: <strong>Narayan Prasad Regmi</strong> &nbsp;|&nbsp; Email: <a href="mailto:nregmi511@gmail.com">nregmi511@gmail.com</a> &nbsp;|&nbsp; 📞 9848144604
+</footer>
+
+<script>
+/* ===== FONT SIZE CONTROL (13-26px via CSS variable) ===== */
+function changeFontSize(d) {
+  var root = document.documentElement;
+  var current = parseFloat(getComputedStyle(root).getPropertyValue('--font-size-base'));
+  var next = current + d;
+  if (next < 13) next = 13;
+  if (next > 26) next = 26;
+  root.style.setProperty('--font-size-base', next + 'px');
+}
+
+/* ===== MEANING POPUP ===== */
+var popupTimer = null;
+function showMeaning(word, en, ne) {
+  var popup = document.getElementById('meaningPopup');
+  document.getElementById('popupWord').textContent = word;
+  document.getElementById('popupEn').textContent = en;
+  document.getElementById('popupNe').textContent = ne;
+  popup.classList.add('show');
+  if (popupTimer) clearTimeout(popupTimer);
+  popupTimer = setTimeout(function() { closePopup(); }, 6000);
+}
+function closePopup() {
+  document.getElementById('meaningPopup').classList.remove('show');
+  if (popupTimer) { clearTimeout(popupTimer); popupTimer = null; }
+}
+document.addEventListener('click', function(e) {
+  var popup = document.getElementById('meaningPopup');
+  if (popup.classList.contains('show') && !popup.contains(e.target) && !e.target.classList.contains('vocab-word')) {
+    closePopup();
+  }
+});
+
+/* ===== ACCORDION TOGGLE ===== */
+function toggleExercise(btn) {
+  var content = btn.nextElementSibling;
+  var wasOpen = content.classList.contains('open');
+  var section = btn.closest('.section-card');
+  if (section) {
+    section.querySelectorAll('.exercise-content.open').forEach(function(c) { c.classList.remove('open'); });
+    section.querySelectorAll('.exercise-toggle.active').forEach(function(b) { b.classList.remove('active'); });
+  }
+  if (!wasOpen) { content.classList.add('open'); btn.classList.add('active'); }
+}
+
+/* ===== EXERCISE A — OPPOSITE/SIMILAR ===== */
+function checkOppSim() {
+  var correct = 0; var total = 6;
+  for (var i = 1; i <= total; i++) {
+    var input = document.getElementById('opp-' + i);
+    var resultSpan = document.getElementById('opp-r-' + i);
+    var answer = input.getAttribute('data-answer').toLowerCase();
+    var userVal = input.value.trim().toLowerCase();
+    input.classList.remove('correct', 'wrong');
+    resultSpan.className = 'opp-sim-result';
+    if (userVal === answer) {
+      input.classList.add('correct');
+      resultSpan.textContent = '✓';
+      resultSpan.classList.add('correct-icon');
+      resultSpan.style.color = 'var(--match-correct)';
+      correct++;
+    } else if (userVal.length > 0) {
+      input.classList.add('wrong');
+      resultSpan.textContent = '✗';
+      resultSpan.classList.add('wrong-icon');
+      resultSpan.style.color = 'var(--match-wrong)';
+    } else { resultSpan.textContent = ''; }
+  }
+  var scoreEl = document.getElementById('oppScore');
+  if (correct === total) { scoreEl.textContent = '🎉 All 6 correct! Excellent!'; scoreEl.className = 'match-status correct'; }
+  else { scoreEl.textContent = '✅ ' + correct + ' of ' + total + ' correct. Try the rest!'; scoreEl.className = 'match-status correct'; }
+}
+function showOppSimAnswers() {
+  for (var i = 1; i <= 6; i++) {
+    var input = document.getElementById('opp-' + i);
+    var resultSpan = document.getElementById('opp-r-' + i);
+    input.value = input.getAttribute('data-answer');
+    input.classList.remove('wrong');
+    input.classList.add('correct');
+    resultSpan.textContent = '✓';
+    resultSpan.style.color = 'var(--match-correct)';
+  }
+  document.getElementById('oppScore').textContent = '💡 Answers revealed — study them!';
+  document.getElementById('oppScore').className = 'match-status';
+}
+function resetOppSim() {
+  for (var i = 1; i <= 6; i++) {
+    var input = document.getElementById('opp-' + i);
+    var resultSpan = document.getElementById('opp-r-' + i);
+    input.value = ''; input.classList.remove('correct', 'wrong');
+    resultSpan.textContent = ''; resultSpan.className = 'opp-sim-result';
+  }
+  document.getElementById('oppScore').textContent = '';
+}
+
+/* ===== EXERCISE B — INTERACTIVE MATCHING ===== */
+var matchBSelectedLeft = null;
+var matchBSelectedRight = null;
+var matchBCorrectPairs = 0;
+var totalPairsB = 7;
+var correctMapB = {
+  'a': '6', /* saucer → (vi) small shallow round dish */
+  'b': '4', /* spaceship → (iv) vehicle that travels in space */
+  'c': '1', /* vessel → (i) a ship or large boat */
+  'd': '3', /* flashing → (iii) short bursts of bright light */
+  'e': '2', /* couch → (ii) a long comfortable seat */
+  'f': '7', /* broadcast → (vii) send out a programme on TV or radio */
+  'g': '5'  /* appliance → (v) machine designed for a particular thing in home */
+};
+
+function selectMatchB(el) {
+  if (el.classList.contains('matched')) return;
+  var side = el.getAttribute('data-side');
+  if (side === 'left') {
+    var prev = document.querySelector('#exercise-b .match-option.selected[data-side="left"]');
+    if (prev) prev.classList.remove('selected');
+    el.classList.add('selected');
+    matchBSelectedLeft = el;
+  } else {
+    var prev = document.querySelector('#exercise-b .match-option.selected[data-side="right"]');
+    if (prev) prev.classList.remove('selected');
+    el.classList.add('selected');
+    matchBSelectedRight = el;
+  }
+  if (matchBSelectedLeft && matchBSelectedRight) {
+    var leftId = matchBSelectedLeft.getAttribute('data-match-id');
+    var rightId = matchBSelectedRight.getAttribute('data-match-id');
+    if (correctMapB[leftId] === rightId) {
+      matchBSelectedLeft.classList.remove('selected');
+      matchBSelectedRight.classList.remove('selected');
+      matchBSelectedLeft.classList.add('matched');
+      matchBSelectedRight.classList.add('matched');
+      matchBSelectedLeft.innerHTML += ' <span class="match-check">✓</span>';
+      matchBSelectedRight.innerHTML += ' <span class="match-check">✓</span>';
+      matchBCorrectPairs++;
+      updateMatchStatusB();
+    } else {
+      matchBSelectedLeft.classList.add('wrong-flash');
+      matchBSelectedRight.classList.add('wrong-flash');
+      var leftEl = matchBSelectedLeft; var rightEl = matchBSelectedRight;
+      setTimeout(function() { leftEl.classList.remove('wrong-flash','selected'); rightEl.classList.remove('wrong-flash','selected'); }, 600);
+      document.getElementById('matchStatusB').textContent = '❌ Wrong pair — try again!';
+      document.getElementById('matchStatusB').className = 'match-status wrong';
+    }
+    matchBSelectedLeft = null; matchBSelectedRight = null;
+  }
+}
+function updateMatchStatusB() {
+  var status = document.getElementById('matchStatusB');
+  if (matchBCorrectPairs === totalPairsB) { status.textContent = '🎉 All 7 matched correctly!'; status.className = 'match-status correct'; }
+  else { status.textContent = '✅ ' + matchBCorrectPairs + ' of ' + totalPairsB + ' matched'; status.className = 'match-status correct'; }
+}
+function resetMatchB() {
+  matchBSelectedLeft = null; matchBSelectedRight = null; matchBCorrectPairs = 0;
+  document.querySelectorAll('#exercise-b .match-option').forEach(function(el) {
+    el.classList.remove('selected','matched','wrong-flash');
+    var check = el.querySelector('.match-check'); if (check) check.remove();
+  });
+  document.getElementById('matchStatusB').textContent = '';
+  document.getElementById('matchStatusB').className = 'match-status';
+}
+
+/* ===== EXERCISE C — ORDER EVENTS ===== */
+var orderSelections = {};
+/* Correct order: e=1, g=2, c=3, f=4, a=5, b=6, d=7 */
+var correctOrderMap = { 'ord-1': 1, 'ord-2': 2, 'ord-3': 3, 'ord-4': 4, 'ord-5': 5, 'ord-6': 6, 'ord-7': 7 };
+
+function selectOrder(itemId, num, btnEl) {
+  var item = document.getElementById(itemId);
+  var btns = item.querySelectorAll('.order-num-btn');
+  btns.forEach(function(b) { b.classList.remove('selected'); });
+  btnEl.classList.add('selected');
+  orderSelections[itemId] = num;
+}
+
+function checkOrder() {
+  var correct = 0; var total = 7;
+  Object.keys(correctOrderMap).forEach(function(itemId) {
+    var resultSpan = document.getElementById(itemId + '-result');
+    var userNum = orderSelections[itemId];
+    var correctNum = correctOrderMap[itemId];
+    resultSpan.className = 'order-result';
+    var item = document.getElementById(itemId);
+    var btns = item.querySelectorAll('.order-num-btn');
+    btns.forEach(function(b) { b.classList.remove('correct-num','wrong-num'); });
+    if (userNum === correctNum) {
+      resultSpan.textContent = '✓';
+      resultSpan.classList.add('correct-icon');
+      /* highlight correct number button */
+      btns.forEach(function(b) {
+        if (parseInt(b.textContent) === correctNum) b.classList.add('correct-num');
+      });
+      correct++;
+    } else if (userNum) {
+      resultSpan.textContent = '✗';
+      resultSpan.classList.add('wrong-icon');
+      btns.forEach(function(b) {
+        if (parseInt(b.textContent) === userNum) b.classList.add('wrong-num');
+      });
+    } else { resultSpan.textContent = '?'; }
+  });
+  var scoreEl = document.getElementById('orderScore');
+  if (correct === total) { scoreEl.textContent = '🎉 Perfect order! All 7 correct!'; scoreEl.className = 'match-status correct'; }
+  else { scoreEl.textContent = '✅ ' + correct + ' of ' + total + ' in correct position'; scoreEl.className = 'match-status correct'; }
+}
+
+function showOrderAnswers() {
+  Object.keys(correctOrderMap).forEach(function(itemId) {
+    var correctNum = correctOrderMap[itemId];
+    var resultSpan = document.getElementById(itemId + '-result');
+    var item = document.getElementById(itemId);
+    var btns = item.querySelectorAll('.order-num-btn');
+    btns.forEach(function(b) { b.classList.remove('selected','wrong-num'); b.classList.add('correct-num'); });
+    resultSpan.textContent = '✓';
+    resultSpan.className = 'order-result correct-icon';
+    orderSelections[itemId] = correctNum;
+  });
+  document.getElementById('orderScore').textContent = '💡 Correct order revealed!';
+  document.getElementById('orderScore').className = 'match-status';
+}
+
+function resetOrder() {
+  orderSelections = {};
+  Object.keys(correctOrderMap).forEach(function(itemId) {
+    var item = document.getElementById(itemId);
+    var btns = item.querySelectorAll('.order-num-btn');
+    btns.forEach(function(b) { b.classList.remove('selected','correct-num','wrong-num'); });
+    document.getElementById(itemId + '-result').textContent = '';
+    document.getElementById(itemId + '-result').className = 'order-result';
+  });
+  document.getElementById('orderScore').textContent = '';
+}
+
+/* ===== INTERACTIVE T/F — EXTRA ===== */
+var tfeAnswers = { 'tfe-1':'false', 'tfe-2':'false', 'tfe-3':'true', 'tfe-4':'false', 'tfe-5':'true' };
+var tfeSelections = {};
+function selectTF(itemId, value, btnEl) {
+  var item = document.getElementById(itemId);
+  var buttons = item.querySelectorAll('.tf-btn');
+  buttons.forEach(function(b) { b.classList.remove('selected-true','selected-false'); });
+  if (value === 'true') { btnEl.classList.add('selected-true'); } else { btnEl.classList.add('selected-false'); }
+  tfeSelections[itemId] = value;
+}
+function checkTFExtra() {
+  var correct = 0; var total = Object.keys(tfeAnswers).length;
+  Object.keys(tfeAnswers).forEach(function(itemId) {
+    var iconSpan = document.getElementById(itemId + '-icon');
+    var reasonDiv = document.getElementById(itemId + '-reason');
+    var userAnswer = tfeSelections[itemId];
+    var correctAnswer = tfeAnswers[itemId];
+    iconSpan.className = 'tf-result-icon';
+    if (userAnswer === correctAnswer) { iconSpan.textContent = '✓'; iconSpan.classList.add('correct'); correct++; }
+    else if (userAnswer) { iconSpan.textContent = '✗'; iconSpan.classList.add('wrong'); }
+    else { iconSpan.textContent = '?'; iconSpan.classList.add('wrong'); }
+    reasonDiv.classList.add('show');
+  });
+  document.getElementById('tfeScore').textContent = 'Score: ' + correct + ' / ' + total + ' correct';
+  document.getElementById('tfeScore').style.color = correct === total ? 'var(--match-correct)' : 'var(--highlight)';
+}
+function resetTFExtra() {
+  tfeSelections = {};
+  Object.keys(tfeAnswers).forEach(function(itemId) {
+    var item = document.getElementById(itemId);
+    item.querySelectorAll('.tf-btn').forEach(function(b) { b.classList.remove('selected-true','selected-false'); });
+    document.getElementById(itemId + '-icon').textContent = '';
+    document.getElementById(itemId + '-icon').className = 'tf-result-icon';
+    document.getElementById(itemId + '-reason').classList.remove('show');
+  });
+  document.getElementById('tfeScore').textContent = '';
+}
+
+/* ===== INTERACTIVE FILL-IN-BLANKS ===== */
+function checkFills() {
+  var correct = 0; var total = 5;
+  for (var i = 1; i <= total; i++) {
+    var input = document.getElementById('fill-' + i);
+    var resultSpan = document.getElementById('fill-r-' + i);
+    var answer = input.getAttribute('data-answer').toLowerCase();
+    var userVal = input.value.trim().toLowerCase();
+    input.classList.remove('correct','wrong');
+    resultSpan.className = 'fill-result';
+    if (userVal === answer) { input.classList.add('correct'); resultSpan.textContent = '✓'; resultSpan.classList.add('correct-icon'); correct++; }
+    else if (userVal.length > 0) { input.classList.add('wrong'); resultSpan.textContent = '✗'; resultSpan.classList.add('wrong-icon'); }
+    else { resultSpan.textContent = ''; }
+  }
+  var scoreEl = document.getElementById('fillScore');
+  if (correct === total) { scoreEl.textContent = '🎉 All 5 blanks correct! Well done!'; scoreEl.className = 'match-status correct'; }
+  else { scoreEl.textContent = '✅ ' + correct + ' of ' + total + ' correct. Try the rest!'; scoreEl.className = 'match-status correct'; }
+}
+function showFillAnswers() {
+  for (var i = 1; i <= 5; i++) {
+    var input = document.getElementById('fill-' + i);
+    var resultSpan = document.getElementById('fill-r-' + i);
+    input.value = input.getAttribute('data-answer');
+    input.classList.remove('wrong'); input.classList.add('correct');
+    resultSpan.textContent = '✓'; resultSpan.className = 'fill-result correct-icon';
+  }
+  document.getElementById('fillScore').textContent = '💡 Answers revealed — study them!';
+  document.getElementById('fillScore').className = 'match-status';
+}
+function resetFills() {
+  for (var i = 1; i <= 5; i++) {
+    var input = document.getElementById('fill-' + i);
+    var resultSpan = document.getElementById('fill-r-' + i);
+    input.value = ''; input.classList.remove('correct','wrong');
+    resultSpan.textContent = ''; resultSpan.className = 'fill-result';
+  }
+  document.getElementById('fillScore').textContent = '';
+}
+
+/* ===== SCROLL TO TOP ===== */
+function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+window.addEventListener('scroll', function() {
+  var btn = document.getElementById('scrollTopBtn');
+  if (window.scrollY > 400) { btn.classList.add('visible'); } else { btn.classList.remove('visible'); }
+});
+
+/* ===== DOWNLOAD ===== */
+function downloadHTML() {
+  var html = document.documentElement.outerHTML;
+  var blob = new Blob([html], { type: 'text/html' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = 'Message_from_Another_Planet_Interactive.html';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+
+</body>
+</html>

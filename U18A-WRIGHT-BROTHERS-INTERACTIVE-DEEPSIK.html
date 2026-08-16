@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wright Brothers – Grade 9 English Unit 18A</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── design system ── */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #1A5276;
+      --primary-light: #2E86C1;
+      --primary-dark: #0E2F44;
+      --accent: #D4A017;
+      --accent-light: #F1C40F;
+      --correct: #27AE60;
+      --incorrect: #E74C3C;
+      --bg: #EBF5FB;
+      --card-bg: #FFFFFF;
+      --text-dark: #1C2E3A;
+      --text-body: #2C3E50;
+      --text-muted: #5D6D7E;
+      --border: #B3D4E6;
+      --highlight-bg: #FEF9E7;
+      --highlight-border: #D4A017;
+      --nepali-accent: #8E44AD;
+      --font-size-base: 17px;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(26,82,118,0.08);
+      --shadow-lg: 0 12px 40px rgba(26,82,118,0.14);
+    }
+
+    body {
+      font-family: 'Poppins', 'Noto Sans SC', sans-serif;
+      background: var(--bg);
+      color: var(--text-body);
+      font-size: var(--font-size-base);
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* ── TOOLBAR ── */
+    .toolbar {
+      position: fixed;
+      top: 0; left: 0; width: 100%; z-index: 1000;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 24px;
+      box-shadow: 0 4px 20px rgba(26,82,118,0.3);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .toolbar-left { display: flex; align-items: center; gap: 16px; }
+    .toolbar-title { font-size: 15px; font-weight: 600; letter-spacing: 0.3px; }
+    .toolbar-title span { opacity: 0.7; font-weight: 400; }
+    .toolbar-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+    .font-btn {
+      width: 38px; height: 38px; border-radius: 10px;
+      border: 2px solid rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.1);
+      color: white;
+      font-size: 18px; font-weight: 700;
+      cursor: pointer; transition: 0.2s;
+      font-family: 'Poppins', sans-serif;
+    }
+    .font-btn:hover { background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.5); transform: scale(1.08); }
+    .font-size-display { font-size: 13px; font-weight: 600; min-width: 38px; text-align: center; background: rgba(255,255,255,0.15); padding: 6px 10px; border-radius: 8px; }
+    .download-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 18px; border-radius: 10px; border: none;
+      background: rgba(255,255,255,0.2); color: white;
+      font-size: 13px; font-weight: 600; cursor: pointer; transition: 0.2s;
+      font-family: 'Poppins', sans-serif;
+    }
+    .download-btn:hover { background: rgba(255,255,255,0.35); transform: translateY(-1px); }
+
+    /* ── SCROLL TO TOP ── */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 9999;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: 2px solid rgba(255,255,255,0.3);
+      font-size: 26px;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(26,82,118,0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+    }
+    #scrollTopBtn.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #scrollTopBtn:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 8px 30px rgba(26,82,118,0.55);
+      background: linear-gradient(135deg, var(--accent), #B8860B);
+    }
+    #scrollTopBtn:active { transform: scale(0.92); }
+
+    /* ── MAIN ── */
+    .main-content { max-width: 860px; margin: 0 auto; padding: 80px 24px 60px; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #0E2F44, #1A5276, #2E86C1);
+      border-radius: 20px; padding: 48px 40px; color: white; margin-bottom: 36px;
+      position: relative; overflow: hidden; box-shadow: 0 12px 40px rgba(26,82,118,0.25);
+    }
+    .hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: rgba(255,255,255,0.06); border-radius: 50%; }
+    .hero::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 150px; height: 150px; background: rgba(255,255,255,0.04); border-radius: 50%; }
+    .hero-grade { display: inline-block; padding: 5px 16px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 30px; font-size: 12px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 16px; }
+    .hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; position: relative; z-index: 1; }
+    .hero-sub { font-size: 15px; opacity: 0.85; font-weight: 400; position: relative; z-index: 1; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 20px; position: relative; z-index: 1; }
+    .hero-meta-item { display: flex; align-items: center; gap: 6px; font-size: 13px; opacity: 0.85; background: rgba(255,255,255,0.1); padding: 5px 14px; border-radius: 20px; }
+
+    /* ── NAV PILLS ── */
+    .nav-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .nav-pill {
+      padding: 8px 18px; border-radius: 30px; background: white; border: 1px solid var(--border);
+      font-size: 13px; font-weight: 600; color: var(--text-muted); cursor: pointer; transition: 0.2s;
+      font-family: 'Poppins', sans-serif; text-decoration: none;
+    }
+    .nav-pill:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+    /* ── SECTION CARDS ── */
+    .section-card {
+      background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border);
+      padding: 36px 32px; margin-bottom: 28px; box-shadow: var(--shadow);
+      transition: box-shadow 0.3s;
+    }
+    .section-card:hover { box-shadow: var(--shadow-lg); }
+
+    .section-heading {
+      font-size: 24px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-heading .icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;
+    }
+    .icon-reading { background: #D4E6F1; color: #1A5276; }
+    .icon-words { background: #FEF9E7; color: #D4A017; }
+    .icon-exercise { background: #D5F5E3; color: #27AE60; }
+    .icon-fill { background: #EBDEF0; color: #8E44AD; }
+    .icon-tf { background: #FDEBD0; color: #E67E22; }
+    .icon-short { background: #D6EAF8; color: #2980B9; }
+    .icon-extra { background: #F5EEF8; color: #8E44AD; }
+
+    .section-subtitle { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; font-weight: 400; }
+
+    /* ── READING PASSAGE ── */
+    .passage { font-size: inherit; line-height: 2; color: var(--text-body); }
+    .passage p { margin-bottom: 18px; text-align: justify; }
+    .passage p:last-child { margin-bottom: 0; }
+
+    .hw {
+      background: var(--highlight-bg); border-bottom: 2px solid var(--highlight-border);
+      padding: 1px 6px; border-radius: 4px; cursor: pointer; font-weight: 600;
+      color: #7A5D00; transition: all 0.2s; display: inline;
+    }
+    .hw:hover { background: #FDE68A; transform: scale(1.02); }
+    .hw::after { content: '📖'; font-size: 11px; position: relative; top: -4px; margin-left: 2px; }
+
+    /* ── POPUP ── */
+    .meaning-popup {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(120%);
+      width: 94%; max-width: 520px; background: white; border-radius: 18px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.05);
+      z-index: 2000; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s;
+      opacity: 0; overflow: hidden;
+    }
+    .meaning-popup.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+    .popup-header { background: linear-gradient(135deg, #1A5276, #2E86C1); color: white; padding: 14px 22px; display: flex; align-items: center; justify-content: space-between; }
+    .popup-word { font-size: 20px; font-weight: 700; }
+    .popup-close { width: 30px; height: 30px; border-radius: 50%; border: none; background: rgba(255,255,255,0.25); color: white; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s; font-family: 'Poppins', sans-serif; }
+    .popup-close:hover { background: rgba(255,255,255,0.4); }
+    .popup-body { padding: 18px 22px; display: flex; flex-direction: column; gap: 12px; }
+    .popup-meaning-row { display: flex; align-items: flex-start; gap: 12px; }
+    .popup-label { flex-shrink: 0; padding: 4px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; }
+    .popup-label.en { background: #DBEAFE; color: #1D4ED8; }
+    .popup-label.ne { background: #EDE9FE; color: #6D28D9; }
+    .popup-meaning-text { font-size: 16px; line-height: 1.5; padding-top: 2px; }
+    .popup-nepali { font-size: 17px; color: var(--nepali-accent); font-weight: 500; }
+
+    /* ── WORD TABLE ── */
+    .word-table-wrapper { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); }
+    .word-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .word-table thead { background: linear-gradient(135deg, #D4E6F1, #A9CCE3); }
+    .word-table th { padding: 14px 18px; text-align: left; font-weight: 700; color: #1A5276; font-size: 13px; text-transform: uppercase; letter-spacing: 0.8px; border-bottom: 2px solid #2E86C1; }
+    .word-table td { padding: 12px 18px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .word-table tr:last-child td { border-bottom: none; }
+    .word-table tr:hover td { background: #EBF5FB; }
+    .word-table .word-cell { font-weight: 700; color: var(--primary-dark); cursor: pointer; }
+    .word-table .word-cell:hover { text-decoration: underline; }
+    .word-table .nepali-cell { color: var(--nepali-accent); font-weight: 500; }
+
+    /* ── EXERCISE ITEMS ── */
+    .exercise-item {
+      background: #F8FCFF; border: 1px solid var(--border); border-radius: 12px;
+      margin-bottom: 14px; overflow: hidden; transition: all 0.2s;
+    }
+    .exercise-item:hover { border-color: #85C1E9; }
+
+    .exercise-question {
+      padding: 16px 20px; cursor: pointer; display: flex; align-items: flex-start; gap: 14px;
+      transition: background 0.2s; user-select: none;
+    }
+    .exercise-question:hover { background: #EBF5FB; }
+
+    .exercise-q-number {
+      flex-shrink: 0; width: 30px; height: 30px; border-radius: 8px;
+      background: var(--primary); color: white; display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; margin-top: 1px;
+    }
+    .exercise-q-text { flex: 1; font-weight: 500; color: var(--text-dark); line-height: 1.6; }
+    .exercise-toggle {
+      flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+      background: #D4E6F1; display: flex; align-items: center; justify-content: center;
+      font-size: 16px; color: var(--text-muted); transition: all 0.3s; margin-top: 1px;
+    }
+    .exercise-item.open .exercise-toggle { background: var(--correct); color: white; transform: rotate(180deg); }
+
+    .exercise-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .exercise-item.open .exercise-answer { max-height: 500px; }
+
+    .exercise-answer-inner {
+      padding: 0 20px 18px; margin-left: 44px;
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    .answer-badge {
+      flex-shrink: 0; padding: 4px 12px; border-radius: 6px;
+      font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px;
+    }
+    .badge-answer { background: #D5F5E3; color: #1E8449; }
+    .badge-true { background: #D5F5E3; color: #1E8449; }
+    .badge-false { background: #FADBD8; color: #922B21; }
+    .answer-text { font-size: 15px; color: var(--text-body); line-height: 1.7; }
+
+    .box-words {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;
+      padding: 16px; background: #EBF5FB; border-radius: 12px; border: 1px dashed #85C1E9;
+    }
+    .box-word { padding: 6px 16px; background: white; border: 1px solid #85C1E9; border-radius: 8px; font-weight: 600; color: var(--primary); font-size: 14px; }
+
+    .blank-slot {
+      display: inline-block; min-width: 100px; border-bottom: 2px dashed var(--primary);
+      padding: 2px 4px; font-weight: 700; color: var(--primary); background: #EBF5FB; border-radius: 4px 4px 0 0;
+    }
+
+    .click-hint {
+      display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px;
+      background: #EBF5FB; border: 1px solid #85C1E9; border-radius: 10px;
+      font-size: 13px; color: var(--primary); font-weight: 500; margin-bottom: 20px;
+    }
+
+    .extra-section { border-left: 4px solid var(--primary); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .main-content { padding: 72px 14px 40px; }
+      .section-card { padding: 24px 18px; }
+      .hero { padding: 32px 22px; }
+      .hero h1 { font-size: 24px; }
+      .toolbar { padding: 8px 14px; }
+      .toolbar-title { font-size: 12px; }
+      .meaning-popup { width: 96%; bottom: 12px; }
+      #scrollTopBtn { width: 48px; height: 48px; font-size: 22px; bottom: 20px; right: 20px; }
+    }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body>
+
+<!-- ===== TOOLBAR ===== -->
+<div class="toolbar">
+  <div class="toolbar-left">
+    <div class="toolbar-title">Grade 9 · English <span>| Unit 18A: Transportation &amp; Communication</span></div>
+  </div>
+  <div class="toolbar-right">
+    <button class="font-btn" onclick="changeFontSize(-1)" title="Decrease font size">A−</button>
+    <div class="font-size-display" id="fontDisplay">17px</div>
+    <button class="font-btn" onclick="changeFontSize(1)" title="Increase font size">A+</button>
+    <button class="download-btn" onclick="downloadHTML()" title="Download this page">⬇ Save</button>
+  </div>
+</div>
+
+<!-- ===== SCROLL TO TOP ===== -->
+<button id="scrollTopBtn" onclick="scrollToTop()" title="Go to top">⬆</button>
+
+<!-- ===== MEANING POPUP ===== -->
+<div class="meaning-popup" id="meaningPopup">
+  <div class="popup-header">
+    <span class="popup-word" id="popupWord">Word</span>
+    <button class="popup-close" onclick="closePopup()">✕</button>
+  </div>
+  <div class="popup-body">
+    <div class="popup-meaning-row">
+      <span class="popup-label en">English</span>
+      <span class="popup-meaning-text" id="popupEnglish">—</span>
+    </div>
+    <div class="popup-meaning-row">
+      <span class="popup-label ne">नेपाली</span>
+      <span class="popup-meaning-text popup-nepali" id="popupNepali">—</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN ===== -->
+<div class="main-content">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-grade">Grade 9 · Unit 18A · Transportation and Communication</div>
+    <h1>Wright Brothers</h1>
+    <div class="hero-sub">Pages 224–229 · Prose / Reading Text</div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">📖 Reading Passage</div>
+      <div class="hero-meta-item">📝 35+ Vocabulary Words</div>
+      <div class="hero-meta-item">✅ Interactive Exercises</div>
+    </div>
+  </div>
+
+  <!-- NAV PILLS -->
+  <div class="nav-pills">
+    <a class="nav-pill" href="#reading">📖 Reading</a>
+    <a class="nav-pill" href="#wordlist">📝 Word List</a>
+    <a class="nav-pill" href="#exerciseA">✍ Exercise A</a>
+    <a class="nav-pill" href="#exerciseB">✓ Exercise B</a>
+    <a class="nav-pill" href="#exerciseC">🔍 Exercise C</a>
+    <a class="nav-pill" href="#exerciseD">📋 Exercise D</a>
+    <a class="nav-pill" href="#exerciseE">✎ Exercise E</a>
+    <a class="nav-pill" href="#extraSA">💡 Extra SA</a>
+    <a class="nav-pill" href="#extraTF">🔍 Extra T/F</a>
+    <a class="nav-pill" href="#extraFill">🧩 Extra Fill</a>
+  </div>
+
+  <!-- ===== READING ===== -->
+  <div class="section-card" id="reading">
+    <div class="section-heading">
+      <div class="icon icon-reading">📖</div>
+      Wright Brothers — Pioneers of Flight
+    </div>
+    <div class="section-subtitle">Click any highlighted word to see its meaning</div>
+    <div class="click-hint">💡 Tap <span class="hw" style="cursor:default;">highlighted words</span> for meanings — popup stays until you close it.</div>
+
+    <div class="passage">
+      <p><strong>Wright Brothers</strong></p>
+      <p>Wilbur (1867-1912) and Orville Wright (1871-1948) were brothers. They lived in Dayton, Ohio, USA. Their father, Milton, was a <span class="hw" onclick="showMeaning('bishop','a senior priest in a church','धर्मगुरु/विशप')">bishop</span> in the Church of the United Brethren in Christ. Their mother, Susan, made toys for her children and encouraged their <span class="hw" onclick="showMeaning('curiosity','a strong desire to know or learn something','जिज्ञासा')">curiosity</span>. One day, Milton Wright brought home a small toy "helicopter" made of wood with two twisted rubber bands to turn a small <span class="hw" onclick="showMeaning('propeller','a device with blades that turns to move a ship or aircraft forward','प्रोपेलर/पंखा')">propeller</span>. Wilbur and Orville played with it until it broke, and then made new copies of the toy themselves. They also sold toys to their friends, including handmade kites. The Wright brothers did things together from the time they were small boys.</p>
+
+      <p>The Wright brothers went into the printing business together in 1889. Three years later, they opened their first bicycle shop. Initially, they sold and repaired bicycles. They would replace <span class="hw" onclick="showMeaning('spokes','the thin metal bars connecting the centre of a wheel to its rim','स्पोक/तार')">spokes</span>, fix broken chains, and sell <span class="hw" onclick="showMeaning('accessories','equipment that is useful but not essential','सहायक साधनहरू')">accessories</span>. In 1896, they began to build their own brand of bicycles. Their experiences with bicycles aided them in the investigations of flight. They used the technology they learned from their bicycle business in their airplanes: chains, <span class="hw" onclick="showMeaning('sprockets','a wheel with teeth that fit into a chain','ट्याँक भएको पांग्रा')">sprockets</span>, spoke wires, <span class="hw" onclick="showMeaning('ball bearings','small metal balls that reduce friction between moving parts','बल बेयरिङ')">ball bearings</span>, and <span class="hw" onclick="showMeaning('wheel hubs','the central part of a wheel','पांग्राको मध्यभाग')">wheel hubs</span>. Their thoughts on balancing and controlling their aircraft were also rooted in their experience as cyclists.</p>
+
+      <p>Orville and Wilbur Wright were convinced of the need to control an aircraft in three <span class="hw" onclick="showMeaning('axes','imaginary straight lines around which something rotates','अक्षहरू')">axes</span> of motion. An <span class="hw" onclick="showMeaning('elevator','a horizontal control surface on an aircraft used to control climb and descent','उन्नयन नियन्त्रक पाता')">elevator</span>, or horizontal control surface, in front of the wings on their aircraft, enabled the pilot to control climb and <span class="hw" onclick="showMeaning('descent','the action of going down','ओर्लने क्रिया')">descent</span>. The elevator was controlled by a <span class="hw" onclick="showMeaning('lever','a bar used to control machinery','लिभर/हत्था')">lever</span> in the pilot's left hand. A "wing warping" system controlled the aircraft in a roll. To initiate a roll, the pilot would shift his hips from side to side in a <span class="hw" onclick="showMeaning('cradle','a supporting structure','आधार संरचना')">cradle</span> on the lower wing, "twisting" the wings left or right or <span class="hw" onclick="showMeaning('restoring','bringing back to an original state','पुनर्स्थापना गर्नु')">restoring</span> them to level flight. Orville and Wilbur developed this idea from observing birds in flight. They observed the <span class="hw" onclick="showMeaning('buzzards','a large hawk-like bird of prey','ठूलो चील प्रजातिको चरा')">buzzards</span> keeping their balance by twisting their wings and sometimes curving one wing more than the other. In 1902, the brothers added a vertical <span class="hw" onclick="showMeaning('rudder','a flat piece at the back of an aircraft/boat used to steer it','दिशा नियन्त्रक पाता')">rudder</span> to the rear of their machine to control the left and right motion of the nose of the aircraft.</p>
+
+      <p>The Wright brothers began their <span class="hw" onclick="showMeaning('aeronautical','connected with the science or practice of building and flying aircraft','वैमानिक/उड्डयन सम्बन्धी')">aeronautical</span> research in 1899. Their first aircraft was a small kite with a 5-foot <span class="hw" onclick="showMeaning('wingspan','the distance from tip to tip of the wings','पखेटाको फैलावट')">wingspan</span> that was used to test their <span class="hw" onclick="showMeaning('notions','ideas or beliefs','धारणाहरू')">notions</span> of aircraft control. In 1900, they built their first machine designed to carry a pilot and chose Kitty Hawk, N.C., as a suitable testing ground. With its strong <span class="hw" onclick="showMeaning('steady','fixed, constant, not changing','स्थिर')">steady</span> winds, open areas, and tall sandy <span class="hw" onclick="showMeaning('dunes','hills or ridges of sand','बालुवाका टिल्काहरू')">dunes</span>, the area was perfect for their <span class="hw" onclick="showMeaning('experiments','scientific procedures undertaken to make a discovery','प्रयोगहरू')">experiments</span>. When their 1900 aircraft produced less lift than expected, the Wright brothers flew it as a kite and gathered information that would enable them to design improved machines. They returned to Kitty Hawk in 1901 with a new <span class="hw" onclick="showMeaning('glider','an aircraft without an engine that flies using air currents','ग्लाइडर/बिना इन्जिनको हवाईजहाज')">glider</span> that did not perform as they expected. While they had learned a great deal with their first two machines, they had also encountered new puzzles and dangers.</p>
+
+      <p>To <span class="hw" onclick="showMeaning('simulate','to create conditions similar to real ones for testing','अनुकरण गर्नु')">simulate</span> flight conditions, the Wrights tested small model wings in a <span class="hw" onclick="showMeaning('wind tunnel','a tube-like structure used to test how air moves around objects','वायु सुरुङ')">wind tunnel</span> they had built. The wind tunnel was a box with a fan at one end that blew a steady stream of air over model wings mounted on a special "balance" inside the tunnel. Using this device, the brothers were able to gather information that could be used to design the wings of the gliders and powered aircraft that would carry them into the air. The wind tunnel provided them with information on the most satisfactory wing shape. It also enabled them to calculate the size of wing that would be required to lift them into the air, the performance of their propellers, and the amount of power that their engine would have to produce. They based the design of their next glider on this information.</p>
+
+      <p>During the 1901 glider tests, the Wright brothers had discovered that "wing warping" created unequal <span class="hw" onclick="showMeaning('drag','the resistance force air exerts against a moving object','वायु अवरोध')">drag</span> on the two wings. The key to solving the control problem was the addition of a rudder to the glider design in 1902. They developed a direct <span class="hw" onclick="showMeaning('linkage','a connection between parts','जोड्ने संयन्त्र')">linkage</span> between the rudder and warping system. With the success of this system design, the Wrights were ready to move onto a powered aircraft.</p>
+
+      <p>At Kill Devil Hills, N.C., at 10:35 am, the Wright 1903 Flyer took off under its own power with Orville as the pilot. It flew 12 seconds and went a distance of 37 metres. Orville and Wilbur took turns making three more flights that morning. Wilbur was at the controls for the fourth and longest flight, traveling 260 meters in 59 seconds. The Wright 1903 Flyer became the first powered, heavier-than-air machine to achieve controlled, <span class="hw" onclick="showMeaning('sustained','continued over a period of time without interruption','निरन्तर')">sustained</span> flight with a pilot aboard. Today, this amazing flying invention can be viewed as it is <span class="hw" onclick="showMeaning('suspended','hung so as not to touch the ground','झुण्ड्याइएको')">suspended</span> overhead, at the National Air and Space Museum in Washington, D.C.</p>
+
+      <p>Having achieved success in North Carolina, the Wright brothers decided to continue their experiments closer to home. They built and flew their second powered airplane at Huffman Prairie, a <span class="hw" onclick="showMeaning('pasture','land covered with grass used for grazing animals','चरन/घाँसे मैदान')">pasture</span> eight miles east of Dayton, Ohio. Progress was slow without the strong, steady winds of Kitty Hawk, but the brothers did achieve the first circular flight of an airplane on September 20, 1904. This first complete circle flight lasted only 1 minute 36 seconds and covered 1,244 metres. <span class="hw" onclick="showMeaning('stability','the state of being firmly fixed or balanced','स्थिरता')">Stability</span> problems still <span class="hw" onclick="showMeaning('plagued','caused continuous trouble or pain to','निरन्तर सताउनु/दु:ख दिनु')">plagued</span> their invention. The <span class="hw" onclick="showMeaning('modifications','minor changes made to improve something','सुधारका लागि गरिएका परिमार्जन')">modifications</span> made during 1904 helped but did not solve the stability problem.</p>
+
+      <p>This Flyer was the world's first practical airplane. During more than 40 flights at Huffman Prairie, the machine was repeatedly <span class="hw" onclick="showMeaning('banked','tilted to one side while turning, as an aircraft','एकातर्फ ढल्काउनु')">banked</span>, turned, circled, and flown in figure eights. On two occasions the flight exceeded half an hour. Wilbur and Orville Wright, brilliant self-trained engineers, had overcome complex technical problems that had <span class="hw" onclick="showMeaning('barred','blocked or prevented','रोकिएको/अवरोध गरिएको')">barred</span> the way to mechanical flight for centuries. Think about how their invention has changed our world.</p>
+    </div>
+  </div>
+
+  <!-- ===== WORD LIST ===== -->
+  <div class="section-card" id="wordlist">
+    <div class="section-heading">
+      <div class="icon icon-words">📝</div>
+      Word Meaning List
+    </div>
+    <div class="section-subtitle">Click any word to see its meaning in the popup</div>
+
+    <div class="word-table-wrapper">
+      <table class="word-table">
+        <thead><tr><th>#</th><th>Word</th><th>English Meaning</th><th>नेपाली अर्थ</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="word-cell" onclick="showMeaning('bishop','a senior priest in a church','धर्मगुरु/विशप')">bishop</td><td>a senior priest in a church</td><td class="nepali-cell">धर्मगुरु/विशप</td></tr>
+          <tr><td>2</td><td class="word-cell" onclick="showMeaning('curiosity','a strong desire to know something','जिज्ञासा')">curiosity</td><td>a strong desire to know something</td><td class="nepali-cell">जिज्ञासा</td></tr>
+          <tr><td>3</td><td class="word-cell" onclick="showMeaning('propeller','a device with turning blades to move an aircraft','प्रोपेलर/पंखा')">propeller</td><td>a device with turning blades to move an aircraft</td><td class="nepali-cell">प्रोपेलर/पंखा</td></tr>
+          <tr><td>4</td><td class="word-cell" onclick="showMeaning('spokes','thin bars connecting wheel centre to rim','स्पोक/तार')">spokes</td><td>thin bars connecting wheel centre to rim</td><td class="nepali-cell">स्पोक/तार</td></tr>
+          <tr><td>5</td><td class="word-cell" onclick="showMeaning('accessories','useful but not essential equipment','सहायक साधनहरू')">accessories</td><td>useful but not essential equipment</td><td class="nepali-cell">सहायक साधनहरू</td></tr>
+          <tr><td>6</td><td class="word-cell" onclick="showMeaning('sprockets','toothed wheel that fits into a chain','ट्याँक भएको पांग्रा')">sprockets</td><td>toothed wheel that fits into a chain</td><td class="nepali-cell">ट्याँक भएको पांग्रा</td></tr>
+          <tr><td>7</td><td class="word-cell" onclick="showMeaning('ball bearings','small balls reducing friction','बल बेयरिङ')">ball bearings</td><td>small balls reducing friction</td><td class="nepali-cell">बल बेयरिङ</td></tr>
+          <tr><td>8</td><td class="word-cell" onclick="showMeaning('wheel hubs','central part of a wheel','पांग्राको मध्यभाग')">wheel hubs</td><td>central part of a wheel</td><td class="nepali-cell">पांग्राको मध्यभाग</td></tr>
+          <tr><td>9</td><td class="word-cell" onclick="showMeaning('axes','imaginary lines of rotation','अक्षहरू')">axes</td><td>imaginary lines of rotation</td><td class="nepali-cell">अक्षहरू</td></tr>
+          <tr><td>10</td><td class="word-cell" onclick="showMeaning('elevator','horizontal control surface of aircraft','उन्नयन नियन्त्रक पाता')">elevator</td><td>horizontal control surface of aircraft</td><td class="nepali-cell">उन्नयन नियन्त्रक पाता</td></tr>
+          <tr><td>11</td><td class="word-cell" onclick="showMeaning('descent','action of going down','ओर्लने क्रिया')">descent</td><td>action of going down</td><td class="nepali-cell">ओर्लने क्रिया</td></tr>
+          <tr><td>12</td><td class="word-cell" onclick="showMeaning('lever','a bar to control machinery','लिभर/हत्था')">lever</td><td>a bar to control machinery</td><td class="nepali-cell">लिभर/हत्था</td></tr>
+          <tr><td>13</td><td class="word-cell" onclick="showMeaning('cradle','supporting structure','आधार संरचना')">cradle</td><td>supporting structure</td><td class="nepali-cell">आधार संरचना</td></tr>
+          <tr><td>14</td><td class="word-cell" onclick="showMeaning('restoring','bringing back to original state','पुनर्स्थापना गर्नु')">restoring</td><td>bringing back to original state</td><td class="nepali-cell">पुनर्स्थापना गर्नु</td></tr>
+          <tr><td>15</td><td class="word-cell" onclick="showMeaning('buzzards','a large hawk-like bird','ठूलो चील प्रजातिको चरा')">buzzards</td><td>a large hawk-like bird</td><td class="nepali-cell">ठूलो चील प्रजातिको चरा</td></tr>
+          <tr><td>16</td><td class="word-cell" onclick="showMeaning('rudder','steering surface of aircraft/boat','दिशा नियन्त्रक पाता')">rudder</td><td>steering surface of aircraft/boat</td><td class="nepali-cell">दिशा नियन्त्रक पाता</td></tr>
+          <tr><td>17</td><td class="word-cell" onclick="showMeaning('aeronautical','related to aircraft science/flying','वैमानिक/उड्डयन सम्बन्धी')">aeronautical</td><td>related to aircraft science/flying</td><td class="nepali-cell">वैमानिक/उड्डयन सम्बन्धी</td></tr>
+          <tr><td>18</td><td class="word-cell" onclick="showMeaning('wingspan','tip-to-tip wing distance','पखेटाको फैलावट')">wingspan</td><td>tip-to-tip wing distance</td><td class="nepali-cell">पखेटाको फैलावट</td></tr>
+          <tr><td>19</td><td class="word-cell" onclick="showMeaning('notions','ideas or beliefs','धारणाहरू')">notions</td><td>ideas or beliefs</td><td class="nepali-cell">धारणाहरू</td></tr>
+          <tr><td>20</td><td class="word-cell" onclick="showMeaning('steady','fixed, constant','स्थिर')">steady</td><td>fixed, constant</td><td class="nepali-cell">स्थिर</td></tr>
+          <tr><td>21</td><td class="word-cell" onclick="showMeaning('dunes','ridges of sand','बालुवाका टिल्काहरू')">dunes</td><td>ridges of sand</td><td class="nepali-cell">बालुवाका टिल्काहरू</td></tr>
+          <tr><td>22</td><td class="word-cell" onclick="showMeaning('experiments','scientific tests/procedures','प्रयोगहरू')">experiments</td><td>scientific tests/procedures</td><td class="nepali-cell">प्रयोगहरू</td></tr>
+          <tr><td>23</td><td class="word-cell" onclick="showMeaning('glider','engineless aircraft','ग्लाइडर/बिना इन्जिनको हवाईजहाज')">glider</td><td>engineless aircraft</td><td class="nepali-cell">ग्लाइडर/बिना इन्जिनको हवाईजहाज</td></tr>
+          <tr><td>24</td><td class="word-cell" onclick="showMeaning('simulate','to create similar conditions for testing','अनुकरण गर्नु')">simulate</td><td>to create similar conditions for testing</td><td class="nepali-cell">अनुकरण गर्नु</td></tr>
+          <tr><td>25</td><td class="word-cell" onclick="showMeaning('wind tunnel','structure to test airflow','वायु सुरुङ')">wind tunnel</td><td>structure to test airflow</td><td class="nepali-cell">वायु सुरुङ</td></tr>
+          <tr><td>26</td><td class="word-cell" onclick="showMeaning('drag','air resistance force','वायु अवरोध')">drag</td><td>air resistance force</td><td class="nepali-cell">वायु अवरोध</td></tr>
+          <tr><td>27</td><td class="word-cell" onclick="showMeaning('linkage','connection between parts','जोड्ने संयन्त्र')">linkage</td><td>connection between parts</td><td class="nepali-cell">जोड्ने संयन्त्र</td></tr>
+          <tr><td>28</td><td class="word-cell" onclick="showMeaning('sustained','continued without interruption','निरन्तर')">sustained</td><td>continued without interruption</td><td class="nepali-cell">निरन्तर</td></tr>
+          <tr><td>29</td><td class="word-cell" onclick="showMeaning('suspended','hung in air','झुण्ड्याइएको')">suspended</td><td>hung in air</td><td class="nepali-cell">झुण्ड्याइएको</td></tr>
+          <tr><td>30</td><td class="word-cell" onclick="showMeaning('pasture','grassland for grazing','चरन/घाँसे मैदान')">pasture</td><td>grassland for grazing</td><td class="nepali-cell">चरन/घाँसे मैदान</td></tr>
+          <tr><td>31</td><td class="word-cell" onclick="showMeaning('stability','state of being balanced','स्थिरता')">stability</td><td>state of being balanced</td><td class="nepali-cell">स्थिरता</td></tr>
+          <tr><td>32</td><td class="word-cell" onclick="showMeaning('plagued','continuously troubled','निरन्तर सताएको')">plagued</td><td>continuously troubled</td><td class="nepali-cell">निरन्तर सताएको</td></tr>
+          <tr><td>33</td><td class="word-cell" onclick="showMeaning('modifications','changes made to improve','परिमार्जनहरू')">modifications</td><td>changes made to improve</td><td class="nepali-cell">परिमार्जनहरू</td></tr>
+          <tr><td>34</td><td class="word-cell" onclick="showMeaning('banked','tilted while turning','ढल्काएको')">banked</td><td>tilted while turning</td><td class="nepali-cell">ढल्काएको</td></tr>
+          <tr><td>35</td><td class="word-cell" onclick="showMeaning('barred','blocked, prevented','अवरोध गरिएको')">barred</td><td>blocked, prevented</td><td class="nepali-cell">अवरोध गरिएको</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE A: FIND WORDS ===== -->
+  <div class="section-card" id="exerciseA">
+    <div class="section-heading">
+      <div class="icon icon-fill">✍</div>
+      Exercise A — Find the Words Matching the Meanings
+    </div>
+    <div class="section-subtitle">Click each clue to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">equipment that is useful but not essential</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>accessories</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">an action of going down</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>descent</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">connected with the science/practice of building and flying aircraft</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>aeronautical</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">fixed, supported or balanced; constant</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>steady</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">a scientific procedure to make a discovery</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>experiment</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">f</div>
+        <div class="exercise-q-text">to cause pain or trouble over a period of time</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>plagued</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE B: MATCH WORDS ===== -->
+  <div class="section-card" id="exerciseB">
+    <div class="section-heading">
+      <div class="icon icon-exercise">✓</div>
+      Exercise B — Match Words with Meanings
+    </div>
+    <div class="section-subtitle">Click each word to reveal its meaning</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">propeller</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Match</span>
+          <span class="answer-text">a turning device with blades that moves aircraft</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">spokes</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Match</span>
+          <span class="answer-text">thin bars of a wheel connecting hub and rim</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">elevator</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Match</span>
+          <span class="answer-text">horizontal control surface in front of wings</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">buzzard</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Match</span>
+          <span class="answer-text">a large hawk-like bird of prey</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE C: TRUE/FALSE ===== -->
+  <div class="section-card" id="exerciseC">
+    <div class="section-heading">
+      <div class="icon icon-tf">🔍</div>
+      Exercise C — True or False
+    </div>
+    <div class="section-subtitle">Click each statement to reveal the answer with correction</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">The Wright brothers sold copies of toy helicopters at the market.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">They sold toys (including kites) to their friends, not at a market.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">They had a printing business in their cycle shop.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">The printing business (1889) came before and was separate from the bicycle shop (1892).</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">The experience of cycling helped them to generate ideas for controlling and balancing aircraft.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">Their thoughts on balancing and controlling aircraft were rooted in their experience as cyclists.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">The wing warping system controls the aircraft in a roll.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">Wing warping controlled the aircraft's roll.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">They learned more about balancing by watching other aircraft fly.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">They learned by observing birds (buzzards) in flight.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">f</div>
+        <div class="exercise-q-text">Their first experimentation was with a kite.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">Their first aircraft was a small kite with a 5-foot wingspan.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">g</div>
+        <div class="exercise-q-text">Wilbur Wright was the pilot of their 1903 Flyer.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">Orville was the pilot of the first (1903) flight; Wilbur piloted the fourth flight.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">h</div>
+        <div class="exercise-q-text">Their aircraft could only fly straight.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">The aircraft could be banked, turned, circled, and flown in figure eights.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE D: CHRONOLOGICAL ORDER ===== -->
+  <div class="section-card" id="exerciseD">
+    <div class="section-heading">
+      <div class="icon icon-extra">📋</div>
+      Exercise D — Chronological Order
+    </div>
+    <div class="section-subtitle">Click to reveal the correct sequence of events</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">•</div>
+        <div class="exercise-q-text">Show the correct chronological order</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Order</span>
+          <span class="answer-text">
+            <strong>1. (d)</strong> Milton Wright brought home a toy helicopter.<br/>
+            <strong>2. (f)</strong> The children made copies of the toy helicopter.<br/>
+            <strong>3. (h)</strong> The Wright brothers started a printing business.<br/>
+            <strong>4. (b)</strong> The Wright brothers opened a cycle shop.<br/>
+            <strong>5. (g)</strong> The Wright brothers began their aeronautical research.<br/>
+            <strong>6. (e)</strong> Wright brothers built their first machine designed to carry a pilot.<br/>
+            <strong>7. (a)</strong> Their first Flyer took off under its own power with a pilot.<br/>
+            <strong>8. (c)</strong> The Wright brothers developed a machine overcoming complex technical problems.
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE E: SHORT ANSWERS ===== -->
+  <div class="section-card" id="exerciseE">
+    <div class="section-heading">
+      <div class="icon icon-short">✎</div>
+      Exercise E — Answer the Following Questions
+    </div>
+    <div class="section-subtitle">Click each question to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">What services did the Wright brothers offer from the cycle shop?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Initially, they sold and repaired bicycles — replacing spokes, fixing broken chains, and selling accessories. Later, in 1896, they began building their own brand of bicycles.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">How did their cycle business help them to build an aircraft?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Their bicycle experience helped them investigate flight. They used bicycle technology — chains, sprockets, spoke wires, ball bearings, and wheel hubs — in their airplanes, and their ideas about balancing and controlling aircraft came from their cycling experience.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">How did the brothers develop the idea of balance and control in the flight of an aircraft?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">They developed the idea by observing buzzards in flight, which kept balance by twisting their wings and curving one wing more than the other — this inspired their "wing warping" system.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">What was their first aircraft like?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Their first aircraft was a small kite with a 5-foot wingspan, used to test their notions of aircraft control.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">What did they do to create the flight conditions?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">They built a wind tunnel — a box with a fan blowing a steady stream of air over model wings mounted on a special "balance" — to simulate flight conditions and test wing designs.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">f</div>
+        <div class="exercise-q-text">What is "wing warping"?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">It is a system controlling the aircraft's roll, where the pilot shifted his hips side to side in a cradle on the lower wing, twisting the wings left or right, or restoring them to level flight.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">g</div>
+        <div class="exercise-q-text">When and where did the first Flyer take off?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">At Kill Devil Hills, North Carolina, at 10:35 am in 1903, with Orville as the pilot.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">h</div>
+        <div class="exercise-q-text">What progress had they made by 1904?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">They achieved the first circular flight on September 20, 1904, at Huffman Prairie, lasting 1 minute 36 seconds and covering 1,244 metres, although stability problems still remained.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">i</div>
+        <div class="exercise-q-text">What was the world's first practical airplane like?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">During more than 40 flights at Huffman Prairie, it was repeatedly banked, turned, circled, and flown in figure eights; on two occasions the flight exceeded half an hour.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXTRA: SHORT QUESTIONS ===== -->
+  <div class="section-card extra-section" id="extraSA">
+    <div class="section-heading">
+      <div class="icon icon-extra">💡</div>
+      Additional Short Questions
+    </div>
+    <div class="section-subtitle">Click each question to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">Who were the parents of the Wright brothers, and what did their mother encourage in them?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Their father was Milton (a bishop) and their mother was Susan. Their mother encouraged their curiosity.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">What role did the wind tunnel play in the Wright brothers' research?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">The wind tunnel allowed them to test small model wings and gather data on wing shape, lift, and propeller performance, which helped them design better aircraft.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">Why did the Wright brothers choose Kitty Hawk as their testing ground?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Kitty Hawk had strong steady winds, open areas, and tall sandy dunes, making it perfect for their experiments.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">What problem did the Wright brothers discover with "wing warping" in 1901, and how did they solve it?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">They discovered that wing warping created unequal drag on the two wings. They solved it by adding a rudder and developing a direct linkage between the rudder and the warping system.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">Where is the Wright 1903 Flyer displayed today?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">It is displayed at the National Air and Space Museum in Washington, D.C.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXTRA: TRUE/FALSE ===== -->
+  <div class="section-card extra-section" id="extraTF">
+    <div class="section-heading">
+      <div class="icon icon-extra">🔍</div>
+      Additional True / False
+    </div>
+    <div class="section-subtitle">Click each statement to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">The Wright brothers' father was a bishop.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">Milton Wright was a bishop in the Church of the United Brethren in Christ.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">The Wright brothers built the wind tunnel to test full-sized aircraft.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">They tested small model wings in the wind tunnel, not full-sized aircraft.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">The 1903 Flyer's first flight covered 37 metres in 12 seconds.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">The first flight flew 37 metres in 12 seconds with Orville as pilot.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">Huffman Prairie is located in North Carolina.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">Huffman Prairie is near Dayton, Ohio, not in North Carolina.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">The Wright brothers were formally trained aeronautical engineers from a university.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">They were brilliant self-trained engineers, not formally trained from a university.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXTRA: FILL IN THE BLANKS ===== -->
+  <div class="section-card extra-section" id="extraFill">
+    <div class="section-heading">
+      <div class="icon icon-extra">🧩</div>
+      Contextual Fill-in-the-Blanks
+    </div>
+    <div class="section-subtitle">Click each question to reveal the correct answer</div>
+
+    <div class="box-words">
+      <span class="box-word">elevator</span>
+      <span class="box-word">steady</span>
+      <span class="box-word">aeronautical</span>
+      <span class="box-word">Stability</span>
+      <span class="box-word">barred</span>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">The pilot uses an __________ to control the aircraft's climb and descent.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>elevator</strong> — The pilot uses an <strong>elevator</strong> to control the aircraft's climb and descent.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">Strong, __________ winds at Kitty Hawk made it ideal for testing.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>steady</strong> — Strong, <strong>steady</strong> winds at Kitty Hawk made it ideal for testing.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">The Wright brothers' research is called __________ research because it relates to aircraft science.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>aeronautical</strong> — The Wright brothers' research is called <strong>aeronautical</strong> research.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">__________ problems continued to trouble their invention even after 1904.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>Stability</strong> — <strong>Stability</strong> problems continued to trouble their invention even after 1904.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">The brothers had overcome complex technical problems that had __________ the way to mechanical flight for centuries.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>barred</strong> — The brothers had overcome complex technical problems that had <strong>barred</strong> the way to mechanical flight for centuries.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main-content -->
+
+<script>
+  // ── Font Size ──
+  let fontSize = 17;
+  const MIN_F = 12, MAX_F = 28;
+  function changeFontSize(delta) {
+    fontSize = Math.max(MIN_F, Math.min(MAX_F, fontSize + delta));
+    document.documentElement.style.setProperty('--font-size-base', fontSize + 'px');
+    document.getElementById('fontDisplay').textContent = fontSize + 'px';
+    const d = document.getElementById('fontDisplay');
+    d.style.transform = 'scale(1.2)';
+    setTimeout(() => d.style.transform = 'scale(1)', 200);
+  }
+
+  // ── Meaning Popup ──
+  function showMeaning(word, english, nepali) {
+    const popup = document.getElementById('meaningPopup');
+    document.getElementById('popupWord').textContent = word;
+    document.getElementById('popupEnglish').textContent = english;
+    document.getElementById('popupNepali').textContent = nepali;
+    popup.classList.add('show');
+  }
+  function closePopup() {
+    document.getElementById('meaningPopup').classList.remove('show');
+  }
+  document.addEventListener('click', function(e) {
+    const popup = document.getElementById('meaningPopup');
+    if (!e.target.closest('.hw') && !e.target.closest('.word-cell') && !e.target.closest('#meaningPopup')) {
+      popup.classList.remove('show');
+    }
+  });
+
+  // ── Exercise Toggle ──
+  function toggleExercise(item) {
+    const parent = item.closest('.section-card');
+    const all = parent.querySelectorAll('.exercise-item');
+    const isOpen = item.classList.contains('open');
+    all.forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ── Scroll to Top ──
+  const scrollBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 400) {
+      scrollBtn.classList.add('show');
+    } else {
+      scrollBtn.classList.remove('show');
+    }
+  });
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── Download ──
+  function downloadHTML() {
+    const html = document.documentElement.outerHTML;
+    const blob = new Blob(['<!DOCTYPE html>\n' + html], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'Wright_Brothers_Interactive.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+</script>
+
+</body>
+</html>

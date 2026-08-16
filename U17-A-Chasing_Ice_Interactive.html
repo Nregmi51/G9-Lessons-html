@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>U17 – Movie Review: 'Chasing Ice' | Grade 9 English</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== CSS VARIABLES ===== */
+:root {
+  --primary: #0A6E5C;
+  --primary-dark: #064D40;
+  --primary-light: #0D8B73;
+  --accent: #D4920A;
+  --accent-light: #F0B429;
+  --highlight: #C0392B;
+  --highlight-light: #E74C3C;
+  --bg-main: #EFF6F5;
+  --bg-card: #FFFFFF;
+  --bg-alt: #E2F0ED;
+  --bg-dark: #0A6E5C;
+  --text-main: #1A2E2A;
+  --text-light: #4A6B64;
+  --text-on-dark: #EFF6F5;
+  --border: #B8D8D0;
+  --border-light: #D4EBE5;
+  --shadow: rgba(10,110,92,0.10);
+  --shadow-strong: rgba(10,110,92,0.20);
+  --font-heading: 'Sora', sans-serif;
+  --font-body: 'Merriweather', serif;
+  --font-ui: 'DM Sans', sans-serif;
+  --font-size-base: 16px;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --radius-lg: 16px;
+}
+
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: 1.78;
+  color: var(--text-main);
+  background: var(--bg-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-alt); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+
+/* ===== HEADER ===== */
+.site-header {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+  color: var(--text-on-dark);
+  padding: 32px 24px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(212,146,10,0.18) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.site-header::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -40px;
+  width: 160px; height: 160px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.header-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 20px;
+  padding: 4px 16px;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.site-header h1 {
+  font-family: var(--font-heading);
+  font-size: 2.1rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.site-header .subtitle {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.88;
+  margin-bottom: 4px;
+}
+.site-header .meta-line {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  opacity: 0.7;
+  margin-top: 8px;
+}
+
+/* ===== CONTROLS BAR ===== */
+.controls-bar {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-light);
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+.font-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.font-controls span {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+.font-btn {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  width: 34px; height: 34px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--primary);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.font-btn:hover { background: var(--primary); color: #fff; }
+.dl-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 7px 18px;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.dl-btn:hover { background: var(--accent-light); }
+
+/* ===== NAV JUMP ===== */
+.nav-jump {
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border-light);
+  padding: 10px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+.nav-jump a {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 5px 14px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-jump a:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* ===== MAIN WRAPPER ===== */
+.main-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 20px 60px;
+}
+
+/* ===== SECTION CARD ===== */
+.section-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 28px 28px 20px;
+  margin-bottom: 28px;
+  box-shadow: 0 3px 14px var(--shadow);
+}
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title .icon {
+  font-size: 1.3rem;
+}
+
+/* ===== MOVIE INFO CARD ===== */
+.movie-info-card {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-bottom: 28px;
+  color: var(--text-on-dark);
+  box-shadow: 0 6px 20px var(--shadow-strong);
+}
+.movie-info-card h2 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.movie-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+.mi-item {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+}
+.mi-item .mi-label {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.7;
+  display: block;
+  margin-bottom: 2px;
+}
+.mi-item .mi-value {
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+/* ===== READING PARAGRAPH ===== */
+.reading-block {
+  margin-bottom: 22px;
+  position: relative;
+}
+.reading-label {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--primary);
+  background: var(--bg-alt);
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+.reading-block p {
+  font-size: var(--font-size-base);
+  line-height: 1.85;
+  text-align: justify;
+  margin-bottom: 4px;
+}
+
+/* ===== VOCAB HIGHLIGHT ===== */
+.vocab-word {
+  color: var(--accent);
+  font-weight: 700;
+  cursor: pointer;
+  border-bottom: 2px dotted var(--accent);
+  transition: all 0.2s;
+  position: relative;
+}
+.vocab-word:hover {
+  color: var(--highlight);
+  border-bottom-color: var(--highlight);
+}
+
+/* ===== MEANING POPUP ===== */
+.meaning-popup {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  background: var(--primary-dark);
+  color: var(--text-on-dark);
+  border-radius: var(--radius);
+  padding: 16px 22px;
+  min-width: 280px;
+  max-width: 90vw;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  z-index: 9999;
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s;
+  opacity: 0;
+  font-family: var(--font-ui);
+}
+.meaning-popup.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+.popup-word {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--accent-light);
+}
+.popup-en {
+  font-size: 0.88rem;
+  margin-bottom: 3px;
+  line-height: 1.45;
+}
+.popup-en::before { content: 'EN: '; font-weight: 700; opacity: 0.7; }
+.popup-ne {
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: rgba(255,255,255,0.85);
+}
+.popup-ne::before { content: 'NE: '; font-weight: 700; opacity: 0.7; }
+.popup-close {
+  position: absolute;
+  top: 8px; right: 12px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  font-size: 1.2rem;
+  cursor: pointer;
+  line-height: 1;
+}
+.popup-close:hover { color: #fff; }
+
+/* ===== GLOSSARY TABLE ===== */
+.glossary-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-top: 6px;
+}
+.glossary-table thead th {
+  background: var(--primary);
+  color: var(--text-on-dark);
+  font-family: var(--font-ui);
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.glossary-table thead th:first-child { border-radius: var(--radius-sm) 0 0 0; }
+.glossary-table thead th:last-child { border-radius: 0 var(--radius-sm) 0 0; }
+.glossary-table tbody td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
+}
+.glossary-table tbody tr:nth-child(even) { background: var(--bg-alt); }
+.glossary-table tbody tr:hover { background: #d4ebe5; }
+.glossary-table .sn { font-weight: 700; color: var(--primary); width: 36px; text-align: center; }
+.glossary-table .word-col { font-weight: 700; color: var(--accent); white-space: nowrap; }
+
+/* ===== EXERCISE SECTION ===== */
+.exercise-section { margin-bottom: 18px; }
+.exercise-heading {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 14px;
+}
+
+/* Accordion Item */
+.exercise-item, .tf-item, .fill-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.exercise-item:hover, .tf-item:hover, .fill-item:hover {
+  border-color: var(--primary);
+}
+.exercise-toggle, .tf-toggle, .fill-toggle {
+  width: 100%;
+  background: var(--bg-alt);
+  border: none;
+  padding: 12px 16px;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+}
+.exercise-toggle:hover, .tf-toggle:hover, .fill-toggle:hover {
+  background: #c8e0da;
+}
+.exercise-toggle .arrow, .tf-toggle .arrow, .fill-toggle .arrow {
+  transition: transform 0.3s;
+  font-size: 0.85rem;
+  color: var(--primary);
+}
+.exercise-toggle.active .arrow, .tf-toggle.active .arrow, .fill-toggle.active .arrow {
+  transform: rotate(180deg);
+}
+.exercise-content, .tf-content, .fill-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s;
+  padding: 0 16px;
+  background: var(--bg-card);
+}
+.exercise-content.open, .tf-content.open, .fill-content.open {
+  max-height: 2000px;
+  padding: 16px;
+}
+.answer-text {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-main);
+}
+.answer-text strong {
+  color: var(--primary);
+}
+
+/* ===== MATCH TABLE ===== */
+.match-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-top: 8px;
+}
+.match-table thead th {
+  background: var(--primary);
+  color: var(--text-on-dark);
+  font-family: var(--font-ui);
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.match-table tbody td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border-light);
+}
+.match-table .arrow-col {
+  text-align: center;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* ===== CROSSWORD BLOCK ===== */
+.crossword-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 12px;
+}
+.crossword-col h4 {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent);
+}
+.crossword-clue {
+  margin-bottom: 10px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+.crossword-clue .clue-num {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  color: var(--accent);
+  margin-right: 6px;
+}
+.crossword-clue .clue-answer {
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+/* ===== FILL TABLE ===== */
+.fill-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-top: 8px;
+}
+.fill-table thead th {
+  background: var(--primary);
+  color: var(--text-on-dark);
+  font-family: var(--font-ui);
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.78rem;
+}
+.fill-table tbody td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
+}
+.fill-table .sn { font-weight: 700; color: var(--primary); text-align: center; width: 36px; }
+.fill-table .answer-col { color: var(--primary-dark); font-weight: 600; }
+
+/* ===== TF TABLE ===== */
+.tf-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-top: 8px;
+}
+.tf-table thead th {
+  background: var(--highlight);
+  color: #fff;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.tf-table tbody td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
+}
+.tf-table .sn { font-weight: 700; color: var(--highlight); text-align: center; width: 36px; }
+.tf-true { color: #0A6E5C; font-weight: 700; }
+.tf-false { color: var(--highlight); font-weight: 700; }
+
+/* ===== WORD BANK ===== */
+.word-bank {
+  background: var(--bg-alt);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+.word-bank-label {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+.word-bank-words {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.wb-word {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* ===== REVIEWER NOTE ===== */
+.reviewer-note {
+  background: linear-gradient(135deg, var(--accent) 0%, #E9B82000 100%);
+  background-color: #FEF3D0;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 14px 18px;
+  margin-top: 18px;
+  font-size: 0.88rem;
+  font-style: italic;
+}
+.reviewer-note .reviewer-name {
+  font-family: var(--font-ui);
+  font-style: normal;
+  font-weight: 700;
+  color: var(--primary-dark);
+  display: block;
+  margin-top: 6px;
+  font-size: 0.82rem;
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background: var(--primary-dark);
+  color: var(--text-on-dark);
+  text-align: center;
+  padding: 20px;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+.site-footer a { color: var(--accent-light); text-decoration: none; }
+
+/* ===== SCROLL TOP ===== */
+.scroll-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px; height: 44px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px var(--shadow-strong);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.scroll-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.scroll-top:hover { background: var(--accent); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  .site-header h1 { font-size: 1.4rem; }
+  .section-card { padding: 18px 14px 14px; }
+  .movie-info-grid { grid-template-columns: 1fr 1fr; }
+  .crossword-wrapper { grid-template-columns: 1fr; }
+  .controls-bar { padding: 8px 14px; }
+  .nav-jump { padding: 8px 14px; }
+  .nav-jump a { font-size: 0.72rem; padding: 4px 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-badge">Unit 17 · Global Warming &amp; Climate Change</div>
+  <h1>🎬 Movie Review: 'Chasing Ice'</h1>
+  <div class="subtitle">Non-fiction / Review (Prose)</div>
+  <div class="meta-line">Grade 9 · English · Page No. 210–213</div>
+</header>
+
+<!-- CONTROLS BAR -->
+<div class="controls-bar">
+  <div class="font-controls">
+    <span>Aa</span>
+    <button class="font-btn" onclick="changeFontSize(-1)">−</button>
+    <button class="font-btn" onclick="changeFontSize(1)">+</button>
+  </div>
+  <button class="dl-btn" onclick="downloadHTML()">⬇ Download</button>
+</div>
+
+<!-- NAV JUMP -->
+<nav class="nav-jump">
+  <a href="#movie-info">🎬 Movie Info</a>
+  <a href="#review-text">📝 Review Text</a>
+  <a href="#glossary">📚 Glossary</a>
+  <a href="#exercise-a">Exercise A</a>
+  <a href="#exercise-b">Exercise B</a>
+  <a href="#exercise-c">Exercise C</a>
+  <a href="#exercise-d">Exercise D</a>
+  <a href="#extra-a">Extra A</a>
+  <a href="#extra-b">Extra B</a>
+  <a href="#extra-c">Extra C</a>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="main-wrap">
+
+  <!-- MOVIE INFORMATION -->
+  <div class="movie-info-card" id="movie-info">
+    <h2>🎬 Movie Information</h2>
+    <div class="movie-info-grid">
+      <div class="mi-item"><span class="mi-label">Title</span><span class="mi-value">Chasing Ice</span></div>
+      <div class="mi-item"><span class="mi-label">Genre</span><span class="mi-value">Documentary, Biography</span></div>
+      <div class="mi-item"><span class="mi-label">Language</span><span class="mi-value">English</span></div>
+      <div class="mi-item"><span class="mi-label">Director</span><span class="mi-value">Jeff Orlowski</span></div>
+      <div class="mi-item"><span class="mi-label">Producer</span><span class="mi-value">Jerry Aronson, Paula Dupré Pesmen, Jeff Orlowski</span></div>
+      <div class="mi-item"><span class="mi-label">Writer</span><span class="mi-value">Mark Monroe</span></div>
+      <div class="mi-item"><span class="mi-label">Release Date</span><span class="mi-value">Aug 10, 2016</span></div>
+      <div class="mi-item"><span class="mi-label">Runtime</span><span class="mi-value">1h 14m</span></div>
+      <div class="mi-item"><span class="mi-label">Produced by</span><span class="mi-value">Diamond Docs, Exposure</span></div>
+    </div>
+  </div>
+
+  <!-- REVIEW TEXT -->
+  <div class="section-card" id="review-text">
+    <div class="section-title"><span class="icon">📝</span> Review Text</div>
+
+    <div class="reading-block">
+      <span class="reading-label">Paragraph 1</span>
+      <p>In the wake of Hurricane Sandy, the power and <span class="vocab-word" onclick="showMeaning('unpredictability','the quality of being impossible to know in advance','अनिश्चितता')">unpredictability</span> of nature and the ever-changing weather patterns have become increasingly <span class="vocab-word" onclick="showMeaning('apparent','clearly visible','स्पष्ट')">apparent</span>. As topics such as weather and global warming become increasingly <span class="vocab-word" onclick="showMeaning('prevalent','widespread, common','व्यापक, प्रचलित')">prevalent</span> in today's culture, James Balog's documentary Chasing Ice provides <span class="vocab-word" onclick="showMeaning('striking','attracting attention by being unusual or impressive','आकर्षक, प्रभावशाली')">striking</span> images of how climate change has caused <span class="vocab-word" onclick="showMeaning('glacial erosion','the gradual wearing away or destruction of glaciers','हिमनदीको क्षय')">glacial erosion</span>.</p>
+    </div>
+
+    <div class="reading-block">
+      <span class="reading-label">Paragraph 2</span>
+      <p>The award-winning movie which opens in Los Angeles on Nov. 23, <span class="vocab-word" onclick="showMeaning('traces','follows the development of','पछ्याउनु')">traces</span> the journey of environmental photographer Balog as he attempts to capture the erosion of glaciers in the Arctic through photographs and video. In order to accomplish this goal, Balog started his own project and <span class="vocab-word" onclick="showMeaning('dubbed','gave a name to','नाम दिनु')">dubbed</span> it the Extreme Ice Survey. This <span class="vocab-word" onclick="showMeaning('endeavor','an attempt to achieve a goal','प्रयास, उद्यम')">endeavor</span> began as a project for National Geographic and turned out to reach a broader <span class="vocab-word" onclick="showMeaning('scope','the range or extent of a subject','दायरा, विस्तार')">scope</span> by tackling the problem of glacial erosion.</p>
+    </div>
+
+    <div class="reading-block">
+      <span class="reading-label">Paragraph 3</span>
+      <p>Balog's survey began with a total of 25 cameras that were to be <span class="vocab-word" onclick="showMeaning('monitored','observed and checked over a period of time','निगरानी गर्नु')">monitored</span> over the course of three years. The cameras were housed in protective units in order to prevent their destruction in the <span class="vocab-word" onclick="showMeaning('harsh','unpleasantly cold or severe','कठोर, कडा')">harsh</span> Arctic weather, and Balog's team <span class="vocab-word" onclick="showMeaning('periodically','at regular intervals','समय-समयमा, नियमित रूपमा')">periodically</span> downloaded the <span class="vocab-word" onclick="showMeaning('footage','recorded film material','चलचित्र सामग्री')">footage</span>. After having photographed glaciers in the past, Balog says in the film that he wanted to return to some of the same places he had visited to see how the glaciers had changed. He and his team set up cameras in Greenland, Iceland, Alaska and Montana's Glacier National Park.</p>
+    </div>
+
+    <div class="reading-block">
+      <span class="reading-label">Paragraph 4</span>
+      <p>The <span class="vocab-word" onclick="showMeaning('documentary','a film or television programme about real events','वृत्तचित्र')">documentary</span> begins with a series of striking and intense video clips of multiple natural disasters. Balog establishes the goal of the film from the very beginning by explaining his own initial <span class="vocab-word" onclick="showMeaning('skepticism','doubt about whether something is true','शंका, अविश्वास')">skepticism</span> regarding climate change and academic research on this topic. This makes Balog more <span class="vocab-word" onclick="showMeaning('relatable','easy to understand or feel connected to','सम्बन्धित, आत्मीय')">relatable</span> and increases his <span class="vocab-word" onclick="showMeaning('credibility','the quality of being trusted and believed','विश्वसनीयता')">credibility</span> as a <span class="vocab-word" onclick="showMeaning('photojournalist','a journalist who uses photographs','फोटो पत्रकार')">photojournalist</span> who ends up finding evidence for what he once doubted was actually occurring.</p>
+    </div>
+
+    <div class="reading-block">
+      <span class="reading-label">Paragraph 5</span>
+      <p>This documentary effectively combines data and scientific facts with <span class="vocab-word" onclick="showMeaning('visually appealing','attractive, interesting','आकर्षक')">visually appealing</span> images that make climate change more real. Balog's photographs and <span class="vocab-word" onclick="showMeaning('time-lapse','photography technique showing slow processes at fast speed','समय-विराम फोटोग्राफी')">time-lapse</span> footage of glaciers '<span class="vocab-word" onclick="showMeaning('calving','when large pieces break off from a glacier into the sea','हिमनदीबाट टुक्रा झर्नु')">calving</span>' or breaking apart into <span class="vocab-word" onclick="showMeaning('icebergs','large floating masses of ice','हिमशैल')">icebergs</span>, allow viewers to see and experience what is actually happening in these zones. The bigger the screen, the better to view the beautiful images that Balog has captured, many of which most people will never have the chance to experience in person.</p>
+    </div>
+
+    <div class="reading-block">
+      <span class="reading-label">Paragraph 6</span>
+      <p>Balog also refrains from <span class="vocab-word" onclick="showMeaning('overwhelming','giving too much of something','अत्यधिक भार दिनु')">overwhelming</span> his audience with too many scientific details and makes the data easy to understand. He explains his methods and how he <span class="vocab-word" onclick="showMeaning('interprets','explains the meaning of','व्याख्या गर्नु')">interprets</span> his results without coming across as boring. It is hard to watch an <span class="vocab-word" onclick="showMeaning('avalanche','a large mass of snow and ice falling down a mountain','हिमपहिरो')">avalanche</span> on screen or see the extreme <span class="vocab-word" onclick="showMeaning('erosion','the process by which something is gradually worn away','क्षरण, घिसाव')">erosion</span> of glaciers over a short period of time and not realise that Balog is clearly onto something.</p>
+    </div>
+
+    <div class="reading-block">
+      <span class="reading-label">Paragraph 7</span>
+      <p>The film also <span class="vocab-word" onclick="showMeaning('incorporates','includes as part of a whole','समावेश गर्नु')">incorporates</span> a sense of the extreme lengths that Balog and his team, including a <span class="vocab-word" onclick="showMeaning('glaciologist','a scientist who studies glaciers','हिमनदी विज्ञ')">glaciologist</span> and a <span class="vocab-word" onclick="showMeaning('climatologist','a scientist who studies climate','जलवायु विज्ञ')">climatologist</span>, were willing to go to capture footage of this glacial erosion. There are scenes in which Balog cries out in disappointment when some cameras are not working and other moments when he puts himself in quite <span class="vocab-word" onclick="showMeaning('precarious','not safe; dangerous','जोखिमपूर्ण, असुरक्षित')">precarious</span> positions as he descends into holes and caves of ice in order to get the best shot.</p>
+    </div>
+
+    <div class="reading-block">
+      <span class="reading-label">Paragraph 8</span>
+      <p>Chasing Ice is definitely a <span class="vocab-word" onclick="showMeaning('worthwhile','worth the time or effort','मूल्यवान, उपयोगी')">worthwhile</span> documentary that combines <span class="vocab-word" onclick="showMeaning('intriguing','very interesting and fascinating','रोचक, मनोरञ्जक')">intriguing</span> theories and <span class="vocab-word" onclick="showMeaning('exquisite','extremely beautiful or carefully made','अत्यन्त सुन्दर, उत्कृष्ट')">exquisite</span> images. Those who are <span class="vocab-word" onclick="showMeaning('skeptical','doubtful','शंकालु')">skeptical</span> about theories on the environment might be <span class="vocab-word" onclick="showMeaning('reluctant','unwilling; hesitating','अनिच्छुक, हिचकिचाहट गर्ने')">reluctant</span> to see the film, but there is still something to be gained from Balog's research. Balog and his team make viewers think critically about climate change and what it can mean for our future.</p>
+    </div>
+
+    <div class="reviewer-note">
+      "Balog and his team make viewers think critically about climate change and what it can mean for our future."
+      <span class="reviewer-name">— Andrea Seikaly</span>
+    </div>
+  </div>
+
+  <!-- GLOSSARY -->
+  <div class="section-card" id="glossary">
+    <div class="section-title"><span class="icon">📚</span> Difficult Words — Glossary</div>
+    <table class="glossary-table">
+      <thead>
+        <tr><th>S.N.</th><th>Word</th><th>English Meaning</th><th>Nepali Meaning</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="sn">1</td><td class="word-col">unpredictability</td><td>The quality of being impossible to know or foresee in advance</td><td>अनिश्चितता</td></tr>
+        <tr><td class="sn">2</td><td class="word-col">prevalent</td><td>Widespread; existing or occurring commonly</td><td>व्यापक, प्रचलित</td></tr>
+        <tr><td class="sn">3</td><td class="word-col">glacial erosion</td><td>The gradual wearing away or destruction of glaciers</td><td>हिमनदीको क्षय</td></tr>
+        <tr><td class="sn">4</td><td class="word-col">dubbed</td><td>Gave a name or title to something</td><td>नाम दिइएको</td></tr>
+        <tr><td class="sn">5</td><td class="word-col">endeavor</td><td>An attempt to achieve a goal; an effort or project</td><td>प्रयास, उद्यम</td></tr>
+        <tr><td class="sn">6</td><td class="word-col">scope</td><td>The range or extent of something covered</td><td>दायरा, विस्तार</td></tr>
+        <tr><td class="sn">7</td><td class="word-col">harsh</td><td>Unpleasantly severe, rough, or cold</td><td>कठोर, कडा</td></tr>
+        <tr><td class="sn">8</td><td class="word-col">periodically</td><td>At regular intervals; from time to time</td><td>समय-समयमा</td></tr>
+        <tr><td class="sn">9</td><td class="word-col">footage</td><td>Recorded film material</td><td>चलचित्र सामग्री</td></tr>
+        <tr><td class="sn">10</td><td class="word-col">skepticism</td><td>Doubt about whether something is true or will happen</td><td>शंका, अविश्वास</td></tr>
+        <tr><td class="sn">11</td><td class="word-col">relatable</td><td>Easy to understand and feel connected with</td><td>सम्बन्धित, आत्मीय</td></tr>
+        <tr><td class="sn">12</td><td class="word-col">credibility</td><td>The quality of being trusted and believed in</td><td>विश्वसनीयता</td></tr>
+        <tr><td class="sn">13</td><td class="word-col">photojournalist</td><td>A journalist who tells stories primarily through photographs</td><td>फोटो पत्रकार</td></tr>
+        <tr><td class="sn">14</td><td class="word-col">time-lapse</td><td>A photography technique that shows slow processes at a faster speed</td><td>समय-विराम प्रविधि</td></tr>
+        <tr><td class="sn">15</td><td class="word-col">overwhelming</td><td>Very great; so large or powerful it is difficult to deal with</td><td>अत्यधिक, भारी</td></tr>
+        <tr><td class="sn">16</td><td class="word-col">interprets</td><td>Explains or understands the meaning of something</td><td>व्याख्या गर्नु</td></tr>
+        <tr><td class="sn">17</td><td class="word-col">avalanche</td><td>A large mass of snow, ice, and rock falling swiftly down a mountain</td><td>हिमपहिरो</td></tr>
+        <tr><td class="sn">18</td><td class="word-col">incorporates</td><td>Includes something as part of a larger whole</td><td>समावेश गर्नु</td></tr>
+        <tr><td class="sn">19</td><td class="word-col">glaciologist</td><td>A scientist who studies glaciers and ice masses</td><td>हिमनदी विज्ञ</td></tr>
+        <tr><td class="sn">20</td><td class="word-col">climatologist</td><td>A scientist who studies climate and climate patterns</td><td>जलवायु विज्ञ</td></tr>
+        <tr><td class="sn">21</td><td class="word-col">precarious</td><td>Not safe or stable; in danger</td><td>जोखिमपूर्ण, असुरक्षित</td></tr>
+        <tr><td class="sn">22</td><td class="word-col">intriguing</td><td>Arousing curiosity and interest; fascinating</td><td>रोचक, मनोरञ्जक</td></tr>
+        <tr><td class="sn">23</td><td class="word-col">exquisite</td><td>Extremely beautiful or carefully made</td><td>अत्यन्त सुन्दर, उत्कृष्ट</td></tr>
+        <tr><td class="sn">24</td><td class="word-col">skeptical</td><td>Doubtful about something</td><td>शंकालु</td></tr>
+        <tr><td class="sn">25</td><td class="word-col">reluctant</td><td>Unwilling; hesitating to do something</td><td>अनिच्छुक</td></tr>
+        <tr><td class="sn">26</td><td class="word-col">erosion</td><td>The process by which something is gradually worn away</td><td>क्षरण, घिसाव</td></tr>
+        <tr><td class="sn">27</td><td class="word-col">striking</td><td>Attracting attention by being unusual or impressive</td><td>आकर्षक, प्रभावशाली</td></tr>
+        <tr><td class="sn">28</td><td class="word-col">documentary</td><td>A film or television programme about real events</td><td>वृत्तचित्र</td></tr>
+        <tr><td class="sn">29</td><td class="word-col">traces</td><td>Follows the development or course of something</td><td>पछ्याउनु</td></tr>
+        <tr><td class="sn">30</td><td class="word-col">calving</td><td>When large pieces break off from a glacier into the sea</td><td>हिमनदीबाट टुक्रा झर्नु</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- EXERCISE A — MATCH THE WORDS -->
+  <div class="section-card" id="exercise-a">
+    <div class="section-title"><span class="icon">✏️</span> Exercise A — Match the Words with Their Meanings</div>
+    <p style="font-family:var(--font-ui);font-size:0.85rem;color:var(--text-light);margin-bottom:12px;">Instructions: Match the following words with their meanings.</p>
+    <table class="match-table">
+      <thead><tr><th>S.N.</th><th>Word</th><th>Match</th><th></th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td>a.</td><td><strong>reluctant</strong></td><td class="arrow-col">→</td><td>v.</td><td>hesitating to do something</td></tr>
+        <tr><td>b.</td><td><strong>intriguing</strong></td><td class="arrow-col">→</td><td>iv.</td><td>arousing one's curiosity or interest; fascinating</td></tr>
+        <tr><td>c.</td><td><strong>exquisite</strong></td><td class="arrow-col">→</td><td>i.</td><td>extremely beautiful or carefully made</td></tr>
+        <tr><td>d.</td><td><strong>avalanche</strong></td><td class="arrow-col">→</td><td>ii.</td><td>a mass of snow, ice and rock that falls down the side of a mountain</td></tr>
+        <tr><td>e.</td><td><strong>overwhelming</strong></td><td class="arrow-col">→</td><td>iii.</td><td>very great; so powerful that you cannot resist it</td></tr>
+        <tr><td>f.</td><td><strong>credibility</strong></td><td class="arrow-col">→</td><td>vi.</td><td>the quality of being trusted and believed in</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- EXERCISE B — CROSSWORD PUZZLE -->
+  <div class="section-card" id="exercise-b">
+    <div class="section-title"><span class="icon">✏️</span> Exercise B — Crossword Puzzle (Solved)</div>
+    <div class="crossword-wrapper">
+      <div class="crossword-col">
+        <h4>Across ➡</h4>
+        <div class="crossword-clue"><span class="clue-num">1.</span> 3 Across: <span class="clue-answer">footage</span> — part of a film showing a particular event</div>
+        <div class="crossword-clue"><span class="clue-num">2.</span> 5 Across: <span class="clue-answer">trace</span> — to find the origin or cause of something</div>
+        <div class="crossword-clue"><span class="clue-num">3.</span> 6 Across: <span class="clue-answer">documentary</span> — a film or a radio or television programme giving facts about something</div>
+      </div>
+      <div class="crossword-col">
+        <h4>Down ⬇</h4>
+        <div class="crossword-clue"><span class="clue-num">4.</span> 1 Down: <span class="clue-answer">erosion</span> — the gradual damage and removal of soil/stone by rain, waves, or wind</div>
+        <div class="crossword-clue"><span class="clue-num">5.</span> 2 Down: <span class="clue-answer">skepticism</span> — an attitude of doubting that claims or statements are true</div>
+        <div class="crossword-clue"><span class="clue-num">6.</span> 4 Down: <span class="clue-answer">intense</span> — having or showing very strong feelings</div>
+        <div class="crossword-clue"><span class="clue-num">7.</span> 7 Down: <span class="clue-answer">accomplish</span> — to succeed in doing or completing something; achieve</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE C — COMPLETE THE SENTENCES -->
+  <div class="section-card" id="exercise-c">
+    <div class="section-title"><span class="icon">✏️</span> Exercise C — Complete the Sentences (Solved)</div>
+    <table class="fill-table">
+      <thead><tr><th>S.N.</th><th>Question</th><th>Answer</th></tr></thead>
+      <tbody>
+        <tr><td class="sn">a.</td><td>Chasing Ice glacial erosion is the result of…</td><td class="answer-col">climate change</td></tr>
+        <tr><td class="sn">b.</td><td>The beginning of the film is set in…</td><td class="answer-col">Los Angeles (opening at theaters)</td></tr>
+        <tr><td class="sn">c.</td><td>James Balog began his project with a photography programme called…</td><td class="answer-col">the Extreme Ice Survey</td></tr>
+        <tr><td class="sn">d.</td><td>Balog wanted to go back to the scene of the photography to see how the _____ had changed.</td><td class="answer-col">glaciers</td></tr>
+        <tr><td class="sn">e.</td><td>The film is based on both data and on…</td><td class="answer-col">scientific facts / visually appealing images</td></tr>
+        <tr><td class="sn">f.</td><td>The audience can have a better view of the images in…</td><td class="answer-col">a bigger screen</td></tr>
+        <tr><td class="sn">g.</td><td>Balog's project team consisted of…</td><td class="answer-col">a glaciologist and a climatologist</td></tr>
+        <tr><td class="sn">h.</td><td>The person doubting about _____ may hesitate to see the film.</td><td class="answer-col">environmental theories / climate change</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- EXERCISE D — ANSWER THE FOLLOWING QUESTIONS -->
+  <div class="section-card" id="exercise-d">
+    <div class="section-title"><span class="icon">✏️</span> Exercise D — Answer the Following Questions (Solved)</div>
+
+    <div class="exercise-section">
+      <div class="exercise-item">
+        <button class="exercise-toggle" onclick="toggleExercise(this)">a. What kind of film is Chasing Ice? <span class="arrow">▼</span></button>
+        <div class="exercise-content">
+          <div class="answer-text"><strong>Answer:</strong> Chasing Ice is a documentary (and biography) film. It is a non-fiction film that captures real environmental events, specifically the erosion of glaciers in the Arctic caused by climate change. Unlike fictional movies, it presents actual footage and real-life documentation of how glaciers are shrinking, making it a powerful tool for environmental awareness and education about the impacts of global warming.</div>
+        </div>
+      </div>
+
+      <div class="exercise-item">
+        <button class="exercise-toggle" onclick="toggleExercise(this)">b. What is the main objective of the film? <span class="arrow">▼</span></button>
+        <div class="exercise-content">
+          <div class="answer-text"><strong>Answer:</strong> The main objective of the film is to provide visual evidence of how climate change causes glacial erosion. James Balog wanted to capture photographs and videos of glaciers to show how they are shrinking over time and create awareness about global warming. By combining time-lapse photography with scientific data, the film aims to convince even skeptical viewers that climate change is a real and pressing issue affecting our planet's ice formations.</div>
+        </div>
+      </div>
+
+      <div class="exercise-item">
+        <button class="exercise-toggle" onclick="toggleExercise(this)">c. Why did Balog and his team set up cameras in different places? <span class="arrow">▼</span></button>
+        <div class="exercise-content">
+          <div class="answer-text"><strong>Answer:</strong> They set up cameras in Greenland, Iceland, Alaska, and Montana's Glacier National Park to monitor and record how the glaciers in those locations were changing over time due to climate change. The cameras were set to capture time-lapse footage over three years. By placing cameras across multiple geographic locations, Balog could compare and contrast glacial erosion patterns, providing comprehensive evidence that the phenomenon was widespread rather than isolated to a single area.</div>
+        </div>
+      </div>
+
+      <div class="exercise-item">
+        <button class="exercise-toggle" onclick="toggleExercise(this)">d. What helps the audience experience what is happening in the Arctic Zones? <span class="arrow">▼</span></button>
+        <div class="exercise-content">
+          <div class="answer-text"><strong>Answer:</strong> Balog's photographs and time-lapse footage of glaciers 'calving' or breaking apart into icebergs help the audience to see and experience what is actually happening in the Arctic zones. Viewing these images on a bigger screen makes the experience even more powerful. The visual impact of watching massive glaciers collapse and crumble in real time creates an emotional connection that raw data alone cannot achieve, bringing the distant reality of Arctic ice loss directly to viewers around the world.</div>
+        </div>
+      </div>
+
+      <div class="exercise-item">
+        <button class="exercise-toggle" onclick="toggleExercise(this)">e. How did Balog try to make the film interesting? <span class="arrow">▼</span></button>
+        <div class="exercise-content">
+          <div class="answer-text"><strong>Answer:</strong> Balog made the film interesting by combining scientific data with visually striking images. He shared his own initial skepticism about climate change, making him more relatable to audiences. He also avoided overwhelming viewers with too many scientific details, and instead made the information easy to understand. By including personal moments — such as his emotional reactions when cameras failed — and dramatic footage of avalanches and calving glaciers, he ensured the film was both intellectually engaging and emotionally compelling.</div>
+        </div>
+      </div>
+
+      <div class="exercise-item">
+        <button class="exercise-toggle" onclick="toggleExercise(this)">f. Why is Chasing Ice a worthwhile film? <span class="arrow">▼</span></button>
+        <div class="exercise-content">
+          <div class="answer-text"><strong>Answer:</strong> Chasing Ice is a worthwhile film because it combines intriguing scientific theories with exquisite visual images. It raises awareness about the serious issue of climate change and makes viewers think critically about the future of our planet. Even those who are skeptical about environmental theories can gain something meaningful from watching it. The film's strength lies in its ability to present undeniable visual proof alongside accessible scientific explanations, making it valuable for both believers and skeptics alike in understanding the urgency of climate action.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXTRA A — SHORT ANSWER QUESTIONS -->
+  <div class="section-card" id="extra-a">
+    <div class="section-title"><span class="icon">🎯</span> Extra Practice — A. Short Answer Questions</div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">1. Who directed the documentary film 'Chasing Ice'? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Jeff Orlowski directed the documentary film 'Chasing Ice'. Orlowski served as both the director and one of the producers of this acclaimed environmental documentary, bringing James Balog's Extreme Ice Survey project to the screen with powerful visual storytelling.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">2. What is the Extreme Ice Survey? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> The Extreme Ice Survey is a long-term photography and video project started by James Balog to document and monitor the erosion of glaciers in the Arctic region. It began with 25 cameras placed across Greenland, Iceland, Alaska, and Montana, designed to capture time-lapse images over three years to visually demonstrate how climate change is causing glaciers to shrink and disappear at an alarming rate.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">3. Why did Balog's team house the cameras in protective units? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Balog's team housed the cameras in protective units to prevent their destruction in the harsh Arctic weather. The extreme cold, powerful winds, snow, and ice in locations like Greenland and Iceland could easily damage or destroy sensitive electronic equipment, so special protective housings were essential to ensure the cameras could continue recording continuously for the full three-year duration of the survey.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">4. What was Balog's initial attitude towards climate change? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Balog was initially skeptical about climate change. He doubted whether it was really occurring, but his own research and findings later convinced him that it was real. This transformation from skeptic to advocate makes his testimony particularly powerful, as he was not someone who simply accepted the theory without question — he needed proof, and his own Extreme Ice Survey provided it.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">5. Who wrote the review of the documentary 'Chasing Ice'? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Andrea Seikaly wrote the review of the documentary 'Chasing Ice'. Her review highlights the film's ability to combine scientific evidence with stunning visuals, and she emphasizes that even those who are skeptical about environmental theories can still benefit from watching Balog's compelling documentation of glacial erosion.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXTRA B — TRUE / FALSE -->
+  <div class="section-card" id="extra-b">
+    <div class="section-title"><span class="icon">🎯</span> Extra Practice — B. True / False Items</div>
+    <table class="tf-table">
+      <thead><tr><th>S.N.</th><th>Statement</th><th>T / F</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td class="sn">1</td><td>James Balog was always convinced that climate change was real.</td><td class="tf-false">False</td><td>Balog initially had skepticism (doubt) about climate change.</td></tr>
+        <tr><td class="sn">2</td><td>The cameras were set up in Greenland, Iceland, Alaska, and Glacier National Park.</td><td class="tf-true">True</td><td>The text clearly mentions all these locations.</td></tr>
+        <tr><td class="sn">3</td><td>The documentary is difficult to understand because of too many scientific details.</td><td class="tf-false">False</td><td>Balog refrains from overwhelming the audience with too many scientific details.</td></tr>
+        <tr><td class="sn">4</td><td>The word 'calving' refers to a glacier breaking apart into icebergs.</td><td class="tf-true">True</td><td>The text states 'glaciers calving or breaking apart into icebergs'.</td></tr>
+        <tr><td class="sn">5</td><td>People who doubt environmental theories should not watch 'Chasing Ice'.</td><td class="tf-false">False</td><td>The review says there is still something to be gained even for those who are skeptical.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- EXTRA C — FILL IN THE BLANKS -->
+  <div class="section-card" id="extra-c">
+    <div class="section-title"><span class="icon">🎯</span> Extra Practice — C. Fill in the Blanks</div>
+
+    <div class="word-bank">
+      <div class="word-bank-label">Word Bank</div>
+      <div class="word-bank-words">
+        <span class="wb-word">skepticism</span>
+        <span class="wb-word">glacial erosion</span>
+        <span class="wb-word">credibility</span>
+        <span class="wb-word">precarious</span>
+        <span class="wb-word">reluctant</span>
+      </div>
+    </div>
+
+    <div class="fill-item">
+      <button class="fill-toggle" onclick="toggleFill(this)">1. The journalist's __________ was questioned after he made several factual errors. <span class="arrow">▼</span></button>
+      <div class="fill-content">
+        <div class="answer-text"><strong>Answer:</strong> credibility — The journalist's <strong>credibility</strong> was questioned after he made several factual errors. Credibility refers to the quality of being trusted and believed in; when a journalist makes factual errors, people naturally begin to doubt whether their reporting can be relied upon.</div>
+      </div>
+    </div>
+
+    <div class="fill-item">
+      <button class="fill-toggle" onclick="toggleFill(this)">2. Scientists are worried about __________ caused by rising global temperatures. <span class="arrow">▼</span></button>
+      <div class="fill-content">
+        <div class="answer-text"><strong>Answer:</strong> glacial erosion — Scientists are worried about <strong>glacial erosion</strong> caused by rising global temperatures. As temperatures rise globally, glaciers melt and wear away at an accelerated rate, which contributes to rising sea levels and disrupts ecosystems that depend on glacial water sources.</div>
+      </div>
+    </div>
+
+    <div class="fill-item">
+      <button class="fill-toggle" onclick="toggleFill(this)">3. Many people were __________ to accept the idea of climate change at first. <span class="arrow">▼</span></button>
+      <div class="fill-content">
+        <div class="answer-text"><strong>Answer:</strong> reluctant — Many people were <strong>reluctant</strong> to accept the idea of climate change at first. Being reluctant means being unwilling or hesitating to do something; many people found it hard to accept that human activities could significantly alter the planet's climate systems.</div>
+      </div>
+    </div>
+
+    <div class="fill-item">
+      <button class="fill-toggle" onclick="toggleFill(this)">4. His __________ about the new medicine's effectiveness was later proven wrong. <span class="arrow">▼</span></button>
+      <div class="fill-content">
+        <div class="answer-text"><strong>Answer:</strong> skepticism — His <strong>skepticism</strong> about the new medicine's effectiveness was later proven wrong. Skepticism refers to doubt about whether something is true; initially he doubted the medicine would work, but evidence eventually showed it was indeed effective.</div>
+      </div>
+    </div>
+
+    <div class="fill-item">
+      <button class="fill-toggle" onclick="toggleFill(this)">5. The photographer was in a __________ position while trying to take a photo from the edge of the cliff. <span class="arrow">▼</span></button>
+      <div class="fill-content">
+        <div class="answer-text"><strong>Answer:</strong> precarious — The photographer was in a <strong>precarious</strong> position while trying to take a photo from the edge of the cliff. Precarious means not safe, stable, or secure; standing at the edge of a cliff is inherently dangerous and unstable, much like the positions Balog himself put himself in while filming in the Arctic.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main-wrap -->
+
+<!-- MEANING POPUP -->
+<div class="meaning-popup" id="meaningPopup">
+  <button class="popup-close" onclick="closePopup()">&times;</button>
+  <div class="popup-word" id="popupWord"></div>
+  <div class="popup-en" id="popupEn"></div>
+  <div class="popup-ne" id="popupNe"></div>
+</div>
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top" id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  Prepared by: <strong>Narayan Prasad Regmi</strong> &nbsp;|&nbsp; Email: <a href="mailto:nregmi511@gmail.com">nregmi511@gmail.com</a>
+</footer>
+
+<script>
+/* ===== FONT SIZE CONTROL ===== */
+function changeFontSize(d) {
+  const root = document.documentElement;
+  let current = parseFloat(getComputedStyle(root).getPropertyValue('--font-size-base'));
+  let next = current + d * 1;
+  if (next < 13) next = 13;
+  if (next > 26) next = 26;
+  root.style.setProperty('--font-size-base', next + 'px');
+}
+
+/* ===== MEANING POPUP ===== */
+function showMeaning(word, en, ne) {
+  const popup = document.getElementById('meaningPopup');
+  document.getElementById('popupWord').textContent = word;
+  document.getElementById('popupEn').textContent = en;
+  document.getElementById('popupNe').textContent = ne;
+  popup.classList.add('show');
+}
+function closePopup() {
+  document.getElementById('meaningPopup').classList.remove('show');
+}
+/* Close popup on outside click */
+document.addEventListener('click', function(e) {
+  const popup = document.getElementById('meaningPopup');
+  if (popup.classList.contains('show') && !popup.contains(e.target) && !e.target.classList.contains('vocab-word')) {
+    closePopup();
+  }
+});
+
+/* ===== ACCORDION TOGGLES ===== */
+function toggleExercise(btn) {
+  const content = btn.nextElementSibling;
+  const wasOpen = content.classList.contains('open');
+  /* Close all exercise items in same section */
+  const section = btn.closest('.exercise-section') || btn.closest('.section-card');
+  if (section) {
+    section.querySelectorAll('.exercise-content.open').forEach(c => c.classList.remove('open'));
+    section.querySelectorAll('.exercise-toggle.active').forEach(b => b.classList.remove('active'));
+  }
+  if (!wasOpen) {
+    content.classList.add('open');
+    btn.classList.add('active');
+  }
+}
+function toggleTF(btn) {
+  const content = btn.nextElementSibling;
+  const wasOpen = content.classList.contains('open');
+  const section = btn.closest('.section-card');
+  if (section) {
+    section.querySelectorAll('.tf-content.open').forEach(c => c.classList.remove('open'));
+    section.querySelectorAll('.tf-toggle.active').forEach(b => b.classList.remove('active'));
+  }
+  if (!wasOpen) {
+    content.classList.add('open');
+    btn.classList.add('active');
+  }
+}
+function toggleFill(btn) {
+  const content = btn.nextElementSibling;
+  const wasOpen = content.classList.contains('open');
+  const section = btn.closest('.section-card');
+  if (section) {
+    section.querySelectorAll('.fill-content.open').forEach(c => c.classList.remove('open'));
+    section.querySelectorAll('.fill-toggle.active').forEach(b => b.classList.remove('active'));
+  }
+  if (!wasOpen) {
+    content.classList.add('open');
+    btn.classList.add('active');
+  }
+}
+
+/* ===== SCROLL TO TOP ===== */
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+window.addEventListener('scroll', function() {
+  const btn = document.getElementById('scrollTopBtn');
+  if (window.scrollY > 400) {
+    btn.classList.add('visible');
+  } else {
+    btn.classList.remove('visible');
+  }
+});
+
+/* ===== DOWNLOAD ===== */
+function downloadHTML() {
+  const html = document.documentElement.outerHTML;
+  const blob = new Blob([html], { type: 'text/html' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'Chasing_Ice_Interactive.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+
+</body>
+</html>

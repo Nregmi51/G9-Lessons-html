@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Up-Hill — Christina Rossetti | Grade 9 English Unit 10</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --font-size-base:17px;
+  --bg:#FDF8F0;
+  --card:#FFFFFF;
+  --primary:#8B5E3C;
+  --primary-light:#D4A574;
+  --accent:#C17817;
+  --accent-dark:#8B5A00;
+  --text:#2D1B0E;
+  --text-light:#5C4033;
+  --muted:#8B7355;
+  --border:#E8D5C0;
+  --highlight:#FFF3CD;
+  --highlight-border:#E6A817;
+  --poem-bg-1:#2C1810;
+  --poem-bg-2:#5C3A1E;
+  --poem-bg-3:#8B5E3C;
+  --success:#2D7D46;
+  --error:#C0392B;
+  --shadow:0 2px 12px rgba(139,94,60,0.10);
+  --radius:14px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter','Noto Sans SC',sans-serif;
+  font-size:var(--font-size-base);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.75;
+  min-height:100vh;
+}
+
+/* ─── HEADER ─── */
+.site-header{
+  background:linear-gradient(135deg,#2C1810 0%,#5C3A1E 40%,#8B5E3C 100%);
+  padding:32px 20px 28px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.site-header::before{
+  content:'';position:absolute;top:-40%;left:-20%;width:140%;height:180%;
+  background:radial-gradient(ellipse at 30% 50%,rgba(212,165,116,0.18) 0%,transparent 70%);
+  pointer-events:none;
+}
+.site-header h1{
+  font-family:'Lora',serif;font-size:2.2rem;color:#F5E6D3;
+  font-weight:700;letter-spacing:0.5px;position:relative;
+}
+.site-header .subtitle{
+  color:#D4A574;font-size:1rem;margin-top:6px;font-style:italic;position:relative;
+}
+.site-header .meta{
+  color:rgba(245,230,211,0.7);font-size:0.85rem;margin-top:8px;position:relative;
+}
+.site-header .meta span{margin:0 8px}
+
+/* ─── TOOLBAR ─── */
+.toolbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(253,248,240,0.92);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  padding:10px 20px;
+  display:flex;justify-content:center;gap:12px;align-items:center;
+  flex-wrap:wrap;
+}
+.toolbar button{
+  border:none;border-radius:8px;padding:7px 18px;
+  font-size:0.9rem;font-weight:600;cursor:pointer;
+  transition:all 0.2s;
+}
+.btn-font{background:var(--primary);color:#FFF}
+.btn-font:hover{background:var(--accent-dark);transform:scale(1.05)}
+.btn-download{background:var(--accent);color:#FFF}
+.btn-download:hover{background:var(--accent-dark);transform:scale(1.05)}
+
+/* ─── MAIN CONTAINER ─── */
+.container{max-width:860px;margin:0 auto;padding:24px 16px 60px}
+
+/* ─── SECTION CARD ─── */
+.section-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px 26px;
+  margin-bottom:24px;box-shadow:var(--shadow);
+  transition:box-shadow 0.3s;
+}
+.section-card:hover{box-shadow:0 4px 20px rgba(139,94,60,0.16)}
+.section-card h2{
+  font-family:'Lora',serif;color:var(--primary);
+  font-size:1.45rem;margin-bottom:16px;padding-bottom:10px;
+  border-bottom:2px solid var(--primary-light);
+}
+.section-card h3{
+  font-family:'Lora',serif;color:var(--accent-dark);
+  font-size:1.15rem;margin:18px 0 10px;
+}
+
+/* ─── POEM BLOCK ─── */
+.poem-block{
+  background:linear-gradient(135deg,#2C1810 0%,#4A2C17 50%,#5C3A1E 100%);
+  border-radius:var(--radius);padding:36px 32px;
+  color:#F5E6D3;position:relative;overflow:hidden;
+  margin-bottom:24px;
+}
+.poem-block::before{
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4A574' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events:none;
+}
+.poem-block .poem-title{
+  font-family:'Lora',serif;font-size:1.8rem;font-weight:700;
+  text-align:center;margin-bottom:4px;color:#F5E6D3;position:relative;
+}
+.poem-block .poem-author{
+  text-align:center;font-style:italic;color:#D4A574;
+  font-size:1rem;margin-bottom:28px;position:relative;
+}
+.poem-block .stanza{
+  margin-bottom:24px;position:relative;
+  padding-left:16px;border-left:3px solid rgba(212,165,116,0.3);
+}
+.poem-block .stanza:last-child{margin-bottom:0}
+.poem-block .stanza-label{
+  display:inline-block;background:rgba(212,165,116,0.2);
+  color:#D4A574;font-size:0.75rem;font-weight:600;
+  padding:2px 10px;border-radius:4px;margin-bottom:8px;
+  letter-spacing:0.5px;text-transform:uppercase;
+}
+.poem-block .poem-line{
+  font-family:'Lora',serif;font-size:1.08rem;
+  line-height:2;color:#F5E6D3;position:relative;
+}
+
+/* ─── HIGHLIGHTED WORD ─── */
+.hw{
+  background:var(--highlight);color:var(--accent-dark);
+  padding:1px 6px;border-radius:4px;cursor:pointer;
+  border-bottom:2px dashed var(--highlight-border);
+  font-weight:600;transition:all 0.2s;
+}
+.hw:hover{background:#FFE082;transform:scale(1.04)}
+.poem-block .hw{
+  background:rgba(230,168,23,0.25);color:#FFD54F;
+  border-bottom:2px dashed rgba(255,213,79,0.6);
+}
+.poem-block .hw:hover{background:rgba(230,168,23,0.45)}
+
+/* ─── MEANING POPUP ─── */
+#meaningPopup{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+  z-index:9999;background:#2C1810;color:#F5E6D3;
+  border-radius:16px;padding:18px 24px;
+  box-shadow:0 8px 32px rgba(44,24,16,0.45);
+  min-width:300px;max-width:90vw;
+  opacity:0;pointer-events:none;transition:all 0.35s cubic-bezier(.4,0,.2,1);
+  border:2px solid rgba(212,165,116,0.3);
+}
+#meaningPopup.show{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+#meaningPopup .popup-word{
+  font-family:'Lora',serif;font-size:1.25rem;font-weight:700;
+  color:#FFD54F;margin-bottom:8px;display:flex;align-items:center;gap:8px;
+}
+#meaningPopup .popup-word::before{
+  content:'📖';font-size:1.1rem;
+}
+#meaningPopup .popup-meaning{font-size:0.92rem;line-height:1.6}
+#meaningPopup .popup-meaning span{display:block;margin:3px 0}
+#meaningPopup .popup-en{color:#D4A574;font-weight:500}
+#meaningPopup .popup-ne{color:#F5E6D3;font-weight:400}
+#meaningPopup .popup-close{
+  position:absolute;top:8px;right:12px;
+  background:none;border:none;color:#D4A574;
+  font-size:1.3rem;cursor:pointer;line-height:1;
+}
+#meaningPopup .popup-close:hover{color:#FFD54F}
+
+/* ─── VOCABULARY TABLE ─── */
+.vocab-table{
+  width:100%;border-collapse:separate;border-spacing:0;
+  border-radius:10px;overflow:hidden;
+  font-size:0.93rem;margin:12px 0;
+}
+.vocab-table thead{background:var(--primary);color:#FFF}
+.vocab-table thead th{padding:10px 14px;text-align:left;font-weight:600}
+.vocab-table tbody tr{transition:background 0.2s}
+.vocab-table tbody tr:nth-child(even){background:#FAF0E4}
+.vocab-table tbody tr:hover{background:#F0DEC8}
+.vocab-table td{padding:9px 14px;border-bottom:1px solid var(--border)}
+.vocab-table td:first-child{font-weight:600;color:var(--accent-dark)}
+
+/* ─── SYMBOLIC TABLE ─── */
+.symbol-table{
+  width:100%;border-collapse:separate;border-spacing:0;
+  border-radius:10px;overflow:hidden;
+  font-size:0.93rem;margin:12px 0;
+}
+.symbol-table thead{background:var(--accent);color:#FFF}
+.symbol-table thead th{padding:10px 14px;text-align:left;font-weight:600}
+.symbol-table tbody tr{transition:background 0.2s}
+.symbol-table tbody tr:nth-child(even){background:#FFF8F0}
+.symbol-table tbody tr:hover{background:#FDEBD0}
+.symbol-table td{padding:9px 14px;border-bottom:1px solid var(--border)}
+.symbol-table td:first-child{font-weight:700;color:var(--primary)}
+
+/* ─── TEACHER SPEECH ─── */
+.teacher-block{
+  background:linear-gradient(135deg,#FFF8F0,#FAEBD7);
+  border-left:4px solid var(--accent);
+  border-radius:0 10px 10px 0;
+  padding:18px 22px;margin:14px 0;
+  font-style:italic;color:var(--text-light);
+}
+.teacher-block strong{
+  font-style:normal;color:var(--primary);display:block;
+  margin-bottom:6px;font-size:0.95rem;
+}
+
+/* ─── EXPLANATION BLOCK ─── */
+.stanza-explanation{margin:16px 0}
+.stanza-explanation .stanza-heading{
+  font-family:'Lora',serif;font-size:1.1rem;
+  color:var(--primary);margin-bottom:12px;
+  padding:6px 14px;background:linear-gradient(90deg,#FAF0E4,transparent);
+  border-radius:6px;
+}
+.line-expl{
+  margin:10px 0;padding:10px 16px;
+  border-left:3px solid var(--primary-light);
+  background:#FFFAF5;border-radius:0 8px 8px 0;
+}
+.line-expl .line-quoted{
+  font-family:'Lora',serif;font-weight:600;
+  color:var(--accent-dark);font-size:0.98rem;
+  margin-bottom:6px;
+}
+.line-expl .line-meaning{
+  color:var(--text-light);font-size:0.93rem;
+}
+
+/* ─── EXERCISE SECTION ─── */
+.exercise-item{
+  border:1px solid var(--border);border-radius:10px;
+  margin:10px 0;overflow:hidden;
+  transition:border-color 0.3s;
+}
+.exercise-item:hover{border-color:var(--primary-light)}
+.exercise-question{
+  padding:14px 18px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;
+  font-weight:500;background:#FFFAF5;
+  transition:background 0.2s;user-select:none;
+}
+.exercise-question:hover{background:#FAF0E4}
+.exercise-question .arrow{
+  font-size:1.1rem;transition:transform 0.3s;color:var(--accent);
+}
+.exercise-item.open .exercise-question .arrow{transform:rotate(90deg)}
+.exercise-answer{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.4s ease,padding 0.3s;
+}
+.exercise-item.open .exercise-answer{
+  max-height:600px;padding:14px 18px;
+}
+.exercise-answer-inner{
+  background:linear-gradient(135deg,#F0DEC8,#FAEBD7);
+  border-radius:8px;padding:14px 16px;
+  color:var(--text);font-size:0.95rem;
+  border-left:4px solid var(--accent);
+}
+
+/* ─── MATCHING EXERCISE ─── */
+.match-table{
+  width:100%;border-collapse:collapse;
+  font-size:0.93rem;margin:10px 0;
+}
+.match-table td{
+  padding:8px 12px;border:1px solid var(--border);
+  vertical-align:top;
+}
+.match-table td:first-child{font-weight:600;color:var(--accent-dark);width:28%}
+.match-table td:nth-child(2){color:var(--muted);text-align:center;width:8%}
+.match-table td:nth-child(3){width:28%}
+
+/* ─── FILL IN SUMMARY ─── */
+.summary-fill{
+  background:#FFFAF5;border-radius:10px;
+  padding:18px 20px;line-height:2;font-size:0.95rem;
+  border:1px solid var(--border);
+}
+.summary-fill .blank{
+  display:inline-block;min-width:100px;
+  border-bottom:2px dashed var(--accent);
+  color:var(--accent-dark);font-weight:600;
+  cursor:pointer;padding:0 4px;transition:all 0.2s;
+}
+.summary-fill .blank:hover{background:var(--highlight)}
+.summary-fill .blank.revealed{
+  border-bottom-style:solid;
+  background:rgba(193,120,23,0.12);
+}
+
+/* ─── TF / FILL BLANK EXERCISE ─── */
+.tf-item,.fill-item{
+  border:1px solid var(--border);border-radius:10px;
+  margin:8px 0;overflow:hidden;
+}
+.tf-question,.fill-question{
+  padding:12px 16px;cursor:pointer;
+  background:#FFFAF5;font-weight:500;
+  display:flex;justify-content:space-between;align-items:center;
+  transition:background 0.2s;
+}
+.tf-question:hover,.fill-question:hover{background:#FAF0E4}
+.tf-answer,.fill-answer{
+  max-height:0;overflow:hidden;transition:max-height 0.4s ease;
+}
+.tf-item.open .tf-answer,.fill-item.open .fill-answer{
+  max-height:300px;padding:12px 16px;
+}
+.tf-answer-inner,.fill-answer-inner{
+  background:linear-gradient(135deg,#F0DEC8,#FAEBD7);
+  border-radius:8px;padding:12px 14px;
+  font-size:0.93rem;border-left:4px solid var(--accent);
+}
+
+/* ─── INTERPRETATION BOX ─── */
+.interpretation-box{
+  background:linear-gradient(135deg,#2C1810,#5C3A1E);
+  color:#F5E6D3;border-radius:var(--radius);
+  padding:24px 26px;margin:16px 0;
+}
+.interpretation-box h3{
+  color:#FFD54F;font-family:'Lora',serif;
+  margin-bottom:12px;font-size:1.1rem;
+}
+.interpretation-box p,.interpretation-box li{
+  color:#E8D5C0;font-size:0.95rem;line-height:1.8;
+}
+.interpretation-box ul{padding-left:20px;margin:8px 0}
+.interpretation-box li{margin:6px 0}
+
+/* ─── FOOTER ─── */
+.site-footer{
+  background:linear-gradient(135deg,#2C1810,#5C3A1E);
+  color:rgba(245,230,211,0.6);text-align:center;
+  padding:18px 20px;font-size:0.78rem;
+  margin-top:20px;
+}
+.site-footer a{color:#D4A574;text-decoration:none}
+.site-footer a:hover{text-decoration:underline}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:640px){
+  .site-header h1{font-size:1.6rem}
+  .container{padding:16px 10px 40px}
+  .section-card{padding:18px 14px}
+  .poem-block{padding:24px 18px}
+  .poem-block .poem-title{font-size:1.4rem}
+  .poem-block .poem-line{font-size:0.98rem}
+  #meaningPopup{min-width:260px;padding:14px 18px}
+  .vocab-table,.symbol-table,.match-table{font-size:0.82rem}
+  .vocab-table td,.vocab-table th,
+  .symbol-table td,.symbol-table th,
+  .match-table td{padding:7px 8px}
+  .toolbar{gap:6px;padding:8px 10px}
+  .toolbar button{padding:6px 12px;font-size:0.82rem}
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.section-card{animation:fadeInUp 0.5s ease both}
+.section-card:nth-child(2){animation-delay:0.05s}
+.section-card:nth-child(3){animation-delay:0.1s}
+.section-card:nth-child(4){animation-delay:0.15s}
+.section-card:nth-child(5){animation-delay:0.2s}
+.section-card:nth-child(6){animation-delay:0.25s}
+.section-card:nth-child(7){animation-delay:0.3s}
+.section-card:nth-child(8){animation-delay:0.35s}
+.section-card:nth-child(9){animation-delay:0.4s}
+.section-card:nth-child(10){animation-delay:0.45s}
+.section-card:nth-child(11){animation-delay:0.5s}
+</style>
+</head>
+<body>
+
+<!-- ═══════ HEADER ═══════ -->
+<header class="site-header">
+  <h1>Up-Hill</h1>
+  <div class="subtitle">— Christina Rossetti</div>
+  <div class="meta">
+    <span>Grade 9</span>•<span>English</span>•<span>Unit 10</span>•<span>Poem</span>
+  </div>
+</header>
+
+<!-- ═══════ TOOLBAR ═══════ -->
+<div class="toolbar">
+  <button class="btn-font" onclick="changeFontSize(-1)">A−</button>
+  <button class="btn-font" onclick="changeFontSize(1)">A+</button>
+  <button class="btn-download" onclick="downloadHTML()">⬇ Download HTML</button>
+</div>
+
+<!-- ═══════ MAIN ═══════ -->
+<div class="container">
+
+<!-- ──── POEM ──── -->
+<div class="section-card">
+  <h2>📜 The Poem — Up-Hill</h2>
+  <div class="poem-block">
+    <div class="poem-title">Up-Hill</div>
+    <div class="poem-author">— Christina Rossetti</div>
+
+    <div class="stanza">
+      <div class="stanza-label">Stanza 1</div>
+      <div class="poem-line">Does the road <span class="hw" onclick="showMeaning('wind','to twist and bend; have many turns','घुम्नु, बाङ्गो हुनु')">wind</span> up-hill all the way?</div>
+      <div class="poem-line">Yes, to the very end.</div>
+      <div class="poem-line">Will the day's journey take the whole long day?</div>
+      <div class="poem-line">From <span class="hw" onclick="showMeaning('morn','morning','बिहान')">morn</span> to night, my friend.</div>
+    </div>
+
+    <div class="stanza">
+      <div class="stanza-label">Stanza 2</div>
+      <div class="poem-line">But is there for the night a <span class="hw" onclick="showMeaning('resting-place','a place to stop and rest','विश्रामस्थल')">resting-place</span>?</div>
+      <div class="poem-line">A <span class="hw" onclick="showMeaning('roof','shelter; a place with a covering','छत, आश्रय')">roof</span> for when the slow dark hours begin.</div>
+      <div class="poem-line">May not the <span class="hw" onclick="showMeaning('darkness','absence of light; the dark','अन्धकार')">darkness</span> hide it from my face?</div>
+      <div class="poem-line">You cannot miss that <span class="hw" onclick="showMeaning('inn','a small hotel, usually in the country','सराय, पान्थशाला')">inn</span>.</div>
+    </div>
+
+    <div class="stanza">
+      <div class="stanza-label">Stanza 3</div>
+      <div class="poem-line">Shall I meet other <span class="hw" onclick="showMeaning('wayfarers','persons who travel on foot','पैदल यात्री')">wayfarers</span> at night?</div>
+      <div class="poem-line">Those who have gone before.</div>
+      <div class="poem-line">Then must I knock, or call when just in sight?</div>
+      <div class="poem-line">They will not keep you standing at that door.</div>
+    </div>
+
+    <div class="stanza">
+      <div class="stanza-label">Stanza 4</div>
+      <div class="poem-line">Shall I find <span class="hw" onclick="showMeaning('comfort','a feeling of ease and relief','आराम, सुख')">comfort</span>, <span class="hw" onclick="showMeaning('travel-sore','tired and aching from travelling','यात्राको थकानले दुखेको')">travel-sore</span> and weak?</div>
+      <div class="poem-line">Of <span class="hw" onclick="showMeaning('labour','hard work','परिश्रम')">labour</span> you shall find the <span class="hw" onclick="showMeaning('sum','the total; the complete result','पूर्णता, जोड')">sum</span>.</div>
+      <div class="poem-line">Will there be beds for me and all who <span class="hw" onclick="showMeaning('seek','to look for something','खोज्नु')">seek</span>?</div>
+      <div class="poem-line"><span class="hw" onclick="showMeaning('Yea','yes (old/formal use)','हो, हजुर')">Yea</span>, beds for all who come.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── VOCABULARY ──── -->
+<div class="section-card">
+  <h2>📗 Word Meanings</h2>
+  <table class="vocab-table">
+    <thead>
+      <tr><th>Word / Phrase</th><th>English Meaning</th><th>Nepali Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>wind</td><td>to twist and bend; have many turns</td><td>घुम्नु, बाङ्गो हुनु</td></tr>
+      <tr><td>morn</td><td>morning</td><td>बिहान</td></tr>
+      <tr><td>inn</td><td>a small hotel, usually in the country</td><td>सराय, पान्थशाला</td></tr>
+      <tr><td>wayfarer</td><td>a person who travels, usually on foot</td><td>पैदल यात्री</td></tr>
+      <tr><td>seek</td><td>to look for something</td><td>खोज्नु</td></tr>
+      <tr><td>Yea</td><td>yes (old/formal use)</td><td>हो, हजुर</td></tr>
+      <tr><td>resting-place</td><td>a place to stop and rest</td><td>विश्रामस्थल</td></tr>
+      <tr><td>labour</td><td>hard work</td><td>परिश्रम</td></tr>
+      <tr><td>sum</td><td>the total; the complete result</td><td>पूर्णता, जोड</td></tr>
+      <tr><td>travel-sore</td><td>tired and aching from travelling</td><td>यात्राको थकानले दुखेको</td></tr>
+      <tr><td>comfort</td><td>a feeling of ease and relief</td><td>आराम, सुख</td></tr>
+      <tr><td>roof</td><td>shelter; a place with a covering</td><td>छत, आश्रय</td></tr>
+      <tr><td>darkness</td><td>absence of light; the dark</td><td>अन्धकार</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ──── SYMBOLIC WORDS ──── -->
+<div class="section-card">
+  <h2>🔮 Symbolic Words &amp; Phrases</h2>
+  <table class="symbol-table">
+    <thead>
+      <tr><th>Symbol</th><th>Literal Meaning</th><th>Symbolic Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>The Road</td><td>A path going uphill</td><td>The journey of life — difficult, full of struggles</td></tr>
+      <tr><td>Up-Hill</td><td>A road that goes upward</td><td>The hardships and challenges of life</td></tr>
+      <tr><td>The journey / day's journey</td><td>Travel during the day</td><td>The span of one's entire life</td></tr>
+      <tr><td>Morn to night</td><td>From morning to evening</td><td>From birth to death</td></tr>
+      <tr><td>Night</td><td>Darkness at end of day</td><td>Death; the end of life</td></tr>
+      <tr><td>Resting-place / the inn</td><td>A hotel or shelter to rest</td><td>Heaven, afterlife, or the peace of death</td></tr>
+      <tr><td>The door</td><td>The entrance to the inn</td><td>The gate to the afterlife</td></tr>
+      <tr><td>Wayfarers / those who have gone before</td><td>Fellow travellers</td><td>People who have already died</td></tr>
+      <tr><td>Beds for all who come</td><td>Sleeping places</td><td>Rest in death; heaven is open to all</td></tr>
+      <tr><td>The questioner</td><td>The traveller asking questions</td><td>A human soul going through life</td></tr>
+      <tr><td>The guide / answerer</td><td>The one giving answers</td><td>God, or a wise divine presence</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ──── SYMBOLIC INTERPRETATION ──── -->
+<div class="section-card">
+  <h2>🕊️ Symbolic Interpretation of the Poem</h2>
+  <div class="interpretation-box">
+    <h3>Allegory of Life's Journey</h3>
+    <p>"Up-Hill" by Christina Rossetti is a deeply <strong>allegorical poem</strong> about the journey of human life toward death and the afterlife. The entire poem is written as a <strong>dialogue</strong> between a traveller (representing a human soul) and a guide (representing God or a divine figure).</p>
+    <ul>
+      <li>The <strong>uphill road</strong> represents life, which is never easy — it is always a struggle, always going upward, never downward.</li>
+      <li>The <strong>day's journey from morn to night</strong> represents the complete span of a person's life, from birth (morning) to death (night).</li>
+      <li><strong>Night</strong> symbolises death — the end of the earthly journey.</li>
+      <li>The <strong>inn</strong> symbolises heaven or the place of eternal rest after death.</li>
+      <li>The <strong>other wayfarers</strong> are the souls of people who have already died and are resting.</li>
+      <li>The poem conveys a message of <strong>hope and comfort</strong>: no matter how hard life is, there is a resting place at the end for everyone. "Beds for all who come" means heaven (or eternal peace) is available to all.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ──── TEACHER'S SPEECH ──── -->
+<div class="section-card">
+  <h2>👩‍🏫 Teacher's Speech Notes</h2>
+
+  <div class="teacher-block">
+    <strong>🎤 Introduction</strong>
+    "Good morning, students. Today we are going to read a very special poem called <em>Up-Hill</em> by Christina Rossetti, a famous 19th-century English poet. Before we begin, let me ask you something — have you ever climbed a steep hill? How did it feel? Was it tiring? Did you think about resting? Today's poem uses the idea of climbing a hill to talk about something much bigger — life itself."
+  </div>
+
+  <div class="teacher-block">
+    <strong>📋 Context Setting</strong>
+    "Christina Rossetti was a deeply religious woman. She believed strongly in God and in life after death. This poem, written in 1858, reflects her belief that however hard life may be, there is always peace and rest waiting for us at the end. The poem is written in a question-and-answer format — like a conversation between a traveller and a wise guide."
+  </div>
+
+  <div class="teacher-block">
+    <strong>📖 Reading the Poem</strong>
+    "Let us read the poem together. I will read one stanza, and you will repeat after me. Pay attention to the tone — it is calm, hopeful, and reassuring."
+  </div>
+
+  <div class="teacher-block">
+    <strong>🔑 Key Teaching Points</strong>
+    1. The poem is an <strong>allegory</strong> — everything stands for something else.<br>
+    2. The <strong>dialogue form</strong> (question-answer) makes it feel personal and real.<br>
+    3. The message: life is hard but <strong>death brings peace</strong>, and heaven is for everyone.<br>
+    4. Rossetti uses simple language but carries deep meaning.
+  </div>
+
+  <div class="teacher-block">
+    <strong>🎓 Closing</strong>
+    "So students, the poet is telling us — yes, life is hard. Yes, the journey is long. But there is always a resting place at the end, and it is open to everyone. This is a poem of hope. Now let us answer the exercises."
+  </div>
+</div>
+
+<!-- ──── LINE-BY-LINE EXPLANATION ──── -->
+<div class="section-card">
+  <h2>📝 Line-by-Line Explanation</h2>
+
+  <div class="stanza-explanation">
+    <div class="stanza-heading">Stanza 1</div>
+    <div class="line-expl">
+      <div class="line-quoted">"Does the road wind up-hill all the way?"</div>
+      <div class="line-meaning">The traveller asks whether the road to the destination is always going uphill — always difficult and tiring. Symbolically, this asks: <em>Is life always full of struggles and hardships?</em></div>
+    </div>
+    <div class="line-expl">
+      <div class="line-quoted">"Yes, to the very end."</div>
+      <div class="line-meaning">The guide answers — yes, the road goes uphill from beginning to end. Life is indeed full of challenges right until death. There is no easy flat path.</div>
+    </div>
+    <div class="line-expl">
+      <div class="line-quoted">"Will the day's journey take the whole long day?"</div>
+      <div class="line-meaning">The traveller asks if the journey will take the entire day — meaning, <em>will life take up our entire time on earth?</em></div>
+    </div>
+    <div class="line-expl">
+      <div class="line-quoted">"From morn to night, my friend."</div>
+      <div class="line-meaning">The guide answers gently — yes, from morning (birth) to night (death), the entire lifetime is spent on this journey.</div>
+    </div>
+  </div>
+
+  <div class="stanza-explanation">
+    <div class="stanza-heading">Stanza 2</div>
+    <div class="line-expl">
+      <div class="line-quoted">"But is there for the night a resting-place?"</div>
+      <div class="line-meaning">The traveller now asks — when the night (death) comes, will there be a place to rest? This is asking about the afterlife — <em>is there heaven?</em></div>
+    </div>
+    <div class="line-expl">
+      <div class="line-quoted">"A roof for when the slow dark hours begin."</div>
+      <div class="line-meaning">The guide says yes — there is shelter and a roof (protection, heaven) when the dark hours (death, the afterlife) begin.</div>
+    </div>
+    <div class="line-expl">
+      <div class="line-quoted">"May not the darkness hide it from my face?"</div>
+      <div class="line-meaning">The traveller worries — <em>what if the darkness of death hides this resting place from me? What if I cannot find it?</em></div>
+    </div>
+    <div class="line-expl">
+      <div class="line-quoted">"You cannot miss that inn."</div>
+      <div class="line-meaning">The guide reassures the traveller — the inn (heaven/afterlife) is unmissable. Everyone will find it. This is a statement of comfort and hope.</div>
+    </div>
+  </div>
+
+  <div class="stanza-explanation">
+    <div class="stanza-heading">Stanza 3</div>
+    <div class="line-expl">
+      <div class="line-quoted">"Shall I meet other wayfarers at night?"</div>
+      <div class="line-meaning">The traveller asks — <em>will I meet other souls / people at the resting place?</em></div>
+    </div>
+    <div class="line-expl">
+      <div class="line-quoted">"Those who have gone before."</div>
+      <div class="line-meaning">The guide answers — yes, you will meet those who have already died and gone before you. You will not be alone.</div>
+    </div>
+    <div class="line-expl">
+      <div class="line-quoted">"Then must I knock, or call when just in sight?"</div>
+      <div class="line-meaning">The traveller asks — <em>do I need to knock or call out when I arrive at the inn (afterlife)?</em></div>
+    </div>
+    <div class="line-expl">
+      <div class="line-quoted">"They will not keep you standing at that door."</div>
+      <div class="line-meaning">The guide says — no, you won't need to wait. The door will be open for you. This suggests a warm, welcoming afterlife.</div>
+    </div>
+  </div>
+
+  <div class="stanza-explanation">
+    <div class="stanza-heading">Stanza 4</div>
+    <div class="line-expl">
+      <div class="line-quoted">"Shall I find comfort, travel-sore and weak?"</div>
+      <div class="line-meaning">The traveller, tired from the long and painful journey of life, asks — <em>will I find comfort when I arrive, even though I am worn out?</em></div>
+    </div>
+    <div class="line-expl">
+      <div class="line-quoted">"Of labour you shall find the sum."</div>
+      <div class="line-meaning">The guide says — yes, you will find the full reward/total result of all your hard work and labour. All your efforts in life will be recognised and rewarded.</div>
+    </div>
+    <div class="line-expl">
+      <div class="line-quoted">"Will there be beds for me and all who seek?"</div>
+      <div class="line-meaning">The traveller asks — <em>is there a place not just for me, but for everyone who looks for it?</em></div>
+    </div>
+    <div class="line-expl">
+      <div class="line-quoted">"Yea, beds for all who come."</div>
+      <div class="line-meaning">The guide gives the final, hopeful answer — YES. There are beds (rest/peace) for everyone who comes. Heaven/afterlife is open to all. No one is turned away.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── EXERCISES SOLVED ──── -->
+<div class="section-card">
+  <h2>✅ Exercise Solved</h2>
+
+  <!-- Exercise A: Matching -->
+  <h3>A. Match the words with their meanings.</h3>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>a. wind — ? &nbsp; b. morn — ? &nbsp; c. inn — ? &nbsp; d. wayfarer — ? &nbsp; e. seek — ?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        <table class="match-table">
+          <tr><td>a. wind</td><td>→</td><td>iii. to have many bends and twists</td></tr>
+          <tr><td>b. morn</td><td>→</td><td>v. morning</td></tr>
+          <tr><td>c. inn</td><td>→</td><td>ii. a small hotel, usually in the country</td></tr>
+          <tr><td>d. wayfarer</td><td>→</td><td>i. person who usually travels on foot</td></tr>
+          <tr><td>e. seek</td><td>→</td><td>iv. look for</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise B: Fill in the summary -->
+  <h3>B. Complete the summary using suitable words or phrases.</h3>
+  <p style="font-size:0.9rem;color:var(--muted);margin:6px 0 12px;">Click each blank to reveal the answer.</p>
+  <div class="summary-fill" id="summaryFill">
+    The speaker is making <span class="blank" onclick="revealBlank(this,'a journey')">________</span> with her guide. She asks the guide eight different questions about <span class="blank" onclick="revealBlank(this,'the road ahead')">________</span>. The first question is if the road is all <span class="blank" onclick="revealBlank(this,'up-hill')">________</span> and if the journey will take all day. The guide replies <span class="blank" onclick="revealBlank(this,'in the affirmative')">________</span>. Next, she asks if there is <span class="blank" onclick="revealBlank(this,'a place')">________</span> to rest for the night. The guide informs the speaker that there is <span class="blank" onclick="revealBlank(this,'an inn')">________</span> which she won't miss. The speaker's fifth question is, whether she will meet the other travellers <span class="blank" onclick="revealBlank(this,'on the way')">________</span>. At the inn, the speaker asks if she should knock or call the <span class="blank" onclick="revealBlank(this,'fellow travellers')">________</span>. The guide replies that <span class="blank" onclick="revealBlank(this,'everyone')">________</span> will open the door. Lastly, the speaker asks if there will be a bed for her. The guide tells her that there are beds for <span class="blank" onclick="revealBlank(this,'everyone')">________</span>.
+  </div>
+
+  <!-- Exercise C: Short Answers -->
+  <h3>C. Answer the following questions.</h3>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>a. How far is the road up-hill, according to the guide?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        According to the guide, the road is up-hill all the way — right to the very end. There is no easy or flat part of the journey.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>b. What does the speaker doubt about the place to rest?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The speaker doubts whether the darkness might hide the resting place (the inn) from her. She is worried she might not be able to find it.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>c. Who has travelled the road before?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        Other wayfarers (fellow travellers / people who have already died) have travelled the road before.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>d. What is the speaker's seventh question?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The speaker's seventh question is whether she should knock or call out when she arrives just in sight of the inn.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>e. Who do you think opens the door?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        It is implied that the souls already resting at the inn — the fellow travellers who have gone before — will open the door. Symbolically, God or a divine welcoming presence opens the door.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── ADDITIONAL QUESTIONS ──── -->
+<div class="section-card">
+  <h2>➕ Additional Practice Questions</h2>
+
+  <!-- Short Questions -->
+  <h3>Short Questions</h3>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>1. What does the uphill road symbolise in the poem?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The uphill road symbolises the journey of human life, full of hardships and struggles.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>2. What do "morn" and "night" represent in the poem?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        "Morn" represents birth / the beginning of life, and "night" represents death / the end of life.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>3. Who is the questioner in the poem and who is the guide?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The questioner is a human soul (the traveller), and the guide represents God or a divine/wise presence.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>4. What does the inn symbolise?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The inn symbolises heaven or the place of eternal rest and peace after death.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>5. What is the central message or theme of the poem Up-Hill?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The central message is that life is hard and full of struggle, but there is always a peaceful resting place (heaven) at the end, open to everyone.
+      </div>
+    </div>
+  </div>
+
+  <!-- True / False -->
+  <h3>True / False</h3>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>1. The road in the poem goes downhill most of the way.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--error)">False</strong> — The road goes uphill all the way to the very end. There is no downhill or flat part.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>2. The guide tells the traveller that the journey lasts from morning to night.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--success)">True</strong> — The guide confirms that the journey is "from morn to night," symbolising from birth to death.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>3. The traveller will be the only person at the resting place.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--error)">False</strong> — The guide says the traveller will meet "other wayfarers" — those who have gone before.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>4. The inn mentioned in the poem represents a real hotel.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--error)">False</strong> — The inn is a symbol for heaven or the afterlife, not a literal hotel.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>5. The poem ends on a hopeful note, saying beds are available for all who come.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--success)">True</strong> — The final line "Yea, beds for all who come" is a message of hope and inclusion.
+      </div>
+    </div>
+  </div>
+
+  <!-- Fill in the Blanks -->
+  <h3>Fill in the Blanks</h3>
+  <p style="font-size:0.9rem;color:var(--muted);margin:6px 0 12px;">Words: inn / wayfarers / morn / seek / wind</p>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>1. The road will __________ through the forest before reaching the village.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        The road will <strong>wind</strong> through the forest before reaching the village.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>2. She woke up at __________ to begin her long journey.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        She woke up at <strong>morn</strong> to begin her long journey.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>3. The tired __________ stopped to rest under a large tree.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        The tired <strong>wayfarers</strong> stopped to rest under a large tree.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>4. We must always __________ peace and harmony in our lives.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        We must always <strong>seek</strong> peace and harmony in our lives.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>5. They finally found a warm __________ after walking in the rain for hours.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        They finally found a warm <strong>inn</strong> after walking in the rain for hours.
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- ═══════ MEANING POPUP ═══════ -->
+<div id="meaningPopup">
+  <button class="popup-close" onclick="closePopup()">&times;</button>
+  <div class="popup-word" id="popupWord"></div>
+  <div class="popup-meaning">
+    <span class="popup-en" id="popupEnglish"></span>
+    <span class="popup-ne" id="popupNepali"></span>
+  </div>
+</div>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="site-footer">
+  N.REGMI &nbsp;|&nbsp; <a href="mailto:nregmi511@gmail.com">nregmi511@gmail.com</a>
+  &nbsp;|&nbsp; Grade 9 English — Unit 10 — Up-Hill
+</footer>
+
+<!-- ═══════ JAVASCRIPT ═══════ -->
+<script>
+// ─── Font Size Control ───
+const MIN_F=13,MAX_F=26;
+let fontSize=17;
+function changeFontSize(d){
+  fontSize=Math.max(MIN_F,Math.min(MAX_F,fontSize+d));
+  document.documentElement.style.setProperty('--font-size-base',fontSize+'px');
+}
+
+// ─── Meaning Popup ───
+function showMeaning(word,en,ne){
+  document.getElementById('popupWord').textContent=word;
+  document.getElementById('popupEnglish').textContent='EN: '+en;
+  document.getElementById('popupNepali').textContent='NE: '+ne;
+  document.getElementById('meaningPopup').classList.add('show');
+}
+function closePopup(){
+  document.getElementById('meaningPopup').classList.remove('show');
+}
+// Close popup when clicking outside
+document.addEventListener('click',function(e){
+  const popup=document.getElementById('meaningPopup');
+  if(!e.target.closest('.hw')&&!e.target.closest('#meaningPopup')){
+    popup.classList.remove('show');
+  }
+});
+
+// ─── Exercise Toggle ───
+function toggleExercise(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.exercise-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── True/False Toggle ───
+function toggleTF(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.tf-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── Fill-in-Blank Toggle ───
+function toggleFill(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.fill-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── Summary Blank Reveal ───
+function revealBlank(el,answer){
+  if(el.classList.contains('revealed'))return;
+  el.textContent=answer;
+  el.classList.add('revealed');
+}
+
+// ─── Download HTML ───
+function downloadHTML(){
+  const html=document.documentElement.outerHTML;
+  const blob=new Blob([html],{type:'text/html;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='Up_Hill_Poem_Interactive.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

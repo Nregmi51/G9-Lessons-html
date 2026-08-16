@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulary Flashcards - Unit 5</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f0f4f0;
+            --card-front: #ffffff;
+            --card-back: #2d5a4a;
+            --accent: #2d5a4a;
+            --text-light: #ffffff;
+            --text-dark: #1a1a1a;
+            --nepali-bg: rgba(255,255,255,0.15);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-dark);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        h1, h2, .word-text {
+            font-family: 'Crimson Pro', serif;
+        }
+
+        /* Flashcard Flip Logic */
+        .flashcard-container {
+            perspective: 1000px;
+            width: 100%;
+            max-width: 340px;
+            height: 260px;
+            cursor: pointer;
+        }
+
+        .flashcard {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .front {
+            background: var(--card-front);
+            border: 1px solid #e0e0e0;
+        }
+
+        .back {
+            background: var(--card-back);
+            color: var(--text-light);
+            transform: rotateY(180deg);
+        }
+
+        /* Typography */
+        .word-text {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .meaning-text {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .nepali-flash {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: var(--nepali-bg);
+            padding: 4px 12px;
+            border-radius: 6px;
+            margin-top: 12px;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        /* Progress Bar */
+        .progress-fill {
+            transition: width 0.3s ease;
+        }
+
+        /* Animations */
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px) rotate(-1deg); }
+            50% { transform: translateX(5px) rotate(1deg); }
+            75% { transform: translateX(-5px) rotate(-1deg); }
+            100% { transform: translateX(0); }
+        }
+
+        .shake {
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .flashcard { transition: none; }
+            .shake { animation: none; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="py-6 px-5 bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-lg mx-auto flex justify-between items-center">
+            <div>
+                <span class="text-xs font-bold text-[var(--accent)] uppercase tracking-wider">Unit 5</span>
+                <h1 class="text-xl font-bold text-[var(--text-dark)] mt-1">Vocabulary Flashcards</h1>
+            </div>
+            <button id="shuffleBtn" class="p-2 rounded-full hover:bg-gray-100 active:bg-gray-200 transition-colors" aria-label="Shuffle cards">
+                <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Progress -->
+    <div class="bg-white px-5 py-3 border-b border-gray-100">
+        <div class="max-w-lg mx-auto flex items-center gap-3">
+            <span class="text-xs font-semibold text-gray-500">Progress</span>
+            <div class="flex-1 bg-gray-200 rounded-full h-2">
+                <div id="progressBar" class="progress-fill bg-[var(--accent)] h-2 rounded-full" style="width: 0%"></div>
+            </div>
+            <span id="progressText" class="text-xs font-bold text-[var(--accent)]">0 / 20</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col items-center justify-center px-5 py-10">
+        
+        <!-- Flashcard Container -->
+        <div id="flashcardContainer" class="flashcard-container mb-8" onclick="flipCard()">
+            <div id="flashcard" class="flashcard">
+                <!-- Front Face -->
+                <div class="card-face front">
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Word</span>
+                    <div id="frontWord" class="word-text">Loading...</div>
+                </div>
+                <!-- Back Face -->
+                <div class="card-face back">
+                    <span class="text-xs font-bold text-green-200 uppercase tracking-wider mb-2">Meaning</span>
+                    <div id="backMeaning" class="meaning-text">Meaning goes here</div>
+                    <div id="backNepali" class="nepali-flash"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="flex items-center justify-center gap-6">
+            <button onclick="prevCard()" class="w-14 h-14 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-gray-50 active:scale-95 transition-transform" aria-label="Previous card">
+                <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+            </button>
+
+            <button onclick="nextCard()" class="w-14 h-14 rounded-full bg-[var(--accent)] shadow-lg flex items-center justify-center hover:bg-green-800 active:scale-95 transition-transform" aria-label="Next card">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Hint -->
+        <p class="text-xs text-gray-400 mt-8">Tap card to flip</p>
+
+    </main>
+
+    <script>
+        // Vocabulary Data
+        const vocabularyData = [
+            { word: "Cooperation", meaning: "Working together", nepali: "सहयोग" },
+            { word: "Trip over", meaning: "To have difficulty saying something clearly", nepali: "बाधा हुनु" },
+            { word: "Concept", meaning: "An idea", nepali: "अवधारणा" },
+            { word: "Effusive", meaning: "Showing too much emotion", nepali: "भावनापूर्ण" },
+            { word: "Malfunctioning", meaning: "Not working correctly", nepali: "बिग्रेको" },
+            { word: "Bristled", meaning: "Became annoyed or offended", nepali: "रिसाउनु" },
+            { word: "Prevalent", meaning: "Widespread", nepali: "प्रचलित" },
+            { word: "Ritualised", meaning: "Made into a regular pattern", nepali: "रीतिरिवाज बनाइएको" },
+            { word: "Inured", meaning: "Accustomed to something unpleasant", nepali: "अभ्यस्त" },
+            { word: "Culpability", meaning: "The fact of being responsible for a fault", nepali: "दोष" },
+            { word: "Traction", meaning: "The extent to which an idea gains acceptance", nepali: "प्रभाव वा लोकप्रियता" },
+            { word: "Utility", meaning: "Usefulness", nepali: "उपयोगिता" },
+            { word: "Assertion", meaning: "A confident statement of belief", nepali: "दृढ भनाइ" },
+            { word: "Inclination", meaning: "A tendency or preference", nepali: "झुकाव" },
+            { word: "Attribute", meaning: "To believe something is the result of a particular thing", nepali: "कारण मान्नु" },
+            { word: "Group-oriented", meaning: "Focusing on the group rather than individuals", nepali: "समूह-उन्मुख" },
+            { word: "Transgression", meaning: "An act that goes against a law or rule", nepali: "नियम उल्लंघन" },
+            { word: "Executives", meaning: "People with senior managerial responsibility", nepali: "कार्यकारीहरू" },
+            { word: "Facilitating", meaning: "Making a process easier", nepali: "सहज बनाउने" },
+            { word: "Negotiations", meaning: "Formal discussions to reach an agreement", nepali: "वार्ता" },
+            { word: "Semantic", meaning: "Connected with the meaning of words", nepali: "अर्थगत" },
+            { word: "Disconnect", meaning: "A lack of connection", nepali: "विच्छेद" },
+            { word: "Globalisation", meaning: "The process of international integration", nepali: "भूमण्डलीकरण" },
+            { word: "Nuances", meaning: "Very slight differences in meaning", nepali: "सूक्ष्म भेद" },
+            { word: "Symmetry", meaning: "Similarity or balance", nepali: "समानता" }
+        ];
+
+        let currentIndex = 0;
+        let learnedCount = 0;
+        let viewedCards = new Set();
+
+        // DOM Elements
+        const flashcard = document.getElementById('flashcard');
+        const container = document.getElementById('flashcardContainer');
+        const frontWord = document.getElementById('frontWord');
+        const backMeaning = document.getElementById('backMeaning');
+        const backNepali = document.getElementById('backNepali');
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
+
+        // Initialize
+        function initCards() {
+            updateCard();
+            updateProgress();
+        }
+
+        // Update Card Content
+        function updateCard() {
+            // Reset flip state
+            flashcard.classList.remove('flipped');
+            
+            const data = vocabularyData[currentIndex];
+            
+            // Update content after a tiny delay to allow flip reset
+            setTimeout(() => {
+                frontWord.textContent = data.word;
+                backMeaning.textContent = data.meaning;
+                backNepali.textContent = data.nepali;
+            }, 50);
+        }
+
+        // Flip Card
+        function flipCard() {
+            flashcard.classList.toggle('flipped');
+            
+            // Mark as viewed for progress
+            if (!viewedCards.has(currentIndex)) {
+                viewedCards.add(currentIndex);
+                updateProgress();
+            }
+        }
+
+        // Navigation
+        function nextCard() {
+            if (currentIndex < vocabularyData.length - 1) {
+                currentIndex++;
+                updateCard();
+            } else {
+                // End of stack animation
+                container.classList.add('shake');
+                setTimeout(() => container.classList.remove('shake'), 500);
+            }
+        }
+
+        function prevCard() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCard();
+            } else {
+                // Start of stack animation
+                container.classList.add('shake');
+                setTimeout(() => container.classList.remove('shake'), 500);
+            }
+        }
+
+        // Progress
+        function updateProgress() {
+            const total = vocabularyData.length;
+            const viewed = viewedCards.size;
+            const percent = (viewed / total) * 100;
+            
+            progressBar.style.width = `${percent}%`;
+            progressText.textContent = `${viewed} / ${total}`;
+        }
+
+        // Shuffle
+        document.getElementById('shuffleBtn').addEventListener('click', () => {
+            // Fisher-Yates Shuffle Algorithm
+            for (let i = vocabularyData.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [vocabularyData[i], vocabularyData[j]] = [vocabularyData[j], vocabularyData[i]];
+            }
+            
+            // Reset progress and index
+            currentIndex = 0;
+            viewedCards.clear();
+            updateProgress();
+            updateCard();
+            
+            // Visual feedback
+            container.classList.add('shake');
+            setTimeout(() => container.classList.remove('shake'), 500);
+        });
+
+        // Start
+        initCards();
+    </script>
+</body>
+</html>

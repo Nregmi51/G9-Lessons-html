@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Message from Another Planet — Grade 9 English Unit 10</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ─── reuse same design system ─── */
+    :root{
+      --font-size-base:17px;
+      --bg:#F4EFE6;
+      --card:#FFFFFF;
+      --primary:#3D5A3D;
+      --primary-light:#8FAB8F;
+      --accent:#B5651D;
+      --accent-dark:#8B4513;
+      --accent2:#D2691E;
+      --text:#1E1A14;
+      --text-light:#4A4238;
+      --muted:#7A7265;
+      --border:#D8CDB8;
+      --highlight:#FFF8E1;
+      --highlight-border:#B5651D;
+      --success:#2D7D46;
+      --error:#B8472A;
+      --shadow:0 2px 12px rgba(61,90,61,0.10);
+      --radius:14px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:70px}
+    body{
+      font-family:'Inter','Noto Sans SC',sans-serif;
+      font-size:var(--font-size-base);
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.75;
+      min-height:100vh;
+    }
+
+    /* ─── HEADER ─── */
+    .site-header{
+      background:linear-gradient(135deg,#1F2E1F 0%,#3D5A3D 35%,#6B8E5A 70%,#8FAB8F 100%);
+      padding:34px 20px 28px;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .site-header::before{
+      content:'';position:absolute;top:-50%;left:-20%;width:140%;height:200%;
+      background:radial-gradient(ellipse at 30% 60%,rgba(181,101,29,0.12) 0%,transparent 60%);
+      pointer-events:none;
+    }
+    .site-header::after{
+      content:'';position:absolute;bottom:0;left:0;right:0;height:4px;
+      background:linear-gradient(90deg,#B5651D,#D2691E,#B5651D);
+    }
+    .site-header h1{
+      font-family:'Lora',serif;font-size:2.2rem;color:#F0EAD6;
+      font-weight:700;letter-spacing:0.5px;position:relative;
+    }
+    .site-header .subtitle{
+      color:#D2691E;font-size:1rem;margin-top:6px;font-style:italic;position:relative;
+    }
+    .site-header .meta{
+      color:rgba(240,234,214,0.7);font-size:0.85rem;margin-top:8px;position:relative;
+    }
+    .site-header .meta span{margin:0 8px}
+
+    /* ─── TOOLBAR ─── */
+    .toolbar{
+      position:sticky;top:0;z-index:100;
+      background:rgba(244,239,230,0.93);
+      backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border);
+      padding:10px 20px;
+      display:flex;justify-content:center;gap:12px;align-items:center;
+      flex-wrap:wrap;
+    }
+    .toolbar button{
+      border:none;border-radius:8px;padding:7px 18px;
+      font-size:0.9rem;font-weight:600;cursor:pointer;
+      transition:all 0.2s;
+    }
+    .btn-font{background:var(--primary);color:#FFF}
+    .btn-font:hover{background:#1F2E1F;transform:scale(1.05)}
+    .btn-download{background:var(--accent);color:#FFF}
+    .btn-download:hover{background:var(--accent-dark);transform:scale(1.05)}
+
+    /* ─── NAV JUMP ─── */
+    .nav-jump{
+      background:var(--card);border:1px solid var(--border);
+      border-radius:var(--radius);padding:18px 22px;
+      margin-bottom:24px;box-shadow:var(--shadow);
+    }
+    .nav-jump h2{
+      font-family:'Lora',serif;color:var(--primary);
+      font-size:1.2rem;margin-bottom:12px;
+    }
+    .nav-jump-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+      gap:8px;
+    }
+    .nav-jump-grid a{
+      display:flex;align-items:center;gap:8px;
+      padding:9px 14px;border-radius:8px;
+      background:linear-gradient(135deg,#F0EAD6,#E8DFC8);
+      color:var(--text);text-decoration:none;
+      font-size:0.88rem;font-weight:500;
+      border-left:3px solid var(--accent);
+      transition:all 0.25s;
+    }
+    .nav-jump-grid a:hover{
+      background:linear-gradient(135deg,#B5651D22,#B5651D15);
+      border-left-color:var(--primary);
+      transform:translateX(4px);
+      color:var(--primary);
+    }
+    .nav-jump-grid a .nav-icon{font-size:1rem;flex-shrink:0}
+
+    /* ─── SCROLL TOP ─── */
+    #scrollTopBtn{
+      position:fixed;bottom:90px;right:24px;z-index:9998;
+      width:48px;height:48px;border-radius:50%;
+      background:var(--primary);color:#FFF;
+      border:2px solid var(--primary-light);
+      font-size:1.3rem;cursor:pointer;
+      box-shadow:0 4px 16px rgba(61,90,61,0.35);
+      opacity:0;pointer-events:none;
+      transition:all 0.35s cubic-bezier(.4,0,.2,1);
+      display:flex;align-items:center;justify-content:center;
+    }
+    #scrollTopBtn.show{opacity:1;pointer-events:auto}
+    #scrollTopBtn:hover{
+      background:var(--accent);border-color:var(--accent-dark);
+      transform:translateY(-3px);
+      box-shadow:0 6px 20px rgba(181,101,29,0.4);
+    }
+
+    /* ─── CONTAINER ─── */
+    .container{max-width:880px;margin:0 auto;padding:24px 16px 60px}
+
+    /* ─── SECTION CARD ─── */
+    .section-card{
+      background:var(--card);border:1px solid var(--border);
+      border-radius:var(--radius);padding:28px 26px;
+      margin-bottom:24px;box-shadow:var(--shadow);
+      transition:box-shadow 0.3s;
+    }
+    .section-card:hover{box-shadow:0 4px 20px rgba(61,90,61,0.16)}
+    .section-card h2{
+      font-family:'Lora',serif;color:var(--primary);
+      font-size:1.45rem;margin-bottom:16px;padding-bottom:10px;
+      border-bottom:2px solid var(--primary-light);
+      display:flex;align-items:center;gap:10px;
+    }
+    .section-card h2 .section-icon{font-size:1.2rem}
+    .section-card h3{
+      font-family:'Lora',serif;color:var(--accent-dark);
+      font-size:1.15rem;margin:18px 0 10px;
+    }
+    .section-card p.sub{
+      font-size:0.9rem;color:var(--muted);margin:6px 0 12px;
+    }
+
+    /* ─── READING PARAGRAPHS ─── */
+    .reading-para{
+      margin:16px 0;padding:16px 20px;
+      background:#FDFBF5;border-radius:10px;
+      border-left:4px solid var(--accent);
+      line-height:1.9;
+    }
+    .reading-para .para-label{
+      display:inline-block;background:var(--primary);
+      color:#FFF;font-size:0.75rem;font-weight:700;
+      padding:2px 10px;border-radius:4px;margin-bottom:8px;
+      letter-spacing:0.5px;
+    }
+
+    /* ─── HIGHLIGHTED WORD ─── */
+    .hw{
+      background:var(--highlight);color:var(--accent-dark);
+      padding:1px 6px;border-radius:4px;cursor:pointer;
+      border-bottom:2px dashed var(--highlight-border);
+      font-weight:600;transition:all 0.2s;
+    }
+    .hw:hover{background:#FFE69C;transform:scale(1.04)}
+
+    /* ─── POPUP ─── */
+    #meaningPopup{
+      position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);
+      z-index:9999;background:#1F2E1F;color:#F0EAD6;
+      border-radius:16px;padding:18px 24px;
+      box-shadow:0 8px 32px rgba(31,46,31,0.50);
+      min-width:300px;max-width:90vw;
+      opacity:0;pointer-events:none;transition:all 0.35s cubic-bezier(.4,0,.2,1);
+      border:2px solid rgba(210,105,30,0.3);
+    }
+    #meaningPopup.show{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+    #meaningPopup .popup-word{
+      font-family:'Lora',serif;font-size:1.25rem;font-weight:700;
+      color:#D2691E;margin-bottom:8px;display:flex;align-items:center;gap:8px;
+    }
+    #meaningPopup .popup-word::before{content:'📖';font-size:1.1rem}
+    #meaningPopup .popup-meaning{font-size:0.92rem;line-height:1.6}
+    #meaningPopup .popup-meaning span{display:block;margin:3px 0}
+    #meaningPopup .popup-en{color:#8FAB8F;font-weight:500}
+    #meaningPopup .popup-ne{color:#F0EAD6;font-weight:400}
+    #meaningPopup .popup-close{
+      position:absolute;top:8px;right:12px;
+      background:none;border:none;color:#8FAB8F;
+      font-size:1.3rem;cursor:pointer;line-height:1;
+    }
+    #meaningPopup .popup-close:hover{color:#D2691E}
+
+    /* ─── VOCAB TABLE ─── */
+    .vocab-table{
+      width:100%;border-collapse:separate;border-spacing:0;
+      border-radius:10px;overflow:hidden;
+      font-size:0.91rem;margin:12px 0;
+    }
+    .vocab-table thead{background:var(--primary);color:#FFF}
+    .vocab-table thead th{padding:10px 12px;text-align:left;font-weight:600;font-size:0.88rem}
+    .vocab-table tbody tr{transition:background 0.2s}
+    .vocab-table tbody tr:nth-child(even){background:#F4EFE6}
+    .vocab-table tbody tr:hover{background:#E8DFC8}
+    .vocab-table td{padding:8px 12px;border-bottom:1px solid var(--border)}
+    .vocab-table td:first-child{font-weight:600;color:var(--accent-dark)}
+
+    /* ─── EXERCISE ITEMS ─── */
+    .exercise-item,.tf-item,.fill-item{
+      border:1px solid var(--border);border-radius:10px;
+      margin:10px 0;overflow:hidden;
+      transition:border-color 0.3s;
+    }
+    .exercise-item:hover,.tf-item:hover,.fill-item:hover{border-color:var(--primary-light)}
+    .exercise-question,.tf-question,.fill-question{
+      padding:14px 18px;cursor:pointer;
+      display:flex;justify-content:space-between;align-items:center;
+      font-weight:500;background:#FDFBF5;
+      transition:background 0.2s;user-select:none;
+      gap:10px;
+    }
+    .exercise-question:hover,.tf-question:hover,.fill-question:hover{background:#F4EFE6}
+    .arrow{
+      font-size:1.1rem;transition:transform 0.3s;color:var(--accent);
+      flex-shrink:0;
+    }
+    .exercise-item.open .exercise-question .arrow,
+    .tf-item.open .tf-question .arrow,
+    .fill-item.open .fill-question .arrow{transform:rotate(90deg)}
+
+    .exercise-answer,.tf-answer,.fill-answer{
+      max-height:0;overflow:hidden;
+      transition:max-height 0.4s ease,padding 0.3s;
+    }
+    .exercise-item.open .exercise-answer,
+    .tf-item.open .tf-answer,
+    .fill-item.open .fill-answer{
+      max-height:800px;padding:14px 18px;
+    }
+    .exercise-answer-inner,.tf-answer-inner,.fill-answer-inner{
+      background:linear-gradient(135deg,#E8DFC8,#F0EAD6);
+      border-radius:8px;padding:14px 16px;
+      color:var(--text);font-size:0.95rem;
+      border-left:4px solid var(--accent);
+    }
+
+    /* ─── MATCH TABLE ─── */
+    .match-table{
+      width:100%;border-collapse:collapse;margin:12px 0;
+      font-size:0.92rem;
+    }
+    .match-table td{
+      padding:8px 12px;border-bottom:1px solid var(--border);
+      vertical-align:top;
+    }
+    .match-table td:first-child{font-weight:600;color:var(--accent-dark);width:30%}
+    .match-table tr:last-child td{border-bottom:none}
+
+    /* ─── ORDER LIST ─── */
+    .order-list{
+      list-style:none;padding:0;margin:8px 0;
+    }
+    .order-list li{
+      padding:8px 12px;margin:4px 0;
+      background:#FDFBF5;border-radius:6px;
+      border-left:3px solid var(--primary-light);
+    }
+    .order-list li strong{color:var(--accent-dark);margin-right:6px}
+
+    /* ─── FOOTER ─── */
+    .site-footer{
+      background:linear-gradient(135deg,#1F2E1F,#3D5A3D);
+      color:rgba(240,234,214,0.6);text-align:center;
+      padding:18px 20px;font-size:0.78rem;
+      margin-top:20px;
+    }
+    .site-footer a{color:#8FAB8F;text-decoration:none}
+    .site-footer a:hover{text-decoration:underline}
+
+    /* ─── RESPONSIVE ─── */
+    @media(max-width:640px){
+      .site-header h1{font-size:1.5rem}
+      .container{padding:16px 10px 40px}
+      .section-card{padding:18px 14px}
+      .reading-para{padding:12px 14px}
+      #meaningPopup{min-width:260px;padding:14px 18px}
+      .vocab-table{font-size:0.82rem}
+      .vocab-table td,.vocab-table th{padding:6px 8px}
+      .toolbar{gap:6px;padding:8px 10px}
+      .toolbar button{padding:6px 12px;font-size:0.82rem}
+      .nav-jump-grid{grid-template-columns:1fr}
+      #scrollTopBtn{width:42px;height:42px;right:16px;bottom:80px;font-size:1.1rem}
+      .match-table{font-size:0.82rem}
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .section-card{animation:fadeInUp 0.5s ease both}
+    .section-card:nth-child(2){animation-delay:0.04s}
+    .section-card:nth-child(3){animation-delay:0.08s}
+    .section-card:nth-child(4){animation-delay:0.12s}
+    .section-card:nth-child(5){animation-delay:0.16s}
+    .section-card:nth-child(6){animation-delay:0.20s}
+    .section-card:nth-child(7){animation-delay:0.24s}
+    .section-card:nth-child(8){animation-delay:0.28s}
+    .section-card:nth-child(9){animation-delay:0.32s}
+  </style>
+</head>
+<body>
+
+<!-- ═══════ HEADER ═══════ -->
+<header class="site-header" id="top">
+  <h1>A Message from Another Planet</h1>
+  <div class="subtitle">Unit 10 — The Earth and Space</div>
+  <div class="meta">
+    <span>Grade 9</span>•<span>English</span>•<span>Unit 10</span>•<span>Reading (Prose)</span>
+  </div>
+</header>
+
+<!-- ═══════ TOOLBAR ═══════ -->
+<div class="toolbar">
+  <button class="btn-font" onclick="changeFontSize(-1)">A−</button>
+  <button class="btn-font" onclick="changeFontSize(1)">A+</button>
+  <button class="btn-download" onclick="downloadHTML()">⬇ Download HTML</button>
+</div>
+
+<!-- ═══════ SCROLL TOP ═══════ -->
+<button id="scrollTopBtn" onclick="scrollToTop()" title="Go to top">⬆</button>
+
+<!-- ═══════ MAIN ═══════ -->
+<div class="container">
+
+<!-- ──── NAV JUMP ──── -->
+<div class="nav-jump">
+  <h2>📑 Quick Navigation — Jump to Section</h2>
+  <div class="nav-jump-grid">
+    <a href="#reading"><span class="nav-icon">📖</span> Reading Text</a>
+    <a href="#vocab"><span class="nav-icon">📗</span> Word Meanings</a>
+    <a href="#exercise-a"><span class="nav-icon">✅</span> Exercise A — Opposites/Synonyms</a>
+    <a href="#exercise-b"><span class="nav-icon">✅</span> Exercise B — Match</a>
+    <a href="#exercise-c"><span class="nav-icon">✅</span> Exercise C — Ordering</a>
+    <a href="#exercise-d"><span class="nav-icon">✅</span> Exercise D — Short Answers</a>
+    <a href="#extra-short"><span class="nav-icon">➕</span> Extra Short Questions</a>
+    <a href="#extra-tf"><span class="nav-icon">➕</span> Extra True/False</a>
+    <a href="#extra-fill"><span class="nav-icon">➕</span> Extra Fill in Blanks</a>
+  </div>
+</div>
+
+<!-- ──── READING TEXT ──── -->
+<div class="section-card" id="reading">
+  <h2><span class="section-icon">📖</span> A Message from Another Planet</h2>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph I</div>
+    Suren Majhi sat on the sandy bank of the Sun Koshi River. He had been fishing all day but had caught nothing. He was tired and the <span class="hw" onclick="showMeaning('twilight','the period of dim light after sunset','साँझको झुटपुटे उज्यालो')">twilight</span> was changing into darkness. Suddenly, in the distance over the river, Suren saw a bright object. It might be a helicopter, he thought, probably going to Diktel, but there was no noise. It came closer, and took on the shape of a <span class="hw" onclick="showMeaning('saucer','a shallow dish on which a cup is placed','तश्तरी')">saucer</span>. It landed on the bank about 50 meters away. Suren got up and walked to the object. Once he had seen a film about a spaceship, probably this was one. It might have come from another planet. As he went closer, a door opened, and Suren was <span class="hw" onclick="showMeaning('drawn','pulled or attracted into something','तानिनु')">drawn</span> into the <span class="hw" onclick="showMeaning('vessel','a ship or large vehicle for travel','यान, जहाज')">vessel</span>. He found himself in a room with what appeared to be a large number of <span class="hw" onclick="showMeaning('control panels','boards with switches and instruments','नियन्त्रण पाटीहरू')">control panels</span> with <span class="hw" onclick="showMeaning('flashing','shining briefly and repeatedly','चम्किरहेको')">flashing</span> lights. He was <span class="hw" onclick="showMeaning('frightened','feeling fear','डराएको')">frightened</span> and almost jumped when he heard a voice saying, "Welcome to our spaceship, Suren. Don't be afraid. Sit down on the <span class="hw" onclick="showMeaning('couch','a long comfortable seat','सोफा, लामो कुर्सी')">couch</span> behind you." "How do you know my name?" Suren asked.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph II</div>
+    "We are from another planet and we have been <span class="hw" onclick="showMeaning('observing','watching carefully','अवलोकन गर्दै')">observing</span> Earth for several months. Our <span class="hw" onclick="showMeaning('devices','machines or tools made for a particular purpose','यन्त्रहरू')">devices</span> have recorded radio and television <span class="hw" onclick="showMeaning('broadcasts','programmes sent out by radio or television','प्रसारण')">broadcasts</span>, and we have learned to speak English, since it is the most widely-used language. By using a long-distance <span class="hw" onclick="showMeaning('listening device','a machine used to hear sounds from far away','सुन्ने यन्त्र')">listening device</span>, we learnt your name and that you are the best student in your school. We have chosen you to pass on an important message to the leaders of your nation and of the world."
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph III</div>
+    "Do you think that leaders will listen to a poor kid like me? Please open the door. I want to leave." Suren said.
+    "You can't leave now, look at the screen. The ship is several thousand kilometers from Earth, although only a few minutes have passed. On our planet, all the <span class="hw" onclick="showMeaning('resources','things that can be used for a purpose','स्रोत साधनहरू')">resources</span> are <span class="hw" onclick="showMeaning('recycled','processed so it can be used again','पुनः प्रयोग गरिएको')">recycled</span> whereas, on earth, you are <span class="hw" onclick="showMeaning('wasting','using carelessly or in excess','खेर फाल्नु')">wasting</span> your resources. Soon there will be nothing left. Give your people the message that the <span class="hw" onclick="showMeaning('recycle collection centers','places where used materials are collected for recycling','पुनः प्रयोग संकलन केन्द्रहरू')">recycle collection centers</span> should be set up in every town and city on Earth. Cans, bottles, old household <span class="hw" onclick="showMeaning('appliances','machines used at home','घरायसी उपकरणहरू')">appliances</span>, in fact, everything which is no longer in use, should be taken there and be recycled."
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph IV</div>
+    Suren said, "If I tell people that I've been in a spaceship, they will probably think I'm joking or, perhaps, out of my mind."
+    "Don't worry!" the voice said, "We'll give you an object that will <span class="hw" onclick="showMeaning('prove','show to be true','प्रमाणित गर्नु')">prove</span> that what you say is true. Pick it up. It's a <span class="hw" onclick="showMeaning('tiny','very small','सानो')">tiny</span> computer, far more <span class="hw" onclick="showMeaning('advanced','ahead in development or progress','उन्नत')">advanced</span> than any found on Earth. When it's <span class="hw" onclick="showMeaning('examined','looked at carefully and in detail','जाँच गरिएको')">examined</span> by a computer engineer, we're sure your story will be believed."
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph V</div>
+    The screen lit up, and Suren saw the world growing larger and larger. He saw the Himalayas and the River Sunkoshi. The screen grew dark, the door opened, and Suren stepped out onto the sand. As soon as he was out of the spaceship, it <span class="hw" onclick="showMeaning('ascended','moved upward','माथि उठ्यो')">ascended</span> at an <span class="hw" onclick="showMeaning('enormous','very large in size or amount','विशाल')">enormous</span> speed and disappeared.
+    At home, before going to bed, Suren <span class="hw" onclick="showMeaning('wondered','felt surprised or curious about something','अचम्म मान्यो')">wondered</span> whether he had been dreaming, but when he put his hand in his pocket, he could feel the tiny computer.
+  </div>
+</div>
+
+<!-- ──── VOCABULARY ──── -->
+<div class="section-card" id="vocab">
+  <h2><span class="section-icon">📗</span> Word Meanings</h2>
+  <table class="vocab-table">
+    <thead><tr><th>Word / Phrase</th><th>English Meaning</th><th>Nepali Meaning</th></tr></thead>
+    <tbody>
+      <tr><td>twilight</td><td>the period of dim light after sunset</td><td>साँझको झुटपुटे उज्यालो</td></tr>
+      <tr><td>saucer</td><td>a shallow dish on which a cup is placed</td><td>तश्तरी</td></tr>
+      <tr><td>vessel</td><td>a ship or large vehicle for travel</td><td>यान, जहाज</td></tr>
+      <tr><td>flashing</td><td>shining briefly and repeatedly</td><td>चम्किरहेको</td></tr>
+      <tr><td>couch</td><td>a long comfortable seat</td><td>सोफा, लामो कुर्सी</td></tr>
+      <tr><td>control panels</td><td>boards with switches and instruments</td><td>नियन्त्रण पाटीहरू</td></tr>
+      <tr><td>frightened</td><td>feeling fear</td><td>डराएको</td></tr>
+      <tr><td>drawn</td><td>pulled or attracted into something</td><td>तानिनु</td></tr>
+      <tr><td>observing</td><td>watching carefully</td><td>अवलोकन गर्दै</td></tr>
+      <tr><td>devices</td><td>machines or tools made for a purpose</td><td>यन्त्रहरू</td></tr>
+      <tr><td>broadcasts</td><td>programmes sent out by radio/TV</td><td>प्रसारण</td></tr>
+      <tr><td>listening device</td><td>machine to hear sounds from far away</td><td>सुन्ने यन्त्र</td></tr>
+      <tr><td>resources</td><td>things that can be used for a purpose</td><td>स्रोत साधनहरू</td></tr>
+      <tr><td>recycled</td><td>processed so it can be used again</td><td>पुनः प्रयोग गरिएको</td></tr>
+      <tr><td>wasting</td><td>using carelessly or in excess</td><td>खेर फाल्नु</td></tr>
+      <tr><td>appliances</td><td>machines used at home</td><td>घरायसी उपकरणहरू</td></tr>
+      <tr><td>recycle collection centers</td><td>places where used materials are collected</td><td>पुनः प्रयोग संकलन केन्द्र</td></tr>
+      <tr><td>prove</td><td>show to be true</td><td>प्रमाणित गर्नु</td></tr>
+      <tr><td>tiny</td><td>very small</td><td>सानो</td></tr>
+      <tr><td>advanced</td><td>ahead in development or progress</td><td>उन्नत</td></tr>
+      <tr><td>examined</td><td>looked at carefully and in detail</td><td>जाँच गरिएको</td></tr>
+      <tr><td>ascended</td><td>moved upward</td><td>माथि उठ्यो</td></tr>
+      <tr><td>enormous</td><td>very large in size or amount</td><td>विशाल</td></tr>
+      <tr><td>wondered</td><td>felt surprised or curious</td><td>अचम्म मान्यो</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ──── EXERCISE A: Opposites/Synonyms ──── -->
+<div class="section-card" id="exercise-a">
+  <h2><span class="section-icon">✅</span> Exercise A — Opposites &amp; Synonyms</h2>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question"><span>dawn (opposite)</span><span class="arrow">▶</span></div>
+    <div class="exercise-answer"><div class="exercise-answer-inner"><strong>twilight</strong> — the period of dim light after sunset</div></div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question"><span>shining (similar)</span><span class="arrow">▶</span></div>
+    <div class="exercise-answer"><div class="exercise-answer-inner"><strong>bright / flashing</strong> — shining briefly and repeatedly</div></div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question"><span>took off (opposite)</span><span class="arrow">▶</span></div>
+    <div class="exercise-answer"><div class="exercise-answer-inner"><strong>landed</strong> — came down to the ground</div></div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question"><span>modern (similar)</span><span class="arrow">▶</span></div>
+    <div class="exercise-answer"><div class="exercise-answer-inner"><strong>advanced</strong> — ahead in development</div></div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question"><span>descended (opposite)</span><span class="arrow">▶</span></div>
+    <div class="exercise-answer"><div class="exercise-answer-inner"><strong>ascended</strong> — moved upward</div></div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question"><span>great (similar)</span><span class="arrow">▶</span></div>
+    <div class="exercise-answer"><div class="exercise-answer-inner"><strong>enormous</strong> — very large in size</div></div>
+  </div>
+</div>
+
+<!-- ──── EXERCISE B: Match ──── -->
+<div class="section-card" id="exercise-b">
+  <h2><span class="section-icon">✅</span> Exercise B — Match Words with Meanings</h2>
+  <table class="match-table">
+    <tr><td>saucer</td><td>vi. a small shallow round dish that a cup stands on</td></tr>
+    <tr><td>spaceship</td><td>iv. a vehicle that travels in space, carrying people</td></tr>
+    <tr><td>vessel</td><td>i. a ship or large boat</td></tr>
+    <tr><td>flashing</td><td>iii. short bursts of bright light</td></tr>
+    <tr><td>couch</td><td>ii. a long comfortable seat</td></tr>
+    <tr><td>broadcast</td><td>vii. to send out a programme on television or radio</td></tr>
+    <tr><td>appliance</td><td>v. a machine that is designed to do a particular thing in the home</td></tr>
+  </table>
+</div>
+
+<!-- ──── EXERCISE C: Ordering ──── -->
+<div class="section-card" id="exercise-c">
+  <h2><span class="section-icon">✅</span> Exercise C — Put Events in Correct Order</h2>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question"><span>Show correct order</span><span class="arrow">▶</span></div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        <ol class="order-list" style="list-style:decimal;padding-left:24px;">
+          <li><strong>(e)</strong> Suren had been fishing when he saw a bright object over the Sunkoshi River.</li>
+          <li><strong>(g)</strong> When Suren went closer to the vessel, he was pulled into it.</li>
+          <li><strong>(c)</strong> A voice welcomed him, and asked him to sit on the couch.</li>
+          <li><strong>(f)</strong> They wanted to send a message to the leader of Nepal and the world.</li>
+          <li><strong>(a)</strong> They gave Suren a tiny computer.</li>
+          <li><strong>(b)</strong> The spaceship landed back on the bank of the Sunkoshi River.</li>
+          <li><strong>(d)</strong> Suren wondered whether he had been dreaming.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── EXERCISE D: Short Answers ──── -->
+<div class="section-card" id="exercise-d">
+  <h2><span class="section-icon">✅</span> Exercise D — Answer the Following</h2>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question"><span>a. What did Suren think about the bright object at first?</span><span class="arrow">▶</span></div>
+    <div class="exercise-answer"><div class="exercise-answer-inner">At first, Suren thought the bright object might be a helicopter probably going to Diktel because there was no noise.</div></div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question"><span>b. Where had Suren seen a spaceship before?</span><span class="arrow">▶</span></div>
+    <div class="exercise-answer"><div class="exercise-answer-inner">Suren had once seen a spaceship in a film.</div></div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question"><span>c. How did Suren feel when he was drawn inside the vessel?</span><span class="arrow">▶</span></div>
+    <div class="exercise-answer"><div class="exercise-answer-inner">Suren felt frightened when he was drawn inside the vessel.</div></div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question"><span>d. How had they known about Suren?</span><span class="arrow">▶</span></div>
+    <div class="exercise-answer"><div class="exercise-answer-inner">They had been observing Earth for several months. By using a long-distance listening device, they had learned Suren's name and that he was the best student in his school.</div></div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question"><span>e. How do they manage resources on their planet?</span><span class="arrow">▶</span></div>
+    <div class="exercise-answer"><div class="exercise-answer-inner">On their planet, all resources are recycled, so nothing is wasted.</div></div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question"><span>f. Why did Suren express his inability to deliver a message at first?</span><span class="arrow">▶</span></div>
+    <div class="exercise-answer"><div class="exercise-answer-inner">Suren thought that the leaders would not listen to a poor kid like him, and he feared that people would think he was joking or out of his mind.</div></div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question"><span>g. What message did they want to pass on?</span><span class="arrow">▶</span></div>
+    <div class="exercise-answer"><div class="exercise-answer-inner">They wanted to pass on the message that recycle collection centers should be set up in every town and city on Earth so that cans, bottles, old household appliances, and everything no longer in use could be recycled.</div></div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question"><span>h. Why did they give Suren a tiny computer?</span><span class="arrow">▶</span></div>
+    <div class="exercise-answer"><div class="exercise-answer-inner">They gave Suren a tiny computer so that when it was examined by a computer engineer, it would prove that Suren's story was true.</div></div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question"><span>i. Do you think people will believe Suren's story? Give your reasons.</span><span class="arrow">▶</span></div>
+    <div class="exercise-answer"><div class="exercise-answer-inner">It is difficult to say. People might not believe Suren's story at first because meeting aliens is something very unusual and unbelievable. However, the tiny advanced computer given by the aliens could serve as proof that his story is true.</div></div>
+  </div>
+</div>
+
+<!-- ──── EXTRA: Short Questions ──── -->
+<div class="section-card" id="extra-short">
+  <h2><span class="section-icon">➕</span> Extra Short Questions</h2>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question"><span>1. Where was Suren Majhi sitting at the beginning of the story?</span><span class="arrow">▶</span></div>
+    <div class="exercise-answer"><div class="exercise-answer-inner">Suren was sitting on the sandy bank of the Sun Koshi River.</div></div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question"><span>2. What shape did the bright object take when it came closer?</span><span class="arrow">▶</span></div>
+    <div class="exercise-answer"><div class="exercise-answer-inner">The bright object took the shape of a saucer.</div></div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question"><span>3. What important message did the aliens want Suren to deliver?</span><span class="arrow">▶</span></div>
+    <div class="exercise-answer"><div class="exercise-answer-inner">They wanted Suren to tell people to set up recycle collection centers in every town and city on Earth.</div></div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question"><span>4. What did the aliens give Suren as proof of his experience?</span><span class="arrow">▶</span></div>
+    <div class="exercise-answer"><div class="exercise-answer-inner">The aliens gave Suren a tiny, highly advanced computer.</div></div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question"><span>5. What did Suren find in his pocket when he got home?</span><span class="arrow">▶</span></div>
+    <div class="exercise-answer"><div class="exercise-answer-inner">Suren found the tiny computer in his pocket when he got home.</div></div>
+  </div>
+</div>
+
+<!-- ──── EXTRA: True/False ──── -->
+<div class="section-card" id="extra-tf">
+  <h2><span class="section-icon">➕</span> Extra True / False</h2>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question"><span>1. Suren had been fishing successfully all day.</span><span class="arrow">▶</span></div>
+    <div class="tf-answer"><div class="tf-answer-inner"><strong style="color:var(--error)">❌ False</strong> — He had caught nothing.</div></div>
+  </div>
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question"><span>2. The bright object made a loud noise when it appeared.</span><span class="arrow">▶</span></div>
+    <div class="tf-answer"><div class="tf-answer-inner"><strong style="color:var(--error)">❌ False</strong> — There was no noise.</div></div>
+  </div>
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question"><span>3. The aliens had learned English by recording radio and TV broadcasts.</span><span class="arrow">▶</span></div>
+    <div class="tf-answer"><div class="tf-answer-inner"><strong style="color:var(--success)">✅ True</strong></div></div>
+  </div>
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question"><span>4. On the aliens' planet, resources are wasted just like on Earth.</span><span class="arrow">▶</span></div>
+    <div class="tf-answer"><div class="tf-answer-inner"><strong style="color:var(--error)">❌ False</strong> — Their resources are fully recycled.</div></div>
+  </div>
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question"><span>5. The aliens gave Suren a tiny advanced computer as proof of his visit.</span><span class="arrow">▶</span></div>
+    <div class="tf-answer"><div class="tf-answer-inner"><strong style="color:var(--success)">✅ True</strong></div></div>
+  </div>
+</div>
+
+<!-- ──── EXTRA: Fill in the Blanks ──── -->
+<div class="section-card" id="extra-fill">
+  <h2><span class="section-icon">➕</span> Extra Fill in the Blanks</h2>
+  <p class="sub">Words: ascended / twilight / vessel / appliances / recycled</p>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question"><span>1. The evening sky was beautiful during ……… when the sun had just set.</span><span class="arrow">▶</span></div>
+    <div class="fill-answer"><div class="fill-answer-inner"><strong>twilight</strong></div></div>
+  </div>
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question"><span>2. The spaceship ……… into the sky at an enormous speed.</span><span class="arrow">▶</span></div>
+    <div class="fill-answer"><div class="fill-answer-inner"><strong>ascended</strong></div></div>
+  </div>
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question"><span>3. Old household ……… like fridges should be properly disposed of.</span><span class="arrow">▶</span></div>
+    <div class="fill-answer"><div class="fill-answer-inner"><strong>appliances</strong></div></div>
+  </div>
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question"><span>4. Suren was drawn into the ……… through an open door.</span><span class="arrow">▶</span></div>
+    <div class="fill-answer"><div class="fill-answer-inner"><strong>vessel</strong></div></div>
+  </div>
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question"><span>5. On the alien planet, all resources are ……… and nothing is wasted.</span><span class="arrow">▶</span></div>
+    <div class="fill-answer"><div class="fill-answer-inner"><strong>recycled</strong></div></div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- ═══════ MEANING POPUP ═══════ -->
+<div id="meaningPopup">
+  <button class="popup-close" onclick="closePopup()">&times;</button>
+  <div class="popup-word" id="popupWord"></div>
+  <div class="popup-meaning">
+    <span class="popup-en" id="popupEnglish"></span>
+    <span class="popup-ne" id="popupNepali"></span>
+  </div>
+</div>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="site-footer">
+  N.REGMI &nbsp;|&nbsp; <a href="mailto:nregmi511@gmail.com">nregmi511@gmail.com</a>
+  &nbsp;|&nbsp; Grade 9 English — Unit 10 — A Message from Another Planet
+</footer>
+
+<!-- ═══════ JAVASCRIPT ═══════ -->
+<script>
+  // ─── Font Size ───
+  let fontSize=17;
+  const MIN_F=13,MAX_F=26;
+  function changeFontSize(d){
+    fontSize=Math.max(MIN_F,Math.min(MAX_F,fontSize+d));
+    document.documentElement.style.setProperty('--font-size-base',fontSize+'px');
+  }
+
+  // ─── Meaning Popup ───
+  function showMeaning(word,en,ne){
+    document.getElementById('popupWord').textContent=word;
+    document.getElementById('popupEnglish').textContent='EN: '+en;
+    document.getElementById('popupNepali').textContent='NE: '+ne;
+    document.getElementById('meaningPopup').classList.add('show');
+  }
+  function closePopup(){
+    document.getElementById('meaningPopup').classList.remove('show');
+  }
+  document.addEventListener('click',function(e){
+    const popup=document.getElementById('meaningPopup');
+    if(!e.target.closest('.hw')&&!e.target.closest('#meaningPopup')){
+      popup.classList.remove('show');
+    }
+  });
+
+  // ─── Toggle Helpers ───
+  function toggleExercise(item){
+    const parent=item.closest('.section-card');
+    const all=parent.querySelectorAll('.exercise-item');
+    const isOpen=item.classList.contains('open');
+    all.forEach(i=>i.classList.remove('open'));
+    if(!isOpen)item.classList.add('open');
+  }
+  function toggleTF(item){
+    const parent=item.closest('.section-card');
+    const all=parent.querySelectorAll('.tf-item');
+    const isOpen=item.classList.contains('open');
+    all.forEach(i=>i.classList.remove('open'));
+    if(!isOpen)item.classList.add('open');
+  }
+  function toggleFill(item){
+    const parent=item.closest('.section-card');
+    const all=parent.querySelectorAll('.fill-item');
+    const isOpen=item.classList.contains('open');
+    all.forEach(i=>i.classList.remove('open'));
+    if(!isOpen)item.classList.add('open');
+  }
+
+  // ─── Scroll to Top ───
+  const scrollBtn=document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>400) scrollBtn.classList.add('show');
+    else scrollBtn.classList.remove('show');
+  });
+  function scrollToTop(){
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  // ─── Download HTML ───
+  function downloadHTML(){
+    const html=document.documentElement.outerHTML;
+    const blob=new Blob([html],{type:'text/html;charset=utf-8'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url;
+    a.download='Message_from_Another_Planet.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+</script>
+</body>
+</html>

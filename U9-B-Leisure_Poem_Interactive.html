@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 9 English – Unit 9: Leisure (Poem)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Noto+Sans+SC:wght@400;500;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --primary:#6D28D9;--primary-light:#8B5CF6;--primary-dark:#5B21B6;
+    --accent:#F59E0B;--accent-light:#FCD34D;
+    --correct:#10B981;--incorrect:#EF4444;
+    --bg:#FAF5FF;--card:#FFFFFF;
+    --text-dark:#1E1B4B;--text-body:#312E81;--text-muted:#6B7280;
+    --border:#E9D5FF;--border2:#DDD6FE;
+    --highlight-bg:#FEF3C7;--highlight-border:#F59E0B;
+    --nepali:#059669;
+    --poem-bg:#1E1B4B;--poem-text:#E9D5FF;
+    --font-size-base:17px;--radius:14px;
+    --shadow:0 4px 24px rgba(109,40,217,.07);--shadow-lg:0 12px 40px rgba(109,40,217,.12);
+  }
+  body{font-family:'Poppins','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text-body);font-size:var(--font-size-base);line-height:1.75;min-height:100vh}
+  body::before{content:'';position:fixed;top:-180px;right:-180px;width:450px;height:450px;background:radial-gradient(circle,rgba(109,40,217,.06),transparent 70%);border-radius:50%;z-index:0;pointer-events:none}
+
+  /* TOOLBAR */
+  .toolbar{position:fixed;top:0;left:0;width:100%;z-index:1000;background:linear-gradient(135deg,var(--primary-dark),var(--primary),var(--primary-light));color:#fff;display:flex;align-items:center;justify-content:space-between;padding:10px 24px;box-shadow:0 4px 20px rgba(109,40,217,.3)}
+  .toolbar-left{display:flex;align-items:center;gap:12px}
+  .toolbar-title{font-size:13px;font-weight:700;letter-spacing:.3px}
+  .toolbar-title span{opacity:.6;font-weight:400;font-size:11px}
+  .toolbar-right{display:flex;align-items:center;gap:8px}
+  .font-btn{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;border:2px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;font-size:17px;font-weight:700;cursor:pointer;transition:all .2s;font-family:'Poppins',sans-serif}
+  .font-btn:hover{background:rgba(255,255,255,.25);transform:scale(1.08)}
+  .font-btn:active{transform:scale(.95)}
+  .font-size-display{font-size:12px;font-weight:600;min-width:36px;text-align:center;background:rgba(255,255,255,.15);padding:5px 8px;border-radius:8px;transition:transform .2s}
+  .download-btn{display:flex;align-items:center;gap:5px;padding:7px 16px;border-radius:10px;border:none;background:rgba(255,255,255,.2);color:#fff;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;font-family:'Poppins',sans-serif}
+  .download-btn:hover{background:rgba(255,255,255,.35)}
+
+  /* MAIN */
+  .main-content{max-width:880px;margin:0 auto;padding:80px 22px 60px;position:relative;z-index:1}
+
+  /* HERO */
+  .hero{background:linear-gradient(135deg,#1E1B4B,#4C1D95,#7C3AED);border-radius:22px;padding:46px 40px;color:#fff;margin-bottom:32px;position:relative;overflow:hidden;box-shadow:0 12px 40px rgba(109,40,217,.2)}
+  .hero::before{content:'';position:absolute;top:-80px;right:-80px;width:250px;height:250px;background:rgba(255,255,255,.04);border-radius:50%}
+  .hero::after{content:'';position:absolute;bottom:-50px;left:-50px;width:180px;height:180px;background:rgba(255,255,255,.03);border-radius:50%}
+  .hero-grade{display:inline-block;padding:5px 16px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:30px;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:14px}
+  .hero h1{font-size:34px;font-weight:900;margin-bottom:6px;position:relative;z-index:1;font-family:'Lora',serif}
+  .hero-sub{font-size:14px;opacity:.75;font-weight:400;position:relative;z-index:1}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;position:relative;z-index:1}
+  .hero-meta-item{display:flex;align-items:center;gap:5px;font-size:12px;opacity:.85;background:rgba(255,255,255,.1);padding:4px 12px;border-radius:20px}
+
+  /* NAV PILLS */
+  .nav-pills{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:26px}
+  .nav-pill{padding:7px 16px;border-radius:30px;background:#fff;border:1px solid var(--border);font-size:12px;font-weight:600;color:var(--text-muted);cursor:pointer;transition:all .2s;font-family:'Poppins',sans-serif;text-decoration:none}
+  .nav-pill:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+
+  /* SECTION CARDS */
+  .section-card{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);padding:34px 30px;margin-bottom:26px;box-shadow:var(--shadow);transition:box-shadow .3s}
+  .section-card:hover{box-shadow:var(--shadow-lg)}
+  .section-heading{font-size:22px;font-weight:800;color:var(--text-dark);margin-bottom:6px;display:flex;align-items:center;gap:12px}
+  .section-heading .icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+  .icon-poem{background:#EDE9FE;color:#6D28D9}
+  .icon-words{background:#FEF3C7;color:#D97706}
+  .icon-symbol{background:#DBEAFE;color:#2563EB}
+  .icon-speech{background:#D1FAE5;color:#059669}
+  .icon-explain{background:#FCE7F3;color:#DB2777}
+  .icon-exercise{background:#D1FAE5;color:#059669}
+  .icon-fill{background:#EDE9FE;color:#7C3AED}
+  .icon-tf{background:#FCE7F3;color:#DB2777}
+  .icon-short{background:#FFEDD5;color:#EA580C}
+  .icon-match{background:#E0F2FE;color:#0284C7}
+  .icon-extra{background:#F0FDF4;color:#16A34A}
+  .section-subtitle{font-size:13px;color:var(--text-muted);margin-bottom:20px}
+
+  /* POEM BLOCK */
+  .poem-block{background:linear-gradient(135deg,#1E1B4B,#312E81);border-radius:18px;padding:36px 34px;color:var(--poem-text);position:relative;overflow:hidden;margin-bottom:10px}
+  .poem-block::before{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;background:rgba(255,255,255,.03);border-radius:50%}
+  .poem-block .poem-title{text-align:center;font-family:'Lora',serif;font-size:26px;font-weight:700;color:#E9D5FF;margin-bottom:4px}
+  .poem-block .poem-author{text-align:center;font-size:13px;opacity:.6;margin-bottom:24px;font-style:italic}
+  .poem-stanza{margin-bottom:22px;text-align:center;font-family:'Lora',serif;font-size:18px;line-height:1.9}
+  .poem-stanza:last-child{margin-bottom:0}
+  .poem-stanza .line{display:block}
+
+  /* HIGHLIGHTED WORDS in poem */
+  .hw{background:rgba(253,230,138,.25);border-bottom:2px solid var(--accent);padding:1px 4px;border-radius:3px;cursor:pointer;font-weight:600;color:#FDE68A;transition:all .2s;display:inline}
+  .hw:hover{background:rgba(253,230,138,.45);color:#FEF3C7}
+
+  /* HIGHLIGHTED WORDS in passage */
+  .hp{background:var(--highlight-bg);border-bottom:2px solid var(--highlight-border);padding:1px 5px;border-radius:4px;cursor:pointer;font-weight:600;color:#92400E;transition:all .2s;display:inline}
+  .hp:hover{background:#FDE68A}
+  .hp::after,.hw::after{content:'📖';font-size:9px;position:relative;top:-2px;margin-left:1px}
+
+  /* FIXED POPUP */
+  .meaning-popup{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(130%);width:94%;max-width:500px;background:#fff;border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.18),0 0 0 1px rgba(0,0,0,.04);z-index:2000;transition:transform .4s cubic-bezier(.34,1.56,.64,1),opacity .3s;opacity:0;overflow:hidden}
+  .meaning-popup.show{transform:translateX(-50%) translateY(0);opacity:1}
+  .popup-header{background:linear-gradient(135deg,#F59E0B,#D97706);color:#fff;padding:13px 20px;display:flex;align-items:center;justify-content:space-between}
+  .popup-word{font-size:19px;font-weight:700}
+  .popup-close{width:28px;height:28px;border-radius:50%;border:none;background:rgba(255,255,255,.25);color:#fff;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;font-family:'Poppins',sans-serif}
+  .popup-close:hover{background:rgba(255,255,255,.4)}
+  .popup-body{padding:16px 20px;display:flex;flex-direction:column;gap:10px}
+  .popup-meaning-row{display:flex;align-items:flex-start;gap:10px}
+  .popup-label{flex-shrink:0;padding:4px 10px;border-radius:7px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+  .popup-label.en{background:#DBEAFE;color:#1D4ED8}
+  .popup-label.ne{background:#D1FAE5;color:#065F46}
+  .popup-meaning-text{font-size:15px;line-height:1.5;padding-top:1px}
+  .popup-nepali{font-size:16px;color:var(--nepali);font-weight:500}
+
+  /* WORD TABLE */
+  .word-table-wrapper{overflow-x:auto;border-radius:12px;border:1px solid var(--border)}
+  .word-table{width:100%;border-collapse:collapse;font-size:14px}
+  .word-table thead{background:linear-gradient(135deg,#FEF3C7,#FDE68A)}
+  .word-table th{padding:12px 14px;text-align:left;font-weight:700;color:#92400E;font-size:11px;text-transform:uppercase;letter-spacing:.7px;border-bottom:2px solid #F59E0B}
+  .word-table td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:top}
+  .word-table tr:last-child td{border-bottom:none}
+  .word-table tr:hover td{background:#FEFCE8}
+  .word-table .word-cell{font-weight:700;color:var(--primary-dark);cursor:pointer}
+  .word-table .word-cell:hover{text-decoration:underline}
+  .word-table .nepali-cell{color:var(--nepali);font-weight:500}
+
+  /* SYMBOL TABLE */
+  .symbol-table{width:100%;border-collapse:collapse;font-size:14px;border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+  .symbol-table thead{background:linear-gradient(135deg,#DBEAFE,#BFDBFE)}
+  .symbol-table th{padding:12px 14px;text-align:left;font-weight:700;color:#1E40AF;font-size:11px;text-transform:uppercase;letter-spacing:.6px;border-bottom:2px solid #3B82F6}
+  .symbol-table td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.6}
+  .symbol-table tr:last-child td{border-bottom:none}
+  .symbol-table tr:hover td{background:#EFF6FF}
+
+  /* EXERCISE ITEMS */
+  .exercise-item{background:#F8FAFC;border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden;transition:all .2s}
+  .exercise-item:hover{border-color:var(--border2)}
+  .exercise-question{padding:15px 18px;cursor:pointer;display:flex;align-items:flex-start;gap:12px;transition:background .2s;user-select:none}
+  .exercise-question:hover{background:#FAF5FF}
+  .exercise-q-number{flex-shrink:0;min-width:28px;height:28px;border-radius:8px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;margin-top:2px;padding:0 7px}
+  .exercise-q-text{flex:1;font-weight:500;color:var(--text-dark);line-height:1.6;font-size:15px}
+  .exercise-toggle{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--text-muted);transition:all .3s;margin-top:2px}
+  .exercise-item.open .exercise-toggle{background:var(--correct);color:#fff;transform:rotate(180deg)}
+  .exercise-answer{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.34,1.56,.64,1)}
+  .exercise-item.open .exercise-answer{max-height:500px}
+  .exercise-answer-inner{padding:0 18px 16px;margin-left:40px;display:flex;align-items:flex-start;gap:10px}
+  .answer-badge{flex-shrink:0;padding:3px 10px;border-radius:6px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+  .badge-answer{background:#D1FAE5;color:#065F46}
+  .badge-true{background:#D1FAE5;color:#065F46}
+  .badge-false{background:#FEE2E2;color:#991B1B}
+  .answer-text{font-size:14px;color:var(--text-body);line-height:1.7}
+
+  /* MATCHING TABLE in exercise */
+  .match-table{width:100%;border-collapse:collapse;font-size:14px;margin:0}
+  .match-table td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top}
+  .match-table tr:last-child td{border-bottom:none}
+  .match-table .col-a{font-weight:600;color:var(--text-dark);width:35%}
+  .match-table .col-b{color:var(--text-body)}
+
+  /* BOX WORDS */
+  .box-words{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;padding:14px;background:#FAF5FF;border-radius:12px;border:1px dashed var(--border2)}
+  .box-word{padding:5px 14px;background:#fff;border:1px solid var(--border2);border-radius:8px;font-weight:600;color:var(--primary);font-size:13px}
+
+  /* BLANK */
+  .blank-slot{display:inline-block;min-width:90px;border-bottom:2px dashed var(--primary);padding:1px 4px;font-weight:700;color:var(--primary);background:#FAF5FF;border-radius:3px 3px 0 0}
+
+  /* QUOTE BLOCK */
+  .quote-block{background:linear-gradient(135deg,#EDE9FE,#F5F3FF);border-left:4px solid var(--primary);border-radius:0 12px 12px 0;padding:16px 20px;margin-bottom:14px;font-style:italic;line-height:1.7;color:var(--text-dark);font-size:15px}
+  .quote-block strong{font-style:normal}
+
+  /* STANZA EXPLANATION */
+  .stanza-block{margin-bottom:20px;padding:20px 22px;border:1px solid var(--border);border-radius:14px;background:linear-gradient(135deg,#FAF5FF,#fff)}
+  .stanza-block:last-child{margin-bottom:0}
+  .stanza-label{display:inline-flex;align-items:center;gap:6px;padding:4px 14px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:10px}
+  .stanza-1{background:#DBEAFE;color:#1D4ED8}
+  .stanza-2{background:#D1FAE5;color:#065F46}
+  .stanza-3{background:#FEF3C7;color:#B45309}
+  .stanza-4{background:#FCE7F3;color:#BE185D}
+  .stanza-5{background:#EDE9FE;color:#6D28D9}
+  .stanza-6{background:#FFEDD5;color:#C2410C}
+  .stanza-7{background:#FEE2E2;color:#DC2626}
+  .stanza-quote{font-family:'Lora',serif;font-style:italic;font-size:16px;color:var(--primary-dark);margin-bottom:10px;line-height:1.7;padding-left:14px;border-left:3px solid var(--primary-light)}
+  .stanza-explain{font-size:15px;line-height:1.75;color:var(--text-body)}
+
+  /* TEACHER SPEECH */
+  .speech-block{background:#F0FDF4;border:1px solid #BBF7D0;border-radius:14px;padding:18px 22px;margin-bottom:12px;font-style:italic;line-height:1.7;color:var(--text-body);font-size:15px;border-left:4px solid #10B981}
+
+  /* EXTRA SECTION */
+  .extra-section{border-left:4px solid var(--primary)}
+
+  /* CLICK HINT */
+  .click-hint{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:#FAF5FF;border:1px solid var(--border2);border-radius:10px;font-size:12px;color:var(--primary);font-weight:500;margin-bottom:16px}
+
+  /* RESPONSIVE */
+  @media(max-width:640px){
+    .main-content{padding:72px 12px 40px}
+    .section-card{padding:22px 14px}
+    .hero{padding:28px 18px}
+    .hero h1{font-size:24px}
+    .toolbar{padding:8px 12px;flex-wrap:wrap;gap:4px}
+    .toolbar-title{font-size:10px}
+    .meaning-popup{width:96%;bottom:10px}
+    .poem-block{padding:24px 18px}
+    .poem-stanza{font-size:15px}
+  }
+  html{scroll-behavior:smooth}
+</style>
+</head>
+<body>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <div class="toolbar-left"><div class="toolbar-title">Grade 9 · English <span>| Unit 9: Leisure (Poem)</span></div></div>
+  <div class="toolbar-right">
+    <button class="font-btn" onclick="changeFontSize(-1)" title="Decrease font">A−</button>
+    <div class="font-size-display" id="fontDisplay">17px</div>
+    <button class="font-btn" onclick="changeFontSize(1)" title="Increase font">A+</button>
+    <button class="download-btn" onclick="downloadHTML()">⬇ Save</button>
+  </div>
+</div>
+
+<!-- FIXED MEANING POPUP -->
+<div class="meaning-popup" id="meaningPopup">
+  <div class="popup-header">
+    <span class="popup-word" id="popupWord">Word</span>
+    <button class="popup-close" onclick="closePopup()">✕</button>
+  </div>
+  <div class="popup-body">
+    <div class="popup-meaning-row"><span class="popup-label en">English</span><span class="popup-meaning-text" id="popupEnglish">—</span></div>
+    <div class="popup-meaning-row"><span class="popup-label ne">नेपाली</span><span class="popup-meaning-text popup-nepali" id="popupNepali">—</span></div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-grade">Grade 9 · Unit 9 · Work and Leisure</div>
+    <h1>Leisure</h1>
+    <div class="hero-sub">A Poem by W.H. Davies · Pages 115–116</div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">📖 Full Poem</div>
+      <div class="hero-meta-item">📝 13 Vocabulary Words</div>
+      <div class="hero-meta-item">🔷 Symbolic Meanings</div>
+      <div class="hero-meta-item">✅ Interactive Exercises</div>
+    </div>
+  </div>
+
+  <!-- NAV PILLS -->
+  <div class="nav-pills">
+    <a class="nav-pill" href="#poem">📖 Poem</a>
+    <a class="nav-pill" href="#wordlist">📝 Word List</a>
+    <a class="nav-pill" href="#symbols">🔷 Symbols</a>
+    <a class="nav-pill" href="#interpretation">📜 Interpretation</a>
+    <a class="nav-pill" href="#speech">👩‍🏫 Teacher's Notes</a>
+    <a class="nav-pill" href="#explanation">📝 Line-by-Line</a>
+    <a class="nav-pill" href="#exerciseA">🔗 Exercise A</a>
+    <a class="nav-pill" href="#exerciseB">✎ Exercise B</a>
+    <a class="nav-pill" href="#extraSA">💡 Extra Questions</a>
+    <a class="nav-pill" href="#extraTF">🔍 Extra T/F</a>
+    <a class="nav-pill" href="#extraFill">🧩 Extra Fill</a>
+  </div>
+
+  <!-- ===== FULL POEM ===== -->
+  <div class="section-card" id="poem">
+    <div class="section-heading">
+      <div class="icon icon-poem">📖</div>
+      Full Poem — Leisure
+    </div>
+    <div class="section-subtitle">Click any highlighted word to see its meaning in English and Nepali</div>
+    <div class="click-hint">💡 Tip: Click highlighted words — the meaning popup stays fixed at the bottom even when you scroll!</div>
+
+    <div class="poem-block">
+      <div class="poem-title">Leisure</div>
+      <div class="poem-author">— W.H. Davies</div>
+
+      <div class="poem-stanza">
+        <span class="line">WHAT is this life if, full of <span class="hw" onclick="showMeaning('care','worry, anxiety','चिन्ता')">care</span>,</span>
+        <span class="line">We have no time to <span class="hw" onclick="showMeaning('stand','stop and stay','उभिनु')">stand</span> and <span class="hw" onclick="showMeaning('stare','to look at something for a long time','एकटक हेर्नु')">stare</span>?</span>
+      </div>
+
+      <div class="poem-stanza">
+        <span class="line">No time to stand <span class="hw" onclick="showMeaning('beneath','under or below something','तल / मुनि')">beneath</span> the <span class="hw" onclick="showMeaning('boughs','branches of a tree','हाँगाहरू')">boughs</span>,</span>
+        <span class="line">And stare as long as sheep and <span class="hw" onclick="showMeaning('cows','female cattle','गाईहरू')">cows</span>:</span>
+      </div>
+
+      <div class="poem-stanza">
+        <span class="line">No time to see, when <span class="hw" onclick="showMeaning('woods','an area of trees, smaller than a forest','जंगल')">woods</span> we pass,</span>
+        <span class="line">Where <span class="hw" onclick="showMeaning('squirrels','small tree-climbing animals that eat nuts','काठेमुसा')">squirrels</span> hide their <span class="hw" onclick="showMeaning('nuts','hard-shelled seeds or fruits','गेडागुडी')">nuts</span> in grass:</span>
+      </div>
+
+      <div class="poem-stanza">
+        <span class="line">No time to see, in <span class="hw" onclick="showMeaning('broad daylight','full open daytime','दिउँसो खुला उज्यालो')">broad daylight</span>,</span>
+        <span class="line"><span class="hw" onclick="showMeaning('streams','small narrow rivers','खोलाहरू')">Streams</span> full of stars, like <span class="hw" onclick="showMeaning('skies','the space above the earth','आकाश')">skies</span> at night:</span>
+      </div>
+
+      <div class="poem-stanza">
+        <span class="line">No time to turn at <span class="hw" onclick="showMeaning('Beauty\'s glance','a quick look/glimpse of beauty','सौन्दर्यको एक दृष्टि')">Beauty's glance</span>,</span>
+        <span class="line">And watch her <span class="hw" onclick="showMeaning('feet','the lower parts of legs','खुट्टाहरू')">feet</span>, how they can <span class="hw" onclick="showMeaning('dance','move rhythmically','नाच्नु')">dance</span>:</span>
+      </div>
+
+      <div class="poem-stanza">
+        <span class="line">No time to <span class="hw" onclick="showMeaning('wait','stay until something happens','पर्खनु')">wait</span> till her mouth can,</span>
+        <span class="line"><span class="hw" onclick="showMeaning('enrich','to improve or enhance the quality','समृद्ध गर्नु')">Enrich</span> that <span class="hw" onclick="showMeaning('smile','a happy expression on the face','मुस्कान')">smile</span> her eyes <span class="hw" onclick="showMeaning('began','started','सुरु गरे')">began</span>?</span>
+      </div>
+
+      <div class="poem-stanza">
+        <span class="line">A <span class="hw" onclick="showMeaning('poor','miserable, sad, pitiable','दयनीय/दुखद')">poor</span> life this if, full of care,</span>
+        <span class="line">We have no time to stand and stare.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== WORD LIST ===== -->
+  <div class="section-card" id="wordlist">
+    <div class="section-heading">
+      <div class="icon icon-words">📝</div>
+      Word Meaning List
+    </div>
+    <div class="section-subtitle">Click any word to see its meaning in the fixed popup</div>
+    <div class="word-table-wrapper">
+      <table class="word-table">
+        <thead><tr><th style="width:4%">#</th><th style="width:24%">Word</th><th style="width:36%">English Meaning</th><th style="width:36%">नेपाली अर्थ</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="word-cell" onclick="showMeaning('care','worry, anxiety','चिन्ता')">care</td><td>worry, anxiety</td><td class="nepali-cell">चिन्ता</td></tr>
+          <tr><td>2</td><td class="word-cell" onclick="showMeaning('stare','to look at something for a long time','एकटक हेर्नु')">stare</td><td>to look at something for a long time</td><td class="nepali-cell">एकटक हेर्नु</td></tr>
+          <tr><td>3</td><td class="word-cell" onclick="showMeaning('boughs','branches of a tree','हाँगाहरू')">boughs</td><td>branches of a tree</td><td class="nepali-cell">हाँगाहरू</td></tr>
+          <tr><td>4</td><td class="word-cell" onclick="showMeaning('woods','an area of trees, smaller than a forest','जंगल')">woods</td><td>an area of trees, smaller than a forest</td><td class="nepali-cell">जंगल</td></tr>
+          <tr><td>5</td><td class="word-cell" onclick="showMeaning('squirrels','small tree-climbing animals that eat nuts','काठेमुसा')">squirrels</td><td>small tree-climbing animals that eat nuts</td><td class="nepali-cell">काठेमुसा</td></tr>
+          <tr><td>6</td><td class="word-cell" onclick="showMeaning('nuts','hard-shelled seeds or fruits','गेडागुडी')">nuts</td><td>hard-shelled seeds or fruits</td><td class="nepali-cell">गेडागुडी</td></tr>
+          <tr><td>7</td><td class="word-cell" onclick="showMeaning('broad daylight','full open daytime','दिउँसो खुला उज्यालो')">broad daylight</td><td>full open daytime</td><td class="nepali-cell">दिउँसो खुला उज्यालो</td></tr>
+          <tr><td>8</td><td class="word-cell" onclick="showMeaning('streams','small narrow rivers','खोलाहरू')">streams</td><td>small narrow rivers</td><td class="nepali-cell">खोलाहरू</td></tr>
+          <tr><td>9</td><td class="word-cell" onclick="showMeaning('Beauty\'s glance','a quick look/glimpse of beauty','सौन्दर्यको एक दृष्टि')">Beauty's glance</td><td>a quick look/glimpse of beauty</td><td class="nepali-cell">सौन्दर्यको एक दृष्टि</td></tr>
+          <tr><td>10</td><td class="word-cell" onclick="showMeaning('enrich','to improve or enhance the quality','समृद्ध गर्नु')">enrich</td><td>to improve or enhance the quality</td><td class="nepali-cell">समृद्ध गर्नु</td></tr>
+          <tr><td>11</td><td class="word-cell" onclick="showMeaning('poor','miserable, sad, pitiable','दयनीय/दुखद')">poor</td><td>miserable, sad, pitiable</td><td class="nepali-cell">दयनीय/दुखद</td></tr>
+          <tr><td>12</td><td class="word-cell" onclick="showMeaning('leisure','free time; time away from work','फुर्सत / विश्राम')">leisure</td><td>free time; time away from work</td><td class="nepali-cell">फुर्सत / विश्राम</td></tr>
+          <tr><td>13</td><td class="word-cell" onclick="showMeaning('beneath','under or below something','तल / मुनि')">beneath</td><td>under or below something</td><td class="nepali-cell">तल / मुनि</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== SYMBOLIC WORDS ===== -->
+  <div class="section-card" id="symbols">
+    <div class="section-heading">
+      <div class="icon icon-symbol">🔷</div>
+      Symbolic Words &amp; Phrases
+    </div>
+    <div class="section-subtitle">Understanding the deeper meanings behind the poet's words</div>
+    <table class="symbol-table">
+      <thead><tr><th>Word / Phrase</th><th>Literal Meaning</th><th>Symbolic Meaning</th></tr></thead>
+      <tbody>
+        <tr><td><strong>"stand and stare"</strong></td><td>उभिनु र हेर्नु</td><td>Enjoying nature; pausing to appreciate life</td></tr>
+        <tr><td><strong>"Beauty"</strong></td><td>सुन्दरता</td><td>Personification of Nature or natural beauty</td></tr>
+        <tr><td><strong>"Beauty's glance"</strong></td><td>सुन्दरताको दृष्टि</td><td>Fleeting moments of natural beauty we often miss</td></tr>
+        <tr><td><strong>"her feet, how they can dance"</strong></td><td>उनका खुट्टाहरू कसरी नाच्छन्</td><td>The graceful, rhythmic movement of nature</td></tr>
+        <tr><td><strong>"streams full of stars"</strong></td><td>ताराले भरिएका खोलाहरू</td><td>The reflection of stars in a stream — a magical moment visible only if we pause</td></tr>
+        <tr><td><strong>"squirrels hide their nuts in grass"</strong></td><td>काठेमुसाले घाँसमा गेडागुडी लुकाउँछन्</td><td>Simple, unhurried natural activities that humans miss due to busyness</td></tr>
+        <tr><td><strong>"sheep and cows"</strong></td><td>भेडा र गाई</td><td>Animals that live freely, slowly and without worry — contrast to busy humans</td></tr>
+        <tr><td><strong>"full of care"</strong></td><td>चिन्ताले भरिएको</td><td>The burden of modern, busy human life</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===== OVERALL INTERPRETATION ===== -->
+  <div class="section-card" id="interpretation">
+    <div class="section-heading">
+      <div class="icon icon-symbol">📜</div>
+      Overall Symbolic Interpretation
+    </div>
+    <div class="quote-block">This poem <strong>symbolically contrasts</strong> two ways of living:<br>• <strong>Animals</strong> (sheep, cows, squirrels) → live <strong>freely, slowly, and joyfully</strong> in nature<br>• <strong>Humans</strong> → are trapped in a <strong>busy, careless rush</strong> through life</div>
+    <div class="quote-block"><strong>"Beauty"</strong> is <strong>personified</strong> as a dancing woman whose smile begins in her eyes. This symbolises <strong>Nature herself</strong> — graceful, generous, and always present — but ignored by busy humans.</div>
+    <div class="quote-block">The <strong>stream full of stars</strong> is a symbol of the <strong>hidden magic of the natural world</strong> — visible only to those who pause and look.</div>
+    <div class="quote-block">The poem ultimately symbolises that a life without <strong>leisure and mindful observation</strong> is a <strong>"poor life"</strong> — spiritually and emotionally empty.</div>
+  </div>
+
+  <!-- ===== TEACHER'S SPEECH ===== -->
+  <div class="section-card" id="speech">
+    <div class="section-heading">
+      <div class="icon icon-speech">👩‍🏫</div>
+      Teacher's Speech Notes for the Class
+    </div>
+    <div class="section-subtitle">Read along as the teacher introduces the poem</div>
+    <div class="speech-block">"Good morning, class! Today we are going to read a beautiful poem called 'Leisure' written by W.H. Davies. Before we begin, let me ask you a simple question — when was the last time you sat quietly and just looked at the sky, a river, or some birds? Most of us would say — 'Not recently!' — and that is exactly what this poem is about."</div>
+    <div class="speech-block">"W.H. Davies was a Welsh poet who lived a very unusual life. He was once a wanderer — a man who travelled on foot with no fixed home. Because of this life, he learned to notice small, beautiful things that busy people overlook. He wrote this poem to remind us that life is not only about work — it is also about seeing, feeling, and enjoying what is around us."</div>
+    <div class="speech-block">"The title 'Leisure' means 'फुर्सत' — free time. But Davies is asking — do we actually use our free time? Do we really pause and enjoy life?"</div>
+    <div class="speech-block">"The poem begins with a powerful question: 'What is this life if, full of care, we have no time to stand and stare?' This means — what is the value of our life if we are always so busy and worried that we cannot even stop to look at the world around us?"</div>
+    <div class="speech-block">"Davies then gives us several beautiful images from nature — tree branches, squirrels hiding nuts, streams reflecting stars, and a beautiful woman dancing. All these things are around us every day — but we are too busy to notice them."</div>
+    <div class="speech-block">"The poem ends by repeating the opening question — making it clear that a life without leisure — without pausing to appreciate beauty — is a POOR life."</div>
+    <div class="speech-block">"So, class, the message is simple but powerful: slow down, look around, and enjoy the small beautiful moments of life. Let us now read the poem together..."</div>
+  </div>
+
+  <!-- ===== LINE-BY-LINE EXPLANATION ===== -->
+  <div class="section-card" id="explanation">
+    <div class="section-heading">
+      <div class="icon icon-explain">📝</div>
+      Line-by-Line Explanation of the Poem
+    </div>
+    <div class="section-subtitle">Click each stanza to read its detailed explanation</div>
+
+    <div class="stanza-block">
+      <div class="stanza-label stanza-1">Stanza 1</div>
+      <div class="stanza-quote">"What is this life if, full of care, / We have no time to stand and stare?"</div>
+      <div class="stanza-explain">The poet opens with a rhetorical question. He asks — what kind of life are we living if we are so busy and worried (full of care) that we cannot even stop (stand) and look (stare) at the world around us? The word <span class="hp" onclick="showMeaning('care','worry, anxiety','चिन्ता')">care</span> means worries and responsibilities. This sets the central theme: <strong>modern humans are too busy to enjoy life.</strong></div>
+    </div>
+
+    <div class="stanza-block">
+      <div class="stanza-label stanza-2">Stanza 2</div>
+      <div class="stanza-quote">"No time to stand beneath the boughs, / And stare as long as sheep and cows:"</div>
+      <div class="stanza-explain">Here the poet says we have no time to stand under the branches of trees (<span class="hp" onclick="showMeaning('boughs','branches of a tree','हाँगाहरू')">boughs</span>) and simply watch — the way sheep and cows do. The <strong>animals</strong> are used as a positive example — they live slowly, peacefully, and enjoy their surroundings. Humans, ironically, are busier and less peaceful than animals.</div>
+    </div>
+
+    <div class="stanza-block">
+      <div class="stanza-label stanza-3">Stanza 3</div>
+      <div class="stanza-quote">"No time to see, when woods we pass, / Where squirrels hide their nuts in grass:"</div>
+      <div class="stanza-explain">When we walk through the forest (<span class="hp" onclick="showMeaning('woods','an area of trees, smaller than a forest','जंगल')">woods</span>), we are in such a hurry that we do not even notice the small, delightful activities happening around us — like <span class="hp" onclick="showMeaning('squirrels','small tree-climbing animals that eat nuts','काठेमुसा')">squirrels</span> hiding their food in the grass. These tiny scenes of nature are precious but we miss them completely.</div>
+    </div>
+
+    <div class="stanza-block">
+      <div class="stanza-label stanza-4">Stanza 4</div>
+      <div class="stanza-quote">"No time to see, in broad daylight, / Streams full of stars, like skies at night:"</div>
+      <div class="stanza-explain">This is one of the most <strong>poetic and visual images</strong> in the poem. During the daytime, when sunlight hits a stream, the rippling water looks like it is <strong>full of stars</strong> — just like the night sky. But we never pause to see this magical sight. The comparison (simile) here — <strong>streams like skies</strong> — highlights the extraordinary beauty available in ordinary moments.</div>
+    </div>
+
+    <div class="stanza-block">
+      <div class="stanza-label stanza-5">Stanza 5</div>
+      <div class="stanza-quote">"No time to turn at Beauty's glance, / And watch her feet, how they can dance:"</div>
+      <div class="stanza-explain"><strong>"Beauty"</strong> is here <strong>personified</strong> as a graceful woman. When Beauty glances at us (offers us a beautiful moment), we don't even turn to look. We certainly don't watch how her feet dance — i.e., how gracefully nature moves and flows around us. The poet mourns that we ignore these beautiful invitations.</div>
+    </div>
+
+    <div class="stanza-block">
+      <div class="stanza-label stanza-6">Stanza 6</div>
+      <div class="stanza-quote">"No time to wait till her mouth can, / Enrich that smile her eyes began?"</div>
+      <div class="stanza-explain">This continues the personification of Beauty. When a person smiles, the smile begins in the eyes before it reaches the mouth. The poet says we are so rushed that we cannot even <strong>wait for Beauty's full smile to appear</strong> — we miss even the complete expression of natural beauty. This is a deeply tender image of what hurry costs us.</div>
+    </div>
+
+    <div class="stanza-block">
+      <div class="stanza-label stanza-7">Stanza 7 (Final)</div>
+      <div class="stanza-quote">"A poor life this if, full of care, / We have no time to stand and stare."</div>
+      <div class="stanza-explain">The poem ends by <strong>repeating the opening idea</strong> — but now it is not a question, it is a <strong>conclusion</strong>. The poet declares firmly: if we are so full of care and worry that we have no time to pause and observe beauty, then we are living a <strong>poor life</strong> — not poor in money, but poor in <strong>experience, joy, and meaning</strong>. This repetition (refrain) makes the message unforgettable.</div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE A: MATCHING ===== -->
+  <div class="section-card" id="exerciseA">
+    <div class="section-heading">
+      <div class="icon icon-match">🔗</div>
+      Exercise A — Match the Words with Their Meanings
+    </div>
+    <div class="section-subtitle">Click each item to reveal the matching answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">stare → ?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Match</span>
+        <span class="answer-text"><strong>stare → iv.</strong> to look at somebody or something for a long time</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">beneath → ?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Match</span>
+        <span class="answer-text"><strong>beneath → v.</strong> under somebody or something</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">woods → ?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Match</span>
+        <span class="answer-text"><strong>woods → i.</strong> an area of trees</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">enrich → ?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Match</span>
+        <span class="answer-text"><strong>enrich → ii.</strong> to improve the quality of something</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">glance → ?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Match</span>
+        <span class="answer-text"><strong>glance → iii.</strong> to look quickly at somebody or something</span>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE B: SHORT ANSWERS ===== -->
+  <div class="section-card" id="exerciseB">
+    <div class="section-heading">
+      <div class="icon icon-short">✎</div>
+      Exercise B — Answer the Following Questions
+    </div>
+    <div class="section-subtitle">Click each question to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">Why is our life so miserable, according to the poet?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text">According to the poet, our life is miserable because we are always full of care (worries and responsibilities) and have no time to stop, observe, and enjoy the natural beauty around us.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">What do sheep and cows do in nature?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text">Sheep and cows stand freely beneath the tree branches and stare at their surroundings for a long time without any worry or hurry.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">What do squirrels do in the woods?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text">Squirrels hide their nuts (food) in the grass in the woods.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">What magic does Beauty perform?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text">Beauty is personified as a graceful woman who glances at us and dances with her feet. Her eyes begin a smile that her mouth completes — representing the full, enriching experience of natural beauty.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">What is human life like, if observed carefully?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text">If observed carefully, human life is a "poor life" — not in terms of money, but in terms of joy and meaning — because humans are so busy with worries that they miss the beautiful moments and experiences that nature freely offers.</span>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- ===== ADDITIONAL: SHORT QUESTIONS ===== -->
+  <div class="section-card extra-section" id="extraSA">
+    <div class="section-heading">
+      <div class="icon icon-extra">💡</div>
+      Additional Short Answer Questions
+    </div>
+    <div class="section-subtitle">Click each question to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">What is the central message of the poem 'Leisure'?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text">The central message is that a life full of worry and busyness, with no time to enjoy natural beauty, is a poor and meaningless life.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">Who is the poet of 'Leisure' and what is he known for?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text">The poet is W.H. Davies, a Welsh poet known for his simple yet profound observations of nature and life.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">How does the poet use animals to criticise human life?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text">The poet shows that sheep and cows freely stand and stare at nature without worry, while humans, despite being more intelligent, are too busy to do even that.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">What does the image "streams full of stars" suggest?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text">It suggests that streams reflecting sunlight look like the starry night sky — a magical sight that only those who pause and look can witness.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">Why does the poet call it a "poor life"?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text">The poet calls it a "poor life" because being too busy to appreciate beauty means missing the true richness of living — joy, peace, and wonder.</span>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- ===== ADDITIONAL: TRUE/FALSE ===== -->
+  <div class="section-card extra-section" id="extraTF">
+    <div class="section-heading">
+      <div class="icon icon-extra">🔍</div>
+      Additional True / False Questions
+    </div>
+    <div class="section-subtitle">Click each statement to reveal whether it's True or False</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">The poem 'Leisure' is written by Robert Frost.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-false">False</span>
+        <span class="answer-text">It is written by W.H. Davies, a Welsh poet.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">The poet says we have no time to enjoy the beauty of nature.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-true">True</span>
+        <span class="answer-text">The entire poem is about how humans are too busy to pause and enjoy natural beauty.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">According to the poet, sheep and cows are always in a hurry.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-false">False</span>
+        <span class="answer-text">Sheep and cows stand and stare freely — they are the opposite of hurried.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">"Beauty" in the poem is used to personify natural beauty.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-true">True</span>
+        <span class="answer-text">Beauty is personified as a graceful woman representing Nature itself.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">The poet considers a life without leisure to be a rich and fulfilling life.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-false">False</span>
+        <span class="answer-text">He calls it a "poor life" — empty of joy, meaning, and experience.</span>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- ===== ADDITIONAL: FILL IN THE BLANKS ===== -->
+  <div class="section-card extra-section" id="extraFill">
+    <div class="section-heading">
+      <div class="icon icon-extra">🧩</div>
+      Additional Fill in the Blanks — Vocabulary in Context
+    </div>
+    <div class="section-subtitle">Click each question to reveal the correct answer</div>
+
+    <div class="box-words">
+      <span class="box-word">beneath</span>
+      <span class="box-word">stare</span>
+      <span class="box-word">enrich</span>
+      <span class="box-word">woods</span>
+      <span class="box-word">glance</span>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">The children had no time to stand <span class="blank-slot">________</span> the big tree and enjoy the shade.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text"><strong>beneath</strong> — The children had no time to stand <strong>beneath</strong> the big tree and enjoy the shade.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">She was so tired that she could only <span class="blank-slot">________</span> at the beautiful painting without really seeing it.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text"><strong>stare</strong> — She was so tired that she could only <strong>stare</strong> at the beautiful painting without really seeing it.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">Good friendships <span class="blank-slot">________</span> your life with happiness and meaning.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text"><strong>enrich</strong> — Good friendships <strong>enrich</strong> your life with happiness and meaning.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">When we passed through the <span class="blank-slot">________</span>, we heard birds singing from every direction.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text"><strong>woods</strong> — When we passed through the <strong>woods</strong>, we heard birds singing from every direction.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">He gave only a quick <span class="blank-slot">________</span> at the sunset before rushing back to work.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text"><strong>glance</strong> — He gave only a quick <strong>glance</strong> at the sunset before rushing back to work.</span>
+      </div></div>
+    </div>
+  </div>
+
+</div><!-- /main-content -->
+
+<script>
+  let fontSize=17;const MIN_F=12,MAX_F=28;
+  function changeFontSize(d){
+    fontSize=Math.max(MIN_F,Math.min(MAX_F,fontSize+d));
+    document.documentElement.style.setProperty('--font-size-base',fontSize+'px');
+    const el=document.getElementById('fontDisplay');el.textContent=fontSize+'px';
+    el.style.transform='scale(1.2)';setTimeout(()=>el.style.transform='scale(1)',200);
+  }
+
+  let popupTimer;
+  function showMeaning(word,en,ne){
+    document.getElementById('popupWord').textContent=word;
+    document.getElementById('popupEnglish').textContent=en;
+    document.getElementById('popupNepali').textContent=ne;
+    document.getElementById('meaningPopup').classList.add('show');
+    clearTimeout(popupTimer);
+  }
+  function closePopup(){document.getElementById('meaningPopup').classList.remove('show')}
+
+  function toggleExercise(item){
+    const parent=item.closest('.section-card');
+    const all=parent.querySelectorAll('.exercise-item');
+    const isOpen=item.classList.contains('open');
+    all.forEach(i=>i.classList.remove('open'));
+    if(!isOpen)item.classList.add('open');
+  }
+
+  function downloadHTML(){
+    const html=document.documentElement.outerHTML;
+    const blob=new Blob(['<!DOCTYPE html>\n'+html],{type:'text/html;charset=utf-8'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');a.href=url;a.download='Leisure_Poem_Interactive.html';
+    document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
+  }
+</script>
+</body>
+</html>

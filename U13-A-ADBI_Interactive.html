@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asian Development Bank Institute (ADBI) — Grade 9 English Unit 13</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --font-size-base:17px;
+  --bg:#F7F3EA;
+  --card:#FFFFFF;
+  --primary:#0E5A5C;
+  --primary-dark:#073B3D;
+  --primary-light:#5BA8AA;
+  --accent:#E76F51;
+  --accent-dark:#B5503A;
+  --accent2:#E9C46A;
+  --text:#1A2E2E;
+  --text-light:#36514F;
+  --muted:#6B7F7E;
+  --border:#D9E2DD;
+  --highlight:#FFF1D6;
+  --highlight-border:#E9C46A;
+  --success:#2D7D5A;
+  --error:#B8324F;
+  --shadow:0 2px 12px rgba(14,90,92,0.10);
+  --radius:14px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{
+  font-family:'Spectral','Noto Sans SC',serif;
+  font-size:var(--font-size-base);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.8;
+  min-height:100vh;
+}
+
+/* ─── HEADER ─── */
+.site-header{
+  background:linear-gradient(135deg,#062425 0%,#0E5A5C 35%,#2A8B8D 70%,#7BBDBE 100%);
+  padding:38px 20px 32px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.site-header::before{
+  content:'';position:absolute;top:-50%;left:-20%;width:140%;height:200%;
+  background:radial-gradient(ellipse at 30% 60%,rgba(231,111,81,0.16) 0%,transparent 60%);
+  pointer-events:none;
+}
+.site-header::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,#E9C46A,#E76F51,#E9C46A);
+}
+.site-header h1{
+  font-family:'Cormorant Garamond',serif;font-size:2.8rem;color:#F4F1E6;
+  font-weight:600;letter-spacing:0.5px;position:relative;
+  text-shadow:0 2px 8px rgba(6,36,37,0.5);
+}
+.site-header .subtitle{
+  color:#E9C46A;font-size:1.1rem;margin-top:8px;font-style:italic;
+  font-family:'Cormorant Garamond',serif;position:relative;letter-spacing:0.4px;
+}
+.site-header .meta{
+  color:rgba(244,241,230,0.78);font-size:0.85rem;margin-top:10px;position:relative;
+  font-family:'IBM Plex Sans',sans-serif;letter-spacing:0.6px;
+}
+.site-header .meta span{margin:0 8px}
+
+/* ─── TOOLBAR ─── */
+.toolbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(247,243,234,0.93);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  padding:10px 20px;
+  display:flex;justify-content:center;gap:12px;align-items:center;
+  flex-wrap:wrap;
+}
+.toolbar button{
+  border:none;border-radius:8px;padding:7px 18px;
+  font-size:0.9rem;font-weight:600;cursor:pointer;
+  font-family:'IBM Plex Sans',sans-serif;
+  transition:all 0.2s;
+}
+.btn-font{background:var(--primary);color:#FFF}
+.btn-font:hover{background:var(--primary-dark);transform:scale(1.05)}
+.btn-download{background:var(--accent);color:#FFF}
+.btn-download:hover{background:var(--accent-dark);transform:scale(1.05)}
+
+/* ─── NAV JUMP LINKS ─── */
+.nav-jump{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:18px 22px;
+  margin-bottom:24px;box-shadow:var(--shadow);
+}
+.nav-jump h2{
+  font-family:'Cormorant Garamond',serif;color:var(--primary);
+  font-size:1.45rem;margin-bottom:12px;font-weight:600;
+}
+.nav-jump-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:8px;
+}
+.nav-jump-grid a{
+  display:flex;align-items:center;gap:8px;
+  padding:9px 14px;border-radius:8px;
+  background:linear-gradient(135deg,#EAF3F2,#D9E8E6);
+  color:var(--text);text-decoration:none;
+  font-size:0.88rem;font-weight:500;
+  font-family:'IBM Plex Sans',sans-serif;
+  border-left:3px solid var(--accent);
+  transition:all 0.25s;
+}
+.nav-jump-grid a:hover{
+  background:linear-gradient(135deg,#E76F5122,#E76F5115);
+  border-left-color:var(--primary);
+  transform:translateX(4px);
+  color:var(--primary);
+}
+.nav-jump-grid a .nav-icon{font-size:1rem;flex-shrink:0}
+
+/* ─── SCROLL TO TOP ─── */
+#scrollTopBtn{
+  position:fixed;bottom:90px;right:24px;z-index:9998;
+  width:48px;height:48px;border-radius:50%;
+  background:var(--primary);color:#FFF;
+  border:2px solid var(--primary-light);
+  font-size:1.3rem;cursor:pointer;
+  box-shadow:0 4px 16px rgba(14,90,92,0.35);
+  opacity:0;pointer-events:none;
+  transition:all 0.35s cubic-bezier(.4,0,.2,1);
+  display:flex;align-items:center;justify-content:center;
+}
+#scrollTopBtn.show{opacity:1;pointer-events:auto}
+#scrollTopBtn:hover{
+  background:var(--accent);border-color:var(--accent-dark);
+  transform:translateY(-3px);
+  box-shadow:0 6px 20px rgba(231,111,81,0.4);
+}
+
+/* ─── MAIN CONTAINER ─── */
+.container{max-width:900px;margin:0 auto;padding:24px 16px 60px}
+
+/* ─── SECTION CARD ─── */
+.section-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px 26px;
+  margin-bottom:24px;box-shadow:var(--shadow);
+  transition:box-shadow 0.3s;
+}
+.section-card:hover{box-shadow:0 4px 20px rgba(14,90,92,0.16)}
+.section-card h2{
+  font-family:'Cormorant Garamond',serif;color:var(--primary);
+  font-size:1.7rem;margin-bottom:16px;padding-bottom:10px;
+  border-bottom:2px solid var(--primary-light);
+  display:flex;align-items:center;gap:10px;font-weight:600;
+}
+.section-card h2 .section-icon{font-size:1.2rem}
+.section-card h3{
+  font-family:'Cormorant Garamond',serif;color:var(--accent-dark);
+  font-size:1.3rem;margin:20px 0 10px;font-weight:600;
+}
+
+/* ─── READING PARAGRAPHS ─── */
+.reading-para{
+  margin:16px 0;padding:16px 22px;
+  background:#FCFAF4;border-radius:10px;
+  border-left:4px solid var(--accent);
+  line-height:1.9;
+}
+.reading-para .para-label{
+  display:inline-block;background:var(--primary);
+  color:#FFF;font-size:0.72rem;font-weight:600;
+  padding:2px 10px;border-radius:4px;margin-bottom:8px;
+  letter-spacing:1px;
+  font-family:'IBM Plex Sans',sans-serif;text-transform:uppercase;
+}
+.reading-para .para-heading{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem;color:var(--primary-dark);
+  font-weight:600;margin-bottom:8px;
+}
+
+/* ─── HIGHLIGHTED WORD ─── */
+.hw{
+  background:var(--highlight);color:var(--accent-dark);
+  padding:1px 6px;border-radius:4px;cursor:pointer;
+  border-bottom:2px dashed var(--highlight-border);
+  font-weight:600;transition:all 0.2s;
+  font-family:'Spectral',serif;
+}
+.hw:hover{background:#F5DC8C;transform:scale(1.04)}
+
+/* ─── MEANING POPUP ─── */
+#meaningPopup{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);
+  z-index:9999;background:#062425;color:#F4F1E6;
+  border-radius:16px;padding:18px 24px;
+  box-shadow:0 8px 32px rgba(6,36,37,0.50);
+  min-width:300px;max-width:90vw;
+  opacity:0;pointer-events:none;transition:all 0.35s cubic-bezier(.4,0,.2,1);
+  border:2px solid rgba(233,196,106,0.4);
+}
+#meaningPopup.show{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+#meaningPopup .popup-word{
+  font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;
+  color:#E9C46A;margin-bottom:8px;display:flex;align-items:center;gap:8px;
+}
+#meaningPopup .popup-word::before{content:'📖';font-size:1.1rem}
+#meaningPopup .popup-meaning{font-size:0.92rem;line-height:1.6;font-family:'Spectral',serif}
+#meaningPopup .popup-meaning span{display:block;margin:3px 0}
+#meaningPopup .popup-en{color:#7BBDBE;font-weight:500}
+#meaningPopup .popup-ne{color:#F4F1E6;font-weight:400}
+#meaningPopup .popup-close{
+  position:absolute;top:8px;right:12px;
+  background:none;border:none;color:#7BBDBE;
+  font-size:1.3rem;cursor:pointer;line-height:1;
+}
+#meaningPopup .popup-close:hover{color:#E9C46A}
+
+/* ─── VOCABULARY TABLE ─── */
+.vocab-table{
+  width:100%;border-collapse:separate;border-spacing:0;
+  border-radius:10px;overflow:hidden;
+  font-size:0.91rem;margin:12px 0;
+  font-family:'Spectral',serif;
+}
+.vocab-table thead{background:var(--primary);color:#FFF}
+.vocab-table thead th{
+  padding:10px 12px;text-align:left;font-weight:600;font-size:0.88rem;
+  font-family:'IBM Plex Sans',sans-serif;letter-spacing:0.4px;
+}
+.vocab-table tbody tr{transition:background 0.2s}
+.vocab-table tbody tr:nth-child(even){background:#EAF3F2}
+.vocab-table tbody tr:hover{background:#D9E8E6}
+.vocab-table td{padding:8px 12px;border-bottom:1px solid var(--border)}
+.vocab-table td:first-child{font-weight:600;color:var(--accent-dark)}
+
+/* ─── CROSSWORD GRID ─── */
+.crossword-block{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:14px 0;
+}
+.crossword-col h4{
+  font-family:'IBM Plex Sans',sans-serif;font-size:0.95rem;
+  color:var(--primary);margin-bottom:8px;letter-spacing:0.5px;
+  padding-bottom:4px;border-bottom:1px dashed var(--primary-light);
+}
+.crossword-item{
+  background:#FCFAF4;border:1px solid var(--border);
+  border-left:3px solid var(--accent2);
+  padding:8px 12px;margin:6px 0;border-radius:6px;
+  font-size:0.9rem;
+}
+.crossword-item strong{
+  color:var(--accent-dark);font-family:'IBM Plex Sans',sans-serif;
+  font-weight:600;
+}
+
+/* ─── EXERCISE SECTION ─── */
+.exercise-item{
+  border:1px solid var(--border);border-radius:10px;
+  margin:10px 0;overflow:hidden;
+  transition:border-color 0.3s;
+}
+.exercise-item:hover{border-color:var(--primary-light)}
+.exercise-question{
+  padding:14px 18px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;
+  font-weight:500;background:#FCFAF4;
+  transition:background 0.2s;user-select:none;
+  gap:10px;font-family:'Spectral',serif;
+}
+.exercise-question:hover{background:#EAF3F2}
+.exercise-question .arrow{
+  font-size:1.1rem;transition:transform 0.3s;color:var(--accent);
+  flex-shrink:0;
+}
+.exercise-item.open .exercise-question .arrow{transform:rotate(90deg)}
+.exercise-answer{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.4s ease,padding 0.3s;
+}
+.exercise-item.open .exercise-answer{
+  max-height:900px;padding:14px 18px;
+}
+.exercise-answer-inner{
+  background:linear-gradient(135deg,#EAF3F2,#FCFAF4);
+  border-radius:8px;padding:14px 16px;
+  color:var(--text);font-size:0.95rem;
+  border-left:4px solid var(--accent);
+  font-family:'Spectral',serif;line-height:1.75;
+}
+.exercise-answer-inner ul{margin:6px 0 6px 20px}
+.exercise-answer-inner ul li{margin:4px 0}
+
+/* ─── TF / FILL ─── */
+.tf-item,.fill-item{
+  border:1px solid var(--border);border-radius:10px;
+  margin:8px 0;overflow:hidden;
+}
+.tf-question,.fill-question{
+  padding:12px 16px;cursor:pointer;
+  background:#FCFAF4;font-weight:500;
+  display:flex;justify-content:space-between;align-items:center;
+  transition:background 0.2s;gap:10px;
+  font-family:'Spectral',serif;
+}
+.tf-question:hover,.fill-question:hover{background:#EAF3F2}
+.tf-answer,.fill-answer{
+  max-height:0;overflow:hidden;transition:max-height 0.4s ease;
+}
+.tf-item.open .tf-answer,.fill-item.open .fill-answer{
+  max-height:400px;padding:12px 16px;
+}
+.tf-answer-inner,.fill-answer-inner{
+  background:linear-gradient(135deg,#EAF3F2,#FCFAF4);
+  border-radius:8px;padding:12px 14px;
+  font-size:0.93rem;border-left:4px solid var(--accent);
+  font-family:'Spectral',serif;line-height:1.7;
+}
+
+/* ─── FOOTER ─── */
+.site-footer{
+  background:linear-gradient(135deg,#062425,#0E5A5C);
+  color:rgba(244,241,230,0.7);text-align:center;
+  padding:18px 20px;font-size:0.78rem;
+  margin-top:20px;font-family:'IBM Plex Sans',sans-serif;letter-spacing:0.3px;
+}
+.site-footer a{color:#E9C46A;text-decoration:none;font-weight:500}
+.site-footer a:hover{text-decoration:underline}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:640px){
+  .site-header h1{font-size:1.9rem}
+  .container{padding:16px 10px 40px}
+  .section-card{padding:18px 14px}
+  .section-card h2{font-size:1.4rem}
+  .reading-para{padding:12px 14px}
+  #meaningPopup{min-width:260px;padding:14px 18px}
+  .vocab-table{font-size:0.82rem}
+  .vocab-table td,.vocab-table th{padding:6px 8px}
+  .crossword-block{grid-template-columns:1fr;gap:8px}
+  .toolbar{gap:6px;padding:8px 10px}
+  .toolbar button{padding:6px 12px;font-size:0.82rem}
+  .nav-jump-grid{grid-template-columns:1fr}
+  #scrollTopBtn{width:42px;height:42px;right:16px;bottom:80px;font-size:1.1rem}
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.section-card{animation:fadeInUp 0.5s ease both}
+.section-card:nth-child(2){animation-delay:0.04s}
+.section-card:nth-child(3){animation-delay:0.08s}
+.section-card:nth-child(4){animation-delay:0.12s}
+.section-card:nth-child(5){animation-delay:0.16s}
+.section-card:nth-child(6){animation-delay:0.20s}
+.section-card:nth-child(7){animation-delay:0.24s}
+.section-card:nth-child(8){animation-delay:0.28s}
+.section-card:nth-child(9){animation-delay:0.32s}
+.section-card:nth-child(10){animation-delay:0.36s}
+</style>
+</head>
+<body>
+
+<!-- ═══════ HEADER ═══════ -->
+<header class="site-header" id="top">
+  <h1>Asian Development Bank Institute</h1>
+  <div class="subtitle">Unit 13 — Building Capacity for Asia-Pacific Development</div>
+  <div class="meta">
+    <span>Grade 9</span>•<span>English</span>•<span>Unit 13</span>•<span>People and Places</span>
+  </div>
+</header>
+
+<!-- ═══════ TOOLBAR ═══════ -->
+<div class="toolbar">
+  <button class="btn-font" onclick="changeFontSize(-1)">A−</button>
+  <button class="btn-font" onclick="changeFontSize(1)">A+</button>
+  <button class="btn-download" onclick="downloadHTML()">⬇ Download HTML</button>
+</div>
+
+<!-- ═══════ SCROLL TO TOP ═══════ -->
+<button id="scrollTopBtn" onclick="scrollToTop()" title="Go to top">⬆</button>
+
+<!-- ═══════ MAIN ═══════ -->
+<div class="container">
+
+<!-- ──── NAV JUMP LINKS ──── -->
+<div class="nav-jump">
+  <h2>📑 Quick Navigation — Jump to Section</h2>
+  <div class="nav-jump-grid">
+    <a href="#reading"><span class="nav-icon">📖</span> The Reading Text</a>
+    <a href="#vocab"><span class="nav-icon">📗</span> Word Meanings</a>
+    <a href="#exercise-a"><span class="nav-icon">✅</span> Exercise A — Crossword</a>
+    <a href="#exercise-b"><span class="nav-icon">✅</span> Exercise B — Fill in Gaps</a>
+    <a href="#exercise-c"><span class="nav-icon">✅</span> Exercise C — Short Answers</a>
+    <a href="#short-questions"><span class="nav-icon">➕</span> Short Questions</a>
+    <a href="#true-false"><span class="nav-icon">➕</span> True / False</a>
+    <a href="#fill-blanks"><span class="nav-icon">➕</span> Fill in the Blanks</a>
+  </div>
+</div>
+
+<!-- ──── READING TEXT ──── -->
+<div class="section-card" id="reading">
+  <h2><span class="section-icon">📖</span> ADBI Profile — Reading Text</h2>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph I</div>
+    <div class="para-heading">What is ADBI?</div>
+    ADBI is the <span class="hw" onclick="showMeaning('think tank','an organization that does research and provides advice','थिंक ट्यांक / विचार केन्द्र')">think tank</span> of the Asian Development Bank (ADB). It was <span class="hw" onclick="showMeaning('established','set up/founded','स्थापित')">established</span> in 1997 to help build <span class="hw" onclick="showMeaning('capacity','ability/capability','क्षमता')">capacity</span>, skills, and knowledge related to <span class="hw" onclick="showMeaning('poverty','the state of being very poor','गरिबी')">poverty</span> reduction and other areas that support long-term growth and <span class="hw" onclick="showMeaning('competitiveness','the ability to compete successfully','प्रतिस्पर्धात्मकता')">competitiveness</span> in developing Asia and the Pacific. It is located in the central government district of Tokyo, Japan.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph II</div>
+    <div class="para-heading">Governance &amp; Leadership</div>
+    ADBI is supported by an <span class="hw" onclick="showMeaning('independent','not controlled by others','स्वतन्त्र')">independent</span> Advisory Council whose members serve for two years. The Dean is the chief <span class="hw" onclick="showMeaning('executive','relating to management/administration','कार्यकारी')">executive</span> officer of the ADBI and has responsibility under the direction of the ADB President for the <span class="hw" onclick="showMeaning('management','the process of controlling something','व्यवस्थापन')">management</span> of the Institute.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph III</div>
+    <div class="para-heading">Objectives of ADBI</div>
+    The <span class="hw" onclick="showMeaning('objectives','aims/goals','उद्देश्यहरू')">objectives</span> of ADBI are to identify <span class="hw" onclick="showMeaning('effective','producing the result that was intended','प्रभावकारी')">effective</span> development <span class="hw" onclick="showMeaning('strategies','plans of action','रणनीतिहरू')">strategies</span> and improve the capacity for <span class="hw" onclick="showMeaning('sound','thorough and reliable','ठोस/विश्वसनीय')">sound</span> development of the agencies and organisations engaged in development work in ADB's developing member countries (DMCs). ADBI focuses its activities on areas where it has a <span class="hw" onclick="showMeaning('strategic','relating to strategy/plan','रणनीतिक')">strategic</span> <span class="hw" onclick="showMeaning('advantage','a condition giving a superior position','फाइदा')">advantage</span>, such as the <span class="hw" onclick="showMeaning('analysis','detailed examination','विश्लेषण')">analysis</span> of <span class="hw" onclick="showMeaning('emerging','coming into existence','उभरिँदै आउने')">emerging</span> policy issues from regional as well as medium-to long-term <span class="hw" onclick="showMeaning('perspectives','views covering a period of several to many years','मध्यम देखि दीर्घकालीन दृष्टिकोण')">perspectives</span>, and the <span class="hw" onclick="showMeaning('facilitation','the process of making something easier','सुविधा/सहजीकरण')">facilitation</span> of policy dialogue among senior DMC policy makers. ADBI also seeks to <span class="hw" onclick="showMeaning('enhance','improve/increase','बढाउनु')">enhance</span> its <span class="hw" onclick="showMeaning('visibility','the degree to which something is seen','दृश्यता')">visibility</span>, impact, and <span class="hw" onclick="showMeaning('accessibility','the quality of being easily reached','पहुँचयोग्यता')">accessibility</span> through high-quality knowledge products and services. It strives to be a <span class="hw" onclick="showMeaning('trusted','reliable/dependable','विश्वसनीय')">trusted</span> source of <span class="hw" onclick="showMeaning('insight','deep understanding','अन्तर्दृष्टि')">insight</span>, knowledge, and information to which policy makers, <span class="hw" onclick="showMeaning('academics','scholars','शिक्षाविद्हरू')">academics</span>, and others interested in Asia's development issues turn for <span class="hw" onclick="showMeaning('guidance','advice/direction','मार्गदर्शन')">guidance</span>.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph IV</div>
+    <div class="para-heading">Intellectual Input &amp; Capacity Building</div>
+    ADBI provides <span class="hw" onclick="showMeaning('intellectual','relating to the ability to think','बौद्धिक')">intellectual</span> <span class="hw" onclick="showMeaning('input','something contributed','योगदान/सुझाव')">input</span> for policy makers in ADB's DMCs. It does so by conducting <span class="hw" onclick="showMeaning('research','careful study','अनुसन्धान')">research</span> with a focus on medium to long-term development issues of strategic importance and through capacity building and training (CBT).
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph V</div>
+    <div class="para-heading">Network of Partners</div>
+    Through its work, ADBI has <span class="hw" onclick="showMeaning('cultivated','developed/grown','विकास गरेको छ')">cultivated</span> an <span class="hw" onclick="showMeaning('extensive','large in area or amount','व्यापक')">extensive</span> <span class="hw" onclick="showMeaning('network','a system of connected things','सञ्जाल')">network</span> of experts, researchers, think tanks, government agencies, civil society and private sector organisations, and likeminded organisations.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph VI</div>
+    <div class="para-heading">Programmes and Activities</div>
+    Programmes and activities are held in-house as well as in ADB member countries in <span class="hw" onclick="showMeaning('collaboration','working together','सहकार्य')">collaboration</span> with international, regional, and national <span class="hw" onclick="showMeaning('institutes','organizations for education or research','संस्थाहरू')">institutes</span> and agencies.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph VII</div>
+    <div class="para-heading">Research Programme</div>
+    ADBI conducts high-level research on issues with strategic <span class="hw" onclick="showMeaning('implications','possible effects or results','निहितार्थहरू')">implications</span> for development thinking and policy making in Asia and the Pacific. Research activities include hosting presentations by <span class="hw" onclick="showMeaning('distinguished','well-known and respected','प्रतिष्ठित')">distinguished</span> experts, organising regional and international <span class="hw" onclick="showMeaning('seminars','educational conferences','सेमिनारहरू')">seminars</span> and <span class="hw" onclick="showMeaning('conferences','large formal meetings','सम्मेलनहरू')">conferences</span> and publishing books and papers. These activities contribute to the development policy debate and help to identify effective development strategies and improve the capacity for sound development in the region. Selected research topics are based on ADB's <span class="hw" onclick="showMeaning('priority','something treated as more important','प्राथमिकता')">priority</span> sectors and themes, an annual needs survey, and inputs from regional policy makers and partners. <span class="hw" onclick="showMeaning('inclusive','including everyone','समावेशी')">Inclusive</span> housing policy, central–local government relations, <span class="hw" onclick="showMeaning('urbanization','the process of becoming more urban','सहरीकरण')">urbanization</span> in Asia, financial inclusion, education and external shocks and economic issues are the priority areas of research.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph VIII</div>
+    <div class="para-heading">Capacity-Building and Training Activities</div>
+    ADBI provides capacity-building and training to mid-and senior-level officials from ADB developing member countries. Activities are designed to enhance <span class="hw" onclick="showMeaning('awareness','knowledge of something','सचेतना')">awareness</span> on the region's important development issues, introduce appropriate policy proposals to address them, and build <span class="hw" onclick="showMeaning('consensus','general agreement','सहमति')">consensus</span> among policy makers and <span class="hw" onclick="showMeaning('stakeholders','people with an interest in something','सरोकारवालाहरू')">stakeholders</span> on key priority areas. It is delivered in the form of policy dialogues, course-based training, and e-learning. ADBI's activities provide an effective <span class="hw" onclick="showMeaning('forum','a place for discussion','मञ्च')">forum</span> for discussion and information sharing on effective development practices and country experiences.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph IX</div>
+    <div class="para-heading">Outreach and Knowledge Dissemination</div>
+    ADBI broadly <span class="hw" onclick="showMeaning('disseminates','spreads widely','प्रसार गर्छ')">disseminates</span> its research results as well as training, seminar, and conference outputs through multiple <span class="hw" onclick="showMeaning('channels','means of communication','माध्यमहरू')">channels</span>, including media, <span class="hw" onclick="showMeaning('publications','published materials','प्रकाशनहरू')">publications</span>, webpage and social media. It also enjoys close relations with numerous national and regional think tanks, as well as other organizations in Asia and the Pacific.
+  </div>
+</div>
+
+<!-- ──── VOCABULARY ──── -->
+<div class="section-card" id="vocab">
+  <h2><span class="section-icon">📗</span> Word Meanings</h2>
+  <table class="vocab-table">
+    <thead>
+      <tr><th>Word / Phrase</th><th>English Meaning</th><th>Nepali Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>think tank</td><td>an organization that does research and provides advice</td><td>विचार केन्द्र</td></tr>
+      <tr><td>established</td><td>set up/founded</td><td>स्थापित</td></tr>
+      <tr><td>capacity</td><td>ability/capability</td><td>क्षमता</td></tr>
+      <tr><td>poverty</td><td>the state of being very poor</td><td>गरिबी</td></tr>
+      <tr><td>competitiveness</td><td>the ability to compete successfully</td><td>प्रतिस्पर्धात्मकता</td></tr>
+      <tr><td>objectives</td><td>aims/goals</td><td>उद्देश्यहरू</td></tr>
+      <tr><td>strategies</td><td>plans of action</td><td>रणनीतिहरू</td></tr>
+      <tr><td>strategic</td><td>relating to strategy/plan</td><td>रणनीतिक</td></tr>
+      <tr><td>advantage</td><td>a condition giving a superior position</td><td>फाइदा</td></tr>
+      <tr><td>analysis</td><td>detailed examination</td><td>विश्लेषण</td></tr>
+      <tr><td>emerging</td><td>coming into existence</td><td>उभरिँदै आउने</td></tr>
+      <tr><td>facilitation</td><td>the process of making something easier</td><td>सहजीकरण</td></tr>
+      <tr><td>enhance</td><td>improve/increase</td><td>बढाउनु</td></tr>
+      <tr><td>visibility</td><td>the degree to which something is seen</td><td>दृश्यता</td></tr>
+      <tr><td>accessibility</td><td>the quality of being easily reached</td><td>पहुँचयोग्यता</td></tr>
+      <tr><td>insight</td><td>deep understanding</td><td>अन्तर्दृष्टि</td></tr>
+      <tr><td>academics</td><td>scholars</td><td>शिक्षाविद्हरू</td></tr>
+      <tr><td>guidance</td><td>advice/direction</td><td>मार्गदर्शन</td></tr>
+      <tr><td>intellectual</td><td>relating to the ability to think</td><td>बौद्धिक</td></tr>
+      <tr><td>cultivated</td><td>developed/grown</td><td>विकास गरेको</td></tr>
+      <tr><td>extensive</td><td>large in area or amount</td><td>व्यापक</td></tr>
+      <tr><td>distinguished</td><td>well-known and respected</td><td>प्रतिष्ठित</td></tr>
+      <tr><td>seminars</td><td>educational conferences</td><td>सेमिनारहरू</td></tr>
+      <tr><td>conferences</td><td>large formal meetings</td><td>सम्मेलनहरू</td></tr>
+      <tr><td>implications</td><td>possible effects or results</td><td>निहितार्थहरू</td></tr>
+      <tr><td>priority</td><td>something treated as more important</td><td>प्राथमिकता</td></tr>
+      <tr><td>inclusive</td><td>including everyone</td><td>समावेशी</td></tr>
+      <tr><td>urbanization</td><td>the process of becoming more urban</td><td>सहरीकरण</td></tr>
+      <tr><td>awareness</td><td>knowledge of something</td><td>सचेतना</td></tr>
+      <tr><td>consensus</td><td>general agreement</td><td>सहमति</td></tr>
+      <tr><td>stakeholders</td><td>people with an interest in something</td><td>सरोकारवालाहरू</td></tr>
+      <tr><td>disseminates</td><td>spreads widely</td><td>प्रसार गर्छ</td></tr>
+      <tr><td>forum</td><td>a place for discussion</td><td>मञ्च</td></tr>
+      <tr><td>collaboration</td><td>working together</td><td>सहकार्य</td></tr>
+      <tr><td>sound</td><td>thorough and reliable</td><td>ठोस/विश्वसनीय</td></tr>
+      <tr><td>effective</td><td>producing the result that was intended</td><td>प्रभावकारी</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ──── EXERCISE A — CROSSWORD ──── -->
+<div class="section-card" id="exercise-a">
+  <h2><span class="section-icon">✅</span> Exercise A — Crossword Puzzle (Page 160)</h2>
+
+  <div class="crossword-block">
+    <div class="crossword-col">
+      <h4>➡ Across</h4>
+      <div class="crossword-item"><strong>2. Forum</strong> — a medium where people exchange their opinions and ideas</div>
+      <div class="crossword-item"><strong>3. Strategy</strong> — a plan to achieve a particular purpose</div>
+      <div class="crossword-item"><strong>4. Implementation</strong> — utilisation of a decision</div>
+      <div class="crossword-item"><strong>6. Consensus</strong> — a common opinion</div>
+      <div class="crossword-item"><strong>7. Conference</strong> — a large official meeting</div>
+      <div class="crossword-item"><strong>8. Perspective</strong> — viewpoint</div>
+    </div>
+    <div class="crossword-col">
+      <h4>⬇ Down</h4>
+      <div class="crossword-item"><strong>1. Collaboration</strong> — working with another group of people</div>
+      <div class="crossword-item"><strong>3. Seminar</strong> — a meeting for discussion</div>
+      <div class="crossword-item"><strong>5. Programme</strong> — a formal plan</div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── EXERCISE B — FILL IN GAPS ──── -->
+<div class="section-card" id="exercise-b">
+  <h2><span class="section-icon">✅</span> Exercise B — Fill in the Gaps (Page 161)</h2>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>a. The Dean works under the direction of the ____.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The Dean works under the direction of the <strong>ADB President</strong>.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>b. The organisation emphasises its activities in the areas where it has ____ advantage.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The organisation emphasises its activities in the areas where it has <strong>strategic</strong> advantage.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>c. It provides ____ input for policy makers in its developing member countries.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        It provides <strong>intellectual</strong> input for policy makers in its developing member countries.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>d. The basis for research topics are ADB's ____ sectors and themes.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The basis for research topics are ADB's <strong>priority</strong> sectors and themes.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>e. ADBI has close relations with various national and regional ____.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        ADBI has close relations with various national and regional <strong>think tanks</strong>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── EXERCISE C — SHORT ANSWERS ──── -->
+<div class="section-card" id="exercise-c">
+  <h2><span class="section-icon">✅</span> Exercise C — Answer the Following Questions (Page 161)</h2>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>a. What does ADBI stand for?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        ADBI stands for <strong>Asian Development Bank Institute</strong>.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>b. Who is this organisation supported by?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        ADBI is supported by an <strong>independent Advisory Council</strong> whose members serve for two years.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>c. State any two objectives of ADBI.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        <ul>
+          <li>To identify effective development strategies.</li>
+          <li>To improve the capacity for sound development of agencies engaged in development work in ADB's developing member countries (DMCs).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>d. How does ADBI run its programmes?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        ADBI runs its programmes <strong>in-house</strong> as well as in ADB member countries in <strong>collaboration</strong> with international, regional, and national institutes and agencies.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>e. What do the ADBI's research programmes contribute to?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        ADBI's research programmes contribute to the <strong>development policy debate</strong> and help to identify effective development strategies and improve the capacity for sound development in the region.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>f. What are the forms of ADBI's capacity-building and training programmes?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        ADBI's capacity-building and training programmes are delivered in three forms:
+        <ul>
+          <li>Policy dialogues</li>
+          <li>Course-based training</li>
+          <li>E-learning</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>g. How does it distribute its research results and outputs?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        ADBI broadly <strong>disseminates</strong> its research results and outputs through multiple channels including <strong>media, publications, webpage, and social media</strong>. It also maintains close relations with numerous national and regional think tanks and other organizations in Asia and the Pacific.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── SHORT QUESTIONS ──── -->
+<div class="section-card" id="short-questions">
+  <h2><span class="section-icon">➕</span> Additional Short Questions</h2>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>1. When and where was ADBI established?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        ADBI was established in <strong>1997</strong>. It is located in the central government district of <strong>Tokyo, Japan</strong>.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>2. What is the main purpose of ADBI?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The main purpose of ADBI is to help build capacity, skills, and knowledge related to <strong>poverty reduction</strong> and to support long-term growth and competitiveness in developing Asia and the Pacific.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>3. Who leads the ADBI?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The <strong>Dean</strong> is the chief executive officer of ADBI. The Dean works under the direction of the ADB President.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>4. What kinds of officials receive capacity-building training from ADBI?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        ADBI provides capacity-building and training to <strong>mid- and senior-level officials</strong> from ADB developing member countries.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>5. Through which channels does ADBI disseminate its outputs?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        ADBI disseminates its outputs through <strong>media, publications, webpage, and social media</strong>, and maintains close relations with national and regional think tanks across Asia and the Pacific.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── TRUE / FALSE ──── -->
+<div class="section-card" id="true-false">
+  <h2><span class="section-icon">➕</span> True / False</h2>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>1. ADBI was established in 1999.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--error)">❌ False</strong> — ADBI was established in <strong>1997</strong>, not 1999.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>2. The Dean is the chief executive officer of ADBI.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--success)">✅ True</strong> — The Dean serves as the chief executive officer of the ADBI, working under the ADB President.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>3. ADBI focuses only on short-term development issues.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--error)">❌ False</strong> — ADBI focuses on <strong>medium to long-term</strong> development issues, not short-term ones.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>4. ADBI provides training to officials from ADB member countries.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--success)">✅ True</strong> — ADBI provides capacity-building and training to mid- and senior-level officials from ADB developing member countries.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>5. ADBI disseminates its research results only through printed publications.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--error)">❌ False</strong> — ADBI uses <strong>multiple channels</strong> including media, publications, webpage, and social media.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── FILL IN THE BLANKS ──── -->
+<div class="section-card" id="fill-blanks">
+  <h2><span class="section-icon">➕</span> Contextual Vocabulary — Fill in the Blanks</h2>
+  <p style="font-size:0.9rem;color:var(--muted);margin:6px 0 12px;font-family:'IBM Plex Sans',sans-serif;">Words: consensus / disseminate / forum / stakeholders / facilitation</p>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>1. The __________ of the meeting is to allow everyone to share their opinions.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        The <strong>forum</strong> of the meeting is to allow everyone to share their opinions.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>2. The government tried to __________ health information to all citizens.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        The government tried to <strong>disseminate</strong> health information to all citizens.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>3. After long discussions, the members finally reached a __________.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        After long discussions, the members finally reached a <strong>consensus</strong>.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>4. The __________ of the peace process required great skill.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        The <strong>facilitation</strong> of the peace process required great skill.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>5. All __________ were invited to give their opinions on the new policy.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        All <strong>stakeholders</strong> were invited to give their opinions on the new policy.
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- ═══════ MEANING POPUP ═══════ -->
+<div id="meaningPopup">
+  <button class="popup-close" onclick="closePopup()">&times;</button>
+  <div class="popup-word" id="popupWord"></div>
+  <div class="popup-meaning">
+    <span class="popup-en" id="popupEnglish"></span>
+    <span class="popup-ne" id="popupNepali"></span>
+  </div>
+</div>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="site-footer">
+  N.REGMI &nbsp;|&nbsp; <a href="mailto:nregmi511@gmail.com">nregmi511@gmail.com</a>
+  &nbsp;|&nbsp; Grade 9 English — Unit 13 — Asian Development Bank Institute (ADBI)
+</footer>
+
+<!-- ═══════ JAVASCRIPT ═══════ -->
+<script>
+// ─── Font Size Control ───
+const MIN_F=13,MAX_F=26;
+let fontSize=17;
+function changeFontSize(d){
+  fontSize=Math.max(MIN_F,Math.min(MAX_F,fontSize+d));
+  document.documentElement.style.setProperty('--font-size-base',fontSize+'px');
+}
+
+// ─── Meaning Popup ───
+function showMeaning(word,en,ne){
+  document.getElementById('popupWord').textContent=word;
+  document.getElementById('popupEnglish').textContent='EN: '+en;
+  document.getElementById('popupNepali').textContent='NE: '+ne;
+  document.getElementById('meaningPopup').classList.add('show');
+}
+function closePopup(){
+  document.getElementById('meaningPopup').classList.remove('show');
+}
+document.addEventListener('click',function(e){
+  const popup=document.getElementById('meaningPopup');
+  if(!e.target.closest('.hw')&&!e.target.closest('#meaningPopup')){
+    popup.classList.remove('show');
+  }
+});
+
+// ─── Exercise Toggle ───
+function toggleExercise(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.exercise-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── True/False Toggle ───
+function toggleTF(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.tf-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── Fill-in-Blank Toggle ───
+function toggleFill(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.fill-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── Scroll to Top Button ───
+const scrollBtn=document.getElementById('scrollTopBtn');
+window.addEventListener('scroll',function(){
+  if(window.scrollY>400){
+    scrollBtn.classList.add('show');
+  }else{
+    scrollBtn.classList.remove('show');
+  }
+});
+function scrollToTop(){
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ─── Download HTML ───
+function downloadHTML(){
+  const html=document.documentElement.outerHTML;
+  const blob=new Blob([html],{type:'text/html;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='ADBI_Interactive.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

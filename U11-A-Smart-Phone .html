@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Grade 9 English - Unit 11: Save Your Smartphone</title>
+<style>
+  :root {
+    --font-size-base: 16px;
+    --primary: #1a73e8;
+    --primary-dark: #1557b0;
+    --accent: #ff6d00;
+    --bg: #f8f9fa;
+    --card-bg: #ffffff;
+    --text: #202124;
+    --text-light: #5f6368;
+    --border: #dadce0;
+    --highlight-bg: #fff9c4;
+    --highlight-border: #f9a825;
+    --success: #0d904f;
+    --danger: #d93025;
+    --popup-bg: #263238;
+    --popup-text: #ffffff;
+    --shadow: 0 2px 8px rgba(0,0,0,0.12);
+    --radius: 12px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: var(--font-size-base);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    -webkit-tap-highlight-color: transparent;
+    font-weight: 700;
+  }
+
+  /* ── All text bold ── */
+  body, p, div, span, h1, h2, h3, h4, li, td, th, .q-text, .sa-text, .tf-text, .fib-text, .answer-text, .q-answer, .sa-answer {
+    font-weight: 700;
+  }
+
+  /* ── Top Controls Bar ── */
+  .controls-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    box-shadow: 0 2px 12px rgba(26,115,232,0.3);
+    flex-wrap: wrap;
+  }
+
+  .font-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .font-controls button {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  .font-controls button:active {
+    background: rgba(255,255,255,0.35);
+    transform: scale(0.92);
+  }
+
+  .font-controls .font-label {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    min-width: 32px;
+    text-align: center;
+  }
+
+  .action-buttons {
+    display: flex;
+    gap: 8px;
+  }
+
+  .action-buttons button {
+    padding: 8px 14px;
+    border-radius: 20px;
+    border: none;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  .btn-preview {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    border: 1.5px solid rgba(255,255,255,0.5) !important;
+  }
+
+  .btn-copy {
+    background: #fff;
+    color: var(--primary);
+  }
+
+  .btn-copy:active, .btn-preview:active {
+    transform: scale(0.95);
+  }
+
+  /* ── Scroll to Top Button ── */
+  #scrollTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 24px;
+    z-index: 999;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.3);
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(26,115,232,0.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #scrollTopBtn.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  #scrollTopBtn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 24px rgba(26,115,232,0.5);
+  }
+
+  #scrollTopBtn:active {
+    transform: scale(0.92);
+  }
+
+  /* ── Toast ── */
+  .toast {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--popup-bg);
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 700;
+    opacity: 0;
+    transition: all 0.3s;
+    z-index: 9999;
+    pointer-events: none;
+  }
+
+  .toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* ── Main Content ── */
+  .content-wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 20px 16px 40px;
+  }
+
+  /* ── Header Card ── */
+  .header-card {
+    background: linear-gradient(135deg, #1565c0, #1e88e5, #42a5f5);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 28px 22px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header-card::after {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 120px;
+    height: 120px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+  }
+
+  .header-card .grade-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+  }
+
+  .header-card h1 {
+    font-size: 1.65em;
+    font-weight: 800;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .header-card .subtitle {
+    font-size: 0.95em;
+    opacity: 0.85;
+    font-weight: 700;
+  }
+
+  .header-card .meta-info {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.82em;
+    opacity: 0.75;
+  }
+
+  .header-card .meta-info span {
+    background: rgba(255,255,255,0.15);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: 700;
+  }
+
+  /* ── Navigation Hyperlinks ── */
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+
+  .nav-links a {
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: #e8f0fe;
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    transition: all 0.2s;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .nav-links a:active {
+    background: var(--primary);
+    color: #fff;
+    transform: scale(0.95);
+  }
+
+  .nav-links a:hover {
+    background: var(--primary);
+    color: #fff;
+  }
+
+  /* ── Section Cards ── */
+  .section-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 22px 18px;
+    margin-bottom: 18px;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--primary);
+  }
+
+  .section-card h2 {
+    font-size: 1.25em;
+    color: var(--primary);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 800;
+  }
+
+  .section-card h2 .icon {
+    font-size: 1.1em;
+  }
+
+  .section-card h3 {
+    font-size: 1.08em;
+    color: var(--primary-dark);
+    margin: 18px 0 10px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #e8f0fe;
+    font-weight: 800;
+  }
+
+  .section-card p {
+    margin-bottom: 12px;
+    text-align: left;
+    font-weight: 700;
+  }
+
+  /* ── Highlighted Words ── */
+  .hw {
+    background: var(--highlight-bg);
+    border-bottom: 2px dashed var(--highlight-border);
+    padding: 1px 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 800;
+    color: #5d4037;
+    transition: background 0.2s;
+    position: relative;
+  }
+
+  .hw:active {
+    background: #ffee58;
+  }
+
+  /* ── Meaning Popup ── */
+  .meaning-popup {
+    display: none;
+    position: fixed;
+    z-index: 500;
+    background: var(--popup-bg);
+    color: var(--popup-text);
+    border-radius: 10px;
+    padding: 14px 18px;
+    max-width: 300px;
+    min-width: 200px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+    font-size: 0.92em;
+    line-height: 1.5;
+  }
+
+  .meaning-popup.active {
+    display: block;
+  }
+
+  .meaning-popup .word-title {
+    font-weight: 800;
+    font-size: 1.08em;
+    color: #80cbc4;
+    margin-bottom: 6px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    padding-bottom: 5px;
+  }
+
+  .meaning-popup .meaning-ne {
+    color: #ffcc80;
+    margin-bottom: 3px;
+    font-weight: 700;
+  }
+
+  .meaning-popup .meaning-en {
+    color: #a5d6a7;
+    font-weight: 700;
+  }
+
+  .meaning-popup .lang-tag {
+    font-size: 0.75em;
+    opacity: 0.6;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── Tip Cards ── */
+  .tip-card {
+    background: #e8f5e9;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 14px 0;
+    border-left: 4px solid var(--success);
+  }
+
+  .tip-card .tip-title {
+    font-weight: 800;
+    color: var(--success);
+    margin-bottom: 6px;
+    font-size: 1.02em;
+  }
+
+  .tip-card p {
+    font-weight: 700;
+  }
+
+  /* ── Exercise Sections ── */
+  .exercise-section {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 22px 18px;
+    margin-bottom: 18px;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--accent);
+  }
+
+  .exercise-section h2 {
+    font-size: 1.25em;
+    color: var(--accent);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 800;
+  }
+
+  .exercise-section h3 {
+    font-size: 1.05em;
+    color: #bf360c;
+    margin: 16px 0 10px;
+    font-weight: 800;
+  }
+
+  .exercise-section p {
+    font-weight: 700;
+  }
+
+  /* ── Tables ── */
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 16px;
+    font-size: 0.95em;
+  }
+
+  .styled-table th, .styled-table td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    font-weight: 700;
+  }
+
+  .styled-table th {
+    background: #f1f3f4;
+    font-weight: 800;
+    color: var(--text);
+  }
+
+  .styled-table tr:nth-child(even) td {
+    background: #fafbfc;
+  }
+
+  /* ── Clickable Questions ── */
+  .q-item {
+    padding: 12px 14px;
+    margin: 8px 0;
+    background: #fef7e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid #f9e08c;
+  }
+
+  .q-item:active {
+    background: #fce4a8;
+  }
+
+  .q-item .q-text {
+    font-weight: 800;
+    color: #5d4037;
+  }
+
+  .q-item .q-hint {
+    font-size: 0.78em;
+    color: #9e9e9e;
+    margin-top: 4px;
+    font-style: italic;
+    font-weight: 700;
+  }
+
+  .q-item .q-answer {
+    display: none;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed #e0c96e;
+    color: var(--success);
+    font-weight: 700;
+  }
+
+  .q-item.open .q-answer {
+    display: block;
+  }
+
+  .q-item.open .q-hint {
+    display: none;
+  }
+
+  /* ── Fill in the blanks ── */
+  .fib-item {
+    padding: 12px 14px;
+    margin: 8px 0;
+    background: #e3f2fd;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid #90caf9;
+    transition: all 0.2s;
+  }
+
+  .fib-item:active {
+    background: #bbdefb;
+  }
+
+  .fib-item .fib-text {
+    color: #0d47a1;
+    font-weight: 700;
+  }
+
+  .fib-item .fib-blank {
+    display: inline-block;
+    min-width: 80px;
+    border-bottom: 2px solid #1565c0;
+    margin: 0 4px;
+    text-align: center;
+    font-weight: 800;
+  }
+
+  .fib-item .fib-answer {
+    display: none;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed #90caf9;
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  .fib-item.open .fib-answer {
+    display: block;
+  }
+
+  /* ── T/F Items ── */
+  .tf-item {
+    padding: 12px 14px;
+    margin: 8px 0;
+    background: #fce4ec;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid #f48fb1;
+    transition: all 0.2s;
+  }
+
+  .tf-item:active {
+    background: #f8bbd0;
+  }
+
+  .tf-item .tf-text {
+    color: #880e4f;
+    font-weight: 700;
+  }
+
+  .tf-item .tf-answer {
+    display: none;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed #f48fb1;
+    font-weight: 700;
+  }
+
+  .tf-item.open .tf-answer {
+    display: block;
+  }
+
+  .tf-answer.true-ans { color: var(--success); }
+  .tf-answer.false-ans { color: var(--danger); }
+
+  /* ── Matching Table ── */
+  .match-table td:last-child {
+    font-weight: 700;
+  }
+
+  .match-row {
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .match-row:active {
+    background: #fff9c4 !important;
+  }
+
+  .match-row .match-answer {
+    display: none;
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  .match-row.open .match-answer {
+    display: inline;
+  }
+
+  .match-row.open .match-placeholder {
+    display: none;
+  }
+
+  /* ── Short Answer ── */
+  .sa-item {
+    padding: 12px 14px;
+    margin: 8px 0;
+    background: #f3e5f5;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid #ce93d8;
+    transition: all 0.2s;
+  }
+
+  .sa-item:active {
+    background: #e1bee7;
+  }
+
+  .sa-item .sa-text {
+    color: #6a1b9a;
+    font-weight: 800;
+  }
+
+  .sa-item .sa-hint {
+    font-size: 0.78em;
+    color: #9e9e9e;
+    margin-top: 4px;
+    font-style: italic;
+    font-weight: 700;
+  }
+
+  .sa-item .sa-answer {
+    display: none;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed #ce93d8;
+    color: #4a148c;
+    font-weight: 700;
+  }
+
+  .sa-item.open .sa-answer {
+    display: block;
+  }
+
+  .sa-item.open .sa-hint {
+    display: none;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    padding: 24px 16px;
+    margin-top: 30px;
+    background: linear-gradient(135deg, #263238, #37474f);
+    color: #b0bec5;
+    border-radius: var(--radius) var(--radius) 0 0;
+    font-size: 0.92em;
+  }
+
+  .footer .name {
+    font-size: 1.15em;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 4px;
+  }
+
+  .footer .phone {
+    color: #80cbc4;
+    font-weight: 700;
+  }
+
+  /* ── Code Modal ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 600;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+
+  .modal-overlay.active {
+    display: flex;
+  }
+
+  .modal-box {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    width: 100%;
+    max-width: 700px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .modal-header button {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+
+  .modal-code {
+    flex: 1;
+    overflow: auto;
+    padding: 16px;
+  }
+
+  .modal-code pre {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    white-space: pre-wrap;
+    word-break: break-all;
+    line-height: 1.5;
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  .modal-footer {
+    padding: 10px 18px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    border-top: 1px solid var(--border);
+  }
+
+  .modal-footer button {
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 13px;
+  }
+
+  .modal-footer .btn-modal-copy {
+    background: var(--primary);
+    color: #fff;
+  }
+
+  .modal-footer .btn-modal-close {
+    background: #f1f3f4;
+    color: var(--text);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 480px) {
+    .controls-bar {
+      padding: 8px 10px;
+    }
+    .action-buttons button {
+      padding: 6px 10px;
+      font-size: 12px;
+    }
+    .font-controls button {
+      width: 34px;
+      height: 34px;
+      font-size: 18px;
+    }
+    .content-wrapper {
+      padding: 14px 10px 30px;
+    }
+    .header-card {
+      padding: 22px 16px;
+    }
+    .header-card h1 {
+      font-size: 1.4em;
+    }
+    .section-card, .exercise-section {
+      padding: 16px 14px;
+    }
+    .nav-links a {
+      font-size: 12px;
+      padding: 4px 10px;
+    }
+    #scrollTopBtn {
+      width: 44px;
+      height: 44px;
+      font-size: 20px;
+      right: 16px;
+      bottom: 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Controls Bar ── -->
+<div class="controls-bar">
+  <div class="font-controls">
+    <button onclick="changeFontSize(-1)" title="Decrease font size">A-</button>
+    <span class="font-label" id="fontLabel">16</span>
+    <button onclick="changeFontSize(1)" title="Increase font size">A+</button>
+  </div>
+  <div class="action-buttons">
+    <button class="btn-preview" onclick="togglePreview()">&#128065; Preview</button>
+    <button class="btn-copy" onclick="openCodeModal()">&#128203; Copy Code</button>
+  </div>
+</div>
+
+<!-- ── Scroll to Top Button ── -->
+<button id="scrollTopBtn" onclick="scrollToTop()" title="Go to top">&#8593;</button>
+
+<!-- ── Toast ── -->
+<div class="toast" id="toast"></div>
+
+<!-- ── Meaning Popup ── -->
+<div class="meaning-popup" id="meaningPopup">
+  <div class="word-title" id="popupWord"></div>
+  <div class="meaning-ne" id="popupNe"></div>
+  <div class="meaning-en" id="popupEn"></div>
+</div>
+
+<!-- ── Main Content ── -->
+<div class="content-wrapper" id="mainContent">
+
+  <!-- Header Card -->
+  <div class="header-card">
+    <div class="grade-badge">GRADE 9 &bull; ENGLISH</div>
+    <h1>Save Your Smartphone</h1>
+    <div class="subtitle">Unit 11 &mdash; Gadgets and Instruments</div>
+    <div class="meta-info">
+      <span>Page 132-134</span>
+      <span>Reading Comprehension</span>
+    </div>
+  </div>
+
+  <!-- ── Navigation Hyperlinks (Click to scroll) ── -->
+  <div class="nav-links">
+    <a href="#reading">📖 Reading</a>
+    <a href="#matching">🔀 Matching</a>
+    <a href="#truefalse">✅ True/False</a>
+    <a href="#questions">❓ Questions</a>
+    <a href="#extra">📌 Extra</a>
+    <a href="#footer">📬 Footer</a>
+  </div>
+
+  <!-- ── Reading Section ── -->
+  <div class="section-card" id="reading">
+    <h2><span class="icon">📖</span> Reading</h2>
+
+    <p>Smartphones have become an important <span class="hw" data-ne="पक्ष" data-en="facet or part">aspect</span> of everyday life, not only in terms of staying connected with family and friends but also in getting work done, staying up to date with important schedules and even buying groceries or clothes online. It's become almost impossible to do anything without one in today's <span class="hw" data-ne="प्रविधिमा आधारित" data-en="technology-based">tech-driven</span> world, so much so that many of us have a phone in our hands for the most part of the day. Your phone therefore needs proper care to <span class="hw" data-ne="लम्ब्याउनु" data-en="to make something last longer">prolong</span> its <span class="hw" data-ne="आयु" data-en="the length of time something lasts">lifespan</span> and also to <span class="hw" data-ne="सुरक्षित राख्नु" data-en="to protect">safeguard</span> important information that's stored there. Since smartphones are so <span class="hw" data-ne="अत्यावश्यक" data-en="extremely important">essential</span> and central to our life, it's time for us to get smart in caring them.</p>
+
+    <p>Here are some tips which you can follow to keep your phones safe.</p>
+
+    <!-- Tip 1 -->
+    <div class="tip-card">
+      <div class="tip-title">&#128267; A Closer Look at Your Charging Habits</div>
+      <p>Most of us live in fear of a <span class="hw" data-ne="कमजोर हुँदै जाने" data-en="becoming less bright or strong">fading</span> phone battery when we are out and about, we don't worry too much about that battery's eventual <span class="hw" data-ne="आयु" data-en="the length of time something lasts">lifespan</span>. Do you know that you shouldn't charge your battery to 100 percent? You shouldn't let it get down to minimum charge or zero percent either. That can cause <span class="hw" data-ne="आन्तरिक" data-en="inside">internal</span> damage to your phone. The rule with some batteries is to keep them 50 percent or more most of the time. When it drops below 50 percent, top it up a little if you can. You can charge your phone this way a few times in a day. You should also make it a point to use the charger that came with your phone. There have been <span class="hw" data-ne="घटनाहरू" data-en="events or occurrences">incidents</span> of cheap <span class="hw" data-ne="चार्जर" data-en="device used to charge a battery">chargers</span> actually catching fire.</p>
+    </div>
+
+    <!-- Tip 2 -->
+    <div class="tip-card">
+      <div class="tip-title">&#127777;&#65039; Maintain a Cool Temperature</div>
+      <p>Heat is harmful to phone batteries. Your phone is safest at room temperature. Avoid placing it next to other devices such as <span class="hw" data-ne="ल्यापटप" data-en="portable computers">laptops</span> as they <span class="hw" data-ne="उत्पन्न गर्नु" data-en="to produce">generate</span> heat. If you are keeping all your <span class="hw" data-ne="उपकरणहरू" data-en="small electronic devices">gadgets</span> right next to one another, try to <span class="hw" data-ne="अलग गर्नु" data-en="to keep apart">separate</span> them.</p>
+    </div>
+
+    <!-- Tip 3 -->
+    <div class="tip-card">
+      <div class="tip-title">&#129529; Invest in Phone Wipes or Cleaning Solution</div>
+      <p>Your phone is a <span class="hw" data-ne="फैलिने ठाउँ" data-en="a place where something harmful develops">breeding ground</span> for <span class="hw" data-ne="जीवाणु" data-en="tiny organisms causing disease">germs</span> and <span class="hw" data-ne="ब्याक्टेरिया" data-en="microscopic organisms">bacteria</span>. Think of all the things you touch before touching your phone: go to the <span class="hw" data-ne="शौचालय" data-en="toilet or bathroom">restroom</span>, hold money, eat, and other activities that lead you to <span class="hw" data-ne="फोहोर टाँसिने पदार्थ" data-en="any sticky or dirty substance">gunk</span> up your device. Studies have actually found that your phone screen houses more bacteria than a <span class="hw" data-ne="शौचालयको सिट" data-en="the seat on a toilet">toilet seat</span>. This is why you should clean your phone regularly. All you have to do is simply <span class="hw" data-ne="कीटाणुनाशक गर्नु" data-en="to clean something to remove bacteria">disinfect</span> your phone with an <span class="hw" data-ne="रोगाणुविरोधी" data-en="killing harmful microorganisms">antimicrobial</span> spray and wipe it with a soft <span class="hw" data-ne="कपडा" data-en="a piece of fabric">cloth</span>.</p>
+    </div>
+
+    <!-- Tip 4 -->
+    <div class="tip-card">
+      <div class="tip-title">&#128274; Protect Your Phone and Data</div>
+      <p>Set a <span class="hw" data-ne="स्क्रिन लक" data-en="a security feature on the phone screen">screen lock</span> on to keep your information safe and <span class="hw" data-ne="बनाउनु" data-en="to cause something to be in a particular condition">render</span> the phone useless in the event it gets lost or stolen. Not using a lock screen is the android <span class="hw" data-ne="समकक्ष" data-en="equal to">equivalent</span> of going out and leaving your front door open for <span class="hw" data-ne="चोर" data-en="people who break into buildings to steal">burglars</span>.</p>
+    </div>
+
+    <!-- Tip 5 -->
+    <div class="tip-card">
+      <div class="tip-title">&#128276; Control App Permissions and Notifications</div>
+      <p>Your smartphone wouldn't be all that useful without all the <span class="hw" data-ne="एप्स" data-en="software applications">apps</span> you have downloaded. The more apps you download, the more <span class="hw" data-ne="सूचनाहरू" data-en="notices or alerts sent by the phone">notifications</span> you will receive. But you can have more control over which apps and events can send you <span class="hw" data-ne="सङ्केतहरू" data-en="reminders or signals">prompts</span> and how these messages appear on the home or lock screen of your phone. Simply go to your phone's <span class="hw" data-ne="सेटिङ" data-en="configuration options">settings</span> and set the notifications <span class="hw" data-ne="अनुसार" data-en="in a way that is appropriate">accordingly</span>.</p>
+    </div>
+  </div>
+
+  <!-- ── Matching Section ── -->
+  <div class="exercise-section" id="matching">
+    <h2><span class="icon">🔀</span> Matching</h2>
+    <p style="color:var(--text-light); font-style:italic; font-size:0.9em;">&#128161; Tap each row to reveal the answer.</p>
+    <table class="styled-table match-table">
+      <thead>
+        <tr><th>Column A</th><th>Column B</th></tr>
+      </thead>
+      <tbody>
+        <tr class="match-row" onclick="toggleMatch(this)">
+          <td>a. prolong</td>
+          <td><span class="match-placeholder">???</span><span class="match-answer">v. to make something last longer</span></td>
+        </tr>
+        <tr class="match-row" onclick="toggleMatch(this)">
+          <td>b. essential</td>
+          <td><span class="match-placeholder">???</span><span class="match-answer">vii. extremely important</span></td>
+        </tr>
+        <tr class="match-row" onclick="toggleMatch(this)">
+          <td>c. fading</td>
+          <td><span class="match-placeholder">???</span><span class="match-answer">i. being less bright</span></td>
+        </tr>
+        <tr class="match-row" onclick="toggleMatch(this)">
+          <td>d. generate</td>
+          <td><span class="match-placeholder">???</span><span class="match-answer">ii. to produce</span></td>
+        </tr>
+        <tr class="match-row" onclick="toggleMatch(this)">
+          <td>e. gunk</td>
+          <td><span class="match-placeholder">???</span><span class="match-answer">iii. any sticky or dirty substance</span></td>
+        </tr>
+        <tr class="match-row" onclick="toggleMatch(this)">
+          <td>f. render</td>
+          <td><span class="match-placeholder">???</span><span class="match-answer">iv. to cause something to be in a particular condition</span></td>
+        </tr>
+        <tr class="match-row" onclick="toggleMatch(this)">
+          <td>g. notifications</td>
+          <td><span class="match-placeholder">???</span><span class="match-answer">vi. notices</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── True/False Section ── -->
+  <div class="exercise-section" id="truefalse">
+    <h2><span class="icon">✅</span> True/False</h2>
+    <p style="color:var(--text-light); font-style:italic; font-size:0.9em;">&#128161; Tap each statement to reveal the answer.</p>
+
+    <div class="tf-item" onclick="toggleItem(this)">
+      <div class="tf-text">a. It's a good idea to keep our phones fully charged.</div>
+      <div class="tf-answer false-ans">&#10060; False</div>
+    </div>
+    <div class="tf-item" onclick="toggleItem(this)">
+      <div class="tf-text">b. We should keep our phones together with other gadgets.</div>
+      <div class="tf-answer false-ans">&#10060; False</div>
+    </div>
+    <div class="tf-item" onclick="toggleItem(this)">
+      <div class="tf-text">c. A phone is likely to hold more bacteria than a toilet seat.</div>
+      <div class="tf-answer true-ans">&#9989; True</div>
+    </div>
+    <div class="tf-item" onclick="toggleItem(this)">
+      <div class="tf-text">d. Setting a screen lock on the phone helps us keep the information safe.</div>
+      <div class="tf-answer true-ans">&#9989; True</div>
+    </div>
+    <div class="tf-item" onclick="toggleItem(this)">
+      <div class="tf-text">e. Smartphones are very useful even without apps.</div>
+      <div class="tf-answer false-ans">&#10060; False</div>
+    </div>
+  </div>
+
+  <!-- ── Questions Section ── -->
+  <div class="exercise-section" id="questions">
+    <h2><span class="icon">❓</span> Questions</h2>
+    <p style="color:var(--text-light); font-style:italic; font-size:0.9em;">&#128161; Tap each question to reveal the answer.</p>
+
+    <div class="q-item" onclick="toggleItem(this)">
+      <div class="q-text">a. Write any three uses of smartphones in everyday life.</div>
+      <div class="q-hint">Tap to see answer</div>
+      <div class="q-answer">Smartphones are used for staying connected with family and friends, getting work done, staying up to date with important schedules, and even buying groceries or clothes online.</div>
+    </div>
+
+    <div class="q-item" onclick="toggleItem(this)">
+      <div class="q-text">b. Why should we care for our phones?</div>
+      <div class="q-hint">Tap to see answer</div>
+      <div class="q-answer">We should care for our phones because they are essential to our daily life and contain important information that needs to be safeguarded. Proper care also prolongs the lifespan of the phone.</div>
+    </div>
+
+    <div class="q-item" onclick="toggleItem(this)">
+      <div class="q-text">c. Why should we not use cheap chargers to charge our phones?</div>
+      <div class="q-hint">Tap to see answer</div>
+      <div class="q-answer">We should not use cheap chargers because there have been incidents of cheap chargers actually catching fire, which can damage the phone and cause safety hazards.</div>
+    </div>
+
+    <div class="q-item" onclick="toggleItem(this)">
+      <div class="q-text">d. How can we prevent our phones from getting overheated?</div>
+      <div class="q-hint">Tap to see answer</div>
+      <div class="q-answer">We can prevent overheating by keeping phones at room temperature and avoiding placing them next to other heat-generating devices such as laptops. We should also try to separate gadgets from each other.</div>
+    </div>
+
+    <div class="q-item" onclick="toggleItem(this)">
+      <div class="q-text">e. How can the phone be cleaned?</div>
+      <div class="q-hint">Tap to see answer</div>
+      <div class="q-answer">The phone can be cleaned by disinfecting it with an antimicrobial spray and wiping it with a soft cloth regularly.</div>
+    </div>
+  </div>
+
+  <!-- ── Extra Section ── -->
+  <div class="exercise-section" id="extra">
+    <h2><span class="icon">📌</span> Extra</h2>
+
+    <h3>&#128312; Short Answer Questions</h3>
+
+    <div class="sa-item" onclick="toggleItem(this)">
+      <div class="sa-text">1. What does the author mean by "tech-driven world"?</div>
+      <div class="sa-hint">Tap to see answer</div>
+      <div class="sa-answer">A "tech-driven world" means a world that is largely controlled or operated by technology, where smartphones and digital devices are central to daily activities.</div>
+    </div>
+
+    <div class="sa-item" onclick="toggleItem(this)">
+      <div class="sa-text">2. What percentage of charge should we maintain in our phone battery most of the time?</div>
+      <div class="sa-hint">Tap to see answer</div>
+      <div class="sa-answer">We should maintain 50 percent or more charge in our phone battery most of the time.</div>
+    </div>
+
+    <div class="sa-item" onclick="toggleItem(this)">
+      <div class="sa-text">3. Why is a phone called a "breeding ground for germs and bacteria"?</div>
+      <div class="sa-hint">Tap to see answer</div>
+      <div class="sa-answer">A phone is called a "breeding ground for germs and bacteria" because we touch many dirty things before touching our phone, so germs accumulate on its surface &mdash; even more than on a toilet seat.</div>
+    </div>
+
+    <div class="sa-item" onclick="toggleItem(this)">
+      <div class="sa-text">4. What happens if someone steals a phone that has no screen lock?</div>
+      <div class="sa-hint">Tap to see answer</div>
+      <div class="sa-answer">If a phone has no screen lock and is stolen, the thief can easily access all personal information stored on the phone.</div>
+    </div>
+
+    <div class="sa-item" onclick="toggleItem(this)">
+      <div class="sa-text">5. How can you control which apps send you notifications?</div>
+      <div class="sa-hint">Tap to see answer</div>
+      <div class="sa-answer">You can go to the phone's settings and adjust the notification preferences to control which apps can send alerts and how they appear on the screen.</div>
+    </div>
+
+    <h3>&#128312; True / False Items</h3>
+
+    <div class="tf-item" onclick="toggleItem(this)">
+      <div class="tf-text">1. Charging the phone to 100 percent every time is the best habit.</div>
+      <div class="tf-answer false-ans">&#10060; False</div>
+    </div>
+    <div class="tf-item" onclick="toggleItem(this)">
+      <div class="tf-text">2. Heat from laptops can damage phone batteries.</div>
+      <div class="tf-answer true-ans">&#9989; True</div>
+    </div>
+    <div class="tf-item" onclick="toggleItem(this)">
+      <div class="tf-text">3. Phone screens contain fewer bacteria than toilet seats.</div>
+      <div class="tf-answer false-ans">&#10060; False</div>
+    </div>
+    <div class="tf-item" onclick="toggleItem(this)">
+      <div class="tf-text">4. Antimicrobial spray can be used to clean the phone screen.</div>
+      <div class="tf-answer true-ans">&#9989; True</div>
+    </div>
+    <div class="tf-item" onclick="toggleItem(this)">
+      <div class="tf-text">5. All apps send useful notifications that we should never turn off.</div>
+      <div class="tf-answer false-ans">&#10060; False</div>
+    </div>
+
+    <h3>&#128312; Contextual Vocabulary &mdash; Fill in the Blanks</h3>
+    <p style="color:var(--text-light); font-style:italic; font-size:0.9em; margin-bottom:10px;">Word list: prolong, generate, burglars, notifications, disinfect</p>
+
+    <div class="fib-item" onclick="toggleItem(this)">
+      <div class="fib-text">1. You should <span class="fib-blank">________</span> your phone with an antimicrobial spray to keep it germ-free.</div>
+      <div class="fib-answer">Answer: disinfect</div>
+    </div>
+    <div class="fib-item" onclick="toggleItem(this)">
+      <div class="fib-text">2. Laptops <span class="fib-blank">________</span> heat that can harm your phone battery.</div>
+      <div class="fib-answer">Answer: generate</div>
+    </div>
+    <div class="fib-item" onclick="toggleItem(this)">
+      <div class="fib-text">3. Setting a screen lock prevents <span class="fib-blank">________</span> from accessing your data if the phone is stolen.</div>
+      <div class="fib-answer">Answer: burglars</div>
+    </div>
+    <div class="fib-item" onclick="toggleItem(this)">
+      <div class="fib-text">4. You can control which apps send you <span class="fib-blank">________</span> through your phone's settings.</div>
+      <div class="fib-answer">Answer: notifications</div>
+    </div>
+    <div class="fib-item" onclick="toggleItem(this)">
+      <div class="fib-text">5. Proper care of your phone will <span class="fib-blank">________</span> its lifespan.</div>
+      <div class="fib-answer">Answer: prolong</div>
+    </div>
+  </div>
+
+  <!-- ── Footer ── -->
+  <div class="footer" id="footer">
+    <div class="name">N. P Regmi</div>
+    <div class="phone">&#128222; 9848144604</div>
+  </div>
+
+</div><!-- end content-wrapper -->
+
+<!-- ── Code Modal ── -->
+<div class="modal-overlay" id="codeModal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span>&#128203; HTML Source Code</span>
+      <button onclick="closeCodeModal()">&times;</button>
+    </div>
+    <div class="modal-code">
+      <pre id="codeContent"></pre>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-modal-close" onclick="closeCodeModal()">Close</button>
+      <button class="btn-modal-copy" onclick="copyCode()">&#128203; Copy to Clipboard</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ── Font Size Control ──
+  let currentSize = 16;
+  const MIN_SIZE = 12;
+  const MAX_SIZE = 28;
+
+  function changeFontSize(delta) {
+    currentSize = Math.max(MIN_SIZE, Math.min(MAX_SIZE, currentSize + delta));
+    document.documentElement.style.setProperty('--font-size-base', currentSize + 'px');
+    document.getElementById('fontLabel').textContent = currentSize;
+  }
+
+  // ── Meaning Popup ──
+  const popup = document.getElementById('meaningPopup');
+  const popupWord = document.getElementById('popupWord');
+  const popupNe = document.getElementById('popupNe');
+  const popupEn = document.getElementById('popupEn');
+  let popupActive = false;
+
+  document.querySelectorAll('.hw').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const ne = el.getAttribute('data-ne');
+      const en = el.getAttribute('data-en');
+      const word = el.textContent;
+
+      popupWord.textContent = word;
+      popupNe.innerHTML = '<span class="lang-tag">Nepali: </span>' + ne;
+      popupEn.innerHTML = '<span class="lang-tag">English: </span>' + en;
+
+      const rect = el.getBoundingClientRect();
+      let top = rect.bottom + 8;
+      let left = rect.left;
+
+      if (left + 300 > window.innerWidth) {
+        left = window.innerWidth - 310;
+      }
+      if (left < 8) left = 8;
+      if (top + 120 > window.innerHeight) {
+        top = rect.top - 120;
+      }
+
+      popup.style.top = top + 'px';
+      popup.style.left = left + 'px';
+      popup.classList.add('active');
+      popupActive = true;
+    });
+  });
+
+  function hidePopup() {
+    if (popupActive) {
+      popup.classList.remove('active');
+      popupActive = false;
+    }
+  }
+
+  document.addEventListener('scroll', hidePopup, true);
+  document.addEventListener('click', function(e) {
+    if (!e.target.classList.contains('hw')) {
+      hidePopup();
+    }
+  });
+
+  // ── Toggle Exercise Items ──
+  function toggleItem(el) {
+    el.classList.toggle('open');
+  }
+
+  // ── Toggle Match Rows ──
+  function toggleMatch(row) {
+    row.classList.toggle('open');
+  }
+
+  // ── Scroll to Top ──
+  const scrollBtn = document.getElementById('scrollTopBtn');
+
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 400) {
+      scrollBtn.classList.add('show');
+    } else {
+      scrollBtn.classList.remove('show');
+    }
+  });
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── Preview Mode ──
+  let isPreview = false;
+
+  function togglePreview() {
+    const bar = document.querySelector('.controls-bar');
+    isPreview = !isPreview;
+    if (isPreview) {
+      bar.style.display = 'none';
+      document.body.style.paddingTop = '0';
+      showToast('Preview mode ON - Tap top area to exit');
+      const exitZone = document.createElement('div');
+      exitZone.id = 'exitZone';
+      exitZone.style.cssText = 'position:fixed;top:0;left:0;right:0;height:20px;z-index:999;background:transparent;';
+      exitZone.addEventListener('click', function() {
+        togglePreview();
+        exitZone.remove();
+      });
+      document.body.appendChild(exitZone);
+    } else {
+      bar.style.display = 'flex';
+      const ez = document.getElementById('exitZone');
+      if (ez) ez.remove();
+      showToast('Preview mode OFF');
+    }
+  }
+
+  // ── Code Modal ──
+  function openCodeModal() {
+    const code = document.documentElement.outerHTML;
+    const formatted = '<!DOCTYPE html>\n' + code;
+    document.getElementById('codeContent').textContent = formatted;
+    document.getElementById('codeModal').classList.add('active');
+  }
+
+  function closeCodeModal() {
+    document.getElementById('codeModal').classList.remove('active');
+  }
+
+  function copyCode() {
+    const code = document.getElementById('codeContent').textContent;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(function() {
+        showToast('Code copied to clipboard!');
+      }).catch(function() {
+        fallbackCopy(code);
+      });
+    } else {
+      fallbackCopy(code);
+    }
+  }
+
+  function fallbackCopy(text) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.cssText = 'position:fixed;left:-9999px;';
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand('copy');
+      showToast('Code copied to clipboard!');
+    } catch (e) {
+      showToast('Copy failed - please copy manually');
+    }
+    document.body.removeChild(ta);
+  }
+
+  // ── Toast ──
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(function() {
+      t.classList.remove('show');
+    }, 2200);
+  }
+
+  // Close modal on overlay click
+  document.getElementById('codeModal').addEventListener('click', function(e) {
+    if (e.target === this) closeCodeModal();
+  });
+</script>
+
+</body>
+</html>

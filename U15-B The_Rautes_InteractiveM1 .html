@@ -1,0 +1,1035 @@
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Rautes — Grade 9 English Unit 15</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --font-size-base:17px;
+  --bg:#FFF0F5;
+  --card:#FFFFFF;
+  --primary:#00CED1;
+  --primary-light:#7FFFD4;
+  --accent:#FF1493;
+  --accent-dark:#DC143C;
+  --accent2:#FF69B4;
+  --text:#2C003E;
+  --text-light:#4B0082;
+  --muted:#8B008B;
+  --border:#FF69B4;
+  --highlight:#FFFACD;
+  --highlight-border:#FF1493;
+  --success:#00FF00;
+  --error:#FF0000;
+  --shadow:0 2px 12px rgba(0,206,209,0.10);
+  --radius:14px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{
+  font-family:'Inter','Noto Sans SC',sans-serif;
+  font-size:var(--font-size-base);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.75;
+  min-height:100vh;
+}
+
+/* ─── HEADER ─── */
+.site-header{
+  background:linear-gradient(135deg,#008B8B 0%,#00CED1 35%,#40E0D0 70%,#7FFFD4 100%);
+  padding:34px 20px 28px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.site-header::before{
+  content:'';position:absolute;top:-50%;left:-20%;width:140%;height:200%;
+  background:radial-gradient(ellipse at 30% 60%,rgba(255,20,147,0.12) 0%,transparent 60%);
+  pointer-events:none;
+}
+.site-header::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,#FF1493,#FF69B4,#FF1493);
+}
+.site-header h1{
+  font-family:'Lora',serif;font-size:2.2rem;color:#FFF8DC;
+  font-weight:700;letter-spacing:0.5px;position:relative;
+}
+.site-header .subtitle{
+  color:#FF69B4;font-size:3rem;margin-top:6px;font-style:italic;position:relative;
+}
+.site-header .meta{
+  color:rgba(255,248,220,0.7);font-size:1rem;margin-top:8px;position:relative;
+}
+.site-header .meta span{margin:0 8px}
+
+/* ─── TOOLBAR ─── */
+.toolbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,240,245,0.93);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  padding:10px 20px;
+  display:flex;justify-content:center;gap:12px;align-items:center;
+  flex-wrap:wrap;
+}
+.toolbar button{
+  border:none;border-radius:8px;padding:7px 18px;
+  font-size:0.9rem;font-weight:600;cursor:pointer;
+  transition:all 0.2s;
+}
+.btn-font{background:var(--primary);color:#FFF}
+.btn-font:hover{background:#008B8B;transform:scale(1.05)}
+.btn-download{background:var(--accent);color:#FFF}
+.btn-download:hover{background:var(--accent-dark);transform:scale(1.05)}
+
+/* ─── NAV JUMP LINKS ─── */
+.nav-jump{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:18px 22px;
+  margin-bottom:24px;box-shadow:var(--shadow);
+}
+.nav-jump h2{
+  font-family:'Lora',serif;color:var(--primary);
+  font-size:1.2rem;margin-bottom:12px;
+}
+.nav-jump-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+  gap:8px;
+}
+.nav-jump-grid a{
+  display:flex;align-items:center;gap:8px;
+  padding:9px 14px;border-radius:8px;
+  background:linear-gradient(135deg,#FFF8DC,#FFE4E1);
+  color:var(--text);text-decoration:none;
+  font-size:0.88rem;font-weight:500;
+  border-left:3px solid var(--accent);
+  transition:all 0.25s;
+}
+.nav-jump-grid a:hover{
+  background:linear-gradient(135deg,#FF149322,#FF149315);
+  border-left-color:var(--primary);
+  transform:translateX(4px);
+  color:var(--primary);
+}
+.nav-jump-grid a .nav-icon{font-size:1rem;flex-shrink:0}
+
+/* ─── SCROLL TO TOP ─── */
+#scrollTopBtn{
+  position:fixed;bottom:90px;right:24px;z-index:9998;
+  width:48px;height:48px;border-radius:50%;
+  background:var(--primary);color:#FFF;
+  border:2px solid var(--primary-light);
+  font-size:1.3rem;cursor:pointer;
+  box-shadow:0 4px 16px rgba(0,206,209,0.35);
+  opacity:0;pointer-events:none;
+  transition:all 0.35s cubic-bezier(.4,0,.2,1);
+  display:flex;align-items:center;justify-content:center;
+}
+#scrollTopBtn.show{opacity:1;pointer-events:auto}
+#scrollTopBtn:hover{
+  background:var(--accent);border-color:var(--accent-dark);
+  transform:translateY(-3px);
+  box-shadow:0 6px 20px rgba(255,20,147,0.4);
+}
+
+/* ─── MAIN CONTAINER ─── */
+.container{max-width:880px;margin:0 auto;padding:24px 16px 60px}
+
+/* ─── SECTION CARD ─── */
+.section-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px 26px;
+  margin-bottom:24px;box-shadow:var(--shadow);
+  transition:box-shadow 0.3s;
+}
+.section-card:hover{box-shadow:0 4px 20px rgba(0,206,209,0.16)}
+.section-card h2{
+  font-family:'Lora',serif;color:var(--primary);
+  font-size:1.45rem;margin-bottom:16px;padding-bottom:10px;
+  border-bottom:2px solid var(--primary-light);
+  display:flex;align-items:center;gap:10px;
+}
+.section-card h2 .section-icon{font-size:1.2rem}
+.section-card h3{
+  font-family:'Lora',serif;color:var(--accent-dark);
+  font-size:1.15rem;margin:18px 0 10px;
+}
+
+/* ─── READING PARAGRAPHS ─── */
+.reading-para{
+  margin:16px 0;padding:16px 20px;
+  background:#FFF5EE;border-radius:10px;
+  border-left:4px solid var(--accent);
+  line-height:1.9;
+}
+.reading-para .para-label{
+  display:inline-block;background:var(--primary);
+  color:#FFF;font-size:0.75rem;font-weight:700;
+  padding:2px 10px;border-radius:4px;margin-bottom:8px;
+  letter-spacing:0.5px;
+}
+
+/* ─── HIGHLIGHTED WORD ─── */
+.hw{
+  background:var(--highlight);color:var(--accent-dark);
+  padding:1px 6px;border-radius:4px;cursor:pointer;
+  border-bottom:2px dashed var(--highlight-border);
+  font-weight:600;transition:all 0.2s;
+}
+.hw:hover{background:#FFD700;transform:scale(1.04)}
+
+/* ─── MEANING POPUP ─── */
+#meaningPopup{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);
+  z-index:9999;background:#008B8B;color:#FFF8DC;
+  border-radius:16px;padding:18px 24px;
+  box-shadow:0 8px 32px rgba(0,139,139,0.50);
+  min-width:300px;max-width:90vw;
+  opacity:0;pointer-events:none;transition:all 0.35s cubic-bezier(.4,0,.2,1);
+  border:2px solid rgba(255,20,147,0.3);
+}
+#meaningPopup.show{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+#meaningPopup .popup-word{
+  font-family:'Lora',serif;font-size:1.25rem;font-weight:700;
+  color:#FF69B4;margin-bottom:8px;display:flex;align-items:center;gap:8px;
+}
+#meaningPopup .popup-word::before{content:'📖';font-size:1.1rem}
+#meaningPopup .popup-meaning{font-size:0.92rem;line-height:1.6}
+#meaningPopup .popup-meaning span{display:block;margin:3px 0}
+#meaningPopup .popup-en{color:#7FFFD4;font-weight:500}
+#meaningPopup .popup-ne{color:#FFF8DC;font-weight:400}
+#meaningPopup .popup-close{
+  position:absolute;top:8px;right:12px;
+  background:none;border:none;color:#7FFFD4;
+  font-size:1.3rem;cursor:pointer;line-height:1;
+}
+#meaningPopup .popup-close:hover{color:#FF69B4}
+
+/* ─── VOCABULARY TABLE ─── */
+.vocab-table{
+  width:100%;border-collapse:separate;border-spacing:0;
+  border-radius:10px;overflow:hidden;
+  font-size:0.91rem;margin:12px 0;
+}
+.vocab-table thead{background:var(--primary);color:#FFF}
+.vocab-table thead th{padding:10px 12px;text-align:left;font-weight:600;font-size:0.88rem}
+.vocab-table tbody tr{transition:background 0.2s}
+.vocab-table tbody tr:nth-child(even){background:#FFF0F5}
+.vocab-table tbody tr:hover{background:#FFE4E1}
+.vocab-table td{padding:8px 12px;border-bottom:1px solid var(--border)}
+.vocab-table td:first-child{font-weight:600;color:var(--accent-dark)}
+
+/* ─── EXERCISE SECTION ─── */
+.exercise-item{
+  border:1px solid var(--border);border-radius:10px;
+  margin:10px 0;overflow:hidden;
+  transition:border-color 0.3s;
+}
+.exercise-item:hover{border-color:var(--primary-light)}
+.exercise-question{
+  padding:14px 18px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;
+  font-weight:500;background:#FFF5EE;
+  transition:background 0.2s;user-select:none;
+  gap:10px;
+}
+.exercise-question:hover{background:#FFF0F5}
+.exercise-question .arrow{
+  font-size:1.1rem;transition:transform 0.3s;color:var(--accent);
+  flex-shrink:0;
+}
+.exercise-item.open .exercise-question .arrow{transform:rotate(90deg)}
+.exercise-answer{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.4s ease,padding 0.3s;
+}
+.exercise-item.open .exercise-answer{
+  max-height:800px;padding:14px 18px;
+}
+.exercise-answer-inner{
+  background:linear-gradient(135deg,#FFE4E1,#FFF8DC);
+  border-radius:8px;padding:14px 16px;
+  color:var(--text);font-size:0.95rem;
+  border-left:4px solid var(--accent);
+}
+
+/* ─── TF / FILL ─── */
+.tf-item,.fill-item{
+  border:1px solid var(--border);border-radius:10px;
+  margin:8px 0;overflow:hidden;
+}
+.tf-question,.fill-question{
+  padding:12px 16px;cursor:pointer;
+  background:#FFF5EE;font-weight:500;
+  display:flex;justify-content:space-between;align-items:center;
+  transition:background 0.2s;gap:10px;
+}
+.tf-question:hover,.fill-question:hover{background:#FFF0F5}
+.tf-answer,.fill-answer{
+  max-height:0;overflow:hidden;transition:max-height 0.4s ease;
+}
+.tf-item.open .tf-answer,.fill-item.open .fill-answer{
+  max-height:300px;padding:12px 16px;
+}
+.tf-answer-inner,.fill-answer-inner{
+  background:linear-gradient(135deg,#FFE4E1,#FFF8DC);
+  border-radius:8px;padding:12px 14px;
+  font-size:0.93rem;border-left:4px solid var(--accent);
+}
+
+/* ─── FOOTER ─── */
+.site-footer{
+  background:linear-gradient(135deg,#008B8B,#00CED1);
+  color:rgba(255,248,220,0.6);text-align:center;
+  padding:18px 20px;font-size:0.78rem;
+  margin-top:20px;
+}
+.site-footer a{color:#7FFFD4;text-decoration:none}
+.site-footer a:hover{text-decoration:underline}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:640px){
+  .site-header h1{font-size:1.5rem}
+  .container{padding:16px 10px 40px}
+  .section-card{padding:18px 14px}
+  .reading-para{padding:12px 14px}
+  #meaningPopup{min-width:260px;padding:14px 18px}
+  .vocab-table{font-size:0.82rem}
+  .vocab-table td,.vocab-table th{padding:6px 8px}
+  .toolbar{gap:6px;padding:8px 10px}
+  .toolbar button{padding:6px 12px;font-size:0.82rem}
+  .nav-jump-grid{grid-template-columns:1fr}
+  #scrollTopBtn{width:42px;height:42px;right:16px;bottom:80px;font-size:1.1rem}
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.section-card{animation:fadeInUp 0.5s ease both}
+.section-card:nth-child(2){animation-delay:0.04s}
+.section-card:nth-child(3){animation-delay:0.08s}
+.section-card:nth-child(4){animation-delay:0.12s}
+.section-card:nth-child(5){animation-delay:0.16s}
+.section-card:nth-child(6){animation-delay:0.20s}
+.section-card:nth-child(7){animation-delay:0.24s}
+.section-card:nth-child(8){animation-delay:0.28s}
+.section-card:nth-child(9){animation-delay:0.32s}
+.section-card:nth-child(10){animation-delay:0.36s}
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<!-- ═══════ HEADER ═══════ -->
+<header class="site-header" id="top">
+  <h1>The Rautes</h1>
+  <div class="subtitle">Unit 15 — The Last Nomads of Nepal</div>
+  <div class="meta">
+    <span>Grade 9</span>•<span>English</span>•<span>Unit 15</span>•<span>Reading (Prose)</span>
+  </div>
+</header>
+
+<!-- ═══════ TOOLBAR ═══════ -->
+<div class="toolbar">
+  <button class="btn-font" onclick="changeFontSize(-1)">A−</button>
+  <button class="btn-font" onclick="changeFontSize(1)">A+</button>
+  <button class="btn-download" onclick="downloadHTML()">⬇ Download HTML</button>
+</div>
+
+<!-- ═══════ SCROLL TO TOP ═══════ -->
+<button id="scrollTopBtn" onclick="scrollToTop()" title="Go to top" class="">⬆</button>
+
+<!-- ═══════ MAIN ═══════ -->
+<div class="container">
+
+<!-- ──── NAV JUMP LINKS ──── -->
+<div class="nav-jump">
+  <h2>📑 Quick Navigation — Jump to Section</h2>
+  <div class="nav-jump-grid">
+    <a href="#reading"><span class="nav-icon">📖</span> The Reading Text</a>
+    <a href="#vocab"><span class="nav-icon">📗</span> Word Meanings</a>
+    <a href="#exercise-a"><span class="nav-icon">✅</span> Exercise A — Crossword</a>
+    <a href="#exercise-b"><span class="nav-icon">✅</span> Exercise B — True / False</a>
+    <a href="#exercise-c"><span class="nav-icon">✅</span> Exercise C — Short Answers</a>
+    <a href="#short-questions"><span class="nav-icon">➕</span> Short Questions</a>
+    <a href="#true-false"><span class="nav-icon">➕</span> True / False</a>
+    <a href="#fill-blanks"><span class="nav-icon">➕</span> Fill in the Blanks</a>
+  </div>
+</div>
+
+<!-- ──── READING TEXT ──── -->
+<div class="section-card" id="reading">
+  <h2><span class="section-icon">📖</span> The Rautes — Reading Text</h2>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph I</div>
+    The Rautes (राउटे) are one of the most typical <span class="hw" onclick="showMeaning('indigenous','belonging naturally to a place','स्वदेशी / मूलनिवासी')">indigenous</span> groups of Nepal sustaining their unique cultural identities for generations. They are the only <span class="hw" onclick="showMeaning('nomadic','moving from place to place','घुमन्ते')">nomadic</span> people in the country who never settle permanently in any particular place. The Rautes deny any idea on permanent <span class="hw" onclick="showMeaning('settlement','the process of making homes in a place','बसोबास / स्थायी निवास')">settlement</span>, education or agriculture. The fact that the Rautes, the last fulltime <span class="hw" onclick="showMeaning('nomads','people who move from place to place','घुमन्ते मानिसहरू')">nomads</span> of Nepal, have survived into this century is truly <span class="hw" onclick="showMeaning('remarkable','extraordinary; worthy of attention','उल्लेखनीय / अद्भुत')">remarkable</span> in our current period of <span class="hw" onclick="showMeaning('diminishing','becoming smaller or less','घट्दो')">diminishing</span> cultural <span class="hw" onclick="showMeaning('diversity','a variety of different things','विविधता')">diversity</span>.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph II</div>
+    It is estimated that the total population of Rautes in Nepal is about 180, or roughly 52 families. The Karnali Province of Nepal remains their only <span class="hw" onclick="showMeaning('sanctuary','a place of safety','शरण / सुरक्षित स्थान')">sanctuary</span>.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph III</div>
+    There is no <span class="hw" onclick="showMeaning('documented','recorded in written form','अभिलेखित')">documented</span> history of the Rautes. But one common ground is that once they fled from the state, they never returned and established a different pattern of life in the jungle. To <span class="hw" onclick="showMeaning('eke out','to make a living with difficulty','कठिनाइले जीविका चलाउनु')">eke out</span> their living, they <span class="hw" onclick="showMeaning('mastered','became very skilled at','दक्षता हासिल गर्नु')">mastered</span> <span class="hw" onclick="showMeaning('crafting','making things skillfully by hand','हस्तकला बनाउने काम')">crafting</span> of wooden products, learned to hunt monkeys, and <span class="hw" onclick="showMeaning('adapted','changed to suit new conditions','अनुकूलन गरेको')">adapted</span> to forest life.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph IV</div>
+    Only the <span class="hw" onclick="showMeaning('Mukhiya','head/leader of a community','मुखिया')">Mukhiya</span> of the Rautes, on behalf of their <span class="hw" onclick="showMeaning('tribe','a social group with shared customs','जनजाति')">tribe</span>, talks to outsiders regarding their lifestyle and <span class="hw" onclick="showMeaning('tradition','a custom or belief that has existed for a long time','परम्परा')">tradition</span>.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph V</div>
+    The Rautes bear traditional knowledge of living in a community. The <span class="hw" onclick="showMeaning('heredity','passing of traits from parents to children','वंश / पुस्तान्तरण')">heredity</span> of the Raute is <span class="hw" onclick="showMeaning('categorised','divided into groups','वर्गीकरण गरिएको')">categorised</span> into three types as Kalyaal, Raskoti and Samaal. It is therefore very important to note the various <span class="hw" onclick="showMeaning('aspects','particular features of something','पक्षहरू')">aspects</span> of these people, such as their <span class="hw" onclick="showMeaning('ethical','connected with right and wrong','नैतिक')">ethical</span> norms and values, <span class="hw" onclick="showMeaning('rituals','actions performed in a fixed way','रीतिरिवाज / संस्कार')">rituals</span> and <span class="hw" onclick="showMeaning('livelihood','way of earning money to live','जीविका')">livelihood</span> patterns.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph VI</div>
+    At the time when <span class="hw" onclick="showMeaning('acculturation','adopting traits of another culture','सांस्कृतिक मिश्रण')">acculturation</span> has been <span class="hw" onclick="showMeaning('widespread','found over a large area','व्यापक')">widespread</span> in the world with diminishing diversity, the Rautes have been quite successful in <span class="hw" onclick="showMeaning('sustaining','keeping something going over time','कायम राख्नु')">sustaining</span> their tradition. Humanity has to learn a lot from the Rautes, since they have been very successful in <span class="hw" onclick="showMeaning('preserving','keeping something in its original state','संरक्षण गर्नु')">preserving</span> their tradition in today's world. Their maintenance of the nomadic culture in a rapidly <span class="hw" onclick="showMeaning('globalising','becoming connected worldwide','विश्वव्यापी बन्दै')">globalising</span> world is <span class="hw" onclick="showMeaning('commendable','deserving praise','प्रशंसनीय')">commendable</span>. This global <span class="hw" onclick="showMeaning('uniqueness','the quality of being unlike anything else','अद्वितीयता')">uniqueness</span> makes them a <span class="hw" onclick="showMeaning('precious','of great value','बहुमूल्य')">precious</span> part of the diverse people of Nepal.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph VII</div>
+    Like any other ethnic group following the Hindu society, the Raute community also maintains a <span class="hw" onclick="showMeaning('patriarchal','controlled or ruled by men','पितृसत्तात्मक')">patriarchal</span> social <span class="hw" onclick="showMeaning('hierarchy','a system of ranking people','पदक्रम')">hierarchy</span>. However, in matters of internal management, women have a more <span class="hw" onclick="showMeaning('prominent','important and well-known','प्रमुख / उल्लेखनीय')">prominent</span> role than that of their male <span class="hw" onclick="showMeaning('counterparts','people in a similar position in another group','समकक्ष व्यक्तिहरू')">counterparts</span>.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph VIII</div>
+    The Rautes maintain a clear <span class="hw" onclick="showMeaning('division of labour','splitting of work between people','श्रम विभाजन')">division of labour</span> between men and women. Most often the male members get involved in making wooden <span class="hw" onclick="showMeaning('utensils','tools/containers used in the home','भाँडाकुँडा')">utensils</span>, hunting monkeys, <span class="hw" onclick="showMeaning('trading','buying and selling things','व्यापार गर्नु')">trading</span> their products in the market, and collecting food grains. It is also common for unmarried girls and <span class="hw" onclick="showMeaning('widows','women whose husbands have died','विधवाहरू')">widows</span> to go to the countryside and collect food grains and deliver the order for the <span class="hw" onclick="showMeaning('craft','skillful handiwork','हस्तकला')">craft</span> items. Women in the Raute community bear the major responsibility in the <span class="hw" onclick="showMeaning('household chores','regular jobs done at home','घरायसी काम')">household chores</span> and <span class="hw" onclick="showMeaning('dominate','to have control over something','प्रभुत्व जमाउनु')">dominate</span> in almost every <span class="hw" onclick="showMeaning('facet','a particular part of something','पक्ष / पाटो')">facet</span> of the livelihood except in the areas of <span class="hw" onclick="showMeaning('socialising','mixing with others in friendly ways','सामाजिक मेलमिलाप गर्नु')">socialising</span>, hunting, <span class="hw" onclick="showMeaning('carpentry','making or repairing wooden things','सिकर्मी काम')">carpentry</span>, and dancing. They have the indigenous know-how on spring water sources. Since it is a part of their job to search for <span class="hw" onclick="showMeaning('medicinal','having properties that cure illness','औषधीय')">medicinal</span> herbs, firewood and vegetables in the jungle, they also have <span class="hw" onclick="showMeaning('extensive','covering a large area or range','व्यापक')">extensive</span> knowledge of the forest and its <span class="hw" onclick="showMeaning('ecosystem','all plants, animals, people of an area','पारिस्थितिकी तन्त्र')">ecosystem</span>.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph IX</div>
+    The husband and wife have great respect and love for each other. Married women never travel outside of their settlement area with anyone else other than their husbands. The women are mainly responsible for collecting firewood, cooking meals and <span class="hw" onclick="showMeaning('rearing','bringing up children or animals','हुर्काउनु / पालनपोषण')">rearing</span> their children. They also may <span class="hw" onclick="showMeaning('assist','help','सहयोग गर्नु')">assist</span> the males while <span class="hw" onclick="showMeaning('shifting','moving from one place to another','स्थानान्तरण गर्नु')">shifting</span> homes to new locations and building new homes there. Children until the age of 10–14 are not <span class="hw" onclick="showMeaning('assigned','given a specific task','तोकिएको')">assigned</span> any major household responsibilities; they only spend their days playing with natural objects and <span class="hw" onclick="showMeaning('roaming','walking around without purpose','भौँतारिनु / घुम्नु')">roaming</span> around the settlement. On special occasions, they may help their parents in <span class="hw" onclick="showMeaning('fetching','going to get something','ल्याउनु')">fetching</span> water from the spring and carrying small items while shifting to new locations.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph X</div>
+    Monkey hunting is considered <span class="hw" onclick="showMeaning('fundamental','forming the base of something','आधारभूत / मूलभूत')">fundamental</span> to maintain the cultural <span class="hw" onclick="showMeaning('permanence','the state of lasting forever','स्थायित्व')">permanence</span> of the hunting life of the Rautes. Their hunting <span class="hw" onclick="showMeaning('technique','a particular way of doing something','प्रविधि / तरिका')">technique</span> is also very rare in the sense that around 8–30 young and middle aged Raute members go hunting in a group with their nets. They do not use guns or bows and arrows for hunting.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph XI</div>
+    The Rautes <span class="hw" onclick="showMeaning('observe','to celebrate or follow a tradition','मनाउनु / पालना गर्नु')">observe</span> the festivals like Saune Sankranti, Dashain, Tihar, Chaite Dashain and Maghe Sankranti. For the celebrations, the Rautes manage food, homemade <span class="hw" onclick="showMeaning('ale','a type of alcoholic drink','घरेलु रक्सी')">ale</span> and meat in <span class="hw" onclick="showMeaning('advance','ahead of time','अग्रिम')">advance</span>. As they enjoy complete <span class="hw" onclick="showMeaning('participation','taking part in something','सहभागिता')">participation</span> in the community events, they do not like to meet strangers or travel beyond their settlement area during their celebration period. They take complete leave from carpentry and hunting during the festivals. These festivals are observed with much joy and <span class="hw" onclick="showMeaning('fervour','very strong and sincere feelings','उत्साह / जोश')">fervour</span> amidst singing, dancing, <span class="hw" onclick="showMeaning('feasting','eating a large special meal','भोज खानु / दावत')">feasting</span> and their own ritual performances. Rice, meat and drinks play an important role in their feast.
+  </div>
+</div>
+
+<!-- ──── VOCABULARY ──── -->
+<div class="section-card" id="vocab">
+  <h2><span class="section-icon">📗</span> Word Meanings</h2>
+  <table class="vocab-table">
+    <thead>
+      <tr><th>Word / Phrase</th><th>English Meaning</th><th>Nepali Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>indigenous</td><td>belonging naturally to a place</td><td>स्वदेशी / मूलनिवासी</td></tr>
+      <tr><td>nomadic</td><td>moving from place to place</td><td>घुमन्ते</td></tr>
+      <tr><td>nomads</td><td>people who move from place to place</td><td>घुमन्ते मानिसहरू</td></tr>
+      <tr><td>remarkable</td><td>extraordinary; worthy of attention</td><td>उल्लेखनीय / अद्भुत</td></tr>
+      <tr><td>diminishing</td><td>becoming smaller or less</td><td>घट्दो</td></tr>
+      <tr><td>diversity</td><td>a variety of different things</td><td>विविधता</td></tr>
+      <tr><td>sanctuary</td><td>a place of safety</td><td>शरण / सुरक्षित स्थान</td></tr>
+      <tr><td>documented</td><td>recorded in written form</td><td>अभिलेखित</td></tr>
+      <tr><td>eke out</td><td>to make a living with difficulty</td><td>कठिनाइले जीविका चलाउनु</td></tr>
+      <tr><td>mastered</td><td>became very skilled at</td><td>दक्षता हासिल गर्नु</td></tr>
+      <tr><td>crafting</td><td>making things skillfully by hand</td><td>हस्तकला बनाउने काम</td></tr>
+      <tr><td>adapted</td><td>changed to suit new conditions</td><td>अनुकूलन गरेको</td></tr>
+      <tr><td>Mukhiya</td><td>head/leader of a community</td><td>मुखिया</td></tr>
+      <tr><td>tribe</td><td>a social group with shared customs</td><td>जनजाति</td></tr>
+      <tr><td>heredity</td><td>passing of traits from parents to children</td><td>वंश / पुस्तान्तरण</td></tr>
+      <tr><td>categorised</td><td>divided into groups</td><td>वर्गीकरण गरिएको</td></tr>
+      <tr><td>aspects</td><td>particular features of something</td><td>पक्षहरू</td></tr>
+      <tr><td>ethical</td><td>connected with right and wrong</td><td>नैतिक</td></tr>
+      <tr><td>rituals</td><td>actions performed in a fixed way</td><td>रीतिरिवाज / संस्कार</td></tr>
+      <tr><td>livelihood</td><td>way of earning money to live</td><td>जीविका</td></tr>
+      <tr><td>acculturation</td><td>adopting traits of another culture</td><td>सांस्कृतिक मिश्रण</td></tr>
+      <tr><td>widespread</td><td>found over a large area</td><td>व्यापक</td></tr>
+      <tr><td>sustaining</td><td>keeping something going over time</td><td>कायम राख्नु</td></tr>
+      <tr><td>preserving</td><td>keeping something in its original state</td><td>संरक्षण गर्नु</td></tr>
+      <tr><td>globalising</td><td>becoming connected worldwide</td><td>विश्वव्यापी बन्दै</td></tr>
+      <tr><td>commendable</td><td>deserving praise</td><td>प्रशंसनीय</td></tr>
+      <tr><td>uniqueness</td><td>the quality of being unlike anything else</td><td>अद्वितीयता</td></tr>
+      <tr><td>precious</td><td>of great value</td><td>बहुमूल्य</td></tr>
+      <tr><td>patriarchal</td><td>controlled or ruled by men</td><td>पितृसत्तात्मक</td></tr>
+      <tr><td>hierarchy</td><td>a system of ranking people</td><td>पदक्रम</td></tr>
+      <tr><td>prominent</td><td>important and well-known</td><td>प्रमुख / उल्लेखनीय</td></tr>
+      <tr><td>counterparts</td><td>people in a similar position in another group</td><td>समकक्ष व्यक्तिहरू</td></tr>
+      <tr><td>division of labour</td><td>splitting of work between people</td><td>श्रम विभाजन</td></tr>
+      <tr><td>utensils</td><td>tools/containers used in the home</td><td>भाँडाकुँडा</td></tr>
+      <tr><td>trading</td><td>buying and selling things</td><td>व्यापार गर्नु</td></tr>
+      <tr><td>widows</td><td>women whose husbands have died</td><td>विधवाहरू</td></tr>
+      <tr><td>household chores</td><td>regular jobs done at home</td><td>घरायसी काम</td></tr>
+      <tr><td>dominate</td><td>to have control over something</td><td>प्रभुत्व जमाउनु</td></tr>
+      <tr><td>facet</td><td>a particular part of something</td><td>पक्ष / पाटो</td></tr>
+      <tr><td>socialising</td><td>mixing with others in friendly ways</td><td>सामाजिक मेलमिलाप गर्नु</td></tr>
+      <tr><td>carpentry</td><td>making or repairing wooden things</td><td>सिकर्मी काम</td></tr>
+      <tr><td>medicinal</td><td>having properties that cure illness</td><td>औषधीय</td></tr>
+      <tr><td>extensive</td><td>covering a large area or range</td><td>व्यापक</td></tr>
+      <tr><td>ecosystem</td><td>all plants, animals, people of an area</td><td>पारिस्थितिकी तन्त्र</td></tr>
+      <tr><td>rearing</td><td>bringing up children or animals</td><td>हुर्काउनु / पालनपोषण</td></tr>
+      <tr><td>assist</td><td>help</td><td>सहयोग गर्नु</td></tr>
+      <tr><td>shifting</td><td>moving from one place to another</td><td>स्थानान्तरण गर्नु</td></tr>
+      <tr><td>assigned</td><td>given a specific task</td><td>तोकिएको</td></tr>
+      <tr><td>roaming</td><td>walking around without purpose</td><td>भौँतारिनु / घुम्नु</td></tr>
+      <tr><td>fetching</td><td>going to get something</td><td>ल्याउनु</td></tr>
+      <tr><td>fundamental</td><td>forming the base of something</td><td>आधारभूत / मूलभूत</td></tr>
+      <tr><td>permanence</td><td>the state of lasting forever</td><td>स्थायित्व</td></tr>
+      <tr><td>technique</td><td>a particular way of doing something</td><td>प्रविधि / तरिका</td></tr>
+      <tr><td>observe</td><td>to celebrate or follow a tradition</td><td>मनाउनु / पालना गर्नु</td></tr>
+      <tr><td>ale</td><td>a type of alcoholic drink</td><td>घरेलु रक्सी</td></tr>
+      <tr><td>participation</td><td>taking part in something</td><td>सहभागिता</td></tr>
+      <tr><td>fervour</td><td>very strong and sincere feelings</td><td>उत्साह / जोश</td></tr>
+      <tr><td>feasting</td><td>eating a large special meal</td><td>भोज खानु / दावत</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ──── EXERCISE A: Crossword ──── -->
+<div class="section-card" id="exercise-a">
+  <h2><span class="section-icon">✅</span> Exercise A — Crossword Puzzle</h2>
+
+  <h3>Across</h3>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>2. Moving often from place to place</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner"><strong>Nomadic</strong> — moving often from place to place</div>
+    </div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>3. Existing over a large area</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner"><strong>Widespread</strong> — existing over a large area</div>
+    </div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>6. Ruled by men</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner"><strong>Patriarchal</strong> — ruled by men</div>
+    </div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>7. Far-reaching</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner"><strong>Extensive</strong> — far-reaching</div>
+    </div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>8. Belonging to a particular place</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner"><strong>Indigenous</strong> — belonging to a particular place</div>
+    </div>
+  </div>
+
+  <h3>Down</h3>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>1. Deserving praise</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner"><strong>Commendable</strong> — deserving praise</div>
+    </div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>4. Unusual or surprising</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner"><strong>Remarkable</strong> — unusual or surprising</div>
+    </div>
+  </div>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>5. Noticeable</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner"><strong>Prominent</strong> — noticeable</div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── EXERCISE B: True / False ──── -->
+<div class="section-card" id="exercise-b">
+  <h2><span class="section-icon">✅</span> Exercise B — True or False</h2>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>a. The Rautes move from one place to another for their settlements.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--success)">✅ True</strong> — The Rautes are nomadic people who never settle permanently.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>b. Rautes live in the far-western part of Nepal.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--success)">✅ True</strong> — The Karnali Province (which includes far-western areas) is their only sanctuary.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>c. One of the means of their survival is woodcraft.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--success)">✅ True</strong> — They master crafting wooden products to eke out their living.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>d. The maintenance of the nomadic culture is highly regarded.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--success)">✅ True</strong> — Their maintenance of nomadic culture in a globalising world is commendable.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>e. The Raute community is female-dominated.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--error)">❌ False</strong> — The Raute community is patriarchal (male-dominated), though women have a prominent role in internal management.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── EXERCISE C: Short Answers ──── -->
+<div class="section-card" id="exercise-c">
+  <h2><span class="section-icon">✅</span> Exercise C — Answer the Following Questions</h2>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>a. What is the common belief about the history of the Rautes?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The common belief is that once the Rautes fled from the state, they never returned and established a different pattern of life in the jungle. There is no documented history of the Rautes.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>b. How do Rautes earn their living?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The Rautes earn their living by crafting wooden products, hunting monkeys, trading their wooden products in the market, and collecting food grains.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>c. How do Raute children spend their days?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        Raute children until the age of 10–14 are not assigned any major household responsibilities. They spend their days playing with natural objects and roaming around the settlement. On special occasions, they help their parents fetch water and carry small items while shifting to new locations.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>d. Why do the Rautes have good knowledge of the forest and its ecosystem?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        Because it is part of the women's job to search for medicinal herbs, firewood, and vegetables in the jungle, they develop extensive knowledge of the forest and its ecosystem.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>e. Is the task division between male and female Rautes fair? Why?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The task division is based on traditional roles. Men do hunting, carpentry, trading, and social activities while women manage household chores, child-rearing, and collecting forest resources. Though both contribute equally, some may argue it is not fully fair as women bear the greater burden of household responsibilities.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>f. What is special about the hunting skills of the Rautes?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The Rautes hunt monkeys in groups of 8–30 using nets. They do not use guns, bows, or arrows, which makes their hunting technique unique and traditional.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>g. Name the festivals that the Rautes celebrate.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The Rautes celebrate Saune Sankranti, Dashain, Tihar, Chaite Dashain, and Maghe Sankranti.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>h. What should modern people learn from the Rautes?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        Modern people should learn how to preserve their cultural identity and traditions even in a rapidly globalising world. The Rautes have successfully sustained their nomadic culture, which is commendable and inspiring.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── SHORT QUESTIONS ──── -->
+<div class="section-card" id="short-questions">
+  <h2><span class="section-icon">➕</span> Short Questions</h2>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>1. Who are the Rautes and where do they live?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The Rautes are a nomadic indigenous group of Nepal who live in the Karnali Province. They never settle permanently in one place.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>2. What are the three hereditary categories of the Raute community?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The three hereditary categories of the Raute community are Kalyaal, Raskoti, and Samaal.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>3. How do women contribute to the Raute community's livelihood?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        Women manage household chores, rear children, collect firewood, search for medicinal herbs and vegetables in the jungle, and assist in shifting homes to new locations.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>4. Why is monkey hunting important for the Rautes?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        Monkey hunting is considered fundamental to maintaining the cultural permanence of the hunting life of the Rautes.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>5. How do the Rautes celebrate their festivals?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The Rautes celebrate their festivals with singing, dancing, feasting, and ritual performances. They prepare food, homemade ale, and meat in advance and avoid meeting strangers during this period.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── TRUE / FALSE ──── -->
+<div class="section-card" id="true-false">
+  <h2><span class="section-icon">➕</span> True / False</h2>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>1. The Rautes are the only fulltime nomadic people in Nepal.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--success)">✅ True</strong> — They are the last fulltime nomads of Nepal.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>2. The total population of Rautes is about 500 families.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--error)">❌ False</strong> — The Raute population is about 180 people, or roughly 52 families (not 500).
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>3. Women in the Raute community are responsible for making wooden utensils.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--error)">❌ False</strong> — Making wooden utensils is the male task; women handle household chores and forest resource collection.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>4. The Rautes use guns to hunt monkeys.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--error)">❌ False</strong> — The Rautes use nets, not guns, bows, or arrows, to hunt monkeys.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>5. The Rautes take complete leave from carpentry and hunting during festivals.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--success)">✅ True</strong> — During festival periods, they stop all carpentry and hunting work.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── FILL IN THE BLANKS ──── -->
+<div class="section-card" id="fill-blanks">
+  <h2><span class="section-icon">➕</span> Fill in the Blanks</h2>
+  <p style="font-size:0.9rem;color:var(--muted);margin:6px 0 12px;">Words: nomadic / commendable / livelihood / ecosystem / fervour</p>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>1. The Rautes are a __________ group who move from place to place without permanent settlement.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        The Rautes are a <strong>nomadic</strong> group who move from place to place without permanent settlement.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>2. The Rautes earn their __________ by crafting wooden products and hunting monkeys.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        The Rautes earn their <strong>livelihood</strong> by crafting wooden products and hunting monkeys.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>3. The maintenance of the nomadic culture in a globalising world is __________.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        The maintenance of the nomadic culture in a globalising world is <strong>commendable</strong>.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>4. Women of the Raute community have extensive knowledge of the forest and its __________.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        Women of the Raute community have extensive knowledge of the forest and its <strong>ecosystem</strong>.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>5. The Rautes celebrate their festivals with great joy and __________.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        The Rautes celebrate their festivals with great joy and <strong>fervour</strong>.
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- ═══════ MEANING POPUP ═══════ -->
+<div id="meaningPopup" class="">
+  <button class="popup-close" onclick="closePopup()">×</button>
+  <div class="popup-word" id="popupWord">patriarchal</div>
+  <div class="popup-meaning">
+    <span class="popup-en" id="popupEnglish">EN: controlled or ruled by men</span>
+    <span class="popup-ne" id="popupNepali">NE: पितृसत्तात्मक</span>
+  </div>
+</div>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="site-footer">
+  N.REGMI &nbsp;|&nbsp; <a href="mailto:nregmi511@gmail.com">nregmi511@gmail.com</a>
+  &nbsp;|&nbsp; Grade 9 English — Unit 15 — The Rautes
+</footer>
+
+<!-- ═══════ JAVASCRIPT ═══════ -->
+<script>
+// ─── Font Size Control ───
+const MIN_F=13,MAX_F=26;
+let fontSize=17;
+function changeFontSize(d){
+  fontSize=Math.max(MIN_F,Math.min(MAX_F,fontSize+d));
+  document.documentElement.style.setProperty('--font-size-base',fontSize+'px');
+}
+
+// ─── Meaning Popup ───
+function showMeaning(word,en,ne){
+  document.getElementById('popupWord').textContent=word;
+  document.getElementById('popupEnglish').textContent='EN: '+en;
+  document.getElementById('popupNepali').textContent='NE: '+ne;
+  document.getElementById('meaningPopup').classList.add('show');
+}
+function closePopup(){
+  document.getElementById('meaningPopup').classList.remove('show');
+}
+document.addEventListener('click',function(e){
+  const popup=document.getElementById('meaningPopup');
+  if(!e.target.closest('.hw')&&!e.target.closest('#meaningPopup')){
+    popup.classList.remove('show');
+  }
+});
+
+// ─── Exercise Toggle ───
+function toggleExercise(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.exercise-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── True/False Toggle ───
+function toggleTF(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.tf-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── Fill-in-Blank Toggle ───
+function toggleFill(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.fill-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── Scroll to Top Button ───
+const scrollBtn=document.getElementById('scrollTopBtn');
+window.addEventListener('scroll',function(){
+  if(window.scrollY>400){
+    scrollBtn.classList.add('show');
+  }else{
+    scrollBtn.classList.remove('show');
+  }
+});
+function scrollToTop(){
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ─── Download HTML ───
+function downloadHTML(){
+  const html=document.documentElement.outerHTML;
+  const blob=new Blob([html],{type:'text/html;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='The_Rautes_Interactive.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+
+</body></html>

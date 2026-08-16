@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stopping by Woods on a Snowy Evening – Grade 9 English</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ===== CSS VARIABLES ===== */
+:root {
+  --primary: #1B2A4A;
+  --primary-dark: #0F1A30;
+  --primary-light: #2C4470;
+  --accent: #7BA7BC;
+  --accent-light: #A3C8D8;
+  --highlight: #C87F2A;
+  --highlight-light: #E0A040;
+  --bg-main: #EFF3F8;
+  --bg-card: #FFFFFF;
+  --bg-alt: #E0E8F0;
+  --bg-dark: #1B2A4A;
+  --text-main: #1A1A2E;
+  --text-light: #5A6A80;
+  --text-on-dark: #EFF3F8;
+  --border: #B8C8D8;
+  --border-light: #D0DCE8;
+  --shadow: rgba(27,42,74,0.08);
+  --shadow-strong: rgba(27,42,74,0.18);
+  --font-heading: 'DM Serif Display', serif;
+  --font-body: 'Libre Baskerville', serif;
+  --font-ui: 'Work Sans', sans-serif;
+  --font-size-base: 16px;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --radius-lg: 16px;
+  --match-selected: #1B2A4A;
+  --match-correct: #1B7A3D;
+  --match-wrong: #C0392B;
+  --match-hover: #D8E8F0;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: 1.78;
+  color: var(--text-main);
+  background: var(--bg-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-alt); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+
+/* ===== HEADER ===== */
+.site-header {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+  color: var(--text-on-dark);
+  padding: 32px 24px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(123,167,188,0.2) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.site-header::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -40px;
+  width: 160px; height: 160px;
+  background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.header-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 20px;
+  padding: 4px 16px;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.site-header h1 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: -0.3px;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.site-header .subtitle {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.88;
+  margin-bottom: 4px;
+}
+.site-header .meta-line {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  opacity: 0.65;
+  margin-top: 8px;
+}
+
+/* ===== CONTROLS BAR ===== */
+.controls-bar {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-light);
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+.font-controls { display: flex; align-items: center; gap: 8px; }
+.font-controls span {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+.font-btn {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  width: 34px; height: 34px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--primary);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-ui);
+  line-height: 1;
+}
+.font-btn:hover { background: var(--primary); color: #fff; }
+.dl-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 7px 18px;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.dl-btn:hover { background: var(--accent-light); color: var(--primary-dark); }
+
+/* ===== NAV JUMP ===== */
+.nav-jump {
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border-light);
+  padding: 10px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+.nav-jump a {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 5px 14px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-jump a:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+/* ===== MAIN WRAPPER ===== */
+.main-wrap { max-width: 860px; margin: 0 auto; padding: 28px 20px 60px; }
+
+/* ===== SECTION CARD ===== */
+.section-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 28px 28px 20px;
+  margin-bottom: 28px;
+  box-shadow: 0 3px 14px var(--shadow);
+}
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--primary-dark);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title .icon { font-size: 1.3rem; }
+
+/* ===== META INFO CARD ===== */
+.meta-info-card {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-bottom: 28px;
+  color: var(--text-on-dark);
+  box-shadow: 0 6px 20px var(--shadow-strong);
+}
+.meta-info-card h2 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+.mi-item {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+}
+.mi-item .mi-label {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.7;
+  display: block;
+  margin-bottom: 2px;
+}
+.mi-item .mi-value {
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+/* ===== POEM BLOCK ===== */
+.poem-block {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px 28px;
+  margin-bottom: 28px;
+  color: var(--text-on-dark);
+  box-shadow: 0 6px 24px var(--shadow-strong);
+  position: relative;
+  overflow: hidden;
+}
+.poem-block::before {
+  content: '\201C';
+  position: absolute;
+  top: -10px; left: 16px;
+  font-size: 7rem;
+  font-family: var(--font-heading);
+  color: rgba(255,255,255,0.06);
+  line-height: 1;
+  pointer-events: none;
+}
+.poem-title {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 4px;
+  font-style: italic;
+}
+.poem-author {
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  text-align: center;
+  opacity: 0.75;
+  margin-bottom: 24px;
+}
+.poem-stanza {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+.stanza-num {
+  position: absolute;
+  top: -2px; left: 0;
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent-light);
+  opacity: 0.6;
+}
+.poem-line {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 2;
+  letter-spacing: 0.2px;
+}
+.poem-line.indent { padding-left: 2em; }
+
+/* ===== VOCAB HIGHLIGHT ===== */
+.vocab-word {
+  color: var(--accent-light);
+  font-weight: 700;
+  font-style: normal;
+  cursor: pointer;
+  border-bottom: 2px dotted var(--accent-light);
+  transition: all 0.2s;
+}
+.vocab-word:hover {
+  color: var(--highlight-light);
+  border-bottom-color: var(--highlight-light);
+}
+
+/* ===== MEANING POPUP ===== */
+.meaning-popup {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  background: var(--primary-dark);
+  color: var(--text-on-dark);
+  border-radius: var(--radius);
+  padding: 16px 22px;
+  min-width: 280px;
+  max-width: 90vw;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  z-index: 9999;
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s;
+  opacity: 0;
+  font-family: var(--font-ui);
+}
+.meaning-popup.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+.popup-word { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; color: var(--accent-light); }
+.popup-en { font-size: 0.88rem; margin-bottom: 3px; line-height: 1.45; }
+.popup-en::before { content: 'EN: '; font-weight: 700; opacity: 0.7; }
+.popup-ne { font-size: 0.88rem; line-height: 1.45; color: rgba(255,255,255,0.85); }
+.popup-ne::before { content: 'NE: '; font-weight: 700; opacity: 0.7; }
+.popup-close {
+  position: absolute; top: 8px; right: 12px;
+  background: none; border: none; color: rgba(255,255,255,0.6);
+  font-size: 1.2rem; cursor: pointer; line-height: 1;
+}
+.popup-close:hover { color: #fff; }
+
+/* ===== INTERPRETATION BOX ===== */
+.interpretation-box {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  margin-top: 20px;
+  color: var(--text-on-dark);
+  border-left: 5px solid var(--accent);
+}
+.interpretation-box h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: var(--accent-light);
+  font-style: italic;
+}
+.interpretation-box p {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  opacity: 0.92;
+}
+
+/* ===== TEACHER NOTE ===== */
+.teacher-note {
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  border-left: 4px solid var(--accent);
+  background: var(--bg-alt);
+}
+.teacher-note .note-label {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+.teacher-note p {
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-main);
+}
+
+/* ===== GLOSSARY / SYMBOL / LINE TABLES ===== */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-top: 6px;
+}
+.data-table thead th {
+  background: var(--primary);
+  color: var(--text-on-dark);
+  font-family: var(--font-ui);
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.data-table thead th:first-child { border-radius: var(--radius-sm) 0 0 0; }
+.data-table thead th:last-child { border-radius: 0 var(--radius-sm) 0 0; }
+.data-table tbody td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
+}
+.data-table tbody tr:nth-child(even) { background: var(--bg-alt); }
+.data-table tbody tr:hover { background: #CDDAE6; }
+.data-table .sn { font-weight: 700; color: var(--primary); width: 36px; text-align: center; }
+.data-table .word-col { font-weight: 700; color: var(--highlight); white-space: nowrap; }
+.data-table .symbol-col { font-weight: 700; color: var(--primary); white-space: nowrap; }
+
+/* ===== INTERACTIVE MATCHING ===== */
+.match-container { margin-top: 12px; }
+.match-instructions {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  color: var(--text-light);
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  background: var(--bg-alt);
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--accent);
+}
+.match-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.match-col h4 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--primary);
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent);
+  text-align: center;
+}
+.match-option {
+  padding: 10px 14px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  user-select: none;
+  background: var(--bg-card);
+}
+.match-option:hover { border-color: var(--primary); background: var(--match-hover); }
+.match-option.selected {
+  border-color: var(--match-selected);
+  background: rgba(27,42,74,0.08);
+  box-shadow: 0 0 0 2px rgba(27,42,74,0.15);
+}
+.match-option.matched {
+  border-color: var(--match-correct);
+  background: rgba(27,122,61,0.08);
+  cursor: default;
+  opacity: 0.85;
+}
+.match-option.matched .match-check { display: inline; }
+.match-option.wrong-flash {
+  animation: wrongShake 0.5s ease;
+  border-color: var(--match-wrong);
+  background: rgba(192,57,43,0.08);
+}
+.match-check { display: none; color: var(--match-correct); font-weight: 700; margin-left: 6px; }
+@keyframes wrongShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+.match-status {
+  text-align: center;
+  margin-top: 14px;
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-weight: 600;
+  min-height: 28px;
+}
+.match-status.correct { color: var(--match-correct); }
+.match-status.wrong { color: var(--match-wrong); }
+.match-reset-btn {
+  display: block;
+  margin: 12px auto 0;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 22px;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.match-reset-btn:hover { background: var(--primary-light); }
+
+/* ===== MCQ OPTIONS ===== */
+.mcq-item { margin-bottom: 14px; }
+.mcq-question {
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 6px;
+  font-size: 0.92rem;
+}
+.mcq-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.mcq-opt {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+}
+.mcq-opt:hover { border-color: var(--primary); background: var(--match-hover); }
+.mcq-opt.correct-answer {
+  background: rgba(27,122,61,0.12);
+  border-color: var(--match-correct);
+  color: var(--match-correct);
+  font-weight: 600;
+}
+.mcq-opt.wrong-answer {
+  background: rgba(192,57,43,0.08);
+  border-color: var(--match-wrong);
+  color: var(--match-wrong);
+}
+.mcq-reveal {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  color: var(--match-correct);
+  font-weight: 600;
+  display: none;
+}
+
+/* ===== FILL TABLE ===== */
+.fill-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-top: 8px;
+}
+.fill-table thead th {
+  background: var(--primary);
+  color: var(--text-on-dark);
+  font-family: var(--font-ui);
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.78rem;
+}
+.fill-table tbody td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
+}
+.fill-table .sn { font-weight: 700; color: var(--primary); text-align: center; width: 36px; }
+.fill-table .answer-col { color: var(--primary-dark); font-weight: 600; }
+
+/* ===== TF TABLE ===== */
+.tf-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-top: 8px;
+}
+.tf-table thead th {
+  background: var(--highlight);
+  color: #fff;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.tf-table tbody td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
+}
+.tf-table .sn { font-weight: 700; color: var(--highlight); text-align: center; width: 36px; }
+.tf-true { color: #1B7A3D; font-weight: 700; }
+.tf-false { color: var(--primary-light); font-weight: 700; }
+
+/* ===== WORD BANK ===== */
+.word-bank {
+  background: var(--bg-alt);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+.word-bank-label {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+.word-bank-words { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.wb-word {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* ===== ACCORDION ===== */
+.exercise-item, .fill-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.exercise-item:hover, .fill-item:hover { border-color: var(--primary); }
+.exercise-toggle, .fill-toggle {
+  width: 100%;
+  background: var(--bg-alt);
+  border: none;
+  padding: 12px 16px;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+}
+.exercise-toggle:hover, .fill-toggle:hover { background: #CDDAE6; }
+.exercise-toggle .arrow, .fill-toggle .arrow {
+  transition: transform 0.3s;
+  font-size: 0.85rem;
+  color: var(--primary);
+}
+.exercise-toggle.active .arrow, .fill-toggle.active .arrow { transform: rotate(180deg); }
+.exercise-content, .fill-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s;
+  padding: 0 16px;
+  background: var(--bg-card);
+}
+.exercise-content.open, .fill-content.open { max-height: 2000px; padding: 16px; }
+.answer-text { font-size: 0.92rem; line-height: 1.7; color: var(--text-main); }
+.answer-text strong { color: var(--primary); }
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background: var(--primary-dark);
+  color: var(--text-on-dark);
+  text-align: center;
+  padding: 20px;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+.site-footer a { color: var(--accent-light); text-decoration: none; }
+
+/* ===== SCROLL TOP ===== */
+.scroll-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px; height: 44px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px var(--shadow-strong);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.scroll-top.visible { opacity: 1; transform: translateY(0); }
+.scroll-top:hover { background: var(--accent); color: var(--primary-dark); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  .site-header h1 { font-size: 1.3rem; }
+  .section-card { padding: 18px 14px 14px; }
+  .meta-grid { grid-template-columns: 1fr 1fr; }
+  .match-columns { grid-template-columns: 1fr; }
+  .mcq-options { grid-template-columns: 1fr; }
+  .poem-line { font-size: 1rem; }
+  .controls-bar { padding: 8px 14px; }
+  .nav-jump { padding: 8px 14px; }
+  .nav-jump a { font-size: 0.72rem; padding: 4px 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-badge">Unit 1 · Travel and Holidays</div>
+  <h1>❄️ Stopping by Woods on a Snowy Evening</h1>
+  <div class="subtitle">Poem by Robert Frost</div>
+  <div class="meta-line">Grade 9 · English · Page No. 8–10</div>
+</header>
+
+<!-- CONTROLS BAR -->
+<div class="controls-bar">
+  <div class="font-controls">
+    <span>Aa</span>
+    <button class="font-btn" onclick="changeFontSize(-1)">−</button>
+    <button class="font-btn" onclick="changeFontSize(1)">+</button>
+  </div>
+  <button class="dl-btn" onclick="downloadHTML()">⬇ Download</button>
+</div>
+
+<!-- NAV JUMP -->
+<nav class="nav-jump">
+  <a href="#meta-info">📋 Info</a>
+  <a href="#poem">📜 Poem</a>
+  <a href="#glossary">📚 Words</a>
+  <a href="#symbols">🔮 Symbols</a>
+  <a href="#teacher-notes">🎤 Teacher</a>
+  <a href="#line-by-line">🔍 Line-by-Line</a>
+  <a href="#exercise-a">Ex A</a>
+  <a href="#exercise-b">Ex B</a>
+  <a href="#exercise-c">Ex C</a>
+  <a href="#extra-a">Extra A</a>
+  <a href="#extra-b">Extra B</a>
+  <a href="#extra-c">Extra C</a>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="main-wrap">
+
+  <!-- META INFO -->
+  <div class="meta-info-card" id="meta-info">
+    <h2>📋 Study Note Information</h2>
+    <div class="meta-grid">
+      <div class="mi-item"><span class="mi-label">Grade</span><span class="mi-value">9</span></div>
+      <div class="mi-item"><span class="mi-label">Subject</span><span class="mi-value">English</span></div>
+      <div class="mi-item"><span class="mi-label">Unit</span><span class="mi-value">1 – Travel &amp; Holidays</span></div>
+      <div class="mi-item"><span class="mi-label">Topic</span><span class="mi-value">Stopping by Woods on a Snowy Evening</span></div>
+      <div class="mi-item"><span class="mi-label">Genre</span><span class="mi-value">Poem</span></div>
+      <div class="mi-item"><span class="mi-label">Page</span><span class="mi-value">8 – 10</span></div>
+      <div class="mi-item"><span class="mi-label">Poet</span><span class="mi-value">Robert Frost</span></div>
+    </div>
+  </div>
+
+  <!-- THE POEM -->
+  <div class="poem-block" id="poem">
+    <div class="poem-title">Stopping by Woods on a Snowy Evening</div>
+    <div class="poem-author">— Robert Frost</div>
+
+    <div class="poem-stanza">
+      <span class="stanza-num">Stanza I</span>
+      <div class="poem-line">Whose <span class="vocab-word" onclick="showMeaning('woods','an area of trees, smaller than a forest','जंगल, सानो वन')">woods</span> these are I think I know</div>
+      <div class="poem-line">His <span class="vocab-word" onclick="showMeaning('farmhouse','the main house on a farm','खेतको घर')">farmhouse</span> is in the village though;</div>
+      <div class="poem-line">He will not see me stopping here</div>
+      <div class="poem-line">To watch his woods fill up with snow.</div>
+    </div>
+
+    <div class="poem-stanza">
+      <span class="stanza-num">Stanza II</span>
+      <div class="poem-line">My little horse must think it <span class="vocab-word" onclick="showMeaning('queer','strange or unusual','अनौठो, विचित्र')">queer</span></div>
+      <div class="poem-line indent">To stop without a farmhouse near</div>
+      <div class="poem-line">Between the woods and <span class="vocab-word" onclick="showMeaning('frozen','turned into ice; solid because of cold','जमेको')">frozen</span> lake</div>
+      <div class="poem-line">The darkest evening of the year.</div>
+    </div>
+
+    <div class="poem-stanza">
+      <span class="stanza-num">Stanza III</span>
+      <div class="poem-line">He gives his <span class="vocab-word" onclick="showMeaning('harness','a set of leather and metal pieces put around a horse','घोडाको जीन')">harness</span> bells a shake</div>
+      <div class="poem-line">To ask if there is some mistake.</div>
+      <div class="poem-line">The only other sound's the <span class="vocab-word" onclick="showMeaning('sweep','a smooth, gliding movement','बहाव, मन्द चाल')">sweep</span></div>
+      <div class="poem-line">Of easy wind and <span class="vocab-word" onclick="showMeaning('downy','covered with something soft, like feathers','नरम रौँयुक्त')">downy</span> <span class="vocab-word" onclick="showMeaning('flake','a small, thin piece (of snow)','(हिउँको) सानो टुक्रा')">flake</span>.</div>
+    </div>
+
+    <div class="poem-stanza">
+      <span class="stanza-num">Stanza IV</span>
+      <div class="poem-line">The woods are <span class="vocab-word" onclick="showMeaning('lovely','very beautiful and attractive','सुन्दर')">lovely</span>, dark and deep,</div>
+      <div class="poem-line">But I have <span class="vocab-word" onclick="showMeaning('promises','commitments or responsibilities one must fulfil','वाचा, प्रतिज्ञा')">promises</span> to keep,</div>
+      <div class="poem-line">And miles to go before I sleep,</div>
+      <div class="poem-line">And miles to go before I sleep.</div>
+    </div>
+
+    <!-- INTERPRETATION BOX -->
+    <div class="interpretation-box">
+      <h3>🔮 Overall Symbolic Interpretation</h3>
+      <p>The poem operates on two levels — literally, a traveller pauses to admire snowy woods before continuing his journey; symbolically, it reflects the human pull between the desire to rest/escape (even death) and the duty to continue fulfilling one's responsibilities in life before "sleep" (death) comes.</p>
+    </div>
+  </div>
+
+  <!-- GLOSSARY -->
+  <div class="section-card" id="glossary">
+    <div class="section-title"><span class="icon">📚</span> Difficult Words — Glossary</div>
+    <table class="data-table">
+      <thead><tr><th>S.N.</th><th>Word</th><th>English Meaning</th><th>Nepali Meaning</th></tr></thead>
+      <tbody>
+        <tr><td class="sn">1</td><td class="word-col">woods</td><td>An area of trees, smaller than a forest</td><td>जंगल, सानो वन</td></tr>
+        <tr><td class="sn">2</td><td class="word-col">farmhouse</td><td>The main house on a farm</td><td>खेतको घर</td></tr>
+        <tr><td class="sn">3</td><td class="word-col">queer</td><td>Strange or unusual</td><td>अनौठो, विचित्र</td></tr>
+        <tr><td class="sn">4</td><td class="word-col">frozen</td><td>Turned into ice; solid because of cold</td><td>जमेको</td></tr>
+        <tr><td class="sn">5</td><td class="word-col">harness</td><td>A set of leather and metal pieces put around a horse's body</td><td>घोडाको जीन</td></tr>
+        <tr><td class="sn">6</td><td class="word-col">sweep</td><td>A smooth, gliding movement</td><td>बहाव, मन्द चाल</td></tr>
+        <tr><td class="sn">7</td><td class="word-col">downy</td><td>Covered with something soft, like feathers</td><td>नरम रौँयुक्त</td></tr>
+        <tr><td class="sn">8</td><td class="word-col">flake</td><td>A small, thin piece (of snow)</td><td>(हिउँको) सानो टुक्रा</td></tr>
+        <tr><td class="sn">9</td><td class="word-col">lovely</td><td>Very beautiful and attractive</td><td>सुन्दर</td></tr>
+        <tr><td class="sn">10</td><td class="word-col">promises</td><td>Commitments or responsibilities one must fulfil</td><td>वाचा, प्रतिज्ञा</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SYMBOLIC WORDS -->
+  <div class="section-card" id="symbols">
+    <div class="section-title"><span class="icon">🔮</span> Symbolic Words &amp; Interpretation</div>
+    <table class="data-table">
+      <thead><tr><th>Symbol</th><th>Symbolic Meaning</th></tr></thead>
+      <tbody>
+        <tr><td class="symbol-col">Woods (dark and deep)</td><td>Temptation of rest, escape, beauty of life, or even death/eternal rest</td></tr>
+        <tr><td class="symbol-col">Sleep</td><td>Death, or the final rest at the end of life's journey</td></tr>
+        <tr><td class="symbol-col">The horse</td><td>The practical, duty-bound part of human nature that pulls us back to responsibility</td></tr>
+        <tr><td class="symbol-col">Journey / miles to go</td><td>The journey of human life with its duties</td></tr>
+        <tr><td class="symbol-col">Promises to keep</td><td>Responsibilities and duties one must fulfil before "resting" (dying)</td></tr>
+        <tr><td class="symbol-col">The darkest evening of the year</td><td>Difficulties, hardships, or a low point in life</td></tr>
+        <tr><td class="symbol-col">The village (owner's house)</td><td>Society, civilization, human responsibility, contrasted with the solitude of the woods</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TEACHER'S SPEECH NOTES -->
+  <div class="section-card" id="teacher-notes">
+    <div class="section-title"><span class="icon">🎤</span> Teacher's Speech Notes for Class</div>
+
+    <div class="teacher-note">
+      <div class="note-label">1. Warm-up (5 min)</div>
+      <p>Ask students: "Have you ever stopped somewhere beautiful during a journey, even though you had somewhere important to be?" Relate to the poem's theme of being drawn to beauty despite obligations.</p>
+    </div>
+
+    <div class="teacher-note">
+      <div class="note-label">2. Introduce the poet</div>
+      <p>Robert Frost, a famous American poet known for writing about nature and rural life with deeper meanings hidden beneath simple language. His poems often appear straightforward but carry profound philosophical depth.</p>
+    </div>
+
+    <div class="teacher-note">
+      <div class="note-label">3. First reading</div>
+      <p>Read the poem aloud slowly, with pauses, to let students enjoy the rhythm and rhyme. Note the poem's AABA rhyme scheme, except the last stanza which is AAAA — a deliberate choice that mirrors the speaker's resolve.</p>
+    </div>
+
+    <div class="teacher-note">
+      <div class="note-label">4. Discuss surface meaning</div>
+      <p>A traveller stops by snowy woods on his way home, admires them, but reminds himself he must continue his journey. The simplicity of this surface narrative makes the deeper symbolism all the more powerful.</p>
+    </div>
+
+    <div class="teacher-note">
+      <div class="note-label">5. Discuss deeper/symbolic meaning</div>
+      <p>Explain how "sleep" and "miles to go" can represent death and life's duties. The woods symbolize the temptation to give up or escape, while the promises represent the obligations that anchor us to life.</p>
+    </div>
+
+    <div class="teacher-note">
+      <div class="note-label">6. Highlight difficult vocabulary</div>
+      <p>Use the glossary above; ask students to use each word in their own sentence. Pay special attention to "queer" (which has shifted in common usage) and "downy flake" (a vivid sensory description).</p>
+    </div>
+
+    <div class="teacher-note">
+      <div class="note-label">7. Group activity</div>
+      <p>Ask students to identify rhyming words in each stanza (know/though/snow, queer/near/year, shake/mistake/flake/lake, deep/keep/sleep). Discuss how Frost interlinks stanzas by carrying the third rhyme forward.</p>
+    </div>
+
+    <div class="teacher-note">
+      <div class="note-label">8. Wrap-up</div>
+      <p>Relate the moral — no matter how beautiful a distraction is, we must fulfil our responsibilities first. Connect this to students' own lives: exams, family duties, and personal commitments.</p>
+    </div>
+  </div>
+
+  <!-- LINE-BY-LINE EXPLANATION -->
+  <div class="section-card" id="line-by-line">
+    <div class="section-title"><span class="icon">🔍</span> Line-by-Line Explanation</div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">"Whose woods these are I think I know / His house is in the village though" <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text">The speaker knows who owns the woods, but the owner lives far away in the village, so he won't be seen stopping here. There is a sense of quiet transgression — the speaker is entering someone else's property, but the absence of the owner gives him a private moment of freedom. The inverted syntax ("Whose woods these are") gives the line a contemplative, almost musing quality, as if the speaker's thoughts are drifting like the falling snow.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">"He will not see me stopping here / To watch his woods fill up with snow" <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text">The speaker feels free to pause and admire the snow-covered woods without being noticed. The phrase "fill up with snow" suggests a gradual, almost mesmerizing accumulation — the woods are being slowly swallowed by whiteness, creating a hypnotic visual. There's also a hint of guilt: the speaker specifically notes that the owner "will not see me," implying that under normal circumstances, he might not feel entitled to this moment of stillness.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">"My little horse must think it queer / To stop without a farmhouse near" <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text">The speaker imagines his horse finds it strange to stop in such an isolated place, with no farmhouse nearby. By attributing thoughts to the horse, Frost introduces the theme of practical duty versus aesthetic contemplation. The horse represents common sense and the routine of daily life — it expects to stop at a farmhouse (warmth, shelter, purpose), not in the middle of nowhere for no apparent reason.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">"Between the woods and frozen lake / The darkest evening of the year" <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text">They are stopped between the woods and a frozen lake on the year's longest, darkest night (winter solstice). This setting is rich with symbolic meaning: the "frozen lake" suggests coldness and death, the "darkest evening" represents a low point or moment of despair, and being "between" two such forbidding features creates a sense of liminality — the speaker is literally and metaphorically at a threshold between life and death, duty and rest.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">"He gives his harness bells a shake / To ask if there is some mistake" <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text">The horse shakes its bells, as if questioning why they've stopped without reason. The personification of the horse "asking" adds gentle humor while reinforcing the contrast between the animal's practical nature and the speaker's contemplative mood. The harness bells represent the call of duty and routine — a small, ringing reminder that the world of obligation still exists even in this moment of stillness.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">"The only other sound's the sweep / Of easy wind and downy flake" <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text">The only sounds are the gentle wind and softly falling snowflakes — emphasizing deep silence and solitude. The word "sweep" suggests a smooth, brushing motion, while "easy" and "downy" convey softness and gentleness. This almost absolute silence highlights how far the speaker is from civilization and how deeply he has entered a space of natural beauty and potential oblivion. The alliterative "w" sounds (wind, sweep) mimic the whispering of the breeze itself.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">"The woods are lovely, dark and deep / But I have promises to keep" <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text">The speaker admits the woods are beautiful and inviting, but he has duties and responsibilities waiting for him. The word "lovely" combined with "dark and deep" creates a seductive beauty — the woods are not merely pretty but dangerously attractive. The "but" marks the turning point of the poem, the moment when duty triumphs over desire. "Promises to keep" suggests obligations to others, perhaps family or community, that anchor the speaker to the living world.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">"And miles to go before I sleep / And miles to go before I sleep" (repeated) <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text">He still has a long way to travel before he can rest — the repetition emphasizes both the literal distance and the symbolic weight of life's responsibilities before death. The repetition serves multiple purposes: it mimics the rhythmic motion of a horse's gait, it reinforces the speaker's resolve, and it transforms "sleep" from a simple rest into something far more final. The doubled line is perhaps Frost's most famous poetic device, creating an elegiac closing that haunts the reader long after the poem ends.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE A — INTERACTIVE MATCHING -->
+  <div class="section-card" id="exercise-a">
+    <div class="section-title"><span class="icon">✏️</span> Exercise A — Find the Words Matching the Meanings</div>
+
+    <div class="match-instructions">
+      👆 <strong>How to play:</strong> Click a meaning on the left, then click the matching word on the right. Correct pairs lock in green. Wrong pairs shake and reset.
+    </div>
+
+    <div class="match-columns" id="matchArea">
+      <div class="match-col">
+        <h4>Meanings</h4>
+        <div class="match-option" data-match-id="a" data-side="left" onclick="selectMatch(this)">a. an area of trees, smaller than a forest</div>
+        <div class="match-option" data-match-id="b" data-side="left" onclick="selectMatch(this)">b. strange or unusual</div>
+        <div class="match-option" data-match-id="c" data-side="left" onclick="selectMatch(this)">c. the main house on a farm</div>
+        <div class="match-option" data-match-id="d" data-side="left" onclick="selectMatch(this)">d. leather and metal pieces put around a horse</div>
+        <div class="match-option" data-match-id="e" data-side="left" onclick="selectMatch(this)">e. movement of the air</div>
+        <div class="match-option" data-match-id="f" data-side="left" onclick="selectMatch(this)">f. covered in something very soft</div>
+      </div>
+      <div class="match-col">
+        <h4>Words</h4>
+        <div class="match-option" data-match-id="6" data-side="right" onclick="selectMatch(this)">downy</div>
+        <div class="match-option" data-match-id="4" data-side="right" onclick="selectMatch(this)">harness</div>
+        <div class="match-option" data-match-id="5" data-side="right" onclick="selectMatch(this)">wind</div>
+        <div class="match-option" data-match-id="2" data-side="right" onclick="selectMatch(this)">queer</div>
+        <div class="match-option" data-match-id="3" data-side="right" onclick="selectMatch(this)">farmhouse</div>
+        <div class="match-option" data-match-id="1" data-side="right" onclick="selectMatch(this)">woods</div>
+      </div>
+    </div>
+
+    <div class="match-status" id="matchStatus"></div>
+    <button class="match-reset-btn" onclick="resetMatch()">🔄 Reset All</button>
+  </div>
+
+  <!-- EXERCISE B — CHOOSE THE CORRECT ANSWER -->
+  <div class="section-card" id="exercise-b">
+    <div class="section-title"><span class="icon">✏️</span> Exercise B — Choose the Correct Answer</div>
+
+    <div class="mcq-item">
+      <div class="mcq-question">a. Why does the speaker stop while on the journey?</div>
+      <div class="mcq-options">
+        <div class="mcq-opt" onclick="checkMCQ(this, true)">i. to watch the woods filled up with snow</div>
+        <div class="mcq-opt" onclick="checkMCQ(this, false)">ii. to rest his horse</div>
+        <div class="mcq-opt" onclick="checkMCQ(this, false)">iii. to meet the owner of the woods</div>
+        <div class="mcq-opt" onclick="checkMCQ(this, false)">iv. to find shelter from the cold</div>
+      </div>
+      <div class="mcq-reveal">✅ Correct: i. to watch the woods filled up with snow</div>
+    </div>
+
+    <div class="mcq-item">
+      <div class="mcq-question">b. What is the setting of the poem?</div>
+      <div class="mcq-options">
+        <div class="mcq-opt" onclick="checkMCQ(this, false)">i. a farmhouse in the village</div>
+        <div class="mcq-opt" onclick="checkMCQ(this, false)">ii. a busy city street at night</div>
+        <div class="mcq-opt" onclick="checkMCQ(this, false)">iii. a frozen lake in summer</div>
+        <div class="mcq-opt" onclick="checkMCQ(this, true)">iv. the woods on a dark, snowy evening</div>
+      </div>
+      <div class="mcq-reveal">✅ Correct: iv. the woods on a dark, snowy evening</div>
+    </div>
+
+    <div class="mcq-item">
+      <div class="mcq-question">c. Which one of the following statements is true?</div>
+      <div class="mcq-options">
+        <div class="mcq-opt" onclick="checkMCQ(this, true)">i. The woods are far away from the village.</div>
+        <div class="mcq-opt" onclick="checkMCQ(this, false)">ii. The owner of the woods is present.</div>
+        <div class="mcq-opt" onclick="checkMCQ(this, false)">iii. The horse is comfortable stopping here.</div>
+        <div class="mcq-opt" onclick="checkMCQ(this, false)">iv. The speaker decides to stay in the woods.</div>
+      </div>
+      <div class="mcq-reveal">✅ Correct: i. The woods are far away from the village.</div>
+    </div>
+
+    <div class="mcq-item">
+      <div class="mcq-question">d. How did the horse respond when the speaker stopped there?</div>
+      <div class="mcq-options">
+        <div class="mcq-opt" onclick="checkMCQ(this, false)">i. it ran away</div>
+        <div class="mcq-opt" onclick="checkMCQ(this, false)">ii. it fell asleep</div>
+        <div class="mcq-opt" onclick="checkMCQ(this, true)">iii. shook its harness</div>
+        <div class="mcq-opt" onclick="checkMCQ(this, false)">iv. it started grazing</div>
+      </div>
+      <div class="mcq-reveal">✅ Correct: iii. shook its harness</div>
+    </div>
+
+    <div class="mcq-item">
+      <div class="mcq-question">e. What does 'miles to go before I sleep' mean?</div>
+      <div class="mcq-options">
+        <div class="mcq-opt" onclick="checkMCQ(this, false)">i. The speaker is lost and cannot find his way.</div>
+        <div class="mcq-opt" onclick="checkMCQ(this, false)">ii. The speaker wants to sleep in the woods.</div>
+        <div class="mcq-opt" onclick="checkMCQ(this, true)">iii. The speaker has lots of responsibilities to fulfill.</div>
+        <div class="mcq-opt" onclick="checkMCQ(this, false)">iv. The speaker's horse is too tired to continue.</div>
+      </div>
+      <div class="mcq-reveal">✅ Correct: iii. The speaker has lots of responsibilities to fulfill.</div>
+    </div>
+  </div>
+
+  <!-- EXERCISE C — FILL IN THE GAPS -->
+  <div class="section-card" id="exercise-c">
+    <div class="section-title"><span class="icon">✏️</span> Exercise C — Fill in the Gaps</div>
+
+    <div class="word-bank">
+      <div class="word-bank-label">Word Bank</div>
+      <div class="word-bank-words">
+        <span class="wb-word">promises</span>
+        <span class="wb-word">traveller</span>
+        <span class="wb-word">journey</span>
+        <span class="wb-word">death</span>
+        <span class="wb-word">the woods</span>
+        <span class="wb-word">destination</span>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">The poet compares human life with a _______. <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>journey</strong> — The poet compares human life with a <strong>journey</strong>. Life, like a journey, involves travel through different terrains and seasons, with an eventual destination that must be reached despite the tempting stops along the way.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">The speaker of the poem is a _______. <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>traveller</strong> — The speaker of the poem is a <strong>traveller</strong>. He is on a journey through the snowy landscape, pausing momentarily at the woods before continuing on his way — much as we all travel through life with temporary pauses.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">He has to reach his _______ before taking a rest. <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>destination</strong> — He has to reach his <strong>destination</strong> before taking a rest. Just as a traveller must complete the journey before resting, a person must fulfil their life's purpose before death.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">He is distracted by the momentary pleasure in the form of _______. <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>the woods</strong> — He is distracted by the momentary pleasure in the form of <strong>the woods</strong>. The beautiful, dark, and deep woods represent the temptations in life that can pull us away from our duties and responsibilities.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">His companion, the horse, reminds him of his _______ in life. <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>promises</strong> — His companion, the horse, reminds him of his <strong>promises</strong> in life. The horse shaking its harness bells serves as a gentle but persistent reminder of the obligations that await, pulling the speaker back from the temptation of lingering.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">The speaker realises that he has to fulfill many responsibilities before his _______. <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>death</strong> — The speaker realises that he has to fulfill many responsibilities before his <strong>death</strong>. "Sleep" in the poem symbolically refers to death — the final rest that comes only after all of life's duties have been completed and all promises kept.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXTRA A — SHORT QUESTIONS -->
+  <div class="section-card" id="extra-a">
+    <div class="section-title"><span class="icon">🎯</span> Extra Practice — A. Short Answer Questions</div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">1. Why does the speaker say his horse must think it "queer" to stop there? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> The speaker says his horse must think it "queer" because they have stopped in an unusual place — between the woods and a frozen lake, with no farmhouse or shelter nearby. Horses are creatures of habit and routine; they expect to stop at places of comfort and purpose, not in the middle of a dark, snowy wilderness. The horse's confusion highlights the contrast between practical duty and the speaker's desire to linger in the beauty of the moment.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">2. What time of year and day is described in the poem? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> The poem is set on "the darkest evening of the year," which refers to the winter solstice — the longest night of the year around December 21–22 in the Northern Hemisphere. This timing is symbolically significant: the darkness represents hardship, despair, or a low point in life, while the snow and cold reinforce the theme of hardship that must be endured before reaching one's destination.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">3. What two things does the speaker say are the only sounds he hears? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> The only sounds the speaker hears are the "sweep of easy wind" and the falling of "downy flake" (softly falling snowflakes). These extremely gentle, quiet sounds actually emphasize the profound silence of the setting — the woods are so still that even the faintest whisper of wind and the softest fall of snow are noticeable. This deepens the sense of isolation and the almost hypnotic peace of the scene.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">4. What does the speaker mean by "promises to keep"? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> By "promises to keep," the speaker means the commitments, duties, and responsibilities he has in life that he must fulfil before he can rest. These promises could include obligations to family, community, work, or personal goals. Symbolically, the "promises" represent all the reasons a person continues living and working despite the temptation to simply stop and give in to the beauty and peace of oblivion.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">5. Why is the line "And miles to go before I sleep" repeated twice at the end? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> The repetition serves multiple purposes: it mimics the rhythmic, steady gait of the horse as the journey resumes; it emphasizes the long distance yet to travel before rest is possible; and symbolically, it underscores the weight of life's responsibilities before death. The repetition also gives the poem a haunting, elegiac quality — the second utterance feels heavier and more final than the first, transforming "sleep" from a simple rest into something closer to eternal rest.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXTRA B — TRUE / FALSE -->
+  <div class="section-card" id="extra-b">
+    <div class="section-title"><span class="icon">🎯</span> Extra Practice — B. True / False Items</div>
+    <table class="tf-table">
+      <thead><tr><th>S.N.</th><th>Statement</th><th>T / F</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td class="sn">1</td><td>The owner of the woods lives near the woods.</td><td class="tf-false">False</td><td>The text says "His farmhouse is in the village though," meaning the owner lives far away in the village, not near the woods.</td></tr>
+        <tr><td class="sn">2</td><td>The poem is set on a snowy winter evening.</td><td class="tf-true">True</td><td>The poem describes "the darkest evening of the year" with woods "filling up with snow" and a "frozen lake," clearly indicating a snowy winter evening.</td></tr>
+        <tr><td class="sn">3</td><td>The horse is happy to stop in the woods.</td><td class="tf-false">False</td><td>The horse thinks it "queer" to stop without a farmhouse near, and shakes its harness bells "to ask if there is some mistake," showing confusion, not happiness.</td></tr>
+        <tr><td class="sn">4</td><td>The speaker decides to stay in the woods forever.</td><td class="tf-false">False</td><td>The speaker explicitly says "But I have promises to keep, / And miles to go before I sleep," indicating he decides to continue his journey, not stay.</td></tr>
+        <tr><td class="sn">5</td><td>The poem can be interpreted as being about life's duties versus temptation to rest.</td><td class="tf-true">True</td><td>The woods represent the temptation to rest or escape, while the "promises to keep" and "miles to go" represent life's duties that must be fulfilled before death ("sleep").</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- EXTRA C — FILL IN THE BLANKS -->
+  <div class="section-card" id="extra-c">
+    <div class="section-title"><span class="icon">🎯</span> Extra Practice — C. Contextual Fill in the Blanks</div>
+
+    <div class="word-bank">
+      <div class="word-bank-label">Word Bank</div>
+      <div class="word-bank-words">
+        <span class="wb-word">harness</span>
+        <span class="wb-word">downy</span>
+        <span class="wb-word">queer</span>
+        <span class="wb-word">frozen</span>
+        <span class="wb-word">promises</span>
+      </div>
+    </div>
+
+    <div class="fill-item">
+      <button class="fill-toggle" onclick="toggleFill(this)">1. The horse shook its ________ bells to ask if something was wrong. <span class="arrow">▼</span></button>
+      <div class="fill-content">
+        <div class="answer-text"><strong>Answer:</strong> harness — The horse shook its <strong>harness</strong> bells to ask if something was wrong. The harness bells were the horse's way of communicating its confusion, producing the only sound of civilization in the otherwise silent, snow-covered landscape.</div>
+      </div>
+    </div>
+
+    <div class="fill-item">
+      <button class="fill-toggle" onclick="toggleFill(this)">2. The snow fell in soft, ________ flakes. <span class="arrow">▼</span></button>
+      <div class="fill-content">
+        <div class="answer-text"><strong>Answer:</strong> downy — The snow fell in soft, <strong>downy</strong> flakes. "Downy" means covered in something very soft, like the down of a bird, which perfectly describes the gentle, feathery quality of freshly falling snowflakes.</div>
+      </div>
+    </div>
+
+    <div class="fill-item">
+      <button class="fill-toggle" onclick="toggleFill(this)">3. My horse must think it ________ to stop here without any farmhouse nearby. <span class="arrow">▼</span></button>
+      <div class="fill-content">
+        <div class="answer-text"><strong>Answer:</strong> queer — My horse must think it <strong>queer</strong> to stop here without any farmhouse nearby. "Queer" means strange or unusual — the horse finds it odd to halt in such a desolate place with no shelter or apparent reason.</div>
+      </div>
+    </div>
+
+    <div class="fill-item">
+      <button class="fill-toggle" onclick="toggleFill(this)">4. The lake was completely ________ due to the winter cold. <span class="arrow">▼</span></button>
+      <div class="fill-content">
+        <div class="answer-text"><strong>Answer:</strong> frozen — The lake was completely <strong>frozen</strong> due to the winter cold. A frozen lake in the context of the poem symbolizes the coldness and stillness of death, adding to the symbolic depth of the winter landscape.</div>
+      </div>
+    </div>
+
+    <div class="fill-item">
+      <button class="fill-toggle" onclick="toggleFill(this)">5. I have many ________ to keep before I can finally rest. <span class="arrow">▼</span></button>
+      <div class="fill-content">
+        <div class="answer-text"><strong>Answer:</strong> promises — I have many <strong>promises</strong> to keep before I can finally rest. The promises represent life's commitments and responsibilities that must be fulfilled before one can "sleep" — both literally and in the deeper symbolic sense of death as the final rest.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main-wrap -->
+
+<!-- MEANING POPUP -->
+<div class="meaning-popup" id="meaningPopup">
+  <button class="popup-close" onclick="closePopup()">&times;</button>
+  <div class="popup-word" id="popupWord"></div>
+  <div class="popup-en" id="popupEn"></div>
+  <div class="popup-ne" id="popupNe"></div>
+</div>
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top" id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  Prepared by: <strong>Narayan Prasad Regmi</strong> &nbsp;|&nbsp; Email: <a href="mailto:nregmi511@gmail.com">nregmi511@gmail.com</a>
+</footer>
+
+<script>
+/* ===== FONT SIZE CONTROL ===== */
+function changeFontSize(d) {
+  var root = document.documentElement;
+  var current = parseFloat(getComputedStyle(root).getPropertyValue('--font-size-base'));
+  var next = current + d;
+  if (next < 13) next = 13;
+  if (next > 26) next = 26;
+  root.style.setProperty('--font-size-base', next + 'px');
+}
+
+/* ===== MEANING POPUP ===== */
+function showMeaning(word, en, ne) {
+  var popup = document.getElementById('meaningPopup');
+  document.getElementById('popupWord').textContent = word;
+  document.getElementById('popupEn').textContent = en;
+  document.getElementById('popupNe').textContent = ne;
+  popup.classList.add('show');
+}
+function closePopup() {
+  document.getElementById('meaningPopup').classList.remove('show');
+}
+document.addEventListener('click', function(e) {
+  var popup = document.getElementById('meaningPopup');
+  if (popup.classList.contains('show') && !popup.contains(e.target) && !e.target.classList.contains('vocab-word')) {
+    closePopup();
+  }
+});
+
+/* ===== ACCORDION TOGGLES ===== */
+function toggleExercise(btn) {
+  var content = btn.nextElementSibling;
+  var wasOpen = content.classList.contains('open');
+  var section = btn.closest('.section-card');
+  if (section) {
+    section.querySelectorAll('.exercise-content.open').forEach(function(c) { c.classList.remove('open'); });
+    section.querySelectorAll('.exercise-toggle.active').forEach(function(b) { b.classList.remove('active'); });
+  }
+  if (!wasOpen) { content.classList.add('open'); btn.classList.add('active'); }
+}
+function toggleFill(btn) {
+  var content = btn.nextElementSibling;
+  var wasOpen = content.classList.contains('open');
+  var section = btn.closest('.section-card');
+  if (section) {
+    section.querySelectorAll('.fill-content.open').forEach(function(c) { c.classList.remove('open'); });
+    section.querySelectorAll('.fill-toggle.active').forEach(function(b) { b.classList.remove('active'); });
+  }
+  if (!wasOpen) { content.classList.add('open'); btn.classList.add('active'); }
+}
+
+/* ===== INTERACTIVE MATCHING ===== */
+var matchSelectedLeft = null;
+var matchSelectedRight = null;
+var matchCorrectPairs = 0;
+var totalPairs = 6;
+var correctMap = { 'a':'1', 'b':'2', 'c':'3', 'd':'4', 'e':'5', 'f':'6' };
+
+function selectMatch(el) {
+  if (el.classList.contains('matched')) return;
+  var side = el.getAttribute('data-side');
+  if (side === 'left') {
+    var prevLeft = document.querySelector('.match-option.selected[data-side="left"]');
+    if (prevLeft) prevLeft.classList.remove('selected');
+    el.classList.add('selected');
+    matchSelectedLeft = el;
+  } else {
+    var prevRight = document.querySelector('.match-option.selected[data-side="right"]');
+    if (prevRight) prevRight.classList.remove('selected');
+    el.classList.add('selected');
+    matchSelectedRight = el;
+  }
+  if (matchSelectedLeft && matchSelectedRight) {
+    var leftId = matchSelectedLeft.getAttribute('data-match-id');
+    var rightId = matchSelectedRight.getAttribute('data-match-id');
+    if (correctMap[leftId] === rightId) {
+      matchSelectedLeft.classList.remove('selected');
+      matchSelectedRight.classList.remove('selected');
+      matchSelectedLeft.classList.add('matched');
+      matchSelectedRight.classList.add('matched');
+      matchSelectedLeft.innerHTML += ' <span class="match-check">✓</span>';
+      matchSelectedRight.innerHTML += ' <span class="match-check">✓</span>';
+      matchCorrectPairs++;
+      updateMatchStatus();
+    } else {
+      matchSelectedLeft.classList.add('wrong-flash');
+      matchSelectedRight.classList.add('wrong-flash');
+      var leftEl = matchSelectedLeft;
+      var rightEl = matchSelectedRight;
+      setTimeout(function() {
+        leftEl.classList.remove('wrong-flash', 'selected');
+        rightEl.classList.remove('wrong-flash', 'selected');
+      }, 600);
+      document.getElementById('matchStatus').textContent = '❌ Wrong pair — try again!';
+      document.getElementById('matchStatus').className = 'match-status wrong';
+    }
+    matchSelectedLeft = null;
+    matchSelectedRight = null;
+  }
+}
+
+function updateMatchStatus() {
+  var status = document.getElementById('matchStatus');
+  if (matchCorrectPairs === totalPairs) {
+    status.textContent = '🎉 All matched correctly! Well done!';
+    status.className = 'match-status correct';
+  } else {
+    status.textContent = '✅ ' + matchCorrectPairs + ' of ' + totalPairs + ' matched correctly';
+    status.className = 'match-status correct';
+  }
+}
+
+function resetMatch() {
+  matchSelectedLeft = null;
+  matchSelectedRight = null;
+  matchCorrectPairs = 0;
+  document.querySelectorAll('#matchArea .match-option').forEach(function(el) {
+    el.classList.remove('selected', 'matched', 'wrong-flash');
+    var check = el.querySelector('.match-check');
+    if (check) check.remove();
+  });
+  document.getElementById('matchStatus').textContent = '';
+  document.getElementById('matchStatus').className = 'match-status';
+}
+
+/* ===== MCQ CHECK ===== */
+function checkMCQ(el, isCorrect) {
+  var item = el.closest('.mcq-item');
+  if (item.classList.contains('answered')) return;
+  item.classList.add('answered');
+  if (isCorrect) {
+    el.classList.add('correct-answer');
+  } else {
+    el.classList.add('wrong-answer');
+    /* Also highlight the correct one */
+    var opts = item.querySelectorAll('.mcq-opt');
+    opts.forEach(function(o) {
+      if (o.getAttribute('onclick').indexOf('true') !== -1) {
+        o.classList.add('correct-answer');
+      }
+    });
+  }
+  var reveal = item.querySelector('.mcq-reveal');
+  if (reveal) reveal.style.display = 'block';
+}
+
+/* ===== SCROLL TO TOP ===== */
+function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+window.addEventListener('scroll', function() {
+  var btn = document.getElementById('scrollTopBtn');
+  if (window.scrollY > 400) { btn.classList.add('visible'); } else { btn.classList.remove('visible'); }
+});
+
+/* ===== DOWNLOAD ===== */
+function downloadHTML() {
+  var html = document.documentElement.outerHTML;
+  var blob = new Blob([html], { type: 'text/html' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = 'Stopping_by_Woods_Interactive.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+
+</body>
+</html>

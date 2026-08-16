@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thomas and Jerry – Grade 9 English Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ===== CSS VARIABLES ===== */
+:root {
+  --primary: #722F37;
+  --primary-dark: #4E1F25;
+  --primary-light: #8E434D;
+  --accent: #C5A55A;
+  --accent-light: #D9BE7E;
+  --highlight: #4A6741;
+  --highlight-light: #5E8354;
+  --bg-main: #F5F1E8;
+  --bg-card: #FFFEFA;
+  --bg-alt: #EDE8DC;
+  --bg-dark: #722F37;
+  --text-main: #1A1A1A;
+  --text-light: #5A5A5A;
+  --text-on-dark: #F5F1E8;
+  --border: #C8BFA8;
+  --border-light: #DDD6C6;
+  --shadow: rgba(114,47,55,0.08);
+  --shadow-strong: rgba(114,47,55,0.18);
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Lora', serif;
+  --font-ui: 'Manrope', sans-serif;
+  --font-size-base: 18px;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --radius-lg: 16px;
+  --match-selected: #722F37;
+  --match-correct: #2D6A1E;
+  --match-wrong: #C0392B;
+  --match-hover: #EDE8DC;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: 1.82;
+  color: var(--text-main);
+  background: var(--bg-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-alt); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+
+/* ===== HEADER ===== */
+.site-header {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+  color: var(--text-on-dark);
+  padding: 36px 24px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 240px; height: 240px;
+  background: radial-gradient(circle, rgba(197,165,90,0.22) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.site-header::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -40px;
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(74,103,65,0.18) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.header-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 20px;
+  padding: 5px 18px;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.site-header h1 {
+  font-family: var(--font-heading);
+  font-size: 2.6rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.site-header .subtitle {
+  font-family: var(--font-ui);
+  font-size: 1.05rem;
+  font-weight: 500;
+  opacity: 0.88;
+  margin-bottom: 4px;
+}
+.site-header .meta-line {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-top: 10px;
+}
+
+/* ===== CONTROLS BAR ===== */
+.controls-bar {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-light);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+.font-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.font-controls span {
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-light);
+}
+.font-btn {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  width: 38px; height: 38px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--primary);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-ui);
+  line-height: 1;
+}
+.font-btn:hover { background: var(--primary); color: #fff; }
+.dl-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 8px 20px;
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.dl-btn:hover { background: var(--accent-light); color: var(--primary-dark); }
+
+/* ===== NAV JUMP ===== */
+.nav-jump {
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border-light);
+  padding: 10px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+.nav-jump a {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 5px 14px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-jump a:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* ===== MAIN WRAPPER ===== */
+.main-wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 30px 20px 60px;
+}
+
+/* ===== SECTION CARD ===== */
+.section-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 30px 30px 22px;
+  margin-bottom: 30px;
+  box-shadow: 0 3px 14px var(--shadow);
+}
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title .icon { font-size: 1.4rem; }
+
+/* ===== META INFO CARD ===== */
+.meta-info-card {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  margin-bottom: 30px;
+  color: var(--text-on-dark);
+  box-shadow: 0 6px 20px var(--shadow-strong);
+}
+.meta-info-card h2 {
+  font-family: var(--font-heading);
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+.mi-item {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+}
+.mi-item .mi-label {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.7;
+  display: block;
+  margin-bottom: 2px;
+}
+.mi-item .mi-value {
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* ===== READING BLOCK ===== */
+.reading-block {
+  margin-bottom: 24px;
+  position: relative;
+}
+.reading-label {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--primary);
+  background: var(--bg-alt);
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.reading-block p {
+  font-size: var(--font-size-base);
+  line-height: 1.9;
+  text-align: justify;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.reading-block .dialogue {
+  margin: 8px 0;
+  padding: 10px 16px;
+  border-left: 4px solid var(--accent);
+  background: rgba(197,165,90,0.08);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-weight: 700;
+  font-size: var(--font-size-base);
+}
+.reading-block .narrator-text {
+  font-style: italic;
+  color: var(--text-light);
+  margin-bottom: 6px;
+  font-size: calc(var(--font-size-base) - 1px);
+}
+
+/* ===== VOCAB HIGHLIGHT ===== */
+.vocab-word {
+  color: var(--accent);
+  font-weight: 800;
+  cursor: pointer;
+  border-bottom: 2px dotted var(--accent);
+  transition: all 0.2s;
+  position: relative;
+}
+.vocab-word:hover {
+  color: var(--highlight-light);
+  border-bottom-color: var(--highlight-light);
+}
+
+/* ===== MEANING POPUP ===== */
+.meaning-popup {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  background: var(--primary-dark);
+  color: var(--text-on-dark);
+  border-radius: var(--radius);
+  padding: 16px 22px;
+  min-width: 280px;
+  max-width: 90vw;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  z-index: 9999;
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s;
+  opacity: 0;
+  font-family: var(--font-ui);
+}
+.meaning-popup.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+.popup-word {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: var(--accent-light);
+}
+.popup-en {
+  font-size: 0.9rem;
+  margin-bottom: 3px;
+  line-height: 1.45;
+}
+.popup-en::before { content: 'EN: '; font-weight: 700; opacity: 0.7; }
+.popup-ne {
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: rgba(255,255,255,0.85);
+}
+.popup-ne::before { content: 'NE: '; font-weight: 700; opacity: 0.7; }
+.popup-close {
+  position: absolute;
+  top: 8px; right: 12px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  font-size: 1.2rem;
+  cursor: pointer;
+  line-height: 1;
+}
+.popup-close:hover { color: #fff; }
+
+/* ===== GLOSSARY TABLE ===== */
+.glossary-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+.glossary-table thead th {
+  background: var(--primary);
+  color: var(--text-on-dark);
+  font-family: var(--font-ui);
+  font-weight: 700;
+  padding: 11px 12px;
+  text-align: left;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.glossary-table thead th:first-child { border-radius: var(--radius-sm) 0 0 0; }
+.glossary-table thead th:last-child { border-radius: 0 var(--radius-sm) 0 0; }
+.glossary-table tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
+}
+.glossary-table tbody tr:nth-child(even) { background: var(--bg-alt); }
+.glossary-table tbody tr:hover { background: #E0D9C8; }
+.glossary-table .sn { font-weight: 700; color: var(--primary); width: 36px; text-align: center; }
+.glossary-table .word-col { font-weight: 700; color: var(--accent); white-space: nowrap; }
+
+/* ===== INTERACTIVE MATCHING ===== */
+.match-container { margin-top: 12px; }
+.match-instructions {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  background: var(--bg-alt);
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--accent);
+}
+.match-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.match-col h4 {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent);
+  text-align: center;
+}
+.match-option {
+  padding: 10px 14px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  user-select: none;
+  background: var(--bg-card);
+  font-weight: 600;
+}
+.match-option:hover {
+  border-color: var(--primary);
+  background: var(--match-hover);
+}
+.match-option.selected {
+  border-color: var(--match-selected);
+  background: rgba(114,47,55,0.08);
+  box-shadow: 0 0 0 2px rgba(114,47,55,0.15);
+}
+.match-option.matched {
+  border-color: var(--match-correct);
+  background: rgba(45,106,30,0.08);
+  cursor: default;
+  opacity: 0.85;
+}
+.match-option.matched .match-check { display: inline; }
+.match-option.wrong-flash {
+  animation: wrongShake 0.5s ease;
+  border-color: var(--match-wrong);
+  background: rgba(192,57,43,0.08);
+}
+.match-check {
+  display: none;
+  color: var(--match-correct);
+  font-weight: 700;
+  margin-left: 6px;
+}
+@keyframes wrongShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+.match-status {
+  text-align: center;
+  margin-top: 14px;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 700;
+  min-height: 28px;
+}
+.match-status.correct { color: var(--match-correct); }
+.match-status.wrong { color: var(--match-wrong); }
+.match-reset-btn {
+  display: block;
+  margin: 12px auto 0;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 24px;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.match-reset-btn:hover { background: var(--primary-light); }
+
+/* ===== EXERCISE SECTION ===== */
+.exercise-section { margin-bottom: 18px; }
+.exercise-heading {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 14px;
+}
+
+/* Accordion */
+.exercise-item, .tf-item, .fill-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.exercise-item:hover, .tf-item:hover, .fill-item:hover { border-color: var(--primary); }
+.exercise-toggle, .tf-toggle, .fill-toggle {
+  width: 100%;
+  background: var(--bg-alt);
+  border: none;
+  padding: 13px 16px;
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-main);
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+}
+.exercise-toggle:hover, .tf-toggle:hover, .fill-toggle:hover { background: #E0D9C8; }
+.exercise-toggle .arrow, .tf-toggle .arrow, .fill-toggle .arrow {
+  transition: transform 0.3s;
+  font-size: 0.85rem;
+  color: var(--primary);
+}
+.exercise-toggle.active .arrow, .tf-toggle.active .arrow, .fill-toggle.active .arrow {
+  transform: rotate(180deg);
+}
+.exercise-content, .tf-content, .fill-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s;
+  padding: 0 16px;
+  background: var(--bg-card);
+}
+.exercise-content.open, .tf-content.open, .fill-content.open {
+  max-height: 2000px;
+  padding: 16px;
+}
+.answer-text {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-main);
+  font-weight: 600;
+}
+.answer-text strong { color: var(--primary); }
+
+/* ===== INTERACTIVE T/F ===== */
+.tf-interactive-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  background: var(--bg-card);
+  transition: border-color 0.2s;
+}
+.tf-interactive-item:hover { border-color: var(--primary); }
+.tf-num {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: var(--accent);
+  font-size: 1rem;
+  min-width: 24px;
+  padding-top: 2px;
+}
+.tf-statement {
+  flex: 1;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  font-weight: 600;
+}
+.tf-buttons {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.tf-btn {
+  padding: 5px 16px;
+  border: 2px solid var(--border);
+  border-radius: 20px;
+  background: var(--bg-card);
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.tf-btn:hover { border-color: var(--primary); }
+.tf-btn.selected-true { border-color: var(--match-correct); background: rgba(45,106,30,0.1); color: var(--match-correct); }
+.tf-btn.selected-false { border-color: var(--match-wrong); background: rgba(192,57,43,0.1); color: var(--match-wrong); }
+.tf-result-icon {
+  font-size: 1rem;
+  font-weight: 700;
+  min-width: 24px;
+  padding-top: 2px;
+  text-align: center;
+}
+.tf-result-icon.correct { color: var(--match-correct); }
+.tf-result-icon.wrong { color: var(--match-wrong); }
+.tf-reason {
+  margin-top: 6px;
+  font-size: 0.82rem;
+  color: var(--text-light);
+  font-style: italic;
+  display: none;
+  font-weight: 500;
+}
+.tf-reason.show { display: block; }
+.tf-score {
+  text-align: center;
+  margin-top: 12px;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+/* ===== INTERACTIVE FILL-IN-BLANKS ===== */
+.fill-interactive-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 10px 14px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  transition: border-color 0.2s;
+}
+.fill-interactive-item:hover { border-color: var(--primary); }
+.fill-num {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: var(--accent);
+  font-size: 1rem;
+  min-width: 24px;
+}
+.fill-text {
+  flex: 1;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  font-weight: 600;
+}
+.fill-input {
+  width: 150px;
+  padding: 6px 10px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 700;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.fill-input:focus { border-color: var(--primary); }
+.fill-input.correct { border-color: var(--match-correct); background: rgba(45,106,30,0.08); color: var(--match-correct); }
+.fill-input.wrong { border-color: var(--match-wrong); background: rgba(192,57,43,0.08); color: var(--match-wrong); animation: wrongShake 0.5s ease; }
+.fill-result {
+  font-size: 1rem;
+  font-weight: 700;
+  min-width: 20px;
+  text-align: center;
+}
+.fill-result.correct-icon { color: var(--match-correct); }
+.fill-result.wrong-icon { color: var(--match-wrong); }
+
+/* ===== WORD BANK ===== */
+.word-bank {
+  background: var(--bg-alt);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+.word-bank-label {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+.word-bank-words {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.wb-word {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 5px 16px;
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* ===== OPEN-ENDED ===== */
+.open-ended-box {
+  background: var(--bg-alt);
+  border-left: 4px solid var(--highlight);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 18px 20px;
+  margin-top: 8px;
+}
+.open-ended-box p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  font-weight: 600;
+}
+.open-ended-box .sample-label {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--highlight);
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+.open-ended-box .sample-answer {
+  font-style: italic;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ===== BUTTONS ROW ===== */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 14px;
+}
+.cw-check-btn, .cw-show-btn, .cw-reset-btn, .tf-interactive-check, .fill-check-btn {
+  display: inline-block;
+  margin: 0;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 22px;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.cw-check-btn:hover, .tf-interactive-check:hover, .fill-check-btn:hover { background: var(--primary-light); }
+.cw-show-btn { background: var(--accent); color: var(--primary-dark); }
+.cw-show-btn:hover { background: var(--accent-light); }
+.cw-reset-btn { background: var(--highlight); }
+.cw-reset-btn:hover { background: var(--highlight-light); }
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background: var(--primary-dark);
+  color: var(--text-on-dark);
+  text-align: center;
+  padding: 22px;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  opacity: 0.9;
+}
+.site-footer a { color: var(--accent-light); text-decoration: none; }
+
+/* ===== SCROLL TOP ===== */
+.scroll-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 46px; height: 46px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px var(--shadow-strong);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.scroll-top.visible { opacity: 1; transform: translateY(0); }
+.scroll-top:hover { background: var(--accent); color: var(--primary-dark); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  .site-header h1 { font-size: 1.5rem; }
+  .section-card { padding: 20px 14px 16px; }
+  .meta-grid { grid-template-columns: 1fr 1fr; }
+  .match-columns { grid-template-columns: 1fr; }
+  .controls-bar { padding: 8px 14px; }
+  .nav-jump { padding: 8px 14px; }
+  .nav-jump a { font-size: 0.72rem; padding: 4px 10px; }
+  .tf-interactive-item { flex-wrap: wrap; }
+  .fill-interactive-item { flex-wrap: wrap; }
+  .fill-input { width: 120px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-badge">Unit 3 · Family, Market &amp; Public Places</div>
+  <h1>Thomas and Jerry</h1>
+  <div class="subtitle">Story</div>
+  <div class="meta-line">Grade 9 · English · pp. 27–30</div>
+</header>
+
+<!-- CONTROLS BAR -->
+<div class="controls-bar">
+  <div class="font-controls">
+    <span>Aa</span>
+    <button class="font-btn" onclick="changeFontSize(-1)">−</button>
+    <button class="font-btn" onclick="changeFontSize(1)">+</button>
+  </div>
+  <button class="dl-btn" onclick="downloadHTML()">⬇ Download</button>
+</div>
+
+<!-- NAV JUMP -->
+<nav class="nav-jump">
+  <a href="#meta-info">📋 Info</a>
+  <a href="#reading-text">📖 Story</a>
+  <a href="#glossary">📚 Words</a>
+  <a href="#exercise-a">Ex A – Match</a>
+  <a href="#exercise-b">Ex B – T/F</a>
+  <a href="#exercise-c">Ex C – Q&A</a>
+  <a href="#exercise-d">Ex D – Discuss</a>
+  <a href="#extra-a">Extra – Short Q</a>
+  <a href="#extra-b">Extra – T/F</a>
+  <a href="#extra-c">Extra – Fill</a>
+</nav>
+
+<!-- MAIN WRAPPER -->
+<div class="main-wrap">
+
+  <!-- META INFO -->
+  <div class="meta-info-card" id="meta-info">
+    <h2>📋 Unit Overview</h2>
+    <div class="meta-grid">
+      <div class="mi-item"><span class="mi-label">Grade</span><span class="mi-value">9</span></div>
+      <div class="mi-item"><span class="mi-label">Subject</span><span class="mi-value">English</span></div>
+      <div class="mi-item"><span class="mi-label">Unit</span><span class="mi-value">3 – Family, Market &amp; Public Places</span></div>
+      <div class="mi-item"><span class="mi-label">Topic</span><span class="mi-value">Thomas and Jerry</span></div>
+      <div class="mi-item"><span class="mi-label">Genre</span><span class="mi-value">Story</span></div>
+      <div class="mi-item"><span class="mi-label">Pages</span><span class="mi-value">27–30</span></div>
+      <div class="mi-item"><span class="mi-label">Characters</span><span class="mi-value">Jerry (father), Thomas (son)</span></div>
+      <div class="mi-item"><span class="mi-label">Theme</span><span class="mi-value">Family bonds &amp; priorities</span></div>
+    </div>
+  </div>
+
+  <!-- READING TEXT -->
+  <div class="section-card" id="reading-text">
+    <div class="section-title"><span class="icon">📖</span> Reading Text — "Thomas and Jerry"</div>
+
+    <div class="reading-block">
+      <div class="reading-label">Paragraph 1</div>
+      <p>Once upon a time in a village, there was an old man named Jerry. He hadn't seen his son who lived in the city for a few years and wanted to meet him. He started his journey and came to the city where his son used to work and stay. He <span class="vocab-word" onclick="showMeaning('approached','came near','नजिक आउनु')">approached</span> the place where he used to get letters from a long time ago. When he knocked on the door he was excited and smiled with joy to meet his son. Unfortunately, someone else opened the door. Jerry asked, "I suppose Thomas should be staying in this place." The person said, "No! He has left and moved to a different location." Jerry was <span class="vocab-word" onclick="showMeaning('disappointed','sad because something did not happen as expected','निराश')">disappointed</span> and just <span class="vocab-word" onclick="showMeaning('pondered','thought carefully','गहिरिएर सोच्नु')">pondered</span> how he was going to meet his son.</p>
+    </div>
+
+    <div class="reading-block">
+      <div class="reading-label">Paragraph 2</div>
+      <p>He started to walk down the street and the neighbours asked Jerry, "Are you looking for Thomas?" Jerry responded by <span class="vocab-word" onclick="showMeaning('nodding','moving the head up and down to mean yes','हो भनी टाउको हल्लाउनु')">nodding</span> his head. The neighbours gave Thomas's office address to Jerry. Jerry thanked them and started towards the path which would lead to his son. Finally, Jerry arrived at the office and asked at the reception counter, "Could you please tell me Thomas's location, in this office?" The receptionist asked, "May I know how you are related to him?" Jerry responded politely by saying, "I'm his father." The receptionist asked Jerry to wait for a moment then rang Thomas and <span class="vocab-word" onclick="showMeaning('conveyed','communicated a message','सन्देश पुर्‍याउनु')">conveyed</span> the message. Thomas was <span class="vocab-word" onclick="showMeaning('stunned','shocked, unable to react','छक्क परेको')">stunned</span> and told the receptionist to send his father to the <span class="vocab-word" onclick="showMeaning('cabin','a small private office room','साना कोठा-अफिस')">cabin</span> immediately.</p>
+    </div>
+
+    <div class="reading-block">
+      <div class="reading-label">Paragraph 3</div>
+      <p>Jerry entered the cabin. As soon as he saw Thomas, his eyes were filled with tears. Thomas was happy to see his father. They talked for a while and Jerry asked Thomas, "Son! Mom <span class="vocab-word" onclick="showMeaning('dearly','very much','धेरै गरी')">dearly</span> wants to see you. Will you go home with me?"</p>
+      <div class="dialogue">Thomas responded, "I'm afraid, I can't go home, father. I am very busy working for my success and it's hard to take leave to visit as my hands are full with lots of stressful work."</div>
+      <p>Jerry gave a simple smile and said, "Okay! You may do your work. I'll be going back to our village this evening." Thomas asked, "Would you stay for a few days with me, please?" Jerry responded after a moment of silence, "Son, you are busy with your tasks. I don't want to make you uncomfortable or become a <span class="vocab-word" onclick="showMeaning('burden','a heavy load/responsibility','बोझ')">burden</span> for you," he continued, "I hope if I ever had a chance to meet you again, I would be happy." Then, he <span class="vocab-word" onclick="showMeaning('departed','left, especially to start a journey','प्रस्थान गर्नु')">departed</span>.</p>
+    </div>
+
+    <div class="reading-block">
+      <div class="reading-label">Paragraph 4</div>
+      <p>After a few weeks, Thomas wondered why his father came alone after a long time, he felt bad for treating his father in a <span class="vocab-word" onclick="showMeaning('weird','very strange; bizarre','अनौठो')">weird</span> manner. He felt <span class="vocab-word" onclick="showMeaning('guilty','feeling responsible for doing wrong','दोषी महसुस गर्ने')">guilty</span> so took leave for a few days and went to his village to meet his parents. When he went to the place where he was born and grew up, he saw that his parents were not there. He was shocked and asked the neighbours, "What happened here? My parents have to be here. Where are they now?" The neighbours gave the address of the place where his parents were staying.</p>
+    </div>
+
+    <div class="reading-block">
+      <div class="reading-label">Paragraph 5</div>
+      <p>Thomas <span class="vocab-word" onclick="showMeaning('scurried','moved or ran suddenly and quickly','हतारिएर दौडनु')">scurried</span> to the place and noticed that it was like a <span class="vocab-word" onclick="showMeaning('graveyard','a burial ground','चिहान गाडिने ठाउँ')">graveyard</span>. His eyes were filled with tears and started to walk slowly towards the place. His father <span class="vocab-word" onclick="showMeaning('noticed','observed','देख्नु')">noticed</span> Thomas in the distance and waved his hand to draw his attention. Thomas saw his father; started to run and hugged him as soon as they met.</p>
+      <p>Jerry asked, "How are you?" and continued, "What a surprise to see you here. I didn't expect that you would be coming to this place." Thomas felt <span class="vocab-word" onclick="showMeaning('ashamed','feeling shame','लज्जित')">ashamed</span> and kept his head down. Jerry said, "Why are you feeling bad? Has anything wrong happened?" Thomas responded, "No father," he continued, "It's just I never knew that I would be seeing you in this position in our village."</p>
+    </div>
+
+    <div class="reading-block">
+      <div class="reading-label">Paragraph 6</div>
+      <p>Jerry smiled and said, "I had taken a loan when you moved to the city for your college to pay for your education, then again when you wanted a new car. But due to a loss in farming, I couldn't pay the loan back. I thought of approaching you for help, but you were very busy and <span class="vocab-word" onclick="showMeaning('bustled','moved about in a busy manner','व्यस्त भएर हिँड्नु')">bustled</span> with your work. I didn't want to burden you with our problem and <span class="vocab-word" onclick="showMeaning('remained','stayed','रहिरहनु')">remained</span> silent. I had to let our home go to repay the loan."</p>
+      <div class="dialogue">Thomas whispered, "You could've told me. I'm not an <span class="vocab-word" onclick="showMeaning('outsider','a person not belonging to the family/group','बाहिरी मानिस')">outsider</span>."</div>
+      <p>Jerry turned around and said, "You were very busy and stressed with your work which made me remain quiet. All we wanted was your happiness."</p>
+    </div>
+
+    <div class="reading-block">
+      <div class="reading-label">Paragraph 7 — Conclusion</div>
+      <p>Thomas started to cry and hugged his father again. He <span class="vocab-word" onclick="showMeaning('apologised','said sorry','माफी माग्नु')">apologised</span> to his father and asked him to forgive him for his mistake. Jerry <span class="vocab-word" onclick="showMeaning('radiated','shined with energy/happiness','चम्किनु (खुसीले)')">radiated</span> and said, "No need for that. I'm <span class="vocab-word" onclick="showMeaning('content','satisfied','सन्तुष्ट')">content</span> with what I have now. All I want is that you <span class="vocab-word" onclick="showMeaning('spare','set aside (time)','समय दिनु')">spare</span> some time for us, we love you very much and at this old age it's hard to travel to see you often."</p>
+    </div>
+  </div>
+
+  <!-- GLOSSARY -->
+  <div class="section-card" id="glossary">
+    <div class="section-title"><span class="icon">📚</span> Difficult Words — Glossary</div>
+    <table class="glossary-table">
+      <thead><tr><th>S.N.</th><th>Word</th><th>English Meaning</th><th>Nepali Meaning</th></tr></thead>
+      <tbody>
+        <tr><td class="sn">1</td><td class="word-col">approached</td><td>came near</td><td>नजिक आउनु</td></tr>
+        <tr><td class="sn">2</td><td class="word-col">disappointed</td><td>sad because expectations weren't met</td><td>निराश</td></tr>
+        <tr><td class="sn">3</td><td class="word-col">pondered</td><td>thought carefully</td><td>गहिरिएर सोच्नु</td></tr>
+        <tr><td class="sn">4</td><td class="word-col">nodding</td><td>moving head to say yes</td><td>टाउको हल्लाउनु</td></tr>
+        <tr><td class="sn">5</td><td class="word-col">conveyed</td><td>communicated a message</td><td>सन्देश पुर्‍याउनु</td></tr>
+        <tr><td class="sn">6</td><td class="word-col">stunned</td><td>shocked, unable to react</td><td>छक्क परेको</td></tr>
+        <tr><td class="sn">7</td><td class="word-col">cabin</td><td>small private office room</td><td>साना कोठा (अफिस)</td></tr>
+        <tr><td class="sn">8</td><td class="word-col">dearly</td><td>very much</td><td>धेरै गरी</td></tr>
+        <tr><td class="sn">9</td><td class="word-col">burden</td><td>a heavy load/responsibility</td><td>बोझ</td></tr>
+        <tr><td class="sn">10</td><td class="word-col">departed</td><td>left, especially to start a journey</td><td>प्रस्थान गर्नु</td></tr>
+        <tr><td class="sn">11</td><td class="word-col">weird</td><td>very strange; bizarre</td><td>अनौठो</td></tr>
+        <tr><td class="sn">12</td><td class="word-col">guilty</td><td>feeling responsible for wrongdoing</td><td>दोषी महसुस गर्ने</td></tr>
+        <tr><td class="sn">13</td><td class="word-col">scurried</td><td>moved/ran suddenly and rapidly</td><td>हतारिएर दौडनु</td></tr>
+        <tr><td class="sn">14</td><td class="word-col">graveyard</td><td>a burial ground</td><td>चिहान गाडिने ठाउँ</td></tr>
+        <tr><td class="sn">15</td><td class="word-col">noticed</td><td>observed</td><td>देख्नु/याद गर्नु</td></tr>
+        <tr><td class="sn">16</td><td class="word-col">ashamed</td><td>feeling shame</td><td>लज्जित</td></tr>
+        <tr><td class="sn">17</td><td class="word-col">bustled</td><td>moved about busily</td><td>व्यस्त भएर हिँड्नु</td></tr>
+        <tr><td class="sn">18</td><td class="word-col">remained</td><td>stayed</td><td>रहिरहनु</td></tr>
+        <tr><td class="sn">19</td><td class="word-col">outsider</td><td>person not belonging to a group</td><td>बाहिरी मानिस</td></tr>
+        <tr><td class="sn">20</td><td class="word-col">apologised</td><td>said sorry</td><td>माफी माग्नु</td></tr>
+        <tr><td class="sn">21</td><td class="word-col">content</td><td>satisfied</td><td>सन्तुष्ट</td></tr>
+        <tr><td class="sn">22</td><td class="word-col">radiated</td><td>shined with energy/happiness</td><td>चम्किनु (खुसीले)</td></tr>
+        <tr><td class="sn">23</td><td class="word-col">spare</td><td>set aside (time)</td><td>समय दिनु</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- EXERCISE A — INTERACTIVE MATCHING -->
+  <div class="section-card" id="exercise-a">
+    <div class="section-title"><span class="icon">🔗</span> Exercise A — Match Words to Meanings (Interactive)</div>
+    <div class="match-instructions">
+      Click a word on the <strong>left</strong>, then click its matching meaning on the <strong>right</strong>. Correct pairs lock in green with ✓. Wrong pairs shake and reset. Match all 9 pairs!
+    </div>
+    <div class="match-columns">
+      <div class="match-col">
+        <h4>Words</h4>
+        <div class="match-option" data-side="left" data-match-id="a" onclick="selectMatch(this)">a. burden</div>
+        <div class="match-option" data-side="left" data-match-id="b" onclick="selectMatch(this)">b. approached</div>
+        <div class="match-option" data-side="left" data-match-id="c" onclick="selectMatch(this)">c. stunned</div>
+        <div class="match-option" data-side="left" data-match-id="d" onclick="selectMatch(this)">d. departed</div>
+        <div class="match-option" data-side="left" data-match-id="e" onclick="selectMatch(this)">e. graveyard</div>
+        <div class="match-option" data-side="left" data-match-id="f" onclick="selectMatch(this)">f. weird</div>
+        <div class="match-option" data-side="left" data-match-id="g" onclick="selectMatch(this)">g. content</div>
+        <div class="match-option" data-side="left" data-match-id="h" onclick="selectMatch(this)">h. radiated</div>
+        <div class="match-option" data-side="left" data-match-id="i" onclick="selectMatch(this)">i. scurried</div>
+      </div>
+      <div class="match-col">
+        <h4>Meanings</h4>
+        <div class="match-option" data-side="right" data-match-id="3" onclick="selectMatch(this)">(iii) so shocked that one is temporarily unable to react</div>     
+	<div class="match-option" data-side="right" data-match-id="7" onclick="selectMatch(this)">(vii) satisfied</div>
+        <div class="match-option" data-side="right" data-match-id="2" onclick="selectMatch(this)">(ii) came near</div>
+        
+	<div class="match-option" data-side="right" data-match-id="6" onclick="selectMatch(this)">(vi) very strange; bizarre</div>
+	<div class="match-option" data-side="right" data-match-id="9" onclick="selectMatch(this)">(ix) moved or ran somewhere suddenly or rapidly</div>
+        <div class="match-option" data-side="right" data-match-id="4" onclick="selectMatch(this)">(iv) left, especially to start a journey</div>
+        <div class="match-option" data-side="right" data-match-id="1" onclick="selectMatch(this)">(i) a load, typically a heavy one</div>
+<div class="match-option" data-side="right" data-match-id="5" onclick="selectMatch(this)">(v) a burial ground</div>
+        
+        
+        <div class="match-option" data-side="right" data-match-id="8" onclick="selectMatch(this)">(viii) shined with energy or happiness</div>
+        
+      </div>
+    </div>
+    <div id="matchStatus" class="match-status"></div>
+    <button class="match-reset-btn" onclick="resetMatch()">🔄 Reset Matching</button>
+  </div>
+
+  <!-- EXERCISE B — INTERACTIVE TRUE / FALSE -->
+  <div class="section-card" id="exercise-b">
+    <div class="section-title"><span class="icon">✅</span> Exercise B — True or False (Interactive)</div>
+    <div class="match-instructions">
+      Read each statement and click <strong>True</strong> or <strong>False</strong>. Then click <strong>"Check Answers"</strong> to see your results with reasons.
+    </div>
+
+    <div class="tf-interactive-item" id="tfb-a">
+      <span class="tf-num">a.</span>
+      <span class="tf-statement">Jerry did not use to get letters from his son.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfb-a','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfb-a','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfb-a-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfb-a-reason">This is False. Jerry used to get letters from his son before, as mentioned in the story — "the place where he used to get letters from a long time ago."</div>
+
+    <div class="tf-interactive-item" id="tfb-b">
+      <span class="tf-num">b.</span>
+      <span class="tf-statement">The neighbours helped Jerry find the way to meet his son.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfb-b','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfb-b','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfb-b-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfb-b-reason">This is True. The neighbours gave Jerry Thomas's office address after seeing him searching for his son on the street.</div>
+
+    <div class="tf-interactive-item" id="tfb-c">
+      <span class="tf-num">c.</span>
+      <span class="tf-statement">Thomas was eager to meet his father in his office.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfb-c','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfb-c','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfb-c-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfb-c-reason">This is True. Thomas was stunned and told the receptionist to send his father to his cabin immediately, showing his eagerness.</div>
+
+    <div class="tf-interactive-item" id="tfb-d">
+      <span class="tf-num">d.</span>
+      <span class="tf-statement">Thomas asked his father to stay with him for a week.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfb-d','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfb-d','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfb-d-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfb-d-reason">This is False. Thomas asked Jerry to stay for "a few days," not specifically for a week.</div>
+
+    <div class="tf-interactive-item" id="tfb-e">
+      <span class="tf-num">e.</span>
+      <span class="tf-statement">Thomas felt bad to see his father in his workplace.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfb-e','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfb-e','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfb-e-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfb-e-reason">This is False. Thomas felt bad seeing his father's poor condition in the village — living in a graveyard-like place — not in the workplace.</div>
+
+    <div class="tf-interactive-item" id="tfb-f">
+      <span class="tf-num">f.</span>
+      <span class="tf-statement">The story shows that parents' happiness is tied up with their children's success and happiness.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfb-f','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfb-f','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfb-f-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfb-f-reason">This is True. The entire story demonstrates that Jerry sacrificed everything for Thomas's happiness and never complained, showing that parents' happiness is deeply connected to their children's well-being.</div>
+
+    <div class="btn-row">
+      <button class="tf-interactive-check" onclick="checkTFB()">✅ Check Answers</button>
+      <button class="cw-reset-btn" onclick="resetTFB()">🔄 Reset</button>
+    </div>
+    <div id="tfbScore" class="tf-score"></div>
+  </div>
+
+  <!-- EXERCISE C — ANSWER THE QUESTIONS -->
+  <div class="section-card" id="exercise-c">
+    <div class="section-title"><span class="icon">✏️</span> Exercise C — Answer the Following Questions (Solved)</div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">a. Why did Jerry go to the city? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Jerry went to the city to meet his son, Thomas, whom he had not seen for a few years. He missed his son dearly and wanted to see him face to face after a long period of separation. Despite his old age and the difficulty of traveling from the village to the city, Jerry's love and longing for his son motivated him to make the journey, demonstrating the deep bond between a father and his child.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">b. What did the father want from his son? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Jerry wanted Thomas to come home to meet his mother, who dearly wanted to see him. Later, after the emotional reunion in the village, Jerry's simple request was that Thomas spare some time for his aging parents. He did not ask for money, help with the loan, or material support — only that his son set aside some time to visit them, showing that what parents value most is presence and connection, not material things.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">c. Did the father come back to the village happily? Why? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Not entirely happily. Although Jerry did not complain or express anger, he was quietly disappointed because Thomas was too busy with work to accompany him home or even spend much time with him. Jerry accepted the situation gracefully, saying he did not want to become a burden, but his silence and the sadness beneath his simple smile reveal a father who left with a heavy heart. He departed without pressing his son further, choosing to respect Thomas's busy schedule over his own emotional needs.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">d. What made Thomas decide to visit his father? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Thomas felt guilty for treating his father in a weird and careless manner. After a few weeks of reflection, he wondered why his father had come alone after such a long time, and the realization of how poorly he had treated Jerry weighed on his conscience. The combination of guilt, regret, and a growing understanding of his father's sacrifice motivated him to take leave from work and travel to the village to see his parents.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">e. Why did Jerry take the loan? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Jerry took a loan for two reasons related to his son's needs. First, he took a loan when Thomas moved to the city for college, to pay for his higher education. Second, he took another loan when Thomas wanted a new car. These loans were taken entirely for Thomas's benefit, showing Jerry's selfless dedication as a father. Unfortunately, due to a loss in farming, Jerry was unable to repay the loans and eventually had to let their home go to settle the debt.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">f. Why did Jerry return home without telling his son about the loan? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Because Thomas was very busy and stressed with his work, Jerry did not want to add to his son's burden by sharing the family's financial problems. He could see that Thomas was already overwhelmed with stressful work, and Jerry chose to remain silent rather than trouble his son further. This selfless decision, while made out of love, also reveals the tragic communication gap between father and son — had Jerry spoken up, Thomas might have helped before the family lost their home.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">g. What lesson do you learn from this story? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> The story teaches that children should always spare time for their parents, no matter how busy they are with work or professional pursuits. Parents often silently bear their hardships and sacrifices just to keep their children happy and stress-free, but this silence can lead to devastating consequences — as seen when Jerry lost the family home without ever asking for help. Family bonds and open communication matter far more than material success, and no career achievement can replace the love and presence that aging parents need from their children.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE D — OPEN-ENDED DISCUSSION -->
+  <div class="section-card" id="exercise-d">
+    <div class="section-title"><span class="icon">💬</span> Exercise D — Discussion Question</div>
+    <div class="open-ended-box">
+      <p><strong>Have you ever witnessed or heard such an event similar to the one in the story? Share it in small groups.</strong></p>
+      <p style="margin-top:8px; font-style:italic; color:var(--text-light); font-size:0.88rem;">This is an open-ended personal response — students should share their own experiences in pairs or groups.</p>
+      <div class="sample-label">Guiding Points for Discussion:</div>
+      <div class="sample-answer">Think about situations where elderly parents in your community have sacrificed for their children's education or well-being. Have you seen cases where children moved to cities for work and rarely visited their aging parents? Have you heard of parents taking loans for their children but never telling them about their financial struggles? Discuss how cultural expectations, modern work pressures, and generational communication gaps can create situations similar to Thomas and Jerry's story. Consider what could be done differently — such as regular family conversations, sharing financial concerns openly, and making time for family visits despite busy schedules.</div>
+    </div>
+  </div>
+
+  <!-- EXTRA A — SHORT ANSWER QUESTIONS -->
+  <div class="section-card" id="extra-a">
+    <div class="section-title"><span class="icon">🎯</span> Extra Practice — A. Short Answer Questions</div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">1. Who is Jerry, and why does he travel to the city? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Jerry is an old man living in a village who travels to the city to meet his son, Thomas, whom he hasn't seen for a few years. His longing to see his son and the desire to reconnect with him drives him to make the difficult journey from the village to the city, despite his old age. This act of traveling highlights the strong parental love and concern that motivates Jerry throughout the story.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">2. How did Jerry find Thomas's office? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> The neighbours in the city gave Jerry Thomas's office address after seeing him searching for his son on the street. When they asked Jerry if he was looking for Thomas and Jerry nodded, they generously provided the office address, which helped Jerry finally reach his son. This moment of neighbourly kindness was crucial in reuniting father and son.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">3. What excuse did Thomas give for not going home with his father? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Thomas said he was too busy with stressful work and could not take leave to go home. He told his father that his hands were full with lots of stressful work and that he was working hard for his success. This excuse reveals how Thomas prioritized his professional ambitions over his family obligations at that point in the story, a decision he would later deeply regret.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">4. What did Jerry sacrifice to support Thomas, and why didn't he tell him? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Jerry took loans for Thomas's education and car, and eventually had to let go of their home to repay the loan after suffering losses in farming. He didn't tell Thomas because his son was very busy and stressed with work, and Jerry didn't want to add to his son's burdens. This sacrifice demonstrates Jerry's selfless love as a father — he was willing to lose everything rather than trouble his son, even though speaking up might have prevented the loss of their home.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">5. How does the story end? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Thomas realizes his mistake, apologises to his father, and Jerry forgives him with a radiant smile. Jerry asks only that Thomas spare some time for his aging parents, emphasizing that they love him very much and find it difficult to travel at their old age. The story ends on a hopeful note of reconciliation, with Thomas hugging his father and presumably committing to being more present in his parents' lives going forward.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXTRA B — INTERACTIVE T/F -->
+  <div class="section-card" id="extra-b">
+    <div class="section-title"><span class="icon">🎯</span> Extra Practice — B. True or False (Interactive)</div>
+    <div class="match-instructions">
+      Click <strong>True</strong> or <strong>False</strong> for each statement, then check your answers.
+    </div>
+
+    <div class="tf-interactive-item" id="tfe-1">
+      <span class="tf-num">1.</span>
+      <span class="tf-statement">Jerry travelled to the city to sell goods.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfe-1','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfe-1','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfe-1-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfe-1-reason">This is False. Jerry travelled to the city to meet his son Thomas, whom he hadn't seen for a few years — not to sell goods.</div>
+
+    <div class="tf-interactive-item" id="tfe-2">
+      <span class="tf-num">2.</span>
+      <span class="tf-statement">The receptionist rang Thomas after learning Jerry was his father.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfe-2','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfe-2','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfe-2-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfe-2-reason">This is True. After Jerry identified himself as Thomas's father, the receptionist asked him to wait and then rang Thomas to convey the message.</div>
+
+    <div class="tf-interactive-item" id="tfe-3">
+      <span class="tf-num">3.</span>
+      <span class="tf-statement">Thomas immediately agreed to go home with his father.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfe-3','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfe-3','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfe-3-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfe-3-reason">This is False. Thomas refused to go home, saying he was too busy with stressful work and couldn't take leave to visit.</div>
+
+    <div class="tf-interactive-item" id="tfe-4">
+      <span class="tf-num">4.</span>
+      <span class="tf-statement">Jerry had to let go of their home to repay a loan.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfe-4','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfe-4','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfe-4-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfe-4-reason">This is True. Due to a loss in farming, Jerry couldn't repay the loans he had taken for Thomas's education and car, so he had to let their home go to repay the debt.</div>
+
+    <div class="tf-interactive-item" id="tfe-5">
+      <span class="tf-num">5.</span>
+      <span class="tf-statement">Jerry was angry with Thomas at the end of the story.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfe-5','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfe-5','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfe-5-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfe-5-reason">This is False. Jerry was not angry at all. He radiated with happiness, forgave Thomas immediately, and only asked that his son spare some time for his aging parents — showing unconditional parental love.</div>
+
+    <div class="btn-row">
+      <button class="tf-interactive-check" onclick="checkTFExtra()">✅ Check Answers</button>
+      <button class="cw-reset-btn" onclick="resetTFExtra()">🔄 Reset</button>
+    </div>
+    <div id="tfeScore" class="tf-score"></div>
+  </div>
+
+  <!-- EXTRA C — INTERACTIVE FILL IN THE BLANKS -->
+  <div class="section-card" id="extra-c">
+    <div class="section-title"><span class="icon">🎯</span> Extra Practice — C. Fill in the Blanks (Interactive)</div>
+
+    <div class="word-bank">
+      <div class="word-bank-label">Word Bank</div>
+      <div class="word-bank-words">
+        <span class="wb-word">scurried</span>
+        <span class="wb-word">ashamed</span>
+        <span class="wb-word">burden</span>
+        <span class="wb-word">departed</span>
+        <span class="wb-word">apologised</span>
+      </div>
+    </div>
+
+    <div class="fill-interactive-item">
+      <span class="fill-num">1.</span>
+      <span class="fill-text">The old man ________ (moved quickly) towards the graveyard-like place.</span>
+      <input class="fill-input" id="fill-1" type="text" placeholder="Type word..." data-answer="scurried">
+      <span class="fill-result" id="fill-r-1"></span>
+    </div>
+
+    <div class="fill-interactive-item">
+      <span class="fill-num">2.</span>
+      <span class="fill-text">Thomas felt ________ (a sense of shame) when he saw his father's condition.</span>
+      <input class="fill-input" id="fill-2" type="text" placeholder="Type word..." data-answer="ashamed">
+      <span class="fill-result" id="fill-r-2"></span>
+    </div>
+
+    <div class="fill-interactive-item">
+      <span class="fill-num">3.</span>
+      <span class="fill-text">Jerry did not want to become a ________ (heavy responsibility) to his son.</span>
+      <input class="fill-input" id="fill-3" type="text" placeholder="Type word..." data-answer="burden">
+      <span class="fill-result" id="fill-r-3"></span>
+    </div>
+
+    <div class="fill-interactive-item">
+      <span class="fill-num">4.</span>
+      <span class="fill-text">After talking for a while, Jerry ________ (left) for the village that evening.</span>
+      <input class="fill-input" id="fill-4" type="text" placeholder="Type word..." data-answer="departed">
+      <span class="fill-result" id="fill-r-4"></span>
+    </div>
+
+    <div class="fill-interactive-item">
+      <span class="fill-num">5.</span>
+      <span class="fill-text">Thomas ________ (said sorry) to his father and asked for forgiveness.</span>
+      <input class="fill-input" id="fill-5" type="text" placeholder="Type word..." data-answer="apologised">
+      <span class="fill-result" id="fill-r-5"></span>
+    </div>
+
+    <div class="btn-row">
+      <button class="fill-check-btn" onclick="checkFills()">✅ Check All</button>
+      <button class="cw-show-btn" onclick="showFillAnswers()">💡 Show Answers</button>
+      <button class="cw-reset-btn" onclick="resetFills()">🔄 Reset</button>
+    </div>
+    <div id="fillScore" class="match-status"></div>
+  </div>
+
+</div><!-- /main-wrap -->
+
+<!-- MEANING POPUP -->
+<div class="meaning-popup" id="meaningPopup">
+  <button class="popup-close" onclick="closePopup()">&times;</button>
+  <div class="popup-word" id="popupWord"></div>
+  <div class="popup-en" id="popupEn"></div>
+  <div class="popup-ne" id="popupNe"></div>
+</div>
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top" id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  Prepared by: <strong>Narayan Prasad Regmi</strong> &nbsp;|&nbsp; Email: <a href="mailto:nregmi511@gmail.com">nregmi511@gmail.com</a> &nbsp;|&nbsp; 📞 9848144604
+</footer>
+
+<script>
+/* ===== FONT SIZE CONTROL (13-26px via CSS variable) ===== */
+function changeFontSize(d) {
+  var root = document.documentElement;
+  var current = parseFloat(getComputedStyle(root).getPropertyValue('--font-size-base'));
+  var next = current + d;
+  if (next < 13) next = 13;
+  if (next > 26) next = 26;
+  root.style.setProperty('--font-size-base', next + 'px');
+}
+
+/* ===== MEANING POPUP ===== */
+function showMeaning(word, en, ne) {
+  var popup = document.getElementById('meaningPopup');
+  document.getElementById('popupWord').textContent = word;
+  document.getElementById('popupEn').textContent = en;
+  document.getElementById('popupNe').textContent = ne;
+  popup.classList.add('show');
+}
+function closePopup() {
+  document.getElementById('meaningPopup').classList.remove('show');
+}
+document.addEventListener('click', function(e) {
+  var popup = document.getElementById('meaningPopup');
+  if (popup.classList.contains('show') && !popup.contains(e.target) && !e.target.classList.contains('vocab-word')) {
+    closePopup();
+  }
+});
+
+/* ===== ACCORDION TOGGLES ===== */
+function toggleExercise(btn) {
+  var content = btn.nextElementSibling;
+  var wasOpen = content.classList.contains('open');
+  var section = btn.closest('.exercise-section') || btn.closest('.section-card');
+  if (section) {
+    section.querySelectorAll('.exercise-content.open').forEach(function(c) { c.classList.remove('open'); });
+    section.querySelectorAll('.exercise-toggle.active').forEach(function(b) { b.classList.remove('active'); });
+  }
+  if (!wasOpen) {
+    content.classList.add('open');
+    btn.classList.add('active');
+  }
+}
+
+/* ===== INTERACTIVE MATCHING ===== */
+var matchSelectedLeft = null;
+var matchSelectedRight = null;
+var matchCorrectPairs = 0;
+var totalPairs = 9;
+
+var correctMap = {
+  'a': '1',   /* burden → a load, typically a heavy one */
+  'b': '2',   /* approached → came near */
+  'c': '3',   /* stunned → so shocked that one is temporarily unable to react */
+  'd': '4',   /* departed → left, especially to start a journey */
+  'e': '5',   /* graveyard → a burial ground */
+  'f': '6',   /* weird → very strange; bizarre */
+  'g': '7',   /* content → satisfied */
+  'h': '8',   /* radiated → shined with energy or happiness */
+  'i': '9'    /* scurried → moved or ran somewhere suddenly or rapidly */
+};
+
+function selectMatch(el) {
+  if (el.classList.contains('matched')) return;
+  var side = el.getAttribute('data-side');
+  if (side === 'left') {
+    var prevLeft = document.querySelector('.match-option.selected[data-side="left"]');
+    if (prevLeft) prevLeft.classList.remove('selected');
+    el.classList.add('selected');
+    matchSelectedLeft = el;
+  } else {
+    var prevRight = document.querySelector('.match-option.selected[data-side="right"]');
+    if (prevRight) prevRight.classList.remove('selected');
+    el.classList.add('selected');
+    matchSelectedRight = el;
+  }
+  if (matchSelectedLeft && matchSelectedRight) {
+    var leftId = matchSelectedLeft.getAttribute('data-match-id');
+    var rightId = matchSelectedRight.getAttribute('data-match-id');
+    if (correctMap[leftId] === rightId) {
+      matchSelectedLeft.classList.remove('selected');
+      matchSelectedRight.classList.remove('selected');
+      matchSelectedLeft.classList.add('matched');
+      matchSelectedRight.classList.add('matched');
+      matchSelectedLeft.innerHTML += ' <span class="match-check">✓</span>';
+      matchSelectedRight.innerHTML += ' <span class="match-check">✓</span>';
+      matchCorrectPairs++;
+      updateMatchStatus();
+    } else {
+      matchSelectedLeft.classList.add('wrong-flash');
+      matchSelectedRight.classList.add('wrong-flash');
+      var leftEl = matchSelectedLeft;
+      var rightEl = matchSelectedRight;
+      setTimeout(function() {
+        leftEl.classList.remove('wrong-flash', 'selected');
+        rightEl.classList.remove('wrong-flash', 'selected');
+      }, 600);
+      document.getElementById('matchStatus').textContent = '❌ Wrong pair — try again!';
+      document.getElementById('matchStatus').className = 'match-status wrong';
+    }
+    matchSelectedLeft = null;
+    matchSelectedRight = null;
+  }
+}
+
+function updateMatchStatus() {
+  var status = document.getElementById('matchStatus');
+  if (matchCorrectPairs === totalPairs) {
+    status.textContent = '🎉 All 9 matched correctly! Well done!';
+    status.className = 'match-status correct';
+  } else {
+    status.textContent = '✅ ' + matchCorrectPairs + ' of ' + totalPairs + ' matched correctly';
+    status.className = 'match-status correct';
+  }
+}
+
+function resetMatch() {
+  matchSelectedLeft = null;
+  matchSelectedRight = null;
+  matchCorrectPairs = 0;
+  document.querySelectorAll('.match-option').forEach(function(el) {
+    el.classList.remove('selected', 'matched', 'wrong-flash');
+    var check = el.querySelector('.match-check');
+    if (check) check.remove();
+  });
+  document.getElementById('matchStatus').textContent = '';
+  document.getElementById('matchStatus').className = 'match-status';
+}
+
+/* ===== INTERACTIVE T/F — EXERCISE B ===== */
+var tfbAnswers = {
+  'tfb-a': 'false',
+  'tfb-b': 'true',
+  'tfb-c': 'true',
+  'tfb-d': 'false',
+  'tfb-e': 'false',
+  'tfb-f': 'true'
+};
+var tfbSelections = {};
+
+/* ===== INTERACTIVE T/F — EXTRA ===== */
+var tfeAnswers = {
+  'tfe-1': 'false',
+  'tfe-2': 'true',
+  'tfe-3': 'false',
+  'tfe-4': 'true',
+  'tfe-5': 'false'
+};
+var tfeSelections = {};
+
+function selectTF(itemId, value, btnEl) {
+  var item = document.getElementById(itemId);
+  var buttons = item.querySelectorAll('.tf-btn');
+  buttons.forEach(function(b) { b.classList.remove('selected-true', 'selected-false'); });
+  if (value === 'true') { btnEl.classList.add('selected-true'); } else { btnEl.classList.add('selected-false'); }
+  if (itemId.startsWith('tfe-')) {
+    tfeSelections[itemId] = value;
+  } else {
+    tfbSelections[itemId] = value;
+  }
+}
+
+function checkTFB() {
+  var correct = 0;
+  var total = Object.keys(tfbAnswers).length;
+  Object.keys(tfbAnswers).forEach(function(itemId) {
+    var iconSpan = document.getElementById(itemId + '-icon');
+    var reasonDiv = document.getElementById(itemId + '-reason');
+    var userAnswer = tfbSelections[itemId];
+    var correctAnswer = tfbAnswers[itemId];
+    iconSpan.className = 'tf-result-icon';
+    if (userAnswer === correctAnswer) {
+      iconSpan.textContent = '✓';
+      iconSpan.classList.add('correct');
+      correct++;
+    } else if (userAnswer) {
+      iconSpan.textContent = '✗';
+      iconSpan.classList.add('wrong');
+    } else {
+      iconSpan.textContent = '?';
+      iconSpan.classList.add('wrong');
+    }
+    reasonDiv.classList.add('show');
+  });
+  document.getElementById('tfbScore').textContent = 'Score: ' + correct + ' / ' + total + ' correct';
+  document.getElementById('tfbScore').style.color = correct === total ? 'var(--match-correct)' : 'var(--accent)';
+}
+
+function resetTFB() {
+  tfbSelections = {};
+  Object.keys(tfbAnswers).forEach(function(itemId) {
+    var item = document.getElementById(itemId);
+    var buttons = item.querySelectorAll('.tf-btn');
+    buttons.forEach(function(b) { b.classList.remove('selected-true', 'selected-false'); });
+    document.getElementById(itemId + '-icon').textContent = '';
+    document.getElementById(itemId + '-icon').className = 'tf-result-icon';
+    document.getElementById(itemId + '-reason').classList.remove('show');
+  });
+  document.getElementById('tfbScore').textContent = '';
+}
+
+function checkTFExtra() {
+  var correct = 0;
+  var total = Object.keys(tfeAnswers).length;
+  Object.keys(tfeAnswers).forEach(function(itemId) {
+    var iconSpan = document.getElementById(itemId + '-icon');
+    var reasonDiv = document.getElementById(itemId + '-reason');
+    var userAnswer = tfeSelections[itemId];
+    var correctAnswer = tfeAnswers[itemId];
+    iconSpan.className = 'tf-result-icon';
+    if (userAnswer === correctAnswer) {
+      iconSpan.textContent = '✓';
+      iconSpan.classList.add('correct');
+      correct++;
+    } else if (userAnswer) {
+      iconSpan.textContent = '✗';
+      iconSpan.classList.add('wrong');
+    } else {
+      iconSpan.textContent = '?';
+      iconSpan.classList.add('wrong');
+    }
+    reasonDiv.classList.add('show');
+  });
+  document.getElementById('tfeScore').textContent = 'Score: ' + correct + ' / ' + total + ' correct';
+  document.getElementById('tfeScore').style.color = correct === total ? 'var(--match-correct)' : 'var(--accent)';
+}
+
+function resetTFExtra() {
+  tfeSelections = {};
+  Object.keys(tfeAnswers).forEach(function(itemId) {
+    var item = document.getElementById(itemId);
+    var buttons = item.querySelectorAll('.tf-btn');
+    buttons.forEach(function(b) { b.classList.remove('selected-true', 'selected-false'); });
+    document.getElementById(itemId + '-icon').textContent = '';
+    document.getElementById(itemId + '-icon').className = 'tf-result-icon';
+    document.getElementById(itemId + '-reason').classList.remove('show');
+  });
+  document.getElementById('tfeScore').textContent = '';
+}
+
+/* ===== INTERACTIVE FILL-IN-BLANKS ===== */
+function checkFills() {
+  var correct = 0;
+  var total = 5;
+  for (var i = 1; i <= total; i++) {
+    var input = document.getElementById('fill-' + i);
+    var resultSpan = document.getElementById('fill-r-' + i);
+    var answer = input.getAttribute('data-answer').toLowerCase();
+    var userVal = input.value.trim().toLowerCase();
+    input.classList.remove('correct', 'wrong');
+    resultSpan.className = 'fill-result';
+    if (userVal === answer) {
+      input.classList.add('correct');
+      resultSpan.textContent = '✓';
+      resultSpan.classList.add('correct-icon');
+      correct++;
+    } else if (userVal.length > 0) {
+      input.classList.add('wrong');
+      resultSpan.textContent = '✗';
+      resultSpan.classList.add('wrong-icon');
+    } else {
+      resultSpan.textContent = '';
+    }
+  }
+  var scoreEl = document.getElementById('fillScore');
+  if (correct === total) {
+    scoreEl.textContent = '🎉 All 5 blanks correct! Well done!';
+    scoreEl.className = 'match-status correct';
+  } else {
+    scoreEl.textContent = '✅ ' + correct + ' of ' + total + ' correct. Try the rest!';
+    scoreEl.className = 'match-status correct';
+  }
+}
+
+function showFillAnswers() {
+  var total = 5;
+  for (var i = 1; i <= total; i++) {
+    var input = document.getElementById('fill-' + i);
+    var resultSpan = document.getElementById('fill-r-' + i);
+    input.value = input.getAttribute('data-answer');
+    input.classList.remove('wrong');
+    input.classList.add('correct');
+    resultSpan.textContent = '✓';
+    resultSpan.className = 'fill-result correct-icon';
+  }
+  document.getElementById('fillScore').textContent = '💡 Answers revealed — study them carefully!';
+  document.getElementById('fillScore').className = 'match-status';
+}
+
+function resetFills() {
+  var total = 5;
+  for (var i = 1; i <= total; i++) {
+    var input = document.getElementById('fill-' + i);
+    var resultSpan = document.getElementById('fill-r-' + i);
+    input.value = '';
+    input.classList.remove('correct', 'wrong');
+    resultSpan.textContent = '';
+    resultSpan.className = 'fill-result';
+  }
+  document.getElementById('fillScore').textContent = '';
+  document.getElementById('fillScore').className = 'match-status';
+}
+
+/* ===== SCROLL TO TOP ===== */
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+window.addEventListener('scroll', function() {
+  var btn = document.getElementById('scrollTopBtn');
+  if (window.scrollY > 400) {
+    btn.classList.add('visible');
+  } else {
+    btn.classList.remove('visible');
+  }
+});
+
+/* ===== DOWNLOAD ===== */
+function downloadHTML() {
+  var html = document.documentElement.outerHTML;
+  var blob = new Blob([html], { type: 'text/html' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = 'Thomas_and_Jerry_Interactive.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+
+</body>
+</html>

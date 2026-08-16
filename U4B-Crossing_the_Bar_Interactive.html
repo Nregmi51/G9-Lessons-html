@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 9 English – Unit 4: Crossing the Bar (Poem)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Noto+Sans+SC:wght@400;500;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --primary:#1E3A5F;--primary-light:#2E5984;--primary-dark:#0F2744;
+    --accent:#D4A843;--accent-light:#F0D78C;
+    --correct:#10B981;--incorrect:#EF4444;
+    --bg:#F8F6F0;--card:#FFFFFF;
+    --text-dark:#1A1A2E;--text-body:#2D2D44;--text-muted:#6B7280;
+    --border:#D4CFC4;--border2:#C9C2B5;
+    --highlight-bg:#FFF8E1;--highlight-border:#D4A843;
+    --nepali:#0D7C66;
+    --poem-bg:#0F2744;--poem-text:#D4CFC4;
+    --font-size-base:17px;--radius:14px;
+    --shadow:0 4px 24px rgba(30,58,95,.07);--shadow-lg:0 12px 40px rgba(30,58,95,.12);
+  }
+  body{font-family:'Poppins','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text-body);font-size:var(--font-size-base);line-height:1.75;min-height:100vh}
+  body::before{content:'';position:fixed;top:-200px;right:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(30,58,95,.05),transparent 70%);border-radius:50%;z-index:0;pointer-events:none}
+  body::after{content:'';position:fixed;bottom:-200px;left:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(212,168,67,.04),transparent 70%);border-radius:50%;z-index:0;pointer-events:none}
+
+  .toolbar{position:fixed;top:0;left:0;width:100%;z-index:1000;background:linear-gradient(135deg,var(--primary-dark),var(--primary),var(--primary-light));color:#fff;display:flex;align-items:center;justify-content:space-between;padding:10px 24px;box-shadow:0 4px 20px rgba(30,58,95,.3)}
+  .toolbar-left{display:flex;align-items:center;gap:12px}
+  .toolbar-title{font-size:13px;font-weight:700;letter-spacing:.3px}
+  .toolbar-title span{opacity:.6;font-weight:400;font-size:11px}
+  .toolbar-right{display:flex;align-items:center;gap:8px}
+  .font-btn{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;border:2px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;font-size:17px;font-weight:700;cursor:pointer;transition:all .2s;font-family:'Poppins',sans-serif}
+  .font-btn:hover{background:rgba(255,255,255,.25);transform:scale(1.08)}
+  .font-btn:active{transform:scale(.95)}
+  .font-size-display{font-size:12px;font-weight:600;min-width:36px;text-align:center;background:rgba(255,255,255,.15);padding:5px 8px;border-radius:8px;transition:transform .2s}
+  .download-btn{display:flex;align-items:center;gap:5px;padding:7px 16px;border-radius:10px;border:none;background:rgba(255,255,255,.2);color:#fff;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;font-family:'Poppins',sans-serif}
+  .download-btn:hover{background:rgba(255,255,255,.35)}
+
+  .main-content{max-width:880px;margin:0 auto;padding:80px 22px 60px;position:relative;z-index:1}
+
+  .hero{background:linear-gradient(135deg,#0F2744,#1E3A5F,#2E5984,#3B6FA0);border-radius:22px;padding:46px 40px;color:#fff;margin-bottom:32px;position:relative;overflow:hidden;box-shadow:0 12px 40px rgba(30,58,95,.2)}
+  .hero::before{content:'';position:absolute;top:-80px;right:-80px;width:250px;height:250px;background:rgba(255,255,255,.04);border-radius:50%}
+  .hero::after{content:'';position:absolute;bottom:-50px;left:-50px;width:180px;height:180px;background:rgba(212,168,67,.06);border-radius:50%}
+  .hero-grade{display:inline-block;padding:5px 16px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:30px;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:14px}
+  .hero h1{font-size:34px;font-weight:900;margin-bottom:6px;position:relative;z-index:1;font-family:'Lora',serif}
+  .hero-sub{font-size:14px;opacity:.75;font-weight:400;position:relative;z-index:1}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;position:relative;z-index:1}
+  .hero-meta-item{display:flex;align-items:center;gap:5px;font-size:12px;opacity:.85;background:rgba(255,255,255,.1);padding:4px 12px;border-radius:20px}
+
+  .nav-pills{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:26px}
+  .nav-pill{padding:7px 16px;border-radius:30px;background:#fff;border:1px solid var(--border);font-size:12px;font-weight:600;color:var(--text-muted);cursor:pointer;transition:all .2s;font-family:'Poppins',sans-serif;text-decoration:none}
+  .nav-pill:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+
+  .section-card{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);padding:34px 30px;margin-bottom:26px;box-shadow:var(--shadow);transition:box-shadow .3s}
+  .section-card:hover{box-shadow:var(--shadow-lg)}
+  .section-heading{font-size:22px;font-weight:800;color:var(--text-dark);margin-bottom:6px;display:flex;align-items:center;gap:12px}
+  .section-heading .icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+  .icon-poem{background:#E8EDF4;color:var(--primary)}
+  .icon-words{background:#FEF3C7;color:#B45309}
+  .icon-symbol{background:#DBEAFE;color:#1D4ED8}
+  .icon-speech{background:#D1FAE5;color:#059669}
+  .icon-explain{background:#FCE7F3;color:#DB2777}
+  .icon-match{background:#E0F2FE;color:#0284C7}
+  .icon-short{background:#FFEDD5;color:#EA580C}
+  .icon-fill{background:#EDE9FE;color:#7C3AED}
+  .icon-tf{background:#FCE7F3;color:#DB2777}
+  .icon-extra{background:#F0FDF4;color:#16A34A}
+  .section-subtitle{font-size:13px;color:var(--text-muted);margin-bottom:20px}
+
+  .poem-block{background:linear-gradient(135deg,#0F2744,#1A3654,#1E3A5F);border-radius:18px;padding:36px 34px;color:var(--poem-text);position:relative;overflow:hidden;margin-bottom:10px}
+  .poem-block::before{content:'';position:absolute;top:-40px;right:-40px;width:140px;height:140px;background:rgba(212,168,67,.06);border-radius:50%}
+  .poem-block .poem-title{text-align:center;font-family:'Lora',serif;font-size:28px;font-weight:700;color:var(--accent-light);margin-bottom:4px}
+  .poem-block .poem-author{text-align:center;font-size:13px;opacity:.55;margin-bottom:26px;font-style:italic}
+  .poem-stanza{margin-bottom:22px;text-align:center;font-family:'Lora',serif;font-size:18px;line-height:1.9}
+  .poem-stanza:last-child{margin-bottom:0}
+  .poem-stanza .line{display:block}
+
+  .hw{background:rgba(240,215,140,.18);border-bottom:2px solid var(--accent);padding:1px 4px;border-radius:3px;cursor:pointer;font-weight:600;color:var(--accent-light);transition:all .2s;display:inline}
+  .hw:hover{background:rgba(240,215,140,.35);color:#FEF3C7}
+  .hp{background:var(--highlight-bg);border-bottom:2px solid var(--highlight-border);padding:1px 5px;border-radius:4px;cursor:pointer;font-weight:600;color:#78350F;transition:all .2s;display:inline}
+  .hp:hover{background:#FDE68A}
+  .hp::after,.hw::after{content:'📖';font-size:9px;position:relative;top:-2px;margin-left:1px}
+
+  .meaning-popup{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(130%);width:94%;max-width:500px;background:#fff;border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.18),0 0 0 1px rgba(0,0,0,.04);z-index:2000;transition:transform .4s cubic-bezier(.34,1.56,.64,1),opacity .3s;opacity:0;overflow:hidden}
+  .meaning-popup.show{transform:translateX(-50%) translateY(0);opacity:1}
+  .popup-header{background:linear-gradient(135deg,var(--accent),#B8941F);color:#fff;padding:13px 20px;display:flex;align-items:center;justify-content:space-between}
+  .popup-word{font-size:19px;font-weight:700}
+  .popup-close{width:28px;height:28px;border-radius:50%;border:none;background:rgba(255,255,255,.25);color:#fff;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;font-family:'Poppins',sans-serif}
+  .popup-close:hover{background:rgba(255,255,255,.4)}
+  .popup-body{padding:16px 20px;display:flex;flex-direction:column;gap:10px}
+  .popup-meaning-row{display:flex;align-items:flex-start;gap:10px}
+  .popup-label{flex-shrink:0;padding:4px 10px;border-radius:7px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+  .popup-label.en{background:#DBEAFE;color:#1D4ED8}
+  .popup-label.ne{background:#D1FAE5;color:#065F46}
+  .popup-meaning-text{font-size:15px;line-height:1.5;padding-top:1px}
+  .popup-nepali{font-size:16px;color:var(--nepali);font-weight:500}
+
+  .word-table-wrapper{overflow-x:auto;border-radius:12px;border:1px solid var(--border)}
+  .word-table{width:100%;border-collapse:collapse;font-size:14px}
+  .word-table thead{background:linear-gradient(135deg,#FEF3C7,#FDE68A)}
+  .word-table th{padding:12px 14px;text-align:left;font-weight:700;color:#78350F;font-size:11px;text-transform:uppercase;letter-spacing:.7px;border-bottom:2px solid #D4A843}
+  .word-table td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:top}
+  .word-table tr:last-child td{border-bottom:none}
+  .word-table tr:hover td{background:#FFFBEB}
+  .word-table .word-cell{font-weight:700;color:var(--primary-dark);cursor:pointer}
+  .word-table .word-cell:hover{text-decoration:underline}
+  .word-table .nepali-cell{color:var(--nepali);font-weight:500}
+
+  .symbol-table{width:100%;border-collapse:collapse;font-size:14px;border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+  .symbol-table thead{background:linear-gradient(135deg,#DBEAFE,#BFDBFE)}
+  .symbol-table th{padding:12px 14px;text-align:left;font-weight:700;color:#1E40AF;font-size:11px;text-transform:uppercase;letter-spacing:.6px;border-bottom:2px solid #3B82F6}
+  .symbol-table td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.6}
+  .symbol-table tr:last-child td{border-bottom:none}
+  .symbol-table tr:hover td{background:#EFF6FF}
+
+  .exercise-item{background:#F8FAFC;border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden;transition:all .2s}
+  .exercise-item:hover{border-color:var(--border2)}
+  .exercise-question{padding:15px 18px;cursor:pointer;display:flex;align-items:flex-start;gap:12px;transition:background .2s;user-select:none}
+  .exercise-question:hover{background:#F8F6F0}
+  .exercise-q-number{flex-shrink:0;min-width:28px;height:28px;border-radius:8px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;margin-top:2px;padding:0 7px}
+  .exercise-q-text{flex:1;font-weight:500;color:var(--text-dark);line-height:1.6;font-size:15px}
+  .exercise-toggle{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--text-muted);transition:all .3s;margin-top:2px}
+  .exercise-item.open .exercise-toggle{background:var(--correct);color:#fff;transform:rotate(180deg)}
+  .exercise-answer{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.34,1.56,.64,1)}
+  .exercise-item.open .exercise-answer{max-height:500px}
+  .exercise-answer-inner{padding:0 18px 16px;margin-left:40px;display:flex;align-items:flex-start;gap:10px}
+  .answer-badge{flex-shrink:0;padding:3px 10px;border-radius:6px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+  .badge-answer{background:#D1FAE5;color:#065F46}
+  .badge-true{background:#D1FAE5;color:#065F46}
+  .badge-false{background:#FEE2E2;color:#991B1B}
+  .answer-text{font-size:14px;color:var(--text-body);line-height:1.7}
+
+  .box-words{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;padding:14px;background:#F8F6F0;border-radius:12px;border:1px dashed var(--border2)}
+  .box-word{padding:5px 14px;background:#fff;border:1px solid var(--border2);border-radius:8px;font-weight:600;color:var(--primary);font-size:13px}
+
+  .blank-slot{display:inline-block;min-width:90px;border-bottom:2px dashed var(--primary);padding:1px 4px;font-weight:700;color:var(--primary);background:#F8F6F0;border-radius:3px 3px 0 0}
+
+  .quote-block{background:linear-gradient(135deg,#E8EDF4,#F0F3F8);border-left:4px solid var(--primary);border-radius:0 12px 12px 0;padding:16px 20px;margin-bottom:14px;font-style:italic;line-height:1.7;color:var(--text-dark);font-size:15px}
+  .quote-block strong{font-style:normal}
+
+  .stanza-block{margin-bottom:20px;padding:20px 22px;border:1px solid var(--border);border-radius:14px;background:linear-gradient(135deg,#F8F6F0,#fff)}
+  .stanza-block:last-child{margin-bottom:0}
+  .stanza-label{display:inline-flex;align-items:center;gap:6px;padding:4px 14px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:10px}
+  .stanza-1{background:#DBEAFE;color:#1D4ED8}
+  .stanza-2{background:#D1FAE5;color:#065F46}
+  .stanza-3{background:#FEF3C7;color:#B45309}
+  .stanza-4{background:#EDE9FE;color:#6D28D9}
+  .stanza-quote{font-family:'Lora',serif;font-style:italic;font-size:16px;color:var(--primary-dark);margin-bottom:10px;line-height:1.7;padding-left:14px;border-left:3px solid var(--primary-light)}
+  .stanza-explain{font-size:15px;line-height:1.75;color:var(--text-body)}
+
+  .speech-block{background:#F0FDF4;border:1px solid #BBF7D0;border-radius:14px;padding:18px 22px;margin-bottom:12px;font-style:italic;line-height:1.7;color:var(--text-body);font-size:15px;border-left:4px solid #10B981}
+
+  .extra-section{border-left:4px solid var(--primary)}
+  .click-hint{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:#F8F6F0;border:1px solid var(--border2);border-radius:10px;font-size:12px;color:var(--primary);font-weight:500;margin-bottom:16px}
+
+  .summary-box{background:linear-gradient(135deg,#FEF3C7,#FFFBEB);border:1px solid #FDE68A;border-radius:14px;padding:20px 24px;line-height:1.8;font-size:15px;color:var(--text-body)}
+  .summary-box strong{color:var(--primary-dark)}
+
+  @media(max-width:640px){
+    .main-content{padding:72px 12px 40px}
+    .section-card{padding:22px 14px}
+    .hero{padding:28px 18px}
+    .hero h1{font-size:24px}
+    .toolbar{padding:8px 12px;flex-wrap:wrap;gap:4px}
+    .toolbar-title{font-size:10px}
+    .meaning-popup{width:96%;bottom:10px}
+    .poem-block{padding:24px 18px}
+    .poem-stanza{font-size:15px}
+  }
+  html{scroll-behavior:smooth}
+</style>
+</head>
+<body>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <div class="toolbar-left"><div class="toolbar-title">Grade 9 · English <span>| Unit 4: Crossing the Bar</span></div></div>
+  <div class="toolbar-right">
+    <button class="font-btn" onclick="changeFontSize(-1)">A−</button>
+    <div class="font-size-display" id="fontDisplay">17px</div>
+    <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+    <button class="download-btn" onclick="downloadHTML()">⬇ Save</button>
+  </div>
+</div>
+
+<!-- FIXED MEANING POPUP -->
+<div class="meaning-popup" id="meaningPopup">
+  <div class="popup-header">
+    <span class="popup-word" id="popupWord">Word</span>
+    <button class="popup-close" onclick="closePopup()">✕</button>
+  </div>
+  <div class="popup-body">
+    <div class="popup-meaning-row"><span class="popup-label en">English</span><span class="popup-meaning-text" id="popupEnglish">—</span></div>
+    <div class="popup-meaning-row"><span class="popup-label ne">नेपाली</span><span class="popup-meaning-text popup-nepali" id="popupNepali">—</span></div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-grade">Grade 9 · Unit 4 · Work and Leisure</div>
+    <h1>Crossing the Bar</h1>
+    <div class="hero-sub">A Poem by Alfred Lord Tennyson · Pages 45–46</div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">📖 Full Poem</div>
+      <div class="hero-meta-item">📝 19 Vocabulary Words</div>
+      <div class="hero-meta-item">🔷 Symbolic Meanings</div>
+      <div class="hero-meta-item">✅ Interactive Exercises</div>
+    </div>
+  </div>
+
+  <!-- NAV PILLS -->
+  <div class="nav-pills">
+    <a class="nav-pill" href="#poem">📖 Poem</a>
+    <a class="nav-pill" href="#wordlist">📝 Word List</a>
+    <a class="nav-pill" href="#symbols">🔷 Symbols</a>
+    <a class="nav-pill" href="#interpretation">📜 Interpretation</a>
+    <a class="nav-pill" href="#speech">👩‍🏫 Teacher's Notes</a>
+    <a class="nav-pill" href="#explanation">📝 Line-by-Line</a>
+    <a class="nav-pill" href="#exerciseA">🔗 Exercise A</a>
+    <a class="nav-pill" href="#exerciseB">📝 Exercise B</a>
+    <a class="nav-pill" href="#exerciseC">✎ Exercise C</a>
+    <a class="nav-pill" href="#extraSA">💡 Extra Questions</a>
+    <a class="nav-pill" href="#extraTF">🔍 Extra T/F</a>
+    <a class="nav-pill" href="#extraFill">🧩 Extra Fill</a>
+  </div>
+
+  <!-- ===== FULL POEM ===== -->
+  <div class="section-card" id="poem">
+    <div class="section-heading"><div class="icon icon-poem">📖</div>Full Poem — Crossing the Bar</div>
+    <div class="section-subtitle">Click any highlighted word to see its meaning in English and Nepali</div>
+    <div class="click-hint">💡 Tip: Click highlighted words — the meaning popup stays fixed at the bottom even when you scroll!</div>
+
+    <div class="poem-block">
+      <div class="poem-title">Crossing the Bar</div>
+      <div class="poem-author">— Alfred Lord Tennyson</div>
+
+      <div class="poem-stanza">
+        <span class="line">Sunset and evening <span class="hw" onclick="showMeaning('star','celestial body; symbolically hope or sign','तारा; प्रतीकात्मक रूपमा आशा वा संकेत')">star</span>,</span>
+        <span class="line">And one clear <span class="hw" onclick="showMeaning('call','a summons; here: call of death','बोलाइ; यहाँ: मृत्युको बोलाइ')">call</span> for me!</span>
+        <span class="line">And may there be no <span class="hw" onclick="showMeaning('moaning','groaning, lamenting sadly','कराउनु, विलाप गर्नु')">moaning</span> of the <span class="hw" onclick="showMeaning('bar','sandbar; the boundary between life and death','बालुवाको थुम्बा; जीवन र मृत्युको सिमाना')">bar</span>,</span>
+        <span class="line">When I put out to <span class="hw" onclick="showMeaning('sea','the ocean; symbolically death/afterlife','समुद्र; प्रतीकात्मक रूपमा मृत्यु/परलोक')">sea</span>,</span>
+      </div>
+
+      <div class="poem-stanza">
+        <span class="line">But such a <span class="hw" onclick="showMeaning('tide','the rise and fall of the sea','ज्वार-भाटा')">tide</span> as moving seems <span class="hw" onclick="showMeaning('asleep','sleeping; here: calm and still','निदाएको; यहाँ: शान्त र स्थिर')">asleep</span>,</span>
+        <span class="line">Too full for sound and <span class="hw" onclick="showMeaning('foam','frothy bubbles on water','फिँज, बुड्बुड')">foam</span>,</span>
+        <span class="line">When that which <span class="hw" onclick="showMeaning('drew','pulled, attracted','तान्यो, आकर्षित गर्‍यो')">drew</span> from out the <span class="hw" onclick="showMeaning('boundless','without limits, infinite','असीमित, अनन्त')">boundless</span> deep</span>
+        <span class="line">Turns again home.</span>
+      </div>
+
+      <div class="poem-stanza">
+        <span class="line"><span class="hw" onclick="showMeaning('twilight','the soft light just after sunset','साँझको झिसमिसे उज्यालो, गोधूलि')">Twilight</span> and evening <span class="hw" onclick="showMeaning('bell','a ringing bell signalling end of day','घण्टी')">bell</span>,</span>
+        <span class="line">And after that the dark!</span>
+        <span class="line">And may there be no <span class="hw" onclick="showMeaning('sadness','sorrow, grief','दुःख, शोक')">sadness</span> of <span class="hw" onclick="showMeaning('farewell','goodbye; parting','बिदाइ, अलविदा')">farewell</span>,</span>
+        <span class="line">When I <span class="hw" onclick="showMeaning('embark','to begin a journey; to board a ship','यात्रा सुरु गर्नु; जहाजमा चढ्नु')">embark</span>;</span>
+      </div>
+
+      <div class="poem-stanza">
+        <span class="line">For <span class="hw" onclick="showMeaning('tho&apos;','though, although','यद्यपि, भएपनि')">tho'</span> from out our <span class="hw" onclick="showMeaning('bourne','a boundary, a limit','सिमाना, हद')">bourne</span> of Time and Place</span>
+        <span class="line">The <span class="hw" onclick="showMeaning('flood','a large flowing of water; here: the tide','बाढी; यहाँ: ज्वारभाटाको प्रवाह')">flood</span> may bear me far,</span>
+        <span class="line">I hope to see my <span class="hw" onclick="showMeaning('Pilot','a guide of a ship; symbolically God','जहाजको चालक; प्रतीकात्मक रूपमा ईश्वर')">Pilot</span> face to face</span>
+        <span class="line">When I have <span class="hw" onclick="showMeaning('crost','crossed (archaic past tense)','पार गरेको (पुरानो प्रयोग)')">crost</span> the <span class="hw" onclick="showMeaning('bar','sandbar; symbolically the boundary of death','बालुवाको थुम्बा; मृत्युको सिमाना')">bar</span>.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== WORD LIST ===== -->
+  <div class="section-card" id="wordlist">
+    <div class="section-heading"><div class="icon icon-words">📝</div>Word Meaning List</div>
+    <div class="section-subtitle">Click any word to see its meaning in the fixed popup</div>
+    <div class="word-table-wrapper">
+      <table class="word-table">
+        <thead><tr><th style="width:4%">#</th><th style="width:22%">Word</th><th style="width:37%">English Meaning</th><th style="width:37%">नेपाली अर्थ</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="word-cell" onclick="showMeaning('moaning','groaning, lamenting sadly','कराउनु, विलाप गर्नु')">moaning</td><td>groaning, lamenting sadly</td><td class="nepali-cell">कराउनु, विलाप गर्नु</td></tr>
+          <tr><td>2</td><td class="word-cell" onclick="showMeaning('bar','sandbar; the boundary between life and death','बालुवाको थुम्बा; जीवन र मृत्युको सिमाना')">bar</td><td>sandbar; the boundary between life and death</td><td class="nepali-cell">बालुवाको थुम्बा; जीवन र मृत्युको सिमाना</td></tr>
+          <tr><td>3</td><td class="word-cell" onclick="showMeaning('boundless','without limits, infinite','असीमित, अनन्त')">boundless</td><td>without limits, infinite</td><td class="nepali-cell">असीमित, अनन्त</td></tr>
+          <tr><td>4</td><td class="word-cell" onclick="showMeaning('tide','the rise and fall of the sea','ज्वार-भाटा')">tide</td><td>the rise and fall of the sea</td><td class="nepali-cell">ज्वार-भाटा</td></tr>
+          <tr><td>5</td><td class="word-cell" onclick="showMeaning('foam','frothy bubbles on water','फिँज, बुड्बुड')">foam</td><td>frothy bubbles on water</td><td class="nepali-cell">फिँज, बुड्बुड</td></tr>
+          <tr><td>6</td><td class="word-cell" onclick="showMeaning('twilight','the soft light just after sunset','साँझको झिसमिसे उज्यालो, गोधूलि')">twilight</td><td>the soft light just after sunset</td><td class="nepali-cell">साँझको झिसमिसे उज्यालो, गोधूलि</td></tr>
+          <tr><td>7</td><td class="word-cell" onclick="showMeaning('embark','to begin a journey; to board a ship','यात्रा सुरु गर्नु; जहाजमा चढ्नु')">embark</td><td>to begin a journey; to board a ship</td><td class="nepali-cell">यात्रा सुरु गर्नु; जहाजमा चढ्नु</td></tr>
+          <tr><td>8</td><td class="word-cell" onclick="showMeaning('tho&apos;','though, although','यद्यपि, भएपनि')">tho'</td><td>though, although</td><td class="nepali-cell">यद्यपि, भएपनि</td></tr>
+          <tr><td>9</td><td class="word-cell" onclick="showMeaning('bourne','a boundary, a limit','सिमाना, हद')">bourne</td><td>a boundary, a limit</td><td class="nepali-cell">सिमाना, हद</td></tr>
+          <tr><td>10</td><td class="word-cell" onclick="showMeaning('flood','a large flowing of water; here: the tide','बाढी; यहाँ: ज्वारभाटाको प्रवाह')">flood</td><td>a large flowing of water; here: the tide</td><td class="nepali-cell">बाढी; यहाँ: ज्वारभाटाको प्रवाह</td></tr>
+          <tr><td>11</td><td class="word-cell" onclick="showMeaning('Pilot','a guide of a ship; symbolically God','जहाजको चालक; प्रतीकात्मक रूपमा ईश्वर')">Pilot</td><td>a guide of a ship; symbolically God</td><td class="nepali-cell">जहाजको चालक; प्रतीकात्मक रूपमा ईश्वर</td></tr>
+          <tr><td>12</td><td class="word-cell" onclick="showMeaning('crost','crossed (archaic past tense)','पार गरेको (पुरानो प्रयोग)')">crost</td><td>crossed (archaic past tense)</td><td class="nepali-cell">पार गरेको (पुरानो प्रयोग)</td></tr>
+          <tr><td>13</td><td class="word-cell" onclick="showMeaning('sea','the ocean; symbolically death/afterlife','समुद्र; प्रतीकात्मक रूपमा मृत्यु/परलोक')">sea</td><td>the ocean; symbolically death/afterlife</td><td class="nepali-cell">समुद्र; प्रतीकात्मक रूपमा मृत्यु/परलोक</td></tr>
+          <tr><td>14</td><td class="word-cell" onclick="showMeaning('star','celestial body; symbolically hope or sign','तारा; प्रतीकात्मक रूपमा आशा वा संकेत')">star</td><td>celestial body; symbolically hope or sign</td><td class="nepali-cell">तारा; प्रतीकात्मक रूपमा आशा वा संकेत</td></tr>
+          <tr><td>15</td><td class="word-cell" onclick="showMeaning('farewell','goodbye; parting','बिदाइ, अलविदा')">farewell</td><td>goodbye; parting</td><td class="nepali-cell">बिदाइ, अलविदा</td></tr>
+          <tr><td>16</td><td class="word-cell" onclick="showMeaning('call','a summons; here: call of death','बोलाइ; यहाँ: मृत्युको बोलाइ')">call</td><td>a summons; here: call of death</td><td class="nepali-cell">बोलाइ; यहाँ: मृत्युको बोलाइ</td></tr>
+          <tr><td>17</td><td class="word-cell" onclick="showMeaning('drew','pulled, attracted','तान्यो, आकर्षित गर्‍यो')">drew</td><td>pulled, attracted</td><td class="nepali-cell">तान्यो, आकर्षित गर्‍यो</td></tr>
+          <tr><td>18</td><td class="word-cell" onclick="showMeaning('sadness','sorrow, grief','दुःख, शोक')">sadness</td><td>sorrow, grief</td><td class="nepali-cell">दुःख, शोक</td></tr>
+          <tr><td>19</td><td class="word-cell" onclick="showMeaning('asleep','sleeping; here: calm and still','निदाएको; यहाँ: शान्त र स्थिर')">asleep</td><td>sleeping; here: calm and still</td><td class="nepali-cell">निदाएको; यहाँ: शान्त र स्थिर</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== SYMBOLIC WORDS ===== -->
+  <div class="section-card" id="symbols">
+    <div class="section-heading"><div class="icon icon-symbol">🔷</div>Symbolic Words &amp; Phrases</div>
+    <div class="section-subtitle">Understanding the deeper meanings behind the poet's images</div>
+    <table class="symbol-table">
+      <thead><tr><th>Symbol</th><th>What It Represents</th></tr></thead>
+      <tbody>
+        <tr><td><strong>The Bar</strong></td><td>The sandbar at a harbour mouth — symbolises the boundary between life and death</td></tr>
+        <tr><td><strong>The Sea</strong></td><td>The vast ocean beyond — symbolises death, the unknown, the afterlife</td></tr>
+        <tr><td><strong>Sunset / Twilight / Dark</strong></td><td>Evening and darkness — symbolise the approaching end of life</td></tr>
+        <tr><td><strong>The Pilot</strong></td><td>The guide of the ship — symbolises God, or divine guidance</td></tr>
+        <tr><td><strong>Crossing the bar</strong></td><td>Sailing past the sandbar into the open sea — symbolises dying, the soul's passage into afterlife</td></tr>
+        <tr><td><strong>Tide</strong></td><td>The calm tidal movement — symbolises the peaceful, natural flow of death</td></tr>
+        <tr><td><strong>Evening star</strong></td><td>The star appearing at dusk — symbolises a divine sign or heaven's light</td></tr>
+        <tr><td><strong>The Call</strong></td><td>A summons — symbolises the call of death</td></tr>
+        <tr><td><strong>Bourne of Time and Place</strong></td><td>The limits of earthly existence — symbolises the mortal world left behind</td></tr>
+        <tr><td><strong>Flood</strong></td><td>The current carrying the speaker — symbolises the unstoppable force of death</td></tr>
+        <tr><td><strong>Moaning of the bar</strong></td><td>The sound of waves crashing — symbolises grief, mourning at death</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===== OVERALL INTERPRETATION ===== -->
+  <div class="section-card" id="interpretation">
+    <div class="section-heading"><div class="icon icon-symbol">📜</div>Overall Symbolic Interpretation</div>
+    <div class="quote-block">This poem is an <strong>extended metaphor</strong> (रूपक) for <strong>death as a sea voyage</strong>. The poet Tennyson, old and near death when he wrote this, uses the image of a ship sailing out of a harbour into the open sea to describe the soul leaving the mortal world and journeying to God.</div>
+    <div class="quote-block">• The <strong>harbour</strong> = life on earth<br>• <strong>Crossing the bar</strong> = the moment of death<br>• <strong>The open sea</strong> = the afterlife/eternity<br>• <strong>The Pilot</strong> = God, whom the speaker hopes to meet after death</div>
+    <div class="quote-block">The poem expresses <strong>calm acceptance of death</strong> — not fear, not grief. The speaker wishes for a quiet, peaceful death with no mourning, trusting that God (the Pilot) will receive him on the other side.</div>
+  </div>
+
+  <!-- ===== TEACHER'S SPEECH ===== -->
+  <div class="section-card" id="speech">
+    <div class="section-heading"><div class="icon icon-speech">👩‍🏫</div>Teacher's Speech Notes for the Class</div>
+    <div class="section-subtitle">Read along as the teacher introduces the poem</div>
+
+    <div class="speech-block">"Students, have you ever stood at the edge of a river or a sea and wondered what lies beyond? Today's poem is about exactly that — but the poet is not talking about water. He is talking about death. Let us read together."</div>
+
+    <div class="speech-block"><strong>Background on Poet:</strong> Alfred Lord Tennyson (1809–1892) was a famous English poet, Poet Laureate of Britain. He wrote this poem in 1889, when he was 80 years old, just three years before his death. He asked that this poem always be placed <strong>last</strong> in any collection of his works — because it was his farewell to the world.</div>
+
+    <div class="speech-block"><strong>Setting the Context:</strong> A <strong>bar</strong> is a sandbar — a ridge of sand at the mouth of a harbour. When a ship sails out of the harbour into the open sea, it must <strong>cross the bar</strong>. This is the central image of the poem. Tennyson uses this image as a <strong>metaphor for death</strong>.</div>
+
+    <div class="speech-block"><strong>Key Teaching Points:</strong><br><br>1. <strong>Tone</strong> — The tone is calm, peaceful, accepting. The speaker does NOT fear death. Notice — he says "may there be no moaning... no sadness of farewell." He does not want mourning. He is ready.<br><br>2. <strong>Structure</strong> — 4 stanzas of 4 lines each. Rhyme scheme: ABAB. Find the rhyming words.<br><br>3. <strong>The Pilot</strong> — Who do you think the Pilot is? It is God.<br><br>4. <strong>Universal Theme</strong> — In our culture too, we believe that after death, the soul goes to a better place. Tennyson believes the same — he calls that place "home."</div>
+
+    <div class="speech-block"><strong>Closing Discussion Question:</strong> "Do you think a person can face death without fear? What gives people courage at the end of life?"</div>
+  </div>
+
+  <!-- ===== LINE-BY-LINE EXPLANATION ===== -->
+  <div class="section-card" id="explanation">
+    <div class="section-heading"><div class="icon icon-explain">📝</div>Line-by-Line Explanation</div>
+    <div class="section-subtitle">Each stanza explained in detail</div>
+
+    <div class="stanza-block">
+      <div class="stanza-label stanza-1">Stanza 1</div>
+      <div class="stanza-quote">"Sunset and evening star, / And one clear call for me!"</div>
+      <div class="stanza-explain">The poem opens at <strong>sunset</strong> — a symbol of the end of life. The "evening star" appears as light fades. The poet hears "one clear call" — the call of death, clear and certain. He knows his time has come.</div>
+      <div class="stanza-quote" style="margin-top:14px">"And may there be no moaning of the bar, / When I put out to sea,"</div>
+      <div class="stanza-explain">"Moaning of the bar" = the loud, crashing sound of waves hitting the sandbar. Symbolically: <strong>no loud grief or mourning</strong> when he dies. "Put out to sea" = sail away = die. He wishes for a quiet, undisturbed departure.</div>
+    </div>
+
+    <div class="stanza-block">
+      <div class="stanza-label stanza-2">Stanza 2</div>
+      <div class="stanza-quote">"But such a tide as moving seems asleep, / Too full for sound and foam,"</div>
+      <div class="stanza-explain">He wants a <strong>calm, full tide</strong> — so deep and full that it moves silently, without foam or noise. Symbolically: a peaceful, quiet death — no drama, no suffering.</div>
+      <div class="stanza-quote" style="margin-top:14px">"When that which drew from out the boundless deep / Turns again home."</div>
+      <div class="stanza-explain">"That which drew from out the boundless deep" = his soul, which originally came from God (the infinite deep) and is now <strong>returning home</strong> to God. Life came from God; at death, it returns to God.</div>
+    </div>
+
+    <div class="stanza-block">
+      <div class="stanza-label stanza-3">Stanza 3</div>
+      <div class="stanza-quote">"Twilight and evening bell, / And after that the dark!"</div>
+      <div class="stanza-explain"><strong>Twilight</strong> = the last faint light before darkness — symbolises the very last moments of life. The <strong>evening bell</strong> rings — like a church bell signalling day's end, here it signals the end of life. Then <strong>dark</strong> = death.</div>
+      <div class="stanza-quote" style="margin-top:14px">"And may there be no sadness of farewell, / When I embark;"</div>
+      <div class="stanza-explain">Again the speaker asks: no sad goodbyes. "Embark" = board a vessel and set off. He begins his final journey calmly and willingly.</div>
+    </div>
+
+    <div class="stanza-block">
+      <div class="stanza-label stanza-4">Stanza 4</div>
+      <div class="stanza-quote">"For tho' from out our bourne of Time and Place / The flood may bear me far,"</div>
+      <div class="stanza-explain">"Bourne of Time and Place" = the boundary of our mortal world — time and physical space. The "flood" (the tide/death) will carry him <strong>far beyond</strong> this world. He will leave everything earthly behind.</div>
+      <div class="stanza-quote" style="margin-top:14px">"I hope to see my Pilot face to face / When I have crost the bar."</div>
+      <div class="stanza-explain">The <strong>most important lines</strong> of the poem. After crossing the boundary of death, the speaker hopes to <strong>meet God face to face</strong>. The "Pilot" (God) has been guiding his life's journey all along — and now, at last, he will see him directly. This is a statement of <strong>faith and hope</strong>, not fear.</div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE A: MATCHING ===== -->
+  <div class="section-card" id="exerciseA">
+    <div class="section-heading"><div class="icon icon-match">🔗</div>Exercise A — Match Column A with Column B</div>
+    <div class="section-subtitle">Click each item to reveal the matching answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">a</div><div class="exercise-q-text">moaning → ?</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-answer">Match</span><span class="answer-text"><strong>moaning → v.</strong> complaining</span></div></div></div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">b</div><div class="exercise-q-text">boundless → ?</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-answer">Match</span><span class="answer-text"><strong>boundless → iv.</strong> never-ending; infinite</span></div></div></div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">c</div><div class="exercise-q-text">twilight → ?</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-answer">Match</span><span class="answer-text"><strong>twilight → vii.</strong> dusk</span></div></div></div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">d</div><div class="exercise-q-text">embark → ?</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-answer">Match</span><span class="answer-text"><strong>embark → iii.</strong> go on board</span></div></div></div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">e</div><div class="exercise-q-text">tho' → ?</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-answer">Match</span><span class="answer-text"><strong>tho' → ii.</strong> though</span></div></div></div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">f</div><div class="exercise-q-text">bourne → ?</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-answer">Match</span><span class="answer-text"><strong>bourne → i.</strong> a boundary; a limit</span></div></div></div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">g</div><div class="exercise-q-text">crost → ?</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-answer">Match</span><span class="answer-text"><strong>crost → vi.</strong> crossed</span></div></div></div>
+  </div>
+
+  <!-- ===== EXERCISE B: SUMMARY COMPLETION ===== -->
+  <div class="section-card" id="exerciseB">
+    <div class="section-heading"><div class="icon icon-fill">📝</div>Exercise B — Summary Completion (Fill in the Gaps)</div>
+    <div class="section-subtitle">Click each blank to reveal the correct word</div>
+
+    <div class="summary-box">
+      The speaker is making <span class="hp" onclick="showMeaning('a journey','a trip or voyage','एक यात्रा')" style="cursor:pointer;border-bottom:2px dashed var(--primary)"><strong>a journey</strong></span> with her guide. She asks the guide eight different questions about <span style="border-bottom:2px dashed var(--primary);font-weight:700;color:var(--primary);cursor:pointer" onclick="showMeaning('the road ahead','the path forward','अगाडिको बाटो')"><strong>the road ahead</strong></span>. The first question is if the road is all <span style="border-bottom:2px dashed var(--primary);font-weight:700;color:var(--primary)"><strong>up-hill</strong></span> and if the journey will take all day. The guide replies <span style="border-bottom:2px dashed var(--primary);font-weight:700;color:var(--primary)"><strong>in the affirmative</strong></span>. Next, she asks if there is <span style="border-bottom:2px dashed var(--primary);font-weight:700;color:var(--primary)"><strong>a place</strong></span> to rest for the night. The guide informs the speaker that there is <span style="border-bottom:2px dashed var(--primary);font-weight:700;color:var(--primary)"><strong>an inn</strong></span> which she won't miss. The speaker's fifth question is, whether she will meet the other travellers <span style="border-bottom:2px dashed var(--primary);font-weight:700;color:var(--primary)"><strong>on the way</strong></span>. At the inn, the speaker asks if she should knock or call the <span style="border-bottom:2px dashed var(--primary);font-weight:700;color:var(--primary)"><strong>fellow travellers</strong></span>. The guide replies that <span style="border-bottom:2px dashed var(--primary);font-weight:700;color:var(--primary)"><strong>someone</strong></span> will open the door. Lastly, the speaker asks if there will be a bed for her. The guide tells her that there are beds for <span style="border-bottom:2px dashed var(--primary);font-weight:700;color:var(--primary)"><strong>everyone</strong></span>.
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE C: SHORT ANSWERS ===== -->
+  <div class="section-card" id="exerciseC">
+    <div class="section-heading"><div class="icon icon-short">✎</div>Exercise C — Answer the Following Questions</div>
+    <div class="section-subtitle">Click each question to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">a</div><div class="exercise-q-text">Where does the speaker have to go crossing the sandbar?</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-answer">Answer</span><span class="answer-text">The speaker has to go to the open sea — symbolically, to the afterlife or to God — after crossing the sandbar (the boundary between life and death).</span></div></div></div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">b</div><div class="exercise-q-text">Why can't the tide make a huge sound or create a lather?</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-answer">Answer</span><span class="answer-text">The speaker wishes for a tide that is "too full for sound and foam" — meaning it is so calm and deep that it moves silently, without making noise or froth. This symbolises a peaceful, quiet death.</span></div></div></div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">c</div><div class="exercise-q-text">What do the twilight and the evening bell suggest in the poem?</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-answer">Answer</span><span class="answer-text">Twilight and the evening bell suggest the final moments of life — the fading of daylight represents the end of life, and the bell signals that the time has come to depart.</span></div></div></div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">d</div><div class="exercise-q-text">Where is the speaker going without accepting sad goodbyes?</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-answer">Answer</span><span class="answer-text">The speaker is going on his final journey across the sandbar into the sea — symbolically, he is dying and moving into the afterlife — and he wishes this to happen without any sad farewells or mourning.</span></div></div></div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">e</div><div class="exercise-q-text">Who is the only agent that helps the speaker to go far on his journey?</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-answer">Answer</span><span class="answer-text">The "flood" — the tide or current — bears the speaker far beyond the boundary of the mortal world. Symbolically, it is God's will or the natural force of death that carries him.</span></div></div></div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">f</div><div class="exercise-q-text">Does the speaker fear death? Why/Why not?</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-answer">Answer</span><span class="answer-text">No, the speaker does not fear death. He welcomes it calmly and peacefully. He has faith that after crossing the bar (death), he will meet his Pilot (God) face to face. His belief in God gives him courage and peace.</span></div></div></div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">g</div><div class="exercise-q-text">What does the pilot symbolise?</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-answer">Answer</span><span class="answer-text">The Pilot symbolises God — the divine guide who has steered the speaker's life journey all along, and whom the speaker hopes to meet directly after death.</span></div></div></div>
+  </div>
+
+  <!-- ===== ADDITIONAL: SHORT QUESTIONS ===== -->
+  <div class="section-card extra-section" id="extraSA">
+    <div class="section-heading"><div class="icon icon-extra">💡</div>Additional Short Answer Questions</div>
+    <div class="section-subtitle">Click each question to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">1</div><div class="exercise-q-text">What does "crossing the bar" mean in the poem?</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-answer">Answer</span><span class="answer-text">It means dying — passing the boundary between life and death, like a ship crossing the sandbar at the harbour mouth into the open sea.</span></div></div></div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">2</div><div class="exercise-q-text">Why does the speaker not want any "moaning of the bar"?</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-answer">Answer</span><span class="answer-text">He does not want weeping or mourning at his death. He wishes for a calm, peaceful passing without grief.</span></div></div></div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">3</div><div class="exercise-q-text">What is the significance of "Sunset" and "Twilight" in the poem?</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-answer">Answer</span><span class="answer-text">Both represent the end of life. Sunset and twilight are the fading of light — symbolising old age and the approach of death.</span></div></div></div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">4</div><div class="exercise-q-text">Who wrote "Crossing the Bar" and when was it written?</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-answer">Answer</span><span class="answer-text">Alfred Lord Tennyson wrote it in 1889, three years before his death at age 80.</span></div></div></div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">5</div><div class="exercise-q-text">What does the speaker mean by "Turns again home"?</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-answer">Answer</span><span class="answer-text">The soul, which originally came from God (the "boundless deep"), is returning to God — returning "home."</span></div></div></div>
+  </div>
+
+  <!-- ===== ADDITIONAL: TRUE/FALSE ===== -->
+  <div class="section-card extra-section" id="extraTF">
+    <div class="section-heading"><div class="icon icon-extra">🔍</div>Additional True / False Questions</div>
+    <div class="section-subtitle">Click each statement to reveal whether it's True or False</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">1</div><div class="exercise-q-text">The speaker is afraid of death.</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-false">False</span><span class="answer-text">The speaker calmly accepts death and has faith he will meet God (the Pilot) face to face.</span></div></div></div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">2</div><div class="exercise-q-text">The Pilot in the poem symbolises God.</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-true">True</span><span class="answer-text">The Pilot is the divine guide who has steered the speaker's life and whom he hopes to meet after death.</span></div></div></div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">3</div><div class="exercise-q-text">The speaker wants loud mourning and sad farewells at his death.</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-false">False</span><span class="answer-text">He explicitly asks for "no moaning of the bar" and "no sadness of farewell."</span></div></div></div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">4</div><div class="exercise-q-text">"Crossing the bar" is a metaphor for beginning a sea voyage for pleasure.</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-false">False</span><span class="answer-text">It is a metaphor for death — the soul's passage from life into the afterlife.</span></div></div></div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">5</div><div class="exercise-q-text">The poem was written by Alfred Lord Tennyson when he was very old.</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-true">True</span><span class="answer-text">He wrote it in 1889 at age 80, just three years before his death.</span></div></div></div>
+  </div>
+
+  <!-- ===== ADDITIONAL: FILL IN THE BLANKS ===== -->
+  <div class="section-card extra-section" id="extraFill">
+    <div class="section-heading"><div class="icon icon-extra">🧩</div>Additional Fill in the Blanks — Vocabulary in Context</div>
+    <div class="section-subtitle">Click each question to reveal the correct answer</div>
+
+    <div class="box-words">
+      <span class="box-word">embark</span>
+      <span class="box-word">boundless</span>
+      <span class="box-word">twilight</span>
+      <span class="box-word">bourne</span>
+      <span class="box-word">crost</span>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">1</div><div class="exercise-q-text">The astronauts felt the <span class="blank-slot">________</span> beauty of the universe from space.</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-answer">Answer</span><span class="answer-text"><strong>boundless</strong> — The astronauts felt the <strong>boundless</strong> beauty of the universe from space.</span></div></div></div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">2</div><div class="exercise-q-text">After a long life, he was ready to <span class="blank-slot">________</span> on his final journey.</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-answer">Answer</span><span class="answer-text"><strong>embark</strong> — After a long life, he was ready to <strong>embark</strong> on his final journey.</span></div></div></div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">3</div><div class="exercise-q-text">The soft <span class="blank-slot">________</span> light made the mountains glow with golden colour.</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-answer">Answer</span><span class="answer-text"><strong>twilight</strong> — The soft <strong>twilight</strong> light made the mountains glow with golden colour.</span></div></div></div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">4</div><div class="exercise-q-text">Once you cross the <span class="blank-slot">________</span> of this life, you cannot return.</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-answer">Answer</span><span class="answer-text"><strong>bourne</strong> — Once you cross the <strong>bourne</strong> of this life, you cannot return.</span></div></div></div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)"><div class="exercise-question"><div class="exercise-q-number">5</div><div class="exercise-q-text">The brave sailor had <span class="blank-slot">________</span> many dangerous seas in his lifetime.</div><div class="exercise-toggle">▼</div></div><div class="exercise-answer"><div class="exercise-answer-inner"><span class="answer-badge badge-answer">Answer</span><span class="answer-text"><strong>crost</strong> — The brave sailor had <strong>crost</strong> many dangerous seas in his lifetime.</span></div></div></div>
+  </div>
+
+</div>
+
+<script>
+  let fontSize=17;const MIN_F=12,MAX_F=28;
+  function changeFontSize(d){
+    fontSize=Math.max(MIN_F,Math.min(MAX_F,fontSize+d));
+    document.documentElement.style.setProperty('--font-size-base',fontSize+'px');
+    const el=document.getElementById('fontDisplay');el.textContent=fontSize+'px';
+    el.style.transform='scale(1.2)';setTimeout(()=>el.style.transform='scale(1)',200);
+  }
+  let popupTimer;
+  function showMeaning(word,en,ne){
+    document.getElementById('popupWord').textContent=word;
+    document.getElementById('popupEnglish').textContent=en;
+    document.getElementById('popupNepali').textContent=ne;
+    document.getElementById('meaningPopup').classList.add('show');
+    clearTimeout(popupTimer);
+  }
+  function closePopup(){document.getElementById('meaningPopup').classList.remove('show')}
+  function toggleExercise(item){
+    const parent=item.closest('.section-card');
+    const all=parent.querySelectorAll('.exercise-item');
+    const isOpen=item.classList.contains('open');
+    all.forEach(i=>i.classList.remove('open'));
+    if(!isOpen)item.classList.add('open');
+  }
+  function downloadHTML(){
+    const html=document.documentElement.outerHTML;
+    const blob=new Blob(['<!DOCTYPE html>\n'+html],{type:'text/html;charset=utf-8'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');a.href=url;a.download='Crossing_the_Bar_Interactive.html';
+    document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
+  }
+</script>
+</body>
+</html>

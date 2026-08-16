@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 5: Why 'I'm Sorry' Doesn't Always Translate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #faf7f2;
+            --fg: #1a1a1a;
+            --muted: #5a5a5a;
+            --accent: #2d5a4a;
+            --accent-light: #3d7a64;
+            --card: #ffffff;
+            --border: #e5e0d8;
+            --highlight: #e8f0ed;
+            --nepali: #8b5a2b;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--fg);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 { font-family: 'Crimson Pro', serif; }
+
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+        }
+
+        .vocab-item {
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .vocab-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .nepali-text {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            color: var(--nepali);
+            background: #fdf6ee;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            white-space: nowrap;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            font-size: 14px;
+            font-weight: 600;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .reading-text p {
+            margin-bottom: 1.2rem;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #333;
+            text-align: justify;
+        }
+
+        .highlight-word {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; transition: none !important; }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .header-pattern {
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(45, 90, 74, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 90, 43, 0.06) 0%, transparent 50%);
+        }
+
+        details summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="min-h-screen pb-16">
+    <!-- Header -->
+    <header class="header-pattern py-8 px-5 border-b border-[var(--border)]">
+        <div class="max-w-lg mx-auto">
+            <span class="inline-block px-3 py-1 bg-[var(--accent)] text-white text-xs font-semibold rounded-full mb-3">Unit 5</span>
+            <h1 class="text-2xl sm:text-3xl font-bold text-[var(--fg)] leading-tight">
+                Why "I'm Sorry" Doesn't Always Translate
+            </h1>
+            <p class="text-[var(--muted)] mt-2 text-sm">Complete Notes & Exercise Solutions</p>
+        </div>
+    </header>
+
+    <main class="max-w-lg mx-auto px-5 pt-6">
+        
+        <!-- FULL READING TEXT SECTION -->
+        <section class="fade-in mb-8">
+            <h2 class="text-lg font-bold text-[var(--accent)] mb-4 flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                </svg>
+                Reading Text
+            </h2>
+            
+            <div class="card p-5 reading-text">
+                <p>
+                    Even after decades of <span class="highlight-word">cooperation</span> <span class="nepali-text">सहयोग</span> (working together) in business and politics, America and Japan still <span class="highlight-word">trip over</span> <span class="nepali-text">बाधा हुनु</span> (to have difficulty saying something clearly) a seemingly simple <span class="highlight-word">concept</span> <span class="nepali-text">अवधारणा</span> (an idea): the apology. Neither culture appears to fully understand what the other means or expects.
+                </p>
+                <p>
+                    For instance, most Americans were unmoved by Toyota CEO Akio Toyoda’s <span class="highlight-word">effusive</span> <span class="nepali-text">भावनापूर्ण</span> (showing too much emotion) apologies in 2010, after widespread reports of <span class="highlight-word">malfunctioning</span> <span class="nepali-text">बिग्रेको</span> (not working correctly) Prius accelerators. Japan, for its part, <span class="highlight-word">bristled</span> <span class="nepali-text">रिसाउनु</span> (became annoyed or offended) when a US submarine commander didn’t immediately apologise after colliding with and sinking a Japanese fishing boat off Hawaii in 2001.
+                </p>
+                <p>
+                    The confusion over the meaning of and occasion for “I’m sorry” extends beyond those countries; indeed, it seems that virtually every culture has its own rules. In India, other researchers have noted, apologies are far less common than in Japan. In Hong Kong, they are so <span class="highlight-word">prevalent</span> <span class="nepali-text">प्रचलित</span> (widespread) and <span class="highlight-word">ritualised</span> <span class="nepali-text">रीतिरिवाज बनाइएको</span> (made into a regular pattern) that many people are <span class="highlight-word">inured</span> <span class="nepali-text">अभ्यस्त</span> (accustomed to something unpleasant) to them.
+                </p>
+                <p>
+                    Our own work found that a core issue is differing perceptions of <span class="highlight-word">culpability</span> <span class="nepali-text">दोष</span> (the fact of being responsible for a fault): Americans see an apology as an admission of wrongdoing, whereas Japanese see it as an expression of eagerness to repair a damaged relationship, with no culpability necessarily implied. And this difference, we discovered, affects how much <span class="highlight-word">traction</span> <span class="nepali-text">प्रभाव वा लोकप्रियता</span> (the extent to which an idea gains acceptance) an apology gains.
+                </p>
+                <p>
+                    In an initial survey of US and Japanese undergraduates, the US students were more likely to say that an apology directly implied guilt. The Japanese students were more likely to apologise even when they weren’t personally responsible for what had happened. Perhaps for this reason, they apologised a lot more; they recalled issuing an average of 11.05 apologies in the previous week, whereas US students recalled just 4.51.
+                </p>
+                <p>
+                    In a second study, we looked at the <span class="highlight-word">utility</span> <span class="nepali-text">उपयोगिता</span> (usefulness) of apologies for repairing trust. We asked undergraduates from both countries to imagine that they were managers and showed them a video in which an applicant for an accounting job apologised for having deliberately filed an incorrect tax return for a prior client. The Japanese students were more willing than their US counterparts to trust the candidate’s <span class="highlight-word">assertion</span> <span class="nepali-text">दृढ भनाइ</span> (a confident statement of belief) that she wouldn’t engage in such behavior again and to offer her a job. We believe that this is owing to Americans’ <span class="highlight-word">inclination</span> <span class="nepali-text">झुकाव</span> (a tendency or local preference) to associate apologies with culpability.
+                </p>
+                <p>
+                    The finding that Americans link apologies with blame is in keeping, we’d argue, with a psychological tendency among Westerners to <span class="highlight-word">attribute</span> <span class="nepali-text">कारण मान्नु</span> (to believe something is the result of a particular thing) events to individuals’ actions. Thus it makes sense that in the US an apology is taken to mean “I am the one who is responsible.” It also stands to reason that in Japan—which, like many other East Asian countries, has a more <span class="highlight-word">group-oriented</span> <span class="nepali-text">समूह-उन्मुख</span> (focusing on the group rather than individuals) culture—apologies are heard as “It is unfortunate that this happened.” Researchers who’ve compared apologies in America and China have found a similar pattern: US apologies serve to establish personal responsibility, while Chinese ones focus on the larger consequences of the <span class="highlight-word">transgression</span> <span class="nepali-text">नियम उल्लंघन</span> (an act that goes against a law or rule).
+                </p>
+                <p>
+                    Only with a deep understanding of such differences can the <span class="highlight-word">executives</span> <span class="nepali-text">कार्यकारीहरू</span> (people with senior managerial responsibility) make effective use of the apology as a tool for <span class="highlight-word">facilitating</span> <span class="nepali-text">सहज बनाउने</span> (making a process easier) <span class="highlight-word">negotiations</span> <span class="nepali-text">वार्ता</span> (formal discussions to reach an agreement), resolving conflicts, and repairing trust. And misunderstandings over apologies are just one aspect of a broad <span class="highlight-word">semantic</span> <span class="nepali-text">अर्थगत</span> (connected with the meaning of words) <span class="highlight-word">disconnect</span> <span class="nepali-text">विच्छेद</span> (a lack of connection) between East and West that’s too often ignored in the rush to <span class="highlight-word">globalisation</span> <span class="nepali-text">भूमण्डलीकरण</span> (the process of international integration). Managers would do well to tune in to other cultural <span class="highlight-word">nuances</span> <span class="nepali-text">सूक्ष्म भेद</span> (very slight differences in meaning) that are easily lost in translation. There must be a sense of <span class="highlight-word">symmetry</span> <span class="nepali-text">समानता</span> (similarity or balance) in how apologies are offered and accepted across borders.
+                </p>
+            </div>
+        </section>
+
+        <!-- Exercise A: Vocabulary -->
+        <section class="fade-in mb-8">
+            <div class="flex items-center gap-2 mb-4">
+                <span class="section-number">A</span>
+                <h2 class="text-lg font-bold text-[var(--fg)]">Vocabulary</h2>
+            </div>
+            <p class="text-xs text-[var(--muted)] mb-4">Find words from the text that match these meanings.</p>
+
+            <div class="card p-5 space-y-4">
+                <div class="vocab-item">
+                    <p class="text-sm"><strong class="text-[var(--accent)]">a. trip over</strong> — To have difficulty saying something clearly or correctly</p>
+                </div>
+                <div class="vocab-item">
+                    <p class="text-sm"><strong class="text-[var(--accent)]">b. effusive</strong> — Showing too much emotion</p>
+                </div>
+                <div class="vocab-item">
+                    <p class="text-sm"><strong class="text-[var(--accent)]">c. bristled</strong> — To become annoyed or offended</p>
+                </div>
+                <div class="vocab-item">
+                    <p class="text-sm"><strong class="text-[var(--accent)]">d. inured</strong> — Being used to or accustomed to doing something</p>
+                </div>
+                <div class="vocab-item">
+                    <p class="text-sm"><strong class="text-[var(--accent)]">e. culpability</strong> — The fact of being responsible for a mistake</p>
+                </div>
+                <div class="vocab-item">
+                    <p class="text-sm"><strong class="text-[var(--accent)]">f. assertion</strong> — A statement that you strongly believe is true</p>
+                </div>
+                <div class="vocab-item">
+                    <p class="text-sm"><strong class="text-[var(--accent)]">g. attribute</strong> — To believe that something happened because of a specific cause</p>
+                </div>
+                <div class="vocab-item">
+                    <p class="text-sm"><strong class="text-[var(--accent)]">h. semantic</strong> — Related to the meaning of words and sentences</p>
+                </div>
+                <div class="vocab-item">
+                    <p class="text-sm"><strong class="text-[var(--accent)]">i. nuance</strong> — A very small or slight difference in meaning</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exercise B: Matching -->
+        <section class="fade-in mb-8">
+            <div class="flex items-center gap-2 mb-4">
+                <span class="section-number">B</span>
+                <h2 class="text-lg font-bold text-[var(--fg)]">Sentence Matching</h2>
+            </div>
+            <p class="text-xs text-[var(--muted)] mb-4">Match the first half (Column A) with the correct ending (Column B).</p>
+
+            <div class="space-y-3">
+                <div class="card p-4">
+                    <p class="text-sm"><strong>a.</strong> Americans didn't show</p>
+                    <p class="text-sm text-[var(--accent)] font-medium mt-1 pl-4 border-l-2 border-[var(--accent)]">iv. sympathy to Akio Toyoda's effusive apologies</p>
+                </div>
+
+                <div class="card p-4">
+                    <p class="text-sm"><strong>b.</strong> People are accustomed</p>
+                    <p class="text-sm text-[var(--accent)] font-medium mt-1 pl-4 border-l-2 border-[var(--accent)]">iii. to an apology in Hong Kong</p>
+                </div>
+
+                <div class="card p-4">
+                    <p class="text-sm"><strong>c.</strong> Japanese use an apology</p>
+                    <p class="text-sm text-[var(--accent)] font-medium mt-1 pl-4 border-l-2 border-[var(--accent)]">v. to repair their damaged relationship</p>
+                </div>
+
+                <div class="card p-4">
+                    <p class="text-sm"><strong>d.</strong> American participants seemed</p>
+                    <p class="text-sm text-[var(--accent)] font-medium mt-1 pl-4 border-l-2 border-[var(--accent)]">i. less interested in a second research</p>
+                </div>
+
+                <div class="card p-4">
+                    <p class="text-sm"><strong>e.</strong> Researchers found</p>
+                    <p class="text-sm text-[var(--accent)] font-medium mt-1 pl-4 border-l-2 border-[var(--accent)]">ii. similar patterns in East Asian countries</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exercise C: Q&A -->
+        <section class="fade-in mb-8">
+            <div class="flex items-center gap-2 mb-4">
+                <span class="section-number">C</span>
+                <h2 class="text-lg font-bold text-[var(--fg)]">Question & Answers</h2>
+            </div>
+
+            <div class="space-y-3">
+                <details class="card group" open>
+                    <summary class="p-4 cursor-pointer list-none flex items-start gap-3">
+                        <span class="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--highlight)] text-[var(--accent)] flex items-center justify-center text-xs font-bold">a</span>
+                        <p class="text-sm font-medium text-[var(--fg)]">Why did Japan become annoyed with the US submarine commander?</p>
+                    </summary>
+                    <div class="px-4 pb-4 pl-13 ml-9">
+                        <p class="text-sm text-[var(--muted)] bg-[var(--highlight)] p-3 rounded-lg">Japan was upset because the commander did not say sorry immediately after his submarine hit and sank a Japanese fishing boat in 2001.</p>
+                    </div>
+                </details>
+
+                <details class="card group">
+                    <summary class="p-4 cursor-pointer list-none flex items-start gap-3">
+                        <span class="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--highlight)] text-[var(--accent)] flex items-center justify-center text-xs font-bold">b</span>
+                        <p class="text-sm font-medium text-[var(--fg)]">How do Americans and Japanese perceive an apology?</p>
+                    </summary>
+                    <div class="px-4 pb-4 pl-13 ml-9">
+                        <p class="text-sm text-[var(--muted)] bg-[var(--highlight)] p-3 rounded-lg">Americans think saying "I'm sorry" means you are admitting you are guilty of a mistake. Japanese people see it as a way to show they want to fix a relationship, even if it wasn't their fault.</p>
+                    </div>
+                </details>
+
+                <details class="card group">
+                    <summary class="p-4 cursor-pointer list-none flex items-start gap-3">
+                        <span class="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--highlight)] text-[var(--accent)] flex items-center justify-center text-xs font-bold">c</span>
+                        <p class="text-sm font-medium text-[var(--fg)]">What is the average number of apologies for Japanese and American students?</p>
+                    </summary>
+                    <div class="px-4 pb-4 pl-13 ml-9">
+                        <p class="text-sm text-[var(--muted)] bg-[var(--highlight)] p-3 rounded-lg">In a survey, Japanese students said sorry about <strong>11 times</strong> a week, while American students said it about <strong>4 or 5 times</strong> a week.</p>
+                    </div>
+                </details>
+
+                <details class="card group">
+                    <summary class="p-4 cursor-pointer list-none flex items-start gap-3">
+                        <span class="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--highlight)] text-[var(--accent)] flex items-center justify-center text-xs font-bold">d</span>
+                        <p class="text-sm font-medium text-[var(--fg)]">What was displayed in the video show?</p>
+                    </summary>
+                    <div class="px-4 pb-4 pl-13 ml-9">
+                        <p class="text-sm text-[var(--muted)] bg-[var(--highlight)] p-3 rounded-lg">The video showed a person applying for a job who apologized for making a mistake on purpose with tax papers at a previous job.</p>
+                    </div>
+                </details>
+
+                <details class="card group">
+                    <summary class="p-4 cursor-pointer list-none flex items-start gap-3">
+                        <span class="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--highlight)] text-[var(--accent)] flex items-center justify-center text-xs font-bold">e</span>
+                        <p class="text-sm font-medium text-[var(--fg)]">Who were the respondents of the second study?</p>
+                    </summary>
+                    <div class="px-4 pb-4 pl-13 ml-9">
+                        <p class="text-sm text-[var(--muted)] bg-[var(--highlight)] p-3 rounded-lg">The people who answered the questions in the second study were university students from both the United States and Japan.</p>
+                    </div>
+                </details>
+
+                <details class="card group">
+                    <summary class="p-4 cursor-pointer list-none flex items-start gap-3">
+                        <span class="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--highlight)] text-[var(--accent)] flex items-center justify-center text-xs font-bold">f</span>
+                        <p class="text-sm font-medium text-[var(--fg)]">How can executives (managers) use an apology?</p>
+                    </summary>
+                    <div class="px-4 pb-4 pl-13 ml-9">
+                        <p class="text-sm text-[var(--muted)] bg-[var(--highlight)] p-3 rounded-lg">Managers can use apologies to help make business deals easier, settle arguments, and build back trust between people.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center py-6 border-t border-[var(--border)] mt-8">
+            <p class="text-xs text-[var(--muted)]">Unit 5 — Complete Notes</p>
+        </footer>
+    </main>
+
+    <script>
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

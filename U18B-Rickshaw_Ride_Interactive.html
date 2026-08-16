@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rickshaw Ride — Grade 9 English Unit 18</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&family=Source+Serif+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --font-size-base:17px;
+  --bg:#F5EFE0;
+  --card:#FFFCF3;
+  --primary:#1E3A5F;
+  --primary-dark:#0F2540;
+  --primary-light:#6B89AD;
+  --accent:#C68B2C;
+  --accent-dark:#96681E;
+  --accent2:#A0522D;
+  --text:#1F2933;
+  --text-light:#3D4D5C;
+  --muted:#6B7785;
+  --border:#DDD0B8;
+  --highlight:#FCE9C2;
+  --highlight-border:#C68B2C;
+  --success:#2D7D5A;
+  --error:#B8324F;
+  --shadow:0 2px 12px rgba(30,58,95,0.10);
+  --radius:14px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{
+  font-family:'Source Serif Pro','Noto Sans SC',serif;
+  font-size:var(--font-size-base);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.8;
+  min-height:100vh;
+}
+
+/* ─── HEADER ─── */
+.site-header{
+  background:linear-gradient(135deg,#0A1A2E 0%,#1E3A5F 35%,#3F6593 70%,#9DB4CC 100%);
+  padding:40px 20px 34px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.site-header::before{
+  content:'';position:absolute;top:-50%;left:-20%;width:140%;height:200%;
+  background:radial-gradient(ellipse at 30% 60%,rgba(198,139,44,0.18) 0%,transparent 60%);
+  pointer-events:none;
+}
+.site-header::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,#C68B2C,#A0522D,#C68B2C);
+}
+.site-header h1{
+  font-family:'Fraunces',serif;font-size:2.8rem;color:#FAF3E0;
+  font-weight:600;letter-spacing:0.4px;position:relative;
+  text-shadow:0 2px 8px rgba(10,26,46,0.5);
+  font-style:italic;
+}
+.site-header .subtitle{
+  color:#E8B864;font-size:1.1rem;margin-top:8px;font-style:italic;
+  font-family:'Fraunces',serif;position:relative;letter-spacing:0.3px;
+}
+.site-header .meta{
+  color:rgba(250,243,224,0.78);font-size:0.85rem;margin-top:10px;position:relative;
+  font-family:'Outfit',sans-serif;letter-spacing:0.6px;
+}
+.site-header .meta span{margin:0 8px}
+
+/* ─── TOOLBAR ─── */
+.toolbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(245,239,224,0.93);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  padding:10px 20px;
+  display:flex;justify-content:center;gap:12px;align-items:center;
+  flex-wrap:wrap;
+}
+.toolbar button{
+  border:none;border-radius:8px;padding:7px 18px;
+  font-size:0.9rem;font-weight:600;cursor:pointer;
+  font-family:'Outfit',sans-serif;
+  transition:all 0.2s;
+}
+.btn-font{background:var(--primary);color:#FFF}
+.btn-font:hover{background:var(--primary-dark);transform:scale(1.05)}
+.btn-download{background:var(--accent);color:#FFF}
+.btn-download:hover{background:var(--accent-dark);transform:scale(1.05)}
+
+/* ─── NAV JUMP LINKS ─── */
+.nav-jump{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:18px 22px;
+  margin-bottom:24px;box-shadow:var(--shadow);
+}
+.nav-jump h2{
+  font-family:'Fraunces',serif;color:var(--primary);
+  font-size:1.45rem;margin-bottom:12px;font-weight:600;
+}
+.nav-jump-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+  gap:8px;
+}
+.nav-jump-grid a{
+  display:flex;align-items:center;gap:8px;
+  padding:9px 14px;border-radius:8px;
+  background:linear-gradient(135deg,#EFE6CF,#E5D8B8);
+  color:var(--text);text-decoration:none;
+  font-size:0.88rem;font-weight:500;
+  font-family:'Outfit',sans-serif;
+  border-left:3px solid var(--accent);
+  transition:all 0.25s;
+}
+.nav-jump-grid a:hover{
+  background:linear-gradient(135deg,#C68B2C22,#C68B2C15);
+  border-left-color:var(--primary);
+  transform:translateX(4px);
+  color:var(--primary);
+}
+.nav-jump-grid a .nav-icon{font-size:1rem;flex-shrink:0}
+
+/* ─── SCROLL TO TOP ─── */
+#scrollTopBtn{
+  position:fixed;bottom:90px;right:24px;z-index:9998;
+  width:48px;height:48px;border-radius:50%;
+  background:var(--primary);color:#FFF;
+  border:2px solid var(--primary-light);
+  font-size:1.3rem;cursor:pointer;
+  box-shadow:0 4px 16px rgba(30,58,95,0.35);
+  opacity:0;pointer-events:none;
+  transition:all 0.35s cubic-bezier(.4,0,.2,1);
+  display:flex;align-items:center;justify-content:center;
+}
+#scrollTopBtn.show{opacity:1;pointer-events:auto}
+#scrollTopBtn:hover{
+  background:var(--accent);border-color:var(--accent-dark);
+  transform:translateY(-3px);
+  box-shadow:0 6px 20px rgba(198,139,44,0.4);
+}
+
+/* ─── MAIN CONTAINER ─── */
+.container{max-width:900px;margin:0 auto;padding:24px 16px 60px}
+
+/* ─── SECTION CARD ─── */
+.section-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px 26px;
+  margin-bottom:24px;box-shadow:var(--shadow);
+  transition:box-shadow 0.3s;
+}
+.section-card:hover{box-shadow:0 4px 20px rgba(30,58,95,0.16)}
+.section-card h2{
+  font-family:'Fraunces',serif;color:var(--primary);
+  font-size:1.7rem;margin-bottom:16px;padding-bottom:10px;
+  border-bottom:2px solid var(--primary-light);
+  display:flex;align-items:center;gap:10px;font-weight:600;
+}
+.section-card h2 .section-icon{font-size:1.2rem}
+.section-card h3{
+  font-family:'Fraunces',serif;color:var(--accent-dark);
+  font-size:1.3rem;margin:20px 0 10px;font-weight:600;
+}
+
+/* ─── POEM STYLING ─── */
+.poem-block{
+  background:linear-gradient(135deg,#FAF3E0,#FFFCF3);
+  border-left:5px solid var(--accent);
+  border-radius:12px;padding:24px 30px;
+  margin:18px 0;font-family:'Fraunces',serif;
+  font-size:1.12rem;line-height:2.1;
+  color:var(--text);font-style:italic;
+  position:relative;
+  box-shadow:0 2px 8px rgba(160,82,45,0.08);
+}
+.poem-block::before{
+  content:'"';position:absolute;top:-12px;left:18px;
+  font-size:4rem;color:var(--accent);opacity:0.3;
+  font-family:'Fraunces',serif;line-height:1;
+}
+.poem-stanza{margin:14px 0}
+.poem-stanza .stanza-num{
+  display:inline-block;background:var(--primary);color:#FFF;
+  font-family:'Outfit',sans-serif;font-style:normal;
+  font-size:0.72rem;font-weight:600;padding:2px 10px;
+  border-radius:4px;margin-bottom:10px;letter-spacing:1px;
+  text-transform:uppercase;
+}
+.poem-line{display:block;margin:2px 0}
+.poem-line.indent{padding-left:24px}
+
+/* ─── READING PARAGRAPHS ─── */
+.reading-para{
+  margin:16px 0;padding:16px 22px;
+  background:#FAF5E6;border-radius:10px;
+  border-left:4px solid var(--accent2);
+  line-height:1.9;
+}
+.reading-para .para-label{
+  display:inline-block;background:var(--primary);
+  color:#FFF;font-size:0.72rem;font-weight:600;
+  padding:2px 10px;border-radius:4px;margin-bottom:8px;
+  letter-spacing:1px;
+  font-family:'Outfit',sans-serif;text-transform:uppercase;
+}
+.reading-para .para-heading{
+  font-family:'Fraunces',serif;
+  font-size:1.18rem;color:var(--primary-dark);
+  font-weight:600;margin-bottom:8px;font-style:italic;
+}
+
+/* ─── HIGHLIGHTED WORD ─── */
+.hw{
+  background:var(--highlight);color:var(--accent-dark);
+  padding:1px 6px;border-radius:4px;cursor:pointer;
+  border-bottom:2px dashed var(--highlight-border);
+  font-weight:600;transition:all 0.2s;
+  font-family:'Source Serif Pro',serif;font-style:normal;
+}
+.hw:hover{background:#F5D88C;transform:scale(1.04)}
+
+/* ─── MEANING POPUP ─── */
+#meaningPopup{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);
+  z-index:9999;background:#0A1A2E;color:#FAF3E0;
+  border-radius:16px;padding:18px 24px;
+  box-shadow:0 8px 32px rgba(10,26,46,0.50);
+  min-width:300px;max-width:90vw;
+  opacity:0;pointer-events:none;transition:all 0.35s cubic-bezier(.4,0,.2,1);
+  border:2px solid rgba(198,139,44,0.4);
+}
+#meaningPopup.show{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+#meaningPopup .popup-word{
+  font-family:'Fraunces',serif;font-size:1.4rem;font-weight:600;
+  color:#E8B864;margin-bottom:8px;display:flex;align-items:center;gap:8px;
+  font-style:italic;
+}
+#meaningPopup .popup-word::before{content:'📖';font-size:1.1rem}
+#meaningPopup .popup-meaning{font-size:0.92rem;line-height:1.6;font-family:'Source Serif Pro',serif}
+#meaningPopup .popup-meaning span{display:block;margin:3px 0}
+#meaningPopup .popup-en{color:#9DB4CC;font-weight:500}
+#meaningPopup .popup-ne{color:#FAF3E0;font-weight:400}
+#meaningPopup .popup-close{
+  position:absolute;top:8px;right:12px;
+  background:none;border:none;color:#9DB4CC;
+  font-size:1.3rem;cursor:pointer;line-height:1;
+}
+#meaningPopup .popup-close:hover{color:#E8B864}
+
+/* ─── VOCABULARY TABLE ─── */
+.vocab-table{
+  width:100%;border-collapse:separate;border-spacing:0;
+  border-radius:10px;overflow:hidden;
+  font-size:0.91rem;margin:12px 0;
+  font-family:'Source Serif Pro',serif;
+}
+.vocab-table thead{background:var(--primary);color:#FFF}
+.vocab-table thead th{
+  padding:10px 12px;text-align:left;font-weight:600;font-size:0.88rem;
+  font-family:'Outfit',sans-serif;letter-spacing:0.4px;
+}
+.vocab-table tbody tr{transition:background 0.2s}
+.vocab-table tbody tr:nth-child(even){background:#EFE6CF}
+.vocab-table tbody tr:hover{background:#E5D8B8}
+.vocab-table td{padding:8px 12px;border-bottom:1px solid var(--border)}
+.vocab-table td:first-child{font-weight:600;color:var(--accent-dark)}
+
+/* ─── SYMBOL TABLE ─── */
+.symbol-table{
+  width:100%;border-collapse:separate;border-spacing:0;
+  border-radius:10px;overflow:hidden;
+  font-size:0.92rem;margin:12px 0;
+  font-family:'Source Serif Pro',serif;
+}
+.symbol-table thead{background:var(--accent2);color:#FFF}
+.symbol-table thead th{
+  padding:10px 14px;text-align:left;font-weight:600;
+  font-family:'Outfit',sans-serif;letter-spacing:0.4px;
+}
+.symbol-table tbody tr:nth-child(even){background:#F8EBD8}
+.symbol-table tbody tr:hover{background:#F0DDB8}
+.symbol-table td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:top}
+.symbol-table td:first-child{
+  font-weight:700;color:var(--primary);
+  font-family:'Fraunces',serif;font-style:italic;
+  width:35%;
+}
+
+/* ─── MATCHING TABLE ─── */
+.match-table{
+  width:100%;border-collapse:separate;border-spacing:0;
+  border-radius:10px;overflow:hidden;
+  font-size:0.93rem;margin:12px 0;
+  font-family:'Source Serif Pro',serif;
+}
+.match-table thead{background:var(--primary);color:#FFF}
+.match-table thead th{
+  padding:10px 14px;text-align:left;font-weight:600;
+  font-family:'Outfit',sans-serif;letter-spacing:0.4px;
+}
+.match-table tbody tr:nth-child(even){background:#EFE6CF}
+.match-table tbody tr:hover{background:#E5D8B8}
+.match-table td{padding:8px 14px;border-bottom:1px solid var(--border)}
+.match-table td:first-child{font-weight:600;color:var(--accent-dark);width:25%}
+.match-table td:last-child{font-style:italic;color:var(--primary)}
+
+/* ─── MIND MAP TABLE ─── */
+.mindmap-table{
+  width:100%;border-collapse:separate;border-spacing:0;
+  border-radius:10px;overflow:hidden;
+  font-size:0.93rem;margin:12px 0;
+  font-family:'Source Serif Pro',serif;
+}
+.mindmap-table thead{background:var(--accent);color:#FFF}
+.mindmap-table thead th{
+  padding:10px 14px;text-align:left;font-weight:600;
+  font-family:'Outfit',sans-serif;letter-spacing:0.4px;
+}
+.mindmap-table tbody tr:nth-child(even){background:#F8EBD8}
+.mindmap-table tbody tr:hover{background:#F0DDB8}
+.mindmap-table td{padding:10px 14px;border-bottom:1px solid var(--border)}
+.mindmap-table td:first-child{
+  font-weight:700;color:var(--primary);
+  font-family:'Outfit',sans-serif;width:30%;
+}
+.mindmap-table td:last-child{
+  font-style:italic;color:var(--text-light);
+}
+
+/* ─── TEACHER'S NOTES ─── */
+.teacher-note{
+  background:linear-gradient(135deg,#FAF3E0,#FFFCF3);
+  border:1px solid var(--border);
+  border-left:5px solid var(--accent);
+  border-radius:10px;padding:16px 20px;
+  margin:12px 0;
+}
+.teacher-note .note-label{
+  display:inline-block;background:var(--accent);color:#FFF;
+  font-family:'Outfit',sans-serif;font-size:0.72rem;font-weight:700;
+  padding:2px 10px;border-radius:4px;margin-bottom:8px;
+  letter-spacing:0.8px;text-transform:uppercase;
+}
+.teacher-note p{
+  font-family:'Source Serif Pro',serif;font-style:italic;
+  color:var(--text);line-height:1.75;
+}
+.teacher-note ul{margin:8px 0 8px 22px}
+.teacher-note ul li{
+  font-family:'Source Serif Pro',serif;font-style:italic;
+  margin:4px 0;color:var(--text);
+}
+
+/* ─── EXERCISE SECTION ─── */
+.exercise-item{
+  border:1px solid var(--border);border-radius:10px;
+  margin:10px 0;overflow:hidden;
+  transition:border-color 0.3s;
+}
+.exercise-item:hover{border-color:var(--primary-light)}
+.exercise-question{
+  padding:14px 18px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;
+  font-weight:500;background:#FAF5E6;
+  transition:background 0.2s;user-select:none;
+  gap:10px;font-family:'Source Serif Pro',serif;
+}
+.exercise-question:hover{background:#EFE6CF}
+.exercise-question .arrow{
+  font-size:1.1rem;transition:transform 0.3s;color:var(--accent);
+  flex-shrink:0;
+}
+.exercise-item.open .exercise-question .arrow{transform:rotate(90deg)}
+.exercise-answer{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.4s ease,padding 0.3s;
+}
+.exercise-item.open .exercise-answer{
+  max-height:900px;padding:14px 18px;
+}
+.exercise-answer-inner{
+  background:linear-gradient(135deg,#EFE6CF,#FAF5E6);
+  border-radius:8px;padding:14px 16px;
+  color:var(--text);font-size:0.95rem;
+  border-left:4px solid var(--accent);
+  font-family:'Source Serif Pro',serif;line-height:1.75;
+}
+
+/* ─── TF / FILL ─── */
+.tf-item,.fill-item{
+  border:1px solid var(--border);border-radius:10px;
+  margin:8px 0;overflow:hidden;
+}
+.tf-question,.fill-question{
+  padding:12px 16px;cursor:pointer;
+  background:#FAF5E6;font-weight:500;
+  display:flex;justify-content:space-between;align-items:center;
+  transition:background 0.2s;gap:10px;
+  font-family:'Source Serif Pro',serif;
+}
+.tf-question:hover,.fill-question:hover{background:#EFE6CF}
+.tf-answer,.fill-answer{
+  max-height:0;overflow:hidden;transition:max-height 0.4s ease;
+}
+.tf-item.open .tf-answer,.fill-item.open .fill-answer{
+  max-height:400px;padding:12px 16px;
+}
+.tf-answer-inner,.fill-answer-inner{
+  background:linear-gradient(135deg,#EFE6CF,#FAF5E6);
+  border-radius:8px;padding:12px 14px;
+  font-size:0.93rem;border-left:4px solid var(--accent);
+  font-family:'Source Serif Pro',serif;line-height:1.7;
+}
+
+/* ─── INTERPRETATION BOX ─── */
+.interpretation-box{
+  background:linear-gradient(135deg,#0F2540,#1E3A5F);
+  color:#FAF3E0;border-radius:14px;
+  padding:24px 28px;margin:18px 0;
+  position:relative;overflow:hidden;
+  box-shadow:0 4px 16px rgba(15,37,64,0.3);
+}
+.interpretation-box::before{
+  content:'';position:absolute;top:-30%;right:-10%;
+  width:60%;height:160%;
+  background:radial-gradient(ellipse,rgba(198,139,44,0.15) 0%,transparent 60%);
+}
+.interpretation-box h3{
+  font-family:'Fraunces',serif;color:#E8B864;
+  font-size:1.4rem;margin-bottom:12px;font-style:italic;
+  position:relative;
+}
+.interpretation-box p{
+  font-family:'Source Serif Pro',serif;line-height:1.85;
+  color:#E8DFC5;position:relative;font-size:0.96rem;
+}
+.interpretation-box p strong{color:#E8B864;font-weight:600}
+
+/* ─── FOOTER ─── */
+.site-footer{
+  background:linear-gradient(135deg,#0A1A2E,#1E3A5F);
+  color:rgba(250,243,224,0.7);text-align:center;
+  padding:18px 20px;font-size:0.78rem;
+  margin-top:20px;font-family:'Outfit',sans-serif;letter-spacing:0.3px;
+}
+.site-footer a{color:#E8B864;text-decoration:none;font-weight:500}
+.site-footer a:hover{text-decoration:underline}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:640px){
+  .site-header h1{font-size:2rem}
+  .container{padding:16px 10px 40px}
+  .section-card{padding:18px 14px}
+  .section-card h2{font-size:1.4rem}
+  .reading-para{padding:12px 14px}
+  .poem-block{padding:18px 20px;font-size:1rem}
+  #meaningPopup{min-width:260px;padding:14px 18px}
+  .vocab-table,.symbol-table,.match-table,.mindmap-table{font-size:0.82rem}
+  .vocab-table td,.vocab-table th,.symbol-table td,.symbol-table th,
+  .match-table td,.match-table th,.mindmap-table td,.mindmap-table th{padding:6px 8px}
+  .toolbar{gap:6px;padding:8px 10px}
+  .toolbar button{padding:6px 12px;font-size:0.82rem}
+  .nav-jump-grid{grid-template-columns:1fr}
+  #scrollTopBtn{width:42px;height:42px;right:16px;bottom:80px;font-size:1.1rem}
+  .interpretation-box{padding:18px 20px}
+  .interpretation-box h3{font-size:1.15rem}
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.section-card{animation:fadeInUp 0.5s ease both}
+.section-card:nth-child(2){animation-delay:0.04s}
+.section-card:nth-child(3){animation-delay:0.08s}
+.section-card:nth-child(4){animation-delay:0.12s}
+.section-card:nth-child(5){animation-delay:0.16s}
+.section-card:nth-child(6){animation-delay:0.20s}
+.section-card:nth-child(7){animation-delay:0.24s}
+.section-card:nth-child(8){animation-delay:0.28s}
+.section-card:nth-child(9){animation-delay:0.32s}
+.section-card:nth-child(10){animation-delay:0.36s}
+</style>
+</head>
+<body>
+
+<!-- ═══════ HEADER ═══════ -->
+<header class="site-header" id="top">
+  <h1>Rickshaw Ride</h1>
+  <div class="subtitle">Unit 18 — A Poem by John Hill</div>
+  <div class="meta">
+    <span>Grade 9</span>•<span>English</span>•<span>Unit 18</span>•<span>Poem (pp. 231–232)</span>
+  </div>
+</header>
+
+<!-- ═══════ TOOLBAR ═══════ -->
+<div class="toolbar">
+  <button class="btn-font" onclick="changeFontSize(-1)">A−</button>
+  <button class="btn-font" onclick="changeFontSize(1)">A+</button>
+  <button class="btn-download" onclick="downloadHTML()">⬇ Download HTML</button>
+</div>
+
+<!-- ═══════ SCROLL TO TOP ═══════ -->
+<button id="scrollTopBtn" onclick="scrollToTop()" title="Go to top">⬆</button>
+
+<!-- ═══════ MAIN ═══════ -->
+<div class="container">
+
+<!-- ──── NAV JUMP LINKS ──── -->
+<div class="nav-jump">
+  <h2>📑 Quick Navigation — Jump to Section</h2>
+  <div class="nav-jump-grid">
+    <a href="#poem"><span class="nav-icon">📜</span> The Poem</a>
+    <a href="#vocab"><span class="nav-icon">📗</span> Word Meanings</a>
+    <a href="#symbols"><span class="nav-icon">🎭</span> Symbolic Meanings</a>
+    <a href="#interpretation"><span class="nav-icon">📖</span> Interpretation</a>
+    <a href="#teachers-notes"><span class="nav-icon">🎓</span> Teacher's Notes</a>
+    <a href="#line-explanation"><span class="nav-icon">🔍</span> Line by Line</a>
+    <a href="#exercise-a"><span class="nav-icon">✅</span> Exercise A — Matching</a>
+    <a href="#exercise-b"><span class="nav-icon">✅</span> Exercise B — Fill Blanks</a>
+    <a href="#exercise-c"><span class="nav-icon">✅</span> Exercise C — Short Answers</a>
+    <a href="#exercise-d"><span class="nav-icon">✅</span> Exercise D — Mind Map</a>
+    <a href="#short-questions"><span class="nav-icon">➕</span> Short Questions</a>
+    <a href="#true-false"><span class="nav-icon">➕</span> True / False</a>
+    <a href="#fill-blanks"><span class="nav-icon">➕</span> Fill in the Blanks</a>
+  </div>
+</div>
+
+<!-- ──── THE POEM ──── -->
+<div class="section-card" id="poem">
+  <h2><span class="section-icon">📜</span> Rickshaw Ride — The Poem</h2>
+
+  <div class="poem-block">
+    <div class="poem-stanza">
+      <span class="stanza-num">Stanza I</span>
+      <span class="poem-line">That man by the <span class="hw" onclick="showMeaning('harbour','a protected area on the coast where ships stay','बन्दरगाह')">harbour</span></span>
+      <span class="poem-line">Spitting into the water</span>
+      <span class="poem-line">Is as old as <span class="hw" onclick="showMeaning('China','used here to mean very old, as China is one of the oldest civilizations','चीन')">China</span>.</span>
+    </div>
+
+    <div class="poem-stanza">
+      <span class="stanza-num">Stanza II</span>
+      <span class="poem-line">He is made of <span class="hw" onclick="showMeaning('leather','the skin of an animal; here means his skin is tough and rough like leather','छाला')">leather</span></span>
+      <span class="poem-line">And his <span class="hw" onclick="showMeaning('folded','having slight folds or wrinkles','सिउँडिएको')">folded</span> face</span>
+      <span class="poem-line">Is like a <span class="hw" onclick="showMeaning('sandbar','a long mass of sand at the mouth of a river or sea','बालुवाको डाँडा')">sandbar</span></span>
+      <span class="poem-line indent">At <span class="hw" onclick="showMeaning('low tide','when the sea is at its lowest level','कम ज्वार')">low tide</span>.</span>
+    </div>
+
+    <div class="poem-stanza">
+      <span class="stanza-num">Stanza III</span>
+      <span class="poem-line">Will you take a ride</span>
+      <span class="poem-line">On his <span class="hw" onclick="showMeaning('rickshaw','a small vehicle pulled by a person','रिक्सा')">rickshaw</span> ?</span>
+      <span class="poem-line">He will not thank you</span>
+      <span class="poem-line">For your <span class="hw" onclick="showMeaning('dollar','an American currency unit; here means a small amount of money','डलर')">dollar</span>,</span>
+      <span class="poem-line">He knows that to you</span>
+      <span class="poem-line">A dollar does not <span class="hw" onclick="showMeaning('matter','is not important','महत्त्व राख्दैन')">matter</span>.</span>
+    </div>
+
+    <div class="poem-stanza">
+      <span class="stanza-num">Stanza IV</span>
+      <span class="poem-line">Off you go with a <span class="hw" onclick="showMeaning('clatter','a loud noise made by hard objects knocking together','खटखट आवाज')">clatter</span></span>
+      <span class="poem-line">Up to <span class="hw" onclick="showMeaning('Victoria','a place name in Hong Kong','भिक्टोरिया')">Victoria</span></span>
+      <span class="poem-line">On up the long hill</span>
+      <span class="poem-line">Pass the <span class="hw" onclick="showMeaning('cathedral','the main or most important church in a district','गिर्जाघर')">cathedral</span></span>
+      <span class="poem-line">To the <span class="hw" onclick="showMeaning('peak tram','a tram that goes to the top of Victoria Peak in Hong Kong','पिक ट्राम')">peak Tram</span></span>
+      <span class="poem-line"><strong>Pull! Pull!</strong></span>
+    </div>
+
+    <div class="poem-stanza">
+      <span class="stanza-num">Stanza V</span>
+      <span class="poem-line">He <span class="hw" onclick="showMeaning('leans','bends forward','अगाडि झुक्छ')">leans</span> to it</span>
+      <span class="poem-line">His <span class="hw" onclick="showMeaning('muscles','tissues in the body that produce movement','मांसपेशी')">muscles</span> at neck and <span class="hw" onclick="showMeaning('calf','the back part of the lower leg','पिंडौला')">calf</span> and shoulder</span>
+      <span class="poem-line">And his dark <span class="hw" onclick="showMeaning('veins','blood vessels visible under the skin','नसाहरू')">veins</span> that <span class="hw" onclick="showMeaning('snake','move in long twisting curves like a snake','सर्पझैँ घुमाउरो हुन्छन्')">snake</span></span>
+      <span class="poem-line">Take your eye</span>
+      <span class="poem-line">Not what passes by.</span>
+    </div>
+
+    <div class="poem-stanza">
+      <span class="stanza-num">Stanza VI</span>
+      <span class="poem-line">Let him not <span class="hw" onclick="showMeaning('break','collapse or injure himself','नतोडियोस्')">break</span></span>
+      <span class="poem-line">Something for my <span class="hw" onclick="showMeaning('sake','for my benefit or because of me','मेरो खातिर')">sake</span>,</span>
+      <span class="poem-line">For my dollar.</span>
+    </div>
+
+    <div class="poem-stanza">
+      <span class="stanza-num">Stanza VII</span>
+      <span class="poem-line">You went to Hong Kong</span>
+      <span class="poem-line">They will say.</span>
+      <span class="poem-line">Did you take a rickshaw?</span>
+      <span class="poem-line">Was it <span class="hw" onclick="showMeaning('fun','enjoyable','रमाइलो')">fun</span>?</span>
+      <span class="poem-line">Did he run, your <span class="hw" onclick="showMeaning('rickshaw man','the person who pulls the rickshaw','रिक्साचालक')">rickshaw man</span>?</span>
+      <span class="poem-line">Yes, he ran.</span>
+      <span class="poem-line">No, it was not much fun.</span>
+    </div>
+
+    <div style="text-align:right;margin-top:14px;font-style:italic;color:var(--muted);font-size:0.95rem;">— John Hill</div>
+  </div>
+</div>
+
+<!-- ──── VOCABULARY ──── -->
+<div class="section-card" id="vocab">
+  <h2><span class="section-icon">📗</span> Word Meanings</h2>
+  <table class="vocab-table">
+    <thead>
+      <tr><th>Word / Phrase</th><th>English Meaning</th><th>Nepali Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>harbour</td><td>a protected area on the coast for ships</td><td>बन्दरगाह</td></tr>
+      <tr><td>folded</td><td>having wrinkles or slight folds</td><td>सिउँडिएको</td></tr>
+      <tr><td>sandbar</td><td>a mass of sand at the mouth of a river</td><td>बालुवाको डाँडा</td></tr>
+      <tr><td>low tide</td><td>when the sea is at its lowest level</td><td>कम ज्वार</td></tr>
+      <tr><td>rickshaw</td><td>a small vehicle pulled by a person</td><td>रिक्सा</td></tr>
+      <tr><td>dollar</td><td>American currency; here means small payment</td><td>डलर</td></tr>
+      <tr><td>clatter</td><td>loud noise of hard objects hitting together</td><td>खटखट आवाज</td></tr>
+      <tr><td>Victoria</td><td>a place in Hong Kong</td><td>भिक्टोरिया</td></tr>
+      <tr><td>cathedral</td><td>the main church in a district</td><td>गिर्जाघर</td></tr>
+      <tr><td>peak tram</td><td>a tram going to the top of Victoria Peak</td><td>पिक ट्राम</td></tr>
+      <tr><td>leans</td><td>bends forward</td><td>अगाडि झुक्छ</td></tr>
+      <tr><td>muscles</td><td>body tissues that produce movement</td><td>मांसपेशी</td></tr>
+      <tr><td>calf</td><td>the back part of the lower leg</td><td>पिंडौला</td></tr>
+      <tr><td>veins</td><td>blood vessels visible under skin</td><td>नसाहरू</td></tr>
+      <tr><td>snake</td><td>move in long twisting curves</td><td>सर्पझैँ घुमाउरो हुन्छन्</td></tr>
+      <tr><td>sake</td><td>for the benefit of someone</td><td>खातिर</td></tr>
+      <tr><td>leather</td><td>tough animal skin; here means wrinkled tough skin</td><td>छाला</td></tr>
+      <tr><td>matter</td><td>to be important</td><td>महत्त्व राख्नु</td></tr>
+      <tr><td>break</td><td>to collapse or get injured</td><td>टुट्नु/ढल्नु</td></tr>
+      <tr><td>fun</td><td>enjoyable or amusing</td><td>रमाइलो</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ──── SYMBOLIC WORDS ──── -->
+<div class="section-card" id="symbols">
+  <h2><span class="section-icon">🎭</span> Symbolic Words and Phrases</h2>
+  <table class="symbol-table">
+    <thead>
+      <tr><th>Symbol / Phrase</th><th>Symbolic Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>"Is as old as China"</td>
+        <td>Represents extreme old age; China symbolizes one of the oldest civilizations, suggesting the rickshaw man is very old and worn out.</td>
+      </tr>
+      <tr>
+        <td>"He is made of leather"</td>
+        <td>Symbolizes toughness and hardness. The rickshaw man's skin is rough and dark like leather due to years of hard labor under the sun.</td>
+      </tr>
+      <tr>
+        <td>"His folded face is like a sandbar at low tide"</td>
+        <td>His wrinkled face is compared to a sandbar — just as a sandbar appears when water is low, his wrinkles appear because his life's energy (water) has dried up.</td>
+      </tr>
+      <tr>
+        <td>"Veins that snake"</td>
+        <td>His protruding veins, twisted like snakes, symbolize extreme physical exertion and poverty-driven hard work.</td>
+      </tr>
+      <tr>
+        <td>"For my dollar"</td>
+        <td>The dollar symbolizes the guilt and conscience of the rich rider. The small fare represents the huge economic gap between the rider and the puller.</td>
+      </tr>
+      <tr>
+        <td>"Pull! Pull!"</td>
+        <td>Symbolizes the relentless struggle of the poor and the working class who are pushed to their limits for the comfort of the wealthy.</td>
+      </tr>
+      <tr>
+        <td>"Let him not break something for my sake"</td>
+        <td>Symbolizes the rider's guilt and empathy — he fears the old man might injure himself pulling him up the steep hill.</td>
+      </tr>
+      <tr>
+        <td>"No, it was not much fun"</td>
+        <td>This symbolic ending shows that the ride was not enjoyable because the rider was deeply moved by the old man's suffering and labor.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ──── INTERPRETATION ──── -->
+<div class="section-card" id="interpretation">
+  <h2><span class="section-icon">📖</span> Symbolic Interpretation of the Poem</h2>
+  <div class="interpretation-box">
+    <h3>"Rickshaw Ride" — A Social Commentary</h3>
+    <p>
+      <strong>"Rickshaw Ride"</strong> by John Hill is a poem that goes far beyond describing a simple rickshaw journey in Hong Kong. It is a <strong>social commentary</strong> on the exploitation of the poor by the wealthy. The rickshaw puller — old, worn, muscular, and wrinkled — represents millions of laborers across the world who toil endlessly for minimal payment. The rider, representing the privileged class, is troubled by guilt as he watches the old man strain every muscle to carry him uphill.
+    </p>
+    <p style="margin-top:12px;">
+      The poem symbolically contrasts <strong>wealth and poverty</strong>, <strong>comfort and suffering</strong>, <strong>the observer and the observed</strong>. The final lines — <em>"No, it was not much fun"</em> — deliver a powerful message: <strong>true enjoyment cannot come at the cost of another person's suffering</strong>. The poem invites readers to question social inequality and reflect on how they treat those who serve them.
+    </p>
+  </div>
+</div>
+
+<!-- ──── TEACHER'S NOTES ──── -->
+<div class="section-card" id="teachers-notes">
+  <h2><span class="section-icon">🎓</span> Teacher's Speech Notes</h2>
+
+  <div class="teacher-note">
+    <span class="note-label">Introduction</span>
+    <p>"Good morning, students. Today we are going to read and enjoy a very thoughtful poem called <em>Rickshaw Ride</em> written by John Hill. This poem is set in Hong Kong and describes a tourist's experience of riding a rickshaw pulled by a very old man. But this poem is much more than just a journey — it carries a very deep message about society, poverty, and human dignity. Let's explore it together."</p>
+  </div>
+
+  <div class="teacher-note">
+    <span class="note-label">Setting the Context</span>
+    <p>"Imagine you are in Hong Kong, a busy city. You see an old man sitting near the harbour, waiting for passengers. He is very old, his face full of wrinkles, his veins visible on his arms. Someone hires him to pull a rickshaw up a steep hill to a famous place called Victoria Peak. As you read this poem, think about how you would feel sitting in that rickshaw."</p>
+  </div>
+
+  <div class="teacher-note">
+    <span class="note-label">Guiding Questions for Students</span>
+    <ul>
+      <li>"How does the poet describe the old man's appearance?"</li>
+      <li>"What does the phrase 'He is made of leather' mean to you?"</li>
+      <li>"Why does the rider say 'Let him not break something for my sake'?"</li>
+      <li>"Did the rider enjoy the ride? Why or why not?"</li>
+      <li>"What message do you think the poet is giving us?"</li>
+    </ul>
+  </div>
+
+  <div class="teacher-note">
+    <span class="note-label">Conclusion</span>
+    <p>"This poem teaches us to be sensitive to the hardships of others. The next time someone does a difficult job for us — whether it's a porter, a cleaner, or a laborer — let us recognize their effort and treat them with respect and dignity."</p>
+  </div>
+</div>
+
+<!-- ──── LINE BY LINE EXPLANATION ──── -->
+<div class="section-card" id="line-explanation">
+  <h2><span class="section-icon">🔍</span> Line by Line Explanation</h2>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span><em>"That man by the harbour / Spitting into the water / Is as old as China."</em></span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The poet introduces the rickshaw puller. He is standing by the harbour (seaport), spitting casually into the water. The comparison "as old as China" tells us he is extremely old. China is one of the world's oldest civilizations, so this simile suggests the man is ancient and worn out by time.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span><em>"He is made of leather / And his folded face / Is like a sandbar at low tide."</em></span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The old man's skin is compared to leather — tough, dark, and wrinkled from years of exposure to the sun. His wrinkled face is like a sandbar at low tide — just as a sandbar is exposed and dry when the tide is low, the man's face is exposed and weathered by age and hard labor.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span><em>"Will you take a ride / On his rickshaw? / He will not thank you for your dollar..."</em></span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The poet asks the reader if they would hire this old man. The old man will not be grateful for the dollar because he knows that for the rider, a dollar is nothing — it is a trivial amount. This highlights the economic gap between the wealthy rider and the poor puller.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span><em>"Off you go with a clatter / Up to Victoria / ... To the peak Tram / Pull! Pull!"</em></span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The journey begins with the clatter of the rickshaw wheels. The route goes uphill to Victoria Peak, passing a cathedral, heading to the Peak Tram station. "Pull! Pull!" captures the intense effort the old man must make to drag the rickshaw uphill.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span><em>"He leans to it / His muscles at neck and calf and shoulder..."</em></span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The rider's attention is completely captured by the old man's strained body — the tight muscles of his neck, calf, and shoulders, and the dark veins twisting under his skin like snakes. The rider cannot enjoy the scenery because he is too focused on the old man's physical struggle.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span><em>"Let him not break / Something for my sake, / For my dollar."</em></span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The rider feels guilty. He prays that the old man does not injure himself — break a muscle or collapse — just to earn the rider's dollar. This shows deep empathy and guilt.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span><em>"You went to Hong Kong / ... Did he run, your rickshaw man? / Yes, he ran. / No, it was not much fun."</em></span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        Back home, people ask about the trip. They assume it must have been fun — a typical tourist experience. But the rider's honest answer is: "No, it was not much fun." The experience of watching an old, struggling man labor for his comfort made the ride emotionally painful rather than enjoyable.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── EXERCISE A — MATCHING ──── -->
+<div class="section-card" id="exercise-a">
+  <h2><span class="section-icon">✅</span> Exercise A — Match the Words with Their Meanings</h2>
+  <table class="match-table">
+    <thead>
+      <tr><th>Column A</th><th>Column B</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>a. harbour</td><td>iii. a protected area on the coast</td></tr>
+      <tr><td>b. folded</td><td>viii. having slight folds; wrinkled</td></tr>
+      <tr><td>c. sandbar</td><td>vii. a long mass of sand, especially at the mouth of the river</td></tr>
+      <tr><td>d. snake</td><td>i. to move in long twisting curves</td></tr>
+      <tr><td>e. sake</td><td>ii. for the purpose of; in the interest of</td></tr>
+      <tr><td>f. clatter</td><td>vi. loud noise from hard objects knocking together</td></tr>
+      <tr><td>g. cathedral</td><td>iv. the main church</td></tr>
+      <tr><td>h. tram</td><td>v. a vehicle driven by electricity</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ──── EXERCISE B — FILL BLANKS ──── -->
+<div class="section-card" id="exercise-b">
+  <h2><span class="section-icon">✅</span> Exercise B — Fill in the Blanks</h2>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>a. The old man is waiting for customers at the ____.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The old man is waiting for customers at the <strong>harbour</strong>.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>b. He is very weak with a ____ face.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        He is very weak with a <strong>folded</strong> face.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>c. He knows that a ____ is nothing for the rider.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        He knows that a <strong>dollar</strong> is nothing for the rider.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>d. He takes the rider as far as to ____.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        He takes the rider as far as to <strong>Victoria</strong>.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>e. The rider's eyes are caught by the old man's twisted ____.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The rider's eyes are caught by the old man's twisted <strong>veins</strong>.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>f. The rider didn't have the ____ when riding.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The rider didn't have the <strong>fun</strong> when riding.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── EXERCISE C — SHORT ANSWERS ──── -->
+<div class="section-card" id="exercise-c">
+  <h2><span class="section-icon">✅</span> Exercise C — Answer the Following Questions</h2>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>a. How old is the rickshaw puller?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The rickshaw puller is extremely old — the poet compares him to <strong>China</strong>, one of the world's oldest civilizations, suggesting he is very aged and worn out.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>b. What does 'he is made of leather' mean?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        It means the rickshaw puller's skin is very <strong>tough, dark, and wrinkled</strong> — like leather — due to years of hard work and exposure to the sun. It symbolizes his rough and hardened life.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>c. What attracts the attention of the rider?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The rider's attention is attracted by the old man's straining <strong>muscles</strong> at the neck, calf, and shoulder, and his dark, twisted <strong>veins</strong> that stand out under the skin as he pulls the rickshaw uphill.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>d. Why does the rider want the rickshaw puller not to fall?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The rider feels guilty and empathetic. He fears that the old man might injure or collapse himself — "break something" — just to earn the small dollar fare. He does not want the man to suffer for his benefit.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>e. Did the man enjoy the rickshaw ride? Give reasons.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        No, the man did not enjoy the rickshaw ride. Despite it being a tourist experience, watching the old man strain every muscle and struggle up the hill made the rider feel guilty and sad rather than happy.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── EXERCISE D — MIND MAP ──── -->
+<div class="section-card" id="exercise-d">
+  <h2><span class="section-icon">✅</span> Exercise D — Mind Map: Adjectives Describing the Rickshaw Puller</h2>
+  <table class="mindmap-table">
+    <thead>
+      <tr><th>Category</th><th>Adjectives</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Age</td><td>old, ancient, aged</td></tr>
+      <tr><td>Appearance</td><td>wrinkled, folded, dark-skinned, leather-like</td></tr>
+      <tr><td>Body</td><td>muscular, strong, veiny</td></tr>
+      <tr><td>Nature</td><td>hardworking, determined, silent, dignified</td></tr>
+      <tr><td>Social Status</td><td>poor, underprivileged, exploited</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ──── SHORT QUESTIONS ──── -->
+<div class="section-card" id="short-questions">
+  <h2><span class="section-icon">➕</span> Additional Short Questions</h2>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>1. Where does the poet first see the rickshaw puller?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The poet first sees the rickshaw puller by the <strong>harbour</strong> (the seaport/coast of Hong Kong), where he is sitting and spitting into the water, waiting for customers.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>2. Why does the poet say the old man's face is like a sandbar at low tide?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        Just as a sandbar becomes visible and dry when the sea water recedes at low tide, the old man's wrinkled face shows the drying up of his life's energy — his youth and strength have been worn away by age and hardship.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>3. What route does the rickshaw take in the poem?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The rickshaw goes with a clatter up to <strong>Victoria</strong>, on up the long hill, past the <strong>cathedral</strong>, and finally to the <strong>Peak Tram</strong> station at Victoria Peak in Hong Kong.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>4. What does the expression "Pull! Pull!" suggest?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        "Pull! Pull!" suggests the <strong>intense physical effort</strong> required by the old man to drag the rickshaw up the steep hill. It symbolizes the relentless struggle of the poor working class for the comfort of the wealthy.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>5. What is the overall message of the poem "Rickshaw Ride"?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The poem's message is that <strong>true enjoyment cannot come at the cost of another person's suffering</strong>. It calls attention to social inequality and urges readers to treat all working people with empathy, respect, and dignity.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── TRUE / FALSE ──── -->
+<div class="section-card" id="true-false">
+  <h2><span class="section-icon">➕</span> True / False</h2>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>1. The rickshaw puller is a young and energetic man.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--error)">❌ False</strong> — The rickshaw puller is described as extremely old, "as old as China," with a wrinkled, leather-like face.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>2. The rider feels guilty watching the old man struggle.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--success)">✅ True</strong> — The rider prays "Let him not break something for my sake," showing clear guilt and empathy.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>3. The rider thoroughly enjoyed the rickshaw ride.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--error)">❌ False</strong> — The rider explicitly says, "No, it was not much fun." Watching the old man suffer ruined the experience.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>4. The old man's veins are compared to snakes in the poem.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--success)">✅ True</strong> — The poet says "his dark veins that snake," comparing the twisting veins to snakes.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>5. The dollar is a very important amount of money for the rider.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--error)">❌ False</strong> — To the wealthy rider, "a dollar does not matter." It is a trivial amount, highlighting the economic gap.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── FILL IN THE BLANKS ──── -->
+<div class="section-card" id="fill-blanks">
+  <h2><span class="section-icon">➕</span> Contextual Vocabulary — Fill in the Blanks</h2>
+  <p style="font-size:0.9rem;color:var(--muted);margin:6px 0 12px;font-family:'Outfit',sans-serif;">Words: harbour / clatter / cathedral / sake / veins</p>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>1. The ships were safely docked at the __________ during the storm.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        The ships were safely docked at the <strong>harbour</strong> during the storm.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>2. The tourists visited the famous __________ in the city centre.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        The tourists visited the famous <strong>cathedral</strong> in the city centre.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>3. The __________ of the falling plates woke everyone up.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        The <strong>clatter</strong> of the falling plates woke everyone up.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>4. Please be quiet for the __________ of the sleeping baby.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        Please be quiet for the <strong>sake</strong> of the sleeping baby.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>5. The doctor could clearly see the blue __________ on the patient's arm.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        The doctor could clearly see the blue <strong>veins</strong> on the patient's arm.
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- ═══════ MEANING POPUP ═══════ -->
+<div id="meaningPopup">
+  <button class="popup-close" onclick="closePopup()">&times;</button>
+  <div class="popup-word" id="popupWord"></div>
+  <div class="popup-meaning">
+    <span class="popup-en" id="popupEnglish"></span>
+    <span class="popup-ne" id="popupNepali"></span>
+  </div>
+</div>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="site-footer">
+  N.REGMI &nbsp;|&nbsp; <a href="mailto:nregmi511@gmail.com">nregmi511@gmail.com</a>
+  &nbsp;|&nbsp; Grade 9 English — Unit 18 — Rickshaw Ride (Poem by John Hill)
+</footer>
+
+<!-- ═══════ JAVASCRIPT ═══════ -->
+<script>
+// ─── Font Size Control ───
+const MIN_F=13,MAX_F=26;
+let fontSize=17;
+function changeFontSize(d){
+  fontSize=Math.max(MIN_F,Math.min(MAX_F,fontSize+d));
+  document.documentElement.style.setProperty('--font-size-base',fontSize+'px');
+}
+
+// ─── Meaning Popup ───
+function showMeaning(word,en,ne){
+  document.getElementById('popupWord').textContent=word;
+  document.getElementById('popupEnglish').textContent='EN: '+en;
+  document.getElementById('popupNepali').textContent='NE: '+ne;
+  document.getElementById('meaningPopup').classList.add('show');
+}
+function closePopup(){
+  document.getElementById('meaningPopup').classList.remove('show');
+}
+document.addEventListener('click',function(e){
+  const popup=document.getElementById('meaningPopup');
+  if(!e.target.closest('.hw')&&!e.target.closest('#meaningPopup')){
+    popup.classList.remove('show');
+  }
+});
+
+// ─── Exercise Toggle ───
+function toggleExercise(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.exercise-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── True/False Toggle ───
+function toggleTF(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.tf-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── Fill-in-Blank Toggle ───
+function toggleFill(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.fill-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── Scroll to Top Button ───
+const scrollBtn=document.getElementById('scrollTopBtn');
+window.addEventListener('scroll',function(){
+  if(window.scrollY>400){
+    scrollBtn.classList.add('show');
+  }else{
+    scrollBtn.classList.remove('show');
+  }
+});
+function scrollToTop(){
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ─── Download HTML ───
+function downloadHTML(){
+  const html=document.documentElement.outerHTML;
+  const blob=new Blob([html],{type:'text/html;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='Rickshaw_Ride_Interactive.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The History of Money – Grade 9 English Unit 14</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── design system ── */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #1E6B3A;
+      --primary-light: #2E8B57;
+      --primary-dark: #14522A;
+      --accent: #D4A017;
+      --accent-light: #F1C40F;
+      --correct: #27AE60;
+      --incorrect: #E74C3C;
+      --bg: #F0F7F0;
+      --card-bg: #FFFFFF;
+      --text-dark: #1C2E1C;
+      --text-body: #2C3E2C;
+      --text-muted: #5A6B5A;
+      --border: #C0D8C0;
+      --highlight-bg: #FEF9E7;
+      --highlight-border: #D4A017;
+      --nepali-accent: #8E44AD;
+      --font-size-base: 17px;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(30,107,58,0.08);
+      --shadow-lg: 0 12px 40px rgba(30,107,58,0.14);
+    }
+
+    body {
+      font-family: 'Poppins', 'Noto Sans SC', sans-serif;
+      background: var(--bg);
+      color: var(--text-body);
+      font-size: var(--font-size-base);
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* ── TOOLBAR ── */
+    .toolbar {
+      position: fixed;
+      top: 0; left: 0; width: 100%; z-index: 1000;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 24px;
+      box-shadow: 0 4px 20px rgba(30,107,58,0.3);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .toolbar-left { display: flex; align-items: center; gap: 16px; }
+    .toolbar-title { font-size: 15px; font-weight: 600; letter-spacing: 0.3px; }
+    .toolbar-title span { opacity: 0.7; font-weight: 400; }
+    .toolbar-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+    .font-btn {
+      width: 38px; height: 38px; border-radius: 10px;
+      border: 2px solid rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.1);
+      color: white;
+      font-size: 18px; font-weight: 700;
+      cursor: pointer; transition: 0.2s;
+      font-family: 'Poppins', sans-serif;
+    }
+    .font-btn:hover { background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.5); transform: scale(1.08); }
+    .font-size-display { font-size: 13px; font-weight: 600; min-width: 38px; text-align: center; background: rgba(255,255,255,0.15); padding: 6px 10px; border-radius: 8px; }
+    .download-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 18px; border-radius: 10px; border: none;
+      background: rgba(255,255,255,0.2); color: white;
+      font-size: 13px; font-weight: 600; cursor: pointer; transition: 0.2s;
+      font-family: 'Poppins', sans-serif;
+    }
+    .download-btn:hover { background: rgba(255,255,255,0.35); transform: translateY(-1px); }
+
+    /* ── SCROLL TO TOP ── */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 9999;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: 2px solid rgba(255,255,255,0.3);
+      font-size: 26px;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(30,107,58,0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+    }
+    #scrollTopBtn.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #scrollTopBtn:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 8px 30px rgba(30,107,58,0.55);
+      background: linear-gradient(135deg, var(--accent), #B8860B);
+    }
+    #scrollTopBtn:active { transform: scale(0.92); }
+
+    /* ── MAIN ── */
+    .main-content { max-width: 860px; margin: 0 auto; padding: 80px 24px 60px; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #0F3A1F, #1E6B3A, #2E8B57);
+      border-radius: 20px; padding: 48px 40px; color: white; margin-bottom: 36px;
+      position: relative; overflow: hidden; box-shadow: 0 12px 40px rgba(30,107,58,0.25);
+    }
+    .hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: rgba(255,255,255,0.06); border-radius: 50%; }
+    .hero::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 150px; height: 150px; background: rgba(255,255,255,0.04); border-radius: 50%; }
+    .hero-grade { display: inline-block; padding: 5px 16px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 30px; font-size: 12px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 16px; }
+    .hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; position: relative; z-index: 1; font-family: 'Playfair Display', serif; }
+    .hero-sub { font-size: 15px; opacity: 0.85; font-weight: 400; position: relative; z-index: 1; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 20px; position: relative; z-index: 1; }
+    .hero-meta-item { display: flex; align-items: center; gap: 6px; font-size: 13px; opacity: 0.85; background: rgba(255,255,255,0.1); padding: 5px 14px; border-radius: 20px; }
+
+    /* ── NAV PILLS ── */
+    .nav-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .nav-pill {
+      padding: 8px 18px; border-radius: 30px; background: white; border: 1px solid var(--border);
+      font-size: 13px; font-weight: 600; color: var(--text-muted); cursor: pointer; transition: 0.2s;
+      font-family: 'Poppins', sans-serif; text-decoration: none;
+    }
+    .nav-pill:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+    /* ── SECTION CARDS ── */
+    .section-card {
+      background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border);
+      padding: 36px 32px; margin-bottom: 28px; box-shadow: var(--shadow);
+      transition: box-shadow 0.3s;
+    }
+    .section-card:hover { box-shadow: var(--shadow-lg); }
+
+    .section-heading {
+      font-size: 24px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-heading .icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;
+    }
+    .icon-reading { background: #D4EDDA; color: #1E6B3A; }
+    .icon-words { background: #FEF9E7; color: #D4A017; }
+    .icon-exercise { background: #D5F5E3; color: #27AE60; }
+    .icon-fill { background: #EBDEF0; color: #8E44AD; }
+    .icon-tf { background: #FDEBD0; color: #E67E22; }
+    .icon-short { background: #D6EAF8; color: #2980B9; }
+    .icon-extra { background: #F5EEF8; color: #8E44AD; }
+
+    .section-subtitle { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; font-weight: 400; }
+
+    /* ── READING PASSAGE ── */
+    .passage { font-size: inherit; line-height: 2; color: var(--text-body); }
+    .passage p { margin-bottom: 18px; text-align: justify; }
+    .passage p:last-child { margin-bottom: 0; }
+
+    .hw {
+      background: var(--highlight-bg); border-bottom: 2px solid var(--highlight-border);
+      padding: 1px 6px; border-radius: 4px; cursor: pointer; font-weight: 600;
+      color: #7A5D00; transition: all 0.2s; display: inline;
+    }
+    .hw:hover { background: #FDE68A; transform: scale(1.02); }
+    .hw::after { content: '📖'; font-size: 11px; position: relative; top: -4px; margin-left: 2px; }
+
+    /* ── POPUP ── */
+    .meaning-popup {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(120%);
+      width: 94%; max-width: 520px; background: white; border-radius: 18px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.05);
+      z-index: 2000; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s;
+      opacity: 0; overflow: hidden;
+    }
+    .meaning-popup.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+    .popup-header { background: linear-gradient(135deg, #1E6B3A, #2E8B57); color: white; padding: 14px 22px; display: flex; align-items: center; justify-content: space-between; }
+    .popup-word { font-size: 20px; font-weight: 700; font-family: 'Playfair Display', serif; }
+    .popup-close { width: 30px; height: 30px; border-radius: 50%; border: none; background: rgba(255,255,255,0.25); color: white; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s; font-family: 'Poppins', sans-serif; }
+    .popup-close:hover { background: rgba(255,255,255,0.4); }
+    .popup-body { padding: 18px 22px; display: flex; flex-direction: column; gap: 12px; }
+    .popup-meaning-row { display: flex; align-items: flex-start; gap: 12px; }
+    .popup-label { flex-shrink: 0; padding: 4px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; }
+    .popup-label.en { background: #DBEAFE; color: #1D4ED8; }
+    .popup-label.ne { background: #EDE9FE; color: #6D28D9; }
+    .popup-meaning-text { font-size: 16px; line-height: 1.5; padding-top: 2px; }
+    .popup-nepali { font-size: 17px; color: var(--nepali-accent); font-weight: 500; }
+
+    /* ── WORD TABLE ── */
+    .word-table-wrapper { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); }
+    .word-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .word-table thead { background: linear-gradient(135deg, #D4EDDA, #A9DFBF); }
+    .word-table th { padding: 14px 18px; text-align: left; font-weight: 700; color: #1E6B3A; font-size: 13px; text-transform: uppercase; letter-spacing: 0.8px; border-bottom: 2px solid #2E8B57; }
+    .word-table td { padding: 12px 18px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .word-table tr:last-child td { border-bottom: none; }
+    .word-table tr:hover td { background: #F0F7F0; }
+    .word-table .word-cell { font-weight: 700; color: var(--primary-dark); cursor: pointer; }
+    .word-table .word-cell:hover { text-decoration: underline; }
+    .word-table .nepali-cell { color: var(--nepali-accent); font-weight: 500; }
+
+    /* ── EXERCISE ITEMS ── */
+    .exercise-item {
+      background: #F4F9F4; border: 1px solid var(--border); border-radius: 12px;
+      margin-bottom: 14px; overflow: hidden; transition: all 0.2s;
+    }
+    .exercise-item:hover { border-color: #8FC88F; }
+
+    .exercise-question {
+      padding: 16px 20px; cursor: pointer; display: flex; align-items: flex-start; gap: 14px;
+      transition: background 0.2s; user-select: none;
+    }
+    .exercise-question:hover { background: #E8F0E8; }
+
+    .exercise-q-number {
+      flex-shrink: 0; width: 30px; height: 30px; border-radius: 8px;
+      background: var(--primary); color: white; display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; margin-top: 1px;
+    }
+    .exercise-q-text { flex: 1; font-weight: 500; color: var(--text-dark); line-height: 1.6; }
+    .exercise-toggle {
+      flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+      background: #C0D8C0; display: flex; align-items: center; justify-content: center;
+      font-size: 16px; color: var(--text-muted); transition: all 0.3s; margin-top: 1px;
+    }
+    .exercise-item.open .exercise-toggle { background: var(--correct); color: white; transform: rotate(180deg); }
+
+    .exercise-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .exercise-item.open .exercise-answer { max-height: 500px; }
+
+    .exercise-answer-inner {
+      padding: 0 20px 18px; margin-left: 44px;
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    .answer-badge {
+      flex-shrink: 0; padding: 4px 12px; border-radius: 6px;
+      font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px;
+    }
+    .badge-answer { background: #D5F5E3; color: #1E8449; }
+    .badge-true { background: #D5F5E3; color: #1E8449; }
+    .badge-false { background: #FADBD8; color: #922B21; }
+    .answer-text { font-size: 15px; color: var(--text-body); line-height: 1.7; }
+
+    .box-words {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;
+      padding: 16px; background: #F0F7F0; border-radius: 12px; border: 1px dashed #8FC88F;
+    }
+    .box-word { padding: 6px 16px; background: white; border: 1px solid #8FC88F; border-radius: 8px; font-weight: 600; color: var(--primary); font-size: 14px; }
+
+    .blank-slot {
+      display: inline-block; min-width: 100px; border-bottom: 2px dashed var(--primary);
+      padding: 2px 4px; font-weight: 700; color: var(--primary); background: #F0F7F0; border-radius: 4px 4px 0 0;
+    }
+
+    .click-hint {
+      display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px;
+      background: #F0F7F0; border: 1px solid #8FC88F; border-radius: 10px;
+      font-size: 13px; color: var(--primary); font-weight: 500; margin-bottom: 20px;
+    }
+
+    .extra-section { border-left: 4px solid var(--primary); }
+    .timeline-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .timeline-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .timeline-table tr:last-child td { border-bottom: none; }
+    .timeline-table .year { font-weight: 700; color: var(--primary-dark); width: 30%; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .main-content { padding: 72px 14px 40px; }
+      .section-card { padding: 24px 18px; }
+      .hero { padding: 32px 22px; }
+      .hero h1 { font-size: 24px; }
+      .toolbar { padding: 8px 14px; }
+      .toolbar-title { font-size: 12px; }
+      .meaning-popup { width: 96%; bottom: 12px; }
+      #scrollTopBtn { width: 48px; height: 48px; font-size: 22px; bottom: 20px; right: 20px; }
+    }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body>
+
+<!-- ===== TOOLBAR ===== -->
+<div class="toolbar">
+  <div class="toolbar-left">
+    <div class="toolbar-title">Grade 9 · English <span>| Unit 14: The History of Money</span></div>
+  </div>
+  <div class="toolbar-right">
+    <button class="font-btn" onclick="changeFontSize(-1)" title="Decrease font size">A−</button>
+    <div class="font-size-display" id="fontDisplay">17px</div>
+    <button class="font-btn" onclick="changeFontSize(1)" title="Increase font size">A+</button>
+    <button class="download-btn" onclick="downloadHTML()" title="Download this page">⬇ Save</button>
+  </div>
+</div>
+
+<!-- ===== SCROLL TO TOP ===== -->
+<button id="scrollTopBtn" onclick="scrollToTop()" title="Go to top">⬆</button>
+
+<!-- ===== MEANING POPUP ===== -->
+<div class="meaning-popup" id="meaningPopup">
+  <div class="popup-header">
+    <span class="popup-word" id="popupWord">Word</span>
+    <button class="popup-close" onclick="closePopup()">✕</button>
+  </div>
+  <div class="popup-body">
+    <div class="popup-meaning-row">
+      <span class="popup-label en">English</span>
+      <span class="popup-meaning-text" id="popupEnglish">—</span>
+    </div>
+    <div class="popup-meaning-row">
+      <span class="popup-label ne">नेपाली</span>
+      <span class="popup-meaning-text popup-nepali" id="popupNepali">—</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN ===== -->
+<div class="main-content">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-grade">Grade 9 · Unit 14 · History of Money</div>
+    <h1>The History of Money</h1>
+    <div class="hero-sub">Pages 178–180 · Prose / Reading Text</div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">📖 Reading Passage</div>
+      <div class="hero-meta-item">📝 45+ Vocabulary Words</div>
+      <div class="hero-meta-item">✅ Interactive Exercises</div>
+    </div>
+  </div>
+
+  <!-- NAV PILLS -->
+  <div class="nav-pills">
+    <a class="nav-pill" href="#reading">📖 Reading</a>
+    <a class="nav-pill" href="#wordlist">📝 Word List</a>
+    <a class="nav-pill" href="#exerciseA">✍ Exercise A</a>
+    <a class="nav-pill" href="#exerciseB">📋 Exercise B</a>
+    <a class="nav-pill" href="#exerciseC">✎ Exercise C</a>
+    <a class="nav-pill" href="#extraSA">💡 Extra SA</a>
+    <a class="nav-pill" href="#extraTF">🔍 Extra T/F</a>
+    <a class="nav-pill" href="#extraFill">🧩 Extra Fill</a>
+  </div>
+
+  <!-- ===== READING ===== -->
+  <div class="section-card" id="reading">
+    <div class="section-heading">
+      <div class="icon icon-reading">📖</div>
+      The History of Money — From Barter to Bitcoin
+    </div>
+    <div class="section-subtitle">Click any highlighted word to see its meaning</div>
+    <div class="click-hint">💡 Tap <span class="hw" style="cursor:default;">highlighted words</span> for meanings — popup stays until you close it.</div>
+
+    <div class="passage">
+      <p>The use of money is as old as the human <span class="hw" onclick="showMeaning('civilisation','the stage of human social development','सभ्यता')">civilisation</span>. Money is basically a means of exchange; and coins and notes are just items of exchange. But money was not always in the same form as the money today, and is still developing.</p>
+
+      <p>Before the invention of money, the basis of early commerce was <span class="hw" onclick="showMeaning('barter','a system of exchanging goods without using money','वस्तु विनिमय')">barter</span>, a system of direct exchange of one product for another. <span class="hw" onclick="showMeaning('subsequently','after that; later','त्यसपछि')">Subsequently</span>, both <span class="hw" onclick="showMeaning('livestock','farm animals','पशुधन')">livestock</span>, particularly cattle, and plant products such as grain, came to be used as money in many different societies at different periods. Cattle are probably the oldest of all forms of money, as the <span class="hw" onclick="showMeaning('domestication','the process of taming animals for human use','पालतुकरण')">domestication</span> of animals tended to <span class="hw" onclick="showMeaning('precede','to come before something in time','अघि हुनु')">precede</span> the <span class="hw" onclick="showMeaning('cultivation','the preparation of land for growing crops','खेती')">cultivation</span> of crops. The earliest evidence of banking is found in <span class="hw" onclick="showMeaning('Mesopotamia','an ancient region in present-day Iraq','मेसोपोटामिया')">Mesopotamia</span> between 3000 and 2000 BCE when temples were used to store grain and other <span class="hw" onclick="showMeaning('valuables','things that are worth a lot of money','मूल्यवान वस्तुहरू')">valuables</span> used in trade.</p>
+
+      <p>Some of the earliest currencies were objects from nature. A notable example is <span class="hw" onclick="showMeaning('cowrie','a small shell used as money in ancient times','कौडी')">cowrie</span> shells, first used as money about 1200 BCE. Although they may seem a pretty random choice, the shells had a number of advantages: they were similar in size, small, and <span class="hw" onclick="showMeaning('durable','able to last for a long time','टिकाउ')">durable</span>. While the <span class="hw" onclick="showMeaning('mollusks','soft-bodied animals like snails and clams','मृदुकाय जीव')">mollusks</span> that produce the shells are found in the <span class="hw" onclick="showMeaning('coastal','near the sea or ocean','तटीय')">coastal</span> waters of the Indian and Pacific Oceans, the expansion of trade meant that even some European countries accepted cowrie shells as <span class="hw" onclick="showMeaning('currency','a system of money used in a country','मुद्रा')">currency</span>. Shells in the form of <span class="hw" onclick="showMeaning('wampum','beads made of shells used as money by Native Americans','वाम्पम')">wampum</span> were used as money by Native Americans. Another currency from nature was whale teeth, which were used by Fijians. And the people of Yap Island <span class="hw" onclick="showMeaning('carved','cut a hard material into a shape','खोद्नु')">carved</span> huge disks of <span class="hw" onclick="showMeaning('limestone','a type of white or grey rock','चुनढुंगा')">limestone</span> that eventually became currency and remained as a part of the island's culture.</p>
+
+      <p>While the use of metal for money can be traced back to <span class="hw" onclick="showMeaning('Babylon','an ancient city in modern-day Iraq','बेबिलोन')">Babylon</span> before 2000 BCE, <span class="hw" onclick="showMeaning('standardised','made to conform to a standard','मानकीकृत')">standardised</span> and <span class="hw" onclick="showMeaning('certified','officially recognised','प्रमाणित')">certified</span> <span class="hw" onclick="showMeaning('coinage','the system of making or using coins','सिक्का प्रणाली')">coinage</span> may not have existed until the 7th century BCE. According to many historians, it was during this time that the kingdom of <span class="hw" onclick="showMeaning('Lydia','an ancient kingdom in present-day Turkey','लिडिया')">Lydia</span>, in present-day Turkey, issued the first <span class="hw" onclick="showMeaning('regulated','controlled by rules','नियमित')">regulated</span> coins. They appeared during the <span class="hw" onclick="showMeaning('reign','the period when a king or queen rules','शासनकाल')">reign</span> of King Alyattes (610–560 BCE) and were made of <span class="hw" onclick="showMeaning('electrum','a natural alloy of gold and silver','इलेक्ट्रम')">electrum</span>, a natural mixture of gold and silver. <span class="hw" onclick="showMeaning('crudely','done without skill or attention to detail','मोटामोटी रूपमा')">Crudely</span> shaped like beans, these coins featured the royal symbol, a lion. Alyattes' son, Croesus, <span class="hw" onclick="showMeaning('reformed','made changes in order to improve something','सुधार गर्नु')">reformed</span> the kingdom's currency, introducing silver coins and gold coins. Soon such currency began appearing elsewhere.</p>
+
+      <p>About the 6th century BCE, leather and animal hide began to be <span class="hw" onclick="showMeaning('fashioned','made into a particular shape or form','बनाइनु')">fashioned</span> into currency. Early ancient Rome reportedly used this type of money. It was also found in such areas as <span class="hw" onclick="showMeaning('Carthage','an ancient city in North Africa','कार्थेज')">Carthage</span>, what is now France, and Russia, is believed to have used leather money into Peter the Great's reign (1682–1725 BCE). The Chinese emperor Wudi (141–87 BCE) created currency out of skins from his personal collection of white stags. It was <span class="hw" onclick="showMeaning('fringed','having a decorative edge','किनारा लगाइएको')">fringed</span> and decorated with <span class="hw" onclick="showMeaning('elaborate','detailed and complicated','विस्तृत')">elaborate</span> designs. Although no longer used, leather money may have left a lasting <span class="hw" onclick="showMeaning('legacy','something passed down from the past','विरासत')">legacy</span>.</p>
+
+      <p>Given that paper is widely believed to have <span class="hw" onclick="showMeaning('originated','started or began','उत्पत्ति भएको')">originated</span> in China, it is fitting that the country introduced paper currency. This <span class="hw" onclick="showMeaning('innovation','a new idea or method','नवप्रवर्तन')">innovation</span> is widely thought to have occurred during the reign of Emperor Zhenzong (997–1022 CE). It was made from the bark of <span class="hw" onclick="showMeaning('mulberry','a type of tree','तुत')">mulberry</span> trees. So, in a sense, money really did grow on trees! By the late 18th and early 19th centuries, paper money had spread to other parts of the world. The bulk of this currency, however, was not money in the traditional sense. Instead, it served as <span class="hw" onclick="showMeaning('promissory','relating to a promise to pay','वचन-पत्र सम्बन्धी')">promissory</span> notes — promises to pay specified amounts of gold or silver which were key in the development of banks.</p>
+
+      <p><span class="hw" onclick="showMeaning('Unsurprisingly','in a way that is not surprising','अचम्म नलाग्ने गरी')">Unsurprisingly</span>, currency comes with a number of problems, one of which concerns <span class="hw" onclick="showMeaning('fiat','an official order or decree','आदेश')">fiat</span> money. This is currency that is issued on the order of a <span class="hw" onclick="showMeaning('sovereign','having complete power and independence','सार्वभौम')">sovereign</span> government and, unlike gold and silver coins, has no <span class="hw" onclick="showMeaning('intrinsic','belonging naturally; essential','आन्तरिक')">intrinsic</span> value. Countries can thus issue such money at will, and some did, potentially making the currency <span class="hw" onclick="showMeaning('worthless','having no value','मूल्यहीन')">worthless</span>. This became such a problem that in 1821 the United Kingdom, then the leader in international finance, introduced the <span class="hw" onclick="showMeaning('gold standard','a monetary system in which currency value is linked to gold','सुन मानक')">gold standard</span>. In this <span class="hw" onclick="showMeaning('monetary','relating to money','मौद्रिक')">monetary</span> system, the standard unit of currency is typically kept at the value of a fixed quantity of gold, which increases <span class="hw" onclick="showMeaning('confidence','trust; belief','विश्वास')">confidence</span> in international trade by preventing governments from <span class="hw" onclick="showMeaning('excessively','to a degree that is too much','अत्यधिक रूपमा')">excessively</span> issuing currency. Eventually, other countries, including Germany, France, and the United States, <span class="hw" onclick="showMeaning('adopted','accepted and used','अपनाए')">adopted</span> the gold standard. However, the system had its <span class="hw" onclick="showMeaning('drawbacks','disadvantages or problems','कमजोरीहरू')">drawbacks</span>. Notably, it limited a country's ability to <span class="hw" onclick="showMeaning('isolate','to separate from others','अलग गर्नु')">isolate</span> its economy from <span class="hw" onclick="showMeaning('depression','a period of low economic activity','मन्दी')">depression</span> or <span class="hw" onclick="showMeaning('inflation','a general increase in prices','मुद्रास्फीति')">inflation</span> in the rest of the world. After the Great <span class="hw" onclick="showMeaning('Depression','the severe worldwide economic downturn','महामन्दी')">Depression</span> (1929-1939 CE), countries began to rethink the gold standard, and by the 1970s, gold was no longer being tied to currency.</p>
+
+      <p>The 21st century has given rise to <span class="hw" onclick="showMeaning('novel','new and original','नयाँ र अनौठो')">novel</span> forms of money including <span class="hw" onclick="showMeaning('digital','relating to computers or electronic technology','डिजिटल')">digital</span> payment and <span class="hw" onclick="showMeaning('virtual','existing in computers or online, not in the physical world','आभासी')">virtual</span> currency such as <span class="hw" onclick="showMeaning('bitcoin','a type of digital currency','बिटकोइन')">bitcoin</span>. Are paper notes and coins going to disappear soon?</p>
+    </div>
+  </div>
+
+  <!-- ===== WORD LIST ===== -->
+  <div class="section-card" id="wordlist">
+    <div class="section-heading">
+      <div class="icon icon-words">📝</div>
+      Word Meaning List
+    </div>
+    <div class="section-subtitle">Click any word to see its meaning in the popup</div>
+
+    <div class="word-table-wrapper">
+      <table class="word-table">
+        <thead><tr><th>#</th><th>Word</th><th>English Meaning</th><th>नेपाली अर्थ</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="word-cell" onclick="showMeaning('civilisation','the stage of human social development','सभ्यता')">civilisation</td><td>the stage of human social development</td><td class="nepali-cell">सभ्यता</td></tr>
+          <tr><td>2</td><td class="word-cell" onclick="showMeaning('barter','exchanging goods without money','वस्तु विनिमय')">barter</td><td>exchanging goods without money</td><td class="nepali-cell">वस्तु विनिमय</td></tr>
+          <tr><td>3</td><td class="word-cell" onclick="showMeaning('subsequently','after that; later','त्यसपछि')">subsequently</td><td>after that; later</td><td class="nepali-cell">त्यसपछि</td></tr>
+          <tr><td>4</td><td class="word-cell" onclick="showMeaning('livestock','farm animals','पशुधन')">livestock</td><td>farm animals</td><td class="nepali-cell">पशुधन</td></tr>
+          <tr><td>5</td><td class="word-cell" onclick="showMeaning('domestication','the process of taming animals','पालतुकरण')">domestication</td><td>the process of taming animals</td><td class="nepali-cell">पालतुकरण</td></tr>
+          <tr><td>6</td><td class="word-cell" onclick="showMeaning('precede','to come before in time','अघि हुनु')">precede</td><td>to come before in time</td><td class="nepali-cell">अघि हुनु</td></tr>
+          <tr><td>7</td><td class="word-cell" onclick="showMeaning('cultivation','preparation of land for growing crops','खेती')">cultivation</td><td>preparation of land for growing crops</td><td class="nepali-cell">खेती</td></tr>
+          <tr><td>8</td><td class="word-cell" onclick="showMeaning('Mesopotamia','ancient region in present-day Iraq','मेसोपोटामिया')">Mesopotamia</td><td>ancient region in present-day Iraq</td><td class="nepali-cell">मेसोपोटामिया</td></tr>
+          <tr><td>9</td><td class="word-cell" onclick="showMeaning('valuables','things worth a lot of money','मूल्यवान वस्तुहरू')">valuables</td><td>things worth a lot of money</td><td class="nepali-cell">मूल्यवान वस्तुहरू</td></tr>
+          <tr><td>10</td><td class="word-cell" onclick="showMeaning('cowrie','small shell used as ancient money','कौडी')">cowrie</td><td>small shell used as ancient money</td><td class="nepali-cell">कौडी</td></tr>
+          <tr><td>11</td><td class="word-cell" onclick="showMeaning('durable','able to last for a long time','टिकाउ')">durable</td><td>able to last for a long time</td><td class="nepali-cell">टिकाउ</td></tr>
+          <tr><td>12</td><td class="word-cell" onclick="showMeaning('mollusks','soft-bodied animals like snails/clams','मृदुकाय जीव')">mollusks</td><td>soft-bodied animals like snails/clams</td><td class="nepali-cell">मृदुकाय जीव</td></tr>
+          <tr><td>13</td><td class="word-cell" onclick="showMeaning('coastal','near the sea or ocean','तटीय')">coastal</td><td>near the sea or ocean</td><td class="nepali-cell">तटीय</td></tr>
+          <tr><td>14</td><td class="word-cell" onclick="showMeaning('currency','system of money in a country','मुद्रा')">currency</td><td>system of money in a country</td><td class="nepali-cell">मुद्रा</td></tr>
+          <tr><td>15</td><td class="word-cell" onclick="showMeaning('wampum','shell beads used as money by Native Americans','वाम्पम')">wampum</td><td>shell beads used as money by Native Americans</td><td class="nepali-cell">वाम्पम</td></tr>
+          <tr><td>16</td><td class="word-cell" onclick="showMeaning('carved','cut a hard material into a shape','खोद्नु')">carved</td><td>cut a hard material into a shape</td><td class="nepali-cell">खोद्नु</td></tr>
+          <tr><td>17</td><td class="word-cell" onclick="showMeaning('limestone','type of white or grey rock','चुनढुंगा')">limestone</td><td>type of white or grey rock</td><td class="nepali-cell">चुनढुंगा</td></tr>
+          <tr><td>18</td><td class="word-cell" onclick="showMeaning('standardised','made to conform to a standard','मानकीकृत')">standardised</td><td>made to conform to a standard</td><td class="nepali-cell">मानकीकृत</td></tr>
+          <tr><td>19</td><td class="word-cell" onclick="showMeaning('certified','officially recognised','प्रमाणित')">certified</td><td>officially recognised</td><td class="nepali-cell">प्रमाणित</td></tr>
+          <tr><td>20</td><td class="word-cell" onclick="showMeaning('coinage','system of making or using coins','सिक्का प्रणाली')">coinage</td><td>system of making or using coins</td><td class="nepali-cell">सिक्का प्रणाली</td></tr>
+          <tr><td>21</td><td class="word-cell" onclick="showMeaning('regulated','controlled by rules','नियमित')">regulated</td><td>controlled by rules</td><td class="nepali-cell">नियमित</td></tr>
+          <tr><td>22</td><td class="word-cell" onclick="showMeaning('reign','period when a king or queen rules','शासनकाल')">reign</td><td>period when a king or queen rules</td><td class="nepali-cell">शासनकाल</td></tr>
+          <tr><td>23</td><td class="word-cell" onclick="showMeaning('electrum','natural alloy of gold and silver','इलेक्ट्रम')">electrum</td><td>natural alloy of gold and silver</td><td class="nepali-cell">इलेक्ट्रम</td></tr>
+          <tr><td>24</td><td class="word-cell" onclick="showMeaning('crudely','done without skill','मोटामोटी रूपमा')">crudely</td><td>done without skill</td><td class="nepali-cell">मोटामोटी रूपमा</td></tr>
+          <tr><td>25</td><td class="word-cell" onclick="showMeaning('reformed','changed to improve something','सुधार गर्नु')">reformed</td><td>changed to improve something</td><td class="nepali-cell">सुधार गर्नु</td></tr>
+          <tr><td>26</td><td class="word-cell" onclick="showMeaning('fashioned','made into a particular shape','बनाइनु')">fashioned</td><td>made into a particular shape</td><td class="nepali-cell">बनाइनु</td></tr>
+          <tr><td>27</td><td class="word-cell" onclick="showMeaning('fringed','having a decorative edge','किनारा लगाइएको')">fringed</td><td>having a decorative edge</td><td class="nepali-cell">किनारा लगाइएको</td></tr>
+          <tr><td>28</td><td class="word-cell" onclick="showMeaning('elaborate','detailed and complicated','विस्तृत')">elaborate</td><td>detailed and complicated</td><td class="nepali-cell">विस्तृत</td></tr>
+          <tr><td>29</td><td class="word-cell" onclick="showMeaning('legacy','something passed down from the past','विरासत')">legacy</td><td>something passed down from the past</td><td class="nepali-cell">विरासत</td></tr>
+          <tr><td>30</td><td class="word-cell" onclick="showMeaning('originated','started or began','उत्पत्ति भएको')">originated</td><td>started or began</td><td class="nepali-cell">उत्पत्ति भएको</td></tr>
+          <tr><td>31</td><td class="word-cell" onclick="showMeaning('innovation','a new idea or method','नवप्रवर्तन')">innovation</td><td>a new idea or method</td><td class="nepali-cell">नवप्रवर्तन</td></tr>
+          <tr><td>32</td><td class="word-cell" onclick="showMeaning('mulberry','a type of tree','तुत')">mulberry</td><td>a type of tree</td><td class="nepali-cell">तुत</td></tr>
+          <tr><td>33</td><td class="word-cell" onclick="showMeaning('promissory','relating to a promise to pay','वचन-पत्र सम्बन्धी')">promissory</td><td>relating to a promise to pay</td><td class="nepali-cell">वचन-पत्र सम्बन्धी</td></tr>
+          <tr><td>34</td><td class="word-cell" onclick="showMeaning('fiat','an official order or decree','आदेश')">fiat</td><td>an official order or decree</td><td class="nepali-cell">आदेश</td></tr>
+          <tr><td>35</td><td class="word-cell" onclick="showMeaning('sovereign','having complete power and independence','सार्वभौम')">sovereign</td><td>having complete power and independence</td><td class="nepali-cell">सार्वभौम</td></tr>
+          <tr><td>36</td><td class="word-cell" onclick="showMeaning('intrinsic','belonging naturally; essential','आन्तरिक')">intrinsic</td><td>belonging naturally; essential</td><td class="nepali-cell">आन्तरिक</td></tr>
+          <tr><td>37</td><td class="word-cell" onclick="showMeaning('worthless','having no value','मूल्यहीन')">worthless</td><td>having no value</td><td class="nepali-cell">मूल्यहीन</td></tr>
+          <tr><td>38</td><td class="word-cell" onclick="showMeaning('gold standard','monetary system linked to gold','सुन मानक')">gold standard</td><td>monetary system linked to gold</td><td class="nepali-cell">सुन मानक</td></tr>
+          <tr><td>39</td><td class="word-cell" onclick="showMeaning('monetary','relating to money','मौद्रिक')">monetary</td><td>relating to money</td><td class="nepali-cell">मौद्रिक</td></tr>
+          <tr><td>40</td><td class="word-cell" onclick="showMeaning('excessively','to a degree that is too much','अत्यधिक रूपमा')">excessively</td><td>to a degree that is too much</td><td class="nepali-cell">अत्यधिक रूपमा</td></tr>
+          <tr><td>41</td><td class="word-cell" onclick="showMeaning('adopted','accepted and used','अपनाए')">adopted</td><td>accepted and used</td><td class="nepali-cell">अपनाए</td></tr>
+          <tr><td>42</td><td class="word-cell" onclick="showMeaning('drawbacks','disadvantages','कमजोरीहरू')">drawbacks</td><td>disadvantages</td><td class="nepali-cell">कमजोरीहरू</td></tr>
+          <tr><td>43</td><td class="word-cell" onclick="showMeaning('isolate','to separate from others','अलग गर्नु')">isolate</td><td>to separate from others</td><td class="nepali-cell">अलग गर्नु</td></tr>
+          <tr><td>44</td><td class="word-cell" onclick="showMeaning('depression','period of low economic activity','मन्दी')">depression</td><td>period of low economic activity</td><td class="nepali-cell">मन्दी</td></tr>
+          <tr><td>45</td><td class="word-cell" onclick="showMeaning('inflation','general increase in prices','मुद्रास्फीति')">inflation</td><td>general increase in prices</td><td class="nepali-cell">मुद्रास्फीति</td></tr>
+          <tr><td>46</td><td class="word-cell" onclick="showMeaning('novel','new and original','नयाँ र अनौठो')">novel</td><td>new and original</td><td class="nepali-cell">नयाँ र अनौठो</td></tr>
+          <tr><td>47</td><td class="word-cell" onclick="showMeaning('digital','relating to electronic technology','डिजिटल')">digital</td><td>relating to electronic technology</td><td class="nepali-cell">डिजिटल</td></tr>
+          <tr><td>48</td><td class="word-cell" onclick="showMeaning('virtual','existing online, not physically','आभासी')">virtual</td><td>existing online, not physically</td><td class="nepali-cell">आभासी</td></tr>
+          <tr><td>49</td><td class="word-cell" onclick="showMeaning('bitcoin','a type of digital currency','बिटकोइन')">bitcoin</td><td>a type of digital currency</td><td class="nepali-cell">बिटकोइन</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE A: FIND WORDS ===== -->
+  <div class="section-card" id="exerciseA">
+    <div class="section-heading">
+      <div class="icon icon-fill">✍</div>
+      Exercise A — Find the Words from the Text
+    </div>
+    <div class="section-subtitle">Click each meaning to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">the period during which a king, queen, emperor, etc. rules</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>reign</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">to happen before something</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>precede</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">to control something by means of rules</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>regulated</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">simply and without much skill or attention to detail</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>crudely</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">to form a border around something</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>fringed</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">f</div>
+        <div class="exercise-q-text">something that somebody has done successfully</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>legacy</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">g</div>
+        <div class="exercise-q-text">an official order given by somebody in authority</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>fiat</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">h</div>
+        <div class="exercise-q-text">free to govern itself; completely independent</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>sovereign</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">i</div>
+        <div class="exercise-q-text">belonging naturally; essential</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>intrinsic</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE B: TIMELINE ===== -->
+  <div class="section-card" id="exerciseB">
+    <div class="section-heading">
+      <div class="icon icon-extra">📋</div>
+      Exercise B — Timeline of Money Development
+    </div>
+    <div class="section-subtitle">Click to reveal the timeline</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">•</div>
+        <div class="exercise-q-text">Show the timeline of money development</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Timeline</span>
+          <span class="answer-text">
+            <table class="timeline-table">
+              <tr><td class="year">1200 BCE</td><td>Cowrie shells used as money</td></tr>
+              <tr><td class="year">2000 BCE</td><td>Metal used as money; temples in Mesopotamia used for banking (3000–2000 BCE)</td></tr>
+              <tr><td class="year">6th century BCE</td><td>Leather and animal hide fashioned into currency</td></tr>
+              <tr><td class="year">997–1022 CE</td><td>Paper currency introduced in China during the reign of Emperor Zhenzong</td></tr>
+              <tr><td class="year">1821 CE</td><td>The United Kingdom introduced the gold standard</td></tr>
+              <tr><td class="year">21st century</td><td>Digital payment and virtual currency such as bitcoin came into use</td></tr>
+            </table>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE C: SHORT ANSWERS ===== -->
+  <div class="section-card" id="exerciseC">
+    <div class="section-heading">
+      <div class="icon icon-short">✎</div>
+      Exercise C — Answer the Following Questions
+    </div>
+    <div class="section-subtitle">Click each question to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">What did people use to make a trade before the invention of money?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Before the invention of money, people used the barter system — a system of directly exchanging one product for another.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">How were temples used as banks in the past?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">In Mesopotamia between 3000 and 2000 BCE, temples were used to store grain and other valuable goods that were used in trade, functioning like early banks.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">What was the benefit of using cowrie shells as money?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Cowrie shells were beneficial because they were similar in size, small, and durable, making them easy to use as a standard form of currency.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">Describe the coins invented by Turkey.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">The coins invented in the kingdom of Lydia (present-day Turkey) appeared during the reign of King Alyattes. They were made of electrum — a natural mixture of gold and silver — and were crudely shaped like beans. They featured the royal symbol of a lion.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">Why did the leaders in international finance introduce the gold standard in currency?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">The gold standard was introduced to prevent governments from excessively issuing currency, which could make it worthless. It linked currency value to a fixed quantity of gold, increasing confidence in international trade.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">f</div>
+        <div class="exercise-q-text">What form of money is being used in the 21st century?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">In the 21st century, digital payment and virtual currencies such as bitcoin are being used.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXTRA: SHORT QUESTIONS ===== -->
+  <div class="section-card extra-section" id="extraSA">
+    <div class="section-heading">
+      <div class="icon icon-extra">💡</div>
+      Additional Short Questions
+    </div>
+    <div class="section-subtitle">Click each question to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">What is the barter system?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">The barter system is a system of direct exchange of one product for another without using money.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">Why were cowrie shells a popular form of early currency?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Cowrie shells were popular because they were similar in size, small, durable, and easy to carry and count.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">What is fiat money?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Fiat money is currency that is issued on the order of a sovereign government and has no intrinsic value, unlike gold and silver coins.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">When and where was paper currency first introduced?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Paper currency was first introduced in China during the reign of Emperor Zhenzong (997–1022 CE).</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">What were the drawbacks of the gold standard?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">The gold standard limited a country's ability to isolate its economy from depression or inflation in the rest of the world.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXTRA: TRUE/FALSE ===== -->
+  <div class="section-card extra-section" id="extraTF">
+    <div class="section-heading">
+      <div class="icon icon-extra">🔍</div>
+      Additional True / False
+    </div>
+    <div class="section-subtitle">Click each statement to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">Cattle are probably the oldest form of money.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">Cattle are the oldest form of money as the domestication of animals preceded the cultivation of crops.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">Cowrie shells were first used as money around 1800 BCE.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">Cowrie shells were first used as money about 1200 BCE, not 1800 BCE.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">The kingdom of Lydia issued the first regulated coins.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">The kingdom of Lydia in present-day Turkey issued the first regulated coins during the reign of King Alyattes.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">Paper money was first introduced in the United Kingdom.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">Paper money was first introduced in China, not the United Kingdom.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">The gold standard was introduced in 1821 by the United States.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">The gold standard was introduced in 1821 by the United Kingdom, not the United States.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXTRA: FILL IN THE BLANKS ===== -->
+  <div class="section-card extra-section" id="extraFill">
+    <div class="section-heading">
+      <div class="icon icon-extra">🧩</div>
+      Contextual Fill-in-the-Blanks
+    </div>
+    <div class="section-subtitle">Click each question to reveal the correct answer</div>
+
+    <div class="box-words">
+      <span class="box-word">barter</span>
+      <span class="box-word">reign</span>
+      <span class="box-word">intrinsic</span>
+      <span class="box-word">legacy</span>
+      <span class="box-word">currency</span>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">Before money existed, people used a __________ system to exchange goods.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>barter</strong> — Before money existed, people used a <strong>barter</strong> system to exchange goods.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">The __________ of King Alyattes saw the first regulated coins in Lydia.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>reign</strong> — The <strong>reign</strong> of King Alyattes saw the first regulated coins in Lydia.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">Gold and silver coins have __________ value, unlike fiat money.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>intrinsic</strong> — Gold and silver coins have <strong>intrinsic</strong> value, unlike fiat money.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">The old culture left a great __________ for future generations.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>legacy</strong> — The old culture left a great <strong>legacy</strong> for future generations.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">The __________ of Nepal is the Nepali Rupee.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>currency</strong> — The <strong>currency</strong> of Nepal is the Nepali Rupee.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main-content -->
+
+<script>
+  // ── Font Size ──
+  let fontSize = 17;
+  const MIN_F = 12, MAX_F = 28;
+  function changeFontSize(delta) {
+    fontSize = Math.max(MIN_F, Math.min(MAX_F, fontSize + delta));
+    document.documentElement.style.setProperty('--font-size-base', fontSize + 'px');
+    document.getElementById('fontDisplay').textContent = fontSize + 'px';
+    const d = document.getElementById('fontDisplay');
+    d.style.transform = 'scale(1.2)';
+    setTimeout(() => d.style.transform = 'scale(1)', 200);
+  }
+
+  // ── Meaning Popup ──
+  function showMeaning(word, english, nepali) {
+    const popup = document.getElementById('meaningPopup');
+    document.getElementById('popupWord').textContent = word;
+    document.getElementById('popupEnglish').textContent = english;
+    document.getElementById('popupNepali').textContent = nepali;
+    popup.classList.add('show');
+  }
+  function closePopup() {
+    document.getElementById('meaningPopup').classList.remove('show');
+  }
+  document.addEventListener('click', function(e) {
+    const popup = document.getElementById('meaningPopup');
+    if (!e.target.closest('.hw') && !e.target.closest('.word-cell') && !e.target.closest('#meaningPopup')) {
+      popup.classList.remove('show');
+    }
+  });
+
+  // ── Exercise Toggle ──
+  function toggleExercise(item) {
+    const parent = item.closest('.section-card');
+    const all = parent.querySelectorAll('.exercise-item');
+    const isOpen = item.classList.contains('open');
+    all.forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ── Scroll to Top ──
+  const scrollBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 400) {
+      scrollBtn.classList.add('show');
+    } else {
+      scrollBtn.classList.remove('show');
+    }
+  });
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── Download ──
+  function downloadHTML() {
+    const html = document.documentElement.outerHTML;
+    const blob = new Blob(['<!DOCTYPE html>\n' + html], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'The_History_of_Money_Interactive.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+</script>
+
+</body>
+</html>

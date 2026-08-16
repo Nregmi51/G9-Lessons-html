@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Diary of a Young Girl – Grade 9 English Unit 15</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── design system ── */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #8B3A6B;
+      --primary-light: #C94A8B;
+      --primary-dark: #5C2044;
+      --accent: #D4A017;
+      --accent-light: #F1C40F;
+      --correct: #27AE60;
+      --incorrect: #E74C3C;
+      --bg: #FDF2F9;
+      --card-bg: #FFFFFF;
+      --text-dark: #2C1A2A;
+      --text-body: #3D2C3A;
+      --text-muted: #7A5D72;
+      --border: #E8C8DC;
+      --highlight-bg: #FEF9E7;
+      --highlight-border: #D4A017;
+      --nepali-accent: #8E44AD;
+      --font-size-base: 17px;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(139,58,107,0.08);
+      --shadow-lg: 0 12px 40px rgba(139,58,107,0.14);
+    }
+
+    body {
+      font-family: 'Poppins', 'Noto Sans SC', sans-serif;
+      background: var(--bg);
+      color: var(--text-body);
+      font-size: var(--font-size-base);
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* ── TOOLBAR ── */
+    .toolbar {
+      position: fixed;
+      top: 0; left: 0; width: 100%; z-index: 1000;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 24px;
+      box-shadow: 0 4px 20px rgba(139,58,107,0.3);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .toolbar-left { display: flex; align-items: center; gap: 16px; }
+    .toolbar-title { font-size: 15px; font-weight: 600; letter-spacing: 0.3px; }
+    .toolbar-title span { opacity: 0.7; font-weight: 400; }
+    .toolbar-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+    .font-btn {
+      width: 38px; height: 38px; border-radius: 10px;
+      border: 2px solid rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.1);
+      color: white;
+      font-size: 18px; font-weight: 700;
+      cursor: pointer; transition: 0.2s;
+      font-family: 'Poppins', sans-serif;
+    }
+    .font-btn:hover { background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.5); transform: scale(1.08); }
+    .font-size-display { font-size: 13px; font-weight: 600; min-width: 38px; text-align: center; background: rgba(255,255,255,0.15); padding: 6px 10px; border-radius: 8px; }
+    .download-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 18px; border-radius: 10px; border: none;
+      background: rgba(255,255,255,0.2); color: white;
+      font-size: 13px; font-weight: 600; cursor: pointer; transition: 0.2s;
+      font-family: 'Poppins', sans-serif;
+    }
+    .download-btn:hover { background: rgba(255,255,255,0.35); transform: translateY(-1px); }
+
+    /* ── SCROLL TO TOP ── */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 9999;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: 2px solid rgba(255,255,255,0.3);
+      font-size: 26px;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(139,58,107,0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+    }
+    #scrollTopBtn.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #scrollTopBtn:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 8px 30px rgba(139,58,107,0.55);
+      background: linear-gradient(135deg, var(--accent), #B8860B);
+    }
+    #scrollTopBtn:active { transform: scale(0.92); }
+
+    /* ── MAIN ── */
+    .main-content { max-width: 860px; margin: 0 auto; padding: 80px 24px 60px; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #3D1A35, #8B3A6B, #C94A8B);
+      border-radius: 20px; padding: 48px 40px; color: white; margin-bottom: 36px;
+      position: relative; overflow: hidden; box-shadow: 0 12px 40px rgba(139,58,107,0.25);
+    }
+    .hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: rgba(255,255,255,0.06); border-radius: 50%; }
+    .hero::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 150px; height: 150px; background: rgba(255,255,255,0.04); border-radius: 50%; }
+    .hero-grade { display: inline-block; padding: 5px 16px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 30px; font-size: 12px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 16px; }
+    .hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; position: relative; z-index: 1; font-family: 'Playfair Display', serif; }
+    .hero-sub { font-size: 15px; opacity: 0.85; font-weight: 400; position: relative; z-index: 1; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 20px; position: relative; z-index: 1; }
+    .hero-meta-item { display: flex; align-items: center; gap: 6px; font-size: 13px; opacity: 0.85; background: rgba(255,255,255,0.1); padding: 5px 14px; border-radius: 20px; }
+
+    /* ── NAV PILLS ── */
+    .nav-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .nav-pill {
+      padding: 8px 18px; border-radius: 30px; background: white; border: 1px solid var(--border);
+      font-size: 13px; font-weight: 600; color: var(--text-muted); cursor: pointer; transition: 0.2s;
+      font-family: 'Poppins', sans-serif; text-decoration: none;
+    }
+    .nav-pill:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+    /* ── SECTION CARDS ── */
+    .section-card {
+      background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border);
+      padding: 36px 32px; margin-bottom: 28px; box-shadow: var(--shadow);
+      transition: box-shadow 0.3s;
+    }
+    .section-card:hover { box-shadow: var(--shadow-lg); }
+
+    .section-heading {
+      font-size: 24px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-heading .icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;
+    }
+    .icon-reading { background: #F4D9ED; color: #8B3A6B; }
+    .icon-words { background: #FEF9E7; color: #D4A017; }
+    .icon-exercise { background: #D5F5E3; color: #27AE60; }
+    .icon-fill { background: #EBDEF0; color: #8E44AD; }
+    .icon-tf { background: #FDEBD0; color: #E67E22; }
+    .icon-short { background: #D6EAF8; color: #2980B9; }
+    .icon-extra { background: #F5EEF8; color: #8E44AD; }
+
+    .section-subtitle { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; font-weight: 400; }
+
+    /* ── READING PASSAGE ── */
+    .passage { font-size: inherit; line-height: 2; color: var(--text-body); }
+    .passage p { margin-bottom: 18px; text-align: justify; }
+    .passage p:last-child { margin-bottom: 0; }
+    .passage .diary-date { font-weight: 700; color: var(--primary); font-size: 1.1em; }
+
+    .hw {
+      background: var(--highlight-bg); border-bottom: 2px solid var(--highlight-border);
+      padding: 1px 6px; border-radius: 4px; cursor: pointer; font-weight: 600;
+      color: #7A5D00; transition: all 0.2s; display: inline;
+    }
+    .hw:hover { background: #FDE68A; transform: scale(1.02); }
+    .hw::after { content: '📖'; font-size: 11px; position: relative; top: -4px; margin-left: 2px; }
+
+    /* ── POPUP ── */
+    .meaning-popup {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(120%);
+      width: 94%; max-width: 520px; background: white; border-radius: 18px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.05);
+      z-index: 2000; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s;
+      opacity: 0; overflow: hidden;
+    }
+    .meaning-popup.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+    .popup-header { background: linear-gradient(135deg, #8B3A6B, #C94A8B); color: white; padding: 14px 22px; display: flex; align-items: center; justify-content: space-between; }
+    .popup-word { font-size: 20px; font-weight: 700; font-family: 'Playfair Display', serif; }
+    .popup-close { width: 30px; height: 30px; border-radius: 50%; border: none; background: rgba(255,255,255,0.25); color: white; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s; font-family: 'Poppins', sans-serif; }
+    .popup-close:hover { background: rgba(255,255,255,0.4); }
+    .popup-body { padding: 18px 22px; display: flex; flex-direction: column; gap: 12px; }
+    .popup-meaning-row { display: flex; align-items: flex-start; gap: 12px; }
+    .popup-label { flex-shrink: 0; padding: 4px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; }
+    .popup-label.en { background: #DBEAFE; color: #1D4ED8; }
+    .popup-label.ne { background: #EDE9FE; color: #6D28D9; }
+    .popup-meaning-text { font-size: 16px; line-height: 1.5; padding-top: 2px; }
+    .popup-nepali { font-size: 17px; color: var(--nepali-accent); font-weight: 500; }
+
+    /* ── WORD TABLE ── */
+    .word-table-wrapper { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); }
+    .word-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .word-table thead { background: linear-gradient(135deg, #F4D9ED, #E8C8DC); }
+    .word-table th { padding: 14px 18px; text-align: left; font-weight: 700; color: #5C2044; font-size: 13px; text-transform: uppercase; letter-spacing: 0.8px; border-bottom: 2px solid #C94A8B; }
+    .word-table td { padding: 12px 18px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .word-table tr:last-child td { border-bottom: none; }
+    .word-table tr:hover td { background: #FDF2F9; }
+    .word-table .word-cell { font-weight: 700; color: var(--primary-dark); cursor: pointer; }
+    .word-table .word-cell:hover { text-decoration: underline; }
+    .word-table .nepali-cell { color: var(--nepali-accent); font-weight: 500; }
+
+    /* ── EXERCISE ITEMS ── */
+    .exercise-item {
+      background: #FDF2F9; border: 1px solid var(--border); border-radius: 12px;
+      margin-bottom: 14px; overflow: hidden; transition: all 0.2s;
+    }
+    .exercise-item:hover { border-color: #D4A0C0; }
+
+    .exercise-question {
+      padding: 16px 20px; cursor: pointer; display: flex; align-items: flex-start; gap: 14px;
+      transition: background 0.2s; user-select: none;
+    }
+    .exercise-question:hover { background: #F4D9ED; }
+
+    .exercise-q-number {
+      flex-shrink: 0; width: 30px; height: 30px; border-radius: 8px;
+      background: var(--primary); color: white; display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; margin-top: 1px;
+    }
+    .exercise-q-text { flex: 1; font-weight: 500; color: var(--text-dark); line-height: 1.6; }
+    .exercise-toggle {
+      flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+      background: #E8C8DC; display: flex; align-items: center; justify-content: center;
+      font-size: 16px; color: var(--text-muted); transition: all 0.3s; margin-top: 1px;
+    }
+    .exercise-item.open .exercise-toggle { background: var(--correct); color: white; transform: rotate(180deg); }
+
+    .exercise-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .exercise-item.open .exercise-answer { max-height: 500px; }
+
+    .exercise-answer-inner {
+      padding: 0 20px 18px; margin-left: 44px;
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    .answer-badge {
+      flex-shrink: 0; padding: 4px 12px; border-radius: 6px;
+      font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px;
+    }
+    .badge-answer { background: #D5F5E3; color: #1E8449; }
+    .badge-true { background: #D5F5E3; color: #1E8449; }
+    .badge-false { background: #FADBD8; color: #922B21; }
+    .badge-ng { background: #FDEBD0; color: #935E38; }
+    .answer-text { font-size: 15px; color: var(--text-body); line-height: 1.7; }
+
+    .box-words {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;
+      padding: 16px; background: #FDF2F9; border-radius: 12px; border: 1px dashed #D4A0C0;
+    }
+    .box-word { padding: 6px 16px; background: white; border: 1px solid #D4A0C0; border-radius: 8px; font-weight: 600; color: var(--primary); font-size: 14px; }
+
+    .blank-slot {
+      display: inline-block; min-width: 100px; border-bottom: 2px dashed var(--primary);
+      padding: 2px 4px; font-weight: 700; color: var(--primary); background: #FDF2F9; border-radius: 4px 4px 0 0;
+    }
+
+    .click-hint {
+      display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px;
+      background: #FDF2F9; border: 1px solid #D4A0C0; border-radius: 10px;
+      font-size: 13px; color: var(--primary); font-weight: 500; margin-bottom: 20px;
+    }
+
+    .extra-section { border-left: 4px solid var(--primary); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .main-content { padding: 72px 14px 40px; }
+      .section-card { padding: 24px 18px; }
+      .hero { padding: 32px 22px; }
+      .hero h1 { font-size: 24px; }
+      .toolbar { padding: 8px 14px; }
+      .toolbar-title { font-size: 12px; }
+      .meaning-popup { width: 96%; bottom: 12px; }
+      #scrollTopBtn { width: 48px; height: 48px; font-size: 22px; bottom: 20px; right: 20px; }
+    }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body>
+
+<!-- ===== TOOLBAR ===== -->
+<div class="toolbar">
+  <div class="toolbar-left">
+    <div class="toolbar-title">Grade 9 · English <span>| Unit 15: The Diary of a Young Girl</span></div>
+  </div>
+  <div class="toolbar-right">
+    <button class="font-btn" onclick="changeFontSize(-1)" title="Decrease font size">A−</button>
+    <div class="font-size-display" id="fontDisplay">17px</div>
+    <button class="font-btn" onclick="changeFontSize(1)" title="Increase font size">A+</button>
+    <button class="download-btn" onclick="downloadHTML()" title="Download this page">⬇ Save</button>
+  </div>
+</div>
+
+<!-- ===== SCROLL TO TOP ===== -->
+<button id="scrollTopBtn" onclick="scrollToTop()" title="Go to top">⬆</button>
+
+<!-- ===== MEANING POPUP ===== -->
+<div class="meaning-popup" id="meaningPopup">
+  <div class="popup-header">
+    <span class="popup-word" id="popupWord">Word</span>
+    <button class="popup-close" onclick="closePopup()">✕</button>
+  </div>
+  <div class="popup-body">
+    <div class="popup-meaning-row">
+      <span class="popup-label en">English</span>
+      <span class="popup-meaning-text" id="popupEnglish">—</span>
+    </div>
+    <div class="popup-meaning-row">
+      <span class="popup-label ne">नेपाली</span>
+      <span class="popup-meaning-text popup-nepali" id="popupNepali">—</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN ===== -->
+<div class="main-content">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-grade">Grade 9 · Unit 15 · Diary Extract</div>
+    <h1>The Diary of a Young Girl</h1>
+    <div class="hero-sub">Pages 185–189 · Adapted from Anne Frank</div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">📖 Reading Passage</div>
+      <div class="hero-meta-item">📝 25+ Vocabulary Words</div>
+      <div class="hero-meta-item">✅ Interactive Exercises</div>
+    </div>
+  </div>
+
+  <!-- NAV PILLS -->
+  <div class="nav-pills">
+    <a class="nav-pill" href="#reading">📖 Reading</a>
+    <a class="nav-pill" href="#wordlist">📝 Word List</a>
+    <a class="nav-pill" href="#exerciseA">✍ Exercise A</a>
+    <a class="nav-pill" href="#exerciseB">✓ Exercise B</a>
+    <a class="nav-pill" href="#exerciseC">✎ Exercise C</a>
+    <a class="nav-pill" href="#exerciseD">🔍 Exercise D</a>
+    <a class="nav-pill" href="#extraSA">💡 Extra SA</a>
+    <a class="nav-pill" href="#extraTF">🔍 Extra T/F</a>
+    <a class="nav-pill" href="#extraFill">🧩 Extra Fill</a>
+  </div>
+
+  <!-- ===== READING ===== -->
+  <div class="section-card" id="reading">
+    <div class="section-heading">
+      <div class="icon icon-reading">📖</div>
+      The Diary of a Young Girl — Anne Frank
+    </div>
+    <div class="section-subtitle">Click any highlighted word to see its meaning</div>
+    <div class="click-hint">💡 Tap <span class="hw" style="cursor:default;">highlighted words</span> for meanings — popup stays until you close it.</div>
+
+    <div class="passage">
+      <p class="diary-date">SATURDAY, JUNE 20, 1942</p>
+
+      <p>Writing in a diary is a really strange experience for someone like me. Not only because I've never written anything before, but also because it seems to me that later on neither I nor anyone else will be interested in the <span class="hw" onclick="showMeaning('musings','deep reflections or thoughts','विचार मग्नता')">musings</span> of a thirteen-year-old schoolgirl. Oh well, it doesn't matter. I feel like writing, and I have an even greater need to get all kinds of things off my chest.</p>
+
+      <p>"Paper has more patience than people." I thought of this saying on one of those days when I was feeling a little depressed and was sitting at home with my chin in my hands, bored and <span class="hw" onclick="showMeaning('listless','having no energy or enthusiasm','उत्साहविहीन')">listless</span>, wondering whether to stay in or go out. I finally stayed where I was, <span class="hw" onclick="showMeaning('brooding','thinking deeply and worrying','चिन्तामग्न हुनु')">brooding</span>. Yes, paper does have more patience, and since I'm not planning to let anyone else read this <span class="hw" onclick="showMeaning('stiff-backed','rigid and firm','कडा पिठ्ठो भएको')">stiff-backed</span> notebook grandly referred to as a "diary," unless I should ever find a real friend, it probably won't make a bit of difference.</p>
+
+      <p>Now I'm back to the point that <span class="hw" onclick="showMeaning('prompted','motivated or caused','प्रेरित गर्यो')">prompted</span> me to keep a diary in the first place: I don't have a friend.</p>
+
+      <p>Let me put it more clearly, since no one will believe that a thirteen year-old girl is completely alone in the world. And I'm not. I have loving parents and a sixteen-year-old sister, and there are about thirty people I can call friends. I have a <span class="hw" onclick="showMeaning('throng','a large crowd of people','भीड')">throng</span> of admirers who can't keep their adoring eyes off me and who sometimes have to <span class="hw" onclick="showMeaning('resort','make use of something undesirable','सहारा लिनु')">resort</span> to using a broken pocket mirror to try and catch a <span class="hw" onclick="showMeaning('glimpse','a quick or brief look','एक झलक')">glimpse</span> of me in the classroom. I have a family, loving aunts and a good home. No, on the surface I seem to have everything, except my one true friend. All I think about when I'm with friends is having a good time. I can't bring myself to talk about anything but ordinary everyday things. We don't seem to be able to get any closer, and that's the problem. Maybe it's my fault that we don't <span class="hw" onclick="showMeaning('confide','share secrets or personal feelings','विश्वास गरेर गोप्य कुरा भन्नु')">confide</span> in each other. In any case, that's just how things are, and unfortunately they're not <span class="hw" onclick="showMeaning('liable','likely to do something','सम्भावित')">liable</span> to change. This is why I've started the diary.</p>
+
+      <p>To enhance the image of this long-awaited friend in my imagination, I don't want to <span class="hw" onclick="showMeaning('jot down','write quickly and briefly','छिटो लेख्नु')">jot down</span> the facts in this diary the way most people would do, but I want the diary to be my friend, and I'm going to call this friend Kitty.</p>
+
+      <p>Since no one would understand a word of my stories to Kitty if I were to <span class="hw" onclick="showMeaning('plunge','to go into something suddenly','अचानक प्रवेश गर्नु')">plunge</span> right in, I'd better provide a brief sketch of my life, much as I dislike doing so.</p>
+
+      <p>My father, the most <span class="hw" onclick="showMeaning('adorable','very lovable and attractive','प्यारो')">adorable</span> father I've ever seen, didn't marry my mother until he was thirty-six and she was twenty-five. My sister Margot was born in Frankfurt am Main in Germany in 1926. I was born on June 12, 1929. I lived in Frankfurt until I was four. Because we're Jewish, my father <span class="hw" onclick="showMeaning('immigrated','moved to another country','बसाइँ सर्यो')">immigrated</span> to Holland in 1933, when he became the Managing Director of the Dutch Opekta Company, which <span class="hw" onclick="showMeaning('manufactures','produces goods','उत्पादन गर्छ')">manufactures</span> products used in making jam.</p>
+
+      <p>I started right away at the Montessori nursery school. I stayed there until I was six, at which time I started first grade. In sixth grade my teacher was Mrs. Kuperus, the principal. At the end of the year we were both in tears as we said a <span class="hw" onclick="showMeaning('heartbreaking','causing great sadness','मन दुखाउने')">heartbreaking</span> farewell, because I'd been accepted at the Jewish Lyceum, where Margot also went to school.</p>
+
+      <p>Our lives were not without <span class="hw" onclick="showMeaning('anxiety','worry and fear about the future','चिन्ता')">anxiety</span>, since our relatives in Germany were suffering under Hitler's anti-Jewish laws. After the <span class="hw" onclick="showMeaning('pogroms','organized massacres of Jewish people','यहूदी विरोधी हिंसा')">pogroms</span> in 1938 my two uncles (my mother's brothers) fled Germany, finding safe <span class="hw" onclick="showMeaning('refuge','shelter or protection from danger','आश्रय')">refuge</span> in North America.</p>
+
+      <p>After May 1940 the good times were few and far between: first there was the war, then the <span class="hw" onclick="showMeaning('capitulation','the act of surrendering','आत्मसमर्पण')">capitulation</span> and then the arrival of the Germans, which is when the trouble started for the Jews. Our freedom was severely restricted by a series of anti-Jewish <span class="hw" onclick="showMeaning('decrees','official orders or laws','आदेश')">decrees</span>: Jews were required to wear a yellow star; Jews were required to turn in their bicycles; Jews were forbidden to use street-cars; Jews were forbidden to ride in cars, even their own; Jews were required to do their shopping between 3 and 5 PM; Jews were required to <span class="hw" onclick="showMeaning('frequent','to visit a place regularly','नियमित रूपमा जानु')">frequent</span> only Jewish-owned barbershops and beauty parlors; Jews were forbidden to be out on the streets between 8 PM and 6 AM; Jews were forbidden to attend theaters, movies or any other forms of entertainment; Jews were forbidden to use swimming pools, tennis courts, hockey fields or any other athletic fields; Jews were forbidden to go rowing; Jews were forbidden to take part in any athletic activity in public; Jews were forbidden to sit in their gardens or those of their friends after 8 PM; Jews were forbidden to visit Christians in their homes; Jews were required to attend Jewish schools, etc.</p>
+
+      <p>In the summer of 1941, Grandma got sick and had to have an operation, so my birthday passed with little celebration. In the summer of 1940, we didn't do much for my birthday either, since the fighting had just ended in Holland. Grandma died in January 1942. No one knows how often I think of her and still love her. This birthday celebration in 1942 was intended to make up for the others, and Grandma's candle was lit along with the rest. The four of us are still doing well, and that brings me to the present date of June 20, 1942, and the <span class="hw" onclick="showMeaning('solemn','serious and dignified','गम्भीर')">solemn</span> <span class="hw" onclick="showMeaning('dedication','the act of devoting something to a purpose','समर्पण')">dedication</span> of my diary.</p>
+    </div>
+  </div>
+
+  <!-- ===== WORD LIST ===== -->
+  <div class="section-card" id="wordlist">
+    <div class="section-heading">
+      <div class="icon icon-words">📝</div>
+      Word Meaning List
+    </div>
+    <div class="section-subtitle">Click any word to see its meaning in the popup</div>
+
+    <div class="word-table-wrapper">
+      <table class="word-table">
+        <thead><tr><th>#</th><th>Word</th><th>English Meaning</th><th>नेपाली अर्थ</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="word-cell" onclick="showMeaning('musings','reflections or thoughts','विचार मग्नता')">musings</td><td>reflections or thoughts</td><td class="nepali-cell">विचार मग्नता</td></tr>
+          <tr><td>2</td><td class="word-cell" onclick="showMeaning('listless','having no energy or enthusiasm','उत्साहविहीन')">listless</td><td>having no energy or enthusiasm</td><td class="nepali-cell">उत्साहविहीन</td></tr>
+          <tr><td>3</td><td class="word-cell" onclick="showMeaning('brooding','thinking deeply and worrying','चिन्तामग्न')">brooding</td><td>thinking deeply and worrying</td><td class="nepali-cell">चिन्तामग्न</td></tr>
+          <tr><td>4</td><td class="word-cell" onclick="showMeaning('stiff-backed','rigid and firm','कडा पिठ्ठो भएको')">stiff-backed</td><td>rigid and firm</td><td class="nepali-cell">कडा पिठ्ठो भएको</td></tr>
+          <tr><td>5</td><td class="word-cell" onclick="showMeaning('prompted','caused or motivated','प्रेरित गर्यो')">prompted</td><td>caused or motivated</td><td class="nepali-cell">प्रेरित गर्यो</td></tr>
+          <tr><td>6</td><td class="word-cell" onclick="showMeaning('throng','a large crowd of people','भीड')">throng</td><td>a large crowd of people</td><td class="nepali-cell">भीड</td></tr>
+          <tr><td>7</td><td class="word-cell" onclick="showMeaning('resort','to make use of something undesirable','सहारा लिनु')">resort</td><td>to make use of something undesirable</td><td class="nepali-cell">सहारा लिनु</td></tr>
+          <tr><td>8</td><td class="word-cell" onclick="showMeaning('glimpse','a quick or brief look','एक झलक')">glimpse</td><td>a quick or brief look</td><td class="nepali-cell">एक झलक</td></tr>
+          <tr><td>9</td><td class="word-cell" onclick="showMeaning('confide','to share secrets or personal feelings','विश्वास गरेर गोप्य कुरा भन्नु')">confide</td><td>to share secrets or personal feelings</td><td class="nepali-cell">विश्वास गरेर गोप्य कुरा भन्नु</td></tr>
+          <tr><td>10</td><td class="word-cell" onclick="showMeaning('liable','likely to do something','सम्भावित')">liable</td><td>likely to do something</td><td class="nepali-cell">सम्भावित</td></tr>
+          <tr><td>11</td><td class="word-cell" onclick="showMeaning('jot down','to write quickly and briefly','छिटो लेख्नु')">jot down</td><td>to write quickly and briefly</td><td class="nepali-cell">छिटो लेख्नु</td></tr>
+          <tr><td>12</td><td class="word-cell" onclick="showMeaning('plunge','to go into something suddenly','अचानक प्रवेश गर्नु')">plunge</td><td>to go into something suddenly</td><td class="nepali-cell">अचानक प्रवेश गर्नु</td></tr>
+          <tr><td>13</td><td class="word-cell" onclick="showMeaning('adorable','very lovable and attractive','प्यारो')">adorable</td><td>very lovable and attractive</td><td class="nepali-cell">प्यारो</td></tr>
+          <tr><td>14</td><td class="word-cell" onclick="showMeaning('immigrated','moved to another country','बसाइँ सर्यो')">immigrated</td><td>moved to another country</td><td class="nepali-cell">बसाइँ सर्यो</td></tr>
+          <tr><td>15</td><td class="word-cell" onclick="showMeaning('manufactures','produces goods on a large scale','उत्पादन गर्छ')">manufactures</td><td>produces goods on a large scale</td><td class="nepali-cell">उत्पादन गर्छ</td></tr>
+          <tr><td>16</td><td class="word-cell" onclick="showMeaning('heartbreaking','causing great sadness','मन दुखाउने')">heartbreaking</td><td>causing great sadness</td><td class="nepali-cell">मन दुखाउने</td></tr>
+          <tr><td>17</td><td class="word-cell" onclick="showMeaning('anxiety','worry and fear about the future','चिन्ता')">anxiety</td><td>worry and fear about the future</td><td class="nepali-cell">चिन्ता</td></tr>
+          <tr><td>18</td><td class="word-cell" onclick="showMeaning('pogroms','organized massacres of Jewish people','यहूदी विरोधी हिंसा')">pogroms</td><td>organized massacres of Jewish people</td><td class="nepali-cell">यहूदी विरोधी हिंसा</td></tr>
+          <tr><td>19</td><td class="word-cell" onclick="showMeaning('refuge','shelter or protection from danger','आश्रय')">refuge</td><td>shelter or protection from danger</td><td class="nepali-cell">आश्रय</td></tr>
+          <tr><td>20</td><td class="word-cell" onclick="showMeaning('capitulation','the act of surrendering','आत्मसमर्पण')">capitulation</td><td>the act of surrendering</td><td class="nepali-cell">आत्मसमर्पण</td></tr>
+          <tr><td>21</td><td class="word-cell" onclick="showMeaning('decrees','official orders or laws','आदेश')">decrees</td><td>official orders or laws</td><td class="nepali-cell">आदेश</td></tr>
+          <tr><td>22</td><td class="word-cell" onclick="showMeaning('frequent','to visit a place regularly','नियमित रूपमा जानु')">frequent</td><td>to visit a place regularly</td><td class="nepali-cell">नियमित रूपमा जानु</td></tr>
+          <tr><td>23</td><td class="word-cell" onclick="showMeaning('solemn','serious and dignified','गम्भीर')">solemn</td><td>serious and dignified</td><td class="nepali-cell">गम्भीर</td></tr>
+          <tr><td>24</td><td class="word-cell" onclick="showMeaning('dedication','devoting something to a purpose','समर्पण')">dedication</td><td>devoting something to a purpose</td><td class="nepali-cell">समर्पण</td></tr>
+          <tr><td>25</td><td class="word-cell" onclick="showMeaning('depressed','feeling very sad and hopeless','उदास, निराश')">depressed</td><td>feeling very sad and hopeless</td><td class="nepali-cell">उदास, निराश</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE A: FIND WORDS ===== -->
+  <div class="section-card" id="exerciseA">
+    <div class="section-heading">
+      <div class="icon icon-fill">✍</div>
+      Exercise A — Find the Words from the Text
+    </div>
+    <div class="section-subtitle">Click each clue to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">a period of reflection or thought</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>musings</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">rigid, not soft or flexible</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>stiff-backed</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">to think a lot about something that makes you annoyed, anxious or upset</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>brooding</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">a crowd of people</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>throng</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">to make use of something, especially something bad</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>resort</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">f</div>
+        <div class="exercise-q-text">to tell somebody secrets and personal information</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>confide</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">g</div>
+        <div class="exercise-q-text">likely to do something</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>liable</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">h</div>
+        <div class="exercise-q-text">to get into something suddenly</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>plunge</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">i</div>
+        <div class="exercise-q-text">to write something quickly</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>jot (down)</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE B: MATCH SYNONYMS ===== -->
+  <div class="section-card" id="exerciseB">
+    <div class="section-heading">
+      <div class="icon icon-exercise">✓</div>
+      Exercise B — Match Words with Synonyms
+    </div>
+    <div class="section-subtitle">Click each word to reveal its synonym</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">listless</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Synonym</span>
+          <span class="answer-text"><strong>v. lethargic</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">adoring</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Synonym</span>
+          <span class="answer-text"><strong>iii. loving</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">decree</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Synonym</span>
+          <span class="answer-text"><strong>i. announcement</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">adorable</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Synonym</span>
+          <span class="answer-text"><strong>iv. attractive</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">anxiety</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Synonym</span>
+          <span class="answer-text"><strong>vi. worry</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">f</div>
+        <div class="exercise-q-text">capitulation</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Synonym</span>
+          <span class="answer-text"><strong>vii. surrender</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">g</div>
+        <div class="exercise-q-text">solemn</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Synonym</span>
+          <span class="answer-text"><strong>ii. serious</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE C: SHORT ANSWERS ===== -->
+  <div class="section-card" id="exerciseC">
+    <div class="section-heading">
+      <div class="icon icon-short">✎</div>
+      Exercise C — Answer the Following Questions
+    </div>
+    <div class="section-subtitle">Click each question to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">Why is writing a diary a strange thing to the writer?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Writing in a diary is strange for Anne because she has never written anything before and she also feels that no one, including herself, will be interested in the reflections of a thirteen-year-old schoolgirl later on.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">What is the first reason for her to keep the diary?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">The first reason Anne keeps a diary is that she does not have a true friend. She feels she cannot share her deep feelings with the people around her, so she treats the diary as her only real friend.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">Why is the writer unhappy despite having a loving family?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Anne is unhappy because although she has loving parents, a sister, and about thirty acquaintances, she cannot talk to any of them about her inner feelings and personal matters. She lacks a true, close friend with whom she can confide her secrets.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">Who is Kitty?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Kitty is the name Anne gives to her diary. Since she wants the diary to be her imaginary best friend, she names it Kitty and writes all her thoughts and feelings to it as if writing letters to a friend.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">Why did Margot and her sister not go to Holland together?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Anne's father emigrated to Holland first in 1933. Anne and Margot were sent to stay with their grandmother in Aachen. Margot went to Holland in December, and Anne followed in February — they went at different times because of the arrangements made during the family's migration.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">f</div>
+        <div class="exercise-q-text">Why didn't the writer have a birthday celebration in 1940?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">In 1940, Anne did not have a proper birthday celebration because the fighting (World War II) had just ended in Holland, and it was not an appropriate time to celebrate.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">g</div>
+        <div class="exercise-q-text">Why did the writer's uncle escape from Germany?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Anne's uncles (her mother's brothers) fled Germany because of the violent anti-Jewish riots known as pogroms in 1938. Jews were being persecuted and it was unsafe for them to remain in Germany.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE D: TRUE/FALSE/NOT GIVEN ===== -->
+  <div class="section-card" id="exerciseD">
+    <div class="section-heading">
+      <div class="icon icon-tf">🔍</div>
+      Exercise D — True (T), False (F), or Not Given (NG)
+    </div>
+    <div class="section-subtitle">Click each statement to reveal the answer with explanation</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">The writer is tired of staying in her house.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">She is bored, but not specifically tired of her house.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">The writer wants people to read her diary.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">She specifically says she is NOT planning to let anyone else read her diary.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">Edith Hollander Frank was a teacher in Holland.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-ng">Not Given</span>
+          <span class="answer-text">Her mother's occupation is not mentioned in the text.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">The writer attended school in Germany until she was six.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">She attended the Montessori nursery school in Holland until she was six, not Germany.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">The family came to Germany because it was difficult to live in Holland.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">It is the opposite — they LEFT Germany and went to Holland because they were Jewish and suffered under Hitler's laws.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">f</div>
+        <div class="exercise-q-text">Jews were prohibited to be on top of their houses during day time.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-ng">Not Given</span>
+          <span class="answer-text">No such restriction is mentioned in the text.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">g</div>
+        <div class="exercise-q-text">There were very strict laws in Germany for Jewish people.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">The text clearly lists many anti-Jewish decrees that severely restricted Jewish freedom.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXTRA: SHORT QUESTIONS ===== -->
+  <div class="section-card extra-section" id="extraSA">
+    <div class="section-heading">
+      <div class="icon icon-extra">💡</div>
+      Additional Short Answer Questions
+    </div>
+    <div class="section-subtitle">Click each question to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">Why does Anne Frank say 'paper has more patience than people'?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Anne says this because she feels she cannot share her deepest thoughts and feelings with the people around her. Paper (her diary) listens without judging, whereas real people seem unable or unwilling to understand her truly.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">What restrictions did Jewish people face under Nazi law?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Jewish people faced many harsh restrictions: they had to wear a yellow star, could not ride bicycles or cars, could not use public transport, had limited shopping hours, could not attend theaters or sports events, had to be indoors by 8 PM, and could not visit non-Jewish friends' homes.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">Why did Anne name her diary 'Kitty'?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Anne named her diary 'Kitty' because she wanted to treat the diary as her imaginary best friend. By giving it a name, she could write to it like letters to a real friend and feel less lonely.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">How does the diary reflect Anne's loneliness?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Although Anne had family and acquaintances, she could not share her inner feelings with anyone. She began the diary specifically because she lacked a true friend. The diary became her only outlet for personal expression and emotional connection.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">What does the text tell us about the historical situation of Jewish people during World War II?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">The text tells us that Jewish people in Germany and occupied countries were subjected to severe persecution through anti-Jewish decrees, violent pogroms, and restrictions that stripped them of basic human rights and freedoms.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXTRA: TRUE/FALSE ===== -->
+  <div class="section-card extra-section" id="extraTF">
+    <div class="section-heading">
+      <div class="icon icon-extra">🔍</div>
+      Additional True / False
+    </div>
+    <div class="section-subtitle">Click each statement to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">Anne Frank was sixteen years old when she started writing the diary.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">She was thirteen years old.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">The diary was intended only for Anne's personal use initially.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">She clearly states she was not planning to let anyone else read it.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">Anne's family left Germany because they were Christians.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">They were Jewish and suffered under Hitler's anti-Jewish laws.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">Anne's sister Margot attended the same Jewish Lyceum.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">The text confirms Margot also went to the Jewish Lyceum.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">Anne had no difficulty making friends and sharing her feelings.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">She clearly states she could not share deep feelings or confide in any of her friends.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXTRA: FILL IN THE BLANKS ===== -->
+  <div class="section-card extra-section" id="extraFill">
+    <div class="section-heading">
+      <div class="icon icon-extra">🧩</div>
+      Contextual Fill-in-the-Blanks
+    </div>
+    <div class="section-subtitle">Click each question to reveal the correct answer</div>
+
+    <div class="box-words">
+      <span class="box-word">musings</span>
+      <span class="box-word">brooding</span>
+      <span class="box-word">throng</span>
+      <span class="box-word">capitulation</span>
+      <span class="box-word">refuge</span>
+      <span class="box-word">solemn</span>
+      <span class="box-word">confide</span>
+      <span class="box-word">anxiety</span>
+      <span class="box-word">listless</span>
+      <span class="box-word">decrees</span>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">There was a __________ of students gathered outside the examination hall.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>throng</strong> — There was a <strong>throng</strong> of students gathered outside the examination hall.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">She sat quietly __________ over the problems she had faced that week.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>brooding</strong> — She sat quietly <strong>brooding</strong> over the problems she had faced that week.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">Anne's late-night __________ filled the pages of her diary with deep emotion.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>musings</strong> — Anne's late-night <strong>musings</strong> filled the pages of her diary with deep emotion.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">The government issued strict __________ limiting the movement of citizens during the war.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>decrees</strong> — The government issued strict <strong>decrees</strong> limiting the movement of citizens during the war.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">She was feeling so __________ that she could not concentrate on anything.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>listless</strong> — She was feeling so <strong>listless</strong> that she could not concentrate on anything.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">6</div>
+        <div class="exercise-q-text">The soldiers had no option but to accept the __________ after losing the battle.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>capitulation</strong> — The soldiers had no option but to accept the <strong>capitulation</strong> after losing the battle.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">7</div>
+        <div class="exercise-q-text">During the flood, many people ran to the hilltop temple seeking __________.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>refuge</strong> — During the flood, many people ran to the hilltop temple seeking <strong>refuge</strong>.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">8</div>
+        <div class="exercise-q-text">It was a __________ ceremony, and everyone sat in respectful silence.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>solemn</strong> — It was a <strong>solemn</strong> ceremony, and everyone sat in respectful silence.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">9</div>
+        <div class="exercise-q-text">She could not hide her __________ as the exam results were about to be announced.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>anxiety</strong> — She could not hide her <strong>anxiety</strong> as the exam results were about to be announced.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">10</div>
+        <div class="exercise-q-text">It is difficult to __________ your secrets to someone you barely know.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>confide</strong> — It is difficult to <strong>confide</strong> your secrets to someone you barely know.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main-content -->
+
+<script>
+  // ── Font Size ──
+  let fontSize = 17;
+  const MIN_F = 12, MAX_F = 28;
+  function changeFontSize(delta) {
+    fontSize = Math.max(MIN_F, Math.min(MAX_F, fontSize + delta));
+    document.documentElement.style.setProperty('--font-size-base', fontSize + 'px');
+    document.getElementById('fontDisplay').textContent = fontSize + 'px';
+    const d = document.getElementById('fontDisplay');
+    d.style.transform = 'scale(1.2)';
+    setTimeout(() => d.style.transform = 'scale(1)', 200);
+  }
+
+  // ── Meaning Popup ──
+  function showMeaning(word, english, nepali) {
+    const popup = document.getElementById('meaningPopup');
+    document.getElementById('popupWord').textContent = word;
+    document.getElementById('popupEnglish').textContent = english;
+    document.getElementById('popupNepali').textContent = nepali;
+    popup.classList.add('show');
+  }
+  function closePopup() {
+    document.getElementById('meaningPopup').classList.remove('show');
+  }
+  document.addEventListener('click', function(e) {
+    const popup = document.getElementById('meaningPopup');
+    if (!e.target.closest('.hw') && !e.target.closest('.word-cell') && !e.target.closest('#meaningPopup')) {
+      popup.classList.remove('show');
+    }
+  });
+
+  // ── Exercise Toggle ──
+  function toggleExercise(item) {
+    const parent = item.closest('.section-card');
+    const all = parent.querySelectorAll('.exercise-item');
+    const isOpen = item.classList.contains('open');
+    all.forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ── Scroll to Top ──
+  const scrollBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 400) {
+      scrollBtn.classList.add('show');
+    } else {
+      scrollBtn.classList.remove('show');
+    }
+  });
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── Download ──
+  function downloadHTML() {
+    const html = document.documentElement.outerHTML;
+    const blob = new Blob(['<!DOCTYPE html>\n' + html], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'The_Diary_of_a_Young_Girl_Interactive.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+</script>
+
+</body>
+</html>

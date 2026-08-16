@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Humanoid Robot Sophia – Grade 9 English Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Literata:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== CSS VARIABLES ===== */
+:root {
+  --primary: #8B1A1A;
+  --primary-dark: #5C1010;
+  --primary-light: #B83030;
+  --accent: #D4920A;
+  --accent-light: #F0B429;
+  --highlight: #2E4057;
+  --highlight-light: #4A6B8A;
+  --bg-main: #F5F0EB;
+  --bg-card: #FFFFFF;
+  --bg-alt: #EDE6DE;
+  --bg-dark: #8B1A1A;
+  --text-main: #1A1A2E;
+  --text-light: #5A5A7A;
+  --text-on-dark: #F5F0EB;
+  --border: #D4C8BA;
+  --border-light: #E8DFD3;
+  --shadow: rgba(139,26,26,0.08);
+  --shadow-strong: rgba(139,26,26,0.18);
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Literata', serif;
+  --font-ui: 'Space Grotesk', sans-serif;
+  --font-size-base: 16px;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --radius-lg: 16px;
+  --match-selected: #8B1A1A;
+  --match-correct: #1B7A3D;
+  --match-wrong: #C0392B;
+  --match-hover: #F0E0D0;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: 1.78;
+  color: var(--text-main);
+  background: var(--bg-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-alt); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+
+/* ===== HEADER ===== */
+.site-header {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+  color: var(--text-on-dark);
+  padding: 32px 24px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(212,146,10,0.2) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.site-header::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -40px;
+  width: 160px; height: 160px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.header-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 20px;
+  padding: 4px 16px;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.site-header h1 {
+  font-family: var(--font-heading);
+  font-size: 2.1rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.site-header .subtitle {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.88;
+  margin-bottom: 4px;
+}
+.site-header .meta-line {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  opacity: 0.7;
+  margin-top: 8px;
+}
+
+/* ===== CONTROLS BAR ===== */
+.controls-bar {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-light);
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+.font-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.font-controls span {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+.font-btn {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  width: 34px; height: 34px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--primary);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-ui);
+  line-height: 1;
+}
+.font-btn:hover { background: var(--primary); color: #fff; }
+.dl-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 7px 18px;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.dl-btn:hover { background: var(--accent-light); }
+
+/* ===== NAV JUMP ===== */
+.nav-jump {
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border-light);
+  padding: 10px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+.nav-jump a {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 5px 14px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-jump a:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* ===== MAIN WRAPPER ===== */
+.main-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 20px 60px;
+}
+
+/* ===== SECTION CARD ===== */
+.section-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 28px 28px 20px;
+  margin-bottom: 28px;
+  box-shadow: 0 3px 14px var(--shadow);
+}
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title .icon { font-size: 1.3rem; }
+
+/* ===== META INFO CARD ===== */
+.meta-info-card {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-bottom: 28px;
+  color: var(--text-on-dark);
+  box-shadow: 0 6px 20px var(--shadow-strong);
+}
+.meta-info-card h2 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+.mi-item {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+}
+.mi-item .mi-label {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.7;
+  display: block;
+  margin-bottom: 2px;
+}
+.mi-item .mi-value {
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+/* ===== READING PARAGRAPH ===== */
+.reading-block {
+  margin-bottom: 22px;
+  position: relative;
+}
+.reading-label {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--primary);
+  background: var(--bg-alt);
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+.reading-block p {
+  font-size: var(--font-size-base);
+  line-height: 1.85;
+  text-align: justify;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+/* ===== VOCAB HIGHLIGHT ===== */
+.vocab-word {
+  color: var(--accent);
+  font-weight: 700;
+  cursor: pointer;
+  border-bottom: 2px dotted var(--accent);
+  transition: all 0.2s;
+  position: relative;
+}
+.vocab-word:hover {
+  color: var(--highlight-light);
+  border-bottom-color: var(--highlight-light);
+}
+
+/* ===== MEANING POPUP ===== */
+.meaning-popup {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  background: var(--primary-dark);
+  color: var(--text-on-dark);
+  border-radius: var(--radius);
+  padding: 16px 22px;
+  min-width: 280px;
+  max-width: 90vw;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  z-index: 9999;
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s;
+  opacity: 0;
+  font-family: var(--font-ui);
+}
+.meaning-popup.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+.popup-word {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--accent-light);
+}
+.popup-en {
+  font-size: 0.88rem;
+  margin-bottom: 3px;
+  line-height: 1.45;
+}
+.popup-en::before { content: 'EN: '; font-weight: 700; opacity: 0.7; }
+.popup-ne {
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: rgba(255,255,255,0.85);
+}
+.popup-ne::before { content: 'NE: '; font-weight: 700; opacity: 0.7; }
+.popup-close {
+  position: absolute;
+  top: 8px; right: 12px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  font-size: 1.2rem;
+  cursor: pointer;
+  line-height: 1;
+}
+.popup-close:hover { color: #fff; }
+
+/* ===== GLOSSARY TABLE ===== */
+.glossary-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-top: 6px;
+}
+.glossary-table thead th {
+  background: var(--primary);
+  color: var(--text-on-dark);
+  font-family: var(--font-ui);
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.glossary-table thead th:first-child { border-radius: var(--radius-sm) 0 0 0; }
+.glossary-table thead th:last-child { border-radius: 0 var(--radius-sm) 0 0; }
+.glossary-table tbody td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
+}
+.glossary-table tbody tr:nth-child(even) { background: var(--bg-alt); }
+.glossary-table tbody tr:hover { background: #E0D4C6; }
+.glossary-table .sn { font-weight: 700; color: var(--primary); width: 36px; text-align: center; }
+.glossary-table .word-col { font-weight: 700; color: var(--accent); white-space: nowrap; }
+
+/* ===== INTERACTIVE MATCHING ===== */
+.match-container {
+  margin-top: 12px;
+}
+.match-instructions {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  color: var(--text-light);
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  background: var(--bg-alt);
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--accent);
+}
+.match-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.match-col h4 {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent);
+  text-align: center;
+}
+.match-option {
+  padding: 10px 14px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  user-select: none;
+  background: var(--bg-card);
+}
+.match-option:hover {
+  border-color: var(--primary);
+  background: var(--match-hover);
+}
+.match-option.selected {
+  border-color: var(--match-selected);
+  background: rgba(139,26,26,0.08);
+  box-shadow: 0 0 0 2px rgba(139,26,26,0.15);
+}
+.match-option.matched {
+  border-color: var(--match-correct);
+  background: rgba(27,122,61,0.08);
+  cursor: default;
+  opacity: 0.85;
+}
+.match-option.matched .match-check {
+  display: inline;
+}
+.match-option.wrong-flash {
+  animation: wrongShake 0.5s ease;
+  border-color: var(--match-wrong);
+  background: rgba(192,57,43,0.08);
+}
+.match-check {
+  display: none;
+  color: var(--match-correct);
+  font-weight: 700;
+  margin-left: 6px;
+}
+@keyframes wrongShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+.match-status {
+  text-align: center;
+  margin-top: 14px;
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-weight: 600;
+  min-height: 28px;
+}
+.match-status.correct { color: var(--match-correct); }
+.match-status.wrong { color: var(--match-wrong); }
+.match-reset-btn {
+  display: block;
+  margin: 12px auto 0;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 22px;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.match-reset-btn:hover { background: var(--primary-light); }
+
+/* ===== EXERCISE SECTION ===== */
+.exercise-section { margin-bottom: 18px; }
+.exercise-heading {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 14px;
+}
+
+/* Accordion */
+.exercise-item, .tf-item, .fill-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.exercise-item:hover, .tf-item:hover, .fill-item:hover { border-color: var(--primary); }
+.exercise-toggle, .tf-toggle, .fill-toggle {
+  width: 100%;
+  background: var(--bg-alt);
+  border: none;
+  padding: 12px 16px;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+}
+.exercise-toggle:hover, .tf-toggle:hover, .fill-toggle:hover { background: #E0D4C6; }
+.exercise-toggle .arrow, .tf-toggle .arrow, .fill-toggle .arrow {
+  transition: transform 0.3s;
+  font-size: 0.85rem;
+  color: var(--primary);
+}
+.exercise-toggle.active .arrow, .tf-toggle.active .arrow, .fill-toggle.active .arrow {
+  transform: rotate(180deg);
+}
+.exercise-content, .tf-content, .fill-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s;
+  padding: 0 16px;
+  background: var(--bg-card);
+}
+.exercise-content.open, .tf-content.open, .fill-content.open {
+  max-height: 2000px;
+  padding: 16px;
+}
+.answer-text {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-main);
+}
+.answer-text strong { color: var(--primary); }
+
+/* ===== TF TABLE ===== */
+.tf-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-top: 8px;
+}
+.tf-table thead th {
+  background: var(--highlight);
+  color: #fff;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.tf-table tbody td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
+}
+.tf-table .sn { font-weight: 700; color: var(--highlight); text-align: center; width: 36px; }
+.tf-true { color: #1B7A3D; font-weight: 700; }
+.tf-false { color: var(--primary-light); font-weight: 700; }
+
+/* ===== WORD BANK ===== */
+.word-bank {
+  background: var(--bg-alt);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+.word-bank-label {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+.word-bank-words {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.wb-word {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background: var(--primary-dark);
+  color: var(--text-on-dark);
+  text-align: center;
+  padding: 20px;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+.site-footer a { color: var(--accent-light); text-decoration: none; }
+
+/* ===== SCROLL TOP ===== */
+.scroll-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px; height: 44px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px var(--shadow-strong);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.scroll-top.visible { opacity: 1; transform: translateY(0); }
+.scroll-top:hover { background: var(--accent); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  .site-header h1 { font-size: 1.4rem; }
+  .section-card { padding: 18px 14px 14px; }
+  .meta-grid { grid-template-columns: 1fr 1fr; }
+  .match-columns { grid-template-columns: 1fr; }
+  .controls-bar { padding: 8px 14px; }
+  .nav-jump { padding: 8px 14px; }
+  .nav-jump a { font-size: 0.72rem; padding: 4px 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-badge">Unit 8 · Science &amp; Technology</div>
+  <h1>🤖 Humanoid Robot Sophia</h1>
+  <div class="subtitle">Non-fiction / News Article (Prose)</div>
+  <div class="meta-line">Grade 9 · English · Page No. 93–95</div>
+</header>
+
+<!-- CONTROLS BAR -->
+<div class="controls-bar">
+  <div class="font-controls">
+    <span>Aa</span>
+    <button class="font-btn" onclick="changeFontSize(-1)">−</button>
+    <button class="font-btn" onclick="changeFontSize(1)">+</button>
+  </div>
+  <button class="dl-btn" onclick="downloadHTML()">⬇ Download</button>
+</div>
+
+<!-- NAV JUMP -->
+<nav class="nav-jump">
+  <a href="#meta-info">📋 Info</a>
+  <a href="#review-text">📖 Text</a>
+  <a href="#glossary">📚 Words</a>
+  <a href="#exercise-a">Ex A – Match</a>
+  <a href="#exercise-b">Ex B – Fill</a>
+  <a href="#exercise-c">Ex C – Q&amp;A</a>
+  <a href="#extra-a">Extra A</a>
+  <a href="#extra-b">Extra B</a>
+  <a href="#extra-c">Extra C</a>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="main-wrap">
+
+  <!-- META INFO -->
+  <div class="meta-info-card" id="meta-info">
+    <h2>📋 Note Information</h2>
+    <div class="meta-grid">
+      <div class="mi-item"><span class="mi-label">Grade</span><span class="mi-value">9</span></div>
+      <div class="mi-item"><span class="mi-label">Subject</span><span class="mi-value">English</span></div>
+      <div class="mi-item"><span class="mi-label">Unit</span><span class="mi-value">8 – Science &amp; Technology</span></div>
+      <div class="mi-item"><span class="mi-label">Topic</span><span class="mi-value">Humanoid Robot Sophia</span></div>
+      <div class="mi-item"><span class="mi-label">Page</span><span class="mi-value">93 – 95</span></div>
+      <div class="mi-item"><span class="mi-label">Author</span><span class="mi-value">Shristhi Kafle</span></div>
+    </div>
+  </div>
+
+  <!-- READING TEXT -->
+  <div class="section-card" id="review-text">
+    <div class="section-title"><span class="icon">📖</span> Reading Text with Vocabulary</div>
+
+    <div class="reading-block">
+      <span class="reading-label">By Shristhi Kafle</span>
+      <p>KATHMANDU, March 22 (Xinhua) — When Sophia, a social <span class="vocab-word" onclick="showMeaning('humanoid','Resembling or having the form of a human being','मानव आकारको')">humanoid</span> robot and the world's first robot <span class="vocab-word" onclick="showMeaning('citizen','A member of a state or nation, legally belonging to it','नागरिक')">citizen</span>, greeted the audience at a conference in Kathmandu with "Namaste Nepal," the hall burst into <span class="vocab-word" onclick="showMeaning('applause','Clapping of hands to show appreciation or approval','तालीको आवाज')">applause</span> of <span class="vocab-word" onclick="showMeaning('awe','A feeling of great respect mixed with fear or wonder','विस्मय / अचम्म')">awe</span> and appreciation.</p>
+    </div>
+
+    <div class="reading-block">
+      <span class="reading-label">Paragraph 2</span>
+      <p>As cameras from local and international media flashed and under the <span class="vocab-word" onclick="showMeaning('admiring','Regarding with wonder, pleasure, and approval','प्रशंसा गर्दै')">admiring</span> eyes of the audience, Sophia <span class="vocab-word" onclick="showMeaning('proceeded','Continued or moved forward with an action','अगाडि बढी')">proceeded</span> with her <span class="vocab-word" onclick="showMeaning('keynote','The central or most important point or theme','मुख्य / प्रमुख')">keynote</span> speech and interactions <span class="vocab-word" onclick="showMeaning('highlighting','Emphasizing or drawing special attention to something','उजागर गर्दै')">highlighting</span> the importance of technology in the development of human lives.</p>
+    </div>
+
+    <div class="reading-block">
+      <span class="reading-label">Paragraph 3</span>
+      <p>The robot, who is <span class="vocab-word" onclick="showMeaning('championing','Actively supporting or defending a cause or person','समर्थन गर्दै')">championing</span> the United Nations Sustainable Development Goals in Asia-Pacific, with a focus on <span class="vocab-word" onclick="showMeaning('innovation','Introduction of new ideas, methods, or inventions','नवप्रवर्तन')">innovation</span>, was in Nepal Wednesday to attend the Innovation Conference and Fair: "Technology of Public Services and Development" organised by the United Nations Development Programme (UNDP).</p>
+    </div>
+
+    <div class="reading-block">
+      <span class="reading-label">Paragraph 4</span>
+      <p>Dressed in a white UNDP logoed T-shirt, the two-and-a-half-year-old, red-lipped robot said that technology provides <span class="vocab-word" onclick="showMeaning('endless','Having no end or limit; continuing indefinitely','असीमित')">endless</span> possibilities and opportunities for the world.</p>
+    </div>
+
+    <div class="reading-block">
+      <span class="reading-label">Paragraph 5</span>
+      <p><span class="vocab-word" onclick="showMeaning('highlighting','Emphasizing or drawing special attention to something','उजागर गर्दै')">Highlighting</span> the importance of technology in Nepal and its <span class="vocab-word" onclick="showMeaning('applicability','The quality of being relevant, appropriate, or suitable','लागू हुने क्षमता')">applicability</span> to government models, Sophia said it can <span class="vocab-word" onclick="showMeaning('transform','To change completely in form, nature, or character','रूपान्तरण गर्नु')">transform</span> state <span class="vocab-word" onclick="showMeaning('institutions','Established organizations or structures in society','संस्थाहरू')">institutions</span> and help in meeting global <span class="vocab-word" onclick="showMeaning('sustainable','Able to be maintained over the long term without harming the environment','दिगो')">sustainable</span> development goals.</p>
+    </div>
+
+    <div class="reading-block">
+      <span class="reading-label">Paragraph 6</span>
+      <p>"If <span class="vocab-word" onclick="showMeaning('artificial intelligence','Intelligence demonstrated by machines, simulating human thinking','कृत्रिम बुद्धिमत्ता')">artificial intelligence</span> is used in Nepal, we can ensure better public services, a <span class="vocab-word" onclick="showMeaning('revolution','A dramatic and wide-reaching change in conditions or methods','क्रान्ति')">revolution</span> in the agriculture <span class="vocab-word" onclick="showMeaning('sector','A distinct part or area of a country\'s economy or society','क्षेत्र')">sector</span>, make better use of limited <span class="vocab-word" onclick="showMeaning('resources','Available supplies or assets that can be used for a purpose','स्रोतहरू')">resources</span>, protect the environment and make the world a better place," she said.</p>
+    </div>
+
+    <div class="reading-block">
+      <span class="reading-label">Paragraph 7</span>
+      <p>The <span class="vocab-word" onclick="showMeaning('celebrity','A famous or widely recognized person','प्रसिद्ध व्यक्ति')">celebrity</span> robot, a "citizen" of Saudi Arabia, added that technology and artificial intelligence can help in ending <span class="vocab-word" onclick="showMeaning('poverty','The state of being extremely poor; lack of money and resources','गरिबी')">poverty</span> and fighting <span class="vocab-word" onclick="showMeaning('starvation','Suffering or death caused by lack of food','भोकमरी')">starvation</span>, <span class="vocab-word" onclick="showMeaning('corruption','Dishonest or fraudulent conduct by those in power','भ्रष्टाचार')">corruption</span> and ensuring <span class="vocab-word" onclick="showMeaning('gender equality','Equal rights, responsibilities and opportunities for all genders','लैङ्गिक समानता')">gender equality</span>.</p>
+    </div>
+
+    <div class="reading-block">
+      <span class="reading-label">Paragraph 8</span>
+      <p>"Machines are here to make your life easier and we can connect your country to the rest of the world," Sophia said.</p>
+    </div>
+
+    <div class="reading-block">
+      <span class="reading-label">Paragraph 9</span>
+      <p>The audience, <span class="vocab-word" onclick="showMeaning('comprising','Consisting of or made up of various components or members','मिलेर बनेको')">comprising</span> of government officials, private <span class="vocab-word" onclick="showMeaning('sector','A distinct area or division of activity','क्षेत्र')">sector</span> representatives, civil servants and tech <span class="vocab-word" onclick="showMeaning('enthusiasts','People who are very interested and passionate about a subject','उत्साही व्यक्तिहरू')">enthusiasts</span>, among others, were nodding in agreement and <span class="vocab-word" onclick="showMeaning('applauded','Clapped to show approval and appreciation','तालि बजाए')">applauded</span> throughout her speech.</p>
+    </div>
+
+    <div class="reading-block">
+      <span class="reading-label">Paragraph 10</span>
+      <p>"I hope the conference will <span class="vocab-word" onclick="showMeaning('inspire','To fill someone with the urge or ability to do something creative','प्रेरणा दिनु')">inspire</span> and generate <span class="vocab-word" onclick="showMeaning('brilliant','Exceptionally clever, talented, or impressive','उत्कृष्ट / प्रतिभाशाली')">brilliant</span> ideas to help Nepal achieve its development <span class="vocab-word" onclick="showMeaning('vision','An ability to think about or plan the future wisely','दृष्टिकोण')">vision</span> and global goals," Sophia said in the conclusion of her three-minute long keynote speech.</p>
+    </div>
+
+    <div class="reading-block">
+      <span class="reading-label">Paragraph 11</span>
+      <p>The social robot developed by Hong Kong-based company, Hanson Robotics, also answered a few questions raised by UNDP country director Renaud Meyer.</p>
+    </div>
+
+    <div class="reading-block">
+      <span class="reading-label">Paragraph 12</span>
+      <p>In a question about humans fearing a robot <span class="vocab-word" onclick="showMeaning('takeover','An act of taking control of something or someone','नियन्त्रण / अधिग्रहण')">takeover</span>, Sophia joked citing it as fake news, although mentioned that she could be the first non-human to climb Mount Everest, which saw the entire hall <span class="vocab-word" onclick="showMeaning('erupt','To break out suddenly with a strong reaction','विस्फोट हुनु / ठूलो स्वरले हाँस्नु')">erupt</span> with laughter.</p>
+    </div>
+
+    <div class="reading-block">
+      <span class="reading-label">Paragraph 13</span>
+      <p>The one-day conference also featured an "innovation fair" <span class="vocab-word" onclick="showMeaning('showcasing','Displaying or presenting publicly to show the best qualities','प्रदर्शन गर्दै')">showcasing</span> separate stalls with fresh <span class="vocab-word" onclick="showMeaning('innovations','New methods, ideas, or inventions introduced for the first time','नवप्रवर्तनहरू')">innovations</span> from youth, tech groups, NGOs and private sector participants, but Sophia was certainly the main <span class="vocab-word" onclick="showMeaning('attraction','Something that draws interest, curiosity, or attention','आकर्षण')">attraction</span>.</p>
+    </div>
+
+    <div class="reading-block">
+      <span class="reading-label">Paragraph 14</span>
+      <p>In her opening statement, Valerie Julliand, UN resident coordinator, said technology is not just changing our lives but also providing <span class="vocab-word" onclick="showMeaning('solutions','Means of solving a problem or dealing with a difficult situation','समाधानहरू')">solutions</span> to different sorts of problems.</p>
+    </div>
+
+    <div class="reading-block">
+      <span class="reading-label">Paragraph 15</span>
+      <p>With technological innovations, such as e-education, <span class="vocab-word" onclick="showMeaning('telemedicine','The remote diagnosis and treatment of patients using technology','टेलिमेडिसिन')">telemedicine</span>, and the internet, it is possible to connect <span class="vocab-word" onclick="showMeaning('remote','Far away from populated areas; isolated','दुर्गम')">remote</span> areas and people with solutions which were impossible earlier.</p>
+    </div>
+
+    <div class="reading-block">
+      <span class="reading-label">Paragraph 16</span>
+      <p>According to the UNDP, it is developing and scaling-up innovative project <span class="vocab-word" onclick="showMeaning('prototypes','First designs or models of something new to be tested','नमुनाहरू')">prototypes</span> to address gender <span class="vocab-word" onclick="showMeaning('empowerment','The process of becoming stronger and more confident','सशक्तिकरण')">empowerment</span>, combat gender-based violence and <span class="vocab-word" onclick="showMeaning('disaster risk reduction','Efforts to reduce the damage caused by natural disasters','विपद् जोखिम न्यूनीकरण')">disaster risk reduction</span>, with a focus also on <span class="vocab-word" onclick="showMeaning('green energy','Energy from renewable natural sources like sun, wind, water','हरित ऊर्जा')">green energy</span>, youth engagement and post-disaster recovery in Nepal.</p>
+    </div>
+  </div>
+
+  <!-- GLOSSARY -->
+  <div class="section-card" id="glossary">
+    <div class="section-title"><span class="icon">📚</span> Vocabulary List — Glossary</div>
+    <table class="glossary-table">
+      <thead>
+        <tr><th>S.N.</th><th>Word</th><th>English Meaning</th><th>Nepali Meaning</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="sn">1</td><td class="word-col">humanoid</td><td>Resembling a human in form</td><td>मानव आकारको</td></tr>
+        <tr><td class="sn">2</td><td class="word-col">citizen</td><td>A member of a state or nation</td><td>नागरिक</td></tr>
+        <tr><td class="sn">3</td><td class="word-col">applause</td><td>Clapping to show appreciation</td><td>तालीको आवाज</td></tr>
+        <tr><td class="sn">4</td><td class="word-col">awe</td><td>Wonder mixed with respect or fear</td><td>विस्मय</td></tr>
+        <tr><td class="sn">5</td><td class="word-col">admiring</td><td>Regarding with approval and wonder</td><td>प्रशंसा गर्दै</td></tr>
+        <tr><td class="sn">6</td><td class="word-col">proceeded</td><td>Continued forward</td><td>अगाडि बढी</td></tr>
+        <tr><td class="sn">7</td><td class="word-col">keynote</td><td>Central or most important</td><td>मुख्य</td></tr>
+        <tr><td class="sn">8</td><td class="word-col">highlighting</td><td>Drawing attention to something</td><td>उजागर गर्दै</td></tr>
+        <tr><td class="sn">9</td><td class="word-col">championing</td><td>Actively supporting a cause</td><td>समर्थन गर्दै</td></tr>
+        <tr><td class="sn">10</td><td class="word-col">innovation</td><td>Introduction of new ideas or methods</td><td>नवप्रवर्तन</td></tr>
+        <tr><td class="sn">11</td><td class="word-col">applicability</td><td>Quality of being relevant or suitable</td><td>लागू हुने क्षमता</td></tr>
+        <tr><td class="sn">12</td><td class="word-col">transform</td><td>To change completely</td><td>रूपान्तरण गर्नु</td></tr>
+        <tr><td class="sn">13</td><td class="word-col">institutions</td><td>Established organizations</td><td>संस्थाहरू</td></tr>
+        <tr><td class="sn">14</td><td class="word-col">sustainable</td><td>Able to be maintained long-term</td><td>दिगो</td></tr>
+        <tr><td class="sn">15</td><td class="word-col">artificial intelligence</td><td>Intelligence demonstrated by machines</td><td>कृत्रिम बुद्धिमत्ता</td></tr>
+        <tr><td class="sn">16</td><td class="word-col">revolution</td><td>A dramatic wide-reaching change</td><td>क्रान्ति</td></tr>
+        <tr><td class="sn">17</td><td class="word-col">sector</td><td>A distinct part or area</td><td>क्षेत्र</td></tr>
+        <tr><td class="sn">18</td><td class="word-col">resources</td><td>Available supplies</td><td>स्रोतहरू</td></tr>
+        <tr><td class="sn">19</td><td class="word-col">celebrity</td><td>A widely recognized famous person</td><td>प्रसिद्ध व्यक्ति</td></tr>
+        <tr><td class="sn">20</td><td class="word-col">poverty</td><td>The state of being extremely poor</td><td>गरिबी</td></tr>
+        <tr><td class="sn">21</td><td class="word-col">starvation</td><td>Suffering from lack of food</td><td>भोकमरी</td></tr>
+        <tr><td class="sn">22</td><td class="word-col">corruption</td><td>Dishonest or fraudulent conduct</td><td>भ्रष्टाचार</td></tr>
+        <tr><td class="sn">23</td><td class="word-col">gender equality</td><td>Equal rights for all genders</td><td>लैङ्गिक समानता</td></tr>
+        <tr><td class="sn">24</td><td class="word-col">comprising</td><td>Consisting of or made up of</td><td>मिलेर बनेको</td></tr>
+        <tr><td class="sn">25</td><td class="word-col">enthusiasts</td><td>People very interested in a subject</td><td>उत्साही व्यक्तिहरू</td></tr>
+        <tr><td class="sn">26</td><td class="word-col">applauded</td><td>Clapped to show approval</td><td>तालि बजाए</td></tr>
+        <tr><td class="sn">27</td><td class="word-col">inspire</td><td>Fill someone with urge to do something</td><td>प्रेरणा दिनु</td></tr>
+        <tr><td class="sn">28</td><td class="word-col">brilliant</td><td>Exceptionally clever or talented</td><td>उत्कृष्ट</td></tr>
+        <tr><td class="sn">29</td><td class="word-col">vision</td><td>Ability to plan for the future</td><td>दृष्टिकोण</td></tr>
+        <tr><td class="sn">30</td><td class="word-col">takeover</td><td>An act of taking control</td><td>नियन्त्रण</td></tr>
+        <tr><td class="sn">31</td><td class="word-col">erupt</td><td>Break out suddenly</td><td>विस्फोट हुनु</td></tr>
+        <tr><td class="sn">32</td><td class="word-col">showcasing</td><td>Displaying publicly</td><td>प्रदर्शन गर्दै</td></tr>
+        <tr><td class="sn">33</td><td class="word-col">prototype</td><td>The first design of something new</td><td>नमुना</td></tr>
+        <tr><td class="sn">34</td><td class="word-col">empowerment</td><td>Becoming stronger and more confident</td><td>सशक्तिकरण</td></tr>
+        <tr><td class="sn">35</td><td class="word-col">telemedicine</td><td>Remote medical treatment</td><td>टेलिमेडिसिन</td></tr>
+        <tr><td class="sn">36</td><td class="word-col">remote</td><td>Far away from populated areas</td><td>दुर्गम</td></tr>
+        <tr><td class="sn">37</td><td class="word-col">green energy</td><td>Energy from renewable natural sources</td><td>हरित ऊर्जा</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- EXERCISE A — INTERACTIVE MATCHING -->
+  <div class="section-card" id="exercise-a">
+    <div class="section-title"><span class="icon">✏️</span> Exercise A — Match the Words with Their Meanings</div>
+
+    <div class="match-instructions">
+      👆 <strong>How to play:</strong> Click a word on the left, then click its matching meaning on the right. Correct pairs lock in green. Wrong pairs shake and reset.
+    </div>
+
+    <div class="match-columns" id="matchArea">
+      <div class="match-col">
+        <h4>Words (Column A)</h4>
+        <div class="match-option" data-match-id="a" data-side="left" onclick="selectMatch(this)">a. humanoid</div>
+        <div class="match-option" data-match-id="b" data-side="left" onclick="selectMatch(this)">b. awe</div>
+        <div class="match-option" data-match-id="c" data-side="left" onclick="selectMatch(this)">c. revolution</div>
+        <div class="match-option" data-match-id="d" data-side="left" onclick="selectMatch(this)">d. celebrity</div>
+        <div class="match-option" data-match-id="e" data-side="left" onclick="selectMatch(this)">e. enthusiast</div>
+        <div class="match-option" data-match-id="f" data-side="left" onclick="selectMatch(this)">f. applaud</div>
+        <div class="match-option" data-match-id="g" data-side="left" onclick="selectMatch(this)">g. takeover</div>
+        <div class="match-option" data-match-id="h" data-side="left" onclick="selectMatch(this)">h. prototype</div>
+      </div>
+      <div class="match-col">
+        <h4>Meanings (Column B)</h4>
+        <div class="match-option" data-match-id="3" data-side="right" onclick="selectMatch(this)">(iii) feelings of respect and slight fear</div>
+        <div class="match-option" data-match-id="1" data-side="right" onclick="selectMatch(this)">(i) a famous person</div>
+        <div class="match-option" data-match-id="6" data-side="right" onclick="selectMatch(this)">(vi) a person who is very interested in a particular activity or subject</div>
+        <div class="match-option" data-match-id="8" data-side="right" onclick="selectMatch(this)">(viii) a machine or creature that looks and behaves like a human</div>
+        <div class="match-option" data-match-id="5" data-side="right" onclick="selectMatch(this)">(v) an act of controlling somebody or something</div>
+        <div class="match-option" data-match-id="7" data-side="right" onclick="selectMatch(this)">(vii) a great change in conditions, beliefs, etc.</div>
+     	<div class="match-option" data-match-id="2" data-side="right" onclick="selectMatch(this)">(ii) to clap in approval</div>
+    
+<div class="match-option" data-match-id="4" data-side="right" onclick="selectMatch(this)">(iv) the first design of a device or machine</div>
+      </div>
+    </div>
+
+    <div class="match-status" id="matchStatus"></div>
+    <button class="match-reset-btn" onclick="resetMatch()">🔄 Reset All</button>
+  </div>
+
+  <!-- EXERCISE B — FILL IN THE BLANKS -->
+  <div class="section-card" id="exercise-b">
+    <div class="section-title"><span class="icon">✏️</span> Exercise B — Fill in the Blanks (Solved)</div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">a. Sophia _______ the audience in Kathmandu with a 'Namaste'. <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text">Sophia <strong>greeted</strong> the audience in Kathmandu with a 'Namaste'. The text describes how the social humanoid robot was welcomed with applause and awe as she addressed the conference attendees in Nepal's capital.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">b. She presented her _______ speech about the importance of technology. <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text">She presented her <strong>keynote</strong> speech about the importance of technology. A keynote speech is the central or most important address at a conference, setting the tone and theme for the entire event.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">c. The Innovation Conference and Fair was organised by _______. <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text">The Innovation Conference and Fair was organised by <strong>UNDP (United Nations Development Programme)</strong>. The conference was titled "Technology of Public Services and Development" and brought together government officials, private sector representatives, and technology enthusiasts.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">d. Sophia was built _______ years ago. <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text">Sophia was built <strong>two-and-a-half</strong> years ago. Despite her young age, the robot had already become a global celebrity and the world's first robot citizen, demonstrating the rapid advancement of artificial intelligence and robotics.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">e. According to Sophia, technology can _______ state institutions. <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text">According to Sophia, technology can <strong>transform</strong> state institutions. She emphasized that technology and artificial intelligence have the power to completely change how government organizations function, making them more efficient and effective in serving the public.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">f. Using artificial intelligence could bring _______ in the agriculture sector. <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text">Using artificial intelligence could bring a <strong>revolution</strong> in the agriculture sector. Sophia suggested that AI could fundamentally change farming practices in Nepal, making them more productive and sustainable despite limited resources.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">g. According to the robot, the news of _______ taking over humans was fake. <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text">According to the robot, the news of <strong>robots</strong> taking over humans was fake. When asked about humans fearing a robot takeover, Sophia humorously dismissed it as fake news, showing her ability to engage with serious topics in a lighthearted manner.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">h. In the opinion of Valerie Julliand, technology is giving us _______ to various problems. <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text">Technology is giving us <strong>solutions</strong> to various problems. Valerie Julliand, the UN resident coordinator, stated in her opening statement that technology is not just changing lives but actively providing answers to different kinds of challenges faced by societies around the world.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE C — ANSWER THE QUESTIONS -->
+  <div class="section-card" id="exercise-c">
+    <div class="section-title"><span class="icon">✏️</span> Exercise C — Answer the Following Questions (Solved)</div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">1. Who is Sophia? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Sophia is a social humanoid robot developed by Hong Kong-based company Hanson Robotics. She is the world's first robot citizen, having been granted citizenship by Saudi Arabia. Sophia champions the United Nations Sustainable Development Goals in Asia-Pacific with a focus on innovation. She can interact with humans, deliver speeches, answer questions, and even display humor, as demonstrated during the Innovation Conference and Fair in Kathmandu, Nepal.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">2. What was the main highlight of the conference? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> The main highlight of the conference was Sophia's keynote speech and interactions about the importance of technology in human development. Her presence drew the most attention at the Innovation Conference and Fair organized by UNDP. She spoke about how technology and artificial intelligence could transform state institutions, revolutionize agriculture, fight poverty and corruption, and ensure gender equality — all while charming the audience with her humor and personable manner.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">3. How can AI be useful in Nepal, according to Sophia? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> According to Sophia, AI can ensure better public services, bring a revolution in agriculture, make better use of limited resources, protect the environment, help end poverty, fight starvation and corruption, and ensure gender equality in Nepal. She also mentioned that machines can make life easier and connect the country to the rest of the world, showing how AI adoption could have far-reaching positive effects on Nepal's development.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">4. Who was the audience comprised of? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> The audience comprised government officials, private sector representatives, civil servants, and tech enthusiasts, among others. They were nodding in agreement and applauding throughout Sophia's speech, indicating a positive and engaged reception to the robot's message about technology's potential for Nepal's development.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">5. How long did Sophia speak for? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Sophia spoke for three minutes in her keynote speech at the conference. Despite the short duration, her speech was impactful enough to inspire the audience and generate discussion about how technology could help Nepal achieve its development vision and global goals.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">6. Why are innovative project models being developed in Nepal, according to UNDP? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> According to UNDP, innovative project prototypes are being developed and scaled up to address gender empowerment, combat gender-based violence, and reduce disaster risks. They also focus on green energy, youth engagement, and post-disaster recovery in Nepal. These projects demonstrate how UNDP is actively working to use technology and innovation to solve some of Nepal's most pressing social and environmental challenges.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXTRA A — SHORT ANSWER QUESTIONS -->
+  <div class="section-card" id="extra-a">
+    <div class="section-title"><span class="icon">🎯</span> Extra Practice — A. Short Answer Questions</div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">1. Where was the conference held and who organized it? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> The conference was held in Kathmandu, Nepal. It was organized by the United Nations Development Programme (UNDP) and was titled "Technology of Public Services and Development." The event brought together a diverse audience of government officials, private sector representatives, civil servants, and technology enthusiasts to discuss how innovation could benefit Nepal's development goals.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">2. Why is Sophia considered a historic robot? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Sophia is historic because she is the world's first robot citizen, granted citizenship by Saudi Arabia. This unprecedented legal recognition of a robot as a citizen marked a significant moment in the history of artificial intelligence and robotics. As a social humanoid robot that can interact with humans, deliver speeches, and respond to questions with humor and insight, Sophia represents a major milestone in the development of human-robot interaction.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">3. What did Sophia say about machines? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Sophia said that machines are there to make human life easier and they can connect countries to the rest of the world. Her statement emphasized the positive role that technology and artificial intelligence can play in improving quality of life and bridging geographical divides, rather than posing a threat to humanity as some might fear.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">4. Who developed Sophia and which country does she belong to? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Sophia was developed by Hanson Robotics, a Hong Kong-based company. She is a "citizen" of Saudi Arabia, making her the first robot in the world to be granted citizenship by any nation. This unique status has made her a global symbol of the evolving relationship between humans and artificial intelligence.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">5. What role does UNDP play in Nepal, according to the text? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> UNDP organized the Innovation Conference and Fair in Nepal, bringing Sophia to the country for the event. Beyond that, UNDP is actively developing and scaling up innovative project prototypes to address gender empowerment, combat gender-based violence, reduce disaster risks, promote green energy, encourage youth engagement, and support post-disaster recovery. This shows UNDP's commitment to using technology and innovation as tools for sustainable development in Nepal.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXTRA B — TRUE / FALSE -->
+  <div class="section-card" id="extra-b">
+    <div class="section-title"><span class="icon">🎯</span> Extra Practice — B. True / False Items</div>
+    <table class="tf-table">
+      <thead><tr><th>S.N.</th><th>Statement</th><th>T / F</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td class="sn">1</td><td>Sophia is the world's first humanoid robot citizen.</td><td class="tf-true">True</td><td>She was granted citizenship by Saudi Arabia, making her the first robot citizen in the world.</td></tr>
+        <tr><td class="sn">2</td><td>Sophia was developed by a company based in Japan.</td><td class="tf-false">False</td><td>Sophia was developed by Hanson Robotics, a company based in Hong Kong, not Japan.</td></tr>
+        <tr><td class="sn">3</td><td>Sophia said that robots will definitely take over humans in the future.</td><td class="tf-false">False</td><td>Sophia joked that the news of a robot takeover was fake news, dismissing the fear rather than confirming it.</td></tr>
+        <tr><td class="sn">4</td><td>The audience applauded Sophia throughout her speech.</td><td class="tf-true">True</td><td>The text states that the audience was nodding in agreement and applauding throughout her speech.</td></tr>
+        <tr><td class="sn">5</td><td>Sophia's keynote speech lasted about three minutes.</td><td class="tf-true">True</td><td>The text confirms that her keynote speech was three minutes long, as mentioned in the conclusion of her address.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- EXTRA C — FILL IN THE BLANKS -->
+  <div class="section-card" id="extra-c">
+    <div class="section-title"><span class="icon">🎯</span> Extra Practice — C. Fill in the Blanks</div>
+
+    <div class="word-bank">
+      <div class="word-bank-label">Word Bank</div>
+      <div class="word-bank-words">
+        <span class="wb-word">awe</span>
+        <span class="wb-word">revolution</span>
+        <span class="wb-word">prototype</span>
+        <span class="wb-word">empowerment</span>
+        <span class="wb-word">innovation</span>
+      </div>
+    </div>
+
+    <div class="fill-item">
+      <button class="fill-toggle" onclick="toggleFill(this)">1. The students watched the robot in _______ as it spoke and answered questions. <span class="arrow">▼</span></button>
+      <div class="fill-content">
+        <div class="answer-text"><strong>Answer:</strong> awe — The students watched the robot in <strong>awe</strong> as it spoke and answered questions. Awe refers to a feeling of great respect mixed with wonder, which perfectly describes the reaction people had when seeing Sophia's advanced capabilities displayed in person for the first time.</div>
+      </div>
+    </div>
+
+    <div class="fill-item">
+      <button class="fill-toggle" onclick="toggleFill(this)">2. Using AI in farming could bring a _______ in Nepal's agriculture sector. <span class="arrow">▼</span></button>
+      <div class="fill-content">
+        <div class="answer-text"><strong>Answer:</strong> revolution — Using AI in farming could bring a <strong>revolution</strong> in Nepal's agriculture sector. A revolution means a dramatic and wide-reaching change in conditions or methods, which accurately describes the transformative potential of applying artificial intelligence to traditional farming practices.</div>
+      </div>
+    </div>
+
+    <div class="fill-item">
+      <button class="fill-toggle" onclick="toggleFill(this)">3. The engineer showed the first _______ of the flying car at the science fair. <span class="arrow">▼</span></button>
+      <div class="fill-content">
+        <div class="answer-text"><strong>Answer:</strong> prototype — The engineer showed the first <strong>prototype</strong> of the flying car at the science fair. A prototype is the first design or model of a new device or machine, created to test and demonstrate the concept before full-scale production begins.</div>
+      </div>
+    </div>
+
+    <div class="fill-item">
+      <button class="fill-toggle" onclick="toggleFill(this)">4. Women's _______ is essential for a balanced and fair society. <span class="arrow">▼</span></button>
+      <div class="fill-content">
+        <div class="answer-text"><strong>Answer:</strong> empowerment — Women's <strong>empowerment</strong> is essential for a balanced and fair society. Empowerment refers to the process of becoming stronger and more confident, particularly in controlling one's life and claiming one's rights, which is fundamental to achieving gender equality.</div>
+      </div>
+    </div>
+
+    <div class="fill-item">
+      <button class="fill-toggle" onclick="toggleFill(this)">5. The invention of the internet was one of the greatest _______ of the 20th century. <span class="arrow">▼</span></button>
+      <div class="fill-content">
+        <div class="answer-text"><strong>Answer:</strong> innovation — The invention of the internet was one of the greatest <strong>innovation</strong>s of the 20th century. Innovation refers to the introduction of new ideas, methods, or inventions that change how people live and work, and the internet is perhaps the most significant innovation of modern times.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main-wrap -->
+
+<!-- MEANING POPUP -->
+<div class="meaning-popup" id="meaningPopup">
+  <button class="popup-close" onclick="closePopup()">&times;</button>
+  <div class="popup-word" id="popupWord"></div>
+  <div class="popup-en" id="popupEn"></div>
+  <div class="popup-ne" id="popupNe"></div>
+</div>
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top" id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  Prepared by: <strong>Narayan Prasad Regmi</strong> &nbsp;|&nbsp; Email: <a href="mailto:nregmi511@gmail.com">nregmi511@gmail.com</a> &nbsp;|&nbsp; 📞 9848144604
+</footer>
+
+<script>
+/* ===== FONT SIZE CONTROL (FIXED) ===== */
+function changeFontSize(d) {
+  var root = document.documentElement;
+  var current = parseFloat(getComputedStyle(root).getPropertyValue('--font-size-base'));
+  var next = current + d;
+  if (next < 13) next = 13;
+  if (next > 26) next = 26;
+  root.style.setProperty('--font-size-base', next + 'px');
+}
+
+/* ===== MEANING POPUP ===== */
+function showMeaning(word, en, ne) {
+  var popup = document.getElementById('meaningPopup');
+  document.getElementById('popupWord').textContent = word;
+  document.getElementById('popupEn').textContent = en;
+  document.getElementById('popupNe').textContent = ne;
+  popup.classList.add('show');
+}
+function closePopup() {
+  document.getElementById('meaningPopup').classList.remove('show');
+}
+document.addEventListener('click', function(e) {
+  var popup = document.getElementById('meaningPopup');
+  if (popup.classList.contains('show') && !popup.contains(e.target) && !e.target.classList.contains('vocab-word')) {
+    closePopup();
+  }
+});
+
+/* ===== ACCORDION TOGGLES ===== */
+function toggleExercise(btn) {
+  var content = btn.nextElementSibling;
+  var wasOpen = content.classList.contains('open');
+  var section = btn.closest('.exercise-section') || btn.closest('.section-card');
+  if (section) {
+    section.querySelectorAll('.exercise-content.open').forEach(function(c) { c.classList.remove('open'); });
+    section.querySelectorAll('.exercise-toggle.active').forEach(function(b) { b.classList.remove('active'); });
+  }
+  if (!wasOpen) {
+    content.classList.add('open');
+    btn.classList.add('active');
+  }
+}
+function toggleTF(btn) {
+  var content = btn.nextElementSibling;
+  var wasOpen = content.classList.contains('open');
+  var section = btn.closest('.section-card');
+  if (section) {
+    section.querySelectorAll('.tf-content.open').forEach(function(c) { c.classList.remove('open'); });
+    section.querySelectorAll('.tf-toggle.active').forEach(function(b) { b.classList.remove('active'); });
+  }
+  if (!wasOpen) {
+    content.classList.add('open');
+    btn.classList.add('active');
+  }
+}
+function toggleFill(btn) {
+  var content = btn.nextElementSibling;
+  var wasOpen = content.classList.contains('open');
+  var section = btn.closest('.section-card');
+  if (section) {
+    section.querySelectorAll('.fill-content.open').forEach(function(c) { c.classList.remove('open'); });
+    section.querySelectorAll('.fill-toggle.active').forEach(function(b) { b.classList.remove('active'); });
+  }
+  if (!wasOpen) {
+    content.classList.add('open');
+    btn.classList.add('active');
+  }
+}
+
+/* ===== INTERACTIVE MATCHING ===== */
+var matchSelectedLeft = null;
+var matchSelectedRight = null;
+var matchCorrectPairs = 0;
+var totalPairs = 8;
+
+/* Correct mapping: left data-match-id -> right data-match-id */
+var correctMap = {
+  'a': '8',   // humanoid -> (viii)
+  'b': '3',   // awe -> (iii)
+  'c': '7',   // revolution -> (vii)
+  'd': '1',   // celebrity -> (i)
+  'e': '6',   // enthusiast -> (vi)
+  'f': '2',   // applaud -> (ii)
+  'g': '5',   // takeover -> (v)
+  'h': '4'    // prototype -> (iv)
+};
+
+function selectMatch(el) {
+  if (el.classList.contains('matched')) return;
+
+  var side = el.getAttribute('data-side');
+
+  if (side === 'left') {
+    /* Deselect previous left selection */
+    var prevLeft = document.querySelector('.match-option.selected[data-side="left"]');
+    if (prevLeft) prevLeft.classList.remove('selected');
+    el.classList.add('selected');
+    matchSelectedLeft = el;
+  } else {
+    /* Deselect previous right selection */
+    var prevRight = document.querySelector('.match-option.selected[data-side="right"]');
+    if (prevRight) prevRight.classList.remove('selected');
+    el.classList.add('selected');
+    matchSelectedRight = el;
+  }
+
+  /* If both sides have a selection, check the pair */
+  if (matchSelectedLeft && matchSelectedRight) {
+    var leftId = matchSelectedLeft.getAttribute('data-match-id');
+    var rightId = matchSelectedRight.getAttribute('data-match-id');
+
+    if (correctMap[leftId] === rightId) {
+      /* CORRECT match */
+      matchSelectedLeft.classList.remove('selected');
+      matchSelectedRight.classList.remove('selected');
+      matchSelectedLeft.classList.add('matched');
+      matchSelectedRight.classList.add('matched');
+      matchSelectedLeft.innerHTML += ' <span class="match-check">✓</span>';
+      matchSelectedRight.innerHTML += ' <span class="match-check">✓</span>';
+      matchCorrectPairs++;
+      updateMatchStatus();
+    } else {
+      /* WRONG match — shake and deselect */
+      matchSelectedLeft.classList.add('wrong-flash');
+      matchSelectedRight.classList.add('wrong-flash');
+      var leftEl = matchSelectedLeft;
+      var rightEl = matchSelectedRight;
+      setTimeout(function() {
+        leftEl.classList.remove('wrong-flash', 'selected');
+        rightEl.classList.remove('wrong-flash', 'selected');
+      }, 600);
+      document.getElementById('matchStatus').textContent = '❌ Wrong pair — try again!';
+      document.getElementById('matchStatus').className = 'match-status wrong';
+    }
+    matchSelectedLeft = null;
+    matchSelectedRight = null;
+  }
+}
+
+function updateMatchStatus() {
+  var status = document.getElementById('matchStatus');
+  if (matchCorrectPairs === totalPairs) {
+    status.textContent = '🎉 All matched correctly! Well done!';
+    status.className = 'match-status correct';
+  } else {
+    status.textContent = '✅ ' + matchCorrectPairs + ' of ' + totalPairs + ' matched correctly';
+    status.className = 'match-status correct';
+  }
+}
+
+function resetMatch() {
+  matchSelectedLeft = null;
+  matchSelectedRight = null;
+  matchCorrectPairs = 0;
+  document.querySelectorAll('.match-option').forEach(function(el) {
+    el.classList.remove('selected', 'matched', 'wrong-flash');
+    /* Remove check marks */
+    var check = el.querySelector('.match-check');
+    if (check) check.remove();
+  });
+  document.getElementById('matchStatus').textContent = '';
+  document.getElementById('matchStatus').className = 'match-status';
+}
+
+/* ===== SCROLL TO TOP ===== */
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+window.addEventListener('scroll', function() {
+  var btn = document.getElementById('scrollTopBtn');
+  if (window.scrollY > 400) {
+    btn.classList.add('visible');
+  } else {
+    btn.classList.remove('visible');
+  }
+});
+
+/* ===== DOWNLOAD ===== */
+function downloadHTML() {
+  var html = document.documentElement.outerHTML;
+  var blob = new Blob([html], { type: 'text/html' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = 'Humanoid_Robot_Sophia_Interactive.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+
+</body>
+</html>

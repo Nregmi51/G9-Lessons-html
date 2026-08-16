@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Acceleration behind Telehealth Services – Grade 9 English Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700;800&family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ===== CSS VARIABLES ===== */
+:root {
+  --primary: #2B3A67;
+  --primary-dark: #1A2544;
+  --primary-light: #3D5289;
+  --accent: #C06014;
+  --accent-light: #E07A2E;
+  --highlight: #00838F;
+  --highlight-light: #00ACC1;
+  --bg-main: #EDEEF3;
+  --bg-card: #FFFFFF;
+  --bg-alt: #E0E2EA;
+  --bg-dark: #2B3A67;
+  --text-main: #1A1A2E;
+  --text-light: #5A5A7A;
+  --text-on-dark: #F0EFF5;
+  --border: #C5C8D6;
+  --border-light: #D8DAE5;
+  --shadow: rgba(43,58,103,0.08);
+  --shadow-strong: rgba(43,58,103,0.18);
+  --font-heading: 'Josefin Sans', sans-serif;
+  --font-body: 'Bitter', serif;
+  --font-ui: 'Nunito', sans-serif;
+  --font-size-base: 16px;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --radius-lg: 16px;
+  --match-selected: #2B3A67;
+  --match-correct: #1B7A3D;
+  --match-wrong: #C0392B;
+  --match-hover: #D8DAE5;
+  --reporter-bg: #E8EDF7;
+  --chang-bg: #FFF3E8;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: 1.78;
+  color: var(--text-main);
+  background: var(--bg-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-alt); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+
+/* ===== HEADER ===== */
+.site-header {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+  color: var(--text-on-dark);
+  padding: 32px 24px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(192,96,20,0.2) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.site-header::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -40px;
+  width: 160px; height: 160px;
+  background: radial-gradient(circle, rgba(0,131,143,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.header-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 20px;
+  padding: 4px 16px;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.site-header h1 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.site-header .subtitle {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.88;
+  margin-bottom: 4px;
+}
+.site-header .meta-line {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  opacity: 0.7;
+  margin-top: 8px;
+}
+
+/* ===== CONTROLS BAR ===== */
+.controls-bar {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-light);
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+.font-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.font-controls span {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+.font-btn {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  width: 34px; height: 34px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--primary);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-ui);
+  line-height: 1;
+}
+.font-btn:hover { background: var(--primary); color: #fff; }
+.dl-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 7px 18px;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.dl-btn:hover { background: var(--accent-light); }
+
+/* ===== NAV JUMP ===== */
+.nav-jump {
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border-light);
+  padding: 10px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+.nav-jump a {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 5px 14px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-jump a:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* ===== MAIN WRAPPER ===== */
+.main-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 20px 60px;
+}
+
+/* ===== SECTION CARD ===== */
+.section-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 28px 28px 20px;
+  margin-bottom: 28px;
+  box-shadow: 0 3px 14px var(--shadow);
+}
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title .icon { font-size: 1.3rem; }
+
+/* ===== META INFO CARD ===== */
+.meta-info-card {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-bottom: 28px;
+  color: var(--text-on-dark);
+  box-shadow: 0 6px 20px var(--shadow-strong);
+}
+.meta-info-card h2 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+.mi-item {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+}
+.mi-item .mi-label {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.7;
+  display: block;
+  margin-bottom: 2px;
+}
+.mi-item .mi-value {
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+/* ===== READING PARAGRAPH ===== */
+.reading-block {
+  margin-bottom: 22px;
+  position: relative;
+}
+.reading-label {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--primary);
+  background: var(--bg-alt);
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+.reading-block p {
+  font-size: var(--font-size-base);
+  line-height: 1.85;
+  text-align: justify;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/* ===== INTERVIEW STYLE ===== */
+.interview-intro {
+  background: var(--bg-alt);
+  border-left: 4px solid var(--highlight);
+  padding: 14px 18px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-bottom: 16px;
+  font-style: italic;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-light);
+}
+.qa-pair {
+  margin-bottom: 18px;
+}
+.speaker-label {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 4px;
+}
+.speaker-reporter {
+  background: var(--reporter-bg);
+  color: var(--primary-dark);
+  border-left: 4px solid var(--primary);
+}
+.speaker-chang {
+  background: var(--chang-bg);
+  color: #7A3A0A;
+  border-left: 4px solid var(--accent);
+}
+.speaker-response {
+  padding: 12px 16px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-top: 2px;
+}
+.response-reporter {
+  background: var(--reporter-bg);
+  border-left: 3px solid var(--primary);
+}
+.response-chang {
+  background: var(--chang-bg);
+  border-left: 3px solid var(--accent);
+}
+.speaker-response p {
+  font-size: var(--font-size-base);
+  line-height: 1.85;
+  text-align: justify;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+/* ===== VOCAB HIGHLIGHT ===== */
+.vocab-word {
+  color: var(--accent);
+  font-weight: 700;
+  cursor: pointer;
+  border-bottom: 2px dotted var(--accent);
+  transition: all 0.2s;
+  position: relative;
+}
+.vocab-word:hover {
+  color: var(--highlight-light);
+  border-bottom-color: var(--highlight-light);
+}
+
+/* ===== MEANING POPUP ===== */
+.meaning-popup {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  background: var(--primary-dark);
+  color: var(--text-on-dark);
+  border-radius: var(--radius);
+  padding: 16px 22px;
+  min-width: 280px;
+  max-width: 90vw;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  z-index: 9999;
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s;
+  opacity: 0;
+  font-family: var(--font-ui);
+}
+.meaning-popup.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+.popup-word {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--accent-light);
+}
+.popup-en {
+  font-size: 0.88rem;
+  margin-bottom: 3px;
+  line-height: 1.45;
+}
+.popup-en::before { content: 'EN: '; font-weight: 700; opacity: 0.7; }
+.popup-ne {
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: rgba(255,255,255,0.85);
+}
+.popup-ne::before { content: 'NE: '; font-weight: 700; opacity: 0.7; }
+.popup-close {
+  position: absolute;
+  top: 8px; right: 12px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  font-size: 1.2rem;
+  cursor: pointer;
+  line-height: 1;
+}
+.popup-close:hover { color: #fff; }
+
+/* ===== GLOSSARY TABLE ===== */
+.glossary-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-top: 6px;
+}
+.glossary-table thead th {
+  background: var(--primary);
+  color: var(--text-on-dark);
+  font-family: var(--font-ui);
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.glossary-table thead th:first-child { border-radius: var(--radius-sm) 0 0 0; }
+.glossary-table thead th:last-child { border-radius: 0 var(--radius-sm) 0 0; }
+.glossary-table tbody td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
+}
+.glossary-table tbody tr:nth-child(even) { background: var(--bg-alt); }
+.glossary-table tbody tr:hover { background: #D0D3DF; }
+.glossary-table .sn { font-weight: 700; color: var(--primary); width: 36px; text-align: center; }
+.glossary-table .word-col { font-weight: 700; color: var(--accent); white-space: nowrap; }
+
+/* ===== INTERACTIVE CROSSWORD ===== */
+.crossword-container {
+  margin-top: 12px;
+}
+.crossword-instructions {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  color: var(--text-light);
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  background: var(--bg-alt);
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--accent);
+}
+.crossword-section {
+  margin-bottom: 18px;
+}
+.crossword-section h4 {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent);
+}
+.crossword-clue {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  transition: border-color 0.2s;
+}
+.crossword-clue:hover { border-color: var(--primary); }
+.clue-number {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: var(--accent);
+  font-size: 1rem;
+  min-width: 28px;
+}
+.clue-text {
+  flex: 1;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+.clue-input {
+  width: 180px;
+  padding: 6px 10px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.clue-input:focus { border-color: var(--primary); }
+.clue-input.correct {
+  border-color: var(--match-correct);
+  background: rgba(27,122,61,0.08);
+  color: var(--match-correct);
+}
+.clue-input.wrong {
+  border-color: var(--match-wrong);
+  background: rgba(192,57,43,0.08);
+  color: var(--match-wrong);
+  animation: wrongShake 0.5s ease;
+}
+.clue-result {
+  font-size: 1rem;
+  font-weight: 700;
+  min-width: 20px;
+  text-align: center;
+}
+.clue-result.correct-icon { color: var(--match-correct); }
+.clue-result.wrong-icon { color: var(--match-wrong); }
+
+/* ===== INTERACTIVE MATCHING ===== */
+.match-container { margin-top: 12px; }
+.match-instructions {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  color: var(--text-light);
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  background: var(--bg-alt);
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--accent);
+}
+.match-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.match-col h4 {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent);
+  text-align: center;
+}
+.match-option {
+  padding: 10px 14px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  user-select: none;
+  background: var(--bg-card);
+}
+.match-option:hover {
+  border-color: var(--primary);
+  background: var(--match-hover);
+}
+.match-option.selected {
+  border-color: var(--match-selected);
+  background: rgba(43,58,103,0.08);
+  box-shadow: 0 0 0 2px rgba(43,58,103,0.15);
+}
+.match-option.matched {
+  border-color: var(--match-correct);
+  background: rgba(27,122,61,0.08);
+  cursor: default;
+  opacity: 0.85;
+}
+.match-option.matched .match-check { display: inline; }
+.match-option.wrong-flash {
+  animation: wrongShake 0.5s ease;
+  border-color: var(--match-wrong);
+  background: rgba(192,57,43,0.08);
+}
+.match-check {
+  display: none;
+  color: var(--match-correct);
+  font-weight: 700;
+  margin-left: 6px;
+}
+@keyframes wrongShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+.match-status {
+  text-align: center;
+  margin-top: 14px;
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-weight: 600;
+  min-height: 28px;
+}
+.match-status.correct { color: var(--match-correct); }
+.match-status.wrong { color: var(--match-wrong); }
+.match-reset-btn, .cw-check-btn, .cw-show-btn, .cw-reset-btn, .tf-interactive-check, .fill-check-btn {
+  display: inline-block;
+  margin: 8px 6px 0;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 22px;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.match-reset-btn:hover, .cw-check-btn:hover, .cw-show-btn:hover, .cw-reset-btn:hover, .tf-interactive-check:hover, .fill-check-btn:hover { background: var(--primary-light); }
+.cw-show-btn { background: var(--accent); }
+.cw-show-btn:hover { background: var(--accent-light); }
+.cw-reset-btn { background: var(--highlight); }
+.cw-reset-btn:hover { background: var(--highlight-light); }
+
+/* ===== BUTTON ROW ===== */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+/* ===== EXERCISE SECTION ===== */
+.exercise-section { margin-bottom: 18px; }
+.exercise-heading {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 14px;
+}
+
+/* Accordion */
+.exercise-item, .tf-item, .fill-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.exercise-item:hover, .tf-item:hover, .fill-item:hover { border-color: var(--primary); }
+.exercise-toggle, .tf-toggle, .fill-toggle {
+  width: 100%;
+  background: var(--bg-alt);
+  border: none;
+  padding: 12px 16px;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+}
+.exercise-toggle:hover, .tf-toggle:hover, .fill-toggle:hover { background: #D0D3DF; }
+.exercise-toggle .arrow, .tf-toggle .arrow, .fill-toggle .arrow {
+  transition: transform 0.3s;
+  font-size: 0.85rem;
+  color: var(--primary);
+}
+.exercise-toggle.active .arrow, .tf-toggle.active .arrow, .fill-toggle.active .arrow {
+  transform: rotate(180deg);
+}
+.exercise-content, .tf-content, .fill-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s;
+  padding: 0 16px;
+  background: var(--bg-card);
+}
+.exercise-content.open, .tf-content.open, .fill-content.open {
+  max-height: 2000px;
+  padding: 16px;
+}
+.answer-text {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-main);
+}
+.answer-text strong { color: var(--primary); }
+
+/* ===== INTERACTIVE T/F ===== */
+.tf-interactive-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  background: var(--bg-card);
+  transition: border-color 0.2s;
+}
+.tf-interactive-item:hover { border-color: var(--primary); }
+.tf-num {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: var(--accent);
+  font-size: 1rem;
+  min-width: 24px;
+  padding-top: 2px;
+}
+.tf-statement {
+  flex: 1;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.tf-buttons {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.tf-btn {
+  padding: 5px 16px;
+  border: 2px solid var(--border);
+  border-radius: 20px;
+  background: var(--bg-card);
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.tf-btn:hover { border-color: var(--primary); }
+.tf-btn.selected-true { border-color: var(--match-correct); background: rgba(27,122,61,0.1); color: var(--match-correct); }
+.tf-btn.selected-false { border-color: var(--match-wrong); background: rgba(192,57,43,0.1); color: var(--match-wrong); }
+.tf-btn.result-true { border-color: var(--match-correct); background: rgba(27,122,61,0.15); color: var(--match-correct); }
+.tf-btn.result-false { border-color: var(--match-wrong); background: rgba(192,57,43,0.15); color: var(--match-wrong); }
+.tf-result-icon {
+  font-size: 1rem;
+  font-weight: 700;
+  min-width: 24px;
+  padding-top: 2px;
+  text-align: center;
+}
+.tf-result-icon.correct { color: var(--match-correct); }
+.tf-result-icon.wrong { color: var(--match-wrong); }
+.tf-reason {
+  margin-top: 6px;
+  font-size: 0.82rem;
+  color: var(--text-light);
+  font-style: italic;
+  display: none;
+}
+.tf-reason.show { display: block; }
+.tf-score {
+  text-align: center;
+  margin-top: 12px;
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+/* ===== INTERACTIVE FILL-IN-BLANKS ===== */
+.fill-interactive-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 10px 14px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  transition: border-color 0.2s;
+}
+.fill-interactive-item:hover { border-color: var(--primary); }
+.fill-num {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: var(--accent);
+  font-size: 1rem;
+  min-width: 24px;
+}
+.fill-text {
+  flex: 1;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.fill-input {
+  width: 150px;
+  padding: 5px 10px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-weight: 600;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.fill-input:focus { border-color: var(--primary); }
+.fill-input.correct { border-color: var(--match-correct); background: rgba(27,122,61,0.08); color: var(--match-correct); }
+.fill-input.wrong { border-color: var(--match-wrong); background: rgba(192,57,43,0.08); color: var(--match-wrong); animation: wrongShake 0.5s ease; }
+.fill-result {
+  font-size: 1rem;
+  font-weight: 700;
+  min-width: 20px;
+  text-align: center;
+}
+.fill-result.correct-icon { color: var(--match-correct); }
+.fill-result.wrong-icon { color: var(--match-wrong); }
+
+/* ===== WORD BANK ===== */
+.word-bank {
+  background: var(--bg-alt);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+.word-bank-label {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+.word-bank-words {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.wb-word {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* ===== TF TABLE ===== */
+.tf-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-top: 8px;
+}
+.tf-table thead th {
+  background: var(--highlight);
+  color: #fff;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.tf-table tbody td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
+}
+.tf-table .sn { font-weight: 700; color: var(--highlight); text-align: center; width: 36px; }
+.tf-true { color: #1B7A3D; font-weight: 700; }
+.tf-false { color: var(--primary-light); font-weight: 700; }
+
+/* ===== OPEN-ENDED ===== */
+.open-ended-box {
+  background: var(--bg-alt);
+  border-left: 4px solid var(--highlight);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 16px 18px;
+  margin-top: 8px;
+}
+.open-ended-box p {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  font-weight: 500;
+}
+.open-ended-box .sample-label {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--highlight);
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+.open-ended-box .sample-answer {
+  font-style: italic;
+  color: var(--text-light);
+  font-size: 0.88rem;
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background: var(--primary-dark);
+  color: var(--text-on-dark);
+  text-align: center;
+  padding: 20px;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+.site-footer a { color: var(--accent-light); text-decoration: none; }
+
+/* ===== SCROLL TOP ===== */
+.scroll-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px; height: 44px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px var(--shadow-strong);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.scroll-top.visible { opacity: 1; transform: translateY(0); }
+.scroll-top:hover { background: var(--accent); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  .site-header h1 { font-size: 1.3rem; }
+  .section-card { padding: 18px 14px 14px; }
+  .meta-grid { grid-template-columns: 1fr 1fr; }
+  .match-columns { grid-template-columns: 1fr; }
+  .controls-bar { padding: 8px 14px; }
+  .nav-jump { padding: 8px 14px; }
+  .nav-jump a { font-size: 0.72rem; padding: 4px 10px; }
+  .crossword-clue { flex-wrap: wrap; }
+  .clue-input { width: 140px; }
+  .tf-interactive-item { flex-wrap: wrap; }
+  .fill-interactive-item { flex-wrap: wrap; }
+  .fill-input { width: 120px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-badge">Unit 2 · Health &amp; Hygiene</div>
+  <h1>The Acceleration behind Telehealth Services</h1>
+  <div class="subtitle">Prose — Interview</div>
+  <div class="meta-line">Grade 9 · English · pp. 13–18</div>
+</header>
+
+<!-- CONTROLS BAR -->
+<div class="controls-bar">
+  <div class="font-controls">
+    <span>Aa</span>
+    <button class="font-btn" onclick="changeFontSize(-1)">−</button>
+    <button class="font-btn" onclick="changeFontSize(1)">+</button>
+  </div>
+  <button class="dl-btn" onclick="downloadHTML()">⬇ Download</button>
+</div>
+
+<!-- NAV JUMP -->
+<nav class="nav-jump">
+  <a href="#meta-info">📋 Info</a>
+  <a href="#reading-text">📖 Text</a>
+  <a href="#glossary">📚 Words</a>
+  <a href="#exercise-a">Ex A – Crossword</a>
+  <a href="#exercise-b">Ex B – T/F</a>
+  <a href="#exercise-c">Ex C – Q&A</a>
+  <a href="#exercise-d">Ex D – Discuss</a>
+  <a href="#extra-a">Extra – Short Q</a>
+  <a href="#extra-b">Extra – T/F</a>
+  <a href="#extra-c">Extra – Fill</a>
+</nav>
+
+<!-- MAIN WRAPPER -->
+<div class="main-wrap">
+
+  <!-- META INFO -->
+  <div class="meta-info-card" id="meta-info">
+    <h2>📋 Unit Overview</h2>
+    <div class="meta-grid">
+      <div class="mi-item"><span class="mi-label">Grade</span><span class="mi-value">9</span></div>
+      <div class="mi-item"><span class="mi-label">Subject</span><span class="mi-value">English</span></div>
+      <div class="mi-item"><span class="mi-label">Unit</span><span class="mi-value">2 – Health &amp; Hygiene</span></div>
+      <div class="mi-item"><span class="mi-label">Topic</span><span class="mi-value">The Acceleration behind Telehealth Services</span></div>
+      <div class="mi-item"><span class="mi-label">Genre</span><span class="mi-value">Prose (Interview)</span></div>
+      <div class="mi-item"><span class="mi-label">Pages</span><span class="mi-value">13–18</span></div>
+      <div class="mi-item"><span class="mi-label">Interviewer</span><span class="mi-value">News-Medical Reporter</span></div>
+      <div class="mi-item"><span class="mi-label">Interviewee</span><span class="mi-value">Chun-Kai Chang (Advantech)</span></div>
+    </div>
+  </div>
+
+  <!-- READING TEXT -->
+  <div class="section-card" id="reading-text">
+    <div class="section-title"><span class="icon">📖</span> Reading Text — The Interview</div>
+
+    <div class="interview-intro">
+      In this interview, Chun-Kai Chang, the Business Development Manager of Telehealth at Advantech, talks to News-Medical about the acceleration behind telehealth services.
+    </div>
+
+    <!-- Q&A PAIR 1 -->
+    <div class="qa-pair">
+      <div class="speaker-label speaker-reporter">Reporter:</div>
+      <div class="speaker-response response-reporter">
+        <p>To begin, can you give us a brief introduction into <span class="vocab-word" onclick="showMeaning('telehealth','providing medical care remotely using technology','दूर स्वास्थ्य सेवा')">telehealth</span> and what it involves?</p>
+      </div>
+      <div class="speaker-label speaker-chang" style="margin-top:10px;">Chang:</div>
+      <div class="speaker-response response-chang">
+        <p>Telehealth is a method of providing medical care <span class="vocab-word" onclick="showMeaning('remotely','from a distance','टाढाबाट')">remotely</span>, usually through video chat. Telehealth makes it possible to connect patients and <span class="vocab-word" onclick="showMeaning('clinicians','doctors who work directly with patients','चिकित्सकहरू')">clinicians</span> from any location. It provides access to a wide range of care, including primary care consultations, <span class="vocab-word" onclick="showMeaning('psychotherapy','psychological treatment of people using dialogue','मनोचिकित्सा')">psychotherapy</span>, physical therapy, and even emergency services. It allows primary care clinicians and specialists to further their reach for treating patients wherever there is an internet connection.</p>
+        <p>The benefits of telehealth for healthcare providers and patients is that these services can be faster, safer, more effective, and less expensive in the long run, especially during a time like the COVID-19 pandemic, where telehealth has allowed access to medical care without going to hospitals to protect patients and hospital staff from being exposed to the infection.</p>
+      </div>
+    </div>
+
+    <!-- Q&A PAIR 2 -->
+    <div class="qa-pair">
+      <div class="speaker-label speaker-reporter">Reporter:</div>
+      <div class="speaker-response response-reporter">
+        <p>What are some of the main drivers behind the acceleration and <span class="vocab-word" onclick="showMeaning('momentum','the force that keeps something developing or moving','गति, वेग')">momentum</span> of telehealth services?</p>
+      </div>
+      <div class="speaker-label speaker-chang" style="margin-top:10px;">Chang:</div>
+      <div class="speaker-response response-chang">
+        <p>There are two major drivers for this fast-growing market. The first and most recent driver for telehealth has been the global COVID-19 <span class="vocab-word" onclick="showMeaning('pandemic','an epidemic disease over a wide geographical area','विश्वव्यापी महामारी')">pandemic</span>. Strong social distancing and minimal physical contact <span class="vocab-word" onclick="showMeaning('precautions','measures taken in advance to prevent harm','सावधानीहरू')">precautions</span> have pushed the shift to telehealth and remote consultations as it aids in infection protection.</p>
+        <p>These precautions and increased hospital bed shortages have forced medical facilities to <span class="vocab-word" onclick="showMeaning('incorporate','to include as a part of something','समावेश गर्नु')">incorporate</span> more telehealth technologies to keep up with demand and maintain care <span class="vocab-word" onclick="showMeaning('continuity','the state of continuing without interruption','निरन्तरता')">continuity</span> for patients at home.</p>
+        <p>The second driver is the shortage of medical professionals when demand is increasing every year due to an aging population and more and more patients with chronic and non-communicable diseases. For people living in rural areas, their medical demands are <span class="vocab-word" onclick="showMeaning('underserved','not having sufficient service or resources','अपर्याप्त सेवा प्राप्त')">underserved</span> due to insufficient resources and long distances to drive into cities for care. Telehealth is one of the promising ways to tackle the challenge of doctor shortages and expand specialists and doctors' reach to patients.</p>
+      </div>
+    </div>
+
+    <!-- Q&A PAIR 3 -->
+    <div class="qa-pair">
+      <div class="speaker-label speaker-reporter">Reporter:</div>
+      <div class="speaker-response response-reporter">
+        <p>In terms of this acceleration and momentum of telehealth services, we are currently seeing, what are some items we can expect to see in the future?</p>
+      </div>
+      <div class="speaker-label speaker-chang" style="margin-top:10px;">Chang:</div>
+      <div class="speaker-response response-chang">
+        <p>Telehealth will not replace face to face care services, but we will incorporate it into healthcare facilities' infrastructure. Patients will be selecting providers based on their accessibility to telehealth services. With more access to doctors, increasing patients using preventative care services and follow-up care due to convenience will start to emerge. These can lead to fewer readmissions and patient complications. We will also see more use for early screening of patient <span class="vocab-word" onclick="showMeaning('triage','the process of sorting patients by urgency','बिरामी क्रमीकरण प्रक्रिया')">triage</span> in the field before they arrive at hospitals.</p>
+      </div>
+    </div>
+
+    <!-- Q&A PAIR 4 -->
+    <div class="qa-pair">
+      <div class="speaker-label speaker-reporter">Reporter:</div>
+      <div class="speaker-response response-reporter">
+        <p>When it comes to remote patient monitoring for clinicians, what impact does telehealth have on this?</p>
+      </div>
+      <div class="speaker-label speaker-chang" style="margin-top:10px;">Chang:</div>
+      <div class="speaker-response response-chang">
+        <p>Remote patient <span class="vocab-word" onclick="showMeaning('monitoring','continuous checking or observation','अनुगमन')">monitoring</span> could be one of the applications of telehealth. Remote patient monitoring usually involves continuously collecting patient's health data through wearable devices, such as vital signs and blood sugars. The patient's data is then <span class="vocab-word" onclick="showMeaning('transmitted','sent or passed from one place to another','प्रसारण गरिएको')">transmitted</span> in real-time, monitored, and reviewed by medical providers.</p>
+        <p>In this way, medical providers could acquire a whole picture of a patient's health condition and give a more precise <span class="vocab-word" onclick="showMeaning('diagnosis','identification of the nature and cause of a disease','निदान')">diagnosis</span>.</p>
+      </div>
+    </div>
+
+    <!-- Q&A PAIR 5 -->
+    <div class="qa-pair">
+      <div class="speaker-label speaker-reporter">Reporter:</div>
+      <div class="speaker-response response-reporter">
+        <p>How has telehealth shaped the way clinicians work with each other?</p>
+      </div>
+      <div class="speaker-label speaker-chang" style="margin-top:10px;">Chang:</div>
+      <div class="speaker-response response-chang">
+        <p>Clinician-to-clinician telehealth services have enabled medical professionals to <span class="vocab-word" onclick="showMeaning('collaborate','to work jointly with others','सहकार्य गर्नु')">collaborate</span> virtually with specialists in other locations to deliver treatment and care to patients jointly. This service can range from remote surgical <span class="vocab-word" onclick="showMeaning('mentoring','guidance and advice from an experienced person','मार्गदर्शन गर्नु')">mentoring</span> to Tele-ICU and Tele-ER (like a stroke), in which on-site staff work together with a remote physician/specialist team to assess patient's condition. Telehealth solutions relieve the pressure of <span class="vocab-word" onclick="showMeaning('staffing','arrangement or management of workers','कर्मचारी व्यवस्थापन')">staffing</span> gaps seen in critical departments such as an emergency room and <span class="vocab-word" onclick="showMeaning('ICU','Intensive Care Unit – special hospital department for critical patients','गहन उपचार कक्ष')">ICU</span>.</p>
+      </div>
+    </div>
+
+    <!-- Q&A PAIR 6 -->
+    <div class="qa-pair">
+      <div class="speaker-label speaker-reporter">Reporter:</div>
+      <div class="speaker-response response-reporter">
+        <p>What would you say are some of the biggest challenges clinicians currently face with telehealth?</p>
+      </div>
+      <div class="speaker-label speaker-chang" style="margin-top:10px;">Chang:</div>
+      <div class="speaker-response response-chang">
+        <p>Many hospitals are still facing the lack of <span class="vocab-word" onclick="showMeaning('infrastructure','basic physical systems needed for an organization to function','पूर्वाधार')">infrastructure</span> to implement telehealth successfully, insufficient hardware, and the right technology for each specialty. Some hospitals struggle with reliable networking infrastructures like <span class="vocab-word" onclick="showMeaning('broadband','high-speed internet connection','ब्रडब्यान्ड')">broadband</span>, 4G, or Wi-Fi. This could limit the <span class="vocab-word" onclick="showMeaning('connectivity','the ability or state of being connected','जडान क्षमता')">connectivity</span> within facilities and provide remote care to rural areas or mobile clinics. Having the right technology and tools, and place will be crucial to successful telehealth programs.</p>
+        <p>Even though this new technology is quickly being integrated, there is a learning curve to using telehealth versus traditional healthcare operations. Users face obstacles such as learning to use different tools, online scheduling for virtual visits, triage procedures, and billing policies.</p>
+        <p>To overcome these challenges, telehealth should be encouraged as a regular service and included in health insurance. There would be more motives for healthcare providers to invest in infrastructures and information system <span class="vocab-word" onclick="showMeaning('integration','the act of combining parts into a whole','एकीकरण')">integration</span> and <span class="vocab-word" onclick="showMeaning('deploy','to bring into effective action or use','प्रयोगमा ल्याउनु')">deploy</span> telehealth technology.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- GLOSSARY -->
+  <div class="section-card" id="glossary">
+    <div class="section-title"><span class="icon">📚</span> Difficult Words — Glossary</div>
+    <table class="glossary-table">
+      <thead><tr><th>S.N.</th><th>Word</th><th>English Meaning</th><th>Nepali Meaning</th></tr></thead>
+      <tbody>
+        <tr><td class="sn">1</td><td class="word-col">telehealth</td><td>providing medical care remotely using technology</td><td>दूर स्वास्थ्य सेवा</td></tr>
+        <tr><td class="sn">2</td><td class="word-col">remotely</td><td>from a distance</td><td>टाढाबाट</td></tr>
+        <tr><td class="sn">3</td><td class="word-col">clinicians</td><td>doctors who work directly with patients</td><td>चिकित्सकहरू</td></tr>
+        <tr><td class="sn">4</td><td class="word-col">psychotherapy</td><td>psychological treatment using dialogue</td><td>मनोचिकित्सा</td></tr>
+        <tr><td class="sn">5</td><td class="word-col">momentum</td><td>the force that keeps something developing/moving</td><td>गति, वेग</td></tr>
+        <tr><td class="sn">6</td><td class="word-col">pandemic</td><td>an epidemic over a wide geographical area</td><td>विश्वव्यापी महामारी</td></tr>
+        <tr><td class="sn">7</td><td class="word-col">precautions</td><td>measures taken in advance to prevent harm</td><td>सावधानीहरू</td></tr>
+        <tr><td class="sn">8</td><td class="word-col">incorporate</td><td>to include as a part of something</td><td>समावेश गर्नु</td></tr>
+        <tr><td class="sn">9</td><td class="word-col">continuity</td><td>the state of continuing without interruption</td><td>निरन्तरता</td></tr>
+        <tr><td class="sn">10</td><td class="word-col">underserved</td><td>not having sufficient service or resources</td><td>अपर्याप्त सेवा प्राप्त</td></tr>
+        <tr><td class="sn">11</td><td class="word-col">triage</td><td>the process of sorting patients by urgency</td><td>बिरामी क्रमीकरण प्रक्रिया</td></tr>
+        <tr><td class="sn">12</td><td class="word-col">monitoring</td><td>continuous checking or observation</td><td>अनुगमन</td></tr>
+        <tr><td class="sn">13</td><td class="word-col">transmitted</td><td>sent/passed from one place to another</td><td>प्रसारण गरिएको</td></tr>
+        <tr><td class="sn">14</td><td class="word-col">diagnosis</td><td>identification of the nature/cause of a disease</td><td>निदान</td></tr>
+        <tr><td class="sn">15</td><td class="word-col">collaborate</td><td>to work jointly with others</td><td>सहकार्य गर्नु</td></tr>
+        <tr><td class="sn">16</td><td class="word-col">mentoring</td><td>guidance and advice from an experienced person</td><td>मार्गदर्शन गर्नु</td></tr>
+        <tr><td class="sn">17</td><td class="word-col">staffing</td><td>arrangement or management of workers</td><td>कर्मचारी व्यवस्थापन</td></tr>
+        <tr><td class="sn">18</td><td class="word-col">ICU</td><td>Intensive Care Unit – special hospital department</td><td>गहन उपचार कक्ष</td></tr>
+        <tr><td class="sn">19</td><td class="word-col">infrastructure</td><td>basic physical systems needed for an organization</td><td>पूर्वाधार</td></tr>
+        <tr><td class="sn">20</td><td class="word-col">broadband</td><td>high-speed internet connection</td><td>ब्रडब्यान्ड</td></tr>
+        <tr><td class="sn">21</td><td class="word-col">connectivity</td><td>the ability or state of being connected</td><td>जडान क्षमता</td></tr>
+        <tr><td class="sn">22</td><td class="word-col">integration</td><td>the act of combining parts into a whole</td><td>एकीकरण</td></tr>
+        <tr><td class="sn">23</td><td class="word-col">deploy</td><td>to bring into effective action or use</td><td>प्रयोगमा ल्याउनु</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- EXERCISE A — INTERACTIVE CROSSWORD -->
+  <div class="section-card" id="exercise-a">
+    <div class="section-title"><span class="icon">🧩</span> Exercise A — Crossword Puzzle (Interactive)</div>
+    <div class="crossword-instructions">
+      Read each clue and type the correct word in the input field. Click <strong>"Check All"</strong> to verify your answers. Use <strong>"Show Answers"</strong> if you're stuck, or <strong>"Reset"</strong> to start over.
+    </div>
+
+    <div class="crossword-section">
+      <h4>Across →</h4>
+      <div class="crossword-clue">
+        <span class="clue-number">1.</span>
+        <span class="clue-text">Psychological treatment of people using dialogue</span>
+        <input class="clue-input" id="cw-1" type="text" placeholder="Type answer..." data-answer="PSYCHOTHERAPY">
+        <span class="clue-result" id="cw-r-1"></span>
+      </div>
+      <div class="crossword-clue">
+        <span class="clue-number">2.</span>
+        <span class="clue-text">Process of sorting patients</span>
+        <input class="clue-input" id="cw-2" type="text" placeholder="Type answer..." data-answer="TRIAGE">
+        <span class="clue-result" id="cw-r-2"></span>
+      </div>
+      <div class="crossword-clue">
+        <span class="clue-number">3.</span>
+        <span class="clue-text">To prepare and arrange (bring into effective action)</span>
+        <input class="clue-input" id="cw-3" type="text" placeholder="Type answer..." data-answer="DEPLOY">
+        <span class="clue-result" id="cw-r-3"></span>
+      </div>
+      <div class="crossword-clue">
+        <span class="clue-number">4.</span>
+        <span class="clue-text">Special department of a hospital for intensive care of patients</span>
+        <input class="clue-input" id="cw-4" type="text" placeholder="Type answer..." data-answer="ICU">
+        <span class="clue-result" id="cw-r-4"></span>
+      </div>
+    </div>
+
+    <div class="crossword-section">
+      <h4>Down ↓</h4>
+      <div class="crossword-clue">
+        <span class="clue-number">5.</span>
+        <span class="clue-text">To include as a part</span>
+        <input class="clue-input" id="cw-5" type="text" placeholder="Type answer..." data-answer="INCORPORATE">
+        <span class="clue-result" id="cw-r-5"></span>
+      </div>
+      <div class="crossword-clue">
+        <span class="clue-number">6.</span>
+        <span class="clue-text">Identification of nature and cause of a disease</span>
+        <input class="clue-input" id="cw-6" type="text" placeholder="Type answer..." data-answer="DIAGNOSIS">
+        <span class="clue-result" id="cw-r-6"></span>
+      </div>
+      <div class="crossword-clue">
+        <span class="clue-number">7.</span>
+        <span class="clue-text">Not having sufficient service</span>
+        <input class="clue-input" id="cw-7" type="text" placeholder="Type answer..." data-answer="UNDERSERVED">
+        <span class="clue-result" id="cw-r-7"></span>
+      </div>
+      <div class="crossword-clue">
+        <span class="clue-number">8.</span>
+        <span class="clue-text">Epidemic over a wide geographical area</span>
+        <input class="clue-input" id="cw-8" type="text" placeholder="Type answer..." data-answer="PANDEMIC">
+        <span class="clue-result" id="cw-r-8"></span>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="cw-check-btn" onclick="checkCrossword()">✅ Check All</button>
+      <button class="cw-show-btn" onclick="showCrosswordAnswers()">💡 Show Answers</button>
+      <button class="cw-reset-btn" onclick="resetCrossword()">🔄 Reset</button>
+    </div>
+    <div id="cwScore" class="match-status"></div>
+  </div>
+
+  <!-- EXERCISE B — INTERACTIVE TRUE / FALSE -->
+  <div class="section-card" id="exercise-b">
+    <div class="section-title"><span class="icon">✅</span> Exercise B — True or False (Interactive)</div>
+    <div class="crossword-instructions">
+      Read each statement and click <strong>True</strong> or <strong>False</strong>. Then click <strong>"Check Answers"</strong> to see your results. Reasons will appear automatically.
+    </div>
+
+    <div class="tf-interactive-item" id="tfb-1">
+      <span class="tf-num">a.</span>
+      <span class="tf-statement">Internet service is necessary to use telehealth services.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfb-1','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfb-1','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfb-1-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfb-1-reason">Correct! Telehealth relies on internet connectivity to connect patients and clinicians remotely through video chat and data transmission.</div>
+
+    <div class="tf-interactive-item" id="tfb-2">
+      <span class="tf-num">b.</span>
+      <span class="tf-statement">While providing telehealth services, health professionals are at high risk of being infected due to exposure to patients.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfb-2','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfb-2','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfb-2-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfb-2-reason">Correct — this is False. Telehealth reduces exposure and infection risk since care is given remotely, without physical contact between patients and healthcare providers.</div>
+
+    <div class="tf-interactive-item" id="tfb-3">
+      <span class="tf-num">c.</span>
+      <span class="tf-statement">Telehealth service can be the best alternative to a face-to-face service.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfb-3','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfb-3','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfb-3-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfb-3-reason">Correct — this is False. Chang explicitly says telehealth will not replace face-to-face care, only be incorporated alongside it as part of healthcare infrastructure.</div>
+
+    <div class="tf-interactive-item" id="tfb-4">
+      <span class="tf-num">d.</span>
+      <span class="tf-statement">The problem with the lack of medical staff will be solved to a great extent with telehealth technology.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfb-4','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfb-4','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfb-4-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfb-4-reason">Correct! Telehealth is one of the promising ways to tackle doctor shortages and expand specialists' reach to patients, especially in underserved rural areas.</div>
+
+    <div class="tf-interactive-item" id="tfb-5">
+      <span class="tf-num">e.</span>
+      <span class="tf-statement">The success of telehealth programmes depends on the infrastructure and the best use of IT tools.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfb-5','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfb-5','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfb-5-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfb-5-reason">Correct! Chang emphasizes that having the right technology, tools, infrastructure, and connectivity is crucial to successful telehealth programs.</div>
+
+    <div class="btn-row">
+      <button class="tf-interactive-check" onclick="checkTFB()">✅ Check Answers</button>
+      <button class="cw-reset-btn" onclick="resetTFB()">🔄 Reset</button>
+    </div>
+    <div id="tfbScore" class="tf-score"></div>
+  </div>
+
+  <!-- EXERCISE C — ANSWER THE QUESTIONS -->
+  <div class="section-card" id="exercise-c">
+    <div class="section-title"><span class="icon">✏️</span> Exercise C — Answer the Following Questions (Solved)</div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">a. What is telehealth service? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Telehealth is a method of providing medical care remotely, usually through video chat, connecting patients and clinicians from any location with internet access. It provides access to a wide range of care, including primary care consultations, psychotherapy, physical therapy, and even emergency services. By leveraging digital communication technology, telehealth eliminates geographical barriers and allows specialists to extend their reach to patients regardless of where they are located, making healthcare more accessible and convenient for everyone involved.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">b. What are the advantages of using telehealth programmes? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Telehealth services are faster, safer, more effective, and less expensive in the long run compared to traditional in-person care. They protect patients and hospital staff from infection exposure, especially during pandemics like COVID-19, by enabling remote consultations. Telehealth also allows patients in rural and underserved areas to access medical specialists without traveling long distances. Furthermore, it enables continuous monitoring of patients through wearable devices, supports clinician-to-clinician collaboration across locations, and can reduce hospital readmissions and patient complications through better follow-up care and early screening.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">c. Why, according to Dr. Chang, is the telehealth service growing rapidly? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> According to Chang, telehealth is growing rapidly due to two major drivers. The first is the global COVID-19 pandemic, which required strong social distancing and minimal physical contact precautions, pushing the shift to remote consultations for infection protection. Hospital bed shortages also forced medical facilities to incorporate more telehealth technologies. The second driver is the shortage of medical professionals at a time when demand is increasing every year due to an aging population and rising cases of chronic and non-communicable diseases. People in rural areas are particularly underserved, and telehealth offers a promising way to tackle the challenge of doctor shortages and expand the reach of specialists.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">d. How is the telehealth programme important during a pandemic? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> During a pandemic, telehealth allows patients to access medical care without visiting hospitals, thereby protecting both patients and hospital staff from being exposed to infection. Strong social distancing and minimal physical contact precautions make in-person visits risky, so telehealth and remote consultations become essential for maintaining care continuity. Telehealth also helps hospitals manage patient overload and bed shortages by enabling remote consultations, monitoring, and triage, ensuring that only those who truly need in-person care arrive at the hospital while others receive safe, effective treatment from their homes.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">e. Why are the patients in remote areas not getting adequate health services? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Patients in remote and rural areas are underserved due to two primary reasons. First, there are insufficient medical resources and facilities in these areas, meaning fewer doctors, specialists, and healthcare infrastructure are available locally. Second, the long distances required to travel into cities for medical care create significant barriers, especially for elderly patients or those with chronic conditions who may find travel difficult or expensive. These factors combine to leave rural populations without adequate access to timely and quality healthcare, which is exactly the gap that telehealth aims to bridge.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">f. Mention the top three challenges of telehealth services. <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> The top three challenges of telehealth services are: (1) <strong>Lack of proper infrastructure</strong> — many hospitals lack sufficient hardware, the right technology for each specialty, and reliable networking infrastructures like broadband, 4G, or Wi-Fi, which limits connectivity especially in rural areas and mobile clinics. (2) <strong>Connectivity limitations</strong> — unreliable internet connections restrict the ability to provide remote care to rural areas, where telehealth could be most beneficial, creating a paradoxical situation where those who need telehealth most have the least access to it. (3) <strong>Learning curve and adoption barriers</strong> — users face obstacles in learning to use different tools, adapting to online scheduling for virtual visits, understanding triage procedures, and navigating billing policies, which can discourage both healthcare providers and patients from embracing telehealth.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE D — OPEN-ENDED DISCUSSION -->
+  <div class="section-card" id="exercise-d">
+    <div class="section-title"><span class="icon">💬</span> Exercise D — Discussion Task</div>
+    <div class="open-ended-box">
+      <p><strong>How might rural communities feel about telehealth services? How could this be improved?</strong></p>
+      <p style="margin-top:8px; font-style:italic; color:var(--text-light); font-size:0.88rem;">This is an open-ended discussion task — students should discuss in pairs or groups.</p>
+      <div class="sample-label">Sample Ideas for Discussion:</div>
+      <div class="sample-answer">Rural communities may feel <strong>relieved and hopeful</strong> that telehealth can connect them to doctors and specialists without the burden of traveling long distances to cities, which is especially difficult for elderly or chronically ill patients. They may appreciate the convenience, cost savings, and speed of remote consultations. However, they may also feel <strong>frustrated and disappointed</strong> if their internet connectivity is poor or unreliable, making video calls difficult or impossible. The lack of digital literacy and unfamiliarity with technology could also create anxiety or reluctance. <strong>Improvements could include:</strong> government investment in rural broadband infrastructure; community training programs to build digital literacy; simplified telehealth interfaces designed for non-technical users; mobile telehealth clinics equipped with satellite internet; and subsidized data plans for healthcare-related video calls.</div>
+    </div>
+  </div>
+
+  <!-- EXTRA A — SHORT ANSWER QUESTIONS -->
+  <div class="section-card" id="extra-a">
+    <div class="section-title"><span class="icon">🎯</span> Extra Practice — A. Short Answer Questions</div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">1. What is remote patient monitoring? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Remote patient monitoring involves continuously collecting a patient's health data, such as vital signs and blood sugar levels, through wearable devices. This data is then transmitted in real-time to medical providers who can monitor and review it. By providing a continuous stream of health information rather than just snapshot readings during occasional visits, remote patient monitoring allows medical providers to acquire a comprehensive picture of a patient's health condition and give a more precise diagnosis, enabling earlier interventions and better health outcomes.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">2. How has telehealth changed the way clinicians work with each other? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> Telehealth allows clinician-to-clinician collaboration virtually, enabling specialists in different locations to jointly assess and treat patients. This includes remote surgical mentoring, where experienced surgeons guide on-site doctors through complex procedures from a distance, as well as Tele-ICU and Tele-ER services where on-site staff work together with a remote physician or specialist team to assess patient conditions in real-time. These collaborative telehealth solutions relieve the pressure of staffing gaps in critical departments such as emergency rooms and ICUs, ensuring patients receive expert care even when specialists cannot be physically present.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">3. What are the two major drivers of telehealth's growth, according to Chang? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> The two major drivers are: (1) The COVID-19 pandemic, which required strong social distancing and minimal physical contact precautions, pushing the shift to telehealth and remote consultations for infection protection, and (2) The shortage of medical professionals compared to increasing patient demand, driven by an aging population and rising cases of chronic and non-communicable diseases. These two factors together have created a powerful momentum for telehealth adoption, as both the need for remote care during pandemics and the ongoing gap in medical staffing make virtual healthcare an essential rather than optional service.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">4. What steps can be taken to overcome the challenges of telehealth? <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> To overcome telehealth challenges, Chang suggests that telehealth should be encouraged as a regular service and included in health insurance coverage. This would create stronger financial incentives for healthcare providers to invest in the necessary infrastructure and information system integration. Additionally, investing in reliable broadband and networking infrastructure, providing training programs to help users adapt to new tools and workflows, and developing standardized online scheduling, triage procedures, and billing policies would all help ease the transition from traditional healthcare operations to telehealth-enabled systems.</div>
+      </div>
+    </div>
+
+    <div class="exercise-item">
+      <button class="exercise-toggle" onclick="toggleExercise(this)">5. Will telehealth completely replace face-to-face medical care? Explain. <span class="arrow">▼</span></button>
+      <div class="exercise-content">
+        <div class="answer-text"><strong>Answer:</strong> No, according to Chang, telehealth will not replace face-to-face care but will be incorporated into healthcare facilities' infrastructure alongside it. Patients will select providers based on their accessibility to telehealth services, and the convenience of remote access will encourage more use of preventative and follow-up care. However, many medical procedures, physical examinations, and emergency interventions still require in-person presence. The future of healthcare lies in a hybrid model where telehealth complements traditional care, offering remote options where appropriate while maintaining face-to-face services for situations that demand physical presence.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXTRA B — INTERACTIVE T/F -->
+  <div class="section-card" id="extra-b">
+    <div class="section-title"><span class="icon">🎯</span> Extra Practice — B. True or False (Interactive)</div>
+    <div class="crossword-instructions">
+      Click <strong>True</strong> or <strong>False</strong> for each statement, then check your answers.
+    </div>
+
+    <div class="tf-interactive-item" id="tfe-1">
+      <span class="tf-num">1.</span>
+      <span class="tf-statement">Telehealth only provides psychotherapy services.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfe-1','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfe-1','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfe-1-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfe-1-reason">This is False. Telehealth provides a wide range of care including primary care consultations, psychotherapy, physical therapy, and even emergency services — not just psychotherapy.</div>
+
+    <div class="tf-interactive-item" id="tfe-2">
+      <span class="tf-num">2.</span>
+      <span class="tf-statement">Rural areas often lack sufficient medical resources, making telehealth valuable there.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfe-2','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfe-2','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfe-2-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfe-2-reason">This is True. People in rural areas are underserved due to insufficient resources and long distances to cities, making telehealth particularly valuable for bridging this healthcare gap.</div>
+
+    <div class="tf-interactive-item" id="tfe-3">
+      <span class="tf-num">3.</span>
+      <span class="tf-statement">Remote patient monitoring uses wearable devices to collect health data.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfe-3','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfe-3','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfe-3-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfe-3-reason">This is True. Remote patient monitoring involves continuously collecting patient health data through wearable devices, such as vital signs and blood sugar levels, which are transmitted in real-time to medical providers.</div>
+
+    <div class="tf-interactive-item" id="tfe-4">
+      <span class="tf-num">4.</span>
+      <span class="tf-statement">Telehealth requires no internet connection at all.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfe-4','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfe-4','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfe-4-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfe-4-reason">This is False. Telehealth relies on internet connectivity to connect patients and clinicians remotely. In fact, unreliable broadband and connectivity are among the biggest challenges to telehealth adoption, especially in rural areas.</div>
+
+    <div class="tf-interactive-item" id="tfe-5">
+      <span class="tf-num">5.</span>
+      <span class="tf-statement">Poor infrastructure and connectivity are challenges to telehealth adoption.</span>
+      <div class="tf-buttons">
+        <button class="tf-btn" onclick="selectTF('tfe-5','true',this)">True</button>
+        <button class="tf-btn" onclick="selectTF('tfe-5','false',this)">False</button>
+      </div>
+      <span class="tf-result-icon" id="tfe-5-icon"></span>
+    </div>
+    <div class="tf-reason" id="tfe-5-reason">This is True. Chang explicitly mentions that lack of infrastructure, insufficient hardware, unreliable networking (broadband, 4G, Wi-Fi), and connectivity limitations are major challenges to successful telehealth programs.</div>
+
+    <div class="btn-row">
+      <button class="tf-interactive-check" onclick="checkTFExtra()">✅ Check Answers</button>
+      <button class="cw-reset-btn" onclick="resetTFExtra()">🔄 Reset</button>
+    </div>
+    <div id="tfeScore" class="tf-score"></div>
+  </div>
+
+  <!-- EXTRA C — INTERACTIVE FILL IN THE BLANKS -->
+  <div class="section-card" id="extra-c">
+    <div class="section-title"><span class="icon">🎯</span> Extra Practice — C. Fill in the Blanks (Interactive)</div>
+
+    <div class="word-bank">
+      <div class="word-bank-label">Word Bank</div>
+      <div class="word-bank-words">
+        <span class="wb-word">remotely</span>
+        <span class="wb-word">pandemic</span>
+        <span class="wb-word">underserved</span>
+        <span class="wb-word">triage</span>
+        <span class="wb-word">infrastructure</span>
+      </div>
+    </div>
+
+    <div class="fill-interactive-item">
+      <span class="fill-num">1.</span>
+      <span class="fill-text">Doctors used video calls to provide medical care ________ to patients at home.</span>
+      <input class="fill-input" id="fill-1" type="text" placeholder="Type word..." data-answer="remotely">
+      <span class="fill-result" id="fill-r-1"></span>
+    </div>
+
+    <div class="fill-interactive-item">
+      <span class="fill-num">2.</span>
+      <span class="fill-text">During the COVID-19 ________, hospitals had to adapt quickly to new technologies.</span>
+      <input class="fill-input" id="fill-2" type="text" placeholder="Type word..." data-answer="pandemic">
+      <span class="fill-result" id="fill-r-2"></span>
+    </div>
+
+    <div class="fill-interactive-item">
+      <span class="fill-num">3.</span>
+      <span class="fill-text">Rural patients are often ________ due to a lack of nearby medical facilities.</span>
+      <input class="fill-input" id="fill-3" type="text" placeholder="Type word..." data-answer="underserved">
+      <span class="fill-result" id="fill-r-3"></span>
+    </div>
+
+    <div class="fill-interactive-item">
+      <span class="fill-num">4.</span>
+      <span class="fill-text">The nurse used the ________ system to sort patients based on the urgency of their conditions.</span>
+      <input class="fill-input" id="fill-4" type="text" placeholder="Type word..." data-answer="triage">
+      <span class="fill-result" id="fill-r-4"></span>
+    </div>
+
+    <div class="fill-interactive-item">
+      <span class="fill-num">5.</span>
+      <span class="fill-text">Doctors need a proper ________ of hardware and internet connectivity to run telehealth services successfully.</span>
+      <input class="fill-input" id="fill-5" type="text" placeholder="Type word..." data-answer="infrastructure">
+      <span class="fill-result" id="fill-r-5"></span>
+    </div>
+
+    <div class="btn-row">
+      <button class="fill-check-btn" onclick="checkFills()">✅ Check All</button>
+      <button class="cw-show-btn" onclick="showFillAnswers()">💡 Show Answers</button>
+      <button class="cw-reset-btn" onclick="resetFills()">🔄 Reset</button>
+    </div>
+    <div id="fillScore" class="match-status"></div>
+  </div>
+
+</div><!-- /main-wrap -->
+
+<!-- MEANING POPUP -->
+<div class="meaning-popup" id="meaningPopup">
+  <button class="popup-close" onclick="closePopup()">&times;</button>
+  <div class="popup-word" id="popupWord"></div>
+  <div class="popup-en" id="popupEn"></div>
+  <div class="popup-ne" id="popupNe"></div>
+</div>
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top" id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  Prepared by: <strong>Narayan Prasad Regmi</strong> &nbsp;|&nbsp; Email: <a href="mailto:nregmi511@gmail.com">nregmi511@gmail.com</a> &nbsp;|&nbsp; 📞 9848144604
+</footer>
+
+<script>
+/* ===== FONT SIZE CONTROL (FIXED 13-26px via CSS variable) ===== */
+function changeFontSize(d) {
+  var root = document.documentElement;
+  var current = parseFloat(getComputedStyle(root).getPropertyValue('--font-size-base'));
+  var next = current + d;
+  if (next < 13) next = 13;
+  if (next > 26) next = 26;
+  root.style.setProperty('--font-size-base', next + 'px');
+}
+
+/* ===== MEANING POPUP ===== */
+function showMeaning(word, en, ne) {
+  var popup = document.getElementById('meaningPopup');
+  document.getElementById('popupWord').textContent = word;
+  document.getElementById('popupEn').textContent = en;
+  document.getElementById('popupNe').textContent = ne;
+  popup.classList.add('show');
+}
+function closePopup() {
+  document.getElementById('meaningPopup').classList.remove('show');
+}
+document.addEventListener('click', function(e) {
+  var popup = document.getElementById('meaningPopup');
+  if (popup.classList.contains('show') && !popup.contains(e.target) && !e.target.classList.contains('vocab-word')) {
+    closePopup();
+  }
+});
+
+/* ===== ACCORDION TOGGLES ===== */
+function toggleExercise(btn) {
+  var content = btn.nextElementSibling;
+  var wasOpen = content.classList.contains('open');
+  var section = btn.closest('.exercise-section') || btn.closest('.section-card');
+  if (section) {
+    section.querySelectorAll('.exercise-content.open').forEach(function(c) { c.classList.remove('open'); });
+    section.querySelectorAll('.exercise-toggle.active').forEach(function(b) { b.classList.remove('active'); });
+  }
+  if (!wasOpen) {
+    content.classList.add('open');
+    btn.classList.add('active');
+  }
+}
+function toggleTF(btn) {
+  var content = btn.nextElementSibling;
+  var wasOpen = content.classList.contains('open');
+  var section = btn.closest('.section-card');
+  if (section) {
+    section.querySelectorAll('.tf-content.open').forEach(function(c) { c.classList.remove('open'); });
+    section.querySelectorAll('.tf-toggle.active').forEach(function(b) { b.classList.remove('active'); });
+  }
+  if (!wasOpen) {
+    content.classList.add('open');
+    btn.classList.add('active');
+  }
+}
+function toggleFill(btn) {
+  var content = btn.nextElementSibling;
+  var wasOpen = content.classList.contains('open');
+  var section = btn.closest('.section-card');
+  if (section) {
+    section.querySelectorAll('.fill-content.open').forEach(function(c) { c.classList.remove('open'); });
+    section.querySelectorAll('.fill-toggle.active').forEach(function(b) { b.classList.remove('active'); });
+  }
+  if (!wasOpen) {
+    content.classList.add('open');
+    btn.classList.add('active');
+  }
+}
+
+/* ===== CROSSWORD INTERACTIVE ===== */
+function checkCrossword() {
+  var correct = 0;
+  var total = 8;
+  for (var i = 1; i <= total; i++) {
+    var input = document.getElementById('cw-' + i);
+    var resultSpan = document.getElementById('cw-r-' + i);
+    var answer = input.getAttribute('data-answer');
+    var userVal = input.value.trim().toUpperCase();
+    input.classList.remove('correct', 'wrong');
+    resultSpan.className = 'clue-result';
+    if (userVal === answer) {
+      input.classList.add('correct');
+      resultSpan.textContent = '✓';
+      resultSpan.classList.add('correct-icon');
+      correct++;
+    } else if (userVal.length > 0) {
+      input.classList.add('wrong');
+      resultSpan.textContent = '✗';
+      resultSpan.classList.add('wrong-icon');
+    } else {
+      resultSpan.textContent = '';
+    }
+  }
+  var scoreEl = document.getElementById('cwScore');
+  if (correct === total) {
+    scoreEl.textContent = '🎉 All 8 answers correct! Excellent!';
+    scoreEl.className = 'match-status correct';
+  } else {
+    scoreEl.textContent = '✅ ' + correct + ' of ' + total + ' correct. Try the rest!';
+    scoreEl.className = 'match-status correct';
+  }
+}
+
+function showCrosswordAnswers() {
+  var total = 8;
+  for (var i = 1; i <= total; i++) {
+    var input = document.getElementById('cw-' + i);
+    var resultSpan = document.getElementById('cw-r-' + i);
+    input.value = input.getAttribute('data-answer');
+    input.classList.remove('wrong');
+    input.classList.add('correct');
+    resultSpan.textContent = '✓';
+    resultSpan.className = 'clue-result correct-icon';
+  }
+  document.getElementById('cwScore').textContent = '💡 Answers revealed — study them carefully!';
+  document.getElementById('cwScore').className = 'match-status';
+}
+
+function resetCrossword() {
+  var total = 8;
+  for (var i = 1; i <= total; i++) {
+    var input = document.getElementById('cw-' + i);
+    var resultSpan = document.getElementById('cw-r-' + i);
+    input.value = '';
+    input.classList.remove('correct', 'wrong');
+    resultSpan.textContent = '';
+    resultSpan.className = 'clue-result';
+  }
+  document.getElementById('cwScore').textContent = '';
+  document.getElementById('cwScore').className = 'match-status';
+}
+
+/* ===== INTERACTIVE T/F — EXERCISE B ===== */
+var tfbAnswers = {
+  'tfb-1': 'true',
+  'tfb-2': 'false',
+  'tfb-3': 'false',
+  'tfb-4': 'true',
+  'tfb-5': 'true'
+};
+var tfbSelections = {};
+
+function selectTF(itemId, value, btnEl) {
+  var item = document.getElementById(itemId);
+  var buttons = item.querySelectorAll('.tf-btn');
+  buttons.forEach(function(b) {
+    b.classList.remove('selected-true', 'selected-false');
+  });
+  if (value === 'true') {
+    btnEl.classList.add('selected-true');
+  } else {
+    btnEl.classList.add('selected-false');
+  }
+  tfbSelections[itemId] = value;
+}
+
+function checkTFB() {
+  var correct = 0;
+  var total = Object.keys(tfbAnswers).length;
+  Object.keys(tfbAnswers).forEach(function(itemId) {
+    var iconSpan = document.getElementById(itemId + '-icon');
+    var reasonDiv = document.getElementById(itemId + '-reason');
+    var userAnswer = tfbSelections[itemId];
+    var correctAnswer = tfbAnswers[itemId];
+    iconSpan.className = 'tf-result-icon';
+    if (userAnswer === correctAnswer) {
+      iconSpan.textContent = '✓';
+      iconSpan.classList.add('correct');
+      correct++;
+    } else if (userAnswer) {
+      iconSpan.textContent = '✗';
+      iconSpan.classList.add('wrong');
+    } else {
+      iconSpan.textContent = '?';
+      iconSpan.classList.add('wrong');
+    }
+    reasonDiv.classList.add('show');
+  });
+  document.getElementById('tfbScore').textContent = 'Score: ' + correct + ' / ' + total + ' correct';
+  document.getElementById('tfbScore').style.color = correct === total ? 'var(--match-correct)' : 'var(--accent)';
+}
+
+function resetTFB() {
+  tfbSelections = {};
+  Object.keys(tfbAnswers).forEach(function(itemId) {
+    var item = document.getElementById(itemId);
+    var buttons = item.querySelectorAll('.tf-btn');
+    buttons.forEach(function(b) { b.classList.remove('selected-true', 'selected-false'); });
+    document.getElementById(itemId + '-icon').textContent = '';
+    document.getElementById(itemId + '-icon').className = 'tf-result-icon';
+    document.getElementById(itemId + '-reason').classList.remove('show');
+  });
+  document.getElementById('tfbScore').textContent = '';
+}
+
+/* ===== INTERACTIVE T/F — EXTRA ===== */
+var tfeAnswers = {
+  'tfe-1': 'false',
+  'tfe-2': 'true',
+  'tfe-3': 'true',
+  'tfe-4': 'false',
+  'tfe-5': 'true'
+};
+var tfeSelections = {};
+
+function selectTFExtra(itemId, value, btnEl) {
+  /* Reuse the same selectTF function for both sections */
+  var item = document.getElementById(itemId);
+  var buttons = item.querySelectorAll('.tf-btn');
+  buttons.forEach(function(b) {
+    b.classList.remove('selected-true', 'selected-false');
+  });
+  if (value === 'true') {
+    btnEl.classList.add('selected-true');
+  } else {
+    btnEl.classList.add('selected-false');
+  }
+  tfeSelections[itemId] = value;
+}
+
+/* Override selectTF to route to correct storage */
+(function() {
+  var originalSelectTF = selectTF;
+  selectTF = function(itemId, value, btnEl) {
+    if (itemId.startsWith('tfe-')) {
+      selectTFExtra(itemId, value, btnEl);
+    } else {
+      /* tfb items */
+      var item = document.getElementById(itemId);
+      var buttons = item.querySelectorAll('.tf-btn');
+      buttons.forEach(function(b) { b.classList.remove('selected-true', 'selected-false'); });
+      if (value === 'true') { btnEl.classList.add('selected-true'); } else { btnEl.classList.add('selected-false'); }
+      tfbSelections[itemId] = value;
+    }
+  };
+})();
+
+function checkTFExtra() {
+  var correct = 0;
+  var total = Object.keys(tfeAnswers).length;
+  Object.keys(tfeAnswers).forEach(function(itemId) {
+    var iconSpan = document.getElementById(itemId + '-icon');
+    var reasonDiv = document.getElementById(itemId + '-reason');
+    var userAnswer = tfeSelections[itemId];
+    var correctAnswer = tfeAnswers[itemId];
+    iconSpan.className = 'tf-result-icon';
+    if (userAnswer === correctAnswer) {
+      iconSpan.textContent = '✓';
+      iconSpan.classList.add('correct');
+      correct++;
+    } else if (userAnswer) {
+      iconSpan.textContent = '✗';
+      iconSpan.classList.add('wrong');
+    } else {
+      iconSpan.textContent = '?';
+      iconSpan.classList.add('wrong');
+    }
+    reasonDiv.classList.add('show');
+  });
+  document.getElementById('tfeScore').textContent = 'Score: ' + correct + ' / ' + total + ' correct';
+  document.getElementById('tfeScore').style.color = correct === total ? 'var(--match-correct)' : 'var(--accent)';
+}
+
+function resetTFExtra() {
+  tfeSelections = {};
+  Object.keys(tfeAnswers).forEach(function(itemId) {
+    var item = document.getElementById(itemId);
+    var buttons = item.querySelectorAll('.tf-btn');
+    buttons.forEach(function(b) { b.classList.remove('selected-true', 'selected-false'); });
+    document.getElementById(itemId + '-icon').textContent = '';
+    document.getElementById(itemId + '-icon').className = 'tf-result-icon';
+    document.getElementById(itemId + '-reason').classList.remove('show');
+  });
+  document.getElementById('tfeScore').textContent = '';
+}
+
+/* ===== INTERACTIVE FILL-IN-BLANKS ===== */
+function checkFills() {
+  var correct = 0;
+  var total = 5;
+  for (var i = 1; i <= total; i++) {
+    var input = document.getElementById('fill-' + i);
+    var resultSpan = document.getElementById('fill-r-' + i);
+    var answer = input.getAttribute('data-answer').toLowerCase();
+    var userVal = input.value.trim().toLowerCase();
+    input.classList.remove('correct', 'wrong');
+    resultSpan.className = 'fill-result';
+    if (userVal === answer) {
+      input.classList.add('correct');
+      resultSpan.textContent = '✓';
+      resultSpan.classList.add('correct-icon');
+      correct++;
+    } else if (userVal.length > 0) {
+      input.classList.add('wrong');
+      resultSpan.textContent = '✗';
+      resultSpan.classList.add('wrong-icon');
+    } else {
+      resultSpan.textContent = '';
+    }
+  }
+  var scoreEl = document.getElementById('fillScore');
+  if (correct === total) {
+    scoreEl.textContent = '🎉 All 5 blanks correct! Well done!';
+    scoreEl.className = 'match-status correct';
+  } else {
+    scoreEl.textContent = '✅ ' + correct + ' of ' + total + ' correct. Try the rest!';
+    scoreEl.className = 'match-status correct';
+  }
+}
+
+function showFillAnswers() {
+  var total = 5;
+  for (var i = 1; i <= total; i++) {
+    var input = document.getElementById('fill-' + i);
+    var resultSpan = document.getElementById('fill-r-' + i);
+    input.value = input.getAttribute('data-answer');
+    input.classList.remove('wrong');
+    input.classList.add('correct');
+    resultSpan.textContent = '✓';
+    resultSpan.className = 'fill-result correct-icon';
+  }
+  document.getElementById('fillScore').textContent = '💡 Answers revealed — study them carefully!';
+  document.getElementById('fillScore').className = 'match-status';
+}
+
+function resetFills() {
+  var total = 5;
+  for (var i = 1; i <= total; i++) {
+    var input = document.getElementById('fill-' + i);
+    var resultSpan = document.getElementById('fill-r-' + i);
+    input.value = '';
+    input.classList.remove('correct', 'wrong');
+    resultSpan.textContent = '';
+    resultSpan.className = 'fill-result';
+  }
+  document.getElementById('fillScore').textContent = '';
+  document.getElementById('fillScore').className = 'match-status';
+}
+
+/* ===== SCROLL TO TOP ===== */
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+window.addEventListener('scroll', function() {
+  var btn = document.getElementById('scrollTopBtn');
+  if (window.scrollY > 400) {
+    btn.classList.add('visible');
+  } else {
+    btn.classList.remove('visible');
+  }
+});
+
+/* ===== DOWNLOAD ===== */
+function downloadHTML() {
+  var html = document.documentElement.outerHTML;
+  var blob = new Blob([html], { type: 'text/html' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = 'Telehealth_Services_Interactive.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+
+</body>
+</html>

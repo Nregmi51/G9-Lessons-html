@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dance – Grade 9 English Unit 3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── design system ── */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #C0392B;
+      --primary-light: #E74C3C;
+      --primary-dark: #922B21;
+      --accent: #F39C12;
+      --accent-light: #F1C40F;
+      --correct: #27AE60;
+      --incorrect: #E74C3C;
+      --bg: #FDF2F2;
+      --card-bg: #FFFFFF;
+      --text-dark: #1C1C1C;
+      --text-body: #2C3E50;
+      --text-muted: #5D6D7E;
+      --border: #F5C8C0;
+      --highlight-bg: #FEF9E7;
+      --highlight-border: #F39C12;
+      --nepali-accent: #8E44AD;
+      --font-size-base: 19px;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(192,57,43,0.08);
+      --shadow-lg: 0 12px 40px rgba(192,57,43,0.14);
+    }
+
+    body {
+      font-family: 'Poppins', 'Noto Sans SC', sans-serif;
+      background: var(--bg);
+      color: var(--text-body);
+      font-size: var(--font-size-base);
+      line-height: 1.8;
+      min-height: 100vh;
+      font-weight: 500;
+    }
+
+    /* ── TOOLBAR ── */
+    .toolbar {
+      position: fixed;
+      top: 0; left: 0; width: 100%; z-index: 1000;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+      box-shadow: 0 4px 20px rgba(192,57,43,0.3);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .toolbar-left { display: flex; align-items: center; gap: 16px; }
+    .toolbar-title { font-size: 16px; font-weight: 700; letter-spacing: 0.3px; }
+    .toolbar-title span { opacity: 0.7; font-weight: 400; }
+    .toolbar-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+    .font-btn {
+      width: 42px; height: 42px; border-radius: 10px;
+      border: 2px solid rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.1);
+      color: white;
+      font-size: 20px; font-weight: 800;
+      cursor: pointer; transition: 0.2s;
+      font-family: 'Poppins', sans-serif;
+    }
+    .font-btn:hover { background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.5); transform: scale(1.08); }
+    .font-size-display { font-size: 14px; font-weight: 700; min-width: 42px; text-align: center; background: rgba(255,255,255,0.15); padding: 6px 12px; border-radius: 8px; }
+    .download-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 10px 20px; border-radius: 10px; border: none;
+      background: rgba(255,255,255,0.2); color: white;
+      font-size: 14px; font-weight: 700; cursor: pointer; transition: 0.2s;
+      font-family: 'Poppins', sans-serif;
+    }
+    .download-btn:hover { background: rgba(255,255,255,0.35); transform: translateY(-1px); }
+
+    /* ── SCROLL TO TOP ── */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 9999;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: 2px solid rgba(255,255,255,0.3);
+      font-size: 28px;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(192,57,43,0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+    #scrollTopBtn.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #scrollTopBtn:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 8px 30px rgba(192,57,43,0.55);
+      background: linear-gradient(135deg, var(--accent), #D4AC0D);
+    }
+    #scrollTopBtn:active { transform: scale(0.92); }
+
+    /* ── MAIN ── */
+    .main-content { max-width: 860px; margin: 0 auto; padding: 80px 24px 60px; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #7B241C, #C0392B, #E74C3C);
+      border-radius: 20px; padding: 48px 40px; color: white; margin-bottom: 36px;
+      position: relative; overflow: hidden; box-shadow: 0 12px 40px rgba(192,57,43,0.25);
+    }
+    .hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: rgba(255,255,255,0.06); border-radius: 50%; }
+    .hero::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 150px; height: 150px; background: rgba(255,255,255,0.04); border-radius: 50%; }
+    .hero-grade { display: inline-block; padding: 5px 16px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 30px; font-size: 13px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 16px; }
+    .hero h1 { font-size: 36px; font-weight: 900; margin-bottom: 8px; position: relative; z-index: 1; }
+    .hero-sub { font-size: 17px; opacity: 0.9; font-weight: 500; position: relative; z-index: 1; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 20px; position: relative; z-index: 1; }
+    .hero-meta-item { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; opacity: 0.9; background: rgba(255,255,255,0.1); padding: 5px 14px; border-radius: 20px; }
+
+    /* ── NAV PILLS ── */
+    .nav-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .nav-pill {
+      padding: 10px 20px; border-radius: 30px; background: white; border: 2px solid var(--border);
+      font-size: 14px; font-weight: 700; color: var(--text-muted); cursor: pointer; transition: 0.2s;
+      font-family: 'Poppins', sans-serif; text-decoration: none;
+    }
+    .nav-pill:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+    /* ── SECTION CARDS ── */
+    .section-card {
+      background: var(--card-bg); border-radius: var(--radius); border: 2px solid var(--border);
+      padding: 36px 32px; margin-bottom: 28px; box-shadow: var(--shadow);
+      transition: box-shadow 0.3s;
+    }
+    .section-card:hover { box-shadow: var(--shadow-lg); }
+
+    .section-heading {
+      font-size: 26px; font-weight: 800; color: var(--text-dark); margin-bottom: 6px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-heading .icon {
+      width: 46px; height: 46px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0;
+    }
+    .icon-reading { background: #FADBD8; color: #C0392B; }
+    .icon-words { background: #FEF9E7; color: #F39C12; }
+    .icon-exercise { background: #D5F5E3; color: #27AE60; }
+    .icon-fill { background: #EBDEF0; color: #8E44AD; }
+    .icon-tf { background: #FDEBD0; color: #E67E22; }
+    .icon-short { background: #D6EAF8; color: #2980B9; }
+    .icon-extra { background: #F5EEF8; color: #8E44AD; }
+
+    .section-subtitle { font-size: 15px; color: var(--text-muted); margin-bottom: 24px; font-weight: 500; }
+
+    /* ── READING PASSAGE ── */
+    .passage { font-size: inherit; line-height: 2.1; color: var(--text-body); font-weight: 500; }
+    .passage p { margin-bottom: 20px; text-align: justify; }
+    .passage p:last-child { margin-bottom: 0; }
+
+    .hw {
+      background: var(--highlight-bg); border-bottom: 3px solid var(--highlight-border);
+      padding: 2px 8px; border-radius: 4px; cursor: pointer; font-weight: 700;
+      color: #7A5D00; transition: all 0.2s; display: inline;
+      font-size: 1.05em;
+    }
+    .hw:hover { background: #FDE68A; transform: scale(1.02); }
+    .hw::after { content: '📖'; font-size: 13px; position: relative; top: -4px; margin-left: 3px; }
+
+    /* ── POPUP ── */
+    .meaning-popup {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(120%);
+      width: 94%; max-width: 540px; background: white; border-radius: 18px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.05);
+      z-index: 2000; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s;
+      opacity: 0; overflow: hidden;
+    }
+    .meaning-popup.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+    .popup-header { background: linear-gradient(135deg, #C0392B, #E74C3C); color: white; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .popup-word { font-size: 22px; font-weight: 800; }
+    .popup-close { width: 34px; height: 34px; border-radius: 50%; border: none; background: rgba(255,255,255,0.25); color: white; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s; font-family: 'Poppins', sans-serif; font-weight: 700; }
+    .popup-close:hover { background: rgba(255,255,255,0.4); }
+    .popup-body { padding: 20px 24px; display: flex; flex-direction: column; gap: 14px; }
+    .popup-meaning-row { display: flex; align-items: flex-start; gap: 14px; }
+    .popup-label { flex-shrink: 0; padding: 4px 14px; border-radius: 8px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; }
+    .popup-label.en { background: #DBEAFE; color: #1D4ED8; }
+    .popup-label.ne { background: #EDE9FE; color: #6D28D9; }
+    .popup-meaning-text { font-size: 17px; line-height: 1.6; padding-top: 2px; font-weight: 500; }
+    .popup-nepali { font-size: 18px; color: var(--nepali-accent); font-weight: 600; }
+
+    /* ── WORD TABLE ── */
+    .word-table-wrapper { overflow-x: auto; border-radius: 12px; border: 2px solid var(--border); }
+    .word-table { width: 100%; border-collapse: collapse; font-size: 16px; }
+    .word-table thead { background: linear-gradient(135deg, #FADBD8, #F5C8C0); }
+    .word-table th { padding: 16px 18px; text-align: left; font-weight: 800; color: #7B241C; font-size: 14px; text-transform: uppercase; letter-spacing: 0.8px; border-bottom: 3px solid #C0392B; }
+    .word-table td { padding: 14px 18px; border-bottom: 2px solid var(--border); vertical-align: top; font-weight: 500; }
+    .word-table tr:last-child td { border-bottom: none; }
+    .word-table tr:hover td { background: #FDF2F2; }
+    .word-table .word-cell { font-weight: 800; color: var(--primary-dark); cursor: pointer; }
+    .word-table .word-cell:hover { text-decoration: underline; }
+    .word-table .nepali-cell { color: var(--nepali-accent); font-weight: 600; }
+
+    /* ── EXERCISE ITEMS ── */
+    .exercise-item {
+      background: #FDF2F2; border: 2px solid var(--border); border-radius: 12px;
+      margin-bottom: 16px; overflow: hidden; transition: all 0.2s;
+    }
+    .exercise-item:hover { border-color: #E6B0AA; }
+
+    .exercise-question {
+      padding: 18px 22px; cursor: pointer; display: flex; align-items: flex-start; gap: 14px;
+      transition: background 0.2s; user-select: none;
+    }
+    .exercise-question:hover { background: #FDEDEC; }
+
+    .exercise-q-number {
+      flex-shrink: 0; width: 34px; height: 34px; border-radius: 8px;
+      background: var(--primary); color: white; display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 800; margin-top: 1px;
+    }
+    .exercise-q-text { flex: 1; font-weight: 600; color: var(--text-dark); line-height: 1.6; font-size: 1.02em; }
+    .exercise-toggle {
+      flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%;
+      background: #E6B0AA; display: flex; align-items: center; justify-content: center;
+      font-size: 18px; color: var(--text-muted); transition: all 0.3s; margin-top: 1px;
+      font-weight: 700;
+    }
+    .exercise-item.open .exercise-toggle { background: var(--correct); color: white; transform: rotate(180deg); }
+
+    .exercise-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .exercise-item.open .exercise-answer { max-height: 600px; }
+
+    .exercise-answer-inner {
+      padding: 0 22px 20px; margin-left: 48px;
+      display: flex; align-items: flex-start; gap: 12px;
+    }
+    .answer-badge {
+      flex-shrink: 0; padding: 4px 14px; border-radius: 6px;
+      font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px;
+    }
+    .badge-answer { background: #D5F5E3; color: #1E8449; }
+    .badge-true { background: #D5F5E3; color: #1E8449; }
+    .badge-false { background: #FADBD8; color: #922B21; }
+    .answer-text { font-size: 16px; color: var(--text-body); line-height: 1.7; font-weight: 500; }
+
+    .box-words {
+      display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;
+      padding: 18px; background: #FDEDEC; border-radius: 12px; border: 2px dashed #E6B0AA;
+    }
+    .box-word { padding: 8px 18px; background: white; border: 2px solid #E6B0AA; border-radius: 8px; font-weight: 700; color: var(--primary); font-size: 15px; }
+
+    .blank-slot {
+      display: inline-block; min-width: 120px; border-bottom: 3px dashed var(--primary);
+      padding: 2px 6px; font-weight: 700; color: var(--primary); background: #FDEDEC; border-radius: 4px 4px 0 0;
+      font-size: 1.02em;
+    }
+
+    .click-hint {
+      display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px;
+      background: #FDEDEC; border: 2px solid #E6B0AA; border-radius: 10px;
+      font-size: 14px; color: var(--primary); font-weight: 600; margin-bottom: 20px;
+    }
+
+    .extra-section { border-left: 5px solid var(--primary); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .main-content { padding: 72px 14px 40px; }
+      .section-card { padding: 24px 18px; }
+      .hero { padding: 32px 22px; }
+      .hero h1 { font-size: 26px; }
+      .toolbar { padding: 8px 14px; }
+      .toolbar-title { font-size: 13px; }
+      .meaning-popup { width: 96%; bottom: 12px; }
+      #scrollTopBtn { width: 50px; height: 50px; font-size: 24px; bottom: 20px; right: 20px; }
+    }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body>
+
+<!-- ===== TOOLBAR ===== -->
+<div class="toolbar">
+  <div class="toolbar-left">
+    <div class="toolbar-title">Grade 9 · English <span>| Unit 3: Family, Market &amp; Public Places</span></div>
+  </div>
+  <div class="toolbar-right">
+    <button class="font-btn" onclick="changeFontSize(-1)" title="Decrease font size">A−</button>
+    <div class="font-size-display" id="fontDisplay">19px</div>
+    <button class="font-btn" onclick="changeFontSize(1)" title="Increase font size">A+</button>
+    <button class="download-btn" onclick="downloadHTML()" title="Download this page">⬇ Save</button>
+  </div>
+</div>
+
+<!-- ===== SCROLL TO TOP ===== -->
+<button id="scrollTopBtn" onclick="scrollToTop()" title="Go to top">⬆</button>
+
+<!-- ===== MEANING POPUP ===== -->
+<div class="meaning-popup" id="meaningPopup">
+  <div class="popup-header">
+    <span class="popup-word" id="popupWord">Word</span>
+    <button class="popup-close" onclick="closePopup()">✕</button>
+  </div>
+  <div class="popup-body">
+    <div class="popup-meaning-row">
+      <span class="popup-label en">English</span>
+      <span class="popup-meaning-text" id="popupEnglish">—</span>
+    </div>
+    <div class="popup-meaning-row">
+      <span class="popup-label ne">नेपाली</span>
+      <span class="popup-meaning-text popup-nepali" id="popupNepali">—</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN ===== -->
+<div class="main-content">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-grade">Grade 9 · Unit 3 · Story</div>
+    <h1>Dance</h1>
+    <div class="hero-sub">Pages 33–35 · A Humorous Love Story</div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">📖 Reading Passage</div>
+      <div class="hero-meta-item">📝 14 Vocabulary Words</div>
+      <div class="hero-meta-item">✅ Interactive Exercises</div>
+    </div>
+  </div>
+
+  <!-- NAV PILLS -->
+  <div class="nav-pills">
+    <a class="nav-pill" href="#reading">📖 Reading</a>
+    <a class="nav-pill" href="#wordlist">📝 Word List</a>
+    <a class="nav-pill" href="#exerciseA">✍ Exercise A</a>
+    <a class="nav-pill" href="#exerciseB">✓ Exercise B</a>
+    <a class="nav-pill" href="#exerciseC">✎ Exercise C</a>
+    <a class="nav-pill" href="#extraSA">💡 Extra SA</a>
+    <a class="nav-pill" href="#extraTF">🔍 Extra T/F</a>
+    <a class="nav-pill" href="#extraFill">🧩 Extra Fill</a>
+  </div>
+
+  <!-- ===== READING ===== -->
+  <div class="section-card" id="reading">
+    <div class="section-heading">
+      <div class="icon icon-reading">📖</div>
+      Dance — A Story of Love at First Dance
+    </div>
+    <div class="section-subtitle">Click any highlighted word to see its meaning</div>
+    <div class="click-hint">💡 Tap <span class="hw" style="cursor:default;">highlighted words</span> for meanings — popup stays until you close it.</div>
+
+    <div class="passage">
+      <p>The first time I went to a disco I was very young and shy. However, I decided to go. Do you remember the Star Disco in Thamel? It was a <span class="hw" onclick="showMeaning('lovely','very pleasant','मनमोहक')">lovely</span> place….. always full of beautiful girls. Of course, most of them are grandmothers now!</p>
+
+      <p>When I went to the disco, I was much too <span class="hw" onclick="showMeaning('shy','nervous about meeting/talking to people','लजालु')">shy</span> to ask anyone for a dance. So I sat down and thought I'd watch for a while. You know, see how the other <span class="hw" onclick="showMeaning('lads','young men','जवान केटाहरू')">lads</span> did it. There was a lovely girl in a blue dress. A man walked up to her and said, "Excuse me. May I have the pleasure of the next dance?" She looked up at him and said "Eh? What did you say?" So he said, "I wonder if you would be kind enough to dance with me?.....er….if you don't mind?" "No, thank you very much."</p>
+
+      <p>A few minutes later, this other <span class="hw" onclick="showMeaning('chap','a man or boy (informal)','मान्छे/केटा')">chap</span> arrived. He gave her this big smile and said, "Would you be so kind as to have the next dance with me?" "Pardon?" she said. "Would you mind having the next dance with me?" he said, a bit <span class="hw" onclick="showMeaning('nervously','showing anxiety','अत्तालिँदै')">nervously</span> this time, "No thanks."</p>
+
+      <p>Then, this third <span class="hw" onclick="showMeaning('fellow','a man','मान्छे')">fellow</span> came over. He was very good-looking, you know, black teeth, white hair- sorry, I mean white teeth, black hair! He said, ever so <span class="hw" onclick="showMeaning('politely','in a well-mannered way','शिष्टतापूर्वक')">politely</span>, "Can I...I mean...could I... no, might I have the next dance with you?" "Sorry", she said, "My feet are <span class="hw" onclick="showMeaning('aching','hurting with pain','दुखेको')">aching</span>."</p>
+
+      <p>By now, I was <span class="hw" onclick="showMeaning('terrified','extremely frightened','अत्यन्त डराएको')">terrified</span>. I mean, she'd said 'no' to all of them! Then this fourth <span class="hw" onclick="showMeaning('character','a person (informal)','व्यक्ति')">character</span> thought he'd try. "Would you like to dance?" She looked straight at him. "No."</p>
+
+      <p>Well, I decided to go home. I was wearing an old jacket and <span class="hw" onclick="showMeaning('trousers','pants','पाइन्ट')">trousers</span>, and nobody would say that I was good-looking! Just as I was walking past her, she smiled. "Er... dance?" I asked. "Thank you very much," she replied. And that was that! It's our twentieth <span class="hw" onclick="showMeaning('wedding anniversary','marriage celebration date','विवाह वार्षिकोत्सव')">wedding anniversary</span> next week.</p>
+    </div>
+  </div>
+
+  <!-- ===== WORD LIST ===== -->
+  <div class="section-card" id="wordlist">
+    <div class="section-heading">
+      <div class="icon icon-words">📝</div>
+      Word Meaning List
+    </div>
+    <div class="section-subtitle">Click any word to see its meaning in the popup</div>
+
+    <div class="word-table-wrapper">
+      <table class="word-table">
+        <thead><tr><th>#</th><th>Word</th><th>English Meaning</th><th>नेपाली अर्थ</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="word-cell" onclick="showMeaning('lovely','very pleasant','मनमोहक')">lovely</td><td>very pleasant</td><td class="nepali-cell">मनमोहक</td></tr>
+          <tr><td>2</td><td class="word-cell" onclick="showMeaning('shy','nervous about meeting/talking to people','लजालु')">shy</td><td>nervous about meeting/talking to people</td><td class="nepali-cell">लजालु</td></tr>
+          <tr><td>3</td><td class="word-cell" onclick="showMeaning('lads','young men','जवान केटाहरू')">lads</td><td>young men</td><td class="nepali-cell">जवान केटाहरू</td></tr>
+          <tr><td>4</td><td class="word-cell" onclick="showMeaning('chap','a man or boy (informal)','मान्छे/केटा')">chap</td><td>a man or boy (informal)</td><td class="nepali-cell">मान्छे/केटा</td></tr>
+          <tr><td>5</td><td class="word-cell" onclick="showMeaning('nervously','in an anxious manner','अत्तालिँदै')">nervously</td><td>in an anxious manner</td><td class="nepali-cell">अत्तालिँदै</td></tr>
+          <tr><td>6</td><td class="word-cell" onclick="showMeaning('fellow','a man','मान्छे')">fellow</td><td>a man</td><td class="nepali-cell">मान्छे</td></tr>
+          <tr><td>7</td><td class="word-cell" onclick="showMeaning('politely','in a well-mannered way','शिष्टतापूर्वक')">politely</td><td>in a well-mannered way</td><td class="nepali-cell">शिष्टतापूर्वक</td></tr>
+          <tr><td>8</td><td class="word-cell" onclick="showMeaning('aching','hurting with continuous pain','दुखेको')">aching</td><td>hurting with continuous pain</td><td class="nepali-cell">दुखेको</td></tr>
+          <tr><td>9</td><td class="word-cell" onclick="showMeaning('terrified','extremely frightened','अत्यन्त डराएको')">terrified</td><td>extremely frightened</td><td class="nepali-cell">अत्यन्त डराएको</td></tr>
+          <tr><td>10</td><td class="word-cell" onclick="showMeaning('character','a person (informal)','व्यक्ति')">character</td><td>a person (informal)</td><td class="nepali-cell">व्यक्ति</td></tr>
+          <tr><td>11</td><td class="word-cell" onclick="showMeaning('trousers','pants','पाइन्ट')">trousers</td><td>pants</td><td class="nepali-cell">पाइन्ट</td></tr>
+          <tr><td>12</td><td class="word-cell" onclick="showMeaning('wedding anniversary','date celebrating marriage','विवाह वार्षिकोत्सव')">wedding anniversary</td><td>date celebrating marriage</td><td class="nepali-cell">विवाह वार्षिकोत्सव</td></tr>
+          <tr><td>13</td><td class="word-cell" onclick="showMeaning('disco','a place/event for dancing to music','डिस्को')">disco</td><td>a place/event for dancing to music</td><td class="nepali-cell">डिस्को</td></tr>
+          <tr><td>14</td><td class="word-cell" onclick="showMeaning('pleasure','a feeling of happiness/enjoyment','खुसी/रमाइलो')">pleasure</td><td>a feeling of happiness/enjoyment</td><td class="nepali-cell">खुसी/रमाइलो</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE A: FIND WORDS ===== -->
+  <div class="section-card" id="exerciseA">
+    <div class="section-heading">
+      <div class="icon icon-fill">✍</div>
+      Exercise A — Find Words from the Story
+    </div>
+    <div class="section-subtitle">Click each meaning to reveal the word from the text</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">man</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>lads, chap, fellow, character</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">came</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>arrived, came over</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">clothes</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>jacket, trousers</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE B: MULTIPLE CHOICE ===== -->
+  <div class="section-card" id="exerciseB">
+    <div class="section-heading">
+      <div class="icon icon-exercise">✓</div>
+      Exercise B — Choose the Correct Answer
+    </div>
+    <div class="section-subtitle">Click each question to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">The storyteller is probably…</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>i. a comedian</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">When he arrived at the disco, he first…</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>iii. saw a beautiful girl</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">Now his age may be about…</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>iii. 40 years</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">The lovely girl…</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>iii. danced at last</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">The story can be best described as…</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>i. humorous</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE C: DISCUSSION ===== -->
+  <div class="section-card" id="exerciseC">
+    <div class="section-heading">
+      <div class="icon icon-short">✎</div>
+      Exercise C — Discussion Question
+    </div>
+    <div class="section-subtitle">Click to reveal the discussion prompt</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">•</div>
+        <div class="exercise-q-text">Recall the time that you first danced. Share your experience with your friends.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Discussion</span>
+          <span class="answer-text">This is an open-ended personal response question. Students are encouraged to share their own first dancing experience with their friends in class.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXTRA: SHORT QUESTIONS ===== -->
+  <div class="section-card extra-section" id="extraSA">
+    <div class="section-heading">
+      <div class="icon icon-extra">💡</div>
+      Additional Short Questions
+    </div>
+    <div class="section-subtitle">Click each question to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">Where did the story take place?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">The story took place at the Star Disco in Thamel.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">Why was the narrator too shy to ask anyone for a dance?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">He was very young and shy, so instead of asking someone to dance, he sat down and watched how other lads did it.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">How many men approached the girl in the blue dress before the narrator?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Three men approached her before the narrator, and all three were refused.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">What excuses did the girl give to the men who asked her to dance?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">She said "No, thank you," then claimed her feet were aching, and finally just said "No" without any excuse.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">What happened when the narrator finally asked the girl to dance?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Surprisingly, she smiled and accepted, saying "Thank you very much," and now, twenty years later, they are celebrating their wedding anniversary — meaning she became his wife.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXTRA: TRUE/FALSE ===== -->
+  <div class="section-card extra-section" id="extraTF">
+    <div class="section-heading">
+      <div class="icon icon-extra">🔍</div>
+      Additional True / False
+    </div>
+    <div class="section-subtitle">Click each statement to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">The story takes place at the Star Disco in Thamel.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">The narrator clearly states it was the Star Disco in Thamel.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">The narrator was very confident when he went to the disco.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">He was young and shy, and was too nervous to ask anyone to dance.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">All three men before the narrator succeeded in dancing with the girl.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">All three men were refused by the girl.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">The girl finally agreed to dance with the narrator.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">She smiled and said "Thank you very much" when he asked.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">The narrator and the girl never met again after that night.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">They got married and are celebrating their twentieth wedding anniversary.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXTRA: FILL IN THE BLANKS ===== -->
+  <div class="section-card extra-section" id="extraFill">
+    <div class="section-heading">
+      <div class="icon icon-extra">🧩</div>
+      Contextual Fill-in-the-Blanks
+    </div>
+    <div class="section-subtitle">Click each question to reveal the correct answer</div>
+
+    <div class="box-words">
+      <span class="box-word">shy</span>
+      <span class="box-word">fellow</span>
+      <span class="box-word">aching</span>
+      <span class="box-word">terrified</span>
+      <span class="box-word">wedding anniversary</span>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">The narrator was too ________ (nervous around people) to ask anyone to dance.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>shy</strong> — The narrator was too <strong>shy</strong> to ask anyone to dance.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">The third ________ (man) approached the girl politely but was also refused.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>fellow</strong> — The third <strong>fellow</strong> approached the girl politely but was also refused.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">She said her feet were ________ (hurting) when the third man asked her to dance.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>aching</strong> — She said her feet were <strong>aching</strong>.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">The narrator felt ________ (extremely frightened) after seeing everyone being rejected.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>terrified</strong> — The narrator felt <strong>terrified</strong> after seeing everyone being rejected.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">It is their twentieth ________ (marriage celebration) next week.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>wedding anniversary</strong> — It is their twentieth <strong>wedding anniversary</strong> next week.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main-content -->
+
+<script>
+  // ── Font Size ──
+  let fontSize = 19;
+  const MIN_F = 13, MAX_F = 30;
+  function changeFontSize(delta) {
+    fontSize = Math.max(MIN_F, Math.min(MAX_F, fontSize + delta));
+    document.documentElement.style.setProperty('--font-size-base', fontSize + 'px');
+    document.getElementById('fontDisplay').textContent = fontSize + 'px';
+    const d = document.getElementById('fontDisplay');
+    d.style.transform = 'scale(1.2)';
+    setTimeout(() => d.style.transform = 'scale(1)', 200);
+  }
+
+  // ── Meaning Popup ──
+  function showMeaning(word, english, nepali) {
+    const popup = document.getElementById('meaningPopup');
+    document.getElementById('popupWord').textContent = word;
+    document.getElementById('popupEnglish').textContent = english;
+    document.getElementById('popupNepali').textContent = nepali;
+    popup.classList.add('show');
+  }
+  function closePopup() {
+    document.getElementById('meaningPopup').classList.remove('show');
+  }
+  document.addEventListener('click', function(e) {
+    const popup = document.getElementById('meaningPopup');
+    if (!e.target.closest('.hw') && !e.target.closest('.word-cell') && !e.target.closest('#meaningPopup')) {
+      popup.classList.remove('show');
+    }
+  });
+
+  // ── Exercise Toggle ──
+  function toggleExercise(item) {
+    const parent = item.closest('.section-card');
+    const all = parent.querySelectorAll('.exercise-item');
+    const isOpen = item.classList.contains('open');
+    all.forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ── Scroll to Top ──
+  const scrollBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 400) {
+      scrollBtn.classList.add('show');
+    } else {
+      scrollBtn.classList.remove('show');
+    }
+  });
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── Download ──
+  function downloadHTML() {
+    const html = document.documentElement.outerHTML;
+    const blob = new Blob(['<!DOCTYPE html>\n' + html], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'Dance_Interactive.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+</script>
+
+</body>
+</html>

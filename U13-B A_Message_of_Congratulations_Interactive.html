@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Message of Congratulations – Grade 9 English Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== CSS VARIABLES ===== */
+:root {
+  --primary: #E8604C;
+  --primary-dark: #C94A38;
+  --primary-light: #F07E6E;
+  --accent: #00B4D8;
+  --accent-light: #33C9E6;
+  --accent-dark: #0096B7;
+  --highlight: #FFB627;
+  --highlight-light: #FFC857;
+  --bg-main: #FFF9F2;
+  --bg-card: #FFFFFF;
+  --bg-alt: #FFE8D6;
+  --bg-dark: #E8604C;
+  --text-main: #1E1E1E;
+  --text-light: #6B6B6B;
+  --text-on-dark: #FFFFFF;
+  --border: #E0C8B0;
+  --border-light: #F0DCC8;
+  --shadow: rgba(232,96,76,0.08);
+  --shadow-strong: rgba(232,96,76,0.18);
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+  --font-ui: 'Quicksand', sans-serif;
+  --font-size-base: 20px;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-lg: 18px;
+  --match-selected: #E8604C;
+  --match-correct: #2D6A1E;
+  --match-wrong: #C0392B;
+  --match-hover: #FFE8D6;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: 1.85;
+  color: var(--text-main);
+  background: var(--bg-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-alt); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+
+/* ===== HEADER ===== */
+.site-header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 40%, var(--highlight) 100%);
+  color: var(--text-on-dark);
+  padding: 40px 24px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  top: -70px; right: -70px;
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(255,182,39,0.3) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.site-header::after {
+  content: '';
+  position: absolute;
+  bottom: -50px; left: -50px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(0,180,216,0.2) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.header-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 22px;
+  padding: 6px 20px;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.site-header h1 {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.12);
+}
+.site-header .subtitle {
+  font-family: var(--font-ui);
+  font-size: 1.1rem;
+  font-weight: 600;
+  opacity: 0.9;
+  margin-bottom: 4px;
+}
+.site-header .meta-line {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  opacity: 0.75;
+  margin-top: 12px;
+}
+
+/* ===== CONTROLS BAR ===== */
+.controls-bar {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-light);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px var(--shadow);
+}
+.font-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.font-controls span {
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-light);
+}
+.font-btn {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  width: 42px; height: 42px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--primary);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-ui);
+  line-height: 1;
+}
+.font-btn:hover { background: var(--primary); color: #fff; }
+.dl-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 10px 22px;
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.dl-btn:hover { background: var(--accent-dark); }
+
+/* ===== NAV JUMP ===== */
+.nav-jump {
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border-light);
+  padding: 12px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+.nav-jump a {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--primary);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 6px 16px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-jump a:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* ===== MAIN WRAPPER ===== */
+.main-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px 60px;
+}
+
+/* ===== SECTION CARD ===== */
+.section-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 32px 30px 24px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 18px var(--shadow);
+}
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  margin-bottom: 22px;
+  padding-bottom: 14px;
+  border-bottom: 3px solid var(--highlight);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title .icon { font-size: 1.5rem; }
+
+/* ===== META INFO CARD ===== */
+.meta-info-card {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light), var(--highlight));
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  margin-bottom: 30px;
+  color: var(--text-on-dark);
+  box-shadow: 0 6px 22px var(--shadow-strong);
+}
+.meta-info-card h2 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+}
+.mi-item {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+}
+.mi-item .mi-label {
+  font-family: var(--font-ui);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.75;
+  display: block;
+  margin-bottom: 3px;
+}
+.mi-item .mi-value {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* ===== READING BLOCK ===== */
+.reading-block {
+  margin-bottom: 24px;
+  position: relative;
+}
+.reading-label {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--primary);
+  background: var(--bg-alt);
+  display: inline-block;
+  padding: 5px 16px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+.reading-block p {
+  font-size: var(--font-size-base);
+  line-height: 1.9;
+  text-align: justify;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+/* Letter format styling */
+.letter-address {
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  margin-bottom: 4px;
+}
+.letter-date {
+  font-weight: 600;
+  font-size: calc(var(--font-size-base) - 2px);
+  color: var(--text-light);
+  margin-bottom: 16px;
+}
+.letter-greeting {
+  font-weight: 800;
+  font-size: var(--font-size-base);
+  margin-bottom: 8px;
+}
+.letter-body {
+  font-size: var(--font-size-base);
+  line-height: 1.9;
+  text-align: justify;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+.letter-closing {
+  font-weight: 700;
+  margin-top: 16px;
+  font-size: var(--font-size-base);
+}
+.letter-signature {
+  font-weight: 800;
+  font-size: var(--font-size-base);
+  margin-top: 4px;
+}
+
+/* ===== VOCAB HIGHLIGHT ===== */
+.vocab-word {
+  color: var(--accent-dark);
+  font-weight: 800;
+  cursor: pointer;
+  border-bottom: 2px dotted var(--accent);
+  transition: all 0.2s;
+  position: relative;
+}
+.vocab-word:hover {
+  color: var(--highlight);
+  border-bottom-color: var(--highlight);
+}
+
+/* ===== MEANING POPUP ===== */
+.meaning-popup {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  color: var(--text-on-dark);
+  border-radius: var(--radius);
+  padding: 18px 24px;
+  min-width: 300px;
+  max-width: 90vw;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  z-index: 9999;
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s;
+  opacity: 0;
+  font-family: var(--font-ui);
+  pointer-events: none;
+}
+.meaning-popup.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.popup-word {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: var(--highlight);
+}
+.popup-en {
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+.popup-en::before { content: 'EN: '; font-weight: 700; opacity: 0.7; }
+.popup-ne {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.85);
+}
+.popup-ne::before { content: 'NE: '; font-weight: 700; opacity: 0.7; }
+.popup-close {
+  position: absolute;
+  top: 8px; right: 12px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  font-size: 1.3rem;
+  cursor: pointer;
+  line-height: 1;
+}
+.popup-close:hover { color: #fff; }
+
+/* ===== GLOSSARY TABLE ===== */
+.glossary-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin-top: 6px;
+}
+.glossary-table thead th {
+  background: var(--primary);
+  color: var(--text-on-dark);
+  font-family: var(--font-ui);
+  font-weight: 700;
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 0.84rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.glossary-table thead th:first-child { border-radius: var(--radius-sm) 0 0 0; }
+.glossary-table thead th:last-child { border-radius: 0 var(--radius-sm) 0 0; }
+.glossary-table tbody td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
+}
+.glossary-table tbody tr:nth-child(even) { background: var(--bg-alt); }
+.glossary-table tbody tr:hover { background: #FDDCC4; }
+.glossary-table .sn { font-weight: 700; color: var(--primary); width: 40px; text-align: center; }
+.glossary-table .word-col { font-weight: 700; color: var(--accent-dark); white-space: nowrap; }
+
+/* ===== INTERACTIVE MATCHING ===== */
+.match-container { margin-top: 12px; }
+.match-instructions {
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  color: var(--text-light);
+  margin-bottom: 14px;
+  padding: 12px 16px;
+  background: var(--bg-alt);
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--accent);
+}
+.match-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.match-col h4 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--highlight);
+  text-align: center;
+}
+.match-option {
+  padding: 12px 16px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.25s;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  user-select: none;
+  background: var(--bg-card);
+  font-weight: 700;
+}
+.match-option:hover {
+  border-color: var(--primary);
+  background: var(--match-hover);
+}
+.match-option.selected {
+  border-color: var(--match-selected);
+  background: rgba(232,96,76,0.08);
+  box-shadow: 0 0 0 3px rgba(232,96,76,0.15);
+}
+.match-option.matched {
+  border-color: var(--match-correct);
+  background: rgba(45,106,30,0.08);
+  cursor: default;
+  opacity: 0.85;
+}
+.match-option.matched .match-check { display: inline; }
+.match-option.wrong-flash {
+  animation: wrongShake 0.5s ease;
+  border-color: var(--match-wrong);
+  background: rgba(192,57,43,0.08);
+}
+.match-check {
+  display: none;
+  color: var(--match-correct);
+  font-weight: 700;
+  margin-left: 6px;
+}
+@keyframes wrongShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+.match-status {
+  text-align: center;
+  margin-top: 14px;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 700;
+  min-height: 30px;
+}
+.match-status.correct { color: var(--match-correct); }
+.match-status.wrong { color: var(--match-wrong); }
+.match-reset-btn {
+  display: block;
+  margin: 12px auto 0;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 22px;
+  padding: 10px 28px;
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.match-reset-btn:hover { background: var(--primary-light); }
+
+/* ===== EXERCISE SECTION ===== */
+.exercise-section { margin-bottom: 18px; }
+.exercise-heading {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 14px;
+}
+
+/* Accordion */
+.exercise-item, .tf-item, .fill-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.exercise-item:hover, .tf-item:hover, .fill-item:hover { border-color: var(--primary); }
+.exercise-toggle, .tf-toggle, .fill-toggle {
+  width: 100%;
+  background: var(--bg-alt);
+  border: none;
+  padding: 14px 18px;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+}
+.exercise-toggle:hover, .tf-toggle:hover, .fill-toggle:hover { background: #FDDCC4; }
+.exercise-toggle .arrow, .tf-toggle .arrow, .fill-toggle .arrow {
+  transition: transform 0.3s;
+  font-size: 0.88rem;
+  color: var(--primary);
+}
+.exercise-toggle.active .arrow, .tf-toggle.active .arrow, .fill-toggle.active .arrow {
+  transform: rotate(180deg);
+}
+.exercise-content, .tf-content, .fill-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s;
+  padding: 0 18px;
+  background: var(--bg-card);
+}
+.exercise-content.open, .tf-content.open, .fill-content.open {
+  max-height: 2000px;
+  padding: 18px;
+}
+.answer-text {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-main);
+  font-weight: 600;
+}
+.answer-text strong { color: var(--primary); }
+
+/* ===== INTERACTIVE T/F ===== */
+.tf-interactive-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  background: var(--bg-card);
+  transition: border-color 0.2s;
+}
+.tf-interactive-item:hover { border-color: var(--primary); }
+.tf-num {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: var(--highlight);
+  font-size: 1.05rem;
+  min-width: 28px;
+  padding-top: 2px;
+}
+.tf-statement {
+  flex: 1;
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+}
+.tf-btns {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.tf-btn {
+  padding: 8px 18px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--bg-card);
+  color: var(--text-main);
+  transition: all 0.2s;
+  min-width: 60px;
+}
+.tf-btn:hover { border-color: var(--primary); }
+.tf-btn.chosen-t { border-color: var(--match-correct); background: rgba(45,106,30,0.1); color: var(--match-correct); }
+.tf-btn.chosen-f { border-color: var(--match-wrong); background: rgba(192,57,43,0.1); color: var(--match-wrong); }
+.tf-btn.correct-answer { border-color: var(--match-correct); background: rgba(45,106,30,0.12); color: var(--match-correct); }
+.tf-btn.wrong-answer { border-color: var(--match-wrong); background: rgba(192,57,43,0.12); color: var(--match-wrong); }
+.tf-reason {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: var(--accent-dark);
+  font-weight: 600;
+  font-family: var(--font-ui);
+  display: none;
+}
+.tf-reason.show { display: block; }
+.tf-result-icon {
+  font-size: 1.1rem;
+  font-weight: 800;
+  display: none;
+  min-width: 24px;
+  text-align: center;
+  padding-top: 2px;
+}
+.tf-result-icon.show { display: block; }
+.tf-result-icon.correct { color: var(--match-correct); }
+.tf-result-icon.wrong { color: var(--match-wrong); }
+
+/* ===== INTERACTIVE FILL-IN-BLANKS ===== */
+.fill-interactive-item {
+  padding: 14px 18px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  background: var(--bg-card);
+  transition: border-color 0.2s;
+}
+.fill-interactive-item:hover { border-color: var(--primary); }
+.fill-sentence {
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  line-height: 1.75;
+}
+.fill-input {
+  display: inline-block;
+  width: 140px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 5px 10px;
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-align: center;
+  background: var(--bg-alt);
+  color: var(--text-main);
+  transition: border-color 0.2s;
+  margin: 0 4px;
+}
+.fill-input:focus { border-color: var(--accent); outline: none; background: #fff; }
+.fill-input.correct-fill { border-color: var(--match-correct); background: rgba(45,106,30,0.08); color: var(--match-correct); }
+.fill-input.wrong-fill { border-color: var(--match-wrong); background: rgba(192,57,43,0.08); color: var(--match-wrong); }
+.word-bank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding: 12px 16px;
+  background: var(--bg-alt);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+.word-bank-label {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-right: 8px;
+}
+.word-bank-word {
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 5px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--accent-dark);
+}
+.word-bank-word:hover { border-color: var(--accent); background: rgba(0,180,216,0.08); }
+.word-bank-word.used { opacity: 0.4; border-color: #ccc; color: #aaa; cursor: default; }
+.fill-check-btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.fill-check-btn, .fill-show-btn, .fill-reset-btn {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 20px;
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.fill-check-btn { background: var(--primary); color: #fff; }
+.fill-check-btn:hover { background: var(--primary-light); }
+.fill-show-btn { background: var(--accent); color: #fff; }
+.fill-show-btn:hover { background: var(--accent-dark); }
+.fill-reset-btn { background: var(--bg-alt); color: var(--primary); border: 1px solid var(--border); }
+.fill-reset-btn:hover { background: #FDDCC4; }
+
+/* ===== SCROLL-TO-TOP ===== */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 50px;
+  height: 50px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 16px var(--shadow-strong);
+  display: none;
+  z-index: 99;
+  transition: all 0.2s;
+  font-family: var(--font-ui);
+}
+.scroll-top-btn:hover { background: var(--primary-light); transform: scale(1.05); }
+.scroll-top-btn.show { display: flex; align-items: center; justify-content: center; }
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border-light);
+  padding: 20px 24px;
+  text-align: center;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  .site-header { padding: 28px 16px 24px; }
+  .site-header h1 { font-size: 2rem; }
+  .site-header .subtitle { font-size: 0.95rem; }
+  .controls-bar { padding: 10px 16px; }
+  .font-btn { width: 38px; height: 38px; font-size: 1.3rem; }
+  .dl-btn { padding: 8px 16px; font-size: 0.82rem; }
+  .nav-jump { padding: 8px 12px; }
+  .nav-jump a { font-size: 0.75rem; padding: 4px 12px; }
+  .main-wrap { padding: 20px 14px 40px; }
+  .section-card { padding: 22px 18px 16px; border-radius: 14px; }
+  .meta-info-card { padding: 22px 18px; }
+  .meta-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+  .match-columns { grid-template-columns: 1fr; gap: 14px; }
+  .match-option { padding: 10px 12px; }
+  .tf-interactive-item { flex-direction: column; gap: 8px; }
+  .tf-btns { align-self: flex-start; }
+  .fill-input { width: 110px; }
+  .meaning-popup { min-width: 260px; padding: 14px 18px; }
+  .scroll-top-btn { width: 44px; height: 44px; bottom: 18px; right: 18px; }
+  .section-title { font-size: 1.3rem; }
+  .exercise-toggle, .tf-toggle, .fill-toggle { padding: 12px 14px; font-size: 0.88rem; }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.section-card { animation: fadeIn 0.5s ease; }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-badge">Grade 9 | English | Unit 13</div>
+  <h1>A Message of Congratulations</h1>
+  <p class="subtitle">Interactive Study Notes with Exercises</p>
+  <p class="meta-line">Page 164-165 | Letter Format | Formal Writing</p>
+</header>
+
+<!-- ===== CONTROLS BAR ===== -->
+<div class="controls-bar">
+  <div class="font-controls">
+    <span>Font Size:</span>
+    <button class="font-btn" onclick="changeFontSize(-1)">A-</button>
+    <button class="font-btn" onclick="changeFontSize(1)">A+</button>
+  </div>
+  <button class="dl-btn" onclick="downloadPage()">Download This Page</button>
+</div>
+
+<!-- ===== NAV JUMP ===== -->
+<div class="nav-jump">
+  <a href="#reading">Reading Text</a>
+  <a href="#vocab">Vocabulary</a>
+  <a href="#ex-a">Exercise A</a>
+  <a href="#ex-b">Exercise B</a>
+  <a href="#ex-short">Short Questions</a>
+  <a href="#ex-tf">True / False</a>
+  <a href="#ex-fill">Fill in Blanks</a>
+</div>
+
+<!-- ===== MAIN WRAPPER ===== -->
+<div class="main-wrap">
+
+  <!-- META INFO CARD -->
+  <div class="meta-info-card">
+    <h2>Quick Reference</h2>
+    <div class="meta-grid">
+      <div class="mi-item">
+        <span class="mi-label">Grade</span>
+        <span class="mi-value">9</span>
+      </div>
+      <div class="mi-item">
+        <span class="mi-label">Subject</span>
+        <span class="mi-value">English</span>
+      </div>
+      <div class="mi-item">
+        <span class="mi-label">Unit</span>
+        <span class="mi-value">13</span>
+      </div>
+      <div class="mi-item">
+        <span class="mi-label">Topic</span>
+        <span class="mi-value">A Message of Congratulations</span>
+      </div>
+      <div class="mi-item">
+        <span class="mi-label">Page</span>
+        <span class="mi-value">164-165</span>
+      </div>
+      <div class="mi-item">
+        <span class="mi-label">Format</span>
+        <span class="mi-value">Congratulation Letter</span>
+      </div>
+      <div class="mi-item">
+        <span class="mi-label">Writer</span>
+        <span class="mi-value">Anil Gurung</span>
+      </div>
+      <div class="mi-item">
+        <span class="mi-label">Recipient</span>
+        <span class="mi-value">Mrs Rai</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== READING TEXT ===== -->
+  <div class="section-card" id="reading">
+    <h2 class="section-title"><span class="icon">📄</span> Reading Text</h2>
+    <div class="reading-block">
+      <div class="reading-label">Congratulation Letter</div>
+
+      <p class="letter-address">Changunarayan, Bhaktapur</p>
+      <p class="letter-date">May 30, 2021</p>
+
+      <p class="letter-greeting">Dear Mrs Rai,</p>
+
+      <p class="letter-body">I would like to take this <span class="vocab-word" onclick="showMeaning('opportunity','A time when it is possible to do something','अवसर')">opportunity</span> to <span class="vocab-word" onclick="showMeaning('congratulate','To tell someone you are pleased about their success','बधाई दिनु')">congratulate</span> you on your recent <span class="vocab-word" onclick="showMeaning('appointment','The act of choosing someone for a job or position','नियुक्ति')">appointment</span> to the Chief Editor of The Nepal Times. This is certainly an <span class="vocab-word" onclick="showMeaning('impressive','Making you feel admiration','प्रभावशाली')">impressive</span> <span class="vocab-word" onclick="showMeaning('accomplishment','Something done successfully','उपलब्धि')">accomplishment</span>, of which I am sure your family, friends and your relatives are <span class="vocab-word" onclick="showMeaning('justifiably','In a way that is right and reasonable','उचित रूपमा')">justifiably</span> proud.</p>
+
+      <p class="letter-body">As a Chief Editor of The Nepal Times, it will be your <span class="vocab-word" onclick="showMeaning('responsibility','A duty to deal with something','जिम्मेवारी')">responsibility</span> to provide <span class="vocab-word" onclick="showMeaning('unbiased','Not influenced by personal opinion','निष्पक्ष')">unbiased</span> news stories and <span class="vocab-word" onclick="showMeaning('articles','Pieces of writing in newspapers or magazines','लेखहरू')">articles</span>. As this is a new <span class="vocab-word" onclick="showMeaning('position','A job or role','पद')">position</span> at this <span class="vocab-word" onclick="showMeaning('daily','Published every day','दैनिक')">daily</span> paper, you have the opportunity to set the <span class="vocab-word" onclick="showMeaning('standard','A level of quality','मापदण्ड')">standard</span> for future chief editors to follow, and I am <span class="vocab-word" onclick="showMeaning('certain','Sure/confident','निश्चित')">certain</span> you will do a fine job.</p>
+
+      <p class="letter-body">Your <span class="vocab-word" onclick="showMeaning('selection','The process of choosing','चयन')">selection</span> as the Editor in Chief shows that you are well on your way towards a <span class="vocab-word" onclick="showMeaning('bright','Full of hope/promising','उज्ज्वल')">bright</span> future.</p>
+
+      <p class="letter-body">I congratulate you again on this <span class="vocab-word" onclick="showMeaning('honour','A high respect','सम्मान')">honour</span> and wish you the best of luck in all of your future <span class="vocab-word" onclick="showMeaning('endeavours','Attempts to do something','प्रयासहरू')">endeavours</span>. I am sure you will continue to set a fine <span class="vocab-word" onclick="showMeaning('example','Something that shows what others should do','उदाहरण')">example</span> for all to follow. As always, please do not <span class="vocab-word" onclick="showMeaning('hesitate','To be slow to speak or act','हिचकिचाउनु')">hesitate</span> to call upon me if I may be of <span class="vocab-word" onclick="showMeaning('assistance','Help/support','सहायता')">assistance</span> to you.</p>
+
+      <p class="letter-closing">With kind <span class="vocab-word" onclick="showMeaning('regards','Good wishes','शुभकामनाहरू')">regards</span> and best wishes,</p>
+      <p class="letter-signature">Sincerely,<br>Anil Gurung</p>
+    </div>
+  </div>
+
+  <!-- ===== VOCABULARY ===== -->
+  <div class="section-card" id="vocab">
+    <h2 class="section-title"><span class="icon">📚</span> Vocabulary List</h2>
+    <table class="glossary-table">
+      <thead>
+        <tr><th class="sn">#</th><th>Word</th><th>Nepali Meaning</th><th>English Meaning</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="sn">1</td><td class="word-col">opportunity</td><td>अवसर</td><td>A time when it is possible to do something</td></tr>
+        <tr><td class="sn">2</td><td class="word-col">congratulate</td><td>बधाई दिनु</td><td>To tell someone you are pleased about their success</td></tr>
+        <tr><td class="sn">3</td><td class="word-col">appointment</td><td>नियुक्ति</td><td>The act of choosing someone for a job or position</td></tr>
+        <tr><td class="sn">4</td><td class="word-col">impressive</td><td>प्रभावशाली</td><td>Making you feel admiration</td></tr>
+        <tr><td class="sn">5</td><td class="word-col">accomplishment</td><td>उपलब्धि</td><td>Something done successfully</td></tr>
+        <tr><td class="sn">6</td><td class="word-col">justifiably</td><td>उचित रूपमा</td><td>In a way that is right and reasonable</td></tr>
+        <tr><td class="sn">7</td><td class="word-col">responsibility</td><td>जिम्मेवारी</td><td>A duty to deal with something</td></tr>
+        <tr><td class="sn">8</td><td class="word-col">unbiased</td><td>निष्पक्ष</td><td>Not influenced by personal opinion</td></tr>
+        <tr><td class="sn">9</td><td class="word-col">articles</td><td>लेखहरू</td><td>Pieces of writing in newspapers or magazines</td></tr>
+        <tr><td class="sn">10</td><td class="word-col">position</td><td>पद</td><td>A job or role</td></tr>
+        <tr><td class="sn">11</td><td class="word-col">daily</td><td>दैनिक</td><td>Published every day</td></tr>
+        <tr><td class="sn">12</td><td class="word-col">standard</td><td>मापदण्ड</td><td>A level of quality</td></tr>
+        <tr><td class="sn">13</td><td class="word-col">certain</td><td>निश्चित</td><td>Sure/confident</td></tr>
+        <tr><td class="sn">14</td><td class="word-col">selection</td><td>चयन</td><td>The process of choosing</td></tr>
+        <tr><td class="sn">15</td><td class="word-col">bright</td><td>उज्ज्वल</td><td>Full of hope/promising</td></tr>
+        <tr><td class="sn">16</td><td class="word-col">honour</td><td>सम्मान</td><td>A high respect</td></tr>
+        <tr><td class="sn">17</td><td class="word-col">endeavours</td><td>प्रयासहरू</td><td>Attempts to do something</td></tr>
+        <tr><td class="sn">18</td><td class="word-col">example</td><td>उदाहरण</td><td>Something that shows what others should do</td></tr>
+        <tr><td class="sn">19</td><td class="word-col">hesitate</td><td>हिचकिचाउनु</td><td>To be slow to speak or act</td></tr>
+        <tr><td class="sn">20</td><td class="word-col">assistance</td><td>सहायता</td><td>Help/support</td></tr>
+        <tr><td class="sn">21</td><td class="word-col">regards</td><td>शुभकामनाहरू</td><td>Good wishes</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===== EXERCISE A: MATCHING ===== -->
+  <div class="section-card" id="ex-a">
+    <h2 class="section-title"><span class="icon">🔗</span> Exercise A: Match the Words</h2>
+    <p style="font-weight:700; margin-bottom:12px;">Find the words from the text and complete the sentences.</p>
+
+    <div class="match-container" id="matchA">
+      <div class="match-instructions">Click a word on the left, then click its matching sentence on the right. Correct pairs lock green with a checkmark. Wrong pairs shake red and reset.</div>
+      <div class="match-columns">
+        <div class="match-col" id="matchColL">
+          <h4>Words</h4>
+          <div class="match-option" data-id="a" onclick="selectMatch(this,'left')">justifiably</div>
+          <div class="match-option" data-id="b" onclick="selectMatch(this,'left')">standard</div> 
+          <div class="match-option" data-id="c" onclick="selectMatch(this,'left')">unbiased</div> 
+          <div class="match-option" data-id="d" onclick="selectMatch(this,'left')">endeavour</div> 
+          <div class="match-option" data-id="e" onclick="selectMatch(this,'left')">impressive</div> 
+        </div>
+        <div class="match-col" id="matchColR">
+          <h4>Sentences</h4>
+          <div class="match-option" data-id="5" onclick="selectMatch(this,'right')">I really admire you for your ___ explanation.</div>
+          <div class="match-option" data-id="3" onclick="selectMatch(this,'right')">An ___ person can, no doubt, see many positive things at a glance.</div>
+          <div class="match-option" data-id="2" onclick="selectMatch(this,'right')">The work was done with a professional ___.</div>
+          <div class="match-option" data-id="4" onclick="selectMatch(this,'right')">Please make every ___ to arrive on time.</div>
+          <div class="match-option" data-id="1" onclick="selectMatch(this,'right')">Parents are ___ proud of their children's achievements.</div>
+        </div>
+      </div>
+      <div class="match-status" id="matchStatusA"></div>
+      <button class="match-reset-btn" onclick="resetMatch()">Reset Matching</button>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE B: COMPREHENSION Q&A ===== -->
+  <div class="section-card" id="ex-b">
+    <h2 class="section-title"><span class="icon">📝</span> Exercise B: Comprehension Questions</h2>
+    <p style="font-weight:700; margin-bottom:12px;">Answer the following questions. Click each question to reveal the answer.</p>
+
+    <div class="exercise-section">
+      <div class="exercise-item">
+        <button class="exercise-toggle" onclick="toggleExercise(this)">
+          <span>a. Where does Anil Gurung live?</span>
+          <span class="arrow">&#9660;</span>
+        </button>
+        <div class="exercise-content">
+          <p class="answer-text">Anil Gurung lives in <strong>Changunarayan, Bhaktapur</strong>. This is the address mentioned at the top of the letter, indicating his place of residence where he wrote the congratulation letter to Mrs Rai.</p>
+        </div>
+      </div>
+      <div class="exercise-item">
+        <button class="exercise-toggle" onclick="toggleExercise(this)">
+          <span>b. Why is Anil Gurung writing this letter?</span>
+          <span class="arrow">&#9660;</span>
+        </button>
+        <div class="exercise-content">
+          <p class="answer-text">Anil Gurung is writing this letter to <strong>congratulate Mrs Rai on her recent appointment as the Chief Editor of The Nepal Times</strong>. The entire letter is a formal congratulation message expressing his happiness and admiration for her success.</p>
+        </div>
+      </div>
+      <div class="exercise-item">
+        <button class="exercise-toggle" onclick="toggleExercise(this)">
+          <span>c. Why is her new position an opportunity for Mrs Rai?</span>
+          <span class="arrow">&#9660;</span>
+        </button>
+        <div class="exercise-content">
+          <p class="answer-text">Her new position is an opportunity for Mrs Rai because <strong>as this is a new position at the daily paper, she has the chance to set the standard for future chief editors to follow</strong>. Being the first to hold this role gives her the unique opportunity to establish expectations and benchmarks that others will look up to.</p>
+        </div>
+      </div>
+      <div class="exercise-item">
+        <button class="exercise-toggle" onclick="toggleExercise(this)">
+          <span>d. What does Anil Gurung expect from Mrs Rai as the chief editor?</span>
+          <span class="arrow">&#9660;</span>
+        </button>
+        <div class="exercise-content">
+          <p class="answer-text">Anil Gurung expects Mrs Rai to <strong>provide unbiased news stories and articles</strong> and to <strong>set a fine example</strong> for all to follow. He believes that as Chief Editor, she should maintain fairness in reporting and become a role model for future editors of the newspaper.</p>
+        </div>
+      </div>
+      <div class="exercise-item">
+        <button class="exercise-toggle" onclick="toggleExercise(this)">
+          <span>e. How can you say that Anil Gurung is a helpful person?</span>
+          <span class="arrow">&#9660;</span>
+        </button>
+        <div class="exercise-content">
+          <p class="answer-text">Anil Gurung is a helpful person because <strong>he tells Mrs Rai not to hesitate to call upon him if she needs any assistance</strong>, which shows his willingness to help. This offer of support at the end of the letter clearly demonstrates his helpful and cooperative nature as a colleague or acquaintance.</p>
+        </div>
+      </div>
+      <div class="exercise-item">
+        <button class="exercise-toggle" onclick="toggleExercise(this)">
+          <span>f. What could be the relationship between Mrs Rai and Anil Gurung?</span>
+          <span class="arrow">&#9660;</span>
+        </button>
+        <div class="exercise-content">
+          <p class="answer-text">Mrs Rai and Anil Gurung could be <strong>colleagues, friends, or professional acquaintances</strong> who know and respect each other. The formal yet warm tone of the letter, combined with his offer of assistance, suggests they share a respectful professional relationship built on mutual admiration and trust.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ADDITIONAL SHORT QUESTIONS ===== -->
+  <div class="section-card" id="ex-short">
+    <h2 class="section-title"><span class="icon">💡</span> Short Questions (2-3 sentences)</h2>
+    <p style="font-weight:700; margin-bottom:12px;">Click each question to reveal the answer.</p>
+
+    <div class="exercise-section">
+      <div class="exercise-item">
+        <button class="exercise-toggle" onclick="toggleExercise(this)">
+          <span>1. What is the letter about?</span>
+          <span class="arrow">&#9660;</span>
+        </button>
+        <div class="exercise-content">
+          <p class="answer-text">The letter is a <strong>congratulation letter</strong> written by Anil Gurung to Mrs Rai on her recent appointment as the Chief Editor of The Nepal Times. It expresses his happiness and admiration for her achievement, and encourages her to set high standards in her new role.</p>
+        </div>
+      </div>
+      <div class="exercise-item">
+        <button class="exercise-toggle" onclick="toggleExercise(this)">
+          <span>2. What qualities does Anil Gurung expect from Mrs Rai as Chief Editor?</span>
+          <span class="arrow">&#9660;</span>
+        </button>
+        <div class="exercise-content">
+          <p class="answer-text">Anil Gurung expects Mrs Rai to be <strong>responsible, unbiased</strong>, and to <strong>set a high standard</strong> for future chief editors to follow. He also expects her to provide fair and objective news stories, maintaining journalistic integrity in her new position.</p>
+        </div>
+      </div>
+      <div class="exercise-item">
+        <button class="exercise-toggle" onclick="toggleExercise(this)">
+          <span>3. How does Anil Gurung describe Mrs Rai's achievement?</span>
+          <span class="arrow">&#9660;</span>
+        </button>
+        <div class="exercise-content">
+          <p class="answer-text">Anil Gurung describes Mrs Rai's achievement as an <strong>impressive accomplishment</strong> of which her family, friends, and relatives are justifiably proud. He uses the word "impressive" to emphasize the significance of her appointment and "justifiably" to acknowledge that their pride is well-deserved and reasonable.</p>
+        </div>
+      </div>
+      <div class="exercise-item">
+        <button class="exercise-toggle" onclick="toggleExercise(this)">
+          <span>4. What does Anil Gurung offer at the end of the letter?</span>
+          <span class="arrow">&#9660;</span>
+        </button>
+        <div class="exercise-content">
+          <p class="answer-text">At the end of the letter, Anil Gurung offers his <strong>assistance</strong> to Mrs Rai and tells her not to hesitate to call upon him if she needs any help. This generous offer reflects his supportive personality and willingness to stand by her as she begins her new role as Chief Editor.</p>
+        </div>
+      </div>
+      <div class="exercise-item">
+        <button class="exercise-toggle" onclick="toggleExercise(this)">
+          <span>5. What does the letter tell us about the relationship between the writer and Mrs Rai?</span>
+          <span class="arrow">&#9660;</span>
+        </button>
+        <div class="exercise-content">
+          <p class="answer-text">The letter suggests that the writer and Mrs Rai share a <strong>respectful and friendly relationship</strong>, possibly as colleagues or professional acquaintances. The warm congratulatory tone, combined with the offer of assistance, indicates mutual respect and a willingness to support each other in their professional endeavours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TRUE / FALSE ===== -->
+  <div class="section-card" id="ex-tf">
+    <h2 class="section-title"><span class="icon">&#9889;</span> True / False</h2>
+    <p style="font-weight:700; margin-bottom:12px;">Click True or False for each statement, then check your answer!</p>
+
+    <div class="tf-interactive-item" id="tf1">
+      <div class="tf-num">1.</div>
+      <div class="tf-statement">Anil Gurung wrote the letter from Kathmandu.</div>
+      <div class="tf-btns">
+        <button class="tf-btn" onclick="selectTF(this,'tf1',false)">True</button>
+        <button class="tf-btn" onclick="selectTF(this,'tf1',false)">False</button>
+      </div>
+      <div class="tf-result-icon" id="tf1-result"></div>
+      <div class="tf-reason" id="tf1-reason">False - He wrote from Changunarayan, Bhaktapur, not Kathmandu.</div>
+    </div>
+
+    <div class="tf-interactive-item" id="tf2">
+      <div class="tf-num">2.</div>
+      <div class="tf-statement">Mrs Rai has been appointed as the Chief Editor of The Nepal Times.</div>
+      <div class="tf-btns">
+        <button class="tf-btn" onclick="selectTF(this,'tf2',true)">True</button>
+        <button class="tf-btn" onclick="selectTF(this,'tf2',true)">False</button>
+      </div>
+      <div class="tf-result-icon" id="tf2-result"></div>
+      <div class="tf-reason" id="tf2-reason">True - The letter clearly states Mrs Rai's appointment as Chief Editor of The Nepal Times.</div>
+    </div>
+
+    <div class="tf-interactive-item" id="tf3">
+      <div class="tf-num">3.</div>
+      <div class="tf-statement">Anil Gurung is not willing to help Mrs Rai in the future.</div>
+      <div class="tf-btns">
+        <button class="tf-btn" onclick="selectTF(this,'tf3',false)">True</button>
+        <button class="tf-btn" onclick="selectTF(this,'tf3',false)">False</button>
+      </div>
+      <div class="tf-result-icon" id="tf3-result"></div>
+      <div class="tf-reason" id="tf3-reason">False - He offers his assistance and asks her not to hesitate to call upon him.</div>
+    </div>
+
+    <div class="tf-interactive-item" id="tf4">
+      <div class="tf-num">4.</div>
+      <div class="tf-statement">Mrs Rai's position as Chief Editor is a completely new role at the newspaper.</div>
+      <div class="tf-btns">
+        <button class="tf-btn" onclick="selectTF(this,'tf4',true)">True</button>
+        <button class="tf-btn" onclick="selectTF(this,'tf4',true)">False</button>
+      </div>
+      <div class="tf-result-icon" id="tf4-result"></div>
+      <div class="tf-reason" id="tf4-reason">True - The letter mentions this is a new position at the daily paper.</div>
+    </div>
+
+    <div class="tf-interactive-item" id="tf5">
+      <div class="tf-num">5.</div>
+      <div class="tf-statement">Anil Gurung believes that Mrs Rai will not do a good job as Chief Editor.</div>
+      <div class="tf-btns">
+        <button class="tf-btn" onclick="selectTF(this,'tf5',false)">True</button>
+        <button class="tf-btn" onclick="selectTF(this,'tf5',false)">False</button>
+      </div>
+      <div class="tf-result-icon" id="tf5-result"></div>
+      <div class="tf-reason" id="tf5-reason">False - He says he is certain she will do a fine job.</div>
+    </div>
+
+    <button class="match-reset-btn" onclick="resetAllTF()">Reset All T/F</button>
+  </div>
+
+  <!-- ===== FILL IN THE BLANKS ===== -->
+  <div class="section-card" id="ex-fill">
+    <h2 class="section-title"><span class="icon">&#9999;</span> Fill in the Blanks</h2>
+    <p style="font-weight:700; margin-bottom:12px;">Choose from the difficult words to fill in the blanks.</p>
+
+    <div class="word-bank">
+      <span class="word-bank-label">Word Bank:</span>
+      <span class="word-bank-word" onclick="useWordBank(this)">position</span>
+      <span class="word-bank-word" onclick="useWordBank(this)">unbiased</span>
+      <span class="word-bank-word" onclick="useWordBank(this)">hesitate</span>
+      <span class="word-bank-word" onclick="useWordBank(this)">accomplishment</span>
+      <span class="word-bank-word" onclick="useWordBank(this)">impressive</span>
+    </div>
+
+    <div class="fill-interactive-item" id="fill1">
+      <p class="fill-sentence">1. A journalist must always be <input class="fill-input" data-answer="unbiased" type="text" placeholder="___"> while reporting the news.</p>
+    </div>
+    <div class="fill-interactive-item" id="fill2">
+      <p class="fill-sentence">2. She was chosen for the <input class="fill-input" data-answer="position" type="text" placeholder="___"> of principal in the school.</p>
+    </div>
+    <div class="fill-interactive-item" id="fill3">
+        <p class="fill-sentence">3. The teacher praised the student's <input class="fill-input" data-answer="impressive" type="text" placeholder="___"> presentation in front of the class.</p>
+    </div>
+    <div class="fill-interactive-item" id="fill4">
+      <p class="fill-sentence">4. Winning the championship was a great <input class="fill-input" data-answer="accomplishment" type="text" placeholder="___"> for the team.</p>
+    </div>
+    <div class="fill-interactive-item" id="fill5">
+    <p class="fill-sentence">5. He did not <input class="fill-input" data-answer="hesitate" type="text" placeholder="___"> to help his friend when he was in trouble.</p>
+    </div>
+
+    <div class="fill-check-btns">
+      <button class="fill-check-btn" onclick="checkFill()">Check Answers</button>
+      <button class="fill-show-btn" onclick="showFill()">Show Answers</button>
+      <button class="fill-reset-btn" onclick="resetFill()">Reset</button>
+    </div>
+  </div>
+
+</div><!-- /main-wrap -->
+
+<!-- ===== MEANING POPUP (outside main-wrap for fixed positioning) ===== -->
+<div class="meaning-popup" id="meaningPopup">
+  <button class="popup-close" onclick="hideMeaning()">&times;</button>
+  <div class="popup-word" id="popupWord"></div>
+  <div class="popup-en" id="popupEn"></div>
+  <div class="popup-ne" id="popupNe"></div>
+</div>
+
+<!-- ===== SCROLL-TO-TOP ===== -->
+<button class="scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#9650;</button>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  Grade 9 English | Unit 13 | A Message of Congratulations | Interactive Study Notes | N. REGMI
+</footer>
+
+<script>
+/* ===== FONT SIZE CONTROL ===== */
+var currentSize = 20;
+var MIN_SIZE = 13;
+var MAX_SIZE = 26;
+
+function changeFontSize(dir) {
+  currentSize = Math.max(MIN_SIZE, Math.min(MAX_SIZE, currentSize + dir));
+  document.documentElement.style.setProperty('--font-size-base', currentSize + 'px');
+}
+
+/* ===== MEANING POPUP ===== */
+var popupTimer = null;
+
+function showMeaning(word, en, ne) {
+  var p = document.getElementById('meaningPopup');
+  document.getElementById('popupWord').textContent = word;
+  document.getElementById('popupEn').textContent = en;
+  document.getElementById('popupNe').textContent = ne;
+  p.classList.add('show');
+  clearTimeout(popupTimer);
+  popupTimer = setTimeout(hideMeaning, 6000);
+}
+
+function hideMeaning() {
+  document.getElementById('meaningPopup').classList.remove('show');
+  clearTimeout(popupTimer);
+}
+
+/* ===== INTERACTIVE MATCHING ===== */
+var correctMap = {'a':'1','b':'2','c':'3','d':'4','e':'5'};
+var selectedLeft = null;
+var selectedRight = null;
+var matchedPairs = {};
+
+function selectMatch(el, side) {
+  if (el.classList.contains('matched')) return;
+
+  if (side === 'left') {
+    var options = document.querySelectorAll('#matchColL .match-option');
+    for (var i = 0; i < options.length; i++) {
+      options[i].classList.remove('selected');
+    }
+    el.classList.add('selected');
+    selectedLeft = el;
+  } else {
+    var options = document.querySelectorAll('#matchColR .match-option');
+    for (var i = 0; i < options.length; i++) {
+      options[i].classList.remove('selected');
+    }
+    el.classList.add('selected');
+    selectedRight = el;
+  }
+
+  if (selectedLeft && selectedRight) {
+    var leftId = selectedLeft.getAttribute('data-id');
+    var rightId = selectedRight.getAttribute('data-id');
+
+    if (correctMap[leftId] === rightId) {
+      selectedLeft.classList.remove('selected');
+      selectedRight.classList.remove('selected');
+      selectedLeft.classList.add('matched');
+      selectedRight.classList.add('matched');
+      selectedLeft.innerHTML = selectedLeft.innerHTML + ' <span class="match-check">&#10003;</span>';
+      selectedRight.innerHTML = selectedRight.innerHTML + ' <span class="match-check">&#10003;</span>';
+      matchedPairs[leftId] = rightId;
+      var total = Object.keys(correctMap).length;
+      var done = Object.keys(matchedPairs).length;
+      document.getElementById('matchStatusA').textContent = 'Correct! ' + done + '/' + total + ' pairs matched.';
+      document.getElementById('matchStatusA').className = 'match-status correct';
+      if (done === total) {
+        document.getElementById('matchStatusA').textContent = 'All pairs matched correctly! Great job!';
+      }
+    } else {
+      selectedLeft.classList.add('wrong-flash');
+      selectedRight.classList.add('wrong-flash');
+      document.getElementById('matchStatusA').textContent = 'Wrong pair! Try again.';
+      document.getElementById('matchStatusA').className = 'match-status wrong';
+      var sl = selectedLeft;
+      var sr = selectedRight;
+      setTimeout(function() {
+        sl.classList.remove('selected');
+        sl.classList.remove('wrong-flash');
+        sr.classList.remove('selected');
+        sr.classList.remove('wrong-flash');
+      }, 600);
+    }
+    selectedLeft = null;
+    selectedRight = null;
+  }
+}
+
+function resetMatch() {
+  matchedPairs = {};
+  selectedLeft = null;
+  selectedRight = null;
+  var leftOpts = document.querySelectorAll('#matchColL .match-option');
+  var rightOpts = document.querySelectorAll('#matchColR .match-option');
+  for (var i = 0; i < leftOpts.length; i++) {
+    leftOpts[i].classList.remove('selected');
+    leftOpts[i].classList.remove('matched');
+    leftOpts[i].classList.remove('wrong-flash');
+    leftOpts[i].innerHTML = leftOpts[i].innerHTML.replace(/ <span class="match-check">&#10003;<\/span>/, '');
+  }
+  for (var i = 0; i < rightOpts.length; i++) {
+    rightOpts[i].classList.remove('selected');
+    rightOpts[i].classList.remove('matched');
+    rightOpts[i].classList.remove('wrong-flash');
+    rightOpts[i].innerHTML = rightOpts[i].innerHTML.replace(/ <span class="match-check">&#10003;<\/span>/, '');
+  }
+  document.getElementById('matchStatusA').textContent = '';
+  document.getElementById('matchStatusA').className = 'match-status';
+}
+
+/* ===== EXERCISE ACCORDION ===== */
+function toggleExercise(btn) {
+  var content = btn.nextElementSibling;
+  var wasOpen = content.classList.contains('open');
+
+  /* Close all siblings in the same section */
+  var section = btn.closest('.exercise-section');
+  if (section) {
+    var contents = section.querySelectorAll('.exercise-content');
+    for (var i = 0; i < contents.length; i++) {
+      contents[i].classList.remove('open');
+    }
+    var toggles = section.querySelectorAll('.exercise-toggle');
+    for (var i = 0; i < toggles.length; i++) {
+      toggles[i].classList.remove('active');
+    }
+  }
+
+  if (!wasOpen) {
+    content.classList.add('open');
+    btn.classList.add('active');
+  }
+}
+
+/* ===== INTERACTIVE T/F ===== */
+function selectTF(btn, itemId, correctAnswer) {
+  var item = document.getElementById(itemId);
+  var btns = item.querySelectorAll('.tf-btn');
+
+  /* Remove previous styling */
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].classList.remove('chosen-t');
+    btns[i].classList.remove('chosen-f');
+    btns[i].classList.remove('correct-answer');
+    btns[i].classList.remove('wrong-answer');
+  }
+
+  /* Determine what the user clicked */
+  var isTrueBtn = (btn.textContent.trim() === 'True');
+  var userAnswer = isTrueBtn;
+
+  if (userAnswer) {
+    btn.classList.add('chosen-t');
+  } else {
+    btn.classList.add('chosen-f');
+  }
+
+  /* Auto-check and show result */
+  var resultEl = document.getElementById(itemId + '-result');
+  var reasonEl = document.getElementById(itemId + '-reason');
+
+  if (userAnswer === correctAnswer) {
+    resultEl.textContent = '\u2713';
+    resultEl.className = 'tf-result-icon show correct';
+    btn.classList.add('correct-answer');
+    for (var i = 0; i < btns.length; i++) {
+      if (btns[i] !== btn) {
+        btns[i].classList.add('wrong-answer');
+      }
+    }
+  } else {
+    resultEl.textContent = '\u2717';
+    resultEl.className = 'tf-result-icon show wrong';
+    btn.classList.add('wrong-answer');
+    for (var i = 0; i < btns.length; i++) {
+      if (btns[i] !== btn) {
+        var otherIsTrue = (btns[i].textContent.trim() === 'True');
+        if (otherIsTrue === correctAnswer) {
+          btns[i].classList.add('correct-answer');
+        } else {
+          btns[i].classList.add('wrong-answer');
+        }
+      }
+    }
+  }
+  reasonEl.classList.add('show');
+}
+
+function resetAllTF() {
+  var ids = ['tf1','tf2','tf3','tf4','tf5'];
+  for (var k = 0; k < ids.length; k++) {
+    var id = ids[k];
+    var item = document.getElementById(id);
+    var btns = item.querySelectorAll('.tf-btn');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].classList.remove('chosen-t');
+      btns[i].classList.remove('chosen-f');
+      btns[i].classList.remove('correct-answer');
+      btns[i].classList.remove('wrong-answer');
+    }
+    document.getElementById(id + '-result').className = 'tf-result-icon';
+    document.getElementById(id + '-result').textContent = '';
+    document.getElementById(id + '-reason').className = 'tf-reason';
+  }
+}
+
+/* ===== INTERACTIVE FILL-IN-BLANKS ===== */
+function useWordBank(span) {
+  if (span.classList.contains('used')) return;
+
+  /* Find the first empty input */
+  var inputs = document.querySelectorAll('.fill-input');
+  var target = null;
+  for (var i = 0; i < inputs.length; i++) {
+    if (inputs[i].value.trim() === '' && !inputs[i].classList.contains('correct-fill')) {
+      target = inputs[i];
+      break;
+    }
+  }
+  if (target) {
+    target.value = span.textContent;
+    span.classList.add('used');
+    target.focus();
+  }
+}
+
+function checkFill() {
+  var inputs = document.querySelectorAll('.fill-input');
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].classList.remove('correct-fill');
+    inputs[i].classList.remove('wrong-fill');
+    var answer = inputs[i].getAttribute('data-answer').toLowerCase().trim();
+    var userVal = inputs[i].value.toLowerCase().trim();
+    if (userVal === answer) {
+      inputs[i].classList.add('correct-fill');
+    } else if (userVal !== '') {
+      inputs[i].classList.add('wrong-fill');
+    }
+  }
+}
+
+function showFill() {
+  var inputs = document.querySelectorAll('.fill-input');
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].value = inputs[i].getAttribute('data-answer');
+    inputs[i].classList.remove('wrong-fill');
+    inputs[i].classList.add('correct-fill');
+  }
+}
+
+function resetFill() {
+  var inputs = document.querySelectorAll('.fill-input');
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].value = '';
+    inputs[i].classList.remove('correct-fill');
+    inputs[i].classList.remove('wrong-fill');
+  }
+  var words = document.querySelectorAll('.word-bank-word');
+  for (var i = 0; i < words.length; i++) {
+    words[i].classList.remove('used');
+  }
+}
+
+/* ===== DOWNLOAD ===== */
+function downloadPage() {
+  var html = document.documentElement.outerHTML;
+  var blob = new Blob(['<!DOCTYPE html>\n' + html], { type: 'text/html' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'A_Message_of_Congratulations_Interactive.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+/* ===== SCROLL-TO-TOP ===== */
+window.addEventListener('scroll', function() {
+  var btn = document.getElementById('scrollTopBtn');
+  if (window.scrollY > 400) {
+    btn.classList.add('show');
+  } else {
+    btn.classList.remove('show');
+  }
+});
+</script>
+
+</body>
+</html>

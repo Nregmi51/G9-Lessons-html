@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paulo Coelho — Grade 9 English Unit 12</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --font-size-base:17px;
+  --bg:#F8F4FA;
+  --card:#FFFFFF;
+  --primary:#5B2A86;
+  --primary-dark:#3B1A5E;
+  --primary-light:#9B72C7;
+  --accent:#D4A017;
+  --accent-dark:#A47C12;
+  --accent2:#C9456D;
+  --text:#2A1B3D;
+  --text-light:#4A3760;
+  --muted:#7A6B8A;
+  --border:#E5D9ED;
+  --highlight:#FAF0DC;
+  --highlight-border:#D4A017;
+  --success:#2D8B5A;
+  --error:#B8324F;
+  --shadow:0 2px 12px rgba(91,42,134,0.10);
+  --radius:14px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{
+  font-family:'Lora','Noto Sans SC',serif;
+  font-size:var(--font-size-base);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.8;
+  min-height:100vh;
+}
+
+/* ─── HEADER ─── */
+.site-header{
+  background:linear-gradient(135deg,#1A0B2E 0%,#5B2A86 35%,#7B4BAA 70%,#B89AD6 100%);
+  padding:38px 20px 32px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.site-header::before{
+  content:'';position:absolute;top:-50%;left:-20%;width:140%;height:200%;
+  background:radial-gradient(ellipse at 30% 60%,rgba(212,160,23,0.18) 0%,transparent 60%);
+  pointer-events:none;
+}
+.site-header::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,#D4A017,#C9456D,#D4A017);
+}
+.site-header h1{
+  font-family:'Playfair Display',serif;font-size:2.6rem;color:#F5EBFA;
+  font-weight:700;letter-spacing:0.5px;position:relative;
+  text-shadow:0 2px 8px rgba(26,11,46,0.5);
+}
+.site-header .subtitle{
+  color:#D4A017;font-size:1.05rem;margin-top:8px;font-style:italic;
+  font-family:'Playfair Display',serif;position:relative;letter-spacing:0.4px;
+}
+.site-header .meta{
+  color:rgba(245,235,250,0.75);font-size:0.85rem;margin-top:10px;position:relative;
+  font-family:'Manrope',sans-serif;letter-spacing:0.5px;
+}
+.site-header .meta span{margin:0 8px}
+
+/* ─── TOOLBAR ─── */
+.toolbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(248,244,250,0.93);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  padding:10px 20px;
+  display:flex;justify-content:center;gap:12px;align-items:center;
+  flex-wrap:wrap;
+}
+.toolbar button{
+  border:none;border-radius:8px;padding:7px 18px;
+  font-size:0.9rem;font-weight:600;cursor:pointer;
+  font-family:'Manrope',sans-serif;
+  transition:all 0.2s;
+}
+.btn-font{background:var(--primary);color:#FFF}
+.btn-font:hover{background:var(--primary-dark);transform:scale(1.05)}
+.btn-download{background:var(--accent);color:#FFF}
+.btn-download:hover{background:var(--accent-dark);transform:scale(1.05)}
+
+/* ─── NAV JUMP LINKS ─── */
+.nav-jump{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:18px 22px;
+  margin-bottom:24px;box-shadow:var(--shadow);
+}
+.nav-jump h2{
+  font-family:'Playfair Display',serif;color:var(--primary);
+  font-size:1.3rem;margin-bottom:12px;font-weight:700;
+}
+.nav-jump-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+  gap:8px;
+}
+.nav-jump-grid a{
+  display:flex;align-items:center;gap:8px;
+  padding:9px 14px;border-radius:8px;
+  background:linear-gradient(135deg,#F5EBFA,#EAD9F2);
+  color:var(--text);text-decoration:none;
+  font-size:0.88rem;font-weight:500;
+  font-family:'Manrope',sans-serif;
+  border-left:3px solid var(--accent);
+  transition:all 0.25s;
+}
+.nav-jump-grid a:hover{
+  background:linear-gradient(135deg,#D4A01722,#D4A01715);
+  border-left-color:var(--primary);
+  transform:translateX(4px);
+  color:var(--primary);
+}
+.nav-jump-grid a .nav-icon{font-size:1rem;flex-shrink:0}
+
+/* ─── SCROLL TO TOP ─── */
+#scrollTopBtn{
+  position:fixed;bottom:90px;right:24px;z-index:9998;
+  width:48px;height:48px;border-radius:50%;
+  background:var(--primary);color:#FFF;
+  border:2px solid var(--primary-light);
+  font-size:1.3rem;cursor:pointer;
+  box-shadow:0 4px 16px rgba(91,42,134,0.35);
+  opacity:0;pointer-events:none;
+  transition:all 0.35s cubic-bezier(.4,0,.2,1);
+  display:flex;align-items:center;justify-content:center;
+}
+#scrollTopBtn.show{opacity:1;pointer-events:auto}
+#scrollTopBtn:hover{
+  background:var(--accent);border-color:var(--accent-dark);
+  transform:translateY(-3px);
+  box-shadow:0 6px 20px rgba(212,160,23,0.4);
+}
+
+/* ─── MAIN CONTAINER ─── */
+.container{max-width:880px;margin:0 auto;padding:24px 16px 60px}
+
+/* ─── SECTION CARD ─── */
+.section-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px 26px;
+  margin-bottom:24px;box-shadow:var(--shadow);
+  transition:box-shadow 0.3s;
+}
+.section-card:hover{box-shadow:0 4px 20px rgba(91,42,134,0.16)}
+.section-card h2{
+  font-family:'Playfair Display',serif;color:var(--primary);
+  font-size:1.55rem;margin-bottom:16px;padding-bottom:10px;
+  border-bottom:2px solid var(--primary-light);
+  display:flex;align-items:center;gap:10px;font-weight:700;
+}
+.section-card h2 .section-icon{font-size:1.2rem}
+.section-card h3{
+  font-family:'Playfair Display',serif;color:var(--accent-dark);
+  font-size:1.18rem;margin:18px 0 10px;font-weight:600;
+}
+
+/* ─── READING PARAGRAPHS ─── */
+.reading-para{
+  margin:16px 0;padding:16px 22px;
+  background:#FDFBFE;border-radius:10px;
+  border-left:4px solid var(--accent);
+  line-height:1.9;
+}
+.reading-para .para-label{
+  display:inline-block;background:var(--primary);
+  color:#FFF;font-size:0.72rem;font-weight:700;
+  padding:2px 10px;border-radius:4px;margin-bottom:8px;
+  letter-spacing:1px;
+  font-family:'Manrope',sans-serif;text-transform:uppercase;
+}
+
+/* ─── HIGHLIGHTED WORD ─── */
+.hw{
+  background:var(--highlight);color:var(--accent-dark);
+  padding:1px 6px;border-radius:4px;cursor:pointer;
+  border-bottom:2px dashed var(--highlight-border);
+  font-weight:600;transition:all 0.2s;
+  font-family:'Lora',serif;
+}
+.hw:hover{background:#F5D98C;transform:scale(1.04)}
+
+/* ─── MEANING POPUP ─── */
+#meaningPopup{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);
+  z-index:9999;background:#1A0B2E;color:#F5EBFA;
+  border-radius:16px;padding:18px 24px;
+  box-shadow:0 8px 32px rgba(26,11,46,0.50);
+  min-width:300px;max-width:90vw;
+  opacity:0;pointer-events:none;transition:all 0.35s cubic-bezier(.4,0,.2,1);
+  border:2px solid rgba(212,160,23,0.4);
+}
+#meaningPopup.show{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+#meaningPopup .popup-word{
+  font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;
+  color:#D4A017;margin-bottom:8px;display:flex;align-items:center;gap:8px;
+}
+#meaningPopup .popup-word::before{content:'📖';font-size:1.1rem}
+#meaningPopup .popup-meaning{font-size:0.92rem;line-height:1.6;font-family:'Lora',serif}
+#meaningPopup .popup-meaning span{display:block;margin:3px 0}
+#meaningPopup .popup-en{color:#B89AD6;font-weight:500}
+#meaningPopup .popup-ne{color:#F5EBFA;font-weight:400}
+#meaningPopup .popup-close{
+  position:absolute;top:8px;right:12px;
+  background:none;border:none;color:#B89AD6;
+  font-size:1.3rem;cursor:pointer;line-height:1;
+}
+#meaningPopup .popup-close:hover{color:#D4A017}
+
+/* ─── VOCABULARY TABLE ─── */
+.vocab-table{
+  width:100%;border-collapse:separate;border-spacing:0;
+  border-radius:10px;overflow:hidden;
+  font-size:0.91rem;margin:12px 0;
+  font-family:'Lora',serif;
+}
+.vocab-table thead{background:var(--primary);color:#FFF}
+.vocab-table thead th{
+  padding:10px 12px;text-align:left;font-weight:600;font-size:0.88rem;
+  font-family:'Manrope',sans-serif;letter-spacing:0.4px;
+}
+.vocab-table tbody tr{transition:background 0.2s}
+.vocab-table tbody tr:nth-child(even){background:#F5EBFA}
+.vocab-table tbody tr:hover{background:#EAD9F2}
+.vocab-table td{padding:8px 12px;border-bottom:1px solid var(--border)}
+.vocab-table td:first-child{font-weight:600;color:var(--accent-dark)}
+
+/* ─── WORD FORMS TABLE ─── */
+.word-forms-table{
+  width:100%;border-collapse:separate;border-spacing:0;
+  border-radius:10px;overflow:hidden;
+  font-size:0.92rem;margin:12px 0;
+  font-family:'Lora',serif;
+}
+.word-forms-table thead{background:var(--accent);color:#FFF}
+.word-forms-table thead th{
+  padding:10px 14px;text-align:left;font-weight:600;font-size:0.88rem;
+  font-family:'Manrope',sans-serif;letter-spacing:0.4px;
+}
+.word-forms-table tbody tr{transition:background 0.2s}
+.word-forms-table tbody tr:nth-child(even){background:#FAF0DC}
+.word-forms-table tbody tr:hover{background:#F5D98C}
+.word-forms-table td{padding:8px 14px;border-bottom:1px solid var(--border)}
+.word-forms-table td:first-child{font-weight:600;color:var(--primary)}
+
+/* ─── EXERCISE SECTION ─── */
+.exercise-item{
+  border:1px solid var(--border);border-radius:10px;
+  margin:10px 0;overflow:hidden;
+  transition:border-color 0.3s;
+}
+.exercise-item:hover{border-color:var(--primary-light)}
+.exercise-question{
+  padding:14px 18px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;
+  font-weight:500;background:#FDFBFE;
+  transition:background 0.2s;user-select:none;
+  gap:10px;font-family:'Lora',serif;
+}
+.exercise-question:hover{background:#F5EBFA}
+.exercise-question .arrow{
+  font-size:1.1rem;transition:transform 0.3s;color:var(--accent);
+  flex-shrink:0;
+}
+.exercise-item.open .exercise-question .arrow{transform:rotate(90deg)}
+.exercise-answer{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.4s ease,padding 0.3s;
+}
+.exercise-item.open .exercise-answer{
+  max-height:900px;padding:14px 18px;
+}
+.exercise-answer-inner{
+  background:linear-gradient(135deg,#F5EBFA,#FDFBFE);
+  border-radius:8px;padding:14px 16px;
+  color:var(--text);font-size:0.95rem;
+  border-left:4px solid var(--accent);
+  font-family:'Lora',serif;line-height:1.75;
+}
+
+/* ─── TF / FILL ─── */
+.tf-item,.fill-item{
+  border:1px solid var(--border);border-radius:10px;
+  margin:8px 0;overflow:hidden;
+}
+.tf-question,.fill-question{
+  padding:12px 16px;cursor:pointer;
+  background:#FDFBFE;font-weight:500;
+  display:flex;justify-content:space-between;align-items:center;
+  transition:background 0.2s;gap:10px;
+  font-family:'Lora',serif;
+}
+.tf-question:hover,.fill-question:hover{background:#F5EBFA}
+.tf-answer,.fill-answer{
+  max-height:0;overflow:hidden;transition:max-height 0.4s ease;
+}
+.tf-item.open .tf-answer,.fill-item.open .fill-answer{
+  max-height:400px;padding:12px 16px;
+}
+.tf-answer-inner,.fill-answer-inner{
+  background:linear-gradient(135deg,#F5EBFA,#FDFBFE);
+  border-radius:8px;padding:12px 14px;
+  font-size:0.93rem;border-left:4px solid var(--accent);
+  font-family:'Lora',serif;line-height:1.7;
+}
+
+/* ─── CHRONOLOGICAL TABLE ─── */
+.chrono-table{
+  width:100%;border-collapse:separate;border-spacing:0;
+  border-radius:10px;overflow:hidden;
+  font-size:0.93rem;margin:12px 0;
+  font-family:'Lora',serif;
+}
+.chrono-table thead{background:var(--accent2);color:#FFF}
+.chrono-table thead th{
+  padding:10px 14px;text-align:left;font-weight:600;
+  font-family:'Manrope',sans-serif;letter-spacing:0.4px;
+}
+.chrono-table tbody tr:nth-child(even){background:#FBEBF0}
+.chrono-table tbody tr:hover{background:#F5D9E3}
+.chrono-table td{padding:8px 14px;border-bottom:1px solid var(--border)}
+.chrono-table td:first-child{
+  font-weight:700;color:var(--accent2);
+  text-align:center;width:80px;
+  font-family:'Manrope',sans-serif;
+}
+
+/* ─── FOOTER ─── */
+.site-footer{
+  background:linear-gradient(135deg,#1A0B2E,#5B2A86);
+  color:rgba(245,235,250,0.7);text-align:center;
+  padding:18px 20px;font-size:0.78rem;
+  margin-top:20px;font-family:'Manrope',sans-serif;letter-spacing:0.3px;
+}
+.site-footer a{color:#D4A017;text-decoration:none;font-weight:500}
+.site-footer a:hover{text-decoration:underline}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:640px){
+  .site-header h1{font-size:1.8rem}
+  .container{padding:16px 10px 40px}
+  .section-card{padding:18px 14px}
+  .section-card h2{font-size:1.3rem}
+  .reading-para{padding:12px 14px}
+  #meaningPopup{min-width:260px;padding:14px 18px}
+  .vocab-table,.word-forms-table,.chrono-table{font-size:0.82rem}
+  .vocab-table td,.vocab-table th,.word-forms-table td,.word-forms-table th,.chrono-table td,.chrono-table th{padding:6px 8px}
+  .toolbar{gap:6px;padding:8px 10px}
+  .toolbar button{padding:6px 12px;font-size:0.82rem}
+  .nav-jump-grid{grid-template-columns:1fr}
+  #scrollTopBtn{width:42px;height:42px;right:16px;bottom:80px;font-size:1.1rem}
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.section-card{animation:fadeInUp 0.5s ease both}
+.section-card:nth-child(2){animation-delay:0.04s}
+.section-card:nth-child(3){animation-delay:0.08s}
+.section-card:nth-child(4){animation-delay:0.12s}
+.section-card:nth-child(5){animation-delay:0.16s}
+.section-card:nth-child(6){animation-delay:0.20s}
+.section-card:nth-child(7){animation-delay:0.24s}
+.section-card:nth-child(8){animation-delay:0.28s}
+.section-card:nth-child(9){animation-delay:0.32s}
+.section-card:nth-child(10){animation-delay:0.36s}
+</style>
+</head>
+<body>
+
+<!-- ═══════ HEADER ═══════ -->
+<header class="site-header" id="top">
+  <h1>Paulo Coelho</h1>
+  <div class="subtitle">Unit 12 — The Alchemist of Words</div>
+  <div class="meta">
+    <span>Grade 9</span>•<span>English</span>•<span>Unit 12</span>•<span>People and Places</span>
+  </div>
+</header>
+
+<!-- ═══════ TOOLBAR ═══════ -->
+<div class="toolbar">
+  <button class="btn-font" onclick="changeFontSize(-1)">A−</button>
+  <button class="btn-font" onclick="changeFontSize(1)">A+</button>
+  <button class="btn-download" onclick="downloadHTML()">⬇ Download HTML</button>
+</div>
+
+<!-- ═══════ SCROLL TO TOP ═══════ -->
+<button id="scrollTopBtn" onclick="scrollToTop()" title="Go to top">⬆</button>
+
+<!-- ═══════ MAIN ═══════ -->
+<div class="container">
+
+<!-- ──── NAV JUMP LINKS ──── -->
+<div class="nav-jump">
+  <h2>📑 Quick Navigation — Jump to Section</h2>
+  <div class="nav-jump-grid">
+    <a href="#reading"><span class="nav-icon">📖</span> The Reading Text</a>
+    <a href="#vocab"><span class="nav-icon">📗</span> Word Meanings</a>
+    <a href="#exercise-a"><span class="nav-icon">✅</span> Exercise A — Word Forms</a>
+    <a href="#exercise-b"><span class="nav-icon">✅</span> Exercise B — Chronology</a>
+    <a href="#exercise-c"><span class="nav-icon">✅</span> Exercise C — Short Answers</a>
+    <a href="#short-questions"><span class="nav-icon">➕</span> Short Questions</a>
+    <a href="#true-false"><span class="nav-icon">➕</span> True / False</a>
+    <a href="#fill-blanks"><span class="nav-icon">➕</span> Fill in the Blanks</a>
+  </div>
+</div>
+
+<!-- ──── READING TEXT ──── -->
+<div class="section-card" id="reading">
+  <h2><span class="section-icon">📖</span> Paulo Coelho — Reading Text</h2>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph I — Early Life</div>
+    Paulo Coelho is a well-known Brazilian <span class="hw" onclick="showMeaning('author','a person who writes books','लेखक')">author</span> and <span class="hw" onclick="showMeaning('lyricist','a person who writes the words of songs','गीतकार')">lyricist</span>. He was born on 24 August 1947 in Rio de Janeiro, Brazil. He had always loved writing and dreamed of being a writer from an early age. He was, however, <span class="hw" onclick="showMeaning('discouraged','made to feel less confident or enthusiastic','निरुत्साहित गरियो')">discouraged</span> by his parents who wanted him to become a <span class="hw" onclick="showMeaning('lawyer','a person who practises law','वकिल')">lawyer</span>. During <span class="hw" onclick="showMeaning('adolescence','the period between childhood and adulthood','किशोरावस्था')">adolescence</span> Coelho was sent three times to a <span class="hw" onclick="showMeaning('mental hospital','a hospital for people with mental illness','मानसिक अस्पताल')">mental hospital</span> by his parents because of his dream to become a writer. In his twenties, he was <span class="hw" onclick="showMeaning('arrested','taken into custody by the police','पक्राउ गरियो')">arrested</span> and <span class="hw" onclick="showMeaning('tortured','caused great suffering to','यातना दिइयो')">tortured</span> in Brazil, but always kept dreaming of becoming a writer. After his <span class="hw" onclick="showMeaning('release','the act of being set free','रिहाई')">release</span> from prison, Coelho <span class="hw" onclick="showMeaning('enrolled','officially joined or registered','भर्ना भयो')">enrolled</span> in law school and <span class="hw" onclick="showMeaning('abandoned','gave up completely','त्याग गर्यो')">abandoned</span> his dream of becoming a writer. One year later, he dropped out and lived life as a <span class="hw" onclick="showMeaning('hippie','a person who rejects conventional society','हिप्पी')">hippie</span>, travelling through South America, North Africa, Mexico, and Europe and started using drugs in the 1960s.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph II — A Spiritual Turning Point</div>
+    He changed his life <span class="hw" onclick="showMeaning('radically','completely and fundamentally','मौलिक रूपमा')">radically</span> at the age of 36, after a <span class="hw" onclick="showMeaning('pilgrimage','a journey to a sacred place','तीर्थयात्रा')">pilgrimage</span> to Santiago de Compostela in Spain, where he experienced a <span class="hw" onclick="showMeaning('spiritual','relating to the human spirit or soul','आध्यात्मिक')">spiritual</span> <span class="hw" onclick="showMeaning('awakening','a moment of becoming suddenly aware','जागृति')">awakening</span> and felt <span class="hw" onclick="showMeaning('inspired','filled with the urge to do something creative','प्रेरित')">inspired</span> to write the book, <em>The Pilgrimage</em> (1987). Only one year later, he wrote <em>The Alchemist</em> in the course of a two-week <span class="hw" onclick="showMeaning('spurt','a sudden burst of activity or energy','तीव्र प्रयास')">spurt</span> of <span class="hw" onclick="showMeaning('creativity','the ability to produce original ideas','सिर्जनशीलता')">creativity</span>. <em>The Alchemist</em> was Paulo Coelho's <span class="hw" onclick="showMeaning('break-through','an important achievement or success','सफलताको मोड')">break-through</span> as an international author. The <span class="hw" onclick="showMeaning('allegorical','using characters or events as symbols to represent ideas','रूपकात्मक')">allegorical</span> novel is about a shepherd boy who follows a <span class="hw" onclick="showMeaning('mystical','having a spiritual or mysterious quality','रहस्यमय')">mystical</span> trek in which he learns to speak the "Language of the World" and thus receives his heart's desire. The book attracted little attention at first, until a French-language <span class="hw" onclick="showMeaning('translation','a version of a text in a different language','अनुवाद')">translation</span> suddenly <span class="hw" onclick="showMeaning('leapt','jumped suddenly','उछाल्यो')">leapt</span> onto the <span class="hw" onclick="showMeaning('bestseller','a book that sells in very large numbers','धेरै बिक्री हुने')">bestseller</span> lists in France in the early 1990s. New translations followed, and soon <em>The Alchemist</em> became a worldwide <span class="hw" onclick="showMeaning('phenomenon','a remarkable event or thing','घटना')">phenomenon</span>. The book has sold, by Coelho's count, roughly 35 million copies, and is now the most <span class="hw" onclick="showMeaning('translated','converted into another language','अनुवाद गरिएको')">translated</span> book in the world by any living author.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph III — A Prolific Career</div>
+    Since then he has published books at a rate of about one every two years. In 2013, <span class="hw" onclick="showMeaning('approximately','about or nearly','लगभग')">approximately</span> 150 million copies of his books were published in at least 71 languages. Several of his books are <span class="hw" onclick="showMeaning('autobiographic','relating to a person\'s own life story','आत्मजीवनीय')">autobiographic</span> in nature and deal with <span class="hw" onclick="showMeaning('spirituality','the quality of being concerned with the human spirit','आध्यात्मिकता')">spirituality</span> and <span class="hw" onclick="showMeaning('faith','strong belief in religion or God','विश्वास')">faith</span>, <span class="hw" onclick="showMeaning('societal','relating to society','सामाजिक')">societal</span> impacts on individuals and love. His 26 books have sold more than 65 million copies in at least 59 languages. Besides <em>The Alchemist</em>, his other <span class="hw" onclick="showMeaning('notable','worthy of attention','उल्लेखनीय')">notable</span> works include <em>Veronika Decides to Die</em> (1998), which <span class="hw" onclick="showMeaning('mines','explores deeply','खन्छ')">mines</span> the <span class="hw" onclick="showMeaning('perceived','understood or interpreted','अनुभव गरिएको')">perceived</span> mental <span class="hw" onclick="showMeaning('instability','the state of being unstable','अस्थिरता')">instability</span> of his youth; <em>The Devil and Miss Prym</em> (2000), an <span class="hw" onclick="showMeaning('investigation','a careful examination','अनुसन्धान')">investigation</span> of the <span class="hw" onclick="showMeaning('essential','absolutely necessary','आवश्यक')">essential</span> nature of <span class="hw" onclick="showMeaning('humankind','human beings as a whole','मानवजाति')">humankind</span>; and <em>Eleven Minutes</em> (2003), which <span class="hw" onclick="showMeaning('explores','examines or investigates','अन्वेषण गर्छ')">explores</span> the boundaries between love and sex through the story of a <span class="hw" onclick="showMeaning('prostitute','a person who has sex for money','वेश्या')">prostitute</span>. <em>The Witch of Portobello</em> (2006) tells the story of a female religious leader in the form of <span class="hw" onclick="showMeaning('interviews','formal conversations used to gather information','अन्तर्वार्ताहरू')">interviews</span> with those who knew her. <em>The Winner Stands Alone</em> (2008) is a <span class="hw" onclick="showMeaning('thriller','an exciting novel or film','रोमाञ्चक उपन्यास')">thriller</span> set against the Cannes Film Festival. Similarly, <em>Aleph</em> (2010) was <span class="hw" onclick="showMeaning('ostensibly','apparently or seemingly','देखाउनलाई')">ostensibly</span> the true tale of Coelho's 2006 journey on the Trans-Siberian Railroad, but he <span class="hw" onclick="showMeaning('embroidered','added extra details to make something more interesting','सजाउनु')">embroidered</span> the experience with a supposed <span class="hw" onclick="showMeaning('encounter','a meeting, especially an unexpected one','भेट')">encounter</span> with a <span class="hw" onclick="showMeaning('reincarnated','reborn in a new body','पुनर्जन्म भएको')">reincarnated</span> lover from another lifetime. <em>Manuscript</em> <span class="hw" onclick="showMeaning('manuscript','a handwritten or typed text before being published','हस्तलिखित')">Found in Accra</span> (2012) concerns the experiences of a Greek wise man in Jerusalem prior to its <span class="hw" onclick="showMeaning('invasion','an act of entering a place with force','आक्रमण')">invasion</span> by <span class="hw" onclick="showMeaning('Crusaders','medieval Christian warriors','क्रुसेडरहरू')">Crusaders</span>. <em>Adultery</em> (2014) <span class="hw" onclick="showMeaning('chronicles','records events in order','वर्णन गर्छ')">chronicles</span> a successful <span class="hw" onclick="showMeaning('journalist','a person who writes for newspapers','पत्रकार')">journalist</span>'s <span class="hw" onclick="showMeaning('extramarital','happening outside of marriage','विवाहेतर')">extramarital</span> affair, and <em>Hippie</em> (2018) was inspired by Coelho's travels in the 1970s.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph IV — Other Works and Collections</div>
+    His other works include <em>Frases</em> (1996), a collection of short <span class="hw" onclick="showMeaning('excerpts','short passages taken from a text','अंशहरू')">excerpts</span> from his <span class="hw" onclick="showMeaning('oeuvre','a person\'s complete body of work','सम्पूर्ण रचना')">oeuvre</span>, and <em>Life: Selected Quotations</em> (2007), a similar collection of excerpts translated into English. Coelho also <span class="hw" onclick="showMeaning('compiled','collected and arranged','संकलन गर्यो')">compiled</span> selections from his weekly <span class="hw" onclick="showMeaning('column','a regular section in a newspaper','स्तम्भ')">column</span> in the newspaper <em>O Globo</em> into a volume titled <em>Maktub</em> which means "It is Written".
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph V — Recognition and Awards</div>
+    Coelho is now the world's most widely read author with several international <span class="hw" onclick="showMeaning('awards','prizes given for achievement','पुरस्कारहरू')">awards</span> under his belt. He has received several <span class="hw" onclick="showMeaning('prestigious','respected and admired','प्रतिष्ठित')">prestigious</span> awards including Crystal Award given by the World Economic Forum, France's Legion d'honneur (फ्रान्सको सर्वोच्च सम्मान / France's highest order of merit) and many more.
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph VI — Fans, Critics and Self-Image</div>
+    His fans call his books <span class="hw" onclick="showMeaning('inspiring','making people feel motivated','प्रेरणादायी')">inspiring</span> and life-changing. His <span class="hw" onclick="showMeaning('critics','people who express disapproval','आलोचकहरू')">critics</span> say that his books merely <span class="hw" onclick="showMeaning('promote','encourage or support','प्रवर्द्धन गर्छन्')">promote</span> <span class="hw" onclick="showMeaning('vague','not clear or definite','अस्पष्ट')">vague</span> spirituality <span class="hw" onclick="showMeaning('devoid','completely lacking','रहित')">devoid</span> of <span class="hw" onclick="showMeaning('rigour','the quality of being extremely thorough','कठोरता')">rigour</span>. A confident writer who <span class="hw" onclick="showMeaning('rejects','refuses to accept','अस्वीकार गर्छ')">rejects</span> the self-help <span class="hw" onclick="showMeaning('label','a word or phrase used to describe someone','ठप्पा')">label</span>—"I am not a self-help writer; I am a self-problem writer"—Coelho <span class="hw" onclick="showMeaning('dismisses','treats as unworthy of consideration','बेवास्ता गर्छ')">dismisses</span> his <span class="hw" onclick="showMeaning('naysayers','people who oppose or doubt','विरोधीहरू')">naysayers</span>' <span class="hw" onclick="showMeaning('critiques','detailed evaluations or analyses','आलोचनाहरू')">critiques</span>. "When I write a book I write a book for myself; the reaction is up to the reader," he says. "It's not my business whether people like or dislike it."
+  </div>
+
+  <div class="reading-para">
+    <div class="para-label">Paragraph VII — Personal Life and Legacy</div>
+    Coelho has been married to his wife, the artist Christina Oiticica, since 1980. Together the couple spend half the year in Rio de Janeiro and the other half in a country house in the <span class="hw" onclick="showMeaning('Pyrenees','a mountain range between France and Spain','पिरेनिज')">Pyrenees</span> Mountains of France. In 1996, Coelho founded the Paulo Coelho <span class="hw" onclick="showMeaning('Institute','an organization for a particular purpose','संस्था')">Institute</span>, which provides support to children and the <span class="hw" onclick="showMeaning('elderly','old people','वृद्धहरू')">elderly</span>.
+  </div>
+</div>
+
+<!-- ──── VOCABULARY ──── -->
+<div class="section-card" id="vocab">
+  <h2><span class="section-icon">📗</span> Word Meanings</h2>
+  <table class="vocab-table">
+    <thead>
+      <tr><th>Word / Phrase</th><th>English Meaning</th><th>Nepali Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>author</td><td>a person who writes books</td><td>लेखक</td></tr>
+      <tr><td>lyricist</td><td>a person who writes the words of songs</td><td>गीतकार</td></tr>
+      <tr><td>discouraged</td><td>made to feel less confident</td><td>निरुत्साहित गरियो</td></tr>
+      <tr><td>lawyer</td><td>a person who practises law</td><td>वकिल</td></tr>
+      <tr><td>adolescence</td><td>the period between childhood and adulthood</td><td>किशोरावस्था</td></tr>
+      <tr><td>mental hospital</td><td>a hospital for people with mental illness</td><td>मानसिक अस्पताल</td></tr>
+      <tr><td>arrested</td><td>taken into custody by police</td><td>पक्राउ गरियो</td></tr>
+      <tr><td>tortured</td><td>caused great physical or mental suffering</td><td>यातना दिइयो</td></tr>
+      <tr><td>release</td><td>the act of being set free</td><td>रिहाई</td></tr>
+      <tr><td>enrolled</td><td>officially joined or registered</td><td>भर्ना भयो</td></tr>
+      <tr><td>abandoned</td><td>gave up completely</td><td>त्याग गर्यो</td></tr>
+      <tr><td>hippie</td><td>a person who rejects conventional society</td><td>हिप्पी</td></tr>
+      <tr><td>radically</td><td>completely and fundamentally</td><td>मौलिक रूपमा</td></tr>
+      <tr><td>pilgrimage</td><td>a journey to a sacred or holy place</td><td>तीर्थयात्रा</td></tr>
+      <tr><td>spiritual</td><td>relating to the human spirit or soul</td><td>आध्यात्मिक</td></tr>
+      <tr><td>awakening</td><td>a moment of sudden awareness</td><td>जागृति</td></tr>
+      <tr><td>inspired</td><td>filled with the urge to create</td><td>प्रेरित</td></tr>
+      <tr><td>spurt</td><td>a sudden burst of activity</td><td>तीव्र प्रयास</td></tr>
+      <tr><td>creativity</td><td>the ability to produce original ideas</td><td>सिर्जनशीलता</td></tr>
+      <tr><td>break-through</td><td>an important achievement or discovery</td><td>सफलताको मोड</td></tr>
+      <tr><td>allegorical</td><td>using symbols to represent ideas</td><td>रूपकात्मक</td></tr>
+      <tr><td>mystical</td><td>having a spiritual or mysterious quality</td><td>रहस्यमय</td></tr>
+      <tr><td>translation</td><td>a version of text in another language</td><td>अनुवाद</td></tr>
+      <tr><td>leapt</td><td>jumped suddenly</td><td>उछाल्यो</td></tr>
+      <tr><td>bestseller</td><td>a book that sells in very large numbers</td><td>धेरै बिक्री हुने</td></tr>
+      <tr><td>phenomenon</td><td>a remarkable or outstanding thing</td><td>घटना</td></tr>
+      <tr><td>approximately</td><td>about or nearly</td><td>लगभग</td></tr>
+      <tr><td>autobiographic</td><td>relating to one's own life story</td><td>आत्मजीवनीय</td></tr>
+      <tr><td>spirituality</td><td>concern with the human spirit</td><td>आध्यात्मिकता</td></tr>
+      <tr><td>faith</td><td>strong belief in religion or God</td><td>विश्वास</td></tr>
+      <tr><td>societal</td><td>relating to society</td><td>सामाजिक</td></tr>
+      <tr><td>notable</td><td>worthy of attention or notice</td><td>उल्लेखनीय</td></tr>
+      <tr><td>instability</td><td>the state of being unstable</td><td>अस्थिरता</td></tr>
+      <tr><td>investigation</td><td>a careful examination or study</td><td>अनुसन्धान</td></tr>
+      <tr><td>humankind</td><td>human beings as a whole</td><td>मानवजाति</td></tr>
+      <tr><td>thriller</td><td>an exciting novel or film</td><td>रोमाञ्चक उपन्यास</td></tr>
+      <tr><td>ostensibly</td><td>apparently or seemingly</td><td>देखाउनलाई</td></tr>
+      <tr><td>embroidered</td><td>added extra details</td><td>सजाउनु</td></tr>
+      <tr><td>encounter</td><td>a meeting, especially unexpected</td><td>भेट</td></tr>
+      <tr><td>reincarnated</td><td>reborn in a new body</td><td>पुनर्जन्म भएको</td></tr>
+      <tr><td>manuscript</td><td>a text before being published</td><td>हस्तलिखित</td></tr>
+      <tr><td>invasion</td><td>an act of entering with force</td><td>आक्रमण</td></tr>
+      <tr><td>chronicles</td><td>records events in order</td><td>वर्णन गर्छ</td></tr>
+      <tr><td>extramarital</td><td>happening outside marriage</td><td>विवाहेतर</td></tr>
+      <tr><td>excerpts</td><td>short passages taken from a larger text</td><td>अंशहरू</td></tr>
+      <tr><td>oeuvre</td><td>a person's complete body of work</td><td>सम्पूर्ण रचना</td></tr>
+      <tr><td>compiled</td><td>collected and arranged</td><td>संकलन गर्यो</td></tr>
+      <tr><td>column</td><td>a regular section in a newspaper</td><td>स्तम्भ</td></tr>
+      <tr><td>prestigious</td><td>respected and admired as important</td><td>प्रतिष्ठित</td></tr>
+      <tr><td>inspiring</td><td>making people feel motivated</td><td>प्रेरणादायी</td></tr>
+      <tr><td>critics</td><td>people who express disapproval</td><td>आलोचकहरू</td></tr>
+      <tr><td>vague</td><td>not clear or definite</td><td>अस्पष्ट</td></tr>
+      <tr><td>devoid</td><td>completely lacking</td><td>रहित</td></tr>
+      <tr><td>rigour</td><td>the quality of being thorough</td><td>कठोरता</td></tr>
+      <tr><td>rejects</td><td>refuses to accept</td><td>अस्वीकार गर्छ</td></tr>
+      <tr><td>dismisses</td><td>treats as unworthy of attention</td><td>बेवास्ता गर्छ</td></tr>
+      <tr><td>naysayers</td><td>people who oppose or express doubt</td><td>विरोधीहरू</td></tr>
+      <tr><td>critiques</td><td>detailed evaluations or analyses</td><td>आलोचनाहरू</td></tr>
+      <tr><td>elderly</td><td>old people</td><td>वृद्धहरू</td></tr>
+      <tr><td>institute</td><td>an organization for a particular purpose</td><td>संस्था</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ──── EXERCISE A — WORD FORMS ──── -->
+<div class="section-card" id="exercise-a">
+  <h2><span class="section-icon">✅</span> Exercise A — Word Forms &amp; Fill in the Sentences</h2>
+
+  <h3>Complete the table:</h3>
+  <table class="word-forms-table">
+    <thead>
+      <tr><th>Noun</th><th>Verb</th><th>Adjective</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>embroidery</td><td>embroider</td><td>embroidered</td></tr>
+      <tr><td>torture</td><td>torture</td><td>tortured</td></tr>
+      <tr><td>attraction</td><td>attract</td><td>attractive</td></tr>
+      <tr><td>inspiration</td><td>inspire</td><td>inspiring</td></tr>
+      <tr><td>investigation</td><td>investigate</td><td>investigative</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Fill in the sentences using the correct word form:</h3>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>a. She was an __________ example to her followers.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        She was an <strong>inspiring</strong> example to her followers.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>b. It is claimed that the officers __________ a man to death in a city police station.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        It is claimed that the officers <strong>tortured</strong> a man to death in a city police station.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>c. Naturally, I __________ the tale a little to make it more interesting.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        Naturally, I <strong>embroidered</strong> the tale a little to make it more interesting.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>d. The company conducted its own internal __________ into the robbery.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The company conducted its own internal <strong>investigation</strong> into the robbery.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>e. The exhibition is __________ huge crowds.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The exhibition is <strong>attracting</strong> huge crowds.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── EXERCISE B — CHRONOLOGY ──── -->
+<div class="section-card" id="exercise-b">
+  <h2><span class="section-icon">✅</span> Exercise B — Put the Events in Chronological Order</h2>
+
+  <table class="chrono-table">
+    <thead>
+      <tr><th>Order</th><th>Event</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>g. Coelho wanted to become a writer.</td></tr>
+      <tr><td>2</td><td>d. He stayed in a mental hospital.</td></tr>
+      <tr><td>3</td><td>b. He was enrolled in a law school.</td></tr>
+      <tr><td>4</td><td>f. He left school and lived the life of a hippie.</td></tr>
+      <tr><td>5</td><td>a. He travelled to Santiago de Compostela which inspired him to write <em>The Pilgrimage</em>.</td></tr>
+      <tr><td>6</td><td>h. Coelho wrote the allegorical novel <em>The Alchemist</em>.</td></tr>
+      <tr><td>7</td><td>c. He got married to the artist, Christina Oiticica.</td></tr>
+      <tr><td>8</td><td>e. Coelho established the Paulo Coelho Institute.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ──── EXERCISE C — SHORT ANSWERS ──── -->
+<div class="section-card" id="exercise-c">
+  <h2><span class="section-icon">✅</span> Exercise C — Answer the Following Questions</h2>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>a. Why did Coelho's parents discourage him from becoming a writer?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        Coelho's parents discouraged him from becoming a writer because they wanted him to become a lawyer. They even sent him to a mental hospital three times during his adolescence because of his dream to become a writer.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>b. What changed Coelho's life in a significant way?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        Coelho's life changed significantly at the age of 36 after he went on a pilgrimage to Santiago de Compostela in Spain. There, he experienced a spiritual awakening that inspired him to begin writing seriously.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>c. Why is <em>The Alchemist</em> special?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        <em>The Alchemist</em> is special because it became a worldwide phenomenon. It has sold roughly 35 million copies and is now the most translated book in the world by any living author. It was written in just two weeks and became Coelho's breakthrough as an international author.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>d. What are most of his books about?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        Most of his books are autobiographic in nature and deal with spirituality, faith, societal impacts on individuals, and love.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>e. Write two evidences that prove Coelho is an international author.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        <strong>Evidence 1:</strong> His books have been published in at least 71 languages with approximately 150 million copies sold by 2013.<br><br>
+        <strong>Evidence 2:</strong> He has received prestigious international awards including the Crystal Award by the World Economic Forum and France's Legion d'honneur.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>f. What are the criticisms of his writing?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        His critics say that his books merely promote vague spirituality that is devoid of rigour — meaning his writing lacks depth and intellectual seriousness.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>g. Write the names of two books which focus on Coelho's travels.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        <strong>1. <em>The Pilgrimage</em> (1987)</strong> — inspired by his journey to Santiago de Compostela.<br>
+        <strong>2. <em>Hippie</em> (2018)</strong> — inspired by his travels in the 1970s.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── SHORT QUESTIONS ──── -->
+<div class="section-card" id="short-questions">
+  <h2><span class="section-icon">➕</span> Extra Short Answer Questions</h2>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>1. Where and when was Paulo Coelho born?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        Paulo Coelho was born on 24 August 1947 in Rio de Janeiro, Brazil.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>2. What was the title of Coelho's first book and when was it published?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        His first book was <em>The Pilgrimage</em>, published in 1987, inspired by his journey to Santiago de Compostela in Spain.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>3. How did <em>The Alchemist</em> become internationally famous?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        <em>The Alchemist</em> became internationally famous after its French-language translation suddenly appeared on the bestseller lists in France in the early 1990s. New translations followed, and it became a worldwide phenomenon.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>4. What is the Paulo Coelho Institute and when was it founded?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The Paulo Coelho Institute was founded in 1996. It is an organization that provides support to children and the elderly.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>5. How does Coelho respond to his critics?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        Coelho confidently dismisses his critics. He says that he writes for himself and that the reader's reaction is up to them — "It's not my business whether people like or dislike it."
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── TRUE / FALSE ──── -->
+<div class="section-card" id="true-false">
+  <h2><span class="section-icon">➕</span> True / False</h2>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>1. Paulo Coelho's parents always supported his dream of becoming a writer.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--error)">❌ False</strong> — His parents discouraged him and even sent him to a mental hospital three times because of his dream to become a writer.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>2. <em>The Alchemist</em> was written in just two weeks.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--success)">✅ True</strong> — Coelho wrote <em>The Alchemist</em> in the course of a two-week spurt of creativity.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>3. Coelho has received the Crystal Award from the World Economic Forum.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--success)">✅ True</strong> — The Crystal Award by the World Economic Forum is one of his prestigious international honours.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>4. <em>The Alchemist</em> is the most translated book by any living author in the world.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--success)">✅ True</strong> — By Coelho's count, the book has sold roughly 35 million copies and holds this world record among living authors.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>5. Coelho spent his entire life in Rio de Janeiro, Brazil.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--error)">❌ False</strong> — Coelho and his wife spend half the year in Rio de Janeiro and the other half in a country house in the Pyrenees Mountains of France. He also travelled widely as a hippie.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── FILL IN THE BLANKS ──── -->
+<div class="section-card" id="fill-blanks">
+  <h2><span class="section-icon">➕</span> Contextual Vocabulary — Fill in the Blanks</h2>
+  <p style="font-size:0.9rem;color:var(--muted);margin:6px 0 12px;font-family:'Manrope',sans-serif;">Words: pilgrimage / allegorical / prestigious / abandoned / phenomenon</p>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>1. <em>The Alchemist</em> is an __________ novel that uses a shepherd boy's journey to convey deeper meanings about life.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        <em>The Alchemist</em> is an <strong>allegorical</strong> novel that uses a shepherd boy's journey to convey deeper meanings about life.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>2. After enrolling in law school, Coelho __________ his studies and lived as a hippie.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        After enrolling in law school, Coelho <strong>abandoned</strong> his studies and lived as a hippie.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>3. The book became a worldwide __________ after its French translation appeared on the bestseller lists.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        The book became a worldwide <strong>phenomenon</strong> after its French translation appeared on the bestseller lists.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>4. Coelho went on a __________ to Santiago de Compostela in Spain which changed his life.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        Coelho went on a <strong>pilgrimage</strong> to Santiago de Compostela in Spain which changed his life.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>5. He has received several __________ awards including France's Legion d'honneur.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        He has received several <strong>prestigious</strong> awards including France's Legion d'honneur.
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- ═══════ MEANING POPUP ═══════ -->
+<div id="meaningPopup">
+  <button class="popup-close" onclick="closePopup()">&times;</button>
+  <div class="popup-word" id="popupWord"></div>
+  <div class="popup-meaning">
+    <span class="popup-en" id="popupEnglish"></span>
+    <span class="popup-ne" id="popupNepali"></span>
+  </div>
+</div>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="site-footer">
+  N.REGMI &nbsp;|&nbsp; <a href="mailto:nregmi511@gmail.com">nregmi511@gmail.com</a>
+  &nbsp;|&nbsp; Grade 9 English — Unit 12 — Paulo Coelho
+</footer>
+
+<!-- ═══════ JAVASCRIPT ═══════ -->
+<script>
+// ─── Font Size Control ───
+const MIN_F=13,MAX_F=26;
+let fontSize=17;
+function changeFontSize(d){
+  fontSize=Math.max(MIN_F,Math.min(MAX_F,fontSize+d));
+  document.documentElement.style.setProperty('--font-size-base',fontSize+'px');
+}
+
+// ─── Meaning Popup ───
+function showMeaning(word,en,ne){
+  document.getElementById('popupWord').textContent=word;
+  document.getElementById('popupEnglish').textContent='EN: '+en;
+  document.getElementById('popupNepali').textContent='NE: '+ne;
+  document.getElementById('meaningPopup').classList.add('show');
+}
+function closePopup(){
+  document.getElementById('meaningPopup').classList.remove('show');
+}
+document.addEventListener('click',function(e){
+  const popup=document.getElementById('meaningPopup');
+  if(!e.target.closest('.hw')&&!e.target.closest('#meaningPopup')){
+    popup.classList.remove('show');
+  }
+});
+
+// ─── Exercise Toggle ───
+function toggleExercise(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.exercise-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── True/False Toggle ───
+function toggleTF(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.tf-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── Fill-in-Blank Toggle ───
+function toggleFill(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.fill-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── Scroll to Top Button ───
+const scrollBtn=document.getElementById('scrollTopBtn');
+window.addEventListener('scroll',function(){
+  if(window.scrollY>400){
+    scrollBtn.classList.add('show');
+  }else{
+    scrollBtn.classList.remove('show');
+  }
+});
+function scrollToTop(){
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ─── Download HTML ───
+function downloadHTML(){
+  const html=document.documentElement.outerHTML;
+  const blob=new Blob([html],{type:'text/html;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='Paulo_Coelho_Interactive.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Death is a Fiction – Grade 9 English Unit 4</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── design system ── */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #2C3E50;
+      --primary-light: #5D6D7E;
+      --primary-dark: #1A252F;
+      --accent: #8E44AD;
+      --accent-light: #AF7AC5;
+      --correct: #27AE60;
+      --incorrect: #E74C3C;
+      --bg: #F4F6F7;
+      --card-bg: #FFFFFF;
+      --text-dark: #1C1C1C;
+      --text-body: #2C3E50;
+      --text-muted: #5D6D7E;
+      --border: #D5D8DC;
+      --highlight-bg: #F4ECF7;
+      --highlight-border: #8E44AD;
+      --nepali-accent: #8E44AD;
+      --font-size-base: 19px;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(44,62,80,0.08);
+      --shadow-lg: 0 12px 40px rgba(44,62,80,0.14);
+    }
+
+    body {
+      font-family: 'Poppins', 'Noto Sans SC', sans-serif;
+      background: var(--bg);
+      color: var(--text-body);
+      font-size: var(--font-size-base);
+      line-height: 1.8;
+      min-height: 100vh;
+      font-weight: 500;
+    }
+
+    /* ── TOOLBAR ── */
+    .toolbar {
+      position: fixed;
+      top: 0; left: 0; width: 100%; z-index: 1000;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+      box-shadow: 0 4px 20px rgba(44,62,80,0.3);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .toolbar-left { display: flex; align-items: center; gap: 16px; }
+    .toolbar-title { font-size: 16px; font-weight: 700; letter-spacing: 0.3px; }
+    .toolbar-title span { opacity: 0.7; font-weight: 400; }
+    .toolbar-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+    .font-btn {
+      width: 42px; height: 42px; border-radius: 10px;
+      border: 2px solid rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.1);
+      color: white;
+      font-size: 20px; font-weight: 800;
+      cursor: pointer; transition: 0.2s;
+      font-family: 'Poppins', sans-serif;
+    }
+    .font-btn:hover { background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.5); transform: scale(1.08); }
+    .font-size-display { font-size: 14px; font-weight: 700; min-width: 42px; text-align: center; background: rgba(255,255,255,0.15); padding: 6px 12px; border-radius: 8px; }
+    .download-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 10px 20px; border-radius: 10px; border: none;
+      background: rgba(255,255,255,0.2); color: white;
+      font-size: 14px; font-weight: 700; cursor: pointer; transition: 0.2s;
+      font-family: 'Poppins', sans-serif;
+    }
+    .download-btn:hover { background: rgba(255,255,255,0.35); transform: translateY(-1px); }
+
+    /* ── SCROLL TO TOP ── */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 9999;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: 2px solid rgba(255,255,255,0.3);
+      font-size: 28px;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(44,62,80,0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+    }
+    #scrollTopBtn.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #scrollTopBtn:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 8px 30px rgba(44,62,80,0.55);
+      background: linear-gradient(135deg, var(--accent), #6C3483);
+    }
+    #scrollTopBtn:active { transform: scale(0.92); }
+
+    /* ── MAIN ── */
+    .main-content { max-width: 860px; margin: 0 auto; padding: 80px 24px 60px; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #1A252F, #2C3E50, #5D6D7E);
+      border-radius: 20px; padding: 48px 40px; color: white; margin-bottom: 36px;
+      position: relative; overflow: hidden; box-shadow: 0 12px 40px rgba(44,62,80,0.25);
+    }
+    .hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: rgba(255,255,255,0.06); border-radius: 50%; }
+    .hero::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 150px; height: 150px; background: rgba(255,255,255,0.04); border-radius: 50%; }
+    .hero-grade { display: inline-block; padding: 5px 16px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 30px; font-size: 13px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 16px; }
+    .hero h1 { font-size: 36px; font-weight: 900; margin-bottom: 8px; position: relative; z-index: 1; }
+    .hero-sub { font-size: 17px; opacity: 0.9; font-weight: 500; position: relative; z-index: 1; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 20px; position: relative; z-index: 1; }
+    .hero-meta-item { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; opacity: 0.9; background: rgba(255,255,255,0.1); padding: 5px 14px; border-radius: 20px; }
+
+    /* ── NAV PILLS ── */
+    .nav-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .nav-pill {
+      padding: 10px 20px; border-radius: 30px; background: white; border: 2px solid var(--border);
+      font-size: 14px; font-weight: 700; color: var(--text-muted); cursor: pointer; transition: 0.2s;
+      font-family: 'Poppins', sans-serif; text-decoration: none;
+    }
+    .nav-pill:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+    /* ── SECTION CARDS ── */
+    .section-card {
+      background: var(--card-bg); border-radius: var(--radius); border: 2px solid var(--border);
+      padding: 36px 32px; margin-bottom: 28px; box-shadow: var(--shadow);
+      transition: box-shadow 0.3s;
+    }
+    .section-card:hover { box-shadow: var(--shadow-lg); }
+
+    .section-heading {
+      font-size: 26px; font-weight: 800; color: var(--text-dark); margin-bottom: 6px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-heading .icon {
+      width: 46px; height: 46px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0;
+    }
+    .icon-reading { background: #D5D8DC; color: #2C3E50; }
+    .icon-words { background: #F4ECF7; color: #8E44AD; }
+    .icon-exercise { background: #D5F5E3; color: #27AE60; }
+    .icon-fill { background: #EBDEF0; color: #8E44AD; }
+    .icon-tf { background: #FDEBD0; color: #E67E22; }
+    .icon-short { background: #D6EAF8; color: #2980B9; }
+    .icon-extra { background: #F5EEF8; color: #8E44AD; }
+
+    .section-subtitle { font-size: 15px; color: var(--text-muted); margin-bottom: 24px; font-weight: 500; }
+
+    /* ── READING PASSAGE ── */
+    .passage { font-size: inherit; line-height: 2.1; color: var(--text-body); font-weight: 500; }
+    .passage p { margin-bottom: 20px; text-align: justify; }
+    .passage p:last-child { margin-bottom: 0; }
+
+    .hw {
+      background: var(--highlight-bg); border-bottom: 3px solid var(--highlight-border);
+      padding: 2px 8px; border-radius: 4px; cursor: pointer; font-weight: 700;
+      color: #6C3483; transition: all 0.2s; display: inline;
+      font-size: 1.05em;
+    }
+    .hw:hover { background: #D7BDE2; transform: scale(1.02); }
+    .hw::after { content: '📖'; font-size: 13px; position: relative; top: -4px; margin-left: 3px; }
+
+    /* ── POPUP ── */
+    .meaning-popup {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(120%);
+      width: 94%; max-width: 540px; background: white; border-radius: 18px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.05);
+      z-index: 2000; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s;
+      opacity: 0; overflow: hidden;
+    }
+    .meaning-popup.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+    .popup-header { background: linear-gradient(135deg, #2C3E50, #5D6D7E); color: white; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .popup-word { font-size: 22px; font-weight: 800; }
+    .popup-close { width: 34px; height: 34px; border-radius: 50%; border: none; background: rgba(255,255,255,0.25); color: white; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s; font-family: 'Poppins', sans-serif; font-weight: 700; }
+    .popup-close:hover { background: rgba(255,255,255,0.4); }
+    .popup-body { padding: 20px 24px; display: flex; flex-direction: column; gap: 14px; }
+    .popup-meaning-row { display: flex; align-items: flex-start; gap: 14px; }
+    .popup-label { flex-shrink: 0; padding: 4px 14px; border-radius: 8px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; }
+    .popup-label.en { background: #DBEAFE; color: #1D4ED8; }
+    .popup-label.ne { background: #EDE9FE; color: #6D28D9; }
+    .popup-meaning-text { font-size: 17px; line-height: 1.6; padding-top: 2px; font-weight: 500; }
+    .popup-nepali { font-size: 18px; color: var(--nepali-accent); font-weight: 600; }
+
+    /* ── WORD TABLE ── */
+    .word-table-wrapper { overflow-x: auto; border-radius: 12px; border: 2px solid var(--border); }
+    .word-table { width: 100%; border-collapse: collapse; font-size: 16px; }
+    .word-table thead { background: linear-gradient(135deg, #D5D8DC, #B2BABB); }
+    .word-table th { padding: 16px 18px; text-align: left; font-weight: 800; color: #1A252F; font-size: 14px; text-transform: uppercase; letter-spacing: 0.8px; border-bottom: 3px solid #2C3E50; }
+    .word-table td { padding: 14px 18px; border-bottom: 2px solid var(--border); vertical-align: top; font-weight: 500; }
+    .word-table tr:last-child td { border-bottom: none; }
+    .word-table tr:hover td { background: #F4F6F7; }
+    .word-table .word-cell { font-weight: 800; color: var(--primary-dark); cursor: pointer; }
+    .word-table .word-cell:hover { text-decoration: underline; }
+    .word-table .nepali-cell { color: var(--nepali-accent); font-weight: 600; }
+
+    /* ── EXERCISE ITEMS ── */
+    .exercise-item {
+      background: #F4F6F7; border: 2px solid var(--border); border-radius: 12px;
+      margin-bottom: 16px; overflow: hidden; transition: all 0.2s;
+    }
+    .exercise-item:hover { border-color: #B2BABB; }
+
+    .exercise-question {
+      padding: 18px 22px; cursor: pointer; display: flex; align-items: flex-start; gap: 14px;
+      transition: background 0.2s; user-select: none;
+    }
+    .exercise-question:hover { background: #EAEDED; }
+
+    .exercise-q-number {
+      flex-shrink: 0; width: 34px; height: 34px; border-radius: 8px;
+      background: var(--primary); color: white; display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 800; margin-top: 1px;
+    }
+    .exercise-q-text { flex: 1; font-weight: 600; color: var(--text-dark); line-height: 1.6; font-size: 1.02em; }
+    .exercise-toggle {
+      flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%;
+      background: #B2BABB; display: flex; align-items: center; justify-content: center;
+      font-size: 18px; color: var(--text-muted); transition: all 0.3s; margin-top: 1px;
+      font-weight: 700;
+    }
+    .exercise-item.open .exercise-toggle { background: var(--correct); color: white; transform: rotate(180deg); }
+
+    .exercise-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .exercise-item.open .exercise-answer { max-height: 600px; }
+
+    .exercise-answer-inner {
+      padding: 0 22px 20px; margin-left: 48px;
+      display: flex; align-items: flex-start; gap: 12px;
+    }
+    .answer-badge {
+      flex-shrink: 0; padding: 4px 14px; border-radius: 6px;
+      font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px;
+    }
+    .badge-answer { background: #D5F5E3; color: #1E8449; }
+    .badge-true { background: #D5F5E3; color: #1E8449; }
+    .badge-false { background: #FADBD8; color: #922B21; }
+    .answer-text { font-size: 16px; color: var(--text-body); line-height: 1.7; font-weight: 500; }
+
+    .box-words {
+      display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;
+      padding: 18px; background: #EAEDED; border-radius: 12px; border: 2px dashed #B2BABB;
+    }
+    .box-word { padding: 8px 18px; background: white; border: 2px solid #B2BABB; border-radius: 8px; font-weight: 700; color: var(--primary); font-size: 15px; }
+
+    .blank-slot {
+      display: inline-block; min-width: 120px; border-bottom: 3px dashed var(--primary);
+      padding: 2px 6px; font-weight: 700; color: var(--primary); background: #EAEDED; border-radius: 4px 4px 0 0;
+      font-size: 1.02em;
+    }
+
+    .click-hint {
+      display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px;
+      background: #EAEDED; border: 2px solid #B2BABB; border-radius: 10px;
+      font-size: 14px; color: var(--primary); font-weight: 600; margin-bottom: 20px;
+    }
+
+    .extra-section { border-left: 5px solid var(--primary); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .main-content { padding: 72px 14px 40px; }
+      .section-card { padding: 24px 18px; }
+      .hero { padding: 32px 22px; }
+      .hero h1 { font-size: 26px; }
+      .toolbar { padding: 8px 14px; }
+      .toolbar-title { font-size: 13px; }
+      .meaning-popup { width: 96%; bottom: 12px; }
+      #scrollTopBtn { width: 50px; height: 50px; font-size: 24px; bottom: 20px; right: 20px; }
+    }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body>
+
+<!-- ===== TOOLBAR ===== -->
+<div class="toolbar">
+  <div class="toolbar-left">
+    <div class="toolbar-title">Grade 9 · English <span>| Unit 4: Life and Death</span></div>
+  </div>
+  <div class="toolbar-right">
+    <button class="font-btn" onclick="changeFontSize(-1)" title="Decrease font size">A−</button>
+    <div class="font-size-display" id="fontDisplay">19px</div>
+    <button class="font-btn" onclick="changeFontSize(1)" title="Increase font size">A+</button>
+    <button class="download-btn" onclick="downloadHTML()" title="Download this page">⬇ Save</button>
+  </div>
+</div>
+
+<!-- ===== SCROLL TO TOP ===== -->
+<button id="scrollTopBtn" onclick="scrollToTop()" title="Go to top">⬆</button>
+
+<!-- ===== MEANING POPUP ===== -->
+<div class="meaning-popup" id="meaningPopup">
+  <div class="popup-header">
+    <span class="popup-word" id="popupWord">Word</span>
+    <button class="popup-close" onclick="closePopup()">✕</button>
+  </div>
+  <div class="popup-body">
+    <div class="popup-meaning-row">
+      <span class="popup-label en">English</span>
+      <span class="popup-meaning-text" id="popupEnglish">—</span>
+    </div>
+    <div class="popup-meaning-row">
+      <span class="popup-label ne">नेपाली</span>
+      <span class="popup-meaning-text popup-nepali" id="popupNepali">—</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN ===== -->
+<div class="main-content">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-grade">Grade 9 · Unit 4 · Life and Death</div>
+    <h1>Death is a Fiction</h1>
+    <div class="hero-sub">Pages 38–41 · Prose · Sadhguru</div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">📖 Reading Passage</div>
+      <div class="hero-meta-item">📝 15 Vocabulary Words</div>
+      <div class="hero-meta-item">✅ Interactive Exercises</div>
+    </div>
+  </div>
+
+  <!-- NAV PILLS -->
+  <div class="nav-pills">
+    <a class="nav-pill" href="#reading">📖 Reading</a>
+    <a class="nav-pill" href="#wordlist">📝 Word List</a>
+    <a class="nav-pill" href="#exerciseA">✍ Exercise A</a>
+    <a class="nav-pill" href="#exerciseB">🧩 Exercise B</a>
+    <a class="nav-pill" href="#exerciseC">✎ Exercise C</a>
+    <a class="nav-pill" href="#exerciseD">📝 Exercise D</a>
+    <a class="nav-pill" href="#extraSA">💡 Extra SA</a>
+    <a class="nav-pill" href="#extraTF">🔍 Extra T/F</a>
+    <a class="nav-pill" href="#extraFill">🧩 Extra Fill</a>
+  </div>
+
+  <!-- ===== READING ===== -->
+  <div class="section-card" id="reading">
+    <div class="section-heading">
+      <div class="icon icon-reading">📖</div>
+      Death is a Fiction — A Philosophical Reflection
+    </div>
+    <div class="section-subtitle">Click any highlighted word to see its meaning</div>
+    <div class="click-hint">💡 Tap <span class="hw" style="cursor:default;">highlighted words</span> for meanings — popup stays until you close it.</div>
+
+    <div class="passage">
+      <p>Did you ever see somebody who actually died and came back? No. There may be a near death experience. Near is not good enough. Near water is not as good enough as water, isn't it? So, some people have nearly died, that is not good enough.</p>
+
+      <p>So you have not experienced it, you have not seen it, nor have you had a first-hand information from anybody. So from where did you get this idea that there is something called as death? Death is a <span class="hw" onclick="showMeaning('fiction','something imagined, not real','काल्पनिक कुरा')">fiction</span> created by <span class="hw" onclick="showMeaning('ignorant','lacking knowledge','अज्ञानी')">ignorant</span> people. Death is the creation of people who live their lives in total <span class="hw" onclick="showMeaning('unawareness','lack of awareness or knowledge','अनभिज्ञता')">unawareness</span>. There is only life, life and life alone, moving from one <span class="hw" onclick="showMeaning('dimension','a way of looking at something; an aspect','आयाम, पक्ष')">dimension</span> to another, another dimension to another.</p>
+
+      <p>See, what you call as life right now, the process of life; you can also refer to it as death. You can say "I am living right now" or you can say "I am dying right now." Actually, from the day you are born you are slowly dying. One day the process will be complete. Right now it is on the way. You may be thinking you are going to many places, but as far as your body is concerned, without a moment's distraction, it is going straight to the grave, nowhere else. Isn't it so?</p>
+
+      <p>So, is death okay or not okay? Even these kinds of questions which are coming up are silly, because whether you say it is okay or not okay, anyway you will die. Every moment you are playing between life and death and life and death – actually it is so. This inhalation, exhalation... You inhaled, life happened. You exhaled and did not inhale again, death happened, isn't it? See, every moment in Yoga we say inhalation is life, exhalation is death. You exhale, and if you do not take in the next inhalation it <span class="hw" onclick="showMeaning('dislodges','to force somebody or something out of a position','हटाउनु, उखेल्नु')">dislodges</span> you from the body. So <span class="hw" onclick="showMeaning('fragile','easily broken; delicate','नाजुक')">fragile</span>, isn't it so? Something so fragile is the basis of your existence here. Death is walking with you every step. It is so close all the time.</p>
+
+      <p>There is nothing wrong with death; it has to happen. Only because there is death, there is life. You need to understand that the moment you are born, you have a death sentence upon you. When, where, and how is the only question, but you are on death row. Your death is <span class="hw" onclick="showMeaning('guaranteed','certain to happen','सुनिश्चित')">guaranteed</span>, isn't it? We do not know whether you will get educated or not; we do not know whether you will get married or not; we do not know whether you will know joy or not; we do not know whether you will know <span class="hw" onclick="showMeaning('misery','great suffering or unhappiness','दुःख, कष्ट')">misery</span> or not; but we know one day you will die. That one thing is guaranteed.</p>
+
+      <p>This whole fear of death has come simply because you have no idea what it is. You have formed ideas about everything, just about everything. But it does not matter what ideas you have formed about life, when you are <span class="hw" onclick="showMeaning('confronted','to face somebody or something so that you could not avoid it','सामना गर्नु')">confronted</span> with the moment of death, you really do not know anything. That is one space of life which has remained uncorrupted by the human mind. Everything else we have <span class="hw" onclick="showMeaning('corrupted','spoiled or made impure','भ्रष्ट, बिगारिएको')">corrupted</span>, isn't it? Whatever was supposed to be <span class="hw" onclick="showMeaning('sacred','considered holy and deserving respect','पवित्र')">sacred</span>, all these things are hugely corrupted by the human mind. Human minds have corrupted love, relationships, God, Divinity – everything they have corrupted and <span class="hw" onclick="showMeaning('twisted','distorted, changed from the original form','बङ्ग्याइएको')">twisted</span> out whichever way they want. Death is one thing that they are still clueless about – though a lot of people would like to talk <span class="hw" onclick="showMeaning('authoritatively','with confidence, as though having authority or expert knowledge','अधिकारपूर्वक')">authoritatively</span> about it. They know they are going to go to heaven; they are dead sure about it. If they are so sure, I don't see what they are waiting for.</p>
+
+      <p>They are doing everything not to go to heaven. Why? If you are so sure you are going to a wonderful place, a better place than this, and then you must hurry up. But because you are not sure, you talk. You are not 100% sure where you will go, what will happen to you. Just to <span class="hw" onclick="showMeaning('solace','to make somebody feel better; comfort','सान्त्वना दिनु')">solace</span> yourself, just to be able to <span class="hw" onclick="showMeaning('psychologically','relating to the mind and mental processes','मनोवैज्ञानिक रूपमा')">psychologically</span> handle life, you create all these things. But essentially, the very idea of death has come to you because people have been talking about it without knowing about it. Otherwise, if your societies did not speak about it, you would just know the way you are right now, your present existence, is not <span class="hw" onclick="showMeaning('permanent','lasting forever; not temporary','स्थायी')">permanent</span>. That you would know, but you would not have any other ideas about it. Even now you do not have any idea about it; you imagine that you have.</p>
+
+      <p style="font-style:italic; color:var(--text-muted); margin-top:8px;">— Sadhguru (excerpt from Life and Death in one breath)</p>
+    </div>
+  </div>
+
+  <!-- ===== WORD LIST ===== -->
+  <div class="section-card" id="wordlist">
+    <div class="section-heading">
+      <div class="icon icon-words">📝</div>
+      Word Meaning List
+    </div>
+    <div class="section-subtitle">Click any word to see its meaning in the popup</div>
+
+    <div class="word-table-wrapper">
+      <table class="word-table">
+        <thead><tr><th>#</th><th>Word</th><th>English Meaning</th><th>नेपाली अर्थ</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="word-cell" onclick="showMeaning('fiction','something imagined; not real','काल्पनिक कुरा')">fiction</td><td>something imagined; not real</td><td class="nepali-cell">काल्पनिक कुरा</td></tr>
+          <tr><td>2</td><td class="word-cell" onclick="showMeaning('dimension','a way of looking at something','आयाम/पक्ष')">dimension</td><td>a way of looking at something</td><td class="nepali-cell">आयाम/पक्ष</td></tr>
+          <tr><td>3</td><td class="word-cell" onclick="showMeaning('dislodge','to force somebody to leave a position','हटाउनु/उखेल्नु')">dislodge</td><td>to force somebody to leave a position</td><td class="nepali-cell">हटाउनु/उखेल्नु</td></tr>
+          <tr><td>4</td><td class="word-cell" onclick="showMeaning('confronted','faced with something that could not be avoided','सामना गरिएको')">confronted</td><td>faced with something that could not be avoided</td><td class="nepali-cell">सामना गरिएको</td></tr>
+          <tr><td>5</td><td class="word-cell" onclick="showMeaning('solace','to make somebody feel better','सान्त्वना')">solace</td><td>to make somebody feel better</td><td class="nepali-cell">सान्त्वना</td></tr>
+          <tr><td>6</td><td class="word-cell" onclick="showMeaning('ignorant','lacking knowledge or awareness','अज्ञानी')">ignorant</td><td>lacking knowledge or awareness</td><td class="nepali-cell">अज्ञानी</td></tr>
+          <tr><td>7</td><td class="word-cell" onclick="showMeaning('unawareness','lack of awareness','अनभिज्ञता')">unawareness</td><td>lack of awareness</td><td class="nepali-cell">अनभिज्ञता</td></tr>
+          <tr><td>8</td><td class="word-cell" onclick="showMeaning('fragile','easily broken; delicate','नाजुक')">fragile</td><td>easily broken; delicate</td><td class="nepali-cell">नाजुक</td></tr>
+          <tr><td>9</td><td class="word-cell" onclick="showMeaning('guaranteed','certain to happen','सुनिश्चित')">guaranteed</td><td>certain to happen</td><td class="nepali-cell">सुनिश्चित</td></tr>
+          <tr><td>10</td><td class="word-cell" onclick="showMeaning('misery','great suffering or unhappiness','दुःख/कष्ट')">misery</td><td>great suffering or unhappiness</td><td class="nepali-cell">दुःख/कष्ट</td></tr>
+          <tr><td>11</td><td class="word-cell" onclick="showMeaning('corrupted','spoiled or made impure','भ्रष्ट/बिगारिएको')">corrupted</td><td>spoiled or made impure</td><td class="nepali-cell">भ्रष्ट/बिगारिएको</td></tr>
+          <tr><td>12</td><td class="word-cell" onclick="showMeaning('sacred','holy; deserving deep respect','पवित्र')">sacred</td><td>holy; deserving deep respect</td><td class="nepali-cell">पवित्र</td></tr>
+          <tr><td>13</td><td class="word-cell" onclick="showMeaning('authoritatively','speaking with confidence as an expert','अधिकारपूर्वक')">authoritatively</td><td>speaking with confidence as an expert</td><td class="nepali-cell">अधिकारपूर्वक</td></tr>
+          <tr><td>14</td><td class="word-cell" onclick="showMeaning('psychologically','relating to the mind','मनोवैज्ञानिक रूपमा')">psychologically</td><td>relating to the mind</td><td class="nepali-cell">मनोवैज्ञानिक रूपमा</td></tr>
+          <tr><td>15</td><td class="word-cell" onclick="showMeaning('permanent','lasting forever','स्थायी')">permanent</td><td>lasting forever</td><td class="nepali-cell">स्थायी</td></tr>
+          <tr><td>16</td><td class="word-cell" onclick="showMeaning('twisted','distorted from original form','बङ्ग्याइएको')">twisted</td><td>distorted from original form</td><td class="nepali-cell">बङ्ग्याइएको</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE A: FIND WORDS ===== -->
+  <div class="section-card" id="exerciseA">
+    <div class="section-heading">
+      <div class="icon icon-fill">✍</div>
+      Exercise A — Find the Words from the Text
+    </div>
+    <div class="section-subtitle">Click each meaning to reveal the word from the text</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">a thing that is imagined</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>fiction</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">a way of looking at something</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>dimension</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">to force somebody to leave</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>dislodge</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">faced somebody so that you could not avoid</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>confronted</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">to make somebody feel better</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>solace</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE B: FILL IN THE BLANKS ===== -->
+  <div class="section-card" id="exerciseB">
+    <div class="section-heading">
+      <div class="icon icon-fill">🧩</div>
+      Exercise B — Fill in the Blanks
+    </div>
+    <div class="section-subtitle">Click each question to reveal the correct answer</div>
+
+    <div class="box-words">
+      <span class="box-word">fiction</span>
+      <span class="box-word">grave</span>
+      <span class="box-word">guaranteed</span>
+      <span class="box-word">corrupted</span>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">Death is a __________ created by human being.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>fiction</strong> — Death is a <strong>fiction</strong> created by human being.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">Ultimately, we are moving straight to the __________.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>grave</strong> — Ultimately, we are moving straight to the <strong>grave</strong>.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">According to the speaker, death is __________. It is sure to happen.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>guaranteed</strong> — According to the speaker, death is <strong>guaranteed</strong>.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">Human beings have __________ everything and they have twisted it whichever way they want.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>corrupted</strong> — Human beings have <strong>corrupted</strong> everything and they have twisted it whichever way they want.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE C: SHORT ANSWERS ===== -->
+  <div class="section-card" id="exerciseC">
+    <div class="section-heading">
+      <div class="icon icon-short">✎</div>
+      Exercise C — Answer the Following Questions
+    </div>
+    <div class="section-subtitle">Click each question to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">According to the speaker, there is only life. How?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">The speaker says there is no proof that anyone has actually experienced death and returned, so what we call "death" is really just life moving from one dimension to another; hence there is only life, life and life alone.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">According to the speaker, what is life?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Life is a continuous process — from the moment we are born, we are slowly moving toward the grave. Every inhalation is life and every exhalation is death; so life and death happen together every moment.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">Why is there nothing wrong with death?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Because death is inevitable and natural — it is only because there is death that there is life. Death has to happen, so there is nothing wrong or bad about it.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">Why do we fear death?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">We fear death because we have no real idea or experience of what it is, yet we have formed many imagined ideas about it out of ignorance, and this creates fear.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">Why do people have an idea of death?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">People have developed the idea of death because society keeps talking about it without truly knowing about it; this talk creates fixed ideas and fear in people's minds.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE D: WRITING ===== -->
+  <div class="section-card" id="exerciseD">
+    <div class="section-heading">
+      <div class="icon icon-extra">📝</div>
+      Exercise D — Write a Short Paragraph
+    </div>
+    <div class="section-subtitle">Click to reveal a sample answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">•</div>
+        <div class="exercise-q-text">What is your view about death?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Sample</span>
+          <span class="answer-text">Death is a natural part of life that cannot be avoided. Just as day turns into night, life must one day turn into death. Instead of fearing it, we should accept death as a natural process and focus on living a meaningful, honest life. Fear of death mostly comes from not understanding it, and once we accept it as natural, we can live with less fear and more peace.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXTRA: SHORT QUESTIONS ===== -->
+  <div class="section-card extra-section" id="extraSA">
+    <div class="section-heading">
+      <div class="icon icon-extra">💡</div>
+      Additional Short Questions
+    </div>
+    <div class="section-subtitle">Click each question to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">Why does the speaker say a "near death experience" is not good enough?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Because "near" is not the same as actually experiencing something — just as "near water" is not the same as water itself, so nearly dying is not the same as truly experiencing death.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">What does the speaker mean by "Death is walking with you every step"?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">It means death is always present and close to us in every moment of life, since we could stop breathing (die) at any time; it is not something distant or far away.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">What has remained "uncorrupted" by the human mind, according to the speaker?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Death is the one thing that has remained uncorrupted by the human mind, since humans still do not truly understand or control it, unlike love, relationships, and religion, which they have distorted.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">What is the real purpose of talking about heaven and afterlife, according to the speaker?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">It is to give people psychological solace/comfort, helping them handle the uncertainty of life and death, even though they aren't 100% sure of what happens after death.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">What is the one thing that is guaranteed in everyone's life, according to the passage?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Death is the one guaranteed thing in everyone's life — we may not know if we'll be educated, married, or happy, but we know for certain that we will die.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXTRA: TRUE/FALSE ===== -->
+  <div class="section-card extra-section" id="extraTF">
+    <div class="section-heading">
+      <div class="icon icon-extra">🔍</div>
+      Additional True / False
+    </div>
+    <div class="section-subtitle">Click each statement to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">According to the speaker, many people have actually experienced death and returned.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">The speaker clearly states no one has actually died and come back.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">The speaker believes death and life happen simultaneously, moment to moment.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">Every inhalation is life and every exhalation is death, so they happen together every moment.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">The speaker says death is something humans have fully understood and corrupted.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">Death is the one thing that remains uncorrupted because humans don't truly understand it.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">Fear of death arises because people have no real knowledge of what death is.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">The speaker says fear comes from having no idea what death is, yet forming imagined ideas about it.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">The speaker believes our present existence is permanent.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">The speaker clearly states our present existence is not permanent.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXTRA: FILL IN THE BLANKS ===== -->
+  <div class="section-card extra-section" id="extraFill">
+    <div class="section-heading">
+      <div class="icon icon-extra">🧩</div>
+      Contextual Fill-in-the-Blanks
+    </div>
+    <div class="section-subtitle">Click each question to reveal the correct answer</div>
+
+    <div class="box-words">
+      <span class="box-word">fiction</span>
+      <span class="box-word">corrupted</span>
+      <span class="box-word">confronted</span>
+      <span class="box-word">fragile</span>
+      <span class="box-word">authoritatively</span>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">Death is a __________ created by ignorant people. (something imagined)</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>fiction</strong> — Death is a <strong>fiction</strong> created by ignorant people.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">Human beings have __________ love, relationships and God. (spoiled/made impure)</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>corrupted</strong> — Human beings have <strong>corrupted</strong> love, relationships and God.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">When you are __________ with death, you really do not know anything. (faced unavoidably)</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>confronted</strong> — When you are <strong>confronted</strong> with death, you really do not know anything.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">Something so __________ is the basis of your existence. (easily broken)</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>fragile</strong> — Something so <strong>fragile</strong> is the basis of your existence.</span>
+        </div>
+      </div>
+    </div>
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">People talk __________ about heaven though they are not sure. (with false confidence)</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>authoritatively</strong> — People talk <strong>authoritatively</strong> about heaven though they are not sure.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main-content -->
+
+<script>
+  // ── Font Size ──
+  let fontSize = 19;
+  const MIN_F = 13, MAX_F = 30;
+  function changeFontSize(delta) {
+    fontSize = Math.max(MIN_F, Math.min(MAX_F, fontSize + delta));
+    document.documentElement.style.setProperty('--font-size-base', fontSize + 'px');
+    document.getElementById('fontDisplay').textContent = fontSize + 'px';
+    const d = document.getElementById('fontDisplay');
+    d.style.transform = 'scale(1.2)';
+    setTimeout(() => d.style.transform = 'scale(1)', 200);
+  }
+
+  // ── Meaning Popup ──
+  function showMeaning(word, english, nepali) {
+    const popup = document.getElementById('meaningPopup');
+    document.getElementById('popupWord').textContent = word;
+    document.getElementById('popupEnglish').textContent = english;
+    document.getElementById('popupNepali').textContent = nepali;
+    popup.classList.add('show');
+  }
+  function closePopup() {
+    document.getElementById('meaningPopup').classList.remove('show');
+  }
+  document.addEventListener('click', function(e) {
+    const popup = document.getElementById('meaningPopup');
+    if (!e.target.closest('.hw') && !e.target.closest('.word-cell') && !e.target.closest('#meaningPopup')) {
+      popup.classList.remove('show');
+    }
+  });
+
+  // ── Exercise Toggle ──
+  function toggleExercise(item) {
+    const parent = item.closest('.section-card');
+    const all = parent.querySelectorAll('.exercise-item');
+    const isOpen = item.classList.contains('open');
+    all.forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ── Scroll to Top ──
+  const scrollBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 400) {
+      scrollBtn.classList.add('show');
+    } else {
+      scrollBtn.classList.remove('show');
+    }
+  });
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ── Download ──
+  function downloadHTML() {
+    const html = document.documentElement.outerHTML;
+    const blob = new Blob(['<!DOCTYPE html>\n' + html], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'Death_is_a_Fiction_Interactive.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+</script>
+
+</body>
+</html>

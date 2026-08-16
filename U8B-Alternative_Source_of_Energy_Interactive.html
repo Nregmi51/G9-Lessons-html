@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 9 English – Unit 8: The Alternative Source of Energy</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --primary:#0D9488;--primary-light:#14B8A6;--primary-dark:#0F766E;
+    --accent:#E11D48;--accent-light:#FB7185;
+    --correct:#10B981;--incorrect:#EF4444;
+    --bg:#F0FDFA;--card-bg:#FFFFFF;
+    --text-dark:#134E4A;--text-body:#1E293B;--text-muted:#64748B;
+    --border:#CCFBF1;--border-main:#99F6E4;
+    --highlight-bg:#FEF9C3;--highlight-border:#EAB308;
+    --nepali-accent:#7C3AED;
+    --font-size-base:17px;--radius:14px;
+    --shadow:0 4px 24px rgba(13,148,136,0.08);
+    --shadow-lg:0 12px 40px rgba(13,148,136,0.14);
+  }
+  body{font-family:'Poppins','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text-body);font-size:var(--font-size-base);line-height:1.75;min-height:100vh}
+
+  /* TOOLBAR */
+  .toolbar{position:fixed;top:0;left:0;width:100%;z-index:1000;background:linear-gradient(135deg,var(--primary-dark),var(--primary),#2DD4BF);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:10px 24px;box-shadow:0 4px 20px rgba(13,148,136,0.3)}
+  .toolbar-left{display:flex;align-items:center;gap:14px}
+  .toolbar-title{font-size:14px;font-weight:600;letter-spacing:.3px}
+  .toolbar-title span{opacity:.7;font-weight:400}
+  .toolbar-right{display:flex;align-items:center;gap:10px}
+  .font-btn{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;border:2px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;font-size:18px;font-weight:700;cursor:pointer;transition:all .2s;font-family:'Poppins',sans-serif}
+  .font-btn:hover{background:rgba(255,255,255,.25);border-color:rgba(255,255,255,.5);transform:scale(1.08)}
+  .font-btn:active{transform:scale(.95)}
+  .font-size-display{font-size:13px;font-weight:600;min-width:38px;text-align:center;background:rgba(255,255,255,.15);padding:6px 10px;border-radius:8px;transition:transform .2s}
+  .download-btn{display:flex;align-items:center;gap:6px;padding:8px 18px;border-radius:10px;border:none;background:rgba(255,255,255,.2);color:#fff;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;font-family:'Poppins',sans-serif}
+  .download-btn:hover{background:rgba(255,255,255,.35);transform:translateY(-1px)}
+
+  /* MAIN */
+  .main-content{max-width:880px;margin:0 auto;padding:80px 24px 60px}
+
+  /* HERO */
+  .hero{background:linear-gradient(135deg,#0F766E,#14B8A6,#5EEAD4);border-radius:22px;padding:48px 42px;color:#fff;margin-bottom:36px;position:relative;overflow:hidden;box-shadow:0 12px 40px rgba(13,148,136,.25)}
+  .hero::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;background:rgba(255,255,255,.06);border-radius:50%}
+  .hero::after{content:'';position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;background:rgba(255,255,255,.04);border-radius:50%}
+  .hero-grade{display:inline-block;padding:5px 16px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:30px;font-size:12px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;margin-bottom:16px}
+  .hero h1{font-size:30px;font-weight:800;margin-bottom:8px;position:relative;z-index:1}
+  .hero-sub{font-size:15px;opacity:.8;font-weight:400;position:relative;z-index:1}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px;position:relative;z-index:1}
+  .hero-meta-item{display:flex;align-items:center;gap:6px;font-size:13px;opacity:.9;background:rgba(255,255,255,.12);padding:5px 14px;border-radius:20px}
+
+  /* NAV PILLS */
+  .nav-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+  .nav-pill{padding:8px 18px;border-radius:30px;background:#fff;border:1px solid var(--border-main);font-size:13px;font-weight:600;color:var(--text-muted);cursor:pointer;transition:all .2s;font-family:'Poppins',sans-serif;text-decoration:none}
+  .nav-pill:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+
+  /* SECTION CARDS */
+  .section-card{background:var(--card-bg);border-radius:var(--radius);border:1px solid var(--border-main);padding:36px 32px;margin-bottom:28px;box-shadow:var(--shadow);transition:box-shadow .3s}
+  .section-card:hover{box-shadow:var(--shadow-lg)}
+  .section-heading{font-size:23px;font-weight:700;color:var(--text-dark);margin-bottom:6px;display:flex;align-items:center;gap:12px}
+  .section-heading .icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+  .icon-reading{background:#CCFBF1;color:#0D9488}
+  .icon-words{background:#FEF3C7;color:#D97706}
+  .icon-exercise{background:#D1FAE5;color:#059669}
+  .icon-fill{background:#EDE9FE;color:#7C3AED}
+  .icon-tf{background:#FCE7F3;color:#DB2777}
+  .icon-short{background:#FFEDD5;color:#EA580C}
+  .icon-match{background:#E0F2FE;color:#0284C7}
+  .icon-extra{background:#F0FDF4;color:#16A34A}
+  .section-subtitle{font-size:14px;color:var(--text-muted);margin-bottom:22px;font-weight:400}
+
+  /* IDEA SUB-HEADINGS */
+  .idea-block{margin-bottom:28px;padding:24px 24px 20px;border:1px solid var(--border-main);border-radius:14px;background:linear-gradient(135deg,#F0FDFA,#fff);position:relative}
+  .idea-block:last-child{margin-bottom:0}
+  .idea-number{display:inline-flex;align-items:center;gap:8px;padding:6px 18px;border-radius:30px;font-size:14px;font-weight:700;margin-bottom:14px}
+  .idea-1{background:#DBEAFE;color:#1D4ED8}
+  .idea-2{background:#FCE7F3;color:#BE185D}
+  .idea-3{background:#E0F2FE;color:#0369A1}
+  .idea-4{background:#FEF3C7;color:#B45309}
+  .idea-5{background:#EDE9FE;color:#6D28D9}
+  .idea-6{background:#FEE2E2;color:#DC2626}
+  .idea-title{font-size:19px;font-weight:700;color:var(--text-dark);margin-bottom:10px}
+  .idea-status{margin-top:14px;padding:12px 18px;background:#F0FDF4;border-left:4px solid var(--correct);border-radius:0 10px 10px 0;font-size:15px}
+  .idea-status strong{color:var(--correct)}
+
+  /* PASSAGE */
+  .passage{font-size:inherit;line-height:2;color:var(--text-body)}
+  .passage p{margin-bottom:16px;text-align:justify}
+  .passage p:last-child{margin-bottom:0}
+
+  /* HIGHLIGHTED WORDS */
+  .hw{background:var(--highlight-bg);border-bottom:2px solid var(--highlight-border);padding:1px 5px;border-radius:4px;cursor:pointer;font-weight:600;color:#92400E;transition:all .2s;display:inline}
+  .hw:hover{background:#FDE68A;transform:scale(1.02)}
+  .hw::after{content:'📖';font-size:10px;position:relative;top:-3px;margin-left:1px}
+
+  /* FIXED POPUP */
+  .meaning-popup{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(130%);width:94%;max-width:520px;background:#fff;border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.2),0 0 0 1px rgba(0,0,0,.05);z-index:2000;transition:transform .4s cubic-bezier(.34,1.56,.64,1),opacity .3s;opacity:0;overflow:hidden}
+  .meaning-popup.show{transform:translateX(-50%) translateY(0);opacity:1}
+  .popup-header{background:linear-gradient(135deg,#EAB308,#D97706);color:#fff;padding:14px 22px;display:flex;align-items:center;justify-content:space-between}
+  .popup-word{font-size:20px;font-weight:700}
+  .popup-close{width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,.25);color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;font-family:'Poppins',sans-serif}
+  .popup-close:hover{background:rgba(255,255,255,.4)}
+  .popup-body{padding:18px 22px;display:flex;flex-direction:column;gap:12px}
+  .popup-meaning-row{display:flex;align-items:flex-start;gap:12px}
+  .popup-label{flex-shrink:0;padding:4px 12px;border-radius:8px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px}
+  .popup-label.en{background:#DBEAFE;color:#1D4ED8}
+  .popup-label.ne{background:#EDE9FE;color:#6D28D9}
+  .popup-meaning-text{font-size:16px;line-height:1.5;padding-top:2px}
+  .popup-nepali{font-size:17px;color:var(--nepali-accent);font-weight:500}
+
+  /* WORD TABLE */
+  .word-table-wrapper{overflow-x:auto;border-radius:12px;border:1px solid var(--border-main)}
+  .word-table{width:100%;border-collapse:collapse;font-size:14px}
+  .word-table thead{background:linear-gradient(135deg,#CCFBF1,#99F6E4)}
+  .word-table th{padding:13px 16px;text-align:left;font-weight:700;color:#0F766E;font-size:12px;text-transform:uppercase;letter-spacing:.8px;border-bottom:2px solid var(--primary)}
+  .word-table td{padding:11px 16px;border-bottom:1px solid var(--border);vertical-align:top}
+  .word-table tr:last-child td{border-bottom:none}
+  .word-table tr:hover td{background:#F0FDFA}
+  .word-table .word-cell{font-weight:700;color:var(--primary-dark);cursor:pointer}
+  .word-table .word-cell:hover{text-decoration:underline}
+  .word-table .nepali-cell{color:var(--nepali-accent);font-weight:500}
+
+  /* EXERCISE ITEMS */
+  .exercise-item{background:#F8FAFC;border:1px solid var(--border);border-radius:12px;margin-bottom:14px;overflow:hidden;transition:all .2s}
+  .exercise-item:hover{border-color:#99F6E4}
+  .exercise-question{padding:16px 20px;cursor:pointer;display:flex;align-items:flex-start;gap:14px;transition:background .2s;user-select:none}
+  .exercise-question:hover{background:#F0FDFA}
+  .exercise-q-number{flex-shrink:0;min-width:30px;height:30px;border-radius:8px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:1px;padding:0 8px}
+  .exercise-q-text{flex:1;font-weight:500;color:var(--text-dark);line-height:1.6}
+  .exercise-toggle{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--text-muted);transition:all .3s;margin-top:1px}
+  .exercise-item.open .exercise-toggle{background:var(--correct);color:#fff;transform:rotate(180deg)}
+  .exercise-answer{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.34,1.56,.64,1)}
+  .exercise-item.open .exercise-answer{max-height:600px}
+  .exercise-answer-inner{padding:0 20px 18px;margin-left:44px;display:flex;align-items:flex-start;gap:10px}
+  .answer-badge{flex-shrink:0;padding:4px 12px;border-radius:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+  .badge-answer{background:#D1FAE5;color:#065F46}
+  .badge-true{background:#D1FAE5;color:#065F46}
+  .badge-false{background:#FEE2E2;color:#991B1B}
+  .answer-text{font-size:15px;color:var(--text-body);line-height:1.7}
+
+  /* MATCHING TABLE */
+  .match-table{width:100%;border-collapse:collapse;font-size:15px;margin-bottom:0}
+  .match-table td{padding:10px 16px;border-bottom:1px solid var(--border);vertical-align:top}
+  .match-table tr:last-child td{border-bottom:none}
+  .match-table .col-a{font-weight:600;color:var(--text-dark);width:40%}
+  .match-table .col-b{color:var(--text-body);width:60%}
+  .match-table .arrow{color:var(--primary);font-weight:700;text-align:center;width:30px}
+
+  /* BOX WORDS */
+  .box-words{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;padding:16px;background:#F0FDFA;border-radius:12px;border:1px dashed #99F6E4}
+  .box-word{padding:6px 16px;background:#fff;border:1px solid #99F6E4;border-radius:8px;font-weight:600;color:var(--primary);font-size:14px}
+
+  /* BLANK SLOT */
+  .blank-slot{display:inline-block;min-width:100px;border-bottom:2px dashed var(--primary);padding:2px 4px;font-weight:700;color:var(--primary);background:#F0FDFA;border-radius:4px 4px 0 0}
+
+  /* EXTRA SECTION */
+  .extra-section{border-left:4px solid var(--primary)}
+
+  /* CLICK HINT */
+  .click-hint{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:#F0FDFA;border:1px solid #99F6E4;border-radius:10px;font-size:13px;color:var(--primary);font-weight:500;margin-bottom:20px}
+
+  /* RESPONSIVE */
+  @media(max-width:640px){
+    .main-content{padding:72px 14px 40px}
+    .section-card{padding:24px 16px}
+    .hero{padding:28px 20px}
+    .hero h1{font-size:22px}
+    .toolbar{padding:8px 12px;flex-wrap:wrap;gap:6px}
+    .toolbar-title{font-size:11px}
+    .meaning-popup{width:96%;bottom:10px}
+    .idea-block{padding:18px 14px 14px}
+  }
+  html{scroll-behavior:smooth}
+</style>
+</head>
+<body>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <div class="toolbar-left">
+    <div class="toolbar-title">Grade 9 · English <span>| Unit 8: Alternative Source of Energy</span></div>
+  </div>
+  <div class="toolbar-right">
+    <button class="font-btn" onclick="changeFontSize(-1)" title="Decrease font size">A−</button>
+    <div class="font-size-display" id="fontDisplay">17px</div>
+    <button class="font-btn" onclick="changeFontSize(1)" title="Increase font size">A+</button>
+    <button class="download-btn" onclick="downloadHTML()" title="Download this page">⬇ Save</button>
+  </div>
+</div>
+
+<!-- FIXED MEANING POPUP -->
+<div class="meaning-popup" id="meaningPopup">
+  <div class="popup-header">
+    <span class="popup-word" id="popupWord">Word</span>
+    <button class="popup-close" onclick="closePopup()">✕</button>
+  </div>
+  <div class="popup-body">
+    <div class="popup-meaning-row">
+      <span class="popup-label en">English</span>
+      <span class="popup-meaning-text" id="popupEnglish">—</span>
+    </div>
+    <div class="popup-meaning-row">
+      <span class="popup-label ne">नेपाली</span>
+      <span class="popup-meaning-text popup-nepali" id="popupNepali">—</span>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-grade">Grade 9 · Unit 8 · Ecology and Environment</div>
+    <h1>The Alternative Source of Energy</h1>
+    <div class="hero-sub">Pages 86–88 · Reading Comprehension &amp; Vocabulary</div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">📖 6 Energy Ideas</div>
+      <div class="hero-meta-item">📝 48 Vocabulary Words</div>
+      <div class="hero-meta-item">✅ Interactive Exercises</div>
+    </div>
+  </div>
+
+  <!-- NAV PILLS -->
+  <div class="nav-pills">
+    <a class="nav-pill" href="#reading">📖 Reading</a>
+    <a class="nav-pill" href="#wordlist">📝 Word List</a>
+    <a class="nav-pill" href="#exerciseA">🔗 Exercise A</a>
+    <a class="nav-pill" href="#exerciseB">↔ Exercise B</a>
+    <a class="nav-pill" href="#exerciseC">🎯 Exercise C</a>
+    <a class="nav-pill" href="#exerciseD">✎ Exercise D</a>
+    <a class="nav-pill" href="#extraSA">💡 Extra Short Ans</a>
+    <a class="nav-pill" href="#extraTF">🔍 Extra T/F</a>
+    <a class="nav-pill" href="#extraFill">🧩 Extra Fill</a>
+  </div>
+
+  <!-- ===== READING PASSAGE ===== -->
+  <div class="section-card" id="reading">
+    <div class="section-heading">
+      <div class="icon icon-reading">📖</div>
+      Reading Passage — The Alternative Source of Energy
+    </div>
+    <div class="section-subtitle">Click on any highlighted word to see its meaning in English and Nepali</div>
+    <div class="click-hint">💡 Tip: Click highlighted words — the meaning popup stays fixed at the bottom even when you scroll!</div>
+
+    <!-- INTRO PARAGRAPH -->
+    <div class="passage">
+      <p>It will come as a surprise to no one that liquid <span class="hw" onclick="showMeaning('fossil','remains of ancient organisms preserved in rock','जीवाश्म')">fossil</span> <span class="hw" onclick="showMeaning('fuel','material burned to produce energy','इन्धन')">fuel</span> is a <span class="hw" onclick="showMeaning('finite','having a limit; not infinite','सीमित')">finite</span> resource. Sooner or later, all the Earth's oil <span class="hw" onclick="showMeaning('deposits','natural accumulation of a resource','भण्डार')">deposits</span> will dry up, and we'll be completely <span class="hw" onclick="showMeaning('dependent','relying on something or someone','निर्भर')">dependent</span> upon <span class="hw" onclick="showMeaning('alternative','available as another option','वैकल्पिक')">alternative</span> sources of energy. While many have <span class="hw" onclick="showMeaning('embraced','accepted willingly','अँगाल्नु')">embraced</span> traditional solar power, wind power, and hydropower, others are looking ahead to even cleaner and more <span class="hw" onclick="showMeaning('efficient','working without waste','कुशल')">efficient</span> alternatives. Here are the ones that hold a great deal of <span class="hw" onclick="showMeaning('potential','possibility of development or success','सम्भावना')">potential</span>.</p>
+    </div>
+
+    <!-- IDEA I -->
+    <div class="idea-block">
+      <div class="idea-number idea-1">💡 Idea I</div>
+      <div class="idea-title">Space-Based Solar Power</div>
+      <div class="passage">
+        <p>55-60% of all incoming solar energy does not make it through the Earth's <span class="hw" onclick="showMeaning('atmosphere','the layer of gases surrounding the Earth','वायुमण्डल')">atmosphere</span>. In a space-based solar power system, <span class="hw" onclick="showMeaning('fleet','a group of satellites or vehicles','बेडा')">fleets</span> of <span class="hw" onclick="showMeaning('satellites','objects orbiting the Earth','उपग्रह')">satellites</span> with large <span class="hw" onclick="showMeaning('reflectors','surfaces that reflect light or radiation','परावर्तक')">reflectors</span> or <span class="hw" onclick="showMeaning('inflatable','capable of being filled with air','हावाले फुलाउन सकिने')">inflatable</span> mirrors could be spread out in space, directing solar <span class="hw" onclick="showMeaning('radiation','energy emitted in waves or particles','विकिरण')">radiation</span> onto solar panels. The panels could <span class="hw" onclick="showMeaning('convert','change from one form to another','रूपान्तरण गर्नु')">convert</span> that solar power into <span class="hw" onclick="showMeaning('microwaves','electromagnetic waves used to transmit energy','माइक्रोवेभ')">microwaves</span> that continuously <span class="hw" onclick="showMeaning('beam','send a signal or ray in a direction','किरण पठाउनु')">beam</span> down to power-receiving stations on Earth, ensuring no energy is lost.</p>
+      </div>
+      <div class="idea-status">
+        <strong>Status:</strong> In March 2015, the Japan <span class="hw" onclick="showMeaning('aerospace','relating to aviation and space technology','एयरोस्पेस')">Aerospace</span> Exploration Agency (JAXA) revealed they had successfully converted 1.8 <span class="hw" onclick="showMeaning('kilowatts','unit of electrical power','किलोवाट')">kilowatts</span> of electricity into microwaves, after which they <span class="hw" onclick="showMeaning('wirelessly','without using wires','तारविहीन रूपमा')">wirelessly</span> beamed them a distance of 50 metres, providing the idea's <span class="hw" onclick="showMeaning('viability','ability to work successfully','व्यवहार्यता')">viability</span>.
+      </div>
+    </div>
+
+    <!-- IDEA II -->
+    <div class="idea-block">
+      <div class="idea-number idea-2">💡 Idea II</div>
+      <div class="idea-title">Human Body Energy</div>
+      <div class="passage">
+        <p>Many experts believe the simplest way of generating <span class="hw" onclick="showMeaning('renewable','able to be naturally replaced','नवीकरणीय')">renewable</span> energy is through our own bodies. Devices now use much less power than before. <span class="hw" onclick="showMeaning('harvesting','collecting or gathering energy','संग्रह गर्नु')">Harvesting</span> just a <span class="hw" onclick="showMeaning('microwatt','one millionth of a watt','माइक्रोवाट')">microwatt</span> of electricity would be enough to power many small electronic devices. To <span class="hw" onclick="showMeaning('harness','control and use a force or resource','उपयोग गर्नु')">harness</span> the energy we generate through our own movement, we would simply need to wear a system that collects and converts it.</p>
+      </div>
+      <div class="idea-status">
+        <strong>Status:</strong> UK researchers have developed a knee brace that collects <span class="hw" onclick="showMeaning('electrons','negatively charged subatomic particles','इलेक्ट्रन')">electrons</span> while you walk. As the wearer's knee bends, four metal <span class="hw" onclick="showMeaning('vanes','flat blades moved by wind or water','पाल')">vanes</span> in the device <span class="hw" onclick="showMeaning('vibrate','move back and forth rapidly','कम्पन गर्नु')">vibrate</span> like a guitar string and produce electricity.
+      </div>
+    </div>
+
+    <!-- IDEA III -->
+    <div class="idea-block">
+      <div class="idea-number idea-3">💡 Idea III</div>
+      <div class="idea-title">Wave Energy</div>
+      <div class="passage">
+        <p>Wave energy is technically a form of stored wind energy, since waves are produced from winds which blow over the sea. It could be captured on the surface, below the surface, near-shore, <span class="hw" onclick="showMeaning('offshore','at some distance from the shore','समुद्रतटबाट टाढा')">offshore</span>, or far offshore. Wave energy is measured in <span class="hw" onclick="showMeaning('kilowatts','unit of electrical power','किलोवाट')">kilowatts</span> (KW) per metre of <span class="hw" onclick="showMeaning('coastline','the outline of a coast','समुद्री किनारा')">coastline</span>; the US coastline has a wave energy <span class="hw" onclick="showMeaning('potential','capacity for development','सम्भावना')">potential</span> of about 252 billion kWh per year.</p>
+      </div>
+      <div class="idea-status">
+        <strong>Status:</strong> Five countries are already operating <span class="hw" onclick="showMeaning('viable','capable of working successfully','व्यवहार्य')">viable</span> wave power farms, with Portugal establishing the world's first <span class="hw" onclick="showMeaning('commercial-scale','large enough to be sold commercially','व्यावसायिक स्तर')">commercial-scale</span> wave farm in 2008. It has a total 2.25 MW installed <span class="hw" onclick="showMeaning('capacity','the maximum amount something can produce','क्षमता')">capacity</span>.
+      </div>
+    </div>
+
+    <!-- IDEA IV -->
+    <div class="idea-block">
+      <div class="idea-number idea-4">💡 Idea IV</div>
+      <div class="idea-title">Hydrogen Energy</div>
+      <div class="passage">
+        <p>A <span class="hw" onclick="showMeaning('colourless','having no colour','रंगहीन')">colourless</span> and <span class="hw" onclick="showMeaning('odourless','having no smell','गन्धहीन')">odourless</span> gas, hydrogen, accounts for 76% of the <span class="hw" onclick="showMeaning('mass','the amount of matter in an object','द्रव्यमान')">mass</span> of the <span class="hw" onclick="showMeaning('universe','all existing matter and space','ब्रह्माण्ड')">universe</span>. On earth, it is found only in <span class="hw" onclick="showMeaning('combination','the joining of two or more things','संयोजन')">combination</span> with oxygen, carbon and nitrogen. To use hydrogen, it must be <span class="hw" onclick="showMeaning('separated','divided from something else','अलग गर्नु')">separated</span> from the other <span class="hw" onclick="showMeaning('elements','basic chemical substances','तत्त्वहरू')">elements</span>. Once it has, the gas <span class="hw" onclick="showMeaning('yields','produces or provides','उत्पादन गर्छ')">yields</span> high energy while producing almost no <span class="hw" onclick="showMeaning('pollution','contamination of the natural environment','प्रदूषण')">pollution</span>.</p>
+      </div>
+      <div class="idea-status">
+        <strong>Status:</strong> <span class="hw" onclick="showMeaning('fuel cell','a device converting hydrogen to electricity','इन्धन सेल')">Fuel cell</span> devices that convert hydrogen to electricity are already being used to provide power for <span class="hw" onclick="showMeaning('vehicles','machines used for transportation','सवारी साधन')">vehicles</span>, aircraft, homes and buildings. Large <span class="hw" onclick="showMeaning('automakers','companies that make automobiles','कार निर्माताहरू')">automakers</span> like Toyota, Honda and Hyundai have <span class="hw" onclick="showMeaning('invested','put money into something for profit','लगानी गरेका')">invested</span> heavily in the technology.
+      </div>
+    </div>
+
+    <!-- IDEA V -->
+    <div class="idea-block">
+      <div class="idea-number idea-5">💡 Idea V</div>
+      <div class="idea-title">Flying Wind Farm</div>
+      <div class="passage">
+        <p>On a flying wind farm, wind <span class="hw" onclick="showMeaning('turbines','machines generating electricity via rotation','टर्बाइन')">turbines</span> float as high as <span class="hw" onclick="showMeaning('skyscrapers','very tall buildings','गगनचुम्बी भवन')">skyscrapers</span> (1,000 to 2,000 feet above ground) to capture <span class="hw" onclick="showMeaning('steadier','more constant and regular','स्थिर')">steadier</span> winds that blow five to eight times stronger than winds at tower level. These turbines produce double the energy of similar sized tower-mounted turbines.</p>
+      </div>
+      <div class="idea-status">
+        <strong>Status:</strong> Altaeros Energies has developed the first commercial <span class="hw" onclick="showMeaning('airborne','operating in or from the air','हवाई')">airborne</span> wind turbine called <span class="hw" onclick="showMeaning('buoyant','able to float in water or air','तैरने')">Buoyant</span> Air Turbine, a circular, 35-foot-long <span class="hw" onclick="showMeaning('inflatable','capable of being filled with air','हावाले फुलाउन सकिने')">inflatable</span> shell, made of <span class="hw" onclick="showMeaning('heavy-duty','designed for demanding tasks','भारी-काम')">heavy-duty</span> fabric. It has a capacity of 30 kilowatts. It is completely <span class="hw" onclick="showMeaning('autonomous','able to operate independently','स्वायत्त')">autonomous</span>; it self-adjusts to <span class="hw" onclick="showMeaning('optimal','best or most favourable','अनुकूलतम')">optimal</span> wind speeds and self-docks in <span class="hw" onclick="showMeaning('emergency','a serious unexpected situation','आपातकाल')">emergency</span> cases.
+      </div>
+    </div>
+
+    <!-- IDEA VI -->
+    <div class="idea-block">
+      <div class="idea-number idea-6">💡 Idea VI</div>
+      <div class="idea-title">Fusion Energy</div>
+      <div class="passage">
+        <p><span class="hw" onclick="showMeaning('fusion','the joining of nuclei to release energy','संलयन')">Fusion</span> is the same process that powers the Sun, and has potential to provide a nearly <span class="hw" onclick="showMeaning('inexhaustible','impossible to use up completely','असीमित')">inexhaustible</span> supply of energy. It <span class="hw" onclick="showMeaning('emits','sends out or releases','उत्सर्जन गर्छ')">emits</span> no <span class="hw" onclick="showMeaning('pollutants','substances that contaminate the environment','प्रदूषक')">pollutants</span> or <span class="hw" onclick="showMeaning('greenhouse gases','gases that trap heat in the atmosphere','हरितगृह ग्यासहरू')">greenhouse gases</span> and has no threat of nuclear <span class="hw" onclick="showMeaning('meltdown','a severe nuclear accident','पग्लने खतरा')">meltdown</span> unlike current nuclear <span class="hw" onclick="showMeaning('fission','splitting of an atomic nucleus','विखण्डन')">fission</span> <span class="hw" onclick="showMeaning('reactors','devices in which nuclear reactions occur','रिएक्टर')">reactors</span>. Fusion works by <span class="hw" onclick="showMeaning('fusing','combining two things together','जोड्ने')">fusing</span> two hydrogen <span class="hw" onclick="showMeaning('isotopes','forms of an element with different neutron numbers','आइसोटोप')">isotopes</span>, <span class="hw" onclick="showMeaning('deuterium','a hydrogen isotope','ड्यूटेरियम')">deuterium</span> and <span class="hw" onclick="showMeaning('tritium','a radioactive hydrogen isotope','ट्रिटियम')">tritium</span>, which are <span class="hw" onclick="showMeaning('bountiful','present in large quantities','प्रचुर')">bountiful</span>.</p>
+      </div>
+      <div class="idea-status">
+        <strong>Status:</strong> The ITER (International <span class="hw" onclick="showMeaning('thermonuclear','relating to nuclear fusion at high temperature','थर्मोन्यूक्लियर')">Thermonuclear</span> Experimental Reactor), being built in France and funded by seven countries, is set for <span class="hw" onclick="showMeaning('completion','the process of finishing something','पूरा हुने')">completion</span> by 2027. It hopes to be the first commercially <span class="hw" onclick="showMeaning('demonstrated','shown or proved','प्रदर्शन गरिएको')">demonstrated</span> fusion power station.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== WORD LIST ===== -->
+  <div class="section-card" id="wordlist">
+    <div class="section-heading">
+      <div class="icon icon-words">📝</div>
+      Word Meaning List
+    </div>
+    <div class="section-subtitle">Click any word to see its meaning in the fixed popup</div>
+    <div class="word-table-wrapper">
+      <table class="word-table">
+        <thead><tr><th style="width:4%">#</th><th style="width:22%">Word</th><th style="width:37%">English Meaning</th><th style="width:37%">नेपाली अर्थ</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="word-cell" onclick="showMeaning('fossil','remains of ancient organisms preserved in rock','जीवाश्म')">fossil</td><td>remains of ancient organisms preserved in rock</td><td class="nepali-cell">जीवाश्म</td></tr>
+          <tr><td>2</td><td class="word-cell" onclick="showMeaning('fuel','material burned to produce energy','इन्धन')">fuel</td><td>material burned to produce energy</td><td class="nepali-cell">इन्धन</td></tr>
+          <tr><td>3</td><td class="word-cell" onclick="showMeaning('finite','having a limit; not infinite','सीमित')">finite</td><td>having a limit; not infinite</td><td class="nepali-cell">सीमित</td></tr>
+          <tr><td>4</td><td class="word-cell" onclick="showMeaning('deposits','natural accumulation of a resource','भण्डार')">deposits</td><td>natural accumulation of a resource</td><td class="nepali-cell">भण्डार</td></tr>
+          <tr><td>5</td><td class="word-cell" onclick="showMeaning('dependent','relying on something or someone','निर्भर')">dependent</td><td>relying on something or someone</td><td class="nepali-cell">निर्भर</td></tr>
+          <tr><td>6</td><td class="word-cell" onclick="showMeaning('alternative','available as another option','वैकल्पिक')">alternative</td><td>available as another option</td><td class="nepali-cell">वैकल्पिक</td></tr>
+          <tr><td>7</td><td class="word-cell" onclick="showMeaning('embraced','accepted willingly','अँगाल्नु')">embraced</td><td>accepted willingly</td><td class="nepali-cell">अँगाल्नु</td></tr>
+          <tr><td>8</td><td class="word-cell" onclick="showMeaning('efficient','working without waste','कुशल')">efficient</td><td>working without waste</td><td class="nepali-cell">कुशल</td></tr>
+          <tr><td>9</td><td class="word-cell" onclick="showMeaning('potential','possibility of development or success','सम्भावना')">potential</td><td>possibility of development or success</td><td class="nepali-cell">सम्भावना</td></tr>
+          <tr><td>10</td><td class="word-cell" onclick="showMeaning('atmosphere','the layer of gases surrounding the Earth','वायुमण्डल')">atmosphere</td><td>the layer of gases surrounding the Earth</td><td class="nepali-cell">वायुमण्डल</td></tr>
+          <tr><td>11</td><td class="word-cell" onclick="showMeaning('fleet','a group of satellites or vehicles','बेडा')">fleet</td><td>a group of satellites or vehicles</td><td class="nepali-cell">बेडा</td></tr>
+          <tr><td>12</td><td class="word-cell" onclick="showMeaning('inflatable','capable of being filled with air','हावाले फुलाउन सकिने')">inflatable</td><td>capable of being filled with air</td><td class="nepali-cell">हावाले फुलाउन सकिने</td></tr>
+          <tr><td>13</td><td class="word-cell" onclick="showMeaning('radiation','energy emitted in waves or particles','विकिरण')">radiation</td><td>energy emitted in waves or particles</td><td class="nepali-cell">विकिरण</td></tr>
+          <tr><td>14</td><td class="word-cell" onclick="showMeaning('convert','change from one form to another','रूपान्तरण गर्नु')">convert</td><td>change from one form to another</td><td class="nepali-cell">रूपान्तरण गर्नु</td></tr>
+          <tr><td>15</td><td class="word-cell" onclick="showMeaning('microwaves','electromagnetic waves used to transmit energy','माइक्रोवेभ')">microwaves</td><td>electromagnetic waves used to transmit energy</td><td class="nepali-cell">माइक्रोवेभ</td></tr>
+          <tr><td>16</td><td class="word-cell" onclick="showMeaning('beam','send a signal or ray in a direction','किरण पठाउनु')">beam</td><td>send a signal or ray in a direction</td><td class="nepali-cell">किरण पठाउनु</td></tr>
+          <tr><td>17</td><td class="word-cell" onclick="showMeaning('aerospace','relating to aviation and space technology','एयरोस्पेस')">aerospace</td><td>relating to aviation and space technology</td><td class="nepali-cell">एयरोस्पेस</td></tr>
+          <tr><td>18</td><td class="word-cell" onclick="showMeaning('viability','ability to work successfully','व्यवहार्यता')">viability</td><td>ability to work successfully</td><td class="nepali-cell">व्यवहार्यता</td></tr>
+          <tr><td>19</td><td class="word-cell" onclick="showMeaning('renewable','able to be naturally replaced','नवीकरणीय')">renewable</td><td>able to be naturally replaced</td><td class="nepali-cell">नवीकरणीय</td></tr>
+          <tr><td>20</td><td class="word-cell" onclick="showMeaning('harvesting','collecting or gathering energy','संग्रह गर्नु')">harvesting</td><td>collecting or gathering energy</td><td class="nepali-cell">संग्रह गर्नु</td></tr>
+          <tr><td>21</td><td class="word-cell" onclick="showMeaning('microwatt','one millionth of a watt','माइक्रोवाट')">microwatt</td><td>one millionth of a watt</td><td class="nepali-cell">माइक्रोवाट</td></tr>
+          <tr><td>22</td><td class="word-cell" onclick="showMeaning('harness','control and use a force or resource','उपयोग गर्नु')">harness</td><td>control and use a force or resource</td><td class="nepali-cell">उपयोग गर्नु</td></tr>
+          <tr><td>23</td><td class="word-cell" onclick="showMeaning('vane','flat blade moved by wind or water','पाल')">vane</td><td>flat blade moved by wind or water</td><td class="nepali-cell">पाल</td></tr>
+          <tr><td>24</td><td class="word-cell" onclick="showMeaning('vibrate','move back and forth rapidly','कम्पन गर्नु')">vibrate</td><td>move back and forth rapidly</td><td class="nepali-cell">कम्पन गर्नु</td></tr>
+          <tr><td>25</td><td class="word-cell" onclick="showMeaning('coastline','the outline of a coast','समुद्री किनारा')">coastline</td><td>the outline of a coast</td><td class="nepali-cell">समुद्री किनारा</td></tr>
+          <tr><td>26</td><td class="word-cell" onclick="showMeaning('viable','capable of working successfully','व्यवहार्य')">viable</td><td>capable of working successfully</td><td class="nepali-cell">व्यवहार्य</td></tr>
+          <tr><td>27</td><td class="word-cell" onclick="showMeaning('colourless','having no colour','रंगहीन')">colourless</td><td>having no colour</td><td class="nepali-cell">रंगहीन</td></tr>
+          <tr><td>28</td><td class="word-cell" onclick="showMeaning('odourless','having no smell','गन्धहीन')">odourless</td><td>having no smell</td><td class="nepali-cell">गन्धहीन</td></tr>
+          <tr><td>29</td><td class="word-cell" onclick="showMeaning('mass','the amount of matter in an object','द्रव्यमान')">mass</td><td>the amount of matter in an object</td><td class="nepali-cell">द्रव्यमान</td></tr>
+          <tr><td>30</td><td class="word-cell" onclick="showMeaning('universe','all existing matter and space','ब्रह्माण्ड')">universe</td><td>all existing matter and space</td><td class="nepali-cell">ब्रह्माण्ड</td></tr>
+          <tr><td>31</td><td class="word-cell" onclick="showMeaning('yields','produces or provides','उत्पादन गर्छ')">yields</td><td>produces or provides</td><td class="nepali-cell">उत्पादन गर्छ</td></tr>
+          <tr><td>32</td><td class="word-cell" onclick="showMeaning('pollution','contamination of the natural environment','प्रदूषण')">pollution</td><td>contamination of the natural environment</td><td class="nepali-cell">प्रदूषण</td></tr>
+          <tr><td>33</td><td class="word-cell" onclick="showMeaning('fuel cell','a device converting hydrogen to electricity','इन्धन सेल')">fuel cell</td><td>a device converting hydrogen to electricity</td><td class="nepali-cell">इन्धन सेल</td></tr>
+          <tr><td>34</td><td class="word-cell" onclick="showMeaning('turbines','machines generating electricity via rotation','टर्बाइन')">turbines</td><td>machines generating electricity via rotation</td><td class="nepali-cell">टर्बाइन</td></tr>
+          <tr><td>35</td><td class="word-cell" onclick="showMeaning('skyscrapers','very tall buildings','गगनचुम्बी भवन')">skyscrapers</td><td>very tall buildings</td><td class="nepali-cell">गगनचुम्बी भवन</td></tr>
+          <tr><td>36</td><td class="word-cell" onclick="showMeaning('airborne','operating in or from the air','हवाई')">airborne</td><td>operating in or from the air</td><td class="nepali-cell">हवाई</td></tr>
+          <tr><td>37</td><td class="word-cell" onclick="showMeaning('buoyant','able to float in water or air','तैरने')">buoyant</td><td>able to float in water or air</td><td class="nepali-cell">तैरने</td></tr>
+          <tr><td>38</td><td class="word-cell" onclick="showMeaning('autonomous','able to operate independently','स्वायत्त')">autonomous</td><td>able to operate independently</td><td class="nepali-cell">स्वायत्त</td></tr>
+          <tr><td>39</td><td class="word-cell" onclick="showMeaning('optimal','best or most favourable','अनुकूलतम')">optimal</td><td>best or most favourable</td><td class="nepali-cell">अनुकूलतम</td></tr>
+          <tr><td>40</td><td class="word-cell" onclick="showMeaning('fusion','the joining of nuclei to release energy','संलयन')">fusion</td><td>the joining of nuclei to release energy</td><td class="nepali-cell">संलयन</td></tr>
+          <tr><td>41</td><td class="word-cell" onclick="showMeaning('inexhaustible','impossible to use up completely','असीमित')">inexhaustible</td><td>impossible to use up completely</td><td class="nepali-cell">असीमित</td></tr>
+          <tr><td>42</td><td class="word-cell" onclick="showMeaning('emits','sends out or releases','उत्सर्जन गर्छ')">emits</td><td>sends out or releases</td><td class="nepali-cell">उत्सर्जन गर्छ</td></tr>
+          <tr><td>43</td><td class="word-cell" onclick="showMeaning('pollutants','substances that contaminate the environment','प्रदूषक')">pollutants</td><td>substances that contaminate the environment</td><td class="nepali-cell">प्रदूषक</td></tr>
+          <tr><td>44</td><td class="word-cell" onclick="showMeaning('greenhouse gases','gases that trap heat in the atmosphere','हरितगृह ग्यासहरू')">greenhouse gases</td><td>gases that trap heat in the atmosphere</td><td class="nepali-cell">हरितगृह ग्यासहरू</td></tr>
+          <tr><td>45</td><td class="word-cell" onclick="showMeaning('fission','splitting of an atomic nucleus','विखण्डन')">fission</td><td>splitting of an atomic nucleus</td><td class="nepali-cell">विखण्डन</td></tr>
+          <tr><td>46</td><td class="word-cell" onclick="showMeaning('bountiful','present in large quantities','प्रचुर')">bountiful</td><td>present in large quantities</td><td class="nepali-cell">प्रचुर</td></tr>
+          <tr><td>47</td><td class="word-cell" onclick="showMeaning('isotopes','forms of an element with different neutron numbers','आइसोटोप')">isotopes</td><td>forms of an element with different neutron numbers</td><td class="nepali-cell">आइसोटोप</td></tr>
+          <tr><td>48</td><td class="word-cell" onclick="showMeaning('thermonuclear','relating to nuclear fusion at high temperature','थर्मोन्यूक्लियर')">thermonuclear</td><td>relating to nuclear fusion at high temperature</td><td class="nepali-cell">थर्मोन्यूक्लियर</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE A: Match the Words ===== -->
+  <div class="section-card" id="exerciseA">
+    <div class="section-heading">
+      <div class="icon icon-match">🔗</div>
+      Exercise A — Match the Words (Column A with Column B)
+    </div>
+    <div class="section-subtitle">Click each item to reveal the matching answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">fleet → ?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Match</span>
+        <span class="answer-text"><strong>fleet → iii.</strong> a group of something</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">inflatable → ?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Match</span>
+        <span class="answer-text"><strong>inflatable → iv.</strong> capable of being filled with air</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">harness → ?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Match</span>
+        <span class="answer-text"><strong>harness → vii.</strong> to control and use the force or strength of something</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">vane → ?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Match</span>
+        <span class="answer-text"><strong>vane → i.</strong> a flat plane that is moved by wind</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">skyscraper → ?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Match</span>
+        <span class="answer-text"><strong>skyscraper → ii.</strong> a very tall building</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">f</div>
+        <div class="exercise-q-text">fission → ?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Match</span>
+        <span class="answer-text"><strong>fission → v.</strong> the act or process of splitting the nucleus of an atom</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">g</div>
+        <div class="exercise-q-text">bountiful → ?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Match</span>
+        <span class="answer-text"><strong>bountiful → vi.</strong> in large quantities</span>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE B: Antonyms ===== -->
+  <div class="section-card" id="exerciseB">
+    <div class="section-heading">
+      <div class="icon icon-exercise">↔</div>
+      Exercise B — Find the Antonyms from the Text
+    </div>
+    <div class="section-subtitle">Click each word to reveal its antonym found in the text</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">endless → ?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Antonym</span>
+        <span class="answer-text"><strong>finite</strong> — endless is the opposite of finite (having a limit)</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">modern → ?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Antonym</span>
+        <span class="answer-text"><strong>traditional</strong> — modern is the opposite of traditional</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">covered → ?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Antonym</span>
+        <span class="answer-text"><strong>spread out</strong> — covered is the opposite of spread out</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">fragrant → ?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Antonym</span>
+        <span class="answer-text"><strong>odourless</strong> — fragrant (having smell) is the opposite of odourless (having no smell)</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">bound → ?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Antonym</span>
+        <span class="answer-text"><strong>wireless (wirelessly)</strong> — bound (connected by wire) is the opposite of wireless</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">6</div>
+        <div class="exercise-q-text">inadequate → ?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Antonym</span>
+        <span class="answer-text"><strong>sufficient / viable</strong> — inadequate is the opposite of sufficient or viable</span>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE C: Match Ideas ===== -->
+  <div class="section-card" id="exerciseC">
+    <div class="section-heading">
+      <div class="icon icon-match">🎯</div>
+      Exercise C — Match the Idea Numbers to the Correct Idea
+    </div>
+    <div class="section-subtitle">Click each item to reveal the matching idea</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">Idea I → ?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Match</span>
+        <span class="answer-text"><strong>Idea I → iv. Solar energy</strong> (Space-Based Solar Power)</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">Idea II → ?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Match</span>
+        <span class="answer-text"><strong>Idea II → v. Energy through body movement</strong> (Human Body Energy)</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">Idea III → ?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Match</span>
+        <span class="answer-text"><strong>Idea III → i. Wave energy</strong></span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">Idea IV → ?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Match</span>
+        <span class="answer-text"><strong>Idea IV → ii. Hydrogen energy</strong></span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">Idea V → ?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Match</span>
+        <span class="answer-text"><strong>Idea V → vi. Altaeros energy</strong> (Flying Wind Farm)</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">f</div>
+        <div class="exercise-q-text">Idea VI → ?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Match</span>
+        <span class="answer-text"><strong>Idea VI → iii. Energy through the fusion process</strong> (Fusion Energy)</span>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE D: Short Answers ===== -->
+  <div class="section-card" id="exerciseD">
+    <div class="section-heading">
+      <div class="icon icon-short">✎</div>
+      Exercise D — Answer the Following Questions
+    </div>
+    <div class="section-subtitle">Click each question to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">How did JAXA prove the viability for the idea of space-based solar energy?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text">In March 2015, JAXA successfully converted 1.8 kilowatts of electricity into microwaves and wirelessly beamed them a distance of 50 metres, proving the idea's viability.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">What do we need to generate energy through our body movement?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text">We would need to wear a system that collects and converts the energy generated through our movement into electricity.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">In what way are Idea III and V similar?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text">Both Idea III (wave energy) and Idea V (flying wind farm) use natural forces — water waves and wind respectively — to generate electricity. Both are forms of renewable energy derived indirectly from wind.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">How can hydrogen be used as the source of energy?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text">Hydrogen must first be separated from other elements like oxygen, carbon, and nitrogen. Once separated, it yields high energy and can be used in fuel cell devices to produce electricity for vehicles, aircraft, homes, and buildings.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">Why do floating turbines seem more effective than tower-mounted turbines?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text">Floating turbines operate at heights of 1,000 to 2,000 feet where winds are five to eight times stronger and steadier than at tower level, allowing them to produce double the energy of similar sized tower-mounted turbines.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">f</div>
+        <div class="exercise-q-text">Why is the fusion process environmentally friendly?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text">Fusion emits no pollutants or greenhouse gases and has no threat of nuclear meltdown, making it a clean and safe source of energy.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">g</div>
+        <div class="exercise-q-text">What does ITER stand for?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text">ITER stands for <strong>International Thermonuclear Experimental Reactor</strong>.</span>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- ===== ADDITIONAL: Short Answer ===== -->
+  <div class="section-card extra-section" id="extraSA">
+    <div class="section-heading">
+      <div class="icon icon-extra">💡</div>
+      Additional Short Answer Questions
+    </div>
+    <div class="section-subtitle">Click each question to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">What will happen when all the Earth's oil deposits dry up?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text">We will be completely dependent upon alternative sources of energy.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">What is wave energy, technically?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text">Wave energy is technically a form of stored wind energy, since waves are produced from winds which blow over the sea.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">Which country established the world's first commercial-scale wave farm? When?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text">Portugal established the world's first commercial-scale wave farm in 2008.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">What percentage of the universe's mass does hydrogen account for?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text">Hydrogen accounts for 76% of the mass of the universe.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">When is the ITER expected to be completed?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text">The ITER is set for completion by 2027.</span>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- ===== ADDITIONAL: True/False ===== -->
+  <div class="section-card extra-section" id="extraTF">
+    <div class="section-heading">
+      <div class="icon icon-extra">🔍</div>
+      Additional True / False Questions
+    </div>
+    <div class="section-subtitle">Click each statement to reveal whether it's True or False</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">Fossil fuel is an infinite resource.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-false">False</span>
+        <span class="answer-text">Fossil fuel is a finite resource — it will run out one day.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">JAXA converted 1.8 kilowatts of electricity into microwaves in 2015.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-true">True</span>
+        <span class="answer-text">In March 2015, JAXA successfully converted 1.8 kilowatts of electricity into microwaves and wirelessly beamed them 50 metres.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">Hydrogen is a coloured and strongly smelling gas.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-false">False</span>
+        <span class="answer-text">Hydrogen is a colourless and odourless gas.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">Flying wind turbines produce double the energy of tower-mounted turbines.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-true">True</span>
+        <span class="answer-text">Floating turbines capture stronger, steadier winds at high altitudes, producing double the energy of similar sized tower-mounted turbines.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">The fusion process produces large amounts of greenhouse gases.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-false">False</span>
+        <span class="answer-text">Fusion emits no pollutants or greenhouse gases, making it environmentally friendly.</span>
+      </div></div>
+    </div>
+  </div>
+
+  <!-- ===== ADDITIONAL: Fill in the Blanks ===== -->
+  <div class="section-card extra-section" id="extraFill">
+    <div class="section-heading">
+      <div class="icon icon-extra">🧩</div>
+      Additional Contextual Fill-in-the-Blanks
+    </div>
+    <div class="section-subtitle">Click each question to reveal the correct answer</div>
+
+    <div class="box-words">
+      <span class="box-word">finite</span>
+      <span class="box-word">beamed</span>
+      <span class="box-word">yields</span>
+      <span class="box-word">autonomous</span>
+      <span class="box-word">isotopes</span>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">Liquid fossil fuel is a <span class="blank-slot">________</span> resource that will run out one day.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text"><strong>finite</strong> — Liquid fossil fuel is a <strong>finite</strong> resource that will run out one day.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">The JAXA wirelessly <span class="blank-slot">________</span> microwaves a distance of 50 metres.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text"><strong>beamed</strong> — The JAXA wirelessly <strong>beamed</strong> microwaves a distance of 50 metres.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">Hydrogen <span class="blank-slot">________</span> high energy while producing almost no pollution.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text"><strong>yields</strong> — Hydrogen <strong>yields</strong> high energy while producing almost no pollution.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">The Buoyant Air Turbine is completely <span class="blank-slot">________</span> and self-adjusts to optimal wind speeds.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text"><strong>autonomous</strong> — The Buoyant Air Turbine is completely <strong>autonomous</strong> and self-adjusts to optimal wind speeds.</span>
+      </div></div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">Fusion works by fusing two hydrogen <span class="blank-slot">________</span>, deuterium and tritium.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer"><div class="exercise-answer-inner">
+        <span class="answer-badge badge-answer">Answer</span>
+        <span class="answer-text"><strong>isotopes</strong> — Fusion works by fusing two hydrogen <strong>isotopes</strong>, deuterium and tritium.</span>
+      </div></div>
+    </div>
+  </div>
+
+</div><!-- /main-content -->
+
+<script>
+  // ===== FONT SIZE CONTROL =====
+  let fontSize = 17;
+  const MIN_FONT = 12, MAX_FONT = 28;
+  function changeFontSize(delta) {
+    fontSize = Math.max(MIN_FONT, Math.min(MAX_FONT, fontSize + delta));
+    document.documentElement.style.setProperty('--font-size-base', fontSize + 'px');
+    const d = document.getElementById('fontDisplay');
+    d.textContent = fontSize + 'px';
+    d.style.transform = 'scale(1.2)';
+    setTimeout(() => d.style.transform = 'scale(1)', 200);
+  }
+
+  // ===== MEANING POPUP =====
+  let popupTimeout;
+  function showMeaning(word, english, nepali) {
+    const popup = document.getElementById('meaningPopup');
+    document.getElementById('popupWord').textContent = word;
+    document.getElementById('popupEnglish').textContent = english;
+    document.getElementById('popupNepali').textContent = nepali;
+    popup.classList.add('show');
+    clearTimeout(popupTimeout);
+  }
+  function closePopup() {
+    document.getElementById('meaningPopup').classList.remove('show');
+  }
+
+  // ===== EXERCISE TOGGLE =====
+  function toggleExercise(item) {
+    const parent = item.closest('.section-card');
+    const allItems = parent.querySelectorAll('.exercise-item');
+    const isOpen = item.classList.contains('open');
+    allItems.forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ===== DOWNLOAD =====
+  function downloadHTML() {
+    const htmlContent = document.documentElement.outerHTML;
+    const blob = new Blob(['<!DOCTYPE html>\n' + htmlContent], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'Alternative_Source_of_Energy_Interactive.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+</script>
+
+</body>
+</html>

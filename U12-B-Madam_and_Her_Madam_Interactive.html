@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madam and Her Madam — Langston Hughes | Grade 9 English Unit 12</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --font-size-base:17px;
+  --bg:#F9F5F0;
+  --card:#FFFFFF;
+  --primary:#7B2D3B;
+  --primary-light:#C47D8A;
+  --accent:#D4553A;
+  --accent-dark:#9E2B1A;
+  --text:#2D1B14;
+  --text-light:#5C3D33;
+  --muted:#8B6F60;
+  --border:#E8D0C8;
+  --highlight:#FFECD2;
+  --highlight-border:#E67E22;
+  --success:#2D7D46;
+  --error:#C0392B;
+  --shadow:0 2px 12px rgba(123,45,59,0.10);
+  --radius:14px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter','Noto Sans SC',sans-serif;
+  font-size:var(--font-size-base);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.75;
+  min-height:100vh;
+}
+
+/* ─── HEADER ─── */
+.site-header{
+  background:linear-gradient(135deg,#1A0A0F 0%,#7B2D3B 45%,#C47D8A 100%);
+  padding:32px 20px 28px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.site-header::before{
+  content:'';position:absolute;top:-40%;left:-20%;width:140%;height:180%;
+  background:radial-gradient(ellipse at 70% 40%,rgba(212,85,58,0.15) 0%,transparent 70%);
+  pointer-events:none;
+}
+.site-header h1{
+  font-family:'Lora',serif;font-size:2.1rem;color:#F5E6E0;
+  font-weight:700;letter-spacing:0.5px;position:relative;
+}
+.site-header .subtitle{
+  color:#C47D8A;font-size:1rem;margin-top:6px;font-style:italic;position:relative;
+}
+.site-header .meta{
+  color:rgba(245,230,224,0.7);font-size:0.85rem;margin-top:8px;position:relative;
+}
+.site-header .meta span{margin:0 8px}
+
+/* ─── TOOLBAR ─── */
+.toolbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(249,245,240,0.92);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  padding:10px 20px;
+  display:flex;justify-content:center;gap:12px;align-items:center;
+  flex-wrap:wrap;
+}
+.toolbar button{
+  border:none;border-radius:8px;padding:7px 18px;
+  font-size:0.9rem;font-weight:600;cursor:pointer;
+  transition:all 0.2s;
+}
+.btn-font{background:var(--primary);color:#FFF}
+.btn-font:hover{background:var(--accent-dark);transform:scale(1.05)}
+.btn-download{background:var(--accent);color:#FFF}
+.btn-download:hover{background:var(--accent-dark);transform:scale(1.05)}
+
+/* ─── MAIN CONTAINER ─── */
+.container{max-width:860px;margin:0 auto;padding:24px 16px 60px}
+
+/* ─── SECTION CARD ─── */
+.section-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px 26px;
+  margin-bottom:24px;box-shadow:var(--shadow);
+  transition:box-shadow 0.3s;
+}
+.section-card:hover{box-shadow:0 4px 20px rgba(123,45,59,0.16)}
+.section-card h2{
+  font-family:'Lora',serif;color:var(--primary);
+  font-size:1.45rem;margin-bottom:16px;padding-bottom:10px;
+  border-bottom:2px solid var(--primary-light);
+}
+.section-card h3{
+  font-family:'Lora',serif;color:var(--accent-dark);
+  font-size:1.15rem;margin:18px 0 10px;
+}
+
+/* ─── POEM BLOCK ─── */
+.poem-block{
+  background:linear-gradient(135deg,#1A0A0F 0%,#3D1520 50%,#7B2D3B 100%);
+  border-radius:var(--radius);padding:36px 32px;
+  color:#F5E6E0;position:relative;overflow:hidden;
+  margin-bottom:24px;
+}
+.poem-block::before{
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C47D8A' fill-opacity='0.05'%3E%3Cpath d='M40 0C17.9 0 0 17.9 0 40s17.9 40 40 40 40-17.9 40-40S62.1 0 40 0zm0 70c-16.5 0-30-13.5-30-30S23.5 10 40 10s30 13.5 30 30-13.5 30-30 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events:none;
+}
+.poem-block .poem-title{
+  font-family:'Lora',serif;font-size:1.8rem;font-weight:700;
+  text-align:center;margin-bottom:4px;color:#F5E6E0;position:relative;
+}
+.poem-block .poem-author{
+  text-align:center;font-style:italic;color:#C47D8A;
+  font-size:1rem;margin-bottom:28px;position:relative;
+}
+.poem-block .stanza{
+  margin-bottom:22px;position:relative;
+  padding-left:16px;border-left:3px solid rgba(196,125,138,0.3);
+}
+.poem-block .stanza:last-child{margin-bottom:0}
+.poem-block .stanza-label{
+  display:inline-block;background:rgba(196,125,138,0.2);
+  color:#C47D8A;font-size:0.75rem;font-weight:600;
+  padding:2px 10px;border-radius:4px;margin-bottom:8px;
+  letter-spacing:0.5px;text-transform:uppercase;
+}
+.poem-block .poem-line{
+  font-family:'Lora',serif;font-size:1.08rem;
+  line-height:2;color:#F5E6E0;position:relative;
+}
+
+/* ─── HIGHLIGHTED WORD ─── */
+.hw{
+  background:var(--highlight);color:var(--accent-dark);
+  padding:1px 6px;border-radius:4px;cursor:pointer;
+  border-bottom:2px dashed var(--highlight-border);
+  font-weight:600;transition:all 0.2s;
+}
+.hw:hover{background:#FFD9A8;transform:scale(1.04)}
+.poem-block .hw{
+  background:rgba(230,126,34,0.25);color:#FFD54F;
+  border-bottom:2px dashed rgba(255,213,79,0.6);
+}
+.poem-block .hw:hover{background:rgba(230,126,34,0.45)}
+
+/* ─── MEANING POPUP ─── */
+#meaningPopup{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+  z-index:9999;background:#1A0A0F;color:#F5E6E0;
+  border-radius:16px;padding:18px 24px;
+  box-shadow:0 8px 32px rgba(26,10,15,0.50);
+  min-width:300px;max-width:90vw;
+  opacity:0;pointer-events:none;transition:all 0.35s cubic-bezier(.4,0,.2,1);
+  border:2px solid rgba(196,125,138,0.3);
+}
+#meaningPopup.show{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+#meaningPopup .popup-word{
+  font-family:'Lora',serif;font-size:1.25rem;font-weight:700;
+  color:#FFD54F;margin-bottom:8px;display:flex;align-items:center;gap:8px;
+}
+#meaningPopup .popup-word::before{content:'📖';font-size:1.1rem}
+#meaningPopup .popup-meaning{font-size:0.92rem;line-height:1.6}
+#meaningPopup .popup-meaning span{display:block;margin:3px 0}
+#meaningPopup .popup-en{color:#C47D8A;font-weight:500}
+#meaningPopup .popup-ne{color:#F5E6E0;font-weight:400}
+#meaningPopup .popup-close{
+  position:absolute;top:8px;right:12px;
+  background:none;border:none;color:#C47D8A;
+  font-size:1.3rem;cursor:pointer;line-height:1;
+}
+#meaningPopup .popup-close:hover{color:#FFD54F}
+
+/* ─── VOCABULARY TABLE ─── */
+.vocab-table{
+  width:100%;border-collapse:separate;border-spacing:0;
+  border-radius:10px;overflow:hidden;
+  font-size:0.93rem;margin:12px 0;
+}
+.vocab-table thead{background:var(--primary);color:#FFF}
+.vocab-table thead th{padding:10px 14px;text-align:left;font-weight:600}
+.vocab-table tbody tr{transition:background 0.2s}
+.vocab-table tbody tr:nth-child(even){background:#FDF5F2}
+.vocab-table tbody tr:hover{background:#F5E0D8}
+.vocab-table td{padding:9px 14px;border-bottom:1px solid var(--border)}
+.vocab-table td:first-child{font-weight:600;color:var(--accent-dark)}
+
+/* ─── SYMBOLIC TABLE ─── */
+.symbol-table{
+  width:100%;border-collapse:separate;border-spacing:0;
+  border-radius:10px;overflow:hidden;
+  font-size:0.93rem;margin:12px 0;
+}
+.symbol-table thead{background:var(--accent);color:#FFF}
+.symbol-table thead th{padding:10px 14px;text-align:left;font-weight:600}
+.symbol-table tbody tr{transition:background 0.2s}
+.symbol-table tbody tr:nth-child(even){background:#FFF5F0}
+.symbol-table tbody tr:hover{background:#FDEBD0}
+.symbol-table td{padding:9px 14px;border-bottom:1px solid var(--border)}
+.symbol-table td:first-child{font-weight:700;color:var(--primary)}
+
+/* ─── TEACHER SPEECH ─── */
+.teacher-block{
+  background:linear-gradient(135deg,#FFF5F0,#FAE8E0);
+  border-left:4px solid var(--accent);
+  border-radius:0 10px 10px 0;
+  padding:18px 22px;margin:14px 0;
+  font-style:italic;color:var(--text-light);
+}
+.teacher-block strong{
+  font-style:normal;color:var(--primary);display:block;
+  margin-bottom:6px;font-size:0.95rem;
+}
+
+/* ─── EXPLANATION BLOCK ─── */
+.stanza-explanation{margin:16px 0}
+.stanza-explanation .stanza-heading{
+  font-family:'Lora',serif;font-size:1.1rem;
+  color:var(--primary);margin-bottom:12px;
+  padding:6px 14px;background:linear-gradient(90deg,#FDF5F2,transparent);
+  border-radius:6px;
+}
+.line-expl{
+  margin:10px 0;padding:10px 16px;
+  border-left:3px solid var(--primary-light);
+  background:#FFFAF8;border-radius:0 8px 8px 0;
+}
+.line-expl .line-quoted{
+  font-family:'Lora',serif;font-weight:600;
+  color:var(--accent-dark);font-size:0.98rem;
+  margin-bottom:6px;
+}
+.line-expl .line-meaning{
+  color:var(--text-light);font-size:0.93rem;
+}
+
+/* ─── EXERCISE SECTION ─── */
+.exercise-item{
+  border:1px solid var(--border);border-radius:10px;
+  margin:10px 0;overflow:hidden;
+  transition:border-color 0.3s;
+}
+.exercise-item:hover{border-color:var(--primary-light)}
+.exercise-question{
+  padding:14px 18px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;
+  font-weight:500;background:#FFFAF8;
+  transition:background 0.2s;user-select:none;
+}
+.exercise-question:hover{background:#FDF5F2}
+.exercise-question .arrow{
+  font-size:1.1rem;transition:transform 0.3s;color:var(--accent);
+  flex-shrink:0;margin-left:10px;
+}
+.exercise-item.open .exercise-question .arrow{transform:rotate(90deg)}
+.exercise-answer{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.4s ease,padding 0.3s;
+}
+.exercise-item.open .exercise-answer{
+  max-height:800px;padding:14px 18px;
+}
+.exercise-answer-inner{
+  background:linear-gradient(135deg,#F5E0D8,#FAE8E0);
+  border-radius:8px;padding:14px 16px;
+  color:var(--text);font-size:0.95rem;
+  border-left:4px solid var(--accent);
+}
+
+/* ─── MATCHING EXERCISE ─── */
+.match-table{
+  width:100%;border-collapse:collapse;
+  font-size:0.93rem;margin:10px 0;
+}
+.match-table td{
+  padding:8px 12px;border:1px solid var(--border);
+  vertical-align:top;
+}
+.match-table td:first-child{font-weight:600;color:var(--accent-dark);width:22%}
+.match-table td:nth-child(2){color:var(--muted);text-align:center;width:8%}
+.match-table td:nth-child(3){width:25%}
+.match-table td:nth-child(4){color:var(--muted);text-align:center;width:8%}
+.match-table td:nth-child(5){width:37%}
+
+/* ─── WORK LIST ─── */
+.work-list{
+  list-style:none;padding:0;margin:8px 0;
+  counter-reset:work;
+}
+.work-list li{
+  counter-increment:work;
+  padding:8px 14px;margin:4px 0;
+  background:#FFFAF8;border-radius:6px;
+  border-left:3px solid var(--primary-light);
+  font-size:0.93rem;
+}
+.work-list li::before{
+  content:counter(work) '.';
+  font-weight:700;color:var(--accent-dark);
+  margin-right:8px;
+}
+
+/* ─── TF / FILL EXERCISE ─── */
+.tf-item,.fill-item{
+  border:1px solid var(--border);border-radius:10px;
+  margin:8px 0;overflow:hidden;
+}
+.tf-question,.fill-question{
+  padding:12px 16px;cursor:pointer;
+  background:#FFFAF8;font-weight:500;
+  display:flex;justify-content:space-between;align-items:center;
+  transition:background 0.2s;
+}
+.tf-question:hover,.fill-question:hover{background:#FDF5F2}
+.tf-answer,.fill-answer{
+  max-height:0;overflow:hidden;transition:max-height 0.4s ease;
+}
+.tf-item.open .tf-answer,.fill-item.open .fill-answer{
+  max-height:300px;padding:12px 16px;
+}
+.tf-answer-inner,.fill-answer-inner{
+  background:linear-gradient(135deg,#F5E0D8,#FAE8E0);
+  border-radius:8px;padding:12px 14px;
+  font-size:0.93rem;border-left:4px solid var(--accent);
+}
+
+/* ─── INTERPRETATION BOX ─── */
+.interpretation-box{
+  background:linear-gradient(135deg,#1A0A0F,#7B2D3B);
+  color:#F5E6E0;border-radius:var(--radius);
+  padding:24px 26px;margin:16px 0;
+}
+.interpretation-box h3{
+  color:#FFD54F;font-family:'Lora',serif;
+  margin-bottom:12px;font-size:1.1rem;
+}
+.interpretation-box p,.interpretation-box li{
+  color:#E8D0C8;font-size:0.95rem;line-height:1.8;
+}
+.interpretation-box ul{padding-left:20px;margin:8px 0}
+.interpretation-box li{margin:6px 0}
+
+/* ─── FOOTER ─── */
+.site-footer{
+  background:linear-gradient(135deg,#1A0A0F,#7B2D3B);
+  color:rgba(245,230,224,0.6);text-align:center;
+  padding:18px 20px;font-size:0.78rem;
+  margin-top:20px;
+}
+.site-footer a{color:#C47D8A;text-decoration:none}
+.site-footer a:hover{text-decoration:underline}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:640px){
+  .site-header h1{font-size:1.5rem}
+  .container{padding:16px 10px 40px}
+  .section-card{padding:18px 14px}
+  .poem-block{padding:24px 18px}
+  .poem-block .poem-title{font-size:1.4rem}
+  .poem-block .poem-line{font-size:0.98rem}
+  #meaningPopup{min-width:260px;padding:14px 18px}
+  .vocab-table,.symbol-table,.match-table{font-size:0.82rem}
+  .vocab-table td,.vocab-table th,
+  .symbol-table td,.symbol-table th,
+  .match-table td{padding:7px 8px}
+  .toolbar{gap:6px;padding:8px 10px}
+  .toolbar button{padding:6px 12px;font-size:0.82rem}
+  .match-table td:nth-child(4),.match-table td:nth-child(5){display:none}
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.section-card{animation:fadeInUp 0.5s ease both}
+.section-card:nth-child(2){animation-delay:0.05s}
+.section-card:nth-child(3){animation-delay:0.1s}
+.section-card:nth-child(4){animation-delay:0.15s}
+.section-card:nth-child(5){animation-delay:0.2s}
+.section-card:nth-child(6){animation-delay:0.25s}
+.section-card:nth-child(7){animation-delay:0.3s}
+.section-card:nth-child(8){animation-delay:0.35s}
+.section-card:nth-child(9){animation-delay:0.4s}
+.section-card:nth-child(10){animation-delay:0.45s}
+.section-card:nth-child(11){animation-delay:0.5s}
+</style>
+</head>
+<body>
+
+<!-- ═══════ HEADER ═══════ -->
+<header class="site-header">
+  <h1>Madam and Her Madam</h1>
+  <div class="subtitle">— Langston Hughes</div>
+  <div class="meta">
+    <span>Grade 9</span>•<span>English</span>•<span>Unit 12</span>•<span>Poem</span>
+  </div>
+</header>
+
+<!-- ═══════ TOOLBAR ═══════ -->
+<div class="toolbar">
+  <button class="btn-font" onclick="changeFontSize(-1)">A−</button>
+  <button class="btn-font" onclick="changeFontSize(1)">A+</button>
+  <button class="btn-download" onclick="downloadHTML()">⬇ Download HTML</button>
+</div>
+
+<!-- ═══════ MAIN ═══════ -->
+<div class="container">
+
+<!-- ──── POEM ──── -->
+<div class="section-card">
+  <h2>📜 The Poem — Madam and Her Madam</h2>
+  <div class="poem-block">
+    <div class="poem-title">Madam and Her Madam</div>
+    <div class="poem-author">— Langston Hughes</div>
+
+    <div class="stanza">
+      <div class="stanza-label">Stanza 1</div>
+      <div class="poem-line">I worked for a woman,</div>
+      <div class="poem-line">She wasn't <span class="hw" onclick="showMeaning('mean','unkind; cruel','निर्दयी, कंजूस')">mean</span>,</div>
+      <div class="poem-line">But she had a twelve-room</div>
+      <div class="poem-line">House to clean.</div>
+    </div>
+
+    <div class="stanza">
+      <div class="stanza-label">Stanza 2</div>
+      <div class="poem-line">Had to get breakfast,</div>
+      <div class="poem-line"><span class="hw" onclick="showMeaning('dinner','the main meal of the day','दिउँसोको मुख्य खाना')">Dinner</span>,</div>
+      <div class="poem-line">and <span class="hw" onclick="showMeaning('supper','evening meal','बेलुकाको खाना')">supper</span> too</div>
+      <div class="poem-line">Then take care of her children</div>
+      <div class="poem-line">When I <span class="hw" onclick="showMeaning('get through','to finish or complete something','सकिनु, काम टुङ्ग्याउनु')">got through</span>.</div>
+    </div>
+
+    <div class="stanza">
+      <div class="stanza-label">Stanza 3</div>
+      <div class="poem-line"><span class="hw" onclick="showMeaning('wash','to clean with water','धुनु')">Wash</span>, <span class="hw" onclick="showMeaning('iron','to press clothes with an iron','कपडा प्रेस गर्नु')">iron</span>, and <span class="hw" onclick="showMeaning('scrub','to clean by rubbing hard','कडा गरी माझ्नु')">scrub</span>,</div>
+      <div class="poem-line">Walk the dog around</div>
+      <div class="poem-line">It was too much,</div>
+      <div class="poem-line">Nearly <span class="hw" onclick="showMeaning('broke me down','exhausted; caused to collapse','थकाइदियो / ढाल्यो')">broke me down</span>.</div>
+    </div>
+
+    <div class="stanza">
+      <div class="stanza-label">Stanza 4</div>
+      <div class="poem-line">I said, <span class="hw" onclick="showMeaning('Madam','a polite way of addressing a woman','महोदया')">Madam</span>,</div>
+      <div class="poem-line">Can it be</div>
+      <div class="poem-line">You trying to make a</div>
+      <div class="poem-line"><span class="hw" onclick="showMeaning('pack-horse','a horse used to carry heavy loads','भारी बोक्ने घोडा')">Pack-horse</span> out of me?</div>
+    </div>
+
+    <div class="stanza">
+      <div class="stanza-label">Stanza 5</div>
+      <div class="poem-line">She opened her mouth.</div>
+      <div class="poem-line">She <span class="hw" onclick="showMeaning('cried','called out; exclaimed','रोई वा चिच्याई')">cried</span>, Oh, no!</div>
+      <div class="poem-line">You know, Alberta,</div>
+      <div class="poem-line">I love you so!</div>
+    </div>
+
+    <div class="stanza">
+      <div class="stanza-label">Stanza 6</div>
+      <div class="poem-line">I said, Madam,</div>
+      <div class="poem-line">That may be true</div>
+      <div class="poem-line">But I'll be <span class="hw" onclick="showMeaning('dogged','stubbornly determined','हठी; अडिग')">dogged</span></div>
+      <div class="poem-line">If I love you!</div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── VOCABULARY ──── -->
+<div class="section-card">
+  <h2>📗 Word Meanings</h2>
+  <table class="vocab-table">
+    <thead>
+      <tr><th>Word / Phrase</th><th>English Meaning</th><th>Nepali Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>mean</td><td>unkind; cruel</td><td>निर्दयी, कंजूस</td></tr>
+      <tr><td>dinner</td><td>the main meal of the day</td><td>दिउँसोको मुख्य खाना</td></tr>
+      <tr><td>supper</td><td>evening meal</td><td>बेलुकाको खाना</td></tr>
+      <tr><td>wash</td><td>to clean with water</td><td>धुनु</td></tr>
+      <tr><td>scrub</td><td>to clean by rubbing hard</td><td>कडा गरी माझ्नु</td></tr>
+      <tr><td>broke me down</td><td>exhausted; caused to collapse</td><td>थकाइदियो / ढाल्यो</td></tr>
+      <tr><td>Madam</td><td>a polite way of addressing a woman</td><td>महोदया</td></tr>
+      <tr><td>pack-horse</td><td>a horse used to carry heavy loads</td><td>भारी बोक्ने घोडा</td></tr>
+      <tr><td>dogged</td><td>stubbornly determined</td><td>हठी; अडिग</td></tr>
+      <tr><td>get through</td><td>to finish or complete something</td><td>सकिनु, काम टुङ्ग्याउनु</td></tr>
+      <tr><td>iron</td><td>to press clothes with an iron</td><td>कपडा प्रेस गर्नु</td></tr>
+      <tr><td>cried</td><td>called out; exclaimed</td><td>रोई वा चिच्याई</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ──── SYMBOLIC WORDS ──── -->
+<div class="section-card">
+  <h2>🔮 Symbolic Words &amp; Phrases</h2>
+  <table class="symbol-table">
+    <thead>
+      <tr><th>Symbol</th><th>Literal Meaning</th><th>Symbolic Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Pack-horse</td><td>भारी बोक्ने घोडा</td><td>Symbolises the maid being treated like an animal — overworked and undervalued</td></tr>
+      <tr><td>Twelve-room house</td><td>बाह्र कोठाको घर</td><td>Represents the enormous, unfair burden placed on the maid</td></tr>
+      <tr><td>"She wasn't mean"</td><td>उनी निर्दयी थिइनन्</td><td>Ironic — the woman WAS mean through her actions even if not in character</td></tr>
+      <tr><td>"I love you so!"</td><td>म तिमीलाई माया गर्छु</td><td>Hollow, false affection used to justify exploitation</td></tr>
+      <tr><td>"I'll be dogged"</td><td>म हठी भएर</td><td>Symbolises defiance(disobedience), self-respect, and resistance against injustice</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ──── SYMBOLIC INTERPRETATION ──── -->
+<div class="section-card">
+  <h2>🕊️ Symbolic / Thematic Interpretation</h2>
+  <div class="interpretation-box">
+    <h3>Class Inequality &amp; Labour Exploitation</h3>
+    <p>The poem uses the relationship between a domestic worker (the maid, Alberta) and her employer (the Madam) to symbolise <strong>class inequality and labour exploitation</strong>. The Madam's false declaration of love — "I love you so!" — contrasts sharply with the exhausting workload she assigns. The poem symbolically represents how <strong>the oppressed are silenced with sweet words while being overworked</strong>. Alberta's final retort — "I'll be dogged if I love you!" — is a symbol of reclaiming dignity and speaking truth to power.</p>
+  </div>
+</div>
+
+<!-- ──── TEACHER'S SPEECH ──── -->
+<div class="section-card">
+  <h2>👩‍🏫 Teacher's Speech Notes</h2>
+
+  <div class="teacher-block">
+    <strong>🎤 Introduction</strong>
+    "Today we are going to read a poem by Langston Hughes — an African-American poet famous for writing about the lives of working-class Black people in America. This poem tells the story of a domestic worker named Alberta and her employer. As we read, think: is this a poem about work, or is it about something deeper?"
+  </div>
+
+  <div class="teacher-block">
+    <strong>📋 Setting Context</strong>
+    "Langston Hughes wrote during the Harlem Renaissance period in early 20th century America. Many Black women worked as domestic servants in white households. They were often overworked and underpaid. This poem reflects their real experience."
+  </div>
+
+  <div class="teacher-block">
+    <strong>📖 Reading Guidance</strong>
+    "Notice how simple the language is — short lines, everyday words. But the meaning is very deep. The maid does all the housework — breakfast, dinner, supper, washing, ironing, scrubbing, walking the dog, and caring for children. How many tasks is that? Count them with your students."
+  </div>
+
+  <div class="teacher-block">
+    <strong>🔑 Key Teaching Points</strong>
+    1. Irony in "She wasn't mean" — she WAS cruel through overwork<br>
+    2. The pack-horse metaphor — dehumanisation of the worker<br>
+    3. The Madam's empty love declaration — false kindness<br>
+    4. Alberta's final line — courage, self-respect, humour
+  </div>
+
+  <div class="teacher-block">
+    <strong>💬 Discussion Prompt</strong>
+    "Do you think the maid was wrong to speak back to her employer? What does it take to stand up for yourself at work?"
+  </div>
+
+  <div class="teacher-block">
+    <strong>🎓 Closing</strong>
+    "This poem teaches us that dignity is more important than politeness. Alberta doesn't shout — she speaks clearly and honestly. That is a form of courage."
+  </div>
+</div>
+
+<!-- ──── LINE-BY-LINE EXPLANATION ──── -->
+<div class="section-card">
+  <h2>📝 Line-by-Line Explanation</h2>
+
+  <div class="line-expl">
+    <div class="line-quoted">"I worked for a woman, / She wasn't mean"</div>
+    <div class="line-meaning">The speaker (Alberta, the maid) introduces her employer. She says the woman wasn't cruel by nature — but the following lines reveal that her workload WAS cruel. This opening line is <strong>ironic</strong>.</div>
+  </div>
+
+  <div class="line-expl">
+    <div class="line-quoted">"But she had a twelve-room / House to clean."</div>
+    <div class="line-meaning">A twelve-room house is enormous. The word "but" signals contradiction — though the Madam wasn't "mean," she assigned an almost impossible workload. One person cannot easily maintain twelve rooms.</div>
+  </div>
+
+  <div class="line-expl">
+    <div class="line-quoted">"Had to get breakfast, / Dinner, and supper, too / Then take care of her children / When I got through."</div>
+    <div class="line-meaning">Alberta had to cook three meals a day AND look after the children after completing all her work. "When I got through" means after finishing all other tasks — leaving no rest.</div>
+  </div>
+
+  <div class="line-expl">
+    <div class="line-quoted">"Wash, iron, and scrub, / Walk the dog around"</div>
+    <div class="line-meaning">Three more hard physical tasks listed rapidly — laundry, pressing clothes, intensive cleaning, and even walking the pet. The listing pace mimics exhaustion.</div>
+  </div>
+
+  <div class="line-expl">
+    <div class="line-quoted">"It was too much, / Nearly broke me down."</div>
+    <div class="line-meaning">The maid reaches her limit. "Broke me down" means she was physically and emotionally exhausted. "Nearly" suggests she survived, but barely.</div>
+  </div>
+
+  <div class="line-expl">
+    <div class="line-quoted">"I said, Madam, / Can it be / You trying to make a / Pack-horse out of me?"</div>
+    <div class="line-meaning">Alberta finally speaks up. She uses the powerful metaphor of a <strong>pack-horse</strong> — an animal used purely for heavy work. She is asking: "Do you see me as human or as a beast of burden?"</div>
+  </div>
+
+  <div class="line-expl">
+    <div class="line-quoted">"She opened her mouth. / She cried, Oh, no! / You know, Alberta, / I love you so!"</div>
+    <div class="line-meaning">The Madam's response is emotional and deflecting. Instead of acknowledging the overwork, she says "I love you." This is a typical strategy of the powerful — using affection to avoid accountability.</div>
+  </div>
+
+  <div class="line-expl">
+    <div class="line-quoted">"I said, Madam, / That may be true / But I'll be dogged / If I love you!"</div>
+    <div class="line-meaning">Alberta doesn't deny the Madam's love but refuses to return it. "I'll be dogged" means "I'll be stubborn — I absolutely will NOT." This is the poem's emotional climax. It is funny, brave, and deeply honest. Alberta reclaims her dignity.</div>
+  </div>
+</div>
+
+<!-- ──── EXERCISES SOLVED ──── -->
+<div class="section-card">
+  <h2>✅ Exercise Solved</h2>
+
+  <!-- Exercise A: Matching -->
+  <h3>A. Match the words/phrases in Column A with their meanings in Column B.</h3>
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>a. mean &nbsp; b. get through &nbsp; c. dinner &nbsp; d. break down &nbsp; e. pack-horse &nbsp; f. Madam &nbsp; g. dogged</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        <table class="match-table">
+          <tr><td>a. mean</td><td>→</td><td>iv. unkind</td></tr>
+          <tr><td>b. get through</td><td>→</td><td>vi. to manage to do or complete something</td></tr>
+          <tr><td>c. dinner</td><td>→</td><td>vii. the main meal of the day</td></tr>
+          <tr><td>d. break down</td><td>→</td><td>iii. cease to function; collapse</td></tr>
+          <tr><td>e. pack-horse</td><td>→</td><td>ii. a horse used to carry heavy loads</td></tr>
+          <tr><td>f. Madam</td><td>→</td><td>v. a formal and polite way of speaking to a woman</td></tr>
+          <tr><td>g. dogged</td><td>→</td><td>i. not giving up easily</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise B: Short Answers -->
+  <h3>B. Answer the following questions.</h3>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>a. Was the Madam really not mean? Why does the speaker say 'she wasn't mean'?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The Madam was effectively cruel in her actions even if not by intention. The speaker says "she wasn't mean" ironically — the Madam may have been pleasant in manner, but she gave Alberta an overwhelming list of duties. The statement reflects how oppressed people sometimes make excuses for their oppressors or soften criticism.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>b. Make a list of work that the maid had to do.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The maid had to:
+        <ol class="work-list">
+          <li>Cook breakfast</li>
+          <li>Cook dinner (main meal)</li>
+          <li>Cook supper (evening meal)</li>
+          <li>Take care of the Madam's children</li>
+          <li>Wash clothes</li>
+          <li>Iron clothes</li>
+          <li>Scrub (clean the house)</li>
+          <li>Walk the dog</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>c. What made her nearly break down?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The enormous workload — cooking three meals a day, caring for children, washing, ironing, scrubbing, and walking the dog — in a twelve-room house was far too much for one person. This excessive burden nearly caused her physical and emotional collapse.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>d. How did the Madam respond to the maid's question?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        Instead of admitting that she had overloaded the maid with work, the Madam cried out emotionally — "Oh, no! You know, Alberta, I love you so!" She used declarations of love to avoid addressing the real problem. This response was evasive and emotionally manipulative.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── ADDITIONAL QUESTIONS ──── -->
+<div class="section-card">
+  <h2>➕ Additional Practice Questions</h2>
+
+  <!-- Short Questions -->
+  <h3>Short Questions</h3>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>1. Who is the speaker in the poem "Madam and Her Madam"?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The speaker is Alberta, a domestic worker (maid).
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>2. What does the phrase "pack-horse" suggest about how the maid was treated?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        It suggests she was treated like an animal used only for carrying heavy loads — overworked and dehumanised.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>3. How many meals did the maid have to prepare every day?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        She had to prepare three meals: breakfast, dinner, and supper.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>4. Why does Alberta say "I'll be dogged if I love you"?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        Alberta says this to express her refusal to love someone who exploits her, despite whatever affection the Madam claims to feel. It is an act of self-respect.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>5. What is the central theme of the poem?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The central theme is labour exploitation, class inequality, and the dignity of the working class.
+      </div>
+    </div>
+  </div>
+
+  <!-- True / False -->
+  <h3>True / False</h3>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>1. The Madam had a ten-room house to clean.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--error)">False</strong> — The Madam had a twelve-room house, not a ten-room house.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>2. Alberta had to walk the dog as part of her duties.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--success)">True</strong> — Walking the dog was one of Alberta's many daily tasks.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>3. The Madam admitted she was giving Alberta too much work.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--error)">False</strong> — The Madam did not admit it; she said "I love you" instead of addressing the workload.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>4. Alberta's hard work nearly broke her down.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--success)">True</strong> — The poem states "It was too much, nearly broke me down."
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>5. Alberta loved the Madam deeply by the end of the poem.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--error)">False</strong> — Alberta said "I'll be dogged if I love you!" — she firmly refused to love the Madam.
+      </div>
+    </div>
+  </div>
+
+  <!-- Fill in the Blanks -->
+  <h3>Contextual Word Meaning Fill-in</h3>
+  <p style="font-size:0.9rem;color:var(--muted);margin:6px 0 12px;">Words: mean / pack-horse / scrub / dogged / broke me down</p>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>1. She was so stubborn and _____________ that nobody could change her mind.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        She was so stubborn and <strong>dogged</strong> that nobody could change her mind.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>2. I had to _____________ the bathroom floor for an hour to get rid of the dirt.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        I had to <strong>scrub</strong> the bathroom floor for an hour to get rid of the dirt.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>3. Carrying all those boxes up five flights of stairs nearly _____________ .</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        Carrying all those boxes up five flights of stairs nearly <strong>broke me down</strong>.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>4. Don't be _____________ to your younger siblings — be kind and patient.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        Don't be <strong>mean</strong> to your younger siblings — be kind and patient.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>5. They used him like a _____________ — always asking him to carry heavy loads without rest.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        They used him like a <strong>pack-horse</strong> — always asking him to carry heavy loads without rest.
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- ═══════ MEANING POPUP ═══════ -->
+<div id="meaningPopup">
+  <button class="popup-close" onclick="closePopup()">&times;</button>
+  <div class="popup-word" id="popupWord"></div>
+  <div class="popup-meaning">
+    <span class="popup-en" id="popupEnglish"></span>
+    <span class="popup-ne" id="popupNepali"></span>
+  </div>
+</div>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="site-footer">
+  N.REGMI &nbsp;|&nbsp; <a href="mailto:nregmi511@gmail.com">nregmi511@gmail.com</a>
+  &nbsp;|&nbsp; Grade 9 English — Unit 12 — Madam and Her Madam
+</footer>
+
+<!-- ═══════ JAVASCRIPT ═══════ -->
+<script>
+// ─── Font Size Control ───
+const MIN_F=13,MAX_F=26;
+let fontSize=17;
+function changeFontSize(d){
+  fontSize=Math.max(MIN_F,Math.min(MAX_F,fontSize+d));
+  document.documentElement.style.setProperty('--font-size-base',fontSize+'px');
+}
+
+// ─── Meaning Popup ───
+function showMeaning(word,en,ne){
+  document.getElementById('popupWord').textContent=word;
+  document.getElementById('popupEnglish').textContent='EN: '+en;
+  document.getElementById('popupNepali').textContent='NE: '+ne;
+  document.getElementById('meaningPopup').classList.add('show');
+}
+function closePopup(){
+  document.getElementById('meaningPopup').classList.remove('show');
+}
+document.addEventListener('click',function(e){
+  const popup=document.getElementById('meaningPopup');
+  if(!e.target.closest('.hw')&&!e.target.closest('#meaningPopup')){
+    popup.classList.remove('show');
+  }
+});
+
+// ─── Exercise Toggle ───
+function toggleExercise(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.exercise-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── True/False Toggle ───
+function toggleTF(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.tf-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── Fill-in-Blank Toggle ───
+function toggleFill(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.fill-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── Download HTML ───
+function downloadHTML(){
+  const html=document.documentElement.outerHTML;
+  const blob=new Blob([html],{type:'text/html;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='Madam_and_Her_Madam_Interactive.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

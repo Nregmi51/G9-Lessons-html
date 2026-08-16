@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 9 English – Unit 7: The Resistant Moths</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --primary: #2563EB;
+    --primary-light: #3B82F6;
+    --primary-dark: #1D4ED8;
+    --accent: #F59E0B;
+    --accent-light: #FCD34D;
+    --correct: #10B981;
+    --incorrect: #EF4444;
+    --bg: #F8FAFC;
+    --card-bg: #FFFFFF;
+    --text-dark: #1E293B;
+    --text-body: #334155;
+    --text-muted: #64748B;
+    --border: #E2E8F0;
+    --highlight-bg: #FEF3C7;
+    --highlight-border: #F59E0B;
+    --nepali-accent: #7C3AED;
+    --font-size-base: 17px;
+    --radius: 12px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.06);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,0.1);
+  }
+
+  body {
+    font-family: 'Poppins', 'Noto Sans SC', sans-serif;
+    background: var(--bg);
+    color: var(--text-body);
+    font-size: var(--font-size-base);
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+
+  /* ===== TOP TOOLBAR ===== */
+  .toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 24px;
+    box-shadow: 0 4px 20px rgba(37,99,235,0.3);
+  }
+
+  .toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .toolbar-title {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+
+  .toolbar-title span {
+    opacity: 0.7;
+    font-weight: 400;
+  }
+
+  .toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .font-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    border: 2px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .font-btn:hover {
+    background: rgba(255,255,255,0.25);
+    border-color: rgba(255,255,255,0.5);
+    transform: scale(1.08);
+  }
+
+  .font-btn:active { transform: scale(0.95); }
+
+  .font-size-display {
+    font-size: 13px;
+    font-weight: 600;
+    min-width: 38px;
+    text-align: center;
+    background: rgba(255,255,255,0.15);
+    padding: 6px 10px;
+    border-radius: 8px;
+  }
+
+  .download-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .download-btn:hover {
+    background: rgba(255,255,255,0.35);
+    transform: translateY(-1px);
+  }
+
+  /* ===== MAIN CONTENT ===== */
+  .main-content {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 80px 24px 60px;
+  }
+
+  /* ===== HERO HEADER ===== */
+  .hero {
+    background: linear-gradient(135deg, #1E40AF, #3B82F6, #6366F1);
+    border-radius: 20px;
+    padding: 48px 40px;
+    color: white;
+    margin-bottom: 36px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(37,99,235,0.25);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    left: -40px;
+    width: 150px;
+    height: 150px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+
+  .hero-grade {
+    display: inline-block;
+    padding: 5px 16px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    opacity: 0.8;
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    opacity: 0.85;
+    background: rgba(255,255,255,0.1);
+    padding: 5px 14px;
+    border-radius: 20px;
+  }
+
+  /* ===== SECTION CARDS ===== */
+  .section-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .section-card:hover {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .section-heading {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-heading .icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .icon-reading { background: #DBEAFE; color: #2563EB; }
+  .icon-words { background: #FEF3C7; color: #D97706; }
+  .icon-exercise { background: #D1FAE5; color: #059669; }
+  .icon-fill { background: #EDE9FE; color: #7C3AED; }
+  .icon-tf { background: #FCE7F3; color: #DB2777; }
+  .icon-short { background: #FFEDD5; color: #EA580C; }
+  .icon-eat { background: #ECFDF5; color: #10B981; }
+  .icon-extra { background: #F0F9FF; color: #0284C7; }
+
+  .section-subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    font-weight: 400;
+  }
+
+  /* ===== READING PASSAGE ===== */
+  .passage {
+    font-size: inherit;
+    line-height: 2;
+    color: var(--text-body);
+  }
+
+  .passage p {
+    margin-bottom: 18px;
+    text-align: justify;
+  }
+
+  .passage p:last-child { margin-bottom: 0; }
+
+  /* Highlighted Words */
+  .hw {
+    background: var(--highlight-bg);
+    border-bottom: 2px solid var(--highlight-border);
+    padding: 1px 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #92400E;
+    transition: all 0.2s ease;
+    position: relative;
+    display: inline;
+  }
+
+  .hw:hover {
+    background: #FDE68A;
+    transform: scale(1.02);
+  }
+
+  .hw::after {
+    content: '📖';
+    font-size: 11px;
+    position: relative;
+    top: -4px;
+    margin-left: 2px;
+  }
+
+  /* ===== FIXED POPUP ===== */
+  .meaning-popup {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(120%);
+    width: 94%;
+    max-width: 520px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.05);
+    z-index: 2000;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+    opacity: 0;
+    overflow: hidden;
+  }
+
+  .meaning-popup.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+
+  .popup-header {
+    background: linear-gradient(135deg, #F59E0B, #D97706);
+    color: white;
+    padding: 14px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .popup-word {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .popup-close {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.25);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .popup-close:hover { background: rgba(255,255,255,0.4); }
+
+  .popup-body {
+    padding: 18px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .popup-meaning-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .popup-label {
+    flex-shrink: 0;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+  }
+
+  .popup-label.en {
+    background: #DBEAFE;
+    color: #1D4ED8;
+  }
+
+  .popup-label.ne {
+    background: #EDE9FE;
+    color: #6D28D9;
+  }
+
+  .popup-meaning-text {
+    font-size: 16px;
+    line-height: 1.5;
+    padding-top: 2px;
+  }
+
+  .popup-nepali {
+    font-size: 17px;
+    color: var(--nepali-accent);
+    font-weight: 500;
+  }
+
+  /* ===== WORD LIST TABLE ===== */
+  .word-table-wrapper {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .word-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+
+  .word-table thead {
+    background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+  }
+
+  .word-table th {
+    padding: 14px 18px;
+    text-align: left;
+    font-weight: 700;
+    color: #92400E;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border-bottom: 2px solid #F59E0B;
+  }
+
+  .word-table td {
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .word-table tr:last-child td { border-bottom: none; }
+
+  .word-table tr:hover td {
+    background: #FFFBEB;
+  }
+
+  .word-table .word-cell {
+    font-weight: 700;
+    color: var(--primary-dark);
+    cursor: pointer;
+  }
+
+  .word-table .word-cell:hover {
+    text-decoration: underline;
+  }
+
+  .word-table .nepali-cell {
+    color: var(--nepali-accent);
+    font-weight: 500;
+  }
+
+  /* ===== EXERCISE SECTIONS ===== */
+  .exercise-item {
+    background: #F8FAFC;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 14px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+  }
+
+  .exercise-item:hover {
+    border-color: #CBD5E1;
+  }
+
+  .exercise-question {
+    padding: 16px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    transition: background 0.2s;
+    user-select: none;
+  }
+
+  .exercise-question:hover {
+    background: #F1F5F9;
+  }
+
+  .exercise-q-number {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 1px;
+  }
+
+  .exercise-q-text {
+    flex: 1;
+    font-weight: 500;
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+
+  .exercise-toggle {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #E2E8F0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+    margin-top: 1px;
+  }
+
+  .exercise-item.open .exercise-toggle {
+    background: var(--correct);
+    color: white;
+    transform: rotate(180deg);
+  }
+
+  .exercise-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .exercise-item.open .exercise-answer {
+    max-height: 500px;
+  }
+
+  .exercise-answer-inner {
+    padding: 0 20px 18px;
+    margin-left: 44px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .answer-badge {
+    flex-shrink: 0;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+  }
+
+  .badge-answer {
+    background: #D1FAE5;
+    color: #065F46;
+  }
+
+  .badge-true {
+    background: #D1FAE5;
+    color: #065F46;
+  }
+
+  .badge-false {
+    background: #FEE2E2;
+    color: #991B1B;
+  }
+
+  .answer-text {
+    font-size: 15px;
+    color: var(--text-body);
+    line-height: 1.7;
+  }
+
+  /* Fill-in-the-blank box style */
+  .box-words {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 16px;
+    background: #F0F9FF;
+    border-radius: 12px;
+    border: 1px dashed #93C5FD;
+  }
+
+  .box-word {
+    padding: 6px 16px;
+    background: white;
+    border: 1px solid #93C5FD;
+    border-radius: 8px;
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 14px;
+  }
+
+  /* True/False styling */
+  .tf-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .tf-tag {
+    flex-shrink: 0;
+    padding: 3px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .tf-tag.true { background: #D1FAE5; color: #065F46; }
+  .tf-tag.false { background: #FEE2E2; color: #991B1B; }
+
+  /* Eating words card */
+  .eat-card {
+    background: #F0FDF4;
+    border: 1px solid #BBF7D0;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    overflow: hidden;
+  }
+
+  .eat-card:hover { background: #ECFDF5; }
+
+  .eat-word {
+    font-size: 18px;
+    font-weight: 700;
+    color: #065F46;
+    margin-bottom: 4px;
+  }
+
+  .eat-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .eat-card.open .eat-detail {
+    max-height: 120px;
+  }
+
+  .eat-meaning {
+    padding-top: 10px;
+    font-size: 15px;
+    color: var(--text-body);
+    border-top: 1px dashed #86EFAC;
+    margin-top: 8px;
+  }
+
+  /* Extra sections */
+  .extra-section {
+    border-left: 4px solid var(--primary);
+  }
+
+  /* ===== CLICK HINT ===== */
+  .click-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    border-radius: 10px;
+    font-size: 13px;
+    color: var(--primary);
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 640px) {
+    .main-content { padding: 72px 14px 40px; }
+    .section-card { padding: 24px 18px; }
+    .hero { padding: 32px 22px; }
+    .hero h1 { font-size: 24px; }
+    .toolbar { padding: 8px 14px; flex-wrap: wrap; gap: 8px; }
+    .toolbar-title { font-size: 12px; }
+    .meaning-popup { width: 96%; bottom: 12px; }
+    .options-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ===== SCROLL BEHAVIOR ===== */
+  html { scroll-behavior: smooth; }
+
+  /* ===== NAV PILLS ===== */
+  .nav-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .nav-pill {
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: white;
+    border: 1px solid var(--border);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+  }
+
+  .nav-pill:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+
+  /* Blanks in fill-in */
+  .blank-slot {
+    display: inline-block;
+    min-width: 100px;
+    border-bottom: 2px dashed var(--primary);
+    padding: 2px 4px;
+    font-weight: 700;
+    color: var(--primary);
+    background: #EFF6FF;
+    border-radius: 4px 4px 0 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== TOOLBAR ===== -->
+<div class="toolbar">
+  <div class="toolbar-left">
+    <div class="toolbar-title">Grade 9 · English <span>| Unit 7: Ecology &amp; Environment</span></div>
+  </div>
+  <div class="toolbar-right">
+    <button class="font-btn" onclick="changeFontSize(-1)" title="Decrease font size">A−</button>
+    <div class="font-size-display" id="fontDisplay">17px</div>
+    <button class="font-btn" onclick="changeFontSize(1)" title="Increase font size">A+</button>
+    <button class="download-btn" onclick="downloadHTML()" title="Download this page">⬇ Save</button>
+  </div>
+</div>
+
+<!-- ===== FIXED MEANING POPUP ===== -->
+<div class="meaning-popup" id="meaningPopup">
+  <div class="popup-header">
+    <span class="popup-word" id="popupWord">Word</span>
+    <button class="popup-close" onclick="closePopup()">✕</button>
+  </div>
+  <div class="popup-body">
+    <div class="popup-meaning-row">
+      <span class="popup-label en">English</span>
+      <span class="popup-meaning-text" id="popupEnglish">—</span>
+    </div>
+    <div class="popup-meaning-row">
+      <span class="popup-label ne">नेपाली</span>
+      <span class="popup-meaning-text popup-nepali" id="popupNepali">—</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main-content">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-grade">Grade 9 · Unit 7 · Ecology and Environment</div>
+    <h1>The Resistant Moths</h1>
+    <div class="hero-sub">Pages 86–88 · Reading Comprehension &amp; Vocabulary</div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">📖 Reading Passage</div>
+      <div class="hero-meta-item">📝 36 Vocabulary Words</div>
+      <div class="hero-meta-item">✅ Interactive Exercises</div>
+    </div>
+  </div>
+
+  <!-- NAV PILLS -->
+  <div class="nav-pills">
+    <a class="nav-pill" href="#reading">📖 Reading</a>
+    <a class="nav-pill" href="#wordlist">📝 Word List</a>
+    <a class="nav-pill" href="#exerciseA">✍ Exercise A</a>
+    <a class="nav-pill" href="#exerciseB">🍽 Exercise B</a>
+    <a class="nav-pill" href="#exerciseC">✓ Exercise C</a>
+    <a class="nav-pill" href="#exerciseD">✎ Exercise D</a>
+    <a class="nav-pill" href="#extraSA">💡 Extra Questions</a>
+    <a class="nav-pill" href="#extraTF">🔍 Extra T/F</a>
+    <a class="nav-pill" href="#extraFill">🧩 Extra Fill</a>
+  </div>
+
+  <!-- ===== READING PASSAGE ===== -->
+  <div class="section-card" id="reading">
+    <div class="section-heading">
+      <div class="icon icon-reading">📖</div>
+      Reading Passage — The Resistant Moths
+    </div>
+    <div class="section-subtitle">Click on any highlighted word to see its meaning in English and Nepali</div>
+    <div class="click-hint">💡 Tip: Click <span class="hw" style="cursor:default;">highlighted words</span> to see meanings — the popup stays fixed!</div>
+
+    <div class="passage" id="passageContent">
+      <p>"First they told us to buy the <span class="hw" onclick="showMeaning('poisons','toxic substances','विष')">poisons</span> to help us kill the <span class="hw" onclick="showMeaning('pests','harmful insects/organisms','कीराहरू')">pests</span>," says Mahendra <span class="hw" onclick="showMeaning('bitterly','with great sadness/anger','दुःखसाथ')">bitterly</span>. "Then they said we need poisons to <span class="hw" onclick="showMeaning('combat','to fight against','सामना गर्नु')">combat</span> the problems caused by the first <span class="hw" onclick="showMeaning('pesticides','chemicals used to kill insects','कीटनाशक')">pesticides</span>. Now they say we shouldn't have used so much of those pesticides. My God, I think these insects will eat us alive."</p>
+
+      <p>Mahendra Yadav is a farmer whose fields have been <span class="hw" onclick="showMeaning('swamped','overwhelmed, flooded','डुबेको/अत्यधिक भरिएको')">swamped</span> by a strange new <span class="hw" onclick="showMeaning('plague','sudden large trouble-causing number','महामारी/प्रकोप')">plague</span> of moths that nothing will <span class="hw" onclick="showMeaning('shift','to remove or move','हटाउनु')">shift</span>. His main <span class="hw" onclick="showMeaning('crop','agricultural produce','बाली')">crop</span> is potatoes. Back in the early 1990s government <span class="hw" onclick="showMeaning('officials','persons in authority','अधिकारीहरू')">officials</span> told farmers about amazing pesticides which would kill the insects in their field and soon make them rich. They were only too willing to buy them and shopkeepers made them <span class="hw" onclick="showMeaning('available','accessible, obtainable','उपलब्ध')">available</span>.</p>
+
+      <p>"First we bought one," says Mahendra, "then another. After that there was an <span class="hw" onclick="showMeaning('avalanche','sudden overwhelming amount','अत्यधिक मात्रा/बाढी जस्तो')">avalanche</span> of them. Now look where we are." The <span class="hw" onclick="showMeaning('energy','enthusiasm','उत्साह')">energy</span> of the salesmen was <span class="hw" onclick="showMeaning('overpowering','too strong to resist','अत्यधिक प्रभावशाली')">overpowering</span> and enormous quantities were sold. But the chemicals were applied more or less <span class="hw" onclick="showMeaning('indiscriminately','without careful thought','विचार नगरी')">indiscriminately</span>—often in the wrong way and the wrong time. "It wasn't our fault," Mahendra <span class="hw" onclick="showMeaning('claims','says, asserts','दावी गर्छ')">claims</span>. "We were so excited by the thought that we would soon be free of the <span class="hw" onclick="showMeaning('whims','unpredictable changes/desires','मनमौजी इच्छाहरू')">whims</span> of nature. What would you have done?"</p>
+
+      <p>But after a few years they were in for a <span class="hw" onclick="showMeaning('nasty','very unpleasant','अप्रिय')">nasty</span> surprise. <span class="hw" onclick="showMeaning('despite','in spite of','भए तापनि')">Despite</span> the mixture of powerful chemicals on the potatoes, a few moths <span class="hw" onclick="showMeaning('survived','stayed alive','बाँचे')">survived</span>. They <span class="hw" onclick="showMeaning('reproduced','multiplied','प्रजनन गरे')">reproduced</span> themselves at a <span class="hw" onclick="showMeaning('terrifying','very frightening','डरलाग्दो')">terrifying</span> rate, <span class="hw" onclick="showMeaning('devouring','eating greedily','लालचसाथ खाँदै')">devouring</span> all the potatoes they could find. The chemicals, it seemed, had <span class="hw" onclick="showMeaning('disturbed','upset the natural order','बिगारेको')">disturbed</span> the previous natural <span class="hw" onclick="showMeaning('balance','equilibrium','सन्तुलन')">balance</span> by killing not only pests but their natural <span class="hw" onclick="showMeaning('predators','animals that hunt others','शिकारी जनावर')">predators</span>. So the new moth had the crop all to itself. The farmers' first <span class="hw" onclick="showMeaning('reaction','response','प्रतिक्रिया')">reaction</span> was to increase the <span class="hw" onclick="showMeaning('dose','amount of chemical','मात्रा')">dose</span> of the pesticide then to try new chemicals, one after another. But it just needed one or two <span class="hw" onclick="showMeaning('resistant','able to withstand','प्रतिरोधी')">resistant</span> moths to survive and they could produce a new and tougher <span class="hw" onclick="showMeaning('strain','variety/type','प्रजाति')">strain</span>, <span class="hw" onclick="showMeaning('immune','protected against','प्रतिरक्षित')">immune</span> to the most powerful pesticide.</p>
+
+      <p>New pesticides came in with new promises that they would finish off the <span class="hw" onclick="showMeaning('evil','harmful','हानिकारक')">evil</span> moth. And indeed they produced good results for a time. But soon it was clear that they were not the <span class="hw" onclick="showMeaning('permanent','lasting, not temporary','स्थायी')">permanent</span> solution either. Farmers are in <span class="hw" onclick="showMeaning('despair','hopelessness','निराशा')">despair</span>. They have not only seen their <span class="hw" onclick="showMeaning('harvest','collected crops','फसल')">harvest</span> disappear but they feel that they have lost the creative potential of the land itself.</p>
+
+      <p>Mahendra himself is more <span class="hw" onclick="showMeaning('hopeful','optimistic','आशावादी')">hopeful</span>. He has returned to more <span class="hw" onclick="showMeaning('natural','not artificial','प्राकृतिक')">natural</span> methods. He is letting some of his land lie <span class="hw" onclick="showMeaning('fallow','uncultivated land','बाँझो')">fallow</span> and changing the <span class="hw" onclick="showMeaning('irrigation','watering system for crops','सिंचाई')">irrigation</span> system in the hope that the moths will go away.</p>
+    </div>
+  </div>
+
+  <!-- ===== WORD MEANING LIST ===== -->
+  <div class="section-card" id="wordlist">
+    <div class="section-heading">
+      <div class="icon icon-words">📝</div>
+      Word Meaning List
+    </div>
+    <div class="section-subtitle">Click any word to see its meaning in the fixed popup</div>
+
+    <div class="word-table-wrapper">
+      <table class="word-table">
+        <thead>
+          <tr>
+            <th style="width:5%">#</th>
+            <th style="width:25%">Word</th>
+            <th style="width:35%">English Meaning</th>
+            <th style="width:35%">नेपाली अर्थ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td class="word-cell" onclick="showMeaning('poisons','toxic substances','विष')">poisons</td><td>toxic substances</td><td class="nepali-cell">विष</td></tr>
+          <tr><td>2</td><td class="word-cell" onclick="showMeaning('pests','harmful insects/organisms','कीराहरू')">pests</td><td>harmful insects/organisms</td><td class="nepali-cell">कीराहरू</td></tr>
+          <tr><td>3</td><td class="word-cell" onclick="showMeaning('bitterly','with great sadness/anger','दुःखसाथ')">bitterly</td><td>with great sadness/anger</td><td class="nepali-cell">दुःखसाथ</td></tr>
+          <tr><td>4</td><td class="word-cell" onclick="showMeaning('combat','to fight against','सामना गर्नु')">combat</td><td>to fight against</td><td class="nepali-cell">सामना गर्नु</td></tr>
+          <tr><td>5</td><td class="word-cell" onclick="showMeaning('pesticides','chemicals used to kill insects','कीटनाशक')">pesticides</td><td>chemicals used to kill insects</td><td class="nepali-cell">कीटनाशक</td></tr>
+          <tr><td>6</td><td class="word-cell" onclick="showMeaning('swamped','overwhelmed, flooded','डुबेको/अत्यधिक भरिएको')">swamped</td><td>overwhelmed, flooded</td><td class="nepali-cell">डुबेको/अत्यधिक भरिएको</td></tr>
+          <tr><td>7</td><td class="word-cell" onclick="showMeaning('plague','sudden large trouble-causing number','महामारी/प्रकोप')">plague</td><td>sudden large trouble-causing number</td><td class="nepali-cell">महामारी/प्रकोप</td></tr>
+          <tr><td>8</td><td class="word-cell" onclick="showMeaning('shift','to remove or move','हटाउनु')">shift</td><td>to remove or move</td><td class="nepali-cell">हटाउनु</td></tr>
+          <tr><td>9</td><td class="word-cell" onclick="showMeaning('crop','agricultural produce','बाली')">crop</td><td>agricultural produce</td><td class="nepali-cell">बाली</td></tr>
+          <tr><td>10</td><td class="word-cell" onclick="showMeaning('officials','persons in authority','अधिकारीहरू')">officials</td><td>persons in authority</td><td class="nepali-cell">अधिकारीहरू</td></tr>
+          <tr><td>11</td><td class="word-cell" onclick="showMeaning('available','accessible, obtainable','उपलब्ध')">available</td><td>accessible, obtainable</td><td class="nepali-cell">उपलब्ध</td></tr>
+          <tr><td>12</td><td class="word-cell" onclick="showMeaning('avalanche','sudden overwhelming amount','अत्यधिक मात्रा/बाढी जस्तो')">avalanche</td><td>sudden overwhelming amount</td><td class="nepali-cell">अत्यधिक मात्रा/बाढी जस्तो</td></tr>
+          <tr><td>13</td><td class="word-cell" onclick="showMeaning('overpowering','too strong to resist','अत्यधिक प्रभावशाली')">overpowering</td><td>too strong to resist</td><td class="nepali-cell">अत्यधिक प्रभावशाली</td></tr>
+          <tr><td>14</td><td class="word-cell" onclick="showMeaning('indiscriminately','without careful thought','विचार नगरी')">indiscriminately</td><td>without careful thought</td><td class="nepali-cell">विचार नगरी</td></tr>
+          <tr><td>15</td><td class="word-cell" onclick="showMeaning('claims','says, asserts','दावी गर्छ')">claims</td><td>says, asserts</td><td class="nepali-cell">दावी गर्छ</td></tr>
+          <tr><td>16</td><td class="word-cell" onclick="showMeaning('whims','unpredictable changes/desires','मनमौजी इच्छाहरू')">whims</td><td>unpredictable changes/desires</td><td class="nepali-cell">मनमौजी इच्छाहरू</td></tr>
+          <tr><td>17</td><td class="word-cell" onclick="showMeaning('nasty','very unpleasant','अप्रिय')">nasty</td><td>very unpleasant</td><td class="nepali-cell">अप्रिय</td></tr>
+          <tr><td>18</td><td class="word-cell" onclick="showMeaning('despite','in spite of','भए तापनि')">despite</td><td>in spite of</td><td class="nepali-cell">भए तापनि</td></tr>
+          <tr><td>19</td><td class="word-cell" onclick="showMeaning('survived','stayed alive','बाँचे')">survived</td><td>stayed alive</td><td class="nepali-cell">बाँचे</td></tr>
+          <tr><td>20</td><td class="word-cell" onclick="showMeaning('reproduced','multiplied','प्रजनन गरे')">reproduced</td><td>multiplied</td><td class="nepali-cell">प्रजनन गरे</td></tr>
+          <tr><td>21</td><td class="word-cell" onclick="showMeaning('terrifying','very frightening','डरलाग्दो')">terrifying</td><td>very frightening</td><td class="nepali-cell">डरलाग्दो</td></tr>
+          <tr><td>22</td><td class="word-cell" onclick="showMeaning('devouring','eating greedily','लालचसाथ खाँदै')">devouring</td><td>eating greedily</td><td class="nepali-cell">लालचसाथ खाँदै</td></tr>
+          <tr><td>23</td><td class="word-cell" onclick="showMeaning('disturbed','upset the natural order','बिगारेको')">disturbed</td><td>upset the natural order</td><td class="nepali-cell">बिगारेको</td></tr>
+          <tr><td>24</td><td class="word-cell" onclick="showMeaning('balance','equilibrium','सन्तुलन')">balance</td><td>equilibrium</td><td class="nepali-cell">सन्तुलन</td></tr>
+          <tr><td>25</td><td class="word-cell" onclick="showMeaning('predators','animals that hunt others','शिकारी जनावर')">predators</td><td>animals that hunt others</td><td class="nepali-cell">शिकारी जनावर</td></tr>
+          <tr><td>26</td><td class="word-cell" onclick="showMeaning('reaction','response','प्रतिक्रिया')">reaction</td><td>response</td><td class="nepali-cell">प्रतिक्रिया</td></tr>
+          <tr><td>27</td><td class="word-cell" onclick="showMeaning('dose','amount of chemical','मात्रा')">dose</td><td>amount of chemical</td><td class="nepali-cell">मात्रा</td></tr>
+          <tr><td>28</td><td class="word-cell" onclick="showMeaning('resistant','able to withstand','प्रतिरोधी')">resistant</td><td>able to withstand</td><td class="nepali-cell">प्रतिरोधी</td></tr>
+          <tr><td>29</td><td class="word-cell" onclick="showMeaning('strain','variety/type','प्रजाति')">strain</td><td>variety/type</td><td class="nepali-cell">प्रजाति</td></tr>
+          <tr><td>30</td><td class="word-cell" onclick="showMeaning('immune','protected against','प्रतिरक्षित')">immune</td><td>protected against</td><td class="nepali-cell">प्रतिरक्षित</td></tr>
+          <tr><td>31</td><td class="word-cell" onclick="showMeaning('permanent','lasting, not temporary','स्थायी')">permanent</td><td>lasting, not temporary</td><td class="nepali-cell">स्थायी</td></tr>
+          <tr><td>32</td><td class="word-cell" onclick="showMeaning('despair','hopelessness','निराशा')">despair</td><td>hopelessness</td><td class="nepali-cell">निराशा</td></tr>
+          <tr><td>33</td><td class="word-cell" onclick="showMeaning('harvest','collected crops','फसल')">harvest</td><td>collected crops</td><td class="nepali-cell">फसल</td></tr>
+          <tr><td>34</td><td class="word-cell" onclick="showMeaning('fallow','uncultivated land','बाँझो')">fallow</td><td>uncultivated land</td><td class="nepali-cell">बाँझो</td></tr>
+          <tr><td>35</td><td class="word-cell" onclick="showMeaning('irrigation','watering system for crops','सिंचाई')">irrigation</td><td>watering system for crops</td><td class="nepali-cell">सिंचाई</td></tr>
+          <tr><td>36</td><td class="word-cell" onclick="showMeaning('hopeful','optimistic','आशावादी')">hopeful</td><td>optimistic</td><td class="nepali-cell">आशावादी</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE A: Fill in the Blanks ===== -->
+  <div class="section-card" id="exerciseA">
+    <div class="section-heading">
+      <div class="icon icon-fill">✍</div>
+      Exercise A — Fill in the Blanks
+    </div>
+    <div class="section-subtitle">Click each question to reveal the correct answer</div>
+
+    <div class="box-words">
+      <span class="box-word">avalanche</span>
+      <span class="box-word">plague</span>
+      <span class="box-word">combat</span>
+      <span class="box-word">predator</span>
+      <span class="box-word">despair</span>
+      <span class="box-word">resistant</span>
+      <span class="box-word">nasty</span>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">As responsible citizens it is our duty to <span class="blank-slot">________</span> all social evils.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>combat</strong> — As responsible citizens it is our duty to <strong>combat</strong> all social evils.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">The whole town is suffering from the new <span class="blank-slot">________</span> of rats.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>plague</strong> — The whole town is suffering from the new <strong>plague</strong> of rats.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">The minister's opinion has created an <span class="blank-slot">________</span> of controversy.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>avalanche</strong> — The minister's opinion has created an <strong>avalanche</strong> of controversy.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">He got a <span class="blank-slot">________</span> cut above his eye in the accident.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>nasty</strong> — He got a <strong>nasty</strong> cut above his eye in the accident.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">Some animals do not have a natural <span class="blank-slot">________</span>.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>predator</strong> — Some animals do not have a natural <strong>predator</strong>.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">f</div>
+        <div class="exercise-q-text">Mosquitoes seem to have become <span class="blank-slot">________</span> to the toughest insecticides.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>resistant</strong> — Mosquitoes seem to have become <strong>resistant</strong> to the toughest insecticides.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">g</div>
+        <div class="exercise-q-text">He is in <span class="blank-slot">________</span> due to all the failures in business.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>despair</strong> — He is in <strong>despair</strong> due to all the failures in business.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE B: Words for Eating Styles ===== -->
+  <div class="section-card" id="exerciseB">
+    <div class="section-heading">
+      <div class="icon icon-eat">🍽</div>
+      Exercise B — Words Referring to Styles of Eating
+    </div>
+    <div class="section-subtitle">Click each word card to see its meaning</div>
+
+    <div class="eat-card" onclick="this.classList.toggle('open')">
+      <div class="eat-word">a. munch</div>
+      <div class="eat-detail">
+        <div class="eat-meaning"><strong>English:</strong> to eat steadily and often noisily<br><strong>नेपाली:</strong> चबाएर खानु</div>
+      </div>
+    </div>
+    <div class="eat-card" onclick="this.classList.toggle('open')">
+      <div class="eat-word">b. nibble</div>
+      <div class="eat-detail">
+        <div class="eat-meaning"><strong>English:</strong> to eat in small bites<br><strong>नेपाली:</strong> थोरै थोरै गरी खानु</div>
+      </div>
+    </div>
+    <div class="eat-card" onclick="this.classList.toggle('open')">
+      <div class="eat-word">c. gobble</div>
+      <div class="eat-detail">
+        <div class="eat-meaning"><strong>English:</strong> to eat hurriedly and greedily<br><strong>नेपाली:</strong> हतारमा लालचसाथ खानु</div>
+      </div>
+    </div>
+    <div class="eat-card" onclick="this.classList.toggle('open')">
+      <div class="eat-word">d. gnaw</div>
+      <div class="eat-detail">
+        <div class="eat-meaning"><strong>English:</strong> to bite or chew repeatedly<br><strong>नेपाली:</strong> कुँड्याउनु</div>
+      </div>
+    </div>
+    <div class="eat-card" onclick="this.classList.toggle('open')">
+      <div class="eat-word">e. swallow</div>
+      <div class="eat-detail">
+        <div class="eat-meaning"><strong>English:</strong> to make food go down the throat<br><strong>नेपाली:</strong> निल्नु</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE C: True or False ===== -->
+  <div class="section-card" id="exerciseC">
+    <div class="section-heading">
+      <div class="icon icon-tf">✓</div>
+      Exercise C — True or False
+    </div>
+    <div class="section-subtitle">Click each statement to reveal whether it's True or False with explanation</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">The first use of pesticides caused further problems to the farmers.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">The first pesticides killed not only the pests but also their natural predators, which disturbed the natural balance and led to even more problems.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">The shopkeepers made the farmers buy many pesticides.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">The salesmen's overpowering energy encouraged farmers to buy; shopkeepers only made the pesticides available. It was the salesmen, not the shopkeepers, who pushed the sales.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">Mahendra Yadav admits that the farmers used chemicals carelessly.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">Mahendra acknowledges that the chemicals were applied indiscriminately—often in the wrong way and at the wrong time—though he says it wasn't the farmers' fault because they were excited by the promises.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">The pesticides not only killed the pests but also increased the fertility of the land.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">The pesticides disturbed the natural balance and killed the natural predators. Farmers felt they had lost the creative potential of the land itself—they did not increase fertility.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">Mahendra Yadav expects that the moths will go away one day.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">Mahendra is hopeful. He has adopted natural methods—letting land lie fallow and changing the irrigation system—in the hope that the moths will eventually go away.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE D: Short Answer Questions ===== -->
+  <div class="section-card" id="exerciseD">
+    <div class="section-heading">
+      <div class="icon icon-short">✎</div>
+      Exercise D — Answer the Following Questions
+    </div>
+    <div class="section-subtitle">Click each question to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">a</div>
+        <div class="exercise-q-text">Why do you think Mahendra Yadav says "these insects will eat us alive"?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Mahendra says this out of extreme frustration and despair. Despite using many types of pesticides, the moths have become resistant and continue to destroy his potato crops. He feels completely helpless and hopeless, as if the insects are consuming everything he has.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">b</div>
+        <div class="exercise-q-text">What did the farmers hope when they bought the pesticides for the first time?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">The farmers hoped that the pesticides would kill all the harmful insects in their fields and make them rich by producing better crops. They were excited by the promise of becoming free from the unpredictable whims of nature.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">c</div>
+        <div class="exercise-q-text">What was the 'nasty surprise' for the farmers?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">The nasty surprise was that despite using powerful chemicals, a few moths survived. These resistant moths multiplied rapidly, devoured all the potatoes, and could not be killed even by the strongest pesticides. The chemicals had also killed the natural predators, making the problem worse.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">d</div>
+        <div class="exercise-q-text">Find different words in the text that refer to the pesticide and the moth.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>For pesticide:</strong> poisons, chemicals, powerful chemicals, new chemicals, pesticides<br><strong>For moth:</strong> pests, insects, plague of moths, resistant moths, evil moth, new and tougher strain</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">e</div>
+        <div class="exercise-q-text">Do you think that Mahendra Yadav has made a wise decision at the end? Why?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Yes, Mahendra has made a wise decision. By returning to natural farming methods, leaving land fallow, and changing the irrigation system, he is giving nature a chance to restore its balance. This is more sustainable and avoids further harm from chemical overuse.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ADDITIONAL: Short Answer Questions ===== -->
+  <div class="section-card extra-section" id="extraSA">
+    <div class="section-heading">
+      <div class="icon icon-extra">💡</div>
+      Additional Short Answer Questions
+    </div>
+    <div class="section-subtitle">Click each question to reveal the answer</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">What is Mahendra Yadav's main crop and what problem is he facing?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Mahendra Yadav's main crop is potatoes. His fields have been swamped by a plague of resistant moths that nothing can remove.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">Why did the farmers use pesticides indiscriminately?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">The farmers were excited by the idea of becoming free from the unpredictable forces of nature. The overpowering energy of salesmen also encouraged them to buy and use pesticides without careful thought.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">How did the overuse of pesticides disturb the natural balance?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">The pesticides killed not only pests but also their natural predators. This disturbed the natural balance, giving the moths freedom to reproduce rapidly and devour all the crops without any natural control.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">What does it mean when a moth becomes 'resistant' to pesticides?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">When a moth is resistant, it means the pesticide cannot kill it anymore. Even one or two resistant moths can survive and reproduce, creating a new and tougher strain that is immune to the chemical.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">What natural methods has Mahendra adopted to deal with the moth problem?</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text">Mahendra has returned to natural farming methods. He is letting some land lie fallow and changing his irrigation system, hoping the moths will eventually go away.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ADDITIONAL: True/False ===== -->
+  <div class="section-card extra-section" id="extraTF">
+    <div class="section-heading">
+      <div class="icon icon-extra">🔍</div>
+      Additional True / False Questions
+    </div>
+    <div class="section-subtitle">Click each statement to reveal whether it's True or False</div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">Government officials warned farmers against using too many pesticides in the early 1990s.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">Government officials actually encouraged farmers to buy pesticides, telling them about amazing chemicals that would kill insects and make them rich.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">The chemicals killed both the pests and their natural predators.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">The pesticides disturbed the natural balance by killing not only the pests but also their natural predators, which allowed the moths to multiply without control.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">All moths were destroyed by the powerful pesticides.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">A few resistant moths survived the powerful chemicals. These surviving moths reproduced and created a new, tougher strain that was immune to the pesticides.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">Farmers in despair felt they had lost both their harvest and the productive capacity of their land.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-true">True</span>
+          <span class="answer-text">The farmers not only saw their harvest disappear but also felt they had lost the creative potential of the land itself, which was a source of deep despair.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">Mahendra Yadav has given up all hope of recovering his farmland.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-false">False</span>
+          <span class="answer-text">Mahendra is actually more hopeful than other farmers. He has returned to natural methods, letting land lie fallow and changing irrigation, showing he has not given up hope.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ADDITIONAL: Fill in the Blanks ===== -->
+  <div class="section-card extra-section" id="extraFill">
+    <div class="section-heading">
+      <div class="icon icon-extra">🧩</div>
+      Additional Contextual Fill-in-the-Blanks
+    </div>
+    <div class="section-subtitle">Click each question to reveal the correct answer</div>
+
+    <div class="box-words">
+      <span class="box-word">resistant</span>
+      <span class="box-word">fallow</span>
+      <span class="box-word">predators</span>
+      <span class="box-word">despair</span>
+      <span class="box-word">indiscriminately</span>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">1</div>
+        <div class="exercise-q-text">Wolves and eagles are natural <span class="blank-slot">________</span> of many small animals.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>predators</strong> — Wolves and eagles are natural <strong>predators</strong> of many small animals.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">2</div>
+        <div class="exercise-q-text">The farmers were in <span class="blank-slot">________</span> after years of failed harvests.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>despair</strong> — The farmers were in <strong>despair</strong> after years of failed harvests.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">3</div>
+        <div class="exercise-q-text">The chemicals were applied <span class="blank-slot">________</span>, often at the wrong time and in the wrong way.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>indiscriminately</strong> — The chemicals were applied <strong>indiscriminately</strong>, often at the wrong time and in the wrong way.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">4</div>
+        <div class="exercise-q-text">Some bacteria have become <span class="blank-slot">________</span> to common antibiotics.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>resistant</strong> — Some bacteria have become <strong>resistant</strong> to common antibiotics.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-item" onclick="toggleExercise(this)">
+      <div class="exercise-question">
+        <div class="exercise-q-number">5</div>
+        <div class="exercise-q-text">Leaving agricultural land <span class="blank-slot">________</span> for a season helps restore its fertility.</div>
+        <div class="exercise-toggle">▼</div>
+      </div>
+      <div class="exercise-answer">
+        <div class="exercise-answer-inner">
+          <span class="answer-badge badge-answer">Answer</span>
+          <span class="answer-text"><strong>fallow</strong> — Leaving agricultural land <strong>fallow</strong> for a season helps restore its fertility.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main-content -->
+
+<script>
+  // ===== FONT SIZE CONTROL =====
+  let fontSize = 17;
+  const MIN_FONT = 12;
+  const MAX_FONT = 28;
+
+  function changeFontSize(delta) {
+    fontSize = Math.max(MIN_FONT, Math.min(MAX_FONT, fontSize + delta));
+    document.documentElement.style.setProperty('--font-size-base', fontSize + 'px');
+    document.getElementById('fontDisplay').textContent = fontSize + 'px';
+
+    // Animate the display
+    const display = document.getElementById('fontDisplay');
+    display.style.transform = 'scale(1.2)';
+    setTimeout(() => display.style.transform = 'scale(1)', 200);
+  }
+
+  // ===== MEANING POPUP =====
+  let popupTimeout;
+
+  function showMeaning(word, english, nepali) {
+    const popup = document.getElementById('meaningPopup');
+    document.getElementById('popupWord').textContent = word;
+    document.getElementById('popupEnglish').textContent = english;
+    document.getElementById('popupNepali').textContent = nepali;
+
+    popup.classList.add('show');
+    clearTimeout(popupTimeout);
+  }
+
+  function closePopup() {
+    document.getElementById('meaningPopup').classList.remove('show');
+  }
+
+  // Close popup when clicking outside passage/word areas
+  document.addEventListener('click', function(e) {
+    if (!e.target.classList.contains('hw') && !e.target.classList.contains('word-cell')) {
+      // Don't close if clicking inside the popup itself
+      const popup = document.getElementById('meaningPopup');
+      if (!popup.contains(e.target)) {
+        // Optional: close popup when clicking elsewhere
+        // closePopup();
+      }
+    }
+  });
+
+  // ===== EXERCISE TOGGLE =====
+  function toggleExercise(item) {
+    // Close other open items in the same section
+    const parent = item.closest('.section-card');
+    const allItems = parent.querySelectorAll('.exercise-item');
+
+    // Toggle current
+    const isOpen = item.classList.contains('open');
+
+    // Close all in this section
+    allItems.forEach(i => i.classList.remove('open'));
+
+    // Open clicked if it was closed
+    if (!isOpen) {
+      item.classList.add('open');
+    }
+  }
+
+  // ===== DOWNLOAD HTML =====
+  function downloadHTML() {
+    const htmlContent = document.documentElement.outerHTML;
+    const blob = new Blob(['<!DOCTYPE html>\n' + htmlContent], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'The_Resistant_Moths_Interactive.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+</script>
+
+</body>
+</html>

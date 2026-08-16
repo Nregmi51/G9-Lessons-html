@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 9 English Notes – Health is Wealth</title>
+<style>
+  /* ── Reset & Base ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #f0f4f8;
+    color: #1e293b;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ── Top Navigation ── */
+  .top-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: linear-gradient(135deg, #1e3a5f, #2d6a9f);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    box-shadow: 0 2px 12px rgba(0,0,0,.2);
+  }
+  .top-nav .logo { color: #fff; font-weight: 700; font-size: 1.15rem; letter-spacing: .5px; }
+  .top-nav nav a {
+    color: rgba(255,255,255,.85); text-decoration: none; font-size: .9rem;
+    margin-left: 1.5rem; padding: .5rem 0; border-bottom: 2px solid transparent;
+    transition: all .25s;
+  }
+  .top-nav nav a:hover, .top-nav nav a.active { color: #fff; border-bottom-color: #facc15; }
+
+  /* ── Hero / Header ── */
+  .hero {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2d6a9f 50%, #3b82c4 100%);
+    color: #fff; padding: 3rem 2rem 2.5rem; text-align: center;
+  }
+  .hero h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: .5rem; text-shadow: 0 2px 8px rgba(0,0,0,.25); }
+  .hero .subtitle { font-size: 1.05rem; opacity: .9; margin-bottom: 1.2rem; }
+  .hero .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; }
+  .hero .badge {
+    background: rgba(255,255,255,.18); backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,.25);
+    padding: .35rem .9rem; border-radius: 2rem; font-size: .82rem;
+    display: flex; align-items: center; gap: .35rem;
+  }
+  .hero .badge b { color: #facc15; }
+
+  /* ── Container ── */
+  .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+  /* ── Section ── */
+  .section {
+    background: #fff; border-radius: 16px; padding: 2rem; margin-bottom: 2rem;
+    box-shadow: 0 1px 6px rgba(0,0,0,.06); border: 1px solid #e2e8f0;
+    transition: box-shadow .3s;
+  }
+  .section:hover { box-shadow: 0 4px 20px rgba(0,0,0,.09); }
+  .section-header {
+    display: flex; align-items: center; gap: .75rem;
+    margin-bottom: 1.5rem; padding-bottom: .75rem;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .section-header .icon {
+    width: 42px; height: 42px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; flex-shrink: 0;
+  }
+  .section-header h2 { font-size: 1.35rem; font-weight: 700; }
+  .section-header p { font-size: .85rem; color: #64748b; margin-top: .15rem; }
+
+  /* ── Story Text ── */
+  .story-body p {
+    margin-bottom: 1rem; text-indent: 1.5rem; font-size: 1rem; color: #334155;
+    position: relative;
+  }
+  .story-body p:first-child { text-indent: 0; }
+
+  /* ── Vocabulary Tooltip ── */
+  .vocab-word {
+    position: relative; cursor: pointer;
+    font-weight: 700; color: #2563eb;
+    border-bottom: 2px dashed #93c5fd;
+    transition: color .2s, border-color .2s;
+  }
+  .vocab-word:hover { color: #1d4ed8; border-color: #60a5fa; }
+  .vocab-tooltip {
+    position: absolute; bottom: calc(100% + 10px); left: 50%; transform: translateX(-50%);
+    background: #1e293b; color: #f8fafc; padding: .65rem 1rem; border-radius: 10px;
+    font-size: .82rem; font-weight: 400; white-space: nowrap; max-width: 320px;
+    white-space: normal; z-index: 50; pointer-events: none;
+    opacity: 0; transition: opacity .25s, transform .25s;
+    box-shadow: 0 4px 16px rgba(0,0,0,.18);
+    line-height: 1.5;
+  }
+  .vocab-tooltip::after {
+    content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+    border: 6px solid transparent; border-top-color: #1e293b;
+  }
+  .vocab-word:hover .vocab-tooltip { opacity: 1; transform: translateX(-50%) translateY(-4px); }
+  .vocab-tooltip .nepali { color: #facc15; font-weight: 600; }
+
+  /* ── Vocabulary Table ── */
+  .vocab-table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid #e2e8f0; }
+  .vocab-search {
+    width: 100%; padding: .65rem 1rem .65rem 2.5rem; border: 2px solid #e2e8f0;
+    border-radius: 10px; font-size: .95rem; outline: none;
+    transition: border-color .2s; margin-bottom: 1rem; background: #f8fafc;
+  }
+  .vocab-search:focus { border-color: #3b82c4; background: #fff; }
+  .search-wrap { position: relative; }
+  .search-wrap::before { content: '🔍'; position: absolute; left: .75rem; top: 50%; transform: translateY(-50%); font-size: .9rem; }
+  table.vocab-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+  table.vocab-table thead { background: #1e3a5f; color: #fff; }
+  table.vocab-table th { padding: .7rem 1rem; text-align: left; font-weight: 600; font-size: .82rem; text-transform: uppercase; letter-spacing: .5px; }
+  table.vocab-table td { padding: .6rem 1rem; border-bottom: 1px solid #f1f5f9; }
+  table.vocab-table tbody tr { transition: background .15s; }
+  table.vocab-table tbody tr:hover { background: #eff6ff; }
+  table.vocab-table tbody tr:nth-child(even) { background: #f8fafc; }
+  table.vocab-table tbody tr:nth-child(even):hover { background: #eff6ff; }
+  table.vocab-table .word-cell { font-weight: 700; color: #1e40af; }
+  table.vocab-table .hidden { display: none; }
+
+  /* ── Flashcards ── */
+  .flashcard-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem; margin-top: 1rem;
+  }
+  .flashcard {
+    perspective: 600px; height: 130px; cursor: pointer;
+  }
+  .flashcard-inner {
+    position: relative; width: 100%; height: 100%;
+    transition: transform .5s; transform-style: preserve-3d;
+  }
+  .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+  .flashcard-front, .flashcard-back {
+    position: absolute; inset: 0; border-radius: 14px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    backface-visibility: hidden; padding: .8rem; text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,.08);
+  }
+  .flashcard-front {
+    background: linear-gradient(135deg, #2563eb, #3b82f6); color: #fff;
+  }
+  .flashcard-front .fw { font-size: 1.15rem; font-weight: 800; }
+  .flashcard-front .fhint { font-size: .72rem; opacity: .7; margin-top: .3rem; }
+  .flashcard-back {
+    background: #fff; color: #1e293b; border: 2px solid #2563eb;
+    transform: rotateY(180deg); font-size: .85rem;
+  }
+  .flashcard-back .fb-en { font-weight: 600; color: #1e40af; margin-bottom: .25rem; }
+  .flashcard-back .fb-ne { color: #b45309; font-size: .8rem; }
+
+  /* ── Exercise Sections ── */
+  .exercise-block { margin-bottom: 1.8rem; }
+  .exercise-block h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: .75rem; color: #1e40af; }
+
+  /* Fill in the Blanks */
+  .blank-item {
+    background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px;
+    padding: .85rem 1.1rem; margin-bottom: .65rem; font-size: .95rem;
+    display: flex; flex-wrap: wrap; gap: .35rem; align-items: center;
+  }
+  .blank-item label { font-weight: 600; margin-right: .3rem; flex-shrink: 0; }
+  .blank-item select {
+    padding: .3rem .7rem; border: 2px solid #e2e8f0; border-radius: 8px;
+    font-size: .9rem; cursor: pointer; background: #fff;
+    transition: border-color .2s;
+  }
+  .blank-item select:focus { border-color: #2563eb; outline: none; }
+  .blank-item .feedback {
+    font-size: .8rem; font-weight: 600; margin-left: .3rem;
+    opacity: 0; transition: opacity .3s;
+  }
+  .blank-item .feedback.correct { opacity: 1; color: #16a34a; }
+  .blank-item .feedback.wrong { opacity: 1; color: #dc2626; }
+
+  /* Q&A */
+  .qa-item {
+    background: #f8fafc; border-left: 4px solid #3b82f6;
+    border-radius: 0 10px 10px 0; padding: .85rem 1.1rem;
+    margin-bottom: .65rem; font-size: .95rem;
+  }
+  .qa-item .question { font-weight: 600; color: #1e293b; margin-bottom: .4rem; }
+  .qa-item .answer {
+    display: none; color: #475569; padding: .6rem .8rem; margin-top: .4rem;
+    background: #eff6ff; border-radius: 8px; font-size: .9rem;
+    animation: fadeSlide .3s ease;
+  }
+  .qa-item .answer.show { display: block; }
+  @keyframes fadeSlide { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .btn-show {
+    background: none; border: 1.5px solid #3b82f6; color: #2563eb;
+    padding: .25rem .75rem; border-radius: 6px; font-size: .8rem;
+    cursor: pointer; transition: all .2s; margin-top: .3rem;
+  }
+  .btn-show:hover { background: #eff6ff; }
+  .btn-show.active { background: #2563eb; color: #fff; border-color: #2563eb; }
+
+  /* T/F Quiz */
+  .tf-item {
+    display: flex; align-items: flex-start; gap: .8rem;
+    background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px;
+    padding: .85rem 1.1rem; margin-bottom: .65rem; font-size: .95rem;
+  }
+  .tf-item .tf-num { font-weight: 700; color: #64748b; flex-shrink: 0; min-width: 24px; }
+  .tf-item .tf-statement { flex: 1; }
+  .tf-buttons { display: flex; gap: .5rem; flex-shrink: 0; }
+  .tf-btn {
+    padding: .3rem 1rem; border-radius: 8px; font-size: .82rem; font-weight: 600;
+    cursor: pointer; border: 2px solid #e2e8f0; background: #fff;
+    color: #475569; transition: all .2s;
+  }
+  .tf-btn:hover { border-color: #94a3b8; }
+  .tf-btn.selected-true { background: #dcfce7; border-color: #22c55e; color: #166534; }
+  .tf-btn.selected-false { background: #fee2e2; border-color: #ef4444; color: #991b1b; }
+  .tf-btn.correct-ans { background: #bbf7d0; border-color: #16a34a; color: #15803d; }
+  .tf-btn.wrong-ans { background: #fecaca; border-color: #dc2626; color: #991b1b; }
+  .tf-feedback { font-size: .78rem; font-weight: 600; margin-top: .3rem; display: none; }
+  .tf-item .tf-feedback.show { display: block; }
+  .tf-feedback.correct { color: #16a34a; }
+  .tf-feedback.wrong { color: #dc2626; }
+
+  /* Contextual Fill */
+  .ctx-item {
+    background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px;
+    padding: .85rem 1.1rem; margin-bottom: .65rem; font-size: .95rem;
+  }
+  .ctx-item input {
+    padding: .3rem .7rem; border: 2px solid #e2e8f0; border-radius: 8px;
+    font-size: .9rem; width: 180px; transition: border-color .2s;
+  }
+  .ctx-item input:focus { border-color: #2563eb; outline: none; }
+  .ctx-item .ctx-feedback { font-size: .8rem; font-weight: 600; margin-left: .5rem; display: none; }
+  .ctx-item .ctx-feedback.show { display: inline; }
+  .ctx-item .ctx-feedback.correct { color: #16a34a; }
+  .ctx-item .ctx-feedback.wrong { color: #dc2626; }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff;
+    border: none; padding: .65rem 1.5rem; border-radius: 10px;
+    font-size: .9rem; font-weight: 600; cursor: pointer;
+    transition: transform .15s, box-shadow .2s;
+    box-shadow: 0 2px 8px rgba(37,99,235,.3);
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(37,99,235,.4); }
+  .btn-primary:active { transform: translateY(0); }
+
+  .btn-secondary {
+    background: #fff; color: #2563eb; border: 2px solid #2563eb;
+    padding: .6rem 1.4rem; border-radius: 10px; font-size: .9rem;
+    font-weight: 600; cursor: pointer; transition: all .2s;
+  }
+  .btn-secondary:hover { background: #eff6ff; }
+
+  .btn-success { background: linear-gradient(135deg, #16a34a, #15803d); box-shadow: 0 2px 8px rgba(22,163,74,.3); }
+  .btn-success:hover { box-shadow: 0 4px 16px rgba(22,163,74,.4); }
+
+  .btn-reset { background: #fff; color: #64748b; border: 2px solid #e2e8f0; box-shadow: none; }
+  .btn-reset:hover { background: #f8fafc; box-shadow: none; border-color: #cbd5e1; }
+
+  .actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1.2rem; }
+
+  /* ── Score Card ── */
+  .score-card {
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7); border: 2px solid #86efac;
+    border-radius: 14px; padding: 1.2rem 1.5rem; margin-top: 1rem;
+    display: none; text-align: center;
+  }
+  .score-card.show { display: block; animation: fadeSlide .4s ease; }
+  .score-card .score-num { font-size: 2.5rem; font-weight: 800; color: #166534; }
+  .score-card .score-label { font-size: .9rem; color: #15803d; }
+  .score-card .score-msg { font-size: .85rem; color: #4ade80; margin-top: .3rem; }
+
+  /* ── Tab System ── */
+  .tabs { display: flex; gap: .4rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .tab-btn {
+    padding: .5rem 1.1rem; border-radius: 8px; font-size: .85rem;
+    font-weight: 600; cursor: pointer; border: 2px solid #e2e8f0;
+    background: #fff; color: #64748b; transition: all .2s;
+  }
+  .tab-btn:hover { border-color: #94a3b8; color: #334155; }
+  .tab-btn.active { background: #2563eb; color: #fff; border-color: #2563eb; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; animation: fadeSlide .3s ease; }
+
+  /* ── Scroll-to-top ── */
+  .scroll-top {
+    position: fixed; bottom: 2rem; right: 2rem; width: 46px; height: 46px;
+    background: #2563eb; color: #fff; border: none; border-radius: 50%;
+    font-size: 1.3rem; cursor: pointer; box-shadow: 0 3px 12px rgba(37,99,235,.4);
+    display: none; z-index: 90; transition: transform .2s, opacity .3s;
+    align-items: center; justify-content: center;
+  }
+  .scroll-top.show { display: flex; }
+  .scroll-top:hover { transform: scale(1.1); }
+
+  /* ── Progress bar ── */
+  .progress-bar {
+    position: fixed; top: 0; left: 0; height: 3px; background: #facc15;
+    z-index: 200; width: 0; transition: width .15s;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 1.5rem; }
+    .hero .badges { gap: .4rem; }
+    .hero .badge { font-size: .75rem; padding: .25rem .6rem; }
+    .container { padding: 1rem; }
+    .section { padding: 1.25rem; }
+    .top-nav { padding: 0 1rem; }
+    .top-nav nav a { margin-left: .8rem; font-size: .8rem; }
+    .flashcard-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+    .blank-item, .qa-item, .tf-item, .ctx-item { font-size: .88rem; }
+  }
+
+  /* ── Print friendly ── */
+  @media print {
+    .top-nav, .scroll-top, .progress-bar, .actions, .btn-show, .vocab-search { display: none !important; }
+    body { background: #fff; }
+    .section { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
+    .qa-item .answer { display: block !important; }
+    .vocab-tooltip { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Progress Bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Top Navigation -->
+<div class="top-nav">
+  <div class="logo">📘 English Notes</div>
+  <nav>
+    <a href="#reading" class="active" data-nav>📖 Reading</a>
+    <a href="#vocabulary" data-nav>📝 Vocabulary</a>
+    <a href="#exercises" data-nav>✏️ Exercises</a>
+    <a href="#practice" data-nav>🎯 Practice</a>
+  </nav>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>Health is Wealth</h1>
+  <p class="subtitle">An interactive study guide for Grade 9 English &mdash; Unit 2: Health and Hygiene</p>
+  <div class="badges">
+    <span class="badge"><b>Grade:</b> 9</span>
+    <span class="badge"><b>Subject:</b> English</span>
+    <span class="badge"><b>Unit:</b> 2 – Health &amp; Hygiene</span>
+    <span class="badge"><b>Genre:</b> Prose</span>
+    <span class="badge"><b>Pages:</b> 21–23</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ═══════════ READING TEXT ═══════════ -->
+  <div class="section" id="reading">
+    <div class="section-header">
+      <div class="icon" style="background:#eff6ff;color:#2563eb;">📖</div>
+      <div>
+        <h2>Reading Text</h2>
+        <p>Hover over <span style="color:#2563eb;font-weight:700;">blue words</span> to see their meanings</p>
+      </div>
+    </div>
+    <div class="story-body">
+
+      <p><b>Health is Wealth</b></p>
+
+      <p>Once upon a time, there lived a <span class="vocab-word">benevolent<span class="vocab-tooltip"><span class="nepali">दयालु</span> — kind and generous</span></span> and <span class="vocab-word">kind-hearted<span class="vocab-tooltip"><span class="nepali">दयालु हृदयको</span> — having a kind nature</span></span> king. But, the people weren't happy with him because he was very lazy and would not do anything other than eating and sleeping.</p>
+
+      <p>He spent days, weeks and months in his bed either eating something or sleeping. The king became a <span class="vocab-word">couch potato<span class="vocab-tooltip"><span class="nepali">सोफामा बसेर धेरै समय बिताउने अल्छी मानिस</span> — a lazy person who spends time sitting/watching TV</span></span> and the people started to worry about him.</p>
+
+      <p>One day, the king realised that he couldn't move his body, not even his foot. He became very large and his <span class="vocab-word">obesity<span class="vocab-tooltip"><span class="nepali">मोटोपन</span> — the condition of being extremely fat</span></span> became a matter of fun, calling him '<span class="vocab-word">bulky<span class="vocab-tooltip"><span class="nepali">ठूलो र गह्रौं</span> — very large and heavy</span></span> king'.</p>
+
+      <p>The king invited expert doctors from various parts of his country and offered them <span class="vocab-word">generous rewards<span class="vocab-tooltip"><span class="nepali">उदार पुरस्कारहरू</span> — large gifts given willingly</span></span> to make him fit. Unfortunately, none could help him gain his health and fitness back. The king spent an <span class="vocab-word">enormous<span class="vocab-tooltip"><span class="nepali">धेरै ठूलो</span> — very large</span></span> amount of money but everything went <span class="vocab-word">in vain<span class="vocab-tooltip"><span class="nepali">व्यर्थमा</span> — without success</span></span>.</p>
+
+      <p>One fine morning, a holy man visited the country. He heard about the ill-health of the king, and informed the minister at the palace that he could easily cure the king. Hearing these promising words, the minister became very happy. He requested the king to meet the holy man to get rid of his problem.</p>
+
+      <p>The holy man <span class="vocab-word">resided<span class="vocab-tooltip"><span class="nepali">बसोबास गर्नु</span> — lived (in a place)</span></span> at a distant place. Since the king could not move his body, he asked the minister to bring the holy man to the palace, but the holy man <span class="vocab-word">refused<span class="vocab-tooltip"><span class="nepali">अस्वीकार गर्नु</span> — said no to something</span></span>. He said that the king had to go to him, in order to get <span class="vocab-word">cured<span class="vocab-tooltip"><span class="nepali">निको हुनु</span> — made well again</span></span>.</p>
+
+      <p>After <span class="vocab-word">strenuous<span class="vocab-tooltip"><span class="nepali">मिहिनेत चाहिने, कठिन</span> — requiring great effort</span></span> efforts, the king met the holy man at the latter's residence. The holy man complimented the king saying that he was a good ruler, and said that he would soon regain his health. He asked the king to come for treatment the next day. He also told the king would be treated only if he came on foot to the holy man's residence.</p>
+
+      <p>The king was unable to walk even a few steps on the road, but <span class="vocab-word">aided<span class="vocab-tooltip"><span class="nepali">मद्दत गरिएको</span> — helped</span></span> by his followers, he reached the holy man's place. Unfortunately, the holy man was not available there and his <span class="vocab-word">devotee<span class="vocab-tooltip"><span class="nepali">भक्त</span> — a person devoted to someone</span></span> requested the king to come and meet him the next day for treatment.</p>
+
+      <p>This was repeated for two weeks and the king never met the holy man, and never had any treatment.</p>
+
+      <p><span class="vocab-word">Gradually<span class="vocab-tooltip"><span class="nepali">बिस्तारै</span> — slowly, over time</span></span>, the king realised that he felt a lot lighter, lost a <span class="vocab-word">considerable<span class="vocab-tooltip"><span class="nepali">उल्लेखनीय, धेरै</span> — fairly large in amount</span></span> amount of weight and felt more active than before. He realised the reason why the holy man asked him to reach his place by walking.</p>
+
+      <p>Very soon, the king <span class="vocab-word">regained<span class="vocab-tooltip"><span class="nepali">पुनः प्राप्त गर्नु</span> — got back something lost</span></span> his health, and the people were very happy in his kingdom.</p>
+
+    </div>
+  </div>
+
+  <!-- ═══════════ VOCABULARY ═══════════ -->
+  <div class="section" id="vocabulary">
+    <div class="section-header">
+      <div class="icon" style="background:#fef3c7;color:#d97706;">📝</div>
+      <div>
+        <h2>Vocabulary</h2>
+        <p>Difficult words with Nepali and English meanings</p>
+      </div>
+    </div>
+
+    <!-- Tabs: Table vs Flashcards -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchVocabTab('table')">📋 Table View</button>
+      <button class="tab-btn" onclick="switchVocabTab('flashcards')">🃏 Flashcards</button>
+    </div>
+
+    <!-- Table View -->
+    <div class="tab-content active" id="vocab-table-view">
+      <div class="search-wrap">
+        <input type="text" class="vocab-search" id="vocabSearch" placeholder="Search words..." oninput="filterVocab()">
+      </div>
+      <div class="vocab-table-wrap">
+        <table class="vocab-table" id="vocabTable">
+          <thead>
+            <tr><th>#</th><th>Word</th><th>Nepali Meaning</th><th>English Meaning</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td class="word-cell">benevolent</td><td>दयालु</td><td>kind and generous</td></tr>
+            <tr><td>2</td><td class="word-cell">kind-hearted</td><td>दयालु हृदयको</td><td>having a kind nature</td></tr>
+            <tr><td>3</td><td class="word-cell">couch potato</td><td>अल्छी मानिस</td><td>a lazy person who spends time sitting/watching TV</td></tr>
+            <tr><td>4</td><td class="word-cell">obesity</td><td>मोटोपन</td><td>condition of being extremely fat</td></tr>
+            <tr><td>5</td><td class="word-cell">bulky</td><td>ठूलो र गह्रौं</td><td>very large and heavy</td></tr>
+            <tr><td>6</td><td class="word-cell">generous rewards</td><td>उदार पुरस्कार</td><td>large gifts given willingly</td></tr>
+            <tr><td>7</td><td class="word-cell">enormous</td><td>धेरै ठूलो</td><td>very large</td></tr>
+            <tr><td>8</td><td class="word-cell">in vain</td><td>व्यर्थमा</td><td>without success</td></tr>
+            <tr><td>9</td><td class="word-cell">resided</td><td>बसोबास गर्नु</td><td>lived (in a place)</td></tr>
+            <tr><td>10</td><td class="word-cell">refused</td><td>अस्वीकार गर्नु</td><td>said no to something</td></tr>
+            <tr><td>11</td><td class="word-cell">cured</td><td>निको हुनु</td><td>made well again</td></tr>
+            <tr><td>12</td><td class="word-cell">strenuous</td><td>मिहिनेत चाहिने</td><td>requiring great effort</td></tr>
+            <tr><td>13</td><td class="word-cell">aided</td><td>मद्दत गरिएको</td><td>helped</td></tr>
+            <tr><td>14</td><td class="word-cell">devotee</td><td>भक्त</td><td>person devoted to someone</td></tr>
+            <tr><td>15</td><td class="word-cell">gradually</td><td>बिस्तारै</td><td>slowly, over time</td></tr>
+            <tr><td>16</td><td class="word-cell">considerable</td><td>उल्लेखनीय</td><td>fairly large in amount</td></tr>
+            <tr><td>17</td><td class="word-cell">regained</td><td>पुनः प्राप्त गर्नु</td><td>got back something lost</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Flashcard View -->
+    <div class="tab-content" id="vocab-flashcards-view">
+      <p style="font-size:.88rem;color:#64748b;margin-bottom:.5rem;">👆 Click a card to flip and see the meaning</p>
+      <div class="flashcard-grid" id="flashcardGrid"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════ EXERCISES ═══════════ -->
+  <div class="section" id="exercises">
+    <div class="section-header">
+      <div class="icon" style="background:#f0fdf4;color:#16a34a;">✏️</div>
+      <div>
+        <h2>Exercise Solutions</h2>
+        <p>From the textbook — interactive version with answers</p>
+      </div>
+    </div>
+
+    <!-- A. Fill in the Blanks -->
+    <div class="exercise-block">
+      <h3>A. Fill in the blanks using: <i>benevolent, couch potato, obesity, devotee, strenuous</i></h3>
+
+      <div class="blank-item">
+        <label>a.</label>
+        <span>______ can increase the risk of heart disease because obese people are likely to suffer from heart problems.</span>
+        <select id="blank-a" onchange="checkBlank('a')">
+          <option value="">— Select —</option>
+          <option value="benevolent">benevolent</option>
+          <option value="couch potato">couch potato</option>
+          <option value="obesity">obesity</option>
+          <option value="devotee">devotee</option>
+          <option value="strenuous">strenuous</option>
+        </select>
+        <span class="feedback" id="fb-a"></span>
+      </div>
+
+      <div class="blank-item">
+        <label>b.</label>
+        <span>My father is kind, helpful and generous. He has a ______ attitude.</span>
+        <select id="blank-b" onchange="checkBlank('b')">
+          <option value="">— Select —</option>
+          <option value="benevolent">benevolent</option>
+          <option value="couch potato">couch potato</option>
+          <option value="obesity">obesity</option>
+          <option value="devotee">devotee</option>
+          <option value="strenuous">strenuous</option>
+        </select>
+        <span class="feedback" id="fb-b"></span>
+      </div>
+
+      <div class="blank-item">
+        <label>c.</label>
+        <span>Take rest for a week. Avoid tasks which require ______ physical activity.</span>
+        <select id="blank-c" onchange="checkBlank('c')">
+          <option value="">— Select —</option>
+          <option value="benevolent">benevolent</option>
+          <option value="couch potato">couch potato</option>
+          <option value="obesity">obesity</option>
+          <option value="devotee">devotee</option>
+          <option value="strenuous">strenuous</option>
+        </select>
+        <span class="feedback" id="fb-c"></span>
+      </div>
+
+      <div class="blank-item">
+        <label>d.</label>
+        <span>I like God Shiva. I'm actually a ______ of him.</span>
+        <select id="blank-d" onchange="checkBlank('d')">
+          <option value="">— Select —</option>
+          <option value="benevolent">benevolent</option>
+          <option value="couch potato">couch potato</option>
+          <option value="obesity">obesity</option>
+          <option value="devotee">devotee</option>
+          <option value="strenuous">strenuous</option>
+        </select>
+        <span class="feedback" id="fb-d"></span>
+      </div>
+
+      <div class="blank-item">
+        <label>e.</label>
+        <span>My younger sister is a great ______. She can watch TV 24 hours a day.</span>
+        <select id="blank-e" onchange="checkBlank('e')">
+          <option value="">— Select —</option>
+          <option value="benevolent">benevolent</option>
+          <option value="couch potato">couch potato</option>
+          <option value="obesity">obesity</option>
+          <option value="devotee">devotee</option>
+          <option value="strenuous">strenuous</option>
+        </select>
+        <span class="feedback" id="fb-e"></span>
+      </div>
+
+      <div class="actions">
+        <button class="btn-primary btn-success" onclick="checkAllBlanks()">✔ Check All Answers</button>
+        <button class="btn-secondary btn-reset" onclick="resetBlanks()">🔄 Reset</button>
+      </div>
+      <div class="score-card" id="blank-score">
+        <div class="score-num" id="blank-score-num">0/5</div>
+        <div class="score-label">Fill in the Blanks Score</div>
+        <div class="score-msg" id="blank-score-msg"></div>
+      </div>
+    </div>
+
+    <!-- B. Q&A -->
+    <div class="exercise-block">
+      <h3>B. Answer the following questions</h3>
+
+      <div class="qa-item">
+        <div class="question">a. Why did people not like the king though he was kind?</div>
+        <button class="btn-show" onclick="toggleAnswer(this)">👁 Show Answer</button>
+        <div class="answer">Although the king was kind-hearted, people didn't like him because he was very lazy and did nothing except eat and sleep all day.</div>
+      </div>
+
+      <div class="qa-item">
+        <div class="question">b. Why were the specialists called to the palace and offered huge prizes?</div>
+        <button class="btn-show" onclick="toggleAnswer(this)">👁 Show Answer</button>
+        <div class="answer">The king invited expert doctors and offered them generous rewards to help him regain his health and fitness, as he had become too obese to move.</div>
+      </div>
+
+      <div class="qa-item">
+        <div class="question">c. Why did the minister become so happy?</div>
+        <button class="btn-show" onclick="toggleAnswer(this)">👁 Show Answer</button>
+        <div class="answer">The minister became happy because a holy man had informed him that he could easily cure the king's ill-health.</div>
+      </div>
+
+      <div class="qa-item">
+        <div class="question">d. Why did the holy man tell the king to come to his place on foot for treatment?</div>
+        <button class="btn-show" onclick="toggleAnswer(this)">👁 Show Answer</button>
+        <div class="answer">The holy man wanted the king to walk to his place daily so that the king would unknowingly do physical exercise and lose weight, which was the real cure.</div>
+      </div>
+
+      <div class="qa-item">
+        <div class="question">e. Why did the holy man disappear after the first meeting with the king?</div>
+        <button class="btn-show" onclick="toggleAnswer(this)">👁 Show Answer</button>
+        <div class="answer">The holy man deliberately stayed away so the king would have to keep walking to his residence every day for two weeks, helping him lose weight through exercise.</div>
+      </div>
+
+      <div class="qa-item">
+        <div class="question">f. How did the king recover his health?</div>
+        <button class="btn-show" onclick="toggleAnswer(this)">👁 Show Answer</button>
+        <div class="answer">The king recovered his health by walking daily to the holy man's residence for two weeks, which made him lighter, more active, and healthier — even though he never actually received any "treatment."</div>
+      </div>
+
+      <div class="qa-item">
+        <div class="question">g. What lesson did you learn from the story?</div>
+        <button class="btn-show" onclick="toggleAnswer(this)">👁 Show Answer</button>
+        <div class="answer">The lesson is that regular physical activity/exercise (like walking) is essential for good health, and true wealth lies in good health ("Health is Wealth").</div>
+      </div>
+
+      <div class="actions">
+        <button class="btn-secondary" onclick="toggleAllAnswers()">👁 Show / Hide All Answers</button>
+      </div>
+    </div>
+
+    <!-- C. Retell -->
+    <div class="exercise-block">
+      <h3>C. Retell the story making the queen the main character</h3>
+      <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:1rem;font-size:.92rem;color:#92400e;">
+        <strong>📖 Speaking Activity:</strong> Retell the same story in your own words, replacing the king with the queen as the main character.
+        <br><em>Example: "Once upon a time, there lived a benevolent queen who was very lazy..."</em> — follow the same plot.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ ADDITIONAL PRACTICE ═══════════ -->
+  <div class="section" id="practice">
+    <div class="section-header">
+      <div class="icon" style="background:#fce7f3;color:#db2777;">🎯</div>
+      <div>
+        <h2>Additional Practice</h2>
+        <p>Test your understanding with these extra questions</p>
+      </div>
+    </div>
+
+    <!-- Short Questions -->
+    <div class="exercise-block">
+      <h3>Short Questions</h3>
+
+      <div class="qa-item">
+        <div class="question">1. What kind of person was the king at the beginning of the story?</div>
+        <button class="btn-show" onclick="toggleAnswer(this)">👁 Show Answer</button>
+        <div class="answer">He was a benevolent but very lazy king who only ate and slept.</div>
+      </div>
+
+      <div class="qa-item">
+        <div class="question">2. Who visited the country and claimed he could cure the king?</div>
+        <button class="btn-show" onclick="toggleAnswer(this)">👁 Show Answer</button>
+        <div class="answer">A holy man visited the country and claimed he could cure the king.</div>
+      </div>
+
+      <div class="qa-item">
+        <div class="question">3. What condition did the holy man put before treating the king?</div>
+        <button class="btn-show" onclick="toggleAnswer(this)">👁 Show Answer</button>
+        <div class="answer">The holy man said he would treat the king only if the king came to his residence on foot.</div>
+      </div>
+
+      <div class="qa-item">
+        <div class="question">4. For how long did the king keep visiting the holy man without receiving treatment?</div>
+        <button class="btn-show" onclick="toggleAnswer(this)">👁 Show Answer</button>
+        <div class="answer">The king kept visiting for two weeks without receiving any treatment.</div>
+      </div>
+
+      <div class="qa-item">
+        <div class="question">5. What was the real secret behind the king's recovery?</div>
+        <button class="btn-show" onclick="toggleAnswer(this)">👁 Show Answer</button>
+        <div class="answer">The real secret was the daily walking exercise, not any medicine or magical treatment.</div>
+      </div>
+    </div>
+
+    <!-- True / False -->
+    <div class="exercise-block">
+      <h3>True or False</h3>
+
+      <div class="tf-item" id="tf-1">
+        <span class="tf-num">1.</span>
+        <span class="tf-statement">The king was cruel and unkind to his people.</span>
+        <div class="tf-buttons">
+          <button class="tf-btn" onclick="selectTF(1,true)">True</button>
+          <button class="tf-btn" onclick="selectTF(1,false)">False</button>
+        </div>
+        <div class="tf-feedback" id="tf-fb-1"></div>
+      </div>
+
+      <div class="tf-item" id="tf-2">
+        <span class="tf-num">2.</span>
+        <span class="tf-statement">The king became too obese to move his own body.</span>
+        <div class="tf-buttons">
+          <button class="tf-btn" onclick="selectTF(2,true)">True</button>
+          <button class="tf-btn" onclick="selectTF(2,false)">False</button>
+        </div>
+        <div class="tf-feedback" id="tf-fb-2"></div>
+      </div>
+
+      <div class="tf-item" id="tf-3">
+        <span class="tf-num">3.</span>
+        <span class="tf-statement">The holy man went to the palace to treat the king.</span>
+        <div class="tf-buttons">
+          <button class="tf-btn" onclick="selectTF(3,true)">True</button>
+          <button class="tf-btn" onclick="selectTF(3,false)">False</button>
+        </div>
+        <div class="tf-feedback" id="tf-fb-3"></div>
+      </div>
+
+      <div class="tf-item" id="tf-4">
+        <span class="tf-num">4.</span>
+        <span class="tf-statement">The king had to walk to the holy man's residence for treatment.</span>
+        <div class="tf-buttons">
+          <button class="tf-btn" onclick="selectTF(4,true)">True</button>
+          <button class="tf-btn" onclick="selectTF(4,false)">False</button>
+        </div>
+        <div class="tf-feedback" id="tf-fb-4"></div>
+      </div>
+
+      <div class="tf-item" id="tf-5">
+        <span class="tf-num">5.</span>
+        <span class="tf-statement">The king lost weight because of the medicine given by the holy man.</span>
+        <div class="tf-buttons">
+          <button class="tf-btn" onclick="selectTF(5,true)">True</button>
+          <button class="tf-btn" onclick="selectTF(5,false)">False</button>
+        </div>
+        <div class="tf-feedback" id="tf-fb-5"></div>
+      </div>
+
+      <div class="actions">
+        <button class="btn-primary btn-success" onclick="checkAllTF()">✔ Check All Answers</button>
+        <button class="btn-secondary btn-reset" onclick="resetTF()">🔄 Reset</button>
+      </div>
+      <div class="score-card" id="tf-score">
+        <div class="score-num" id="tf-score-num">0/5</div>
+        <div class="score-label">True/False Score</div>
+        <div class="score-msg" id="tf-score-msg"></div>
+      </div>
+    </div>
+
+    <!-- Contextual Fill -->
+    <div class="exercise-block">
+      <h3>Contextual Difficult Word Meaning Fill-Up</h3>
+
+      <div class="ctx-item">
+        <label>1.</label>
+        <span>A person who spends most of the time sitting and watching TV is called a</span>
+        <input type="text" id="ctx-1" placeholder="type answer...">
+        <span class="ctx-feedback" id="ctx-fb-1"></span>
+      </div>
+
+      <div class="ctx-item">
+        <label>2.</label>
+        <span>The doctor offered a</span>
+        <input type="text" id="ctx-2" placeholder="type answer...">
+        <span>effort to save the patient's life during the operation.</span>
+        <span class="ctx-feedback" id="ctx-fb-2"></span>
+      </div>
+
+      <div class="ctx-item">
+        <label>3.</label>
+        <span>He spent an</span>
+        <input type="text" id="ctx-3" placeholder="type answer...">
+        <span>amount of money on the wedding.</span>
+        <span class="ctx-feedback" id="ctx-fb-3"></span>
+      </div>
+
+      <div class="ctx-item">
+        <label>4.</label>
+        <span>She</span>
+        <input type="text" id="ctx-4" placeholder="type answer...">
+        <span>her lost confidence after months of practice.</span>
+        <span class="ctx-feedback" id="ctx-fb-4"></span>
+      </div>
+
+      <div class="ctx-item">
+        <label>5.</label>
+        <span>All his hard work went</span>
+        <input type="text" id="ctx-5" placeholder="type answer...">
+        <span>when the project failed.</span>
+        <span class="ctx-feedback" id="ctx-fb-5"></span>
+      </div>
+
+      <div class="actions">
+        <button class="btn-primary btn-success" onclick="checkAllCtx()">✔ Check All Answers</button>
+        <button class="btn-secondary btn-reset" onclick="resetCtx()">🔄 Reset</button>
+      </div>
+      <div class="score-card" id="ctx-score">
+        <div class="score-num" id="ctx-score-num">0/5</div>
+        <div class="score-label">Fill-Up Score</div>
+        <div class="score-msg" id="ctx-score-msg"></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<!-- Scroll to top -->
+<button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// ── Vocabulary Data ──
+const vocabData = [
+  { word: 'benevolent', ne: 'दयालु', en: 'kind and generous' },
+  { word: 'kind-hearted', ne: 'दयालु हृदयको', en: 'having a kind nature' },
+  { word: 'couch potato', ne: 'अल्छी मानिस', en: 'a lazy person who spends time sitting/watching TV' },
+  { word: 'obesity', ne: 'मोटोपन', en: 'condition of being extremely fat' },
+  { word: 'bulky', ne: 'ठूलो र गह्रौं', en: 'very large and heavy' },
+  { word: 'generous rewards', ne: 'उदार पुरस्कार', en: 'large gifts given willingly' },
+  { word: 'enormous', ne: 'धेरै ठूलो', en: 'very large' },
+  { word: 'in vain', ne: 'व्यर्थमा', en: 'without success' },
+  { word: 'resided', ne: 'बसोबास गर्नु', en: 'lived (in a place)' },
+  { word: 'refused', ne: 'अस्वीकार गर्नु', en: 'said no to something' },
+  { word: 'cured', ne: 'निको हुनु', en: 'made well again' },
+  { word: 'strenuous', ne: 'मिहिनेत चाहिने', en: 'requiring great effort' },
+  { word: 'aided', ne: 'मद्दत गरिएको', en: 'helped' },
+  { word: 'devotee', ne: 'भक्त', en: 'person devoted to someone' },
+  { word: 'gradually', ne: 'बिस्तारै', en: 'slowly, over time' },
+  { word: 'considerable', ne: 'उल्लेखनीय', en: 'fairly large in amount' },
+  { word: 'regained', ne: 'पुनः प्राप्त गर्नु', en: 'got back something lost' }
+];
+
+// ── Generate Flashcards ──
+function buildFlashcards() {
+  const grid = document.getElementById('flashcardGrid');
+  vocabData.forEach(v => {
+    const card = document.createElement('div');
+    card.className = 'flashcard';
+    card.onclick = () => card.classList.toggle('flipped');
+    card.innerHTML = `
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <div class="fw">${v.word}</div>
+          <div class="fhint">tap to flip</div>
+        </div>
+        <div class="flashcard-back">
+          <div class="fb-ne">${v.ne}</div>
+          <div class="fb-en">${v.en}</div>
+        </div>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+buildFlashcards();
+
+// ── Vocab Tab Switch ──
+function switchVocabTab(tab) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  if (tab === 'table') {
+    document.querySelector('[onclick="switchVocabTab(\'table\')"]').classList.add('active');
+    document.getElementById('vocab-table-view').classList.add('active');
+  } else {
+    document.querySelector('[onclick="switchVocabTab(\'flashcards\')"]').classList.add('active');
+    document.getElementById('vocab-flashcards-view').classList.add('active');
+  }
+}
+
+// ── Vocab Search ──
+function filterVocab() {
+  const q = document.getElementById('vocabSearch').value.toLowerCase();
+  const rows = document.querySelectorAll('#vocabTable tbody tr');
+  rows.forEach(r => {
+    const text = r.textContent.toLowerCase();
+    r.classList.toggle('hidden', !text.includes(q));
+  });
+}
+
+// ── Fill in the Blanks ──
+const blankAnswers = { a: 'obesity', b: 'benevolent', c: 'strenuous', d: 'devotee', e: 'couch potato' };
+
+function checkBlank(id) {
+  const sel = document.getElementById('blank-' + id);
+  const fb = document.getElementById('fb-' + id);
+  if (sel.value === blankAnswers[id]) {
+    fb.textContent = ' ✔ Correct!';
+    fb.className = 'feedback correct';
+  } else if (sel.value !== '') {
+    fb.textContent = ' ✘ Try again';
+    fb.className = 'feedback wrong';
+  } else {
+    fb.className = 'feedback';
+  }
+}
+
+function checkAllBlanks() {
+  let score = 0;
+  ['a','b','c','d','e'].forEach(id => {
+    const sel = document.getElementById('blank-' + id);
+    const fb = document.getElementById('fb-' + id);
+    if (sel.value === blankAnswers[id]) {
+      fb.textContent = ' ✔ Correct!';
+      fb.className = 'feedback correct';
+      score++;
+    } else {
+      fb.textContent = ' ✘ Wrong — answer: ' + blankAnswers[id];
+      fb.className = 'feedback wrong';
+    }
+  });
+  showScoreCard('blank', score, 5);
+}
+
+function resetBlanks() {
+  ['a','b','c','d','e'].forEach(id => {
+    document.getElementById('blank-' + id).value = '';
+    document.getElementById('fb-' + id).className = 'feedback';
+  });
+  document.getElementById('blank-score').classList.remove('show');
+}
+
+// ── Q&A Toggle ──
+function toggleAnswer(btn) {
+  const answer = btn.nextElementSibling;
+  const isShowing = answer.classList.toggle('show');
+  btn.textContent = isShowing ? '🙈 Hide Answer' : '👁 Show Answer';
+  btn.classList.toggle('active', isShowing);
+}
+
+function toggleAllAnswers() {
+  document.querySelectorAll('.qa-item .answer').forEach(a => {
+    a.classList.toggle('show');
+  });
+  document.querySelectorAll('.btn-show').forEach(btn => {
+    const isShowing = btn.nextElementSibling.classList.contains('show');
+    btn.textContent = isShowing ? '🙈 Hide Answer' : '👁 Show Answer';
+    btn.classList.toggle('active', isShowing);
+  });
+}
+
+// ── True / False ──
+const tfAnswers = { 1: false, 2: true, 3: false, 4: true, 5: false };
+const tfSelected = {};
+
+function selectTF(num, val) {
+  tfSelected[num] = val;
+  const item = document.getElementById('tf-' + num);
+  const btns = item.querySelectorAll('.tf-btn');
+  btns.forEach(b => {
+    b.className = 'tf-btn';
+    // Reset check state if already checked
+  });
+  if (val === true) btns[0].classList.add('selected-true');
+  else btns[1].classList.add('selected-false');
+  // Clear feedback
+  item.querySelector('.tf-feedback').className = 'tf-feedback';
+}
+
+function checkAllTF() {
+  let score = 0;
+  for (let i = 1; i <= 5; i++) {
+    const item = document.getElementById('tf-' + i);
+    const fb = document.getElementById('tf-fb-' + i);
+    const btns = item.querySelectorAll('.tf-btn');
+    const userAns = tfSelected[i];
+    const correct = tfAnswers[i];
+
+    btns.forEach(b => b.className = 'tf-btn');
+
+    if (userAns === undefined) {
+      fb.textContent = '⚠️ Not answered';
+      fb.className = 'tf-feedback show wrong';
+      // highlight correct
+      if (correct === true) btns[0].classList.add('correct-ans');
+      else btns[1].classList.add('correct-ans');
+    } else if (userAns === correct) {
+      fb.textContent = '✔ Correct!';
+      fb.className = 'tf-feedback show correct';
+      score++;
+      if (correct === true) btns[0].classList.add('correct-ans');
+      else btns[1].classList.add('correct-ans');
+    } else {
+      fb.textContent = '✘ Wrong!';
+      fb.className = 'tf-feedback show wrong';
+      // highlight wrong and correct
+      if (userAns === true) btns[0].classList.add('wrong-ans');
+      else btns[1].classList.add('wrong-ans');
+      if (correct === true) btns[0].classList.add('correct-ans');
+      else btns[1].classList.add('correct-ans');
+    }
+  }
+  showScoreCard('tf', score, 5);
+}
+
+function resetTF() {
+  for (let i = 1; i <= 5; i++) {
+    const item = document.getElementById('tf-' + i);
+    item.querySelectorAll('.tf-btn').forEach(b => b.className = 'tf-btn');
+    item.querySelector('.tf-feedback').className = 'tf-feedback';
+    delete tfSelected[i];
+  }
+  document.getElementById('tf-score').classList.remove('show');
+}
+
+// ── Contextual Fill ──
+const ctxAnswers = { 1: 'couch potato', 2: 'strenuous', 3: 'enormous', 4: 'regained', 5: 'in vain' };
+
+function checkAllCtx() {
+  let score = 0;
+  for (let i = 1; i <= 5; i++) {
+    const input = document.getElementById('ctx-' + i);
+    const fb = document.getElementById('ctx-fb-' + i);
+    const userVal = input.value.trim().toLowerCase();
+    const correct = ctxAnswers[i].toLowerCase();
+    if (userVal === correct) {
+      fb.textContent = ' ✔';
+      fb.className = 'ctx-feedback show correct';
+      score++;
+    } else if (userVal === '') {
+      fb.textContent = ' ⚠️ Empty';
+      fb.className = 'ctx-feedback show wrong';
+    } else {
+      fb.textContent = ' ✘ Answer: ' + ctxAnswers[i];
+      fb.className = 'ctx-feedback show wrong';
+    }
+  }
+  showScoreCard('ctx', score, 5);
+}
+
+function resetCtx() {
+  for (let i = 1; i <= 5; i++) {
+    document.getElementById('ctx-' + i).value = '';
+    document.getElementById('ctx-fb-' + i).className = 'ctx-feedback';
+  }
+  document.getElementById('ctx-score').classList.remove('show');
+}
+
+// ── Score Card ──
+function showScoreCard(type, score, total) {
+  const card = document.getElementById(type + '-score');
+  const num = document.getElementById(type + '-score-num');
+  const msg = document.getElementById(type + '-score-msg');
+  num.textContent = score + '/' + total;
+  const pct = score / total;
+  if (pct === 1) msg.textContent = '🌟 Perfect! Excellent work!';
+  else if (pct >= 0.8) msg.textContent = '👏 Great job! Almost perfect!';
+  else if (pct >= 0.6) msg.textContent = '👍 Good effort! Keep practicing!';
+  else if (pct >= 0.4) msg.textContent = '📖 Review the vocabulary and try again!';
+  else msg.textContent = '💪 Don\'t give up — read the text once more!';
+  card.classList.add('show');
+}
+
+// ── Scroll Progress Bar ──
+window.addEventListener('scroll', () => {
+  const scrollTop = document.documentElement.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const progress = (scrollTop / scrollHeight) * 100;
+  document.getElementById('progressBar').style.width = progress + '%';
+
+  // Show/hide scroll-to-top
+  document.getElementById('scrollTopBtn').classList.toggle('show', scrollTop > 400);
+
+  // Active nav
+  const sections = ['reading', 'vocabulary', 'exercises', 'practice'];
+  let current = sections[0];
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top <= 150) current = id;
+  });
+  document.querySelectorAll('[data-nav]').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+</script>
+</body>
+</html>

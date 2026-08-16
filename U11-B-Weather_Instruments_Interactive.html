@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather Instruments — Grade 9 English Unit 11</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --font-size-base:17px;
+  --bg:#EAF4FB;
+  --card:#FFFFFF;
+  --primary:#1E5A8A;
+  --primary-light:#7DB6DC;
+  --accent:#00A6B8;
+  --accent-dark:#007A87;
+  --accent2:#5B9BD5;
+  --text:#0E2735;
+  --text-light:#3A5566;
+  --muted:#6A8595;
+  --border:#C6DEEC;
+  --highlight:#FFF7CC;
+  --highlight-border:#E8A040;
+  --success:#2D8E46;
+  --error:#C0392B;
+  --shadow:0 2px 12px rgba(30,90,138,0.10);
+  --radius:14px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{
+  font-family:'Inter','Noto Sans SC',sans-serif;
+  font-size:var(--font-size-base);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.75;
+  min-height:100vh;
+}
+
+/* ─── HEADER ─── */
+.site-header{
+  background:linear-gradient(135deg,#0E2735 0%,#1E5A8A 30%,#5B9BD5 70%,#7DB6DC 100%);
+  padding:34px 20px 28px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.site-header::before{
+  content:'';position:absolute;top:-50%;left:-20%;width:140%;height:200%;
+  background:radial-gradient(ellipse at 30% 60%,rgba(0,166,184,0.15) 0%,transparent 60%);
+  pointer-events:none;
+}
+.site-header::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,#00A6B8,#5B9BD5,#00A6B8);
+}
+.site-header h1{
+  font-family:'Lora',serif;font-size:2.2rem;color:#F0F8FF;
+  font-weight:700;letter-spacing:0.5px;position:relative;
+}
+.site-header .subtitle{
+  color:#7DD3DC;font-size:1rem;margin-top:6px;font-style:italic;position:relative;
+}
+.site-header .meta{
+  color:rgba(240,248,255,0.7);font-size:0.85rem;margin-top:8px;position:relative;
+}
+.site-header .meta span{margin:0 8px}
+
+/* ─── TOOLBAR ─── */
+.toolbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(234,244,251,0.93);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  padding:10px 20px;
+  display:flex;justify-content:center;gap:12px;align-items:center;
+  flex-wrap:wrap;
+}
+.toolbar button{
+  border:none;border-radius:8px;padding:7px 18px;
+  font-size:0.9rem;font-weight:600;cursor:pointer;
+  transition:all 0.2s;
+}
+.btn-font{background:var(--primary);color:#FFF}
+.btn-font:hover{background:#0E2735;transform:scale(1.05)}
+.btn-download{background:var(--accent);color:#FFF}
+.btn-download:hover{background:var(--accent-dark);transform:scale(1.05)}
+
+/* ─── NAV JUMP LINKS ─── */
+.nav-jump{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:18px 22px;
+  margin-bottom:24px;box-shadow:var(--shadow);
+}
+.nav-jump h2{
+  font-family:'Lora',serif;color:var(--primary);
+  font-size:1.2rem;margin-bottom:12px;
+}
+.nav-jump-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:8px;
+}
+.nav-jump-grid a{
+  display:flex;align-items:center;gap:8px;
+  padding:9px 14px;border-radius:8px;
+  background:linear-gradient(135deg,#EAF4FB,#D6E8F4);
+  color:var(--text);text-decoration:none;
+  font-size:0.88rem;font-weight:500;
+  border-left:3px solid var(--accent);
+  transition:all 0.25s;
+}
+.nav-jump-grid a:hover{
+  background:linear-gradient(135deg,#00A6B822,#00A6B815);
+  border-left-color:var(--primary);
+  transform:translateX(4px);
+  color:var(--primary);
+}
+.nav-jump-grid a .nav-icon{font-size:1rem;flex-shrink:0}
+
+/* ─── SCROLL TO TOP ─── */
+#scrollTopBtn{
+  position:fixed;bottom:90px;right:24px;z-index:9998;
+  width:48px;height:48px;border-radius:50%;
+  background:var(--primary);color:#FFF;
+  border:2px solid var(--primary-light);
+  font-size:1.3rem;cursor:pointer;
+  box-shadow:0 4px 16px rgba(30,90,138,0.35);
+  opacity:0;pointer-events:none;
+  transition:all 0.35s cubic-bezier(.4,0,.2,1);
+  display:flex;align-items:center;justify-content:center;
+}
+#scrollTopBtn.show{opacity:1;pointer-events:auto}
+#scrollTopBtn:hover{
+  background:var(--accent);border-color:var(--accent-dark);
+  transform:translateY(-3px);
+  box-shadow:0 6px 20px rgba(0,166,184,0.4);
+}
+
+/* ─── MAIN CONTAINER ─── */
+.container{max-width:880px;margin:0 auto;padding:24px 16px 60px}
+
+/* ─── SECTION CARD ─── */
+.section-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px 26px;
+  margin-bottom:24px;box-shadow:var(--shadow);
+  transition:box-shadow 0.3s;
+}
+.section-card:hover{box-shadow:0 4px 20px rgba(30,90,138,0.16)}
+.section-card h2{
+  font-family:'Lora',serif;color:var(--primary);
+  font-size:1.45rem;margin-bottom:16px;padding-bottom:10px;
+  border-bottom:2px solid var(--primary-light);
+  display:flex;align-items:center;gap:10px;
+}
+.section-card h2 .section-icon{font-size:1.2rem}
+.section-card h3{
+  font-family:'Lora',serif;color:var(--accent-dark);
+  font-size:1.15rem;margin:18px 0 10px;
+}
+
+/* ─── INSTRUMENT CARD ─── */
+.instrument-card{
+  margin:14px 0;padding:18px 20px;
+  background:linear-gradient(135deg,#F5FAFD,#E8F2F8);
+  border-radius:10px;
+  border-left:4px solid var(--accent2);
+  line-height:1.9;
+}
+.instrument-card .instr-label{
+  display:inline-block;background:var(--primary);
+  color:#FFF;font-size:0.78rem;font-weight:700;
+  padding:3px 12px;border-radius:4px;margin-bottom:8px;
+  letter-spacing:0.5px;text-transform:uppercase;
+}
+.instrument-card .instr-name{
+  font-family:'Lora',serif;font-size:1.15rem;
+  font-weight:700;color:var(--primary);
+  margin-bottom:6px;
+}
+
+/* ─── READING PARAGRAPHS ─── */
+.reading-para{
+  margin:16px 0;padding:16px 20px;
+  background:#F8FBFD;border-radius:10px;
+  border-left:4px solid var(--accent);
+  line-height:1.9;
+}
+
+/* ─── HIGHLIGHTED WORD ─── */
+.hw{
+  background:var(--highlight);color:var(--accent-dark);
+  padding:1px 6px;border-radius:4px;cursor:pointer;
+  border-bottom:2px dashed var(--highlight-border);
+  font-weight:600;transition:all 0.2s;
+}
+.hw:hover{background:#FFE69C;transform:scale(1.04)}
+
+/* ─── MEANING POPUP ─── */
+#meaningPopup{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);
+  z-index:9999;background:#0E2735;color:#F0F8FF;
+  border-radius:16px;padding:18px 24px;
+  box-shadow:0 8px 32px rgba(14,39,53,0.50);
+  min-width:300px;max-width:90vw;
+  opacity:0;pointer-events:none;transition:all 0.35s cubic-bezier(.4,0,.2,1);
+  border:2px solid rgba(0,166,184,0.3);
+}
+#meaningPopup.show{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+#meaningPopup .popup-word{
+  font-family:'Lora',serif;font-size:1.25rem;font-weight:700;
+  color:#7DD3DC;margin-bottom:8px;display:flex;align-items:center;gap:8px;
+}
+#meaningPopup .popup-word::before{content:'📖';font-size:1.1rem}
+#meaningPopup .popup-meaning{font-size:0.92rem;line-height:1.6}
+#meaningPopup .popup-meaning span{display:block;margin:3px 0}
+#meaningPopup .popup-en{color:#7DB6DC;font-weight:500}
+#meaningPopup .popup-ne{color:#F0F8FF;font-weight:400}
+#meaningPopup .popup-close{
+  position:absolute;top:8px;right:12px;
+  background:none;border:none;color:#7DB6DC;
+  font-size:1.3rem;cursor:pointer;line-height:1;
+}
+#meaningPopup .popup-close:hover{color:#7DD3DC}
+
+/* ─── VOCABULARY TABLE ─── */
+.vocab-table{
+  width:100%;border-collapse:separate;border-spacing:0;
+  border-radius:10px;overflow:hidden;
+  font-size:0.91rem;margin:12px 0;
+}
+.vocab-table thead{background:var(--primary);color:#FFF}
+.vocab-table thead th{padding:10px 12px;text-align:left;font-weight:600;font-size:0.88rem}
+.vocab-table tbody tr{transition:background 0.2s}
+.vocab-table tbody tr:nth-child(even){background:#EAF4FB}
+.vocab-table tbody tr:hover{background:#D6E8F4}
+.vocab-table td{padding:8px 12px;border-bottom:1px solid var(--border)}
+.vocab-table td:first-child{font-weight:600;color:var(--accent-dark)}
+
+/* ─── EXERCISE SECTION ─── */
+.exercise-item{
+  border:1px solid var(--border);border-radius:10px;
+  margin:10px 0;overflow:hidden;
+  transition:border-color 0.3s;
+}
+.exercise-item:hover{border-color:var(--primary-light)}
+.exercise-question{
+  padding:14px 18px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;
+  font-weight:500;background:#F8FBFD;
+  transition:background 0.2s;user-select:none;
+  gap:10px;
+}
+.exercise-question:hover{background:#EAF4FB}
+.exercise-question .arrow{
+  font-size:1.1rem;transition:transform 0.3s;color:var(--accent);
+  flex-shrink:0;
+}
+.exercise-item.open .exercise-question .arrow{transform:rotate(90deg)}
+.exercise-answer{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.4s ease,padding 0.3s;
+}
+.exercise-item.open .exercise-answer{
+  max-height:800px;padding:14px 18px;
+}
+.exercise-answer-inner{
+  background:linear-gradient(135deg,#D6E8F4,#EAF4FB);
+  border-radius:8px;padding:14px 16px;
+  color:var(--text);font-size:0.95rem;
+  border-left:4px solid var(--accent);
+}
+
+/* ─── MCQ ITEMS ─── */
+.mcq-item{
+  border:1px solid var(--border);border-radius:10px;
+  margin:10px 0;overflow:hidden;
+}
+.mcq-question{
+  padding:14px 18px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;
+  font-weight:500;background:#F8FBFD;
+  transition:background 0.2s;user-select:none;gap:10px;
+}
+.mcq-question:hover{background:#EAF4FB}
+.mcq-question .arrow{
+  font-size:1.1rem;transition:transform 0.3s;color:var(--accent);flex-shrink:0;
+}
+.mcq-item.open .mcq-question .arrow{transform:rotate(90deg)}
+.mcq-answer{
+  max-height:0;overflow:hidden;transition:max-height 0.4s ease;
+}
+.mcq-item.open .mcq-answer{max-height:400px;padding:14px 18px}
+.mcq-answer-inner{
+  background:linear-gradient(135deg,#D6E8F4,#EAF4FB);
+  border-radius:8px;padding:14px 16px;
+  font-size:0.95rem;border-left:4px solid var(--success);
+}
+.mcq-answer-inner .correct-opt{color:var(--success);font-weight:700}
+
+/* ─── TF / FILL ─── */
+.tf-item,.fill-item{
+  border:1px solid var(--border);border-radius:10px;
+  margin:8px 0;overflow:hidden;
+}
+.tf-question,.fill-question{
+  padding:12px 16px;cursor:pointer;
+  background:#F8FBFD;font-weight:500;
+  display:flex;justify-content:space-between;align-items:center;
+  transition:background 0.2s;gap:10px;
+}
+.tf-question:hover,.fill-question:hover{background:#EAF4FB}
+.tf-answer,.fill-answer{
+  max-height:0;overflow:hidden;transition:max-height 0.4s ease;
+}
+.tf-item.open .tf-answer,.fill-item.open .fill-answer{
+  max-height:300px;padding:12px 16px;
+}
+.tf-answer-inner,.fill-answer-inner{
+  background:linear-gradient(135deg,#D6E8F4,#EAF4FB);
+  border-radius:8px;padding:12px 14px;
+  font-size:0.93rem;border-left:4px solid var(--accent);
+}
+
+/* ─── FOOTER ─── */
+.site-footer{
+  background:linear-gradient(135deg,#0E2735,#1E5A8A);
+  color:rgba(240,248,255,0.6);text-align:center;
+  padding:18px 20px;font-size:0.78rem;
+  margin-top:20px;
+}
+.site-footer a{color:#7DB6DC;text-decoration:none}
+.site-footer a:hover{text-decoration:underline}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:640px){
+  .site-header h1{font-size:1.5rem}
+  .container{padding:16px 10px 40px}
+  .section-card{padding:18px 14px}
+  .reading-para,.instrument-card{padding:12px 14px}
+  #meaningPopup{min-width:260px;padding:14px 18px}
+  .vocab-table{font-size:0.82rem}
+  .vocab-table td,.vocab-table th{padding:6px 8px}
+  .toolbar{gap:6px;padding:8px 10px}
+  .toolbar button{padding:6px 12px;font-size:0.82rem}
+  .nav-jump-grid{grid-template-columns:1fr}
+  #scrollTopBtn{width:42px;height:42px;right:16px;bottom:80px;font-size:1.1rem}
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.section-card{animation:fadeInUp 0.5s ease both}
+.section-card:nth-child(2){animation-delay:0.04s}
+.section-card:nth-child(3){animation-delay:0.08s}
+.section-card:nth-child(4){animation-delay:0.12s}
+.section-card:nth-child(5){animation-delay:0.16s}
+.section-card:nth-child(6){animation-delay:0.20s}
+.section-card:nth-child(7){animation-delay:0.24s}
+.section-card:nth-child(8){animation-delay:0.28s}
+.section-card:nth-child(9){animation-delay:0.32s}
+.section-card:nth-child(10){animation-delay:0.36s}
+</style>
+</head>
+<body>
+
+<!-- ═══════ HEADER ═══════ -->
+<header class="site-header" id="top">
+  <h1>Weather Instruments</h1>
+  <div class="subtitle">Unit 11 — Gadgets and Instruments</div>
+  <div class="meta">
+    <span>Grade 9</span>•<span>English</span>•<span>Unit 11</span>•<span>Reading (Prose)</span>
+  </div>
+</header>
+
+<!-- ═══════ TOOLBAR ═══════ -->
+<div class="toolbar">
+  <button class="btn-font" onclick="changeFontSize(-1)">A−</button>
+  <button class="btn-font" onclick="changeFontSize(1)">A+</button>
+  <button class="btn-download" onclick="downloadHTML()">⬇ Download HTML</button>
+</div>
+
+<!-- ═══════ SCROLL TO TOP ═══════ -->
+<button id="scrollTopBtn" onclick="scrollToTop()" title="Go to top">⬆</button>
+
+<!-- ═══════ MAIN ═══════ -->
+<div class="container">
+
+<!-- ──── NAV JUMP LINKS ──── -->
+<div class="nav-jump">
+  <h2>📑 Quick Navigation — Jump to Section</h2>
+  <div class="nav-jump-grid">
+    <a href="#reading"><span class="nav-icon">📖</span> The Reading Text</a>
+    <a href="#vocab"><span class="nav-icon">📗</span> Word Meanings</a>
+    <a href="#exercise-a"><span class="nav-icon">✅</span> Exercise A — Fill in Blanks</a>
+    <a href="#exercise-b"><span class="nav-icon">✅</span> Exercise B — MCQs</a>
+    <a href="#exercise-c"><span class="nav-icon">✅</span> Exercise C — Short Answers</a>
+    <a href="#short-questions"><span class="nav-icon">➕</span> Short Questions</a>
+    <a href="#true-false"><span class="nav-icon">➕</span> True / False</a>
+    <a href="#fill-blanks"><span class="nav-icon">➕</span> Fill in the Blanks</a>
+  </div>
+</div>
+
+<!-- ──── READING TEXT ──── -->
+<div class="section-card" id="reading">
+  <h2><span class="section-icon">📖</span> Weather Instruments — Reading Text</h2>
+
+  <div class="reading-para">
+    Until the 18th century, people completely depended on <span class="hw" onclick="showMeaning('sensory','relating to the physical senses','इन्द्रियसम्बन्धी')">sensory</span> observations for any weather data. They understood the wind direction through the movement of leaves or <span class="hw" onclick="showMeaning('estimated','calculated approximately','अनुमान गरे')">estimated</span> the time of rain through the number of clouds in the sky.
+  </div>
+
+  <div class="reading-para">
+    Now, the times have changed. Today, we are blessed with modern technology which includes different weather <span class="hw" onclick="showMeaning('instruments','tools used for measuring','उपकरणहरू')">instruments</span> and weather <span class="hw" onclick="showMeaning('stations','places equipped to observe weather','केन्द्रहरू')">stations</span> that help us to <span class="hw" onclick="showMeaning('accumulate','to gather or collect over time','सङ्कलन गर्नु')">accumulate</span> accurate weather data. There are different types of instruments for measuring different <span class="hw" onclick="showMeaning('parameters','factors or quantities that are measured','मापदण्डहरू')">parameters</span>.
+  </div>
+
+  <div class="instrument-card">
+    <div class="instr-label">Instrument 1</div>
+    <div class="instr-name">🌡️ THERMOMETER</div>
+    A THERMOMETER is a device that is used for measuring the temperature or the <span class="hw" onclick="showMeaning('temperature gradient','difference in temperature over a distance','तापमान भिन्नता')">temperature gradient</span>. This can be used in industry, in <span class="hw" onclick="showMeaning('meteorology','the scientific study of the atmosphere and weather','मौसमविज्ञान')">meteorology</span>, and even in medicine. This device has two important things that help in measuring the temperature. The first one is a <span class="hw" onclick="showMeaning('sensor','a device that detects physical changes','संवेदक')">sensor</span> that uses different physical parameters like the <span class="hw" onclick="showMeaning('expansion','the process of becoming larger in size','फैलावट')">expansion</span> of different states of matter for sensing the change. The second one is a <span class="hw" onclick="showMeaning('converter','a device that changes one form into another','रूपान्तरक')">converter</span> that converts the change of temperature into a <span class="hw" onclick="showMeaning('numerical','expressed in numbers','संख्यात्मक')">numerical</span> number.
+  </div>
+
+  <div class="reading-para">
+    There are different types of thermometers. In weather stations, mainly <span class="hw" onclick="showMeaning('mercury-filled','containing mercury liquid','पारासहित')">mercury-filled</span> thermometers are used. Mercury-filled thermometers can measure the temperature from -35 to 40 degree <span class="hw" onclick="showMeaning('Celsius','a scale for measuring temperature','सेल्सियस')">Celsius</span>. It has a scale division of 0.2 degrees. But if the temperature is less than -35 degree Celsius, then this thermometer cannot give an accurate result and becomes <span class="hw" onclick="showMeaning('unreliable','not able to be trusted or depended on','अविश्वसनीय')">unreliable</span>. To measure the temperature under -35 degree Celsius, <span class="hw" onclick="showMeaning('alcohol-filled','containing alcohol liquid','अल्कोहलसहित')">alcohol-filled</span> thermometers are used. This type of thermometer can measure from -65/-75 degree Celsius to 20/25 degree Celsius.
+  </div>
+
+  <div class="instrument-card">
+    <div class="instr-label">Instrument 2</div>
+    <div class="instr-name">📊 BAROMETER</div>
+    A BAROMETER is an instrument that measures the <span class="hw" onclick="showMeaning('atmospheric','relating to the atmosphere','वायुमण्डलीय')">atmospheric</span> pressure. It measures pressure in measurement units called <span class="hw" onclick="showMeaning('bars','units of atmospheric pressure','बार')">bars</span> or <span class="hw" onclick="showMeaning('atmospheres','the layer of gases surrounding Earth','वायुमण्डल')">atmospheres</span>. The earth is <span class="hw" onclick="showMeaning('wrapped','covered or surrounded','ढाकिएको')">wrapped</span> with layers of air which is called <span class="hw" onclick="showMeaning('atmosphere','the layer of gases surrounding Earth','वायुमण्डल')">atmosphere</span>. The air has weight, and it presses everything against <span class="hw" onclick="showMeaning('gravity','the force that pulls objects toward Earth','गुरुत्वाकर्षण')">gravity</span>. A barometer measures this pressure. When a barometer shows <span class="hw" onclick="showMeaning('low-pressure','pressure below normal levels','न्यून दबाब')">low-pressure</span>, it means that the weather is rainy, windy or cloudy and when the pressure is high, it means that the weather is fair.
+  </div>
+
+  <div class="reading-para">
+    There are different types of barometer such as the <span class="hw" onclick="showMeaning('mercury','a silver-coloured liquid metal element','पारा')">mercury</span> barometer, <span class="hw" onclick="showMeaning('aneroid','a type of barometer using no liquid','एनेरोइड')">aneroid</span> barometer, and the <span class="hw" onclick="showMeaning('digital','using electronic or computer technology','डिजिटल')">digital</span> barometer. Among these three, the digital barometer is the latest one that gives more accurate data.
+  </div>
+
+  <div class="instrument-card">
+    <div class="instr-label">Instrument 3</div>
+    <div class="instr-name">💧 HYGROMETER</div>
+    A HYGROMETER measures the <span class="hw" onclick="showMeaning('humidity','the amount of water vapour in the air','आर्द्रता')">humidity</span> or the amount of water <span class="hw" onclick="showMeaning('vapour','water in its gas form','वाष्प')">vapour</span> in the air. There are mainly two types of hygrometers. They are dry and wet <span class="hw" onclick="showMeaning('bulb','the rounded glass part of a thermometer','बल्ब')">bulb</span> hygrometers and a <span class="hw" onclick="showMeaning('mechanical','relating to machines or physical forces','यान्त्रिक')">mechanical</span> hygrometer.
+  </div>
+
+  <div class="instrument-card">
+    <div class="instr-label">Instrument 4</div>
+    <div class="instr-name">🌬️ ANEMOMETER</div>
+    AN ANEMOMETER is used to measure the <span class="hw" onclick="showMeaning('speed','how fast something moves','गति')">speed</span> of the wind. The speed of wind gives plenty of information about the weather. For example, if the speed of the wind is high, it <span class="hw" onclick="showMeaning('indicates','shows or points to something','संकेत गर्छ')">indicates</span> a <span class="hw" onclick="showMeaning('storm','a violent disturbance of the atmosphere','आँधी')">storm</span>. With the help of the anemometer, we can <span class="hw" onclick="showMeaning('determine','to find out or establish exactly','निर्धारण गर्नु')">determine</span> the speed of the wind which helps us to protect ourselves from many natural <span class="hw" onclick="showMeaning('disasters','sudden events causing great damage','प्रकोपहरू')">disasters</span>.
+  </div>
+
+  <div class="instrument-card">
+    <div class="instr-label">Instrument 5</div>
+    <div class="instr-name">🧭 WIND VANE</div>
+    A WIND VANE is also called a <span class="hw" onclick="showMeaning('weather vane','instrument showing wind direction','मौसम सूचक')">weather vane</span> or a <span class="hw" onclick="showMeaning('weathercock','a wind vane shaped like a rooster','मौसम सूचक भाले')">weathercock</span>. This is an instrument that is used for showing the <span class="hw" onclick="showMeaning('direction','the way in which something moves','दिशा')">direction</span> of the wind. It has a similar feature like the traditional <span class="hw" onclick="showMeaning('cockerel','a young male chicken','भाले')">cockerel</span> design with letters that indicate the points of the <span class="hw" onclick="showMeaning('compass','an instrument for showing directions','कम्पास')">compass</span>.
+  </div>
+
+  <div class="reading-para">
+    The tool is placed on top of a weather station and gives accurate results about the direction of the wind which provides a lot of information about the changes that take place in the weather.
+  </div>
+
+  <div class="instrument-card">
+    <div class="instr-label">Instrument 6</div>
+    <div class="instr-name">🌧️ RAIN GAUGE</div>
+    A RAIN GAUGE is an instrument used by <span class="hw" onclick="showMeaning('meteorologists','scientists who study weather','मौसमविज्ञानीहरू')">meteorologists</span> for measuring the amount of <span class="hw" onclick="showMeaning('precipitation','rain, snow, or hail that falls','वर्षा')">precipitation</span> occurring over some time. It is one of the instruments that is used in most weather stations. The rain gauge must be placed at an <span class="hw" onclick="showMeaning('open','not enclosed; uncovered','खुल्ला')">open</span> place without any <span class="hw" onclick="showMeaning('obstacle','something that blocks or hinders','अवरोध')">obstacle</span>. The amount of precipitation is measured either <span class="hw" onclick="showMeaning('manually','done by hand, not by machine','हात्तहाते')">manually</span> or by an <span class="hw" onclick="showMeaning('automatic','working by itself without human control','स्वचालित')">automatic</span> weather station. The instrument has some <span class="hw" onclick="showMeaning('limitations','restrictions or shortcomings','सीमाहरू')">limitations</span>. It is impossible for rain gauge to collect rain during a <span class="hw" onclick="showMeaning('hurricane','an extremely strong tropical windstorm','आँधीबेहरी')">hurricane</span>.
+  </div>
+</div>
+
+<!-- ──── VOCABULARY ──── -->
+<div class="section-card" id="vocab">
+  <h2><span class="section-icon">📗</span> Word Meanings</h2>
+  <table class="vocab-table">
+    <thead>
+      <tr><th>Word / Phrase</th><th>English Meaning</th><th>Nepali Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>sensory</td><td>relating to the physical senses</td><td>इन्द्रियसम्बन्धी</td></tr>
+      <tr><td>estimated</td><td>calculated approximately</td><td>अनुमान गरे</td></tr>
+      <tr><td>instruments</td><td>tools used for measuring</td><td>उपकरणहरू</td></tr>
+      <tr><td>stations</td><td>places equipped to observe weather</td><td>केन्द्रहरू</td></tr>
+      <tr><td>accumulate</td><td>to gather or collect over time</td><td>सङ्कलन गर्नु</td></tr>
+      <tr><td>parameters</td><td>factors or quantities that are measured</td><td>मापदण्डहरू</td></tr>
+      <tr><td>meteorology</td><td>the scientific study of the atmosphere and weather</td><td>मौसमविज्ञान</td></tr>
+      <tr><td>temperature gradient</td><td>difference in temperature over a distance</td><td>तापमान भिन्नता</td></tr>
+      <tr><td>sensor</td><td>a device that detects physical changes</td><td>संवेदक</td></tr>
+      <tr><td>expansion</td><td>the process of becoming larger in size</td><td>फैलावट</td></tr>
+      <tr><td>converter</td><td>a device that changes one form into another</td><td>रूपान्तरक</td></tr>
+      <tr><td>numerical</td><td>expressed in numbers</td><td>संख्यात्मक</td></tr>
+      <tr><td>mercury-filled</td><td>containing mercury liquid</td><td>पारासहित</td></tr>
+      <tr><td>Celsius</td><td>a scale for measuring temperature</td><td>सेल्सियस</td></tr>
+      <tr><td>unreliable</td><td>not able to be trusted or depended on</td><td>अविश्वसनीय</td></tr>
+      <tr><td>alcohol-filled</td><td>containing alcohol liquid</td><td>अल्कोहलसहित</td></tr>
+      <tr><td>atmospheric</td><td>relating to the atmosphere</td><td>वायुमण्डलीय</td></tr>
+      <tr><td>bars</td><td>units of atmospheric pressure</td><td>बार</td></tr>
+      <tr><td>atmosphere</td><td>the layer of gases surrounding Earth</td><td>वायुमण्डल</td></tr>
+      <tr><td>wrapped</td><td>covered or surrounded</td><td>ढाकिएको</td></tr>
+      <tr><td>gravity</td><td>the force that pulls objects toward Earth</td><td>गुरुत्वाकर्षण</td></tr>
+      <tr><td>low-pressure</td><td>pressure below normal levels</td><td>न्यून दबाब</td></tr>
+      <tr><td>mercury</td><td>a silver-coloured liquid metal element</td><td>पारा</td></tr>
+      <tr><td>aneroid</td><td>a type of barometer using no liquid</td><td>एनेरोइड</td></tr>
+      <tr><td>digital</td><td>using electronic or computer technology</td><td>डिजिटल</td></tr>
+      <tr><td>humidity</td><td>the amount of water vapour in the air</td><td>आर्द्रता</td></tr>
+      <tr><td>vapour</td><td>water in its gas form</td><td>वाष्प</td></tr>
+      <tr><td>bulb</td><td>the rounded glass part of a thermometer</td><td>बल्ब</td></tr>
+      <tr><td>mechanical</td><td>relating to machines or physical forces</td><td>यान्त्रिक</td></tr>
+      <tr><td>indicates</td><td>shows or points to something</td><td>संकेत गर्छ</td></tr>
+      <tr><td>storm</td><td>a violent disturbance of the atmosphere</td><td>आँधी</td></tr>
+      <tr><td>determine</td><td>to find out or establish exactly</td><td>निर्धारण गर्नु</td></tr>
+      <tr><td>disasters</td><td>sudden events causing great damage</td><td>प्रकोपहरू</td></tr>
+      <tr><td>weather vane</td><td>instrument showing wind direction</td><td>मौसम सूचक</td></tr>
+      <tr><td>weathercock</td><td>a wind vane shaped like a rooster</td><td>मौसम सूचक भाले</td></tr>
+      <tr><td>direction</td><td>the way in which something moves</td><td>दिशा</td></tr>
+      <tr><td>cockerel</td><td>a young male chicken</td><td>भाले</td></tr>
+      <tr><td>compass</td><td>an instrument for showing directions</td><td>कम्पास</td></tr>
+      <tr><td>meteorologists</td><td>scientists who study weather</td><td>मौसमविज्ञानीहरू</td></tr>
+      <tr><td>precipitation</td><td>rain, snow, or hail that falls</td><td>वर्षा</td></tr>
+      <tr><td>obstacle</td><td>something that blocks or hinders</td><td>अवरोध</td></tr>
+      <tr><td>manually</td><td>done by hand, not by machine</td><td>हात्तहाते</td></tr>
+      <tr><td>automatic</td><td>working by itself without human control</td><td>स्वचालित</td></tr>
+      <tr><td>limitations</td><td>restrictions or shortcomings</td><td>सीमाहरू</td></tr>
+      <tr><td>hurricane</td><td>an extremely strong tropical windstorm</td><td>आँधीबेहरी</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ──── EXERCISE A: Fill in Blanks ──── -->
+<div class="section-card" id="exercise-a">
+  <h2><span class="section-icon">✅</span> Exercise A — Complete These Sentences</h2>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>a. Most of the FM ………. broadcast the news at 7:00.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        Most of the FM <strong>stations</strong> broadcast the news at 7:00.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>b. The function of a ………. is to convert the change of temperature into numerical numbers.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The function of a <strong>converter</strong> is to convert the change of temperature into numerical numbers.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>c. The Earth is ………. by the atmosphere.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The Earth is <strong>wrapped</strong> by the atmosphere.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>d. The amount of water in the air is called …………….</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The amount of water in the air is called <strong>humidity</strong>.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>e. The wind vane is also known as a ………………….</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The wind vane is also known as a <strong>weathercock</strong>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── EXERCISE B: MCQs ──── -->
+<div class="section-card" id="exercise-b">
+  <h2><span class="section-icon">✅</span> Exercise B — Choose the Correct Answer</h2>
+
+  <div class="mcq-item" onclick="toggleMCQ(this)">
+    <div class="mcq-question">
+      <span>a. How did people get the weather information until the 18th century?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="mcq-answer">
+      <div class="mcq-answer-inner">
+        <span style="color:var(--muted)">i. through modern instruments</span><br>
+        <span class="correct-opt">✅ ii. through their physical senses</span><br>
+        <span style="color:var(--muted)">iii. through newspapers</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mcq-item" onclick="toggleMCQ(this)">
+    <div class="mcq-question">
+      <span>b. Which one of the following barometers is the latest one?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="mcq-answer">
+      <div class="mcq-answer-inner">
+        <span class="correct-opt">✅ i. digital</span><br>
+        <span style="color:var(--muted)">ii. mercury &nbsp;|&nbsp; iii. aneroid</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mcq-item" onclick="toggleMCQ(this)">
+    <div class="mcq-question">
+      <span>c. What does a barometer measure?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="mcq-answer">
+      <div class="mcq-answer-inner">
+        <span style="color:var(--muted)">i. humidity &nbsp;|&nbsp; ii. temperature</span><br>
+        <span class="correct-opt">✅ iii. atmospheric pressure</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mcq-item" onclick="toggleMCQ(this)">
+    <div class="mcq-question">
+      <span>d. Which of the following devices is NOT used to get weather information?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="mcq-answer">
+      <div class="mcq-answer-inner">
+        <span style="color:var(--muted)">i. thermometer &nbsp;|&nbsp; iii. anemometer</span><br>
+        <span class="correct-opt">✅ ii. galvanometer</span> <span style="font-size:0.85rem;color:var(--muted)">(this is NOT a weather instrument)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mcq-item" onclick="toggleMCQ(this)">
+    <div class="mcq-question">
+      <span>e. Which of the following devices is used to measure the speed of the wind?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="mcq-answer">
+      <div class="mcq-answer-inner">
+        <span style="color:var(--muted)">i. hygrometer &nbsp;|&nbsp; iii. barometer</span><br>
+        <span class="correct-opt">✅ ii. anemometer</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── EXERCISE C: Short Answers ──── -->
+<div class="section-card" id="exercise-c">
+  <h2><span class="section-icon">✅</span> Exercise C — Answer the Following Questions</h2>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>a. Where is an alcohol-filled thermometer mostly used?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        An alcohol-filled thermometer is mostly used in places where the temperature drops below -35 degree Celsius, as mercury-filled thermometers cannot give accurate results at such low temperatures.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>b. What is a barometer used for?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        A barometer is used for measuring the atmospheric pressure. It helps to predict weather conditions — low pressure indicates rainy or windy weather, while high pressure indicates fair weather.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>c. What are the two kinds of hygrometer?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The two kinds of hygrometer are:
+        <ol style="margin:6px 0 0 22px">
+          <li>Dry and wet bulb hygrometer</li>
+          <li>Mechanical hygrometer</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>d. Give two examples of how an anemometer gives information about the weather.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        <ol style="margin:6px 0 0 22px">
+          <li>If the speed of the wind measured by an anemometer is high, it indicates a storm.</li>
+          <li>It helps us determine wind speed so we can protect ourselves from natural disasters.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>e. Name the device that is used to measure the changes in weather conditions.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The wind vane (also called weathercock) is used to show the direction of the wind, which provides information about changes in weather conditions.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>f. What precaution should be taken while using a rain gauge?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The rain gauge must be placed at an open place without any obstacle so that accurate precipitation data can be collected. It cannot collect rain during a hurricane, which is one of its limitations.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── SHORT QUESTIONS ──── -->
+<div class="section-card" id="short-questions">
+  <h2><span class="section-icon">➕</span> Short Questions</h2>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>1. What is meteorology?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        Meteorology is the scientific study of the Earth's atmosphere and its changes, especially used for weather forecasting.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>2. What are the two important parts of a thermometer that help in measuring temperature?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The two important parts are: (i) a sensor that detects the change in temperature, and (ii) a converter that converts the temperature change into a numerical number.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>3. Why is the digital barometer considered the best among the three types?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        The digital barometer is considered the best because it gives more accurate data compared to the mercury and aneroid barometers.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>4. What does a wind vane look like traditionally?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        Traditionally, a wind vane looks like a cockerel (rooster) design with letters indicating the points of the compass — North, South, East, and West.
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise-item" onclick="toggleExercise(this)">
+    <div class="exercise-question">
+      <span>5. Why can't a rain gauge collect rain during a hurricane?</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="exercise-answer">
+      <div class="exercise-answer-inner">
+        A rain gauge cannot collect rain during a hurricane because the extreme wind conditions make it impossible to measure precipitation accurately — this is one of its main limitations.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── TRUE / FALSE ──── -->
+<div class="section-card" id="true-false">
+  <h2><span class="section-icon">➕</span> True / False</h2>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>1. Before the 18th century, people used modern instruments to measure weather.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--error)">❌ False</strong> — Before the 18th century, people depended on sensory observations only, not modern instruments.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>2. Mercury-filled thermometers can measure temperatures below -35 degree Celsius accurately.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--error)">❌ False</strong> — Mercury-filled thermometers become unreliable below -35°C; alcohol-filled thermometers are used instead.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>3. A barometer measures atmospheric pressure.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--success)">✅ True</strong> — A barometer measures the atmospheric pressure in units called bars or atmospheres.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>4. A hygrometer is used to measure the speed of wind.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--error)">❌ False</strong> — A hygrometer measures humidity (water vapour in the air); an anemometer measures wind speed.
+      </div>
+    </div>
+  </div>
+
+  <div class="tf-item" onclick="toggleTF(this)">
+    <div class="tf-question">
+      <span>5. A rain gauge must be placed at an open place without any obstacle.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="tf-answer">
+      <div class="tf-answer-inner">
+        <strong style="color:var(--success)">✅ True</strong> — A rain gauge must be placed in an open area to collect accurate precipitation data.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──── FILL IN THE BLANKS ──── -->
+<div class="section-card" id="fill-blanks">
+  <h2><span class="section-icon">➕</span> Fill in the Blanks</h2>
+  <p style="font-size:0.9rem;color:var(--muted);margin:6px 0 12px;">Words: precipitation / humidity / meteorology / accumulate / hurricane</p>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>1. The scientific study of atmosphere and weather is called ___________.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        The scientific study of atmosphere and weather is called <strong>meteorology</strong>.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>2. A rain gauge measures the amount of ___________ that falls over a period of time.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        A rain gauge measures the amount of <strong>precipitation</strong> that falls over a period of time.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>3. A hygrometer is used to measure the ___________ or the amount of water vapour in the air.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        A hygrometer is used to measure the <strong>humidity</strong> or the amount of water vapour in the air.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>4. Weather stations ___________ accurate data using different instruments.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        Weather stations <strong>accumulate</strong> accurate data using different instruments.
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-item" onclick="toggleFill(this)">
+    <div class="fill-question">
+      <span>5. A rain gauge cannot collect rain during a ___________ due to extreme wind conditions.</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="fill-answer">
+      <div class="fill-answer-inner">
+        A rain gauge cannot collect rain during a <strong>hurricane</strong> due to extreme wind conditions.
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- ═══════ MEANING POPUP ═══════ -->
+<div id="meaningPopup">
+  <button class="popup-close" onclick="closePopup()">&times;</button>
+  <div class="popup-word" id="popupWord"></div>
+  <div class="popup-meaning">
+    <span class="popup-en" id="popupEnglish"></span>
+    <span class="popup-ne" id="popupNepali"></span>
+  </div>
+</div>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="site-footer">
+  N.REGMI &nbsp;|&nbsp; <a href="mailto:nregmi511@gmail.com">nregmi511@gmail.com</a>
+  &nbsp;|&nbsp; Grade 9 English — Unit 11 — Weather Instruments
+</footer>
+
+<!-- ═══════ JAVASCRIPT ═══════ -->
+<script>
+// ─── Font Size Control ───
+const MIN_F=13,MAX_F=26;
+let fontSize=17;
+function changeFontSize(d){
+  fontSize=Math.max(MIN_F,Math.min(MAX_F,fontSize+d));
+  document.documentElement.style.setProperty('--font-size-base',fontSize+'px');
+}
+
+// ─── Meaning Popup ───
+function showMeaning(word,en,ne){
+  document.getElementById('popupWord').textContent=word;
+  document.getElementById('popupEnglish').textContent='EN: '+en;
+  document.getElementById('popupNepali').textContent='NE: '+ne;
+  document.getElementById('meaningPopup').classList.add('show');
+}
+function closePopup(){
+  document.getElementById('meaningPopup').classList.remove('show');
+}
+document.addEventListener('click',function(e){
+  const popup=document.getElementById('meaningPopup');
+  if(!e.target.closest('.hw')&&!e.target.closest('#meaningPopup')){
+    popup.classList.remove('show');
+  }
+});
+
+// ─── Exercise Toggle ───
+function toggleExercise(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.exercise-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── MCQ Toggle ───
+function toggleMCQ(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.mcq-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── True/False Toggle ───
+function toggleTF(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.tf-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── Fill-in-Blank Toggle ───
+function toggleFill(item){
+  const parent=item.closest('.section-card');
+  const all=parent.querySelectorAll('.fill-item');
+  const isOpen=item.classList.contains('open');
+  all.forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ─── Scroll to Top Button ───
+const scrollBtn=document.getElementById('scrollTopBtn');
+window.addEventListener('scroll',function(){
+  if(window.scrollY>400){
+    scrollBtn.classList.add('show');
+  }else{
+    scrollBtn.classList.remove('show');
+  }
+});
+function scrollToTop(){
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ─── Download HTML ───
+function downloadHTML(){
+  const html=document.documentElement.outerHTML;
+  const blob=new Blob([html],{type:'text/html;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='Weather_Instruments_Interactive.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>
