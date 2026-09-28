@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>Paulo Coelho – 40 MCQs</title>
+    <style>
+        /* ─── RESET & BASE ─── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Mukta', system-ui, sans-serif;
+        }
+
+        body {
+            background: #fdf8f0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 16px;
+        }
+
+        .app-wrapper {
+            max-width: 860px;
+            width: 100%;
+            background: #fdf8f0;
+            border-radius: 32px;
+            padding: 0 0 24px 0;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        /* ─── HEADER – Blue plate ─── */
+        .header-plate {
+            background: #0a2a5e;
+            border-radius: 24px 24px 12px 12px;
+            padding: 22px 26px 18px 26px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 16px rgba(10, 42, 94, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        .header-plate::after {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .header-plate .top-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px 16px;
+            position: relative;
+            z-index: 2;
+        }
+        .header-plate .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .header-plate .brand h1 {
+            color: #b0d4ff;
+            font-weight: 800;
+            font-size: 22px;
+            letter-spacing: 0.3px;
+            line-height: 1.3;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+        }
+        .header-plate .brand .narayan {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffe484;
+            font-weight: 800;
+            font-size: 14px;
+            padding: 4px 16px;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.20);
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        .header-plate .badge-set {
+            background: rgba(255, 255, 255, 0.12);
+            color: #b0d4ff;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 6px 18px;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .header-plate .badge-set span {
+            background: #ffcc02;
+            color: #0a2a5e;
+            font-weight: 800;
+            padding: 0 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            line-height: 22px;
+        }
+
+        /* ─── PROGRESS BAR ─── */
+        .progress-strip {
+            display: flex;
+            gap: 4px;
+            margin: 16px 0 8px 0;
+            position: relative;
+            z-index: 2;
+            flex-wrap: wrap;
+        }
+        .progress-strip .seg {
+            flex: 1 1 8px;
+            min-width: 6px;
+            height: 5px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.20);
+            transition: background 0.4s ease;
+        }
+        .progress-strip .seg.done {
+            background: #34c759;
+        }
+        .progress-strip .seg.active {
+            background: #ffcc02;
+        }
+        .progress-strip .seg.wrong {
+            background: #ff3b30;
+        }
+
+        /* ─── STATS ROW ─── */
+        .stats-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .stat-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 12px 14px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(10, 42, 94, 0.06);
+            text-align: center;
+        }
+        .stat-card .label {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #7a8a9e;
+        }
+        .stat-card .value {
+            font-size: 24px;
+            font-weight: 900;
+            color: #0a2a5e;
+            line-height: 1.2;
+            margin-top: 2px;
+        }
+        .stat-card .value small {
+            font-size: 15px;
+            font-weight: 700;
+            color: #7a8a9e;
+        }
+
+        /* ─── QUESTION CARD ─── */
+        .question-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 26px 22px 22px 22px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(10, 42, 94, 0.06);
+            margin-bottom: 12px;
+            transition: opacity 0.25s ease;
+        }
+
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .q-number {
+            background: #0a2a5e;
+            color: #b0d4ff;
+            font-weight: 800;
+            font-size: 16px;
+            padding: 5px 18px;
+            border-radius: 40px;
+            letter-spacing: 0.3px;
+        }
+        .q-set-tag {
+            font-size: 13px;
+            font-weight: 800;
+            color: #0a2a5e;
+            background: #e8edf5;
+            padding: 5px 16px;
+            border-radius: 40px;
+        }
+
+        .q-text {
+            font-size: 22px;
+            font-weight: 800;
+            color: #0a2a5e;
+            line-height: 1.5;
+            margin-bottom: 22px;
+            padding-right: 4px;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        .option-btn {
+            background: #f8f6f2;
+            border: 2px solid #e8e4dc;
+            border-radius: 16px;
+            padding: 16px 20px;
+            font-size: 21px;
+            font-weight: 800;
+            color: #0a2a5e;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            line-height: 1.4;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        .option-btn .opt-label {
+            background: #e8edf5;
+            color: #0a2a5e;
+            font-weight: 900;
+            font-size: 15px;
+            padding: 3px 14px;
+            border-radius: 30px;
+            flex-shrink: 0;
+            min-width: 36px;
+            text-align: center;
+        }
+        .option-btn:active:not(.disabled-opt) {
+            transform: scale(0.98);
+        }
+        .option-btn:hover:not(.disabled-opt) {
+            border-color: #0a2a5e;
+            background: #f0f4fa;
+        }
+
+        .option-btn.correct {
+            border-color: #34c759;
+            background: #e8f9ed;
+            box-shadow: 0 0 0 3px rgba(52, 199, 89, 0.20);
+        }
+        .option-btn.correct .opt-label {
+            background: #34c759;
+            color: #fff;
+        }
+
+        .option-btn.wrong {
+            border-color: #ff3b30;
+            background: #fde8e6;
+            box-shadow: 0 0 0 3px rgba(255, 59, 48, 0.18);
+        }
+        .option-btn.wrong .opt-label {
+            background: #ff3b30;
+            color: #fff;
+        }
+
+        .option-btn.reveal-correct {
+            border-color: #34c759;
+            background: #e8f9ed;
+        }
+        .option-btn.reveal-correct .opt-label {
+            background: #34c759;
+            color: #fff;
+        }
+
+        .option-btn.disabled-opt {
+            cursor: default;
+            opacity: 0.85;
+        }
+
+        /* ─── FEEDBACK PANEL ─── */
+        .feedback-panel {
+            margin-top: 18px;
+            padding: 16px 20px;
+            border-radius: 14px;
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.6;
+            display: none;
+        }
+        .feedback-panel.show {
+            display: block;
+        }
+        .feedback-panel.correct {
+            background: #e8f9ed;
+            border: 2px solid #34c759;
+            color: #0a5a1e;
+        }
+        .feedback-panel.wrong {
+            background: #fde8e6;
+            border: 2px solid #ff3b30;
+            color: #7a1a14;
+        }
+        .feedback-panel .fb-title {
+            font-weight: 900;
+            font-size: 19px;
+        }
+        .feedback-panel .fb-explain {
+            margin-top: 6px;
+            font-weight: 700;
+            opacity: 0.9;
+        }
+
+        /* ─── NAVIGATION ─── */
+        .nav-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .nav-left,
+        .nav-right {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .btn {
+            background: #f0f4fa;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 40px;
+            font-weight: 800;
+            font-size: 15px;
+            color: #0a2a5e;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .btn:active {
+            transform: scale(0.96);
+        }
+        .btn-primary {
+            background: #0a2a5e;
+            color: #b0d4ff;
+            border-color: #0a2a5e;
+        }
+        .btn-primary:hover {
+            background: #1a3a7e;
+        }
+        .btn-primary:disabled {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        .btn-outline {
+            background: transparent;
+            border-color: #d0d8e4;
+        }
+        .btn-outline:hover {
+            background: #e8edf5;
+            border-color: #b0bcc8;
+        }
+        .btn-success {
+            background: #34c759;
+            color: #fff;
+            border-color: #34c759;
+        }
+        .btn-success:hover {
+            background: #2db84e;
+        }
+        .btn-danger {
+            background: #ff3b30;
+            color: #fff;
+            border-color: #ff3b30;
+        }
+        .btn-danger:hover {
+            background: #e6352a;
+        }
+        .btn-gold {
+            background: #ffcc02;
+            color: #0a2a5e;
+            border-color: #ffcc02;
+            font-weight: 900;
+        }
+        .btn-gold:hover {
+            background: #f5c000;
+        }
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 13px;
+        }
+        .btn:disabled {
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        /* ─── RESULTS ─── */
+        .results-box {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 36px 26px;
+            border: 2px solid #0a2a5e;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(10, 42, 94, 0.10);
+        }
+        .results-box .big-score {
+            font-size: 62px;
+            font-weight: 900;
+            color: #0a2a5e;
+            line-height: 1.1;
+        }
+        .results-box .sub-score {
+            font-size: 22px;
+            font-weight: 800;
+            color: #3a5a7e;
+            margin-top: 4px;
+        }
+        .results-box .detail-msg {
+            font-size: 20px;
+            font-weight: 800;
+            color: #0a2a5e;
+            margin-top: 14px;
+            padding: 10px 20px;
+            background: #f0f4fa;
+            border-radius: 40px;
+            display: inline-block;
+        }
+        .results-box .stars {
+            font-size: 36px;
+            letter-spacing: 6px;
+            margin: 14px 0 20px 0;
+        }
+        .results-box .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        /* ─── HIDDEN ─── */
+        .hidden {
+            display: none !important;
+        }
+
+        /* ─── TOAST ─── */
+        .toast {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0a2a5e;
+            color: #b0d4ff;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 800;
+            font-size: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+            text-align: center;
+            max-width: 92%;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 640px) {
+            .header-plate {
+                padding: 16px 16px 14px 16px;
+            }
+            .header-plate .brand h1 {
+                font-size: 18px;
+            }
+            .header-plate .brand .narayan {
+                font-size: 12px;
+                padding: 3px 12px;
+            }
+            .header-plate .badge-set {
+                font-size: 12px;
+                padding: 4px 14px;
+            }
+            .q-text {
+                font-size: 20px;
+            }
+            .option-btn {
+                font-size: 19px;
+                padding: 14px 16px;
+            }
+            .stats-row {
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 6px;
+            }
+            .stat-card .value {
+                font-size: 20px;
+            }
+            .nav-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .nav-left,
+            .nav-right {
+                justify-content: center;
+            }
+            .btn {
+                padding: 10px 16px;
+                font-size: 14px;
+            }
+            .results-box .big-score {
+                font-size: 48px;
+            }
+            .results-box .sub-score {
+                font-size: 18px;
+            }
+        }
+        @media (max-width: 420px) {
+            .q-text {
+                font-size: 18px;
+            }
+            .option-btn {
+                font-size: 17px;
+                padding: 12px 14px;
+                gap: 10px;
+            }
+            .option-btn .opt-label {
+                font-size: 13px;
+                padding: 2px 10px;
+                min-width: 30px;
+            }
+            .stat-card .value {
+                font-size: 18px;
+            }
+            .header-plate .brand h1 {
+                font-size: 16px;
+            }
+        }
+
+        /* ─── ANIMATIONS ─── */
+        @keyframes fadeSlide {
+            0% {
+                opacity: 0.3;
+                transform: translateY(6px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in {
+            animation: fadeSlide 0.3s ease;
+        }
+
+        @keyframes shake {
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+            20%,
+            60% {
+                transform: translateX(-6px);
+            }
+            40%,
+            80% {
+                transform: translateX(6px);
+            }
+        }
+        .shake {
+            animation: shake 0.4s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-wrapper" id="app">
+        <!-- ─── HEADER PLATE ─── -->
+        <div class="header-plate">
+            <div class="top-row">
+                <div class="brand">
+                    <h1>📖 Paulo Coelho — 40 MCQs</h1>
+                    <span class="narayan">🙏 Narayan Sir</span>
+                </div>
+                <div class="badge-set">
+                    <span id="qCountDisplay">40</span> Questions
+                </div>
+            </div>
+            <!-- progress segments -->
+            <div class="progress-strip" id="progressStrip">
+                <!-- 40 segments, generated by JS -->
+            </div>
+        </div>
+
+        <!-- ─── STATS ─── -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="label">📝 Answered</div>
+                <div class="value" id="answeredCount">0 <small>/ 40</small></div>
+            </div>
+            <div class="stat-card">
+                <div class="label">✅ Correct</div>
+                <div class="value" id="correctCount">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">📈 Score</div>
+                <div class="value" id="percentDisplay">0%</div>
+            </div>
+        </div>
+
+        <!-- ─── TOAST ─── -->
+        <div class="toast" id="toast"></div>
+
+        <!-- ─── QUIZ VIEW ─── -->
+        <div id="quizView">
+            <div class="question-card fade-in" id="questionCard">
+                <div class="q-header">
+                    <span class="q-number" id="qNumLabel">Q1</span>
+                    <span class="q-set-tag" id="qSetLabel">Section A</span>
+                </div>
+                <div class="q-text" id="qText">Loading question…</div>
+                <div class="options-grid" id="optionsGrid"></div>
+                <div class="feedback-panel" id="feedbackPanel">
+                    <div class="fb-title" id="fbTitle">✅ Correct!</div>
+                    <div class="fb-explain" id="fbExplain">Explanation</div>
+                </div>
+                <div class="nav-row">
+                    <div class="nav-left">
+                        <button class="btn btn-outline" id="prevBtn">◀ Prev</button>
+                        <button class="btn btn-outline" id="resetBtn">↻ Reset</button>
+                    </div>
+                    <div class="nav-right">
+                        <span style="font-size:14px;font-weight:700;color:#7a8a9e;" id="progressLabel">1 / 40</span>
+                        <button class="btn btn-primary" id="nextBtn">Next ▶</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── RESULTS VIEW ─── -->
+        <div id="resultsView" class="hidden">
+            <div class="results-box fade-in">
+                <div class="stars" id="resultStars">⭐⭐⭐</div>
+                <div class="big-score" id="resultScore">0%</div>
+                <div class="sub-score" id="resultSub">0 / 40 correct</div>
+                <div class="detail-msg" id="resultMsg">Good effort! 💪</div>
+                <div class="btn-group">
+                    <button class="btn btn-gold" id="resultResetBtn">↻ Play Again</button>
+                </div>
+            </div>
+        </div>
+
+        <div style="height:12px;"></div>
+    </div>
+
+    <script>
+        // ═══════════════════════════════════════════════════
+        //  DATA — 40 Questions (Paulo Coelho)
+        // ═══════════════════════════════════════════════════
+
+        const ALL_QUESTIONS = [
+            // ─── Section A (Q1–Q15) ───
+            {
+                id: 1,
+                section: 'Section A',
+                text: 'Frases is called a collection from Coelho\'s oeuvre. Why is "oeuvre" the right word here?',
+                options: [
+                    { label: 'A', text: 'It means a single famous book' },
+                    { label: 'B', text: 'It means a person\'s complete body of work' },
+                    { label: 'C', text: 'It means a newspaper column' },
+                    { label: 'D', text: 'It means a translation of a book' }
+                ],
+                correct: 1,
+                explain: 'Oeuvre means a person\'s complete body of work.'
+            },
+            {
+                id: 2,
+                section: 'Section A',
+                text: 'Aleph was ostensibly the true tale of Coelho\'s journey. What does "ostensibly" mean?',
+                options: [
+                    { label: 'A', text: 'Definitely' },
+                    { label: 'B', text: 'Secretly' },
+                    { label: 'C', text: 'Apparently or seemingly' },
+                    { label: 'D', text: 'Unfortunately' }
+                ],
+                correct: 2,
+                explain: 'Ostensibly means apparently or seemingly.'
+            },
+            {
+                id: 3,
+                section: 'Section A',
+                text: 'The text says Coelho embroidered the experience with a supposed encounter. Why is this word used?',
+                options: [
+                    { label: 'A', text: 'He added extra imaginative details to it' },
+                    { label: 'B', text: 'He removed details from it' },
+                    { label: 'C', text: 'He forgot parts of it' },
+                    { label: 'D', text: 'He translated it into another language' }
+                ],
+                correct: 0,
+                explain: 'Embroidered here means he added extra details to a real journey.'
+            },
+            {
+                id: 4,
+                section: 'Section A',
+                text: 'Who are naysayers?',
+                options: [
+                    { label: 'A', text: 'People who translate books' },
+                    { label: 'B', text: 'People who buy many books' },
+                    { label: 'C', text: 'People who write for newspapers' },
+                    { label: 'D', text: 'People who oppose or express doubt' }
+                ],
+                correct: 3,
+                explain: 'Naysayers are people who oppose or express doubt.'
+            },
+            {
+                id: 5,
+                section: 'Section A',
+                text: 'Critics say his books are devoid of rigour. What does "devoid" mean?',
+                options: [
+                    { label: 'A', text: 'Full of' },
+                    { label: 'B', text: 'Completely lacking' },
+                    { label: 'C', text: 'Slightly aware of' },
+                    { label: 'D', text: 'Proud of' }
+                ],
+                correct: 1,
+                explain: 'Devoid means completely lacking.'
+            },
+            {
+                id: 6,
+                section: 'Section A',
+                text: 'Which word means "the quality of being thorough and strict"?',
+                options: [
+                    { label: 'A', text: 'Spurt' },
+                    { label: 'B', text: 'Vague' },
+                    { label: 'C', text: 'Rigour' },
+                    { label: 'D', text: 'Column' }
+                ],
+                correct: 2,
+                explain: 'Rigour is the quality of being thorough.'
+            },
+            {
+                id: 7,
+                section: 'Section A',
+                text: 'Why is The Alchemist described as allegorical?',
+                options: [
+                    { label: 'A', text: 'It uses symbols to represent ideas' },
+                    { label: 'B', text: 'It is a true diary' },
+                    { label: 'C', text: 'It is a collection of quotations' },
+                    { label: 'D', text: 'It is written as interviews' }
+                ],
+                correct: 0,
+                explain: 'Allegorical means using symbols to represent ideas.'
+            },
+            {
+                id: 8,
+                section: 'Section A',
+                text: 'Adultery deals with an extramarital affair. What does "extramarital" mean?',
+                options: [
+                    { label: 'A', text: 'Before marriage' },
+                    { label: 'B', text: 'During a wedding' },
+                    { label: 'C', text: 'After divorce' },
+                    { label: 'D', text: 'Happening outside marriage' }
+                ],
+                correct: 3,
+                explain: 'Extramarital means happening outside marriage.'
+            },
+            {
+                id: 9,
+                section: 'Section A',
+                text: 'The Alchemist was written in a two-week spurt of creativity. What is a "spurt"?',
+                options: [
+                    { label: 'A', text: 'A slow, steady habit' },
+                    { label: 'B', text: 'A sudden burst of activity' },
+                    { label: 'C', text: 'A long break' },
+                    { label: 'D', text: 'A careful plan' }
+                ],
+                correct: 1,
+                explain: 'A spurt is a sudden burst of activity.'
+            },
+            {
+                id: 10,
+                section: 'Section A',
+                text: 'Frases is a collection of short excerpts. What are excerpts?',
+                options: [
+                    { label: 'A', text: 'Full novels' },
+                    { label: 'B', text: 'Awards' },
+                    { label: 'C', text: 'Short passages taken from a larger text' },
+                    { label: 'D', text: 'Newspaper headlines' }
+                ],
+                correct: 2,
+                explain: 'Excerpts are short passages from a larger text.'
+            },
+            {
+                id: 11,
+                section: 'Section A',
+                text: 'Adultery chronicles a journalist\'s affair. Why is "chronicles" suitable here?',
+                options: [
+                    { label: 'A', text: 'It records events in order' },
+                    { label: 'B', text: 'It criticises events' },
+                    { label: 'C', text: 'It hides events' },
+                    { label: 'D', text: 'It invents events' }
+                ],
+                correct: 0,
+                explain: 'Chronicles means records events in order.'
+            },
+            {
+                id: 12,
+                section: 'Section A',
+                text: 'Coelho dismisses his critics. What does "dismisses" mean here?',
+                options: [
+                    { label: 'A', text: 'Thanks them warmly' },
+                    { label: 'B', text: 'Invites them to talk' },
+                    { label: 'C', text: 'Agrees with them' },
+                    { label: 'D', text: 'Treats them as unworthy of attention' }
+                ],
+                correct: 3,
+                explain: 'Dismisses means treats as unworthy of attention.'
+            },
+            {
+                id: 13,
+                section: 'Section A',
+                text: 'Aleph mentions a reincarnated lover. What does "reincarnated" mean?',
+                options: [
+                    { label: 'A', text: 'Very old' },
+                    { label: 'B', text: 'Reborn in a new body' },
+                    { label: 'C', text: 'Recently married' },
+                    { label: 'D', text: 'Forgotten' }
+                ],
+                correct: 1,
+                explain: 'Reincarnated means reborn in a new body.'
+            },
+            {
+                id: 14,
+                section: 'Section A',
+                text: 'What are critiques?',
+                options: [
+                    { label: 'A', text: 'Short stories' },
+                    { label: 'B', text: 'Bestselling books' },
+                    { label: 'C', text: 'Detailed evaluations or analyses' },
+                    { label: 'D', text: 'Religious journeys' }
+                ],
+                correct: 2,
+                explain: 'Critiques are detailed evaluations or analyses.'
+            },
+            {
+                id: 15,
+                section: 'Section A',
+                text: 'Coelho changed his life radically. Why does "radically" show a big change?',
+                options: [
+                    { label: 'A', text: 'It means completely and fundamentally' },
+                    { label: 'B', text: 'It means slightly' },
+                    { label: 'C', text: 'It means slowly' },
+                    { label: 'D', text: 'It means temporarily' }
+                ],
+                correct: 0,
+                explain: 'Radically means completely and fundamentally.'
+            },
+            // ─── Section B (Q16–Q40) ───
+            {
+                id: 16,
+                section: 'Section B',
+                text: 'Why did Coelho\'s parents discourage his dream of becoming a writer?',
+                options: [
+                    { label: 'A', text: 'They thought he was too young' },
+                    { label: 'B', text: 'They wanted him to become a lawyer' },
+                    { label: 'C', text: 'They did not like books' },
+                    { label: 'D', text: 'They wanted him to become a singer' }
+                ],
+                correct: 1,
+                explain: 'His parents wanted him to become a lawyer.'
+            },
+            {
+                id: 17,
+                section: 'Section B',
+                text: 'Why was Coelho sent to a mental hospital three times during adolescence?',
+                options: [
+                    { label: 'A', text: 'Because of his dream to become a writer' },
+                    { label: 'B', text: 'Because he was arrested' },
+                    { label: 'C', text: 'Because he used drugs' },
+                    { label: 'D', text: 'Because he refused to study law' }
+                ],
+                correct: 0,
+                explain: 'He was sent because of his dream to become a writer.'
+            },
+            {
+                id: 18,
+                section: 'Section B',
+                text: 'Why did Coelho enrol in law school after his release from prison?',
+                options: [
+                    { label: 'A', text: 'He was forced by the police' },
+                    { label: 'B', text: 'He had always wanted to be a lawyer' },
+                    { label: 'C', text: 'He had abandoned his dream of becoming a writer' },
+                    { label: 'D', text: 'He wanted to travel to Europe' }
+                ],
+                correct: 2,
+                explain: 'After prison he abandoned his dream of writing.'
+            },
+            {
+                id: 19,
+                section: 'Section B',
+                text: 'What did Coelho do after dropping out of law school?',
+                options: [
+                    { label: 'A', text: 'He became a lawyer' },
+                    { label: 'B', text: 'He started a newspaper' },
+                    { label: 'C', text: 'He joined a monastery' },
+                    { label: 'D', text: 'He lived as a hippie and travelled to many regions' }
+                ],
+                correct: 3,
+                explain: 'He dropped out and lived as a hippie, travelling widely.'
+            },
+            {
+                id: 20,
+                section: 'Section B',
+                text: 'Why did Coelho change his life radically at the age of 36?',
+                options: [
+                    { label: 'A', text: 'He won a major award' },
+                    { label: 'B', text: 'A pilgrimage to Santiago de Compostela gave him a spiritual awakening' },
+                    { label: 'C', text: 'He got married' },
+                    { label: 'D', text: 'He was released from prison' }
+                ],
+                correct: 1,
+                explain: 'His pilgrimage to Santiago de Compostela led to a spiritual awakening.'
+            },
+            {
+                id: 21,
+                section: 'Section B',
+                text: 'Why can The Alchemist be called a story with a deeper meaning?',
+                options: [
+                    { label: 'A', text: 'It follows a shepherd boy whose journey symbolically teaches him the "Language of the World"' },
+                    { label: 'B', text: 'It is a factual history of Spain' },
+                    { label: 'C', text: 'It is a police thriller' },
+                    { label: 'D', text: 'It is a set of interviews' }
+                ],
+                correct: 0,
+                explain: 'The shepherd boy\'s trek symbolically shows him learning the "Language of the World".'
+            },
+            {
+                id: 22,
+                section: 'Section B',
+                text: 'Why was the success of The Alchemist surprising?',
+                options: [
+                    { label: 'A', text: 'It was written over many years' },
+                    { label: 'B', text: 'It was banned in France' },
+                    { label: 'C', text: 'It attracted little attention at first' },
+                    { label: 'D', text: 'It was never translated' }
+                ],
+                correct: 2,
+                explain: 'The book attracted little attention at first.'
+            },
+            {
+                id: 23,
+                section: 'Section B',
+                text: 'Why did the French translation matter so much to The Alchemist?',
+                options: [
+                    { label: 'A', text: 'It was written first in French' },
+                    { label: 'B', text: 'It made Coelho a lawyer' },
+                    { label: 'C', text: 'It won the Legion d\'honneur' },
+                    { label: 'D', text: 'It suddenly became a bestseller in France, leading to more translations' }
+                ],
+                correct: 3,
+                explain: 'The French translation became a bestseller, and new translations followed.'
+            },
+            {
+                id: 24,
+                section: 'Section B',
+                text: 'Why is it remarkable that Coelho wrote The Alchemist in two weeks?',
+                options: [
+                    { label: 'A', text: 'Because it is a very short poem' },
+                    { label: 'B', text: 'Because it became a worldwide phenomenon despite the short writing time' },
+                    { label: 'C', text: 'Because it was written in prison' },
+                    { label: 'D', text: 'Because it was never published' }
+                ],
+                correct: 1,
+                explain: 'A book written in two weeks became a worldwide phenomenon.'
+            },
+            {
+                id: 25,
+                section: 'Section B',
+                text: 'Why does the text call The Alchemist a record-setting book?',
+                options: [
+                    { label: 'A', text: 'It is the most translated book in the world by any living author' },
+                    { label: 'B', text: 'It is the longest novel ever written' },
+                    { label: 'C', text: 'It is the oldest book in Brazil' },
+                    { label: 'D', text: 'It won the most film awards' }
+                ],
+                correct: 0,
+                explain: 'It is the most translated book by any living author.'
+            },
+            {
+                id: 26,
+                section: 'Section B',
+                text: 'Why does the text say Veronika Decides to Die "mines" Coelho\'s youth?',
+                options: [
+                    { label: 'A', text: 'It is set in Rio de Janeiro' },
+                    { label: 'B', text: 'It is about law school' },
+                    { label: 'C', text: 'It draws on the perceived mental instability of his youth' },
+                    { label: 'D', text: 'It is about a pilgrimage' }
+                ],
+                correct: 2,
+                explain: 'The book draws on the perceived mental instability of his youth.'
+            },
+            {
+                id: 27,
+                section: 'Section B',
+                text: 'Why is Aleph said to be only "ostensibly" true?',
+                options: [
+                    { label: 'A', text: 'Coelho never travelled by train' },
+                    { label: 'B', text: 'It was written by another author' },
+                    { label: 'C', text: 'It is set in Jerusalem' },
+                    { label: 'D', text: 'Coelho added an imagined meeting with a reincarnated lover' }
+                ],
+                correct: 3,
+                explain: 'He embroidered the true journey with an imagined encounter.'
+            },
+            {
+                id: 28,
+                section: 'Section B',
+                text: 'How is The Witch of Portobello told?',
+                options: [
+                    { label: 'A', text: 'As a diary' },
+                    { label: 'B', text: 'As interviews with people who knew her' },
+                    { label: 'C', text: 'As letters to a friend' },
+                    { label: 'D', text: 'As a newspaper column' }
+                ],
+                correct: 1,
+                explain: 'It is told through interviews with people who knew the female religious leader.'
+            },
+            {
+                id: 29,
+                section: 'Section B',
+                text: 'Why can Hippie be linked to Coelho\'s own life?',
+                options: [
+                    { label: 'A', text: 'It was inspired by his travels in the 1970s' },
+                    { label: 'B', text: 'It is about his time in law school' },
+                    { label: 'C', text: 'It is about his marriage' },
+                    { label: 'D', text: 'It is about his parents' }
+                ],
+                correct: 0,
+                explain: 'Hippie was inspired by his travels in the 1970s.'
+            },
+            {
+                id: 30,
+                section: 'Section B',
+                text: 'What is Maktub, and why is that title meaningful?',
+                options: [
+                    { label: 'A', text: 'A film; it means "Journey"' },
+                    { label: 'B', text: 'A thriller; it means "Cannes"' },
+                    { label: 'C', text: 'A collection of his newspaper column; it means "It is Written"' },
+                    { label: 'D', text: 'A prison diary; it means "Freedom"' }
+                ],
+                correct: 2,
+                explain: 'Maktub compiles his weekly O Globo column and means "It is Written".'
+            },
+            {
+                id: 31,
+                section: 'Section B',
+                text: 'Why are Frases and Life: Selected Quotations described as similar?',
+                options: [
+                    { label: 'A', text: 'Both are novels about Brazil' },
+                    { label: 'B', text: 'Both are set at film festivals' },
+                    { label: 'C', text: 'Both are interviews' },
+                    { label: 'D', text: 'Both are collections of excerpts from his works' }
+                ],
+                correct: 3,
+                explain: 'Both are collections of excerpts from his works.'
+            },
+            {
+                id: 32,
+                section: 'Section B',
+                text: 'Why does Coelho say, "I am not a self-help writer; I am a self-problem writer"?',
+                options: [
+                    { label: 'A', text: 'To agree that he writes self-help books' },
+                    { label: 'B', text: 'To reject the self-help label' },
+                    { label: 'C', text: 'To thank his fans' },
+                    { label: 'D', text: 'To promote a new book' }
+                ],
+                correct: 1,
+                explain: 'He rejects the self-help label.'
+            },
+            {
+                id: 33,
+                section: 'Section B',
+                text: 'Why do critics dislike Coelho\'s books?',
+                options: [
+                    { label: 'A', text: 'They find them vaguely spiritual and lacking rigour' },
+                    { label: 'B', text: 'They find them too short' },
+                    { label: 'C', text: 'They find them too expensive' },
+                    { label: 'D', text: 'They find them too factual' }
+                ],
+                correct: 0,
+                explain: 'Critics say his books promote vague spirituality devoid of rigour.'
+            },
+            {
+                id: 34,
+                section: 'Section B',
+                text: 'Why does Coelho ignore his critics\' opinions?',
+                options: [
+                    { label: 'A', text: 'He has never read reviews' },
+                    { label: 'B', text: 'He is angry with them' },
+                    { label: 'C', text: 'He writes for himself and leaves the reader\'s reaction to the reader' },
+                    { label: 'D', text: 'He is afraid of them' }
+                ],
+                correct: 2,
+                explain: 'He says he writes for himself and the reaction is up to the reader.'
+            },
+            {
+                id: 35,
+                section: 'Section B',
+                text: 'Why can we say fans and critics hold opposite views?',
+                options: [
+                    { label: 'A', text: 'Both call his books boring' },
+                    { label: 'B', text: 'Both call his books life-changing' },
+                    { label: 'C', text: 'Both call his books factual' },
+                    { label: 'D', text: 'Fans find them inspiring, while critics find them vague' }
+                ],
+                correct: 3,
+                explain: 'Fans call his books inspiring; critics call them vague.'
+            },
+            {
+                id: 36,
+                section: 'Section B',
+                text: 'Why did Coelho found the Paulo Coelho Institute in 1996?',
+                options: [
+                    { label: 'A', text: 'To teach law' },
+                    { label: 'B', text: 'To provide support to children and the elderly' },
+                    { label: 'C', text: 'To publish his books' },
+                    { label: 'D', text: 'To organise pilgrimages' }
+                ],
+                correct: 1,
+                explain: 'The Institute provides support to children and the elderly.'
+            },
+            {
+                id: 37,
+                section: 'Section B',
+                text: 'Where do Coelho and his wife spend the year?',
+                options: [
+                    { label: 'A', text: 'Half in Rio de Janeiro and half in the Pyrenees Mountains of France' },
+                    { label: 'B', text: 'All year in Spain' },
+                    { label: 'C', text: 'Half in Cannes and half in Accra' },
+                    { label: 'D', text: 'All year in Rio de Janeiro' }
+                ],
+                correct: 0,
+                explain: 'They spend half the year in Rio de Janeiro and half in the Pyrenees.'
+            },
+            {
+                id: 38,
+                section: 'Section B',
+                text: 'Why does the text mention the Crystal Award and the Legion d\'honneur?',
+                options: [
+                    { label: 'A', text: 'To show he is a politician' },
+                    { label: 'B', text: 'To show he studied law' },
+                    { label: 'C', text: 'To show he has received major international recognition' },
+                    { label: 'D', text: 'To show he is a film director' }
+                ],
+                correct: 2,
+                explain: 'These awards show major international recognition.'
+            },
+            {
+                id: 39,
+                section: 'Section B',
+                text: 'Why do you think the passage begins with Coelho\'s difficult early life before describing his success?',
+                options: [
+                    { label: 'A', text: 'To show he was always famous' },
+                    { label: 'B', text: 'To prove his parents were right' },
+                    { label: 'C', text: 'To criticise mental hospitals' },
+                    { label: 'D', text: 'To show how he overcame hardship and kept following his dream' }
+                ],
+                correct: 3,
+                explain: 'The early hardships highlight his perseverance and his later success.'
+            },
+            {
+                id: 40,
+                section: 'Section B',
+                text: 'Which is the best summary of the passage?',
+                options: [
+                    { label: 'A', text: 'A lawyer who wrote a single book' },
+                    { label: 'B', text: 'A writer who overcame a troubled past to become one of the world\'s most widely read authors' },
+                    { label: 'C', text: 'A hippie who gave up writing' },
+                    { label: 'D', text: 'A film director from France' }
+                ],
+                correct: 1,
+                explain: 'The passage traces his journey from a troubled past to worldwide fame.'
+            }
+        ];
+
+        // ─── STATE ────────────────────────────────────────
+        let currentIndex = 0;
+        let answers = {}; // { questionId: selectedIndex }
+        let revealed = {}; // { questionId: true }
+        let isAnswering = false;
+        let autoTimer = null;
+
+        // DOM refs
+        const qText = document.getElementById('qText');
+        const qNumLabel = document.getElementById('qNumLabel');
+        const qSetLabel = document.getElementById('qSetLabel');
+        const optionsGrid = document.getElementById('optionsGrid');
+        const feedbackPanel = document.getElementById('feedbackPanel');
+        const fbTitle = document.getElementById('fbTitle');
+        const fbExplain = document.getElementById('fbExplain');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const progressLabel = document.getElementById('progressLabel');
+        const progressStrip = document.getElementById('progressStrip');
+        const answeredCount = document.getElementById('answeredCount');
+        const correctCount = document.getElementById('correctCount');
+        const percentDisplay = document.getElementById('percentDisplay');
+        const quizView = document.getElementById('quizView');
+        const resultsView = document.getElementById('resultsView');
+        const resultScore = document.getElementById('resultScore');
+        const resultSub = document.getElementById('resultSub');
+        const resultMsg = document.getElementById('resultMsg');
+        const resultStars = document.getElementById('resultStars');
+        const resultResetBtn = document.getElementById('resultResetBtn');
+
+        // ─── INIT PROGRESS STRIP ─────────────────────────
+        function initProgress() {
+            const total = ALL_QUESTIONS.length;
+            progressStrip.innerHTML = '';
+            for (let i = 0; i < total; i++) {
+                const seg = document.createElement('div');
+                seg.className = 'seg';
+                seg.dataset.idx = i;
+                progressStrip.appendChild(seg);
+            }
+        }
+        initProgress();
+
+        // ─── UPDATE PROGRESS ─────────────────────────────
+        function updateProgress() {
+            const segs = progressStrip.querySelectorAll('.seg');
+            segs.forEach((seg, i) => {
+                const q = ALL_QUESTIONS[i];
+                seg.className = 'seg';
+                if (answers[q.id] !== undefined) {
+                    if (answers[q.id] === q.correct) {
+                        seg.classList.add('done');
+                    } else {
+                        seg.classList.add('wrong');
+                    }
+                }
+                if (i === currentIndex && answers[q.id] === undefined) {
+                    seg.classList.add('active');
+                }
+            });
+        }
+
+        // ─── UPDATE STATS ─────────────────────────────────
+        function updateStats() {
+            const total = ALL_QUESTIONS.length;
+            const answered = ALL_QUESTIONS.filter(q => answers[q.id] !== undefined).length;
+            const correct = ALL_QUESTIONS.filter(q => answers[q.id] === q.correct).length;
+            const pct = answered ? Math.round((correct / answered) * 100) : 0;
+
+            answeredCount.innerHTML = `${answered} <small>/ ${total}</small>`;
+            correctCount.textContent = correct;
+            percentDisplay.textContent = pct + '%';
+        }
+
+        // ─── SHOW TOAST ──────────────────────────────────
+        function showToast(msg, dur) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            clearTimeout(t._timer);
+            t._timer = setTimeout(() => t.classList.remove('show'), dur || 1800);
+        }
+
+        // ─── RENDER QUESTION ─────────────────────────────
+        function renderQuestion() {
+            const q = ALL_QUESTIONS[currentIndex];
+            if (!q) return;
+
+            qNumLabel.textContent = `Q${q.id}`;
+            qSetLabel.textContent = q.section;
+            qText.textContent = q.text;
+
+            optionsGrid.innerHTML = '';
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.dataset.idx = idx;
+                const isAnswered = answers[q.id] !== undefined;
+                const selected = answers[q.id] === idx;
+                const isCorrect = idx === q.correct;
+                const showReveal = revealed[q.id] && isCorrect;
+
+                if (isAnswered) {
+                    btn.classList.add('disabled-opt');
+                    if (selected && isCorrect) btn.classList.add('correct');
+                    else if (selected && !isCorrect) btn.classList.add('wrong');
+                    else if (showReveal || (revealed[q.id] && isCorrect)) btn.classList.add('reveal-correct');
+                }
+
+                btn.innerHTML = `<span class="opt-label">${opt.label}</span> ${opt.text}`;
+                btn.addEventListener('click', () => handleOptionClick(q, idx));
+                optionsGrid.appendChild(btn);
+            });
+
+            // feedback
+            if (answers[q.id] !== undefined) {
+                const isCorrect = answers[q.id] === q.correct;
+                feedbackPanel.className = 'feedback-panel show ' + (isCorrect ? 'correct' : 'wrong');
+                fbTitle.textContent = isCorrect ? '✅ Correct!' : '❌ Incorrect!';
+                fbExplain.textContent = q.explain;
+            } else {
+                feedbackPanel.className = 'feedback-panel';
+            }
+
+            progressLabel.textContent = `${currentIndex+1} / ${ALL_QUESTIONS.length}`;
+            updateProgress();
+            updateStats();
+
+            // scroll to top of card on mobile
+            document.getElementById('questionCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            // update nav buttons
+            prevBtn.disabled = currentIndex === 0;
+        }
+
+        // ─── HANDLE OPTION CLICK ─────────────────────────
+        function handleOptionClick(q, idx) {
+            if (isAnswering) return;
+            if (answers[q.id] !== undefined) {
+                showToast('This question has already been answered.');
+                return;
+            }
+            isAnswering = true;
+            answers[q.id] = idx;
+            revealed[q.id] = true;
+
+            const isCorrect = idx === q.correct;
+
+            // re-render question with feedback
+            renderQuestion();
+
+            // Show toast feedback
+            showToast(isCorrect ? '✅ Correct answer!' : '❌ Incorrect! See the correct answer.', 1200);
+
+            // auto advance after 1.5 seconds
+            clearTimeout(autoTimer);
+            autoTimer = setTimeout(() => {
+                if (currentIndex < ALL_QUESTIONS.length - 1) {
+                    let nextIdx = currentIndex + 1;
+                    for (let i = nextIdx; i < ALL_QUESTIONS.length; i++) {
+                        if (answers[ALL_QUESTIONS[i].id] === undefined) {
+                            nextIdx = i;
+                            break;
+                        }
+                    }
+                    currentIndex = nextIdx;
+                    renderQuestion();
+                } else {
+                    const allAnswered = ALL_QUESTIONS.every(qq => answers[qq.id] !== undefined);
+                    if (allAnswered) {
+                        showResults();
+                    } else {
+                        const nextUnanswered = ALL_QUESTIONS.findIndex(qq => answers[qq.id] === undefined);
+                        if (nextUnanswered !== -1) {
+                            currentIndex = nextUnanswered;
+                            renderQuestion();
+                        } else {
+                            showResults();
+                        }
+                    }
+                }
+                isAnswering = false;
+            }, 1500);
+        }
+
+        // ─── SHOW RESULTS ─────────────────────────────────
+        function showResults() {
+            quizView.classList.add('hidden');
+            resultsView.classList.remove('hidden');
+
+            const total = ALL_QUESTIONS.length;
+            const correct = ALL_QUESTIONS.filter(q => answers[q.id] === q.correct).length;
+            const pct = Math.round((correct / total) * 100);
+
+            resultScore.textContent = pct + '%';
+            resultSub.textContent = `${correct} / ${total} correct`;
+
+            let msg = '';
+            let stars = '';
+            if (pct === 100) { msg = '🌟 Outstanding! Perfect score!';
+                stars = '⭐⭐⭐⭐⭐'; } else if (pct >= 80) { msg = '👏 Great job! You know Paulo Coelho well.';
+                stars = '⭐⭐⭐⭐'; } else if (pct >= 60) { msg = '💪 Good effort! Keep improving.';
+                stars = '⭐⭐⭐'; } else if (pct >= 40) { msg = '📖 Keep practising! Review the passage.';
+                stars = '⭐⭐'; } else { msg = '🔄 Try again! Read carefully.';
+                stars = '⭐'; }
+            resultMsg.textContent = msg;
+            resultStars.textContent = stars;
+
+            // reset button
+            resultResetBtn.onclick = resetAll;
+        }
+
+        // ─── RESET ALL ──────────────────────────────────
+        function resetAll() {
+            answers = {};
+            revealed = {};
+            currentIndex = 0;
+            isAnswering = false;
+            clearTimeout(autoTimer);
+            resultsView.classList.add('hidden');
+            quizView.classList.remove('hidden');
+            renderQuestion();
+            showToast('All reset. Start again!');
+        }
+
+        // ─── NAVIGATION ──────────────────────────────────
+        prevBtn.addEventListener('click', () => {
+            if (isAnswering) return;
+            if (currentIndex > 0) {
+                currentIndex--;
+                renderQuestion();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (isAnswering) return;
+            const q = ALL_QUESTIONS[currentIndex];
+            if (answers[q.id] === undefined) {
+                showToast('Please answer this question first.');
+                return;
+            }
+            if (currentIndex < ALL_QUESTIONS.length - 1) {
+                let nextIdx = currentIndex + 1;
+                for (let i = nextIdx; i < ALL_QUESTIONS.length; i++) {
+                    if (answers[ALL_QUESTIONS[i].id] === undefined) {
+                        nextIdx = i;
+                        break;
+                    }
+                }
+                currentIndex = nextIdx;
+                renderQuestion();
+            } else {
+                const allAnswered = ALL_QUESTIONS.every(qq => answers[qq.id] !== undefined);
+                if (allAnswered) {
+                    showResults();
+                } else {
+                    showToast('Some questions are still unanswered.');
+                }
+            }
+        });
+
+        resetBtn.addEventListener('click', resetAll);
+
+        // ─── INIT ──────────────────────────────────────────
+        renderQuestion();
+        showToast('🙏 Narayan Sir – Paulo Coelho 40 MCQs', 2200);
+    </script>
+
+</body>
+</html>
