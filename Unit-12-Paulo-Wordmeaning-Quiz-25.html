@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>Paulo Coelho – 25 Vocabulary MCQs</title>
+    <style>
+        /* ─── RESET & BASE ─── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Noto Sans Devanagari', 'Mukta', system-ui, sans-serif;
+        }
+
+        body {
+            background: #fdf8f0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 16px;
+        }
+
+        .app-wrapper {
+            max-width: 860px;
+            width: 100%;
+            background: #fdf8f0;
+            border-radius: 32px;
+            padding: 0 0 24px 0;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        /* ─── HEADER – Blue plate ─── */
+        .header-plate {
+            background: #0a2a5e;
+            border-radius: 24px 24px 12px 12px;
+            padding: 22px 26px 18px 26px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 16px rgba(10, 42, 94, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        .header-plate::after {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .header-plate .top-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px 16px;
+            position: relative;
+            z-index: 2;
+        }
+        .header-plate .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .header-plate .brand h1 {
+            color: #b0d4ff;
+            font-weight: 800;
+            font-size: 22px;
+            letter-spacing: 0.3px;
+            line-height: 1.3;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+        }
+        .header-plate .brand .narayan {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffe484;
+            font-weight: 800;
+            font-size: 14px;
+            padding: 4px 16px;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.20);
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        .header-plate .badge-set {
+            background: rgba(255, 255, 255, 0.12);
+            color: #b0d4ff;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 6px 18px;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .header-plate .badge-set span {
+            background: #ffcc02;
+            color: #0a2a5e;
+            font-weight: 800;
+            padding: 0 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            line-height: 22px;
+        }
+
+        /* ─── PROGRESS BAR ─── */
+        .progress-strip {
+            display: flex;
+            gap: 4px;
+            margin: 16px 0 8px 0;
+            position: relative;
+            z-index: 2;
+            flex-wrap: wrap;
+        }
+        .progress-strip .seg {
+            flex: 1 1 8px;
+            min-width: 6px;
+            height: 5px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.20);
+            transition: background 0.4s ease;
+        }
+        .progress-strip .seg.done {
+            background: #34c759;
+        }
+        .progress-strip .seg.active {
+            background: #ffcc02;
+        }
+        .progress-strip .seg.wrong {
+            background: #ff3b30;
+        }
+
+        /* ─── STATS ROW ─── */
+        .stats-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .stat-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 12px 14px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(10, 42, 94, 0.06);
+            text-align: center;
+        }
+        .stat-card .label {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #7a8a9e;
+        }
+        .stat-card .value {
+            font-size: 24px;
+            font-weight: 900;
+            color: #0a2a5e;
+            line-height: 1.2;
+            margin-top: 2px;
+        }
+        .stat-card .value small {
+            font-size: 15px;
+            font-weight: 700;
+            color: #7a8a9e;
+        }
+
+        /* ─── QUESTION CARD ─── */
+        .question-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 26px 22px 22px 22px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(10, 42, 94, 0.06);
+            margin-bottom: 12px;
+            transition: opacity 0.25s ease;
+        }
+
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .q-number {
+            background: #0a2a5e;
+            color: #b0d4ff;
+            font-weight: 800;
+            font-size: 16px;
+            padding: 5px 18px;
+            border-radius: 40px;
+            letter-spacing: 0.3px;
+        }
+        .q-set-tag {
+            font-size: 13px;
+            font-weight: 800;
+            color: #0a2a5e;
+            background: #e8edf5;
+            padding: 5px 16px;
+            border-radius: 40px;
+        }
+
+        .q-text {
+            font-size: 22px;
+            font-weight: 800;
+            color: #0a2a5e;
+            line-height: 1.5;
+            margin-bottom: 22px;
+            padding-right: 4px;
+        }
+
+        /* ─── HIGHLIGHTED WORD ─── */
+        .highlight-word {
+            color: #c1121f;
+            background: #ffe066;
+            padding: 0 8px;
+            border-radius: 8px;
+            font-weight: 900;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        .option-btn {
+            background: #f8f6f2;
+            border: 2px solid #e8e4dc;
+            border-radius: 16px;
+            padding: 16px 20px;
+            font-size: 21px;
+            font-weight: 800;
+            color: #0a2a5e;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            line-height: 1.4;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        .option-btn .opt-label {
+            background: #e8edf5;
+            color: #0a2a5e;
+            font-weight: 900;
+            font-size: 15px;
+            padding: 3px 14px;
+            border-radius: 30px;
+            flex-shrink: 0;
+            min-width: 36px;
+            text-align: center;
+        }
+        .option-btn:active:not(.disabled-opt) {
+            transform: scale(0.98);
+        }
+        .option-btn:hover:not(.disabled-opt) {
+            border-color: #0a2a5e;
+            background: #f0f4fa;
+        }
+
+        .option-btn.correct {
+            border-color: #34c759;
+            background: #e8f9ed;
+            box-shadow: 0 0 0 3px rgba(52, 199, 89, 0.20);
+        }
+        .option-btn.correct .opt-label {
+            background: #34c759;
+            color: #fff;
+        }
+
+        .option-btn.wrong {
+            border-color: #ff3b30;
+            background: #fde8e6;
+            box-shadow: 0 0 0 3px rgba(255, 59, 48, 0.18);
+        }
+        .option-btn.wrong .opt-label {
+            background: #ff3b30;
+            color: #fff;
+        }
+
+        .option-btn.reveal-correct {
+            border-color: #34c759;
+            background: #e8f9ed;
+        }
+        .option-btn.reveal-correct .opt-label {
+            background: #34c759;
+            color: #fff;
+        }
+
+        .option-btn.disabled-opt {
+            cursor: default;
+            opacity: 0.85;
+        }
+
+        /* ─── FEEDBACK PANEL ─── */
+        .feedback-panel {
+            margin-top: 18px;
+            padding: 16px 20px;
+            border-radius: 14px;
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.6;
+            display: none;
+        }
+        .feedback-panel.show {
+            display: block;
+        }
+        .feedback-panel.correct {
+            background: #e8f9ed;
+            border: 2px solid #34c759;
+            color: #0a5a1e;
+        }
+        .feedback-panel.wrong {
+            background: #fde8e6;
+            border: 2px solid #ff3b30;
+            color: #7a1a14;
+        }
+        .feedback-panel .fb-title {
+            font-weight: 900;
+            font-size: 19px;
+        }
+        .feedback-panel .fb-explain {
+            margin-top: 6px;
+            font-weight: 700;
+            opacity: 0.9;
+        }
+
+        /* ─── NAVIGATION ─── */
+        .nav-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .nav-left,
+        .nav-right {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .btn {
+            background: #f0f4fa;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 40px;
+            font-weight: 800;
+            font-size: 15px;
+            color: #0a2a5e;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .btn:active {
+            transform: scale(0.96);
+        }
+        .btn-primary {
+            background: #0a2a5e;
+            color: #b0d4ff;
+            border-color: #0a2a5e;
+        }
+        .btn-primary:hover {
+            background: #1a3a7e;
+        }
+        .btn-primary:disabled {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        .btn-outline {
+            background: transparent;
+            border-color: #d0d8e4;
+        }
+        .btn-outline:hover {
+            background: #e8edf5;
+            border-color: #b0bcc8;
+        }
+        .btn-success {
+            background: #34c759;
+            color: #fff;
+            border-color: #34c759;
+        }
+        .btn-success:hover {
+            background: #2db84e;
+        }
+        .btn-danger {
+            background: #ff3b30;
+            color: #fff;
+            border-color: #ff3b30;
+        }
+        .btn-danger:hover {
+            background: #e6352a;
+        }
+        .btn-gold {
+            background: #ffcc02;
+            color: #0a2a5e;
+            border-color: #ffcc02;
+            font-weight: 900;
+        }
+        .btn-gold:hover {
+            background: #f5c000;
+        }
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 13px;
+        }
+        .btn:disabled {
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        /* ─── RESULTS ─── */
+        .results-box {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 36px 26px;
+            border: 2px solid #0a2a5e;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(10, 42, 94, 0.10);
+        }
+        .results-box .big-score {
+            font-size: 62px;
+            font-weight: 900;
+            color: #0a2a5e;
+            line-height: 1.1;
+        }
+        .results-box .sub-score {
+            font-size: 22px;
+            font-weight: 800;
+            color: #3a5a7e;
+            margin-top: 4px;
+        }
+        .results-box .detail-msg {
+            font-size: 20px;
+            font-weight: 800;
+            color: #0a2a5e;
+            margin-top: 14px;
+            padding: 10px 20px;
+            background: #f0f4fa;
+            border-radius: 40px;
+            display: inline-block;
+        }
+        .results-box .stars {
+            font-size: 36px;
+            letter-spacing: 6px;
+            margin: 14px 0 20px 0;
+        }
+        .results-box .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        /* ─── HIDDEN ─── */
+        .hidden {
+            display: none !important;
+        }
+
+        /* ─── TOAST ─── */
+        .toast {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0a2a5e;
+            color: #b0d4ff;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 800;
+            font-size: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+            text-align: center;
+            max-width: 92%;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 640px) {
+            .header-plate {
+                padding: 16px 16px 14px 16px;
+            }
+            .header-plate .brand h1 {
+                font-size: 18px;
+            }
+            .header-plate .brand .narayan {
+                font-size: 12px;
+                padding: 3px 12px;
+            }
+            .header-plate .badge-set {
+                font-size: 12px;
+                padding: 4px 14px;
+            }
+            .q-text {
+                font-size: 20px;
+            }
+            .option-btn {
+                font-size: 19px;
+                padding: 14px 16px;
+            }
+            .stats-row {
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 6px;
+            }
+            .stat-card .value {
+                font-size: 20px;
+            }
+            .nav-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .nav-left,
+            .nav-right {
+                justify-content: center;
+            }
+            .btn {
+                padding: 10px 16px;
+                font-size: 14px;
+            }
+            .results-box .big-score {
+                font-size: 48px;
+            }
+            .results-box .sub-score {
+                font-size: 18px;
+            }
+        }
+        @media (max-width: 420px) {
+            .q-text {
+                font-size: 18px;
+            }
+            .option-btn {
+                font-size: 17px;
+                padding: 12px 14px;
+                gap: 10px;
+            }
+            .option-btn .opt-label {
+                font-size: 13px;
+                padding: 2px 10px;
+                min-width: 30px;
+            }
+            .stat-card .value {
+                font-size: 18px;
+            }
+            .header-plate .brand h1 {
+                font-size: 16px;
+            }
+        }
+
+        /* ─── ANIMATIONS ─── */
+        @keyframes fadeSlide {
+            0% {
+                opacity: 0.3;
+                transform: translateY(6px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in {
+            animation: fadeSlide 0.3s ease;
+        }
+
+        @keyframes shake {
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+            20%,
+            60% {
+                transform: translateX(-6px);
+            }
+            40%,
+            80% {
+                transform: translateX(6px);
+            }
+        }
+        .shake {
+            animation: shake 0.4s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-wrapper" id="app">
+        <!-- ─── HEADER PLATE ─── -->
+        <div class="header-plate">
+            <div class="top-row">
+                <div class="brand">
+                    <h1>📖 Paulo Coelho — 25 Vocabulary MCQs</h1>
+                    <span class="narayan">🙏 Narayan Sir</span>
+                </div>
+                <div class="badge-set">
+                    <span id="qCountDisplay">25</span> Questions
+                </div>
+            </div>
+            <!-- progress segments -->
+            <div class="progress-strip" id="progressStrip"></div>
+        </div>
+
+        <!-- ─── STATS ─── -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="label">📝 Answered</div>
+                <div class="value" id="answeredCount">0 <small>/ 25</small></div>
+            </div>
+            <div class="stat-card">
+                <div class="label">✅ Correct</div>
+                <div class="value" id="correctCount">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">📈 Score</div>
+                <div class="value" id="percentDisplay">0%</div>
+            </div>
+        </div>
+
+        <!-- ─── TOAST ─── -->
+        <div class="toast" id="toast"></div>
+
+        <!-- ─── QUIZ VIEW ─── -->
+        <div id="quizView">
+            <div class="question-card fade-in" id="questionCard">
+                <div class="q-header">
+                    <span class="q-number" id="qNumLabel">Q1</span>
+                    <span class="q-set-tag" id="qSetLabel">Vocabulary</span>
+                </div>
+                <div class="q-text" id="qText">Loading question…</div>
+                <div class="options-grid" id="optionsGrid"></div>
+                <div class="feedback-panel" id="feedbackPanel">
+                    <div class="fb-title" id="fbTitle">✅ Correct!</div>
+                    <div class="fb-explain" id="fbExplain">Explanation</div>
+                </div>
+                <div class="nav-row">
+                    <div class="nav-left">
+                        <button class="btn btn-outline" id="prevBtn">◀ Prev</button>
+                        <button class="btn btn-outline" id="resetBtn">↻ Reset</button>
+                    </div>
+                    <div class="nav-right">
+                        <span style="font-size:14px;font-weight:700;color:#7a8a9e;" id="progressLabel">1 / 25</span>
+                        <button class="btn btn-primary" id="nextBtn">Next ▶</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── RESULTS VIEW ─── -->
+        <div id="resultsView" class="hidden">
+            <div class="results-box fade-in">
+                <div class="stars" id="resultStars">⭐⭐⭐</div>
+                <div class="big-score" id="resultScore">0%</div>
+                <div class="sub-score" id="resultSub">0 / 25 correct</div>
+                <div class="detail-msg" id="resultMsg">Good effort! 💪</div>
+                <div class="btn-group">
+                    <button class="btn btn-gold" id="resultResetBtn">↻ Play Again</button>
+                </div>
+            </div>
+        </div>
+
+        <div style="height:12px;"></div>
+    </div>
+
+    <script>
+        // ═══════════════════════════════════════════════════
+        //  DATA — 25 Vocabulary Questions (Paulo Coelho)
+        //  Words to focus on are wrapped in <span class="highlight-word">
+        // ═══════════════════════════════════════════════════
+
+        const ALL_QUESTIONS = [
+            {
+                id: 1,
+                text: `Coelho is a Brazilian author and <span class="highlight-word">lyricist</span>. What does a <span class="highlight-word">lyricist</span> do?`,
+                options: [
+                    { label: 'A', text: 'Translates novels' },
+                    { label: 'B', text: 'Reviews books' },
+                    { label: 'C', text: 'Writes the words of songs' },
+                    { label: 'D', text: 'Publishes newspapers' }
+                ],
+                correct: 2,
+                explain: 'A lyricist writes the words of songs.'
+            },
+            {
+                id: 2,
+                text: `His parents <span class="highlight-word">discouraged</span> his dream. Why does this word fit the situation?`,
+                options: [
+                    { label: 'A', text: 'They made him feel less confident' },
+                    { label: 'B', text: 'They helped him become confident' },
+                    { label: 'C', text: 'They gave him money' },
+                    { label: 'D', text: 'They took him abroad' }
+                ],
+                correct: 0,
+                explain: 'Discouraged means made to feel less confident.'
+            },
+            {
+                id: 3,
+                text: `During <span class="highlight-word">adolescence</span>, Coelho was sent to a mental hospital. What is <span class="highlight-word">adolescence</span>?`,
+                options: [
+                    { label: 'A', text: 'Old age' },
+                    { label: 'B', text: 'Early childhood' },
+                    { label: 'C', text: 'Adult life' },
+                    { label: 'D', text: 'The period between childhood and adulthood' }
+                ],
+                correct: 3,
+                explain: 'Adolescence is the period between childhood and adulthood.'
+            },
+            {
+                id: 4,
+                text: `He was arrested and <span class="highlight-word">tortured</span>. What does "<span class="highlight-word">tortured</span>" mean?`,
+                options: [
+                    { label: 'A', text: 'Praised publicly' },
+                    { label: 'B', text: 'Caused great physical or mental suffering' },
+                    { label: 'C', text: 'Kept in a library' },
+                    { label: 'D', text: 'Asked to leave the country' }
+                ],
+                correct: 1,
+                explain: 'Tortured means caused great physical or mental suffering.'
+            },
+            {
+                id: 5,
+                text: `After prison, Coelho <span class="highlight-word">enrolled</span> in law school. What does "<span class="highlight-word">enrolled</span>" mean?`,
+                options: [
+                    { label: 'A', text: 'Officially joined or registered' },
+                    { label: 'B', text: 'Refused to join' },
+                    { label: 'C', text: 'Graduated from' },
+                    { label: 'D', text: 'Taught at' }
+                ],
+                correct: 0,
+                explain: 'Enrolled means officially joined or registered.'
+            },
+            {
+                id: 6,
+                text: `Coelho <span class="highlight-word">abandoned</span> his dream of becoming a writer. Why is this word stronger than "postponed"?`,
+                options: [
+                    { label: 'A', text: 'It means changed slightly' },
+                    { label: 'B', text: 'It means shared with others' },
+                    { label: 'C', text: 'It means gave up completely' },
+                    { label: 'D', text: 'It means made public' }
+                ],
+                correct: 2,
+                explain: 'Abandoned means gave up completely, not just paused.'
+            },
+            {
+                id: 7,
+                text: `A <span class="highlight-word">pilgrimage</span> is a journey to:`,
+                options: [
+                    { label: 'A', text: 'A shopping centre' },
+                    { label: 'B', text: 'A film festival' },
+                    { label: 'C', text: 'A foreign university' },
+                    { label: 'D', text: 'A sacred or holy place' }
+                ],
+                correct: 3,
+                explain: 'A pilgrimage is a journey to a sacred or holy place.'
+            },
+            {
+                id: 8,
+                text: `He had a spiritual <span class="highlight-word">awakening</span>. What is an <span class="highlight-word">awakening</span>?`,
+                options: [
+                    { label: 'A', text: 'A long sleep' },
+                    { label: 'B', text: 'A moment of sudden awareness' },
+                    { label: 'C', text: 'A loss of memory' },
+                    { label: 'D', text: 'A type of illness' }
+                ],
+                correct: 1,
+                explain: 'An awakening is a moment of sudden awareness.'
+            },
+            {
+                id: 9,
+                text: `The Alchemist was Coelho's <span class="highlight-word">break-through</span>. Why does this word suit his success?`,
+                options: [
+                    { label: 'A', text: 'It was an important achievement that changed his career' },
+                    { label: 'B', text: 'It was a failure' },
+                    { label: 'C', text: 'It was a small mistake' },
+                    { label: 'D', text: 'It was a temporary break' }
+                ],
+                correct: 0,
+                explain: 'A break-through is an important achievement or discovery.'
+            },
+            {
+                id: 10,
+                text: `The trek in The Alchemist is <span class="highlight-word">mystical</span>. What does "<span class="highlight-word">mystical</span>" mean?`,
+                options: [
+                    { label: 'A', text: 'Very crowded' },
+                    { label: 'B', text: 'Extremely dangerous' },
+                    { label: 'C', text: 'Scientifically proven' },
+                    { label: 'D', text: 'Having a spiritual or mysterious quality' }
+                ],
+                correct: 3,
+                explain: 'Mystical means having a spiritual or mysterious quality.'
+            },
+            {
+                id: 11,
+                text: `A French translation suddenly <span class="highlight-word">leapt</span> onto the bestseller lists. What does "<span class="highlight-word">leapt</span>" mean?`,
+                options: [
+                    { label: 'A', text: 'Fell slowly' },
+                    { label: 'B', text: 'Walked calmly' },
+                    { label: 'C', text: 'Jumped suddenly' },
+                    { label: 'D', text: 'Stayed still' }
+                ],
+                correct: 2,
+                explain: 'Leapt means jumped suddenly.'
+            },
+            {
+                id: 12,
+                text: `The Alchemist became a worldwide <span class="highlight-word">phenomenon</span>. What is a <span class="highlight-word">phenomenon</span>?`,
+                options: [
+                    { label: 'A', text: 'A common mistake' },
+                    { label: 'B', text: 'A remarkable or outstanding thing' },
+                    { label: 'C', text: 'A private secret' },
+                    { label: 'D', text: 'A forgotten story' }
+                ],
+                correct: 1,
+                explain: 'A phenomenon is a remarkable or outstanding thing.'
+            },
+            {
+                id: 13,
+                text: `Several of his books are <span class="highlight-word">autobiographic</span>. Why is this word used?`,
+                options: [
+                    { label: 'A', text: 'They are about animals' },
+                    { label: 'B', text: 'They are about history' },
+                    { label: 'C', text: 'They are about science' },
+                    { label: 'D', text: 'They relate to his own life story' }
+                ],
+                correct: 3,
+                explain: 'Autobiographic means relating to one\'s own life story.'
+            },
+            {
+                id: 14,
+                text: `His books deal with <span class="highlight-word">societal</span> impacts on individuals. What does "<span class="highlight-word">societal</span>" mean?`,
+                options: [
+                    { label: 'A', text: 'Relating to society' },
+                    { label: 'B', text: 'Relating to sports' },
+                    { label: 'C', text: 'Relating to music' },
+                    { label: 'D', text: 'Relating to weather' }
+                ],
+                correct: 0,
+                explain: 'Societal means relating to society.'
+            },
+            {
+                id: 15,
+                text: `Besides The Alchemist, his other <span class="highlight-word">notable</span> works include Eleven Minutes. What does "<span class="highlight-word">notable</span>" mean?`,
+                options: [
+                    { label: 'A', text: 'Hidden' },
+                    { label: 'B', text: 'Unfinished' },
+                    { label: 'C', text: 'Worthy of attention or notice' },
+                    { label: 'D', text: 'Very short' }
+                ],
+                correct: 2,
+                explain: 'Notable means worthy of attention or notice.'
+            },
+            {
+                id: 16,
+                text: `Veronika Decides to Die mines the perceived mental <span class="highlight-word">instability</span> of his youth. What is <span class="highlight-word">instability</span>?`,
+                options: [
+                    { label: 'A', text: 'Great wealth' },
+                    { label: 'B', text: 'The state of being unstable' },
+                    { label: 'C', text: 'Perfect health' },
+                    { label: 'D', text: 'Strong faith' }
+                ],
+                correct: 1,
+                explain: 'Instability is the state of being unstable.'
+            },
+            {
+                id: 17,
+                text: `The Devil and Miss Prym is an <span class="highlight-word">investigation</span> of human nature. Why is "<span class="highlight-word">investigation</span>" suitable?`,
+                options: [
+                    { label: 'A', text: 'It is a careful examination or study' },
+                    { label: 'B', text: 'It is a quick joke' },
+                    { label: 'C', text: 'It is a list of awards' },
+                    { label: 'D', text: 'It is a translation' }
+                ],
+                correct: 0,
+                explain: 'An investigation is a careful examination or study.'
+            },
+            {
+                id: 18,
+                text: `The book explores the essential nature of <span class="highlight-word">humankind</span>. What does "<span class="highlight-word">humankind</span>" mean?`,
+                options: [
+                    { label: 'A', text: 'Kind people only' },
+                    { label: 'B', text: 'Brazilian people' },
+                    { label: 'C', text: 'Young people' },
+                    { label: 'D', text: 'Human beings as a whole' }
+                ],
+                correct: 3,
+                explain: 'Humankind means human beings as a whole.'
+            },
+            {
+                id: 19,
+                text: `<span class="highlight-word">Manuscript</span> Found in Accra has "<span class="highlight-word">manuscript</span>" in its title. What is a <span class="highlight-word">manuscript</span>?`,
+                options: [
+                    { label: 'A', text: 'A printed newspaper' },
+                    { label: 'B', text: 'A famous award' },
+                    { label: 'C', text: 'A text before it is published' },
+                    { label: 'D', text: 'A film script' }
+                ],
+                correct: 2,
+                explain: 'A manuscript is a text before being published.'
+            },
+            {
+                id: 20,
+                text: `It concerns Jerusalem prior to its <span class="highlight-word">invasion</span> by Crusaders. What is an <span class="highlight-word">invasion</span>?`,
+                options: [
+                    { label: 'A', text: 'A peaceful visit' },
+                    { label: 'B', text: 'An act of entering with force' },
+                    { label: 'C', text: 'A religious festival' },
+                    { label: 'D', text: 'A trade agreement' }
+                ],
+                correct: 1,
+                explain: 'An invasion is an act of entering with force.'
+            },
+            {
+                id: 21,
+                text: `Coelho <span class="highlight-word">compiled</span> selections from his weekly column. Why is "<span class="highlight-word">compiled</span>" the right word?`,
+                options: [
+                    { label: 'A', text: 'He deleted them' },
+                    { label: 'B', text: 'He sold them' },
+                    { label: 'C', text: 'He forgot them' },
+                    { label: 'D', text: 'He collected and arranged them' }
+                ],
+                correct: 3,
+                explain: 'Compiled means collected and arranged.'
+            },
+            {
+                id: 22,
+                text: `Coelho has received <span class="highlight-word">prestigious</span> awards. What does "<span class="highlight-word">prestigious</span>" mean?`,
+                options: [
+                    { label: 'A', text: 'Respected and admired as important' },
+                    { label: 'B', text: 'Cheap and common' },
+                    { label: 'C', text: 'Old and damaged' },
+                    { label: 'D', text: 'Secret and private' }
+                ],
+                correct: 0,
+                explain: 'Prestigious means respected and admired as important.'
+            },
+            {
+                id: 23,
+                text: `Critics say his books promote <span class="highlight-word">vague</span> spirituality. What does "<span class="highlight-word">vague</span>" mean?`,
+                options: [
+                    { label: 'A', text: 'Extremely detailed' },
+                    { label: 'B', text: 'Not clear or definite' },
+                    { label: 'C', text: 'Very ancient' },
+                    { label: 'D', text: 'Highly scientific' }
+                ],
+                correct: 1,
+                explain: 'Vague means not clear or definite.'
+            },
+            {
+                id: 24,
+                text: `Coelho <span class="highlight-word">rejects</span> the self-help label. Why is this word used?`,
+                options: [
+                    { label: 'A', text: 'He proudly accepts it' },
+                    { label: 'B', text: 'He is unaware of it' },
+                    { label: 'C', text: 'He refuses to accept it' },
+                    { label: 'D', text: 'He invented it' }
+                ],
+                correct: 2,
+                explain: 'Rejects means refuses to accept.'
+            },
+            {
+                id: 25,
+                text: `Aleph describes an <span class="highlight-word">encounter</span> with a lover from another lifetime. What is an <span class="highlight-word">encounter</span>?`,
+                options: [
+                    { label: 'A', text: 'A meeting, especially an unexpected one' },
+                    { label: 'B', text: 'A long argument' },
+                    { label: 'C', text: 'A written contract' },
+                    { label: 'D', text: 'A farewell party' }
+                ],
+                correct: 0,
+                explain: 'An encounter is a meeting, especially an unexpected one.'
+            }
+        ];
+
+        // ─── STATE ────────────────────────────────────────
+        let currentIndex = 0;
+        let answers = {};      // { questionId: selectedIndex }
+        let revealed = {};     // { questionId: true }
+        let isAnswering = false;
+        let autoTimer = null;
+
+        // DOM refs
+        const qText = document.getElementById('qText');
+        const qNumLabel = document.getElementById('qNumLabel');
+        const qSetLabel = document.getElementById('qSetLabel');
+        const optionsGrid = document.getElementById('optionsGrid');
+        const feedbackPanel = document.getElementById('feedbackPanel');
+        const fbTitle = document.getElementById('fbTitle');
+        const fbExplain = document.getElementById('fbExplain');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const progressLabel = document.getElementById('progressLabel');
+        const progressStrip = document.getElementById('progressStrip');
+        const answeredCount = document.getElementById('answeredCount');
+        const correctCount = document.getElementById('correctCount');
+        const percentDisplay = document.getElementById('percentDisplay');
+        const quizView = document.getElementById('quizView');
+        const resultsView = document.getElementById('resultsView');
+        const resultScore = document.getElementById('resultScore');
+        const resultSub = document.getElementById('resultSub');
+        const resultMsg = document.getElementById('resultMsg');
+        const resultStars = document.getElementById('resultStars');
+        const resultResetBtn = document.getElementById('resultResetBtn');
+
+        // ─── INIT PROGRESS STRIP ─────────────────────────
+        function initProgress() {
+            const total = ALL_QUESTIONS.length;
+            progressStrip.innerHTML = '';
+            for (let i = 0; i < total; i++) {
+                const seg = document.createElement('div');
+                seg.className = 'seg';
+                seg.dataset.idx = i;
+                progressStrip.appendChild(seg);
+            }
+        }
+        initProgress();
+
+        // ─── UPDATE PROGRESS ─────────────────────────────
+        function updateProgress() {
+            const segs = progressStrip.querySelectorAll('.seg');
+            segs.forEach((seg, i) => {
+                const q = ALL_QUESTIONS[i];
+                seg.className = 'seg';
+                if (answers[q.id] !== undefined) {
+                    if (answers[q.id] === q.correct) {
+                        seg.classList.add('done');
+                    } else {
+                        seg.classList.add('wrong');
+                    }
+                }
+                if (i === currentIndex && answers[q.id] === undefined) {
+                    seg.classList.add('active');
+                }
+            });
+        }
+
+        // ─── UPDATE STATS ─────────────────────────────────
+        function updateStats() {
+            const total = ALL_QUESTIONS.length;
+            const answered = ALL_QUESTIONS.filter(q => answers[q.id] !== undefined).length;
+            const correct = ALL_QUESTIONS.filter(q => answers[q.id] === q.correct).length;
+            const pct = answered ? Math.round((correct / answered) * 100) : 0;
+
+            answeredCount.innerHTML = `${answered} <small>/ ${total}</small>`;
+            correctCount.textContent = correct;
+            percentDisplay.textContent = pct + '%';
+        }
+
+        // ─── SHOW TOAST ──────────────────────────────────
+        function showToast(msg, dur) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            clearTimeout(t._timer);
+            t._timer = setTimeout(() => t.classList.remove('show'), dur || 1800);
+        }
+
+        // ─── RENDER QUESTION ─────────────────────────────
+        function renderQuestion() {
+            const q = ALL_QUESTIONS[currentIndex];
+            if (!q) return;
+
+            qNumLabel.textContent = `Q${q.id}`;
+            qSetLabel.textContent = 'Vocabulary';
+            // Use innerHTML to render the highlighted spans
+            qText.innerHTML = q.text;
+
+            optionsGrid.innerHTML = '';
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.dataset.idx = idx;
+                const isAnswered = answers[q.id] !== undefined;
+                const selected = answers[q.id] === idx;
+                const isCorrect = idx === q.correct;
+                const showReveal = revealed[q.id] && isCorrect;
+
+                if (isAnswered) {
+                    btn.classList.add('disabled-opt');
+                    if (selected && isCorrect) btn.classList.add('correct');
+                    else if (selected && !isCorrect) btn.classList.add('wrong');
+                    else if (showReveal || (revealed[q.id] && isCorrect)) btn.classList.add('reveal-correct');
+                }
+
+                btn.innerHTML = `<span class="opt-label">${opt.label}</span> ${opt.text}`;
+                btn.addEventListener('click', () => handleOptionClick(q, idx));
+                optionsGrid.appendChild(btn);
+            });
+
+            // feedback
+            if (answers[q.id] !== undefined) {
+                const isCorrect = answers[q.id] === q.correct;
+                feedbackPanel.className = 'feedback-panel show ' + (isCorrect ? 'correct' : 'wrong');
+                fbTitle.textContent = isCorrect ? '✅ Correct!' : '❌ Incorrect!';
+                fbExplain.textContent = q.explain;
+            } else {
+                feedbackPanel.className = 'feedback-panel';
+            }
+
+            progressLabel.textContent = `${currentIndex + 1} / ${ALL_QUESTIONS.length}`;
+            updateProgress();
+            updateStats();
+
+            document.getElementById('questionCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            prevBtn.disabled = currentIndex === 0;
+        }
+
+        // ─── HANDLE OPTION CLICK ─────────────────────────
+        function handleOptionClick(q, idx) {
+            if (isAnswering) return;
+            if (answers[q.id] !== undefined) {
+                showToast('This question has already been answered.');
+                return;
+            }
+            isAnswering = true;
+            answers[q.id] = idx;
+            revealed[q.id] = true;
+
+            const isCorrect = idx === q.correct;
+
+            renderQuestion();
+            showToast(isCorrect ? '✅ Correct answer!' : '❌ Incorrect! See the correct answer.', 1200);
+
+            clearTimeout(autoTimer);
+            autoTimer = setTimeout(() => {
+                if (currentIndex < ALL_QUESTIONS.length - 1) {
+                    let nextIdx = currentIndex + 1;
+                    for (let i = nextIdx; i < ALL_QUESTIONS.length; i++) {
+                        if (answers[ALL_QUESTIONS[i].id] === undefined) {
+                            nextIdx = i;
+                            break;
+                        }
+                    }
+                    currentIndex = nextIdx;
+                    renderQuestion();
+                } else {
+                    const allAnswered = ALL_QUESTIONS.every(qq => answers[qq.id] !== undefined);
+                    if (allAnswered) {
+                        showResults();
+                    } else {
+                        const nextUnanswered = ALL_QUESTIONS.findIndex(qq => answers[qq.id] === undefined);
+                        if (nextUnanswered !== -1) {
+                            currentIndex = nextUnanswered;
+                            renderQuestion();
+                        } else {
+                            showResults();
+                        }
+                    }
+                }
+                isAnswering = false;
+            }, 1500);
+        }
+
+        // ─── SHOW RESULTS ─────────────────────────────────
+        function showResults() {
+            quizView.classList.add('hidden');
+            resultsView.classList.remove('hidden');
+
+            const total = ALL_QUESTIONS.length;
+            const correct = ALL_QUESTIONS.filter(q => answers[q.id] === q.correct).length;
+            const pct = Math.round((correct / total) * 100);
+
+            resultScore.textContent = pct + '%';
+            resultSub.textContent = `${correct} / ${total} correct`;
+
+            let msg = '';
+            let stars = '';
+            if (pct === 100) { msg = '🌟 Outstanding! Perfect score!'; stars = '⭐⭐⭐⭐⭐'; }
+            else if (pct >= 80) { msg = '👏 Great job! You know these words well.'; stars = '⭐⭐⭐⭐'; }
+            else if (pct >= 60) { msg = '💪 Good effort! Keep improving.'; stars = '⭐⭐⭐'; }
+            else if (pct >= 40) { msg = '📖 Keep practising! Review the words.'; stars = '⭐⭐'; }
+            else { msg = '🔄 Try again! Read carefully.'; stars = '⭐'; }
+            resultMsg.textContent = msg;
+            resultStars.textContent = stars;
+
+            resultResetBtn.onclick = resetAll;
+        }
+
+        // ─── RESET ALL ──────────────────────────────────
+        function resetAll() {
+            answers = {};
+            revealed = {};
+            currentIndex = 0;
+            isAnswering = false;
+            clearTimeout(autoTimer);
+            resultsView.classList.add('hidden');
+            quizView.classList.remove('hidden');
+            renderQuestion();
+            showToast('All reset. Start again!');
+        }
+
+        // ─── NAVIGATION ──────────────────────────────────
+        prevBtn.addEventListener('click', () => {
+            if (isAnswering) return;
+            if (currentIndex > 0) {
+                currentIndex--;
+                renderQuestion();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (isAnswering) return;
+            const q = ALL_QUESTIONS[currentIndex];
+            if (answers[q.id] === undefined) {
+                showToast('Please answer this question first.');
+                return;
+            }
+            if (currentIndex < ALL_QUESTIONS.length - 1) {
+                let nextIdx = currentIndex + 1;
+                for (let i = nextIdx; i < ALL_QUESTIONS.length; i++) {
+                    if (answers[ALL_QUESTIONS[i].id] === undefined) {
+                        nextIdx = i;
+                        break;
+                    }
+                }
+                currentIndex = nextIdx;
+                renderQuestion();
+            } else {
+                const allAnswered = ALL_QUESTIONS.every(qq => answers[qq.id] !== undefined);
+                if (allAnswered) {
+                    showResults();
+                } else {
+                    showToast('Some questions are still unanswered.');
+                }
+            }
+        });
+
+        resetBtn.addEventListener('click', resetAll);
+
+        // ─── INIT ──────────────────────────────────────────
+        renderQuestion();
+        showToast('🙏 Narayan Sir – 25 Vocabulary MCQs', 2200);
+    </script>
+
+</body>
+</html>
